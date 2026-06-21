@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_resiliencehub._auth._signers
 import aws_sdk_resiliencehub._auth._sigv4
+import aws_sdk_resiliencehub.errors.access_denied_exception
+import aws_sdk_resiliencehub.errors.internal_server_exception
+import aws_sdk_resiliencehub.errors.resource_not_found_exception
+import aws_sdk_resiliencehub.errors.throttling_exception
+import aws_sdk_resiliencehub.errors.validation_exception
+import aws_sdk_resiliencehub.types.component_compliances_list
+import aws_sdk_resiliencehub.types.list_app_component_compliances_request
+import aws_sdk_resiliencehub.types.list_app_component_compliances_response
 from aws_sdk_resiliencehub._protocol.errors import parse_error_metadata_json
 from aws_sdk_resiliencehub._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,42 +29,28 @@ from aws_sdk_resiliencehub._services._pipeline import (
 )
 from aws_sdk_resiliencehub.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_resiliencehub.types.list_app_component_compliances_request
-    import aws_sdk_resiliencehub.types.list_app_component_compliances_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_resiliencehub.errors.access_denied_exception
-
             raise aws_sdk_resiliencehub.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_resiliencehub.errors.internal_server_exception
-
             raise aws_sdk_resiliencehub.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_resiliencehub.errors.resource_not_found_exception
-
             raise aws_sdk_resiliencehub.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_resiliencehub.errors.throttling_exception
-
             raise aws_sdk_resiliencehub.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_resiliencehub.errors.validation_exception
-
             raise aws_sdk_resiliencehub.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -65,12 +59,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_resiliencehub.types.list_app_component_compliances_response.ListAppComponentCompliancesResponse:
-    import aws_sdk_resiliencehub.types.list_app_component_compliances_response
-
     out: aws_sdk_resiliencehub.types.list_app_component_compliances_response.ListAppComponentCompliancesResponse = aws_sdk_resiliencehub.types.list_app_component_compliances_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_resiliencehub.types.list_app_component_compliances_response.ListAppComponentCompliancesResponse:
+    out: aws_sdk_resiliencehub.types.list_app_component_compliances_response.ListAppComponentCompliancesResponse = aws_sdk_resiliencehub.types.list_app_component_compliances_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -139,8 +140,7 @@ def list_app_component_compliances(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -158,8 +158,7 @@ async def async_list_app_component_compliances(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

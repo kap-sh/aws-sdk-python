@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -48,3 +49,16 @@ class ConflictException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ConflictException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ConflictException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "conflictException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ConflictException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ConflictException_ = {}  # type: ignore[typeddict-item]
+    return out

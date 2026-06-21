@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_appstream._auth._signers
 import aws_sdk_appstream._auth._sigv4
+import aws_sdk_appstream.errors.concurrent_modification_exception
+import aws_sdk_appstream.errors.incompatible_image_exception
+import aws_sdk_appstream.errors.invalid_role_exception
+import aws_sdk_appstream.errors.operation_not_permitted_exception
+import aws_sdk_appstream.errors.resource_in_use_exception
+import aws_sdk_appstream.errors.resource_not_found_exception
+import aws_sdk_appstream.types.certificate_based_auth_properties
+import aws_sdk_appstream.types.directory_config
+import aws_sdk_appstream.types.organizational_unit_distinguished_names_list
+import aws_sdk_appstream.types.service_account_credentials
+import aws_sdk_appstream.types.update_directory_config_request
+import aws_sdk_appstream.types.update_directory_config_result
 from aws_sdk_appstream._protocol.errors import parse_error_metadata_json
 from aws_sdk_appstream._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_appstream._services._pipeline import (
@@ -18,48 +30,32 @@ from aws_sdk_appstream._services._pipeline import (
 )
 from aws_sdk_appstream.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_appstream.types.update_directory_config_request
-    import aws_sdk_appstream.types.update_directory_config_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_appstream.errors.concurrent_modification_exception
-
             raise aws_sdk_appstream.errors.concurrent_modification_exception.ConcurrentModificationException.from_aws_json_1_1(
                 data
             )
         case "IncompatibleImageException":
-            import aws_sdk_appstream.errors.incompatible_image_exception
-
             raise aws_sdk_appstream.errors.incompatible_image_exception.IncompatibleImageException.from_aws_json_1_1(
                 data
             )
         case "InvalidRoleException":
-            import aws_sdk_appstream.errors.invalid_role_exception
-
             raise aws_sdk_appstream.errors.invalid_role_exception.InvalidRoleException.from_aws_json_1_1(
                 data
             )
         case "OperationNotPermittedException":
-            import aws_sdk_appstream.errors.operation_not_permitted_exception
-
             raise aws_sdk_appstream.errors.operation_not_permitted_exception.OperationNotPermittedException.from_aws_json_1_1(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_appstream.errors.resource_in_use_exception
-
             raise aws_sdk_appstream.errors.resource_in_use_exception.ResourceInUseException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_appstream.errors.resource_not_found_exception
-
             raise aws_sdk_appstream.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -68,12 +64,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_appstream.types.update_directory_config_result.UpdateDirectoryConfigResult:
-    import aws_sdk_appstream.types.update_directory_config_result
-
     out: aws_sdk_appstream.types.update_directory_config_result.UpdateDirectoryConfigResult = aws_sdk_appstream.types.update_directory_config_result.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_appstream.types.update_directory_config_result.UpdateDirectoryConfigResult:
+    out: aws_sdk_appstream.types.update_directory_config_result.UpdateDirectoryConfigResult = aws_sdk_appstream.types.update_directory_config_result.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -143,8 +146,7 @@ def update_directory_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -162,8 +164,7 @@ async def async_update_directory_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

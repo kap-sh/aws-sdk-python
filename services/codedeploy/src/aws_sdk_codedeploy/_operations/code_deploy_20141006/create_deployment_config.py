@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codedeploy._auth._signers
 import aws_sdk_codedeploy._auth._sigv4
+import aws_sdk_codedeploy.errors.deployment_config_already_exists_exception
+import aws_sdk_codedeploy.errors.deployment_config_limit_exceeded_exception
+import aws_sdk_codedeploy.errors.deployment_config_name_required_exception
+import aws_sdk_codedeploy.errors.invalid_compute_platform_exception
+import aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception
+import aws_sdk_codedeploy.errors.invalid_minimum_healthy_host_value_exception
+import aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception
+import aws_sdk_codedeploy.errors.invalid_zonal_deployment_configuration_exception
+import aws_sdk_codedeploy.types.compute_platform
+import aws_sdk_codedeploy.types.create_deployment_config_input
+import aws_sdk_codedeploy.types.create_deployment_config_output
+import aws_sdk_codedeploy.types.minimum_healthy_hosts
+import aws_sdk_codedeploy.types.traffic_routing_config
+import aws_sdk_codedeploy.types.zonal_config
 from aws_sdk_codedeploy._protocol.errors import parse_error_metadata_json
 from aws_sdk_codedeploy._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codedeploy._services._pipeline import (
@@ -18,60 +32,40 @@ from aws_sdk_codedeploy._services._pipeline import (
 )
 from aws_sdk_codedeploy.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codedeploy.types.create_deployment_config_input
-    import aws_sdk_codedeploy.types.create_deployment_config_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DeploymentConfigAlreadyExistsException":
-            import aws_sdk_codedeploy.errors.deployment_config_already_exists_exception
-
             raise aws_sdk_codedeploy.errors.deployment_config_already_exists_exception.DeploymentConfigAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "DeploymentConfigLimitExceededException":
-            import aws_sdk_codedeploy.errors.deployment_config_limit_exceeded_exception
-
             raise aws_sdk_codedeploy.errors.deployment_config_limit_exceeded_exception.DeploymentConfigLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "DeploymentConfigNameRequiredException":
-            import aws_sdk_codedeploy.errors.deployment_config_name_required_exception
-
             raise aws_sdk_codedeploy.errors.deployment_config_name_required_exception.DeploymentConfigNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "InvalidComputePlatformException":
-            import aws_sdk_codedeploy.errors.invalid_compute_platform_exception
-
             raise aws_sdk_codedeploy.errors.invalid_compute_platform_exception.InvalidComputePlatformException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeploymentConfigNameException":
-            import aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidMinimumHealthyHostValueException":
-            import aws_sdk_codedeploy.errors.invalid_minimum_healthy_host_value_exception
-
             raise aws_sdk_codedeploy.errors.invalid_minimum_healthy_host_value_exception.InvalidMinimumHealthyHostValueException.from_aws_json_1_1(
                 data
             )
         case "InvalidTrafficRoutingConfigurationException":
-            import aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception
-
             raise aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException.from_aws_json_1_1(
                 data
             )
         case "InvalidZonalDeploymentConfigurationException":
-            import aws_sdk_codedeploy.errors.invalid_zonal_deployment_configuration_exception
-
             raise aws_sdk_codedeploy.errors.invalid_zonal_deployment_configuration_exception.InvalidZonalDeploymentConfigurationException.from_aws_json_1_1(
                 data
             )
@@ -80,12 +74,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codedeploy.types.create_deployment_config_output.CreateDeploymentConfigOutput:
-    import aws_sdk_codedeploy.types.create_deployment_config_output
-
     out: aws_sdk_codedeploy.types.create_deployment_config_output.CreateDeploymentConfigOutput = aws_sdk_codedeploy.types.create_deployment_config_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codedeploy.types.create_deployment_config_output.CreateDeploymentConfigOutput:
+    out: aws_sdk_codedeploy.types.create_deployment_config_output.CreateDeploymentConfigOutput = aws_sdk_codedeploy.types.create_deployment_config_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -155,8 +156,7 @@ def create_deployment_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -174,8 +174,7 @@ async def async_create_deployment_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

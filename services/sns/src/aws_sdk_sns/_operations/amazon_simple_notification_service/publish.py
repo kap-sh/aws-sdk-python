@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,29 @@ from typing_extensions import Never
 
 import aws_sdk_sns._auth._signers
 import aws_sdk_sns._auth._sigv4
+import aws_sdk_sns.errors.authorization_error_exception
+import aws_sdk_sns.errors.endpoint_disabled_exception
+import aws_sdk_sns.errors.internal_error_exception
+import aws_sdk_sns.errors.invalid_parameter_exception
+import aws_sdk_sns.errors.invalid_parameter_value_exception
+import aws_sdk_sns.errors.invalid_security_exception
+import aws_sdk_sns.errors.kms_access_denied_exception
+import aws_sdk_sns.errors.kms_disabled_exception
+import aws_sdk_sns.errors.kms_invalid_state_exception
+import aws_sdk_sns.errors.kms_not_found_exception
+import aws_sdk_sns.errors.kms_opt_in_required
+import aws_sdk_sns.errors.kms_throttling_exception
+import aws_sdk_sns.errors.not_found_exception
+import aws_sdk_sns.errors.platform_application_disabled_exception
+import aws_sdk_sns.errors.validation_exception
+import aws_sdk_sns.types.message_attribute_map
+import aws_sdk_sns.types.publish_input
+import aws_sdk_sns.types.publish_response
 from aws_sdk_sns._protocol.errors import parse_error_metadata
 from aws_sdk_sns._protocol.xml import fromstring
 from aws_sdk_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sns._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sns.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sns.types.publish_input
-    import aws_sdk_sns.types.publish_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,92 +40,62 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AuthorizationErrorException":
-            import aws_sdk_sns.errors.authorization_error_exception
-
             raise aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
                 root
             )
         case "EndpointDisabledException":
-            import aws_sdk_sns.errors.endpoint_disabled_exception
-
             raise aws_sdk_sns.errors.endpoint_disabled_exception.EndpointDisabledException.from_query(
                 root
             )
         case "InternalErrorException":
-            import aws_sdk_sns.errors.internal_error_exception
-
             raise aws_sdk_sns.errors.internal_error_exception.InternalErrorException.from_query(
                 root
             )
         case "InvalidParameterException":
-            import aws_sdk_sns.errors.invalid_parameter_exception
-
             raise aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_sns.errors.invalid_parameter_value_exception
-
             raise aws_sdk_sns.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
         case "InvalidSecurityException":
-            import aws_sdk_sns.errors.invalid_security_exception
-
             raise aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException.from_query(
                 root
             )
         case "KMSAccessDeniedException":
-            import aws_sdk_sns.errors.kms_access_denied_exception
-
             raise aws_sdk_sns.errors.kms_access_denied_exception.KMSAccessDeniedException.from_query(
                 root
             )
         case "KMSDisabledException":
-            import aws_sdk_sns.errors.kms_disabled_exception
-
             raise aws_sdk_sns.errors.kms_disabled_exception.KMSDisabledException.from_query(
                 root
             )
         case "KMSInvalidStateException":
-            import aws_sdk_sns.errors.kms_invalid_state_exception
-
             raise aws_sdk_sns.errors.kms_invalid_state_exception.KMSInvalidStateException.from_query(
                 root
             )
         case "KMSNotFoundException":
-            import aws_sdk_sns.errors.kms_not_found_exception
-
             raise aws_sdk_sns.errors.kms_not_found_exception.KMSNotFoundException.from_query(
                 root
             )
         case "KMSOptInRequired":
-            import aws_sdk_sns.errors.kms_opt_in_required
-
             raise aws_sdk_sns.errors.kms_opt_in_required.KMSOptInRequired.from_query(
                 root
             )
         case "KMSThrottlingException":
-            import aws_sdk_sns.errors.kms_throttling_exception
-
             raise aws_sdk_sns.errors.kms_throttling_exception.KMSThrottlingException.from_query(
                 root
             )
         case "NotFoundException":
-            import aws_sdk_sns.errors.not_found_exception
-
             raise aws_sdk_sns.errors.not_found_exception.NotFoundException.from_query(
                 root
             )
         case "PlatformApplicationDisabledException":
-            import aws_sdk_sns.errors.platform_application_disabled_exception
-
             raise aws_sdk_sns.errors.platform_application_disabled_exception.PlatformApplicationDisabledException.from_query(
                 root
             )
         case "ValidationException":
-            import aws_sdk_sns.errors.validation_exception
-
             raise aws_sdk_sns.errors.validation_exception.ValidationException.from_query(
                 root
             )
@@ -120,11 +104,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sns.types.publish_response.PublishResponse:
-    import aws_sdk_sns.types.publish_response
-
     root = fromstring(response.read())
+    result = root.find("PublishResult")
+    out: aws_sdk_sns.types.publish_response.PublishResponse = (
+        aws_sdk_sns.types.publish_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sns.types.publish_response.PublishResponse:
+    root = fromstring(await response.aread())
     result = root.find("PublishResult")
     out: aws_sdk_sns.types.publish_response.PublishResponse = (
         aws_sdk_sns.types.publish_response.deserialize_query(
@@ -192,8 +187,7 @@ def publish(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -207,8 +201,7 @@ async def async_publish(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

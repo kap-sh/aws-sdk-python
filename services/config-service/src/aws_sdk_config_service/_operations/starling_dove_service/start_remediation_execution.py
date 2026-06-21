@@ -3,13 +3,19 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_config_service._auth._signers
 import aws_sdk_config_service._auth._sigv4
+import aws_sdk_config_service.errors.insufficient_permissions_exception
+import aws_sdk_config_service.errors.invalid_parameter_value_exception
+import aws_sdk_config_service.errors.no_such_remediation_configuration_exception
+import aws_sdk_config_service.types.resource_keys
+import aws_sdk_config_service.types.start_remediation_execution_request
+import aws_sdk_config_service.types.start_remediation_execution_response
 from aws_sdk_config_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_config_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,30 +27,20 @@ from aws_sdk_config_service._services._pipeline import (
 )
 from aws_sdk_config_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_config_service.types.start_remediation_execution_request
-    import aws_sdk_config_service.types.start_remediation_execution_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InsufficientPermissionsException":
-            import aws_sdk_config_service.errors.insufficient_permissions_exception
-
             raise aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_config_service.errors.invalid_parameter_value_exception
-
             raise aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_1(
                 data
             )
         case "NoSuchRemediationConfigurationException":
-            import aws_sdk_config_service.errors.no_such_remediation_configuration_exception
-
             raise aws_sdk_config_service.errors.no_such_remediation_configuration_exception.NoSuchRemediationConfigurationException.from_aws_json_1_1(
                 data
             )
@@ -53,12 +49,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_config_service.types.start_remediation_execution_response.StartRemediationExecutionResponse:
-    import aws_sdk_config_service.types.start_remediation_execution_response
-
     out: aws_sdk_config_service.types.start_remediation_execution_response.StartRemediationExecutionResponse = aws_sdk_config_service.types.start_remediation_execution_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_config_service.types.start_remediation_execution_response.StartRemediationExecutionResponse:
+    out: aws_sdk_config_service.types.start_remediation_execution_response.StartRemediationExecutionResponse = aws_sdk_config_service.types.start_remediation_execution_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -128,8 +131,7 @@ def start_remediation_execution(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +149,7 @@ async def async_start_remediation_execution(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_sns._auth._signers
 import aws_sdk_sns._auth._sigv4
+import aws_sdk_sns.errors.authorization_error_exception
+import aws_sdk_sns.errors.concurrent_access_exception
+import aws_sdk_sns.errors.internal_error_exception
+import aws_sdk_sns.errors.invalid_parameter_exception
+import aws_sdk_sns.errors.invalid_state_exception
+import aws_sdk_sns.errors.not_found_exception
+import aws_sdk_sns.errors.stale_tag_exception
+import aws_sdk_sns.errors.tag_policy_exception
+import aws_sdk_sns.types.delete_topic_input
 from aws_sdk_sns._protocol.errors import parse_error_metadata
 from aws_sdk_sns._protocol.xml import fromstring
 from aws_sdk_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sns._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sns.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sns.types.delete_topic_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +31,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AuthorizationErrorException":
-            import aws_sdk_sns.errors.authorization_error_exception
-
             raise aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
                 root
             )
         case "ConcurrentAccessException":
-            import aws_sdk_sns.errors.concurrent_access_exception
-
             raise aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException.from_query(
                 root
             )
         case "InternalErrorException":
-            import aws_sdk_sns.errors.internal_error_exception
-
             raise aws_sdk_sns.errors.internal_error_exception.InternalErrorException.from_query(
                 root
             )
         case "InvalidParameterException":
-            import aws_sdk_sns.errors.invalid_parameter_exception
-
             raise aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
                 root
             )
         case "InvalidStateException":
-            import aws_sdk_sns.errors.invalid_state_exception
-
             raise aws_sdk_sns.errors.invalid_state_exception.InvalidStateException.from_query(
                 root
             )
         case "NotFoundException":
-            import aws_sdk_sns.errors.not_found_exception
-
             raise aws_sdk_sns.errors.not_found_exception.NotFoundException.from_query(
                 root
             )
         case "StaleTagException":
-            import aws_sdk_sns.errors.stale_tag_exception
-
             raise aws_sdk_sns.errors.stale_tag_exception.StaleTagException.from_query(
                 root
             )
         case "TagPolicyException":
-            import aws_sdk_sns.errors.tag_policy_exception
-
             raise aws_sdk_sns.errors.tag_policy_exception.TagPolicyException.from_query(
                 root
             )
@@ -135,7 +125,6 @@ def delete_topic(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -151,7 +140,6 @@ async def async_delete_topic(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

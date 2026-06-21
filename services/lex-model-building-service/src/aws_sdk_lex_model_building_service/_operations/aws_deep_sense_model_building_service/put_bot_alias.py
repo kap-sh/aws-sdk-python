@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,17 @@ from typing_extensions import Never
 
 import aws_sdk_lex_model_building_service._auth._signers
 import aws_sdk_lex_model_building_service._auth._sigv4
+import aws_sdk_lex_model_building_service.errors.bad_request_exception
+import aws_sdk_lex_model_building_service.errors.conflict_exception
+import aws_sdk_lex_model_building_service.errors.internal_failure_exception
+import aws_sdk_lex_model_building_service.errors.limit_exceeded_exception
+import aws_sdk_lex_model_building_service.errors.precondition_failed_exception
+import aws_sdk_lex_model_building_service.types.conversation_logs_request
+import aws_sdk_lex_model_building_service.types.conversation_logs_response
+import aws_sdk_lex_model_building_service.types.put_bot_alias_request
+import aws_sdk_lex_model_building_service.types.put_bot_alias_response
+import aws_sdk_lex_model_building_service.types.tag_list
+import aws_sdk_lex_model_building_service.types.timestamp
 from aws_sdk_lex_model_building_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -24,42 +35,28 @@ from aws_sdk_lex_model_building_service._services._pipeline import (
 )
 from aws_sdk_lex_model_building_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_lex_model_building_service.types.put_bot_alias_request
-    import aws_sdk_lex_model_building_service.types.put_bot_alias_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_lex_model_building_service.errors.bad_request_exception
-
             raise aws_sdk_lex_model_building_service.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_lex_model_building_service.errors.conflict_exception
-
             raise aws_sdk_lex_model_building_service.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "InternalFailureException":
-            import aws_sdk_lex_model_building_service.errors.internal_failure_exception
-
             raise aws_sdk_lex_model_building_service.errors.internal_failure_exception.InternalFailureException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_lex_model_building_service.errors.limit_exceeded_exception
-
             raise aws_sdk_lex_model_building_service.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
         case "PreconditionFailedException":
-            import aws_sdk_lex_model_building_service.errors.precondition_failed_exception
-
             raise aws_sdk_lex_model_building_service.errors.precondition_failed_exception.PreconditionFailedException.from_json(
                 data
             )
@@ -68,14 +65,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_lex_model_building_service.types.put_bot_alias_response.PutBotAliasResponse
 ):
-    import aws_sdk_lex_model_building_service.types.put_bot_alias_response
-
     out: aws_sdk_lex_model_building_service.types.put_bot_alias_response.PutBotAliasResponse = aws_sdk_lex_model_building_service.types.put_bot_alias_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_lex_model_building_service.types.put_bot_alias_response.PutBotAliasResponse
+):
+    out: aws_sdk_lex_model_building_service.types.put_bot_alias_response.PutBotAliasResponse = aws_sdk_lex_model_building_service.types.put_bot_alias_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -146,8 +152,7 @@ def put_bot_alias(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -165,8 +170,7 @@ async def async_put_bot_alias(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

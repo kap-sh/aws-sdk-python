@@ -3,21 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_swf._auth._signers
 import aws_sdk_swf._auth._sigv4
+import aws_sdk_swf.errors.operation_not_permitted_fault
+import aws_sdk_swf.types.domain_info_list
+import aws_sdk_swf.types.domain_infos
+import aws_sdk_swf.types.list_domains_input
+import aws_sdk_swf.types.registration_status
 from aws_sdk_swf._protocol.errors import parse_error_metadata_json
 from aws_sdk_swf._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_swf._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_swf.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_swf.types.domain_infos
-    import aws_sdk_swf.types.list_domains_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,8 +26,6 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "OperationNotPermittedFault":
-            import aws_sdk_swf.errors.operation_not_permitted_fault
-
             raise aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault.from_aws_json_1_0(
                 data
             )
@@ -35,13 +34,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_swf.types.domain_infos.DomainInfos:
-    import aws_sdk_swf.types.domain_infos
-
     out: aws_sdk_swf.types.domain_infos.DomainInfos = (
         aws_sdk_swf.types.domain_infos.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_swf.types.domain_infos.DomainInfos:
+    out: aws_sdk_swf.types.domain_infos.DomainInfos = (
+        aws_sdk_swf.types.domain_infos.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -105,8 +113,7 @@ def list_domains(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -121,8 +128,7 @@ async def async_list_domains(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

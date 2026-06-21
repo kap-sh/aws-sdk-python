@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_database_migration_service._auth._signers
 import aws_sdk_database_migration_service._auth._sigv4
+import aws_sdk_database_migration_service.errors.failed_dependency_fault
+import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
+import aws_sdk_database_migration_service.errors.resource_not_found_fault
+import aws_sdk_database_migration_service.types.data_migrations
+import aws_sdk_database_migration_service.types.describe_data_migrations_message
+import aws_sdk_database_migration_service.types.describe_data_migrations_response
+import aws_sdk_database_migration_service.types.filter_list
 from aws_sdk_database_migration_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -23,30 +30,20 @@ from aws_sdk_database_migration_service._services._pipeline import (
 )
 from aws_sdk_database_migration_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_database_migration_service.types.describe_data_migrations_message
-    import aws_sdk_database_migration_service.types.describe_data_migrations_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "FailedDependencyFault":
-            import aws_sdk_database_migration_service.errors.failed_dependency_fault
-
             raise aws_sdk_database_migration_service.errors.failed_dependency_fault.FailedDependencyFault.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceStateFault":
-            import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
-
             raise aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundFault":
-            import aws_sdk_database_migration_service.errors.resource_not_found_fault
-
             raise aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault.from_aws_json_1_1(
                 data
             )
@@ -55,12 +52,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_database_migration_service.types.describe_data_migrations_response.DescribeDataMigrationsResponse:
-    import aws_sdk_database_migration_service.types.describe_data_migrations_response
-
     out: aws_sdk_database_migration_service.types.describe_data_migrations_response.DescribeDataMigrationsResponse = aws_sdk_database_migration_service.types.describe_data_migrations_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_database_migration_service.types.describe_data_migrations_response.DescribeDataMigrationsResponse:
+    out: aws_sdk_database_migration_service.types.describe_data_migrations_response.DescribeDataMigrationsResponse = aws_sdk_database_migration_service.types.describe_data_migrations_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -130,8 +134,7 @@ def describe_data_migrations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -149,8 +152,7 @@ async def async_describe_data_migrations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

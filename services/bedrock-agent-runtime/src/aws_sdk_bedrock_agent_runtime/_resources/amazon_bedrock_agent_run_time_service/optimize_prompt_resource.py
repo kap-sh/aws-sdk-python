@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -31,13 +33,14 @@ class OptimizePromptResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @contextmanager
     def optimize_prompt(
         self,
         input: "aws_sdk_bedrock_agent_runtime.types.input_prompt.InputPrompt",
         target_model_id: str,
         *,
         config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse":
+    ) -> "Generator[aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse]":
         r"""<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
@@ -69,20 +72,21 @@ class OptimizePromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
 
 class AsyncOptimizePromptResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @asynccontextmanager
     async def optimize_prompt(
         self,
         input: "aws_sdk_bedrock_agent_runtime.types.input_prompt.InputPrompt",
         target_model_id: str,
         *,
         config_overrides: Optional[AsyncBedrockAgentRuntimeClientConfig] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agent_runtime.types.optimize_prompt_response.OptimizePromptResponse]":
         r"""<p>Optimizes a prompt for the task that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html\">Optimize a prompt</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p>
 
         Args:
@@ -115,4 +119,4 @@ class AsyncOptimizePromptResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output

@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_mediaconnect._auth._signers
 import aws_sdk_mediaconnect._auth._sigv4
+import aws_sdk_mediaconnect.errors.bad_request_exception
+import aws_sdk_mediaconnect.errors.conflict_exception
+import aws_sdk_mediaconnect.errors.forbidden_exception
+import aws_sdk_mediaconnect.errors.internal_server_error_exception
+import aws_sdk_mediaconnect.errors.router_network_interface_service_quota_exceeded_exception
+import aws_sdk_mediaconnect.errors.service_unavailable_exception
+import aws_sdk_mediaconnect.errors.too_many_requests_exception
+import aws_sdk_mediaconnect.types.__map_of_string
+import aws_sdk_mediaconnect.types.create_router_network_interface_request
+import aws_sdk_mediaconnect.types.create_router_network_interface_response
+import aws_sdk_mediaconnect.types.router_network_interface
+import aws_sdk_mediaconnect.types.router_network_interface_configuration
 from aws_sdk_mediaconnect._protocol.errors import parse_error_metadata_json
 from aws_sdk_mediaconnect._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_mediaconnect._services._pipeline import (
@@ -18,54 +30,36 @@ from aws_sdk_mediaconnect._services._pipeline import (
 )
 from aws_sdk_mediaconnect.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_mediaconnect.types.create_router_network_interface_request
-    import aws_sdk_mediaconnect.types.create_router_network_interface_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_mediaconnect.errors.bad_request_exception
-
             raise aws_sdk_mediaconnect.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_mediaconnect.errors.conflict_exception
-
             raise aws_sdk_mediaconnect.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_mediaconnect.errors.forbidden_exception
-
             raise aws_sdk_mediaconnect.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_mediaconnect.errors.internal_server_error_exception
-
             raise aws_sdk_mediaconnect.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "RouterNetworkInterfaceServiceQuotaExceededException":
-            import aws_sdk_mediaconnect.errors.router_network_interface_service_quota_exceeded_exception
-
             raise aws_sdk_mediaconnect.errors.router_network_interface_service_quota_exceeded_exception.RouterNetworkInterfaceServiceQuotaExceededException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_mediaconnect.errors.service_unavailable_exception
-
             raise aws_sdk_mediaconnect.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_mediaconnect.errors.too_many_requests_exception
-
             raise aws_sdk_mediaconnect.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -74,12 +68,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_mediaconnect.types.create_router_network_interface_response.CreateRouterNetworkInterfaceResponse:
-    import aws_sdk_mediaconnect.types.create_router_network_interface_response
-
     out: aws_sdk_mediaconnect.types.create_router_network_interface_response.CreateRouterNetworkInterfaceResponse = aws_sdk_mediaconnect.types.create_router_network_interface_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_mediaconnect.types.create_router_network_interface_response.CreateRouterNetworkInterfaceResponse:
+    out: aws_sdk_mediaconnect.types.create_router_network_interface_response.CreateRouterNetworkInterfaceResponse = aws_sdk_mediaconnect.types.create_router_network_interface_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -148,8 +149,7 @@ def create_router_network_interface(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +167,7 @@ async def async_create_router_network_interface(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

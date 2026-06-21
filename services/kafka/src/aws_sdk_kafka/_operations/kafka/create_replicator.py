@@ -3,21 +3,32 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kafka._auth._signers
 import aws_sdk_kafka._auth._sigv4
+import aws_sdk_kafka.errors.bad_request_exception
+import aws_sdk_kafka.errors.conflict_exception
+import aws_sdk_kafka.errors.forbidden_exception
+import aws_sdk_kafka.errors.internal_server_error_exception
+import aws_sdk_kafka.errors.not_found_exception
+import aws_sdk_kafka.errors.service_unavailable_exception
+import aws_sdk_kafka.errors.too_many_requests_exception
+import aws_sdk_kafka.errors.unauthorized_exception
+import aws_sdk_kafka.types.__list_of_kafka_cluster
+import aws_sdk_kafka.types.__list_of_replication_info
+import aws_sdk_kafka.types.__map_of__string
+import aws_sdk_kafka.types.create_replicator_request
+import aws_sdk_kafka.types.create_replicator_response
+import aws_sdk_kafka.types.log_delivery
+import aws_sdk_kafka.types.replicator_state
 from aws_sdk_kafka._protocol.errors import parse_error_metadata_json
 from aws_sdk_kafka._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kafka._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kafka.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kafka.types.create_replicator_request
-    import aws_sdk_kafka.types.create_replicator_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +36,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_kafka.errors.bad_request_exception
-
             raise aws_sdk_kafka.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_kafka.errors.conflict_exception
-
             raise aws_sdk_kafka.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_kafka.errors.forbidden_exception
-
             raise aws_sdk_kafka.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_kafka.errors.internal_server_error_exception
-
             raise aws_sdk_kafka.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_kafka.errors.not_found_exception
-
             raise aws_sdk_kafka.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_kafka.errors.service_unavailable_exception
-
             raise aws_sdk_kafka.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_kafka.errors.too_many_requests_exception
-
             raise aws_sdk_kafka.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_kafka.errors.unauthorized_exception
-
             raise aws_sdk_kafka.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -77,13 +72,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kafka.types.create_replicator_response.CreateReplicatorResponse:
-    import aws_sdk_kafka.types.create_replicator_response
-
     out: aws_sdk_kafka.types.create_replicator_response.CreateReplicatorResponse = (
         aws_sdk_kafka.types.create_replicator_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kafka.types.create_replicator_response.CreateReplicatorResponse:
+    out: aws_sdk_kafka.types.create_replicator_response.CreateReplicatorResponse = (
+        aws_sdk_kafka.types.create_replicator_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -151,8 +155,7 @@ def create_replicator(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -170,8 +173,7 @@ async def async_create_replicator(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

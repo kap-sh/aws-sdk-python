@@ -2,13 +2,20 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.public_key_already_exists
+import aws_sdk_cloudfront.errors.too_many_public_keys
+import aws_sdk_cloudfront.types.create_public_key_request
+import aws_sdk_cloudfront.types.create_public_key_result
+import aws_sdk_cloudfront.types.public_key
+import aws_sdk_cloudfront.types.public_key_config
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import Element, fromstring, tostring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,30 +25,20 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.create_public_key_request
-    import aws_sdk_cloudfront.types.create_public_key_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "PublicKeyAlreadyExists":
-            import aws_sdk_cloudfront.errors.public_key_already_exists
-
             raise aws_sdk_cloudfront.errors.public_key_already_exists.PublicKeyAlreadyExists.from_xml(
                 root
             )
         case "TooManyPublicKeys":
-            import aws_sdk_cloudfront.errors.too_many_public_keys
-
             raise aws_sdk_cloudfront.errors.too_many_public_keys.TooManyPublicKeys.from_xml(
                 root
             )
@@ -50,13 +47,26 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.create_public_key_result.CreatePublicKeyResult:
-    import aws_sdk_cloudfront.types.public_key
-
     out: aws_sdk_cloudfront.types.create_public_key_result.CreatePublicKeyResult = {
         "public_key": aws_sdk_cloudfront.types.public_key.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    if "Location" in response.headers:
+        out["location"] = str(response.headers["Location"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.create_public_key_result.CreatePublicKeyResult:
+    out: aws_sdk_cloudfront.types.create_public_key_result.CreatePublicKeyResult = {
+        "public_key": aws_sdk_cloudfront.types.public_key.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
@@ -133,8 +143,7 @@ def create_public_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -152,8 +161,7 @@ async def async_create_public_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

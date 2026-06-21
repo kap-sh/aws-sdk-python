@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -35,6 +37,7 @@ class FlowResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @contextmanager
     def invoke_flow(
         self,
         flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
@@ -49,7 +52,7 @@ class FlowResource:
         execution_id: Optional[
             "aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
+    ) -> "Generator[aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse]":
         r"""<p>Invokes an alias of a flow to run the inputs that you specify and return the output of each node as a stream. If there's an error, the error is returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeFlow</code>.</p> </note>
 
         Args:
@@ -92,13 +95,14 @@ class FlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
 
 class AsyncFlowResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @asynccontextmanager
     async def invoke_flow(
         self,
         flow_identifier: "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier",
@@ -113,7 +117,7 @@ class AsyncFlowResource:
         execution_id: Optional[
             "aws_sdk_bedrock_agent_runtime.types.flow_execution_id.FlowExecutionId"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agent_runtime.types.invoke_flow_response.InvokeFlowResponse]":
         r"""<p>Invokes an alias of a flow to run the inputs that you specify and return the output of each node as a stream. If there's an error, the error is returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html\">Test a flow in Amazon Bedrock</a> in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html\">Amazon Bedrock User Guide</a>.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeFlow</code>.</p> </note>
 
         Args:
@@ -157,4 +161,4 @@ class AsyncFlowResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output

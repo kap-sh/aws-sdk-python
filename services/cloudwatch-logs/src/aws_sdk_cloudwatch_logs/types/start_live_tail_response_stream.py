@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
+from aws_sdk_cloudwatch_logs._iter import AnyIterator
+from aws_sdk_cloudwatch_logs._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
@@ -31,86 +32,91 @@ class _StartLiveTailResponseStream_SessionStreamingException(TypedDict):
     SessionStreamingException: "aws_sdk_cloudwatch_logs.errors.session_streaming_exception.SessionStreamingException_"
 
 
-StartLiveTailResponseStream: TypeAlias = (
+_StartLiveTailResponseStream: TypeAlias = (
     _StartLiveTailResponseStream_sessionStart
     | _StartLiveTailResponseStream_sessionUpdate
     | _StartLiveTailResponseStream_SessionTimeoutException
     | _StartLiveTailResponseStream_SessionStreamingException
 )
+StartLiveTailResponseStream: TypeAlias = AnyIterator[_StartLiveTailResponseStream]
 
 
-# --- awsJson1_1 ser/de ---
-def serialize_aws_json_1_1(value: StartLiveTailResponseStream) -> dict:
-    if "sessionStart" in value:
-        import aws_sdk_cloudwatch_logs.types.live_tail_session_start
+def serialize_event_aws_json_1_1(value: _StartLiveTailResponseStream) -> bytes:
+    match value:
+        case {"sessionStart": payload}:
+            import aws_sdk_cloudwatch_logs.types.live_tail_session_start
 
-        return {
-            "sessionStart": aws_sdk_cloudwatch_logs.types.live_tail_session_start.serialize_aws_json_1_1(
-                value["sessionStart"]
+            return aws_sdk_cloudwatch_logs.types.live_tail_session_start.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "sessionUpdate" in value:
-        import aws_sdk_cloudwatch_logs.types.live_tail_session_update
+        case {"sessionUpdate": payload}:
+            import aws_sdk_cloudwatch_logs.types.live_tail_session_update
 
-        return {
-            "sessionUpdate": aws_sdk_cloudwatch_logs.types.live_tail_session_update.serialize_aws_json_1_1(
-                value["sessionUpdate"]
+            return aws_sdk_cloudwatch_logs.types.live_tail_session_update.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "SessionTimeoutException" in value:
-        import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
+        case {"SessionTimeoutException": payload}:
+            import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
 
-        return {
-            "SessionTimeoutException": aws_sdk_cloudwatch_logs.errors.session_timeout_exception.serialize_aws_json_1_1(
-                value["SessionTimeoutException"]
+            return aws_sdk_cloudwatch_logs.errors.session_timeout_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "SessionStreamingException" in value:
-        import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
+        case {"SessionStreamingException": payload}:
+            import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
 
-        return {
-            "SessionStreamingException": aws_sdk_cloudwatch_logs.errors.session_streaming_exception.serialize_aws_json_1_1(
-                value["SessionStreamingException"]
+            return aws_sdk_cloudwatch_logs.errors.session_streaming_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    else:
-        raise SerializationError("StartLiveTailResponseStream: no variant present")
-
-
-def deserialize_aws_json_1_1(data: dict) -> StartLiveTailResponseStream:
-    if "sessionStart" in data:
-        import aws_sdk_cloudwatch_logs.types.live_tail_session_start
-
-        return {
-            "sessionStart": aws_sdk_cloudwatch_logs.types.live_tail_session_start.deserialize_aws_json_1_1(
-                data["sessionStart"]
+        case _:
+            raise ValueError(
+                f"StartLiveTailResponseStream: unrecognized variant {value!r}"
             )
-        }
-    elif "sessionUpdate" in data:
-        import aws_sdk_cloudwatch_logs.types.live_tail_session_update
 
-        return {
-            "sessionUpdate": aws_sdk_cloudwatch_logs.types.live_tail_session_update.deserialize_aws_json_1_1(
-                data["sessionUpdate"]
-            )
-        }
-    elif "SessionTimeoutException" in data:
-        import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
 
-        return {
-            "SessionTimeoutException": aws_sdk_cloudwatch_logs.errors.session_timeout_exception.deserialize_aws_json_1_1(
-                data["SessionTimeoutException"]
-            )
-        }
-    elif "SessionStreamingException" in data:
-        import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
+def deserialize_event_aws_json_1_1(message: Message) -> _StartLiveTailResponseStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "SessionTimeoutException":
+                import aws_sdk_cloudwatch_logs.errors.session_timeout_exception
 
-        return {
-            "SessionStreamingException": aws_sdk_cloudwatch_logs.errors.session_streaming_exception.deserialize_aws_json_1_1(
-                data["SessionStreamingException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "StartLiveTailResponseStream: no recognized variant key"
+                raise aws_sdk_cloudwatch_logs.errors.session_timeout_exception.SessionTimeoutException(
+                    aws_sdk_cloudwatch_logs.errors.session_timeout_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "SessionStreamingException":
+                import aws_sdk_cloudwatch_logs.errors.session_streaming_exception
+
+                raise aws_sdk_cloudwatch_logs.errors.session_streaming_exception.SessionStreamingException(
+                    aws_sdk_cloudwatch_logs.errors.session_streaming_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"StartLiveTailResponseStream: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "sessionStart":
+            import aws_sdk_cloudwatch_logs.types.live_tail_session_start
+
+            return {
+                "sessionStart": aws_sdk_cloudwatch_logs.types.live_tail_session_start.deserialize_event_aws_json_1_1(
+                    message
+                )
+            }
+        case "sessionUpdate":
+            import aws_sdk_cloudwatch_logs.types.live_tail_session_update
+
+            return {
+                "sessionUpdate": aws_sdk_cloudwatch_logs.types.live_tail_session_update.deserialize_event_aws_json_1_1(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"StartLiveTailResponseStream: unrecognized event-type {event_type!r}"
+            )

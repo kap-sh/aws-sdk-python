@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,16 @@ from typing_extensions import Never
 
 import aws_sdk_workdocs._auth._signers
 import aws_sdk_workdocs._auth._sigv4
+import aws_sdk_workdocs.errors.failed_dependency_exception
+import aws_sdk_workdocs.errors.service_unavailable_exception
+import aws_sdk_workdocs.errors.unauthorized_operation_exception
+import aws_sdk_workdocs.errors.unauthorized_resource_access_exception
+import aws_sdk_workdocs.types.principal_type
+import aws_sdk_workdocs.types.remove_resource_permission_request
 from aws_sdk_workdocs._protocol.errors import parse_error_metadata_json
 from aws_sdk_workdocs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_workdocs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_workdocs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_workdocs.types.remove_resource_permission_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +28,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "FailedDependencyException":
-            import aws_sdk_workdocs.errors.failed_dependency_exception
-
             raise aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_workdocs.errors.service_unavailable_exception
-
             raise aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "UnauthorizedOperationException":
-            import aws_sdk_workdocs.errors.unauthorized_operation_exception
-
             raise aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException.from_json(
                 data
             )
         case "UnauthorizedResourceAccessException":
-            import aws_sdk_workdocs.errors.unauthorized_resource_access_exception
-
             raise aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException.from_json(
                 data
             )
@@ -115,7 +110,6 @@ def remove_resource_permission(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -131,7 +125,6 @@ async def async_remove_resource_permission(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

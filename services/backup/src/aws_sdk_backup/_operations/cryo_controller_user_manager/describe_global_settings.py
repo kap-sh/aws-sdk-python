@@ -3,21 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_backup._auth._signers
 import aws_sdk_backup._auth._sigv4
+import aws_sdk_backup.errors.invalid_request_exception
+import aws_sdk_backup.errors.service_unavailable_exception
+import aws_sdk_backup.types.describe_global_settings_input
+import aws_sdk_backup.types.describe_global_settings_output
+import aws_sdk_backup.types.global_settings
+import aws_sdk_backup.types.timestamp
 from aws_sdk_backup._protocol.errors import parse_error_metadata_json
 from aws_sdk_backup._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_backup._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_backup.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_backup.types.describe_global_settings_input
-    import aws_sdk_backup.types.describe_global_settings_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +27,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidRequestException":
-            import aws_sdk_backup.errors.invalid_request_exception
-
             raise aws_sdk_backup.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_backup.errors.service_unavailable_exception
-
             raise aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
@@ -41,12 +39,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_backup.types.describe_global_settings_output.DescribeGlobalSettingsOutput:
-    import aws_sdk_backup.types.describe_global_settings_output
-
     out: aws_sdk_backup.types.describe_global_settings_output.DescribeGlobalSettingsOutput = aws_sdk_backup.types.describe_global_settings_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_backup.types.describe_global_settings_output.DescribeGlobalSettingsOutput:
+    out: aws_sdk_backup.types.describe_global_settings_output.DescribeGlobalSettingsOutput = aws_sdk_backup.types.describe_global_settings_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -108,8 +113,7 @@ def describe_global_settings(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -127,8 +131,7 @@ async def async_describe_global_settings(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

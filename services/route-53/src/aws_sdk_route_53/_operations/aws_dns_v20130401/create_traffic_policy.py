@@ -2,22 +2,25 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4
+import aws_sdk_route_53.errors.invalid_input
+import aws_sdk_route_53.errors.invalid_traffic_policy_document
+import aws_sdk_route_53.errors.too_many_traffic_policies
+import aws_sdk_route_53.errors.traffic_policy_already_exists
+import aws_sdk_route_53.types.create_traffic_policy_request
+import aws_sdk_route_53.types.create_traffic_policy_response
+import aws_sdk_route_53.types.traffic_policy
 from aws_sdk_route_53._protocol.errors import parse_error_metadata
 from aws_sdk_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from aws_sdk_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_route_53.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_route_53.types.create_traffic_policy_request
-    import aws_sdk_route_53.types.create_traffic_policy_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,24 +28,16 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidInput":
-            import aws_sdk_route_53.errors.invalid_input
-
             raise aws_sdk_route_53.errors.invalid_input.InvalidInput.from_xml(root)
         case "InvalidTrafficPolicyDocument":
-            import aws_sdk_route_53.errors.invalid_traffic_policy_document
-
             raise aws_sdk_route_53.errors.invalid_traffic_policy_document.InvalidTrafficPolicyDocument.from_xml(
                 root
             )
         case "TooManyTrafficPolicies":
-            import aws_sdk_route_53.errors.too_many_traffic_policies
-
             raise aws_sdk_route_53.errors.too_many_traffic_policies.TooManyTrafficPolicies.from_xml(
                 root
             )
         case "TrafficPolicyAlreadyExists":
-            import aws_sdk_route_53.errors.traffic_policy_already_exists
-
             raise aws_sdk_route_53.errors.traffic_policy_already_exists.TrafficPolicyAlreadyExists.from_xml(
                 root
             )
@@ -51,12 +46,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route_53.types.create_traffic_policy_response.CreateTrafficPolicyResponse:
-    import aws_sdk_route_53.types.create_traffic_policy_response
-
     out: aws_sdk_route_53.types.create_traffic_policy_response.CreateTrafficPolicyResponse = aws_sdk_route_53.types.create_traffic_policy_response.deserialize_xml(
         fromstring(response.read())
+    )
+    out["location"] = str(response.headers["Location"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route_53.types.create_traffic_policy_response.CreateTrafficPolicyResponse:
+    out: aws_sdk_route_53.types.create_traffic_policy_response.CreateTrafficPolicyResponse = aws_sdk_route_53.types.create_traffic_policy_response.deserialize_xml(
+        fromstring(await response.aread())
     )
     out["location"] = str(response.headers["Location"])
     return out
@@ -127,8 +130,7 @@ def create_traffic_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -146,8 +148,7 @@ async def async_create_traffic_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,33 @@ from typing_extensions import Never
 
 import aws_sdk_bedrock_runtime._auth._signers
 import aws_sdk_bedrock_runtime._auth._sigv4
+import aws_sdk_bedrock_runtime.errors.access_denied_exception
+import aws_sdk_bedrock_runtime.errors.internal_server_exception
+import aws_sdk_bedrock_runtime.errors.model_error_exception
+import aws_sdk_bedrock_runtime.errors.model_not_ready_exception
+import aws_sdk_bedrock_runtime.errors.model_timeout_exception
+import aws_sdk_bedrock_runtime.errors.resource_not_found_exception
+import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
+import aws_sdk_bedrock_runtime.errors.throttling_exception
+import aws_sdk_bedrock_runtime.errors.validation_exception
+import aws_sdk_bedrock_runtime.types.additional_model_response_field_paths
+import aws_sdk_bedrock_runtime.types.converse_metrics
+import aws_sdk_bedrock_runtime.types.converse_output
+import aws_sdk_bedrock_runtime.types.converse_request
+import aws_sdk_bedrock_runtime.types.converse_response
+import aws_sdk_bedrock_runtime.types.converse_trace
+import aws_sdk_bedrock_runtime.types.guardrail_configuration
+import aws_sdk_bedrock_runtime.types.inference_configuration
+import aws_sdk_bedrock_runtime.types.messages
+import aws_sdk_bedrock_runtime.types.output_config
+import aws_sdk_bedrock_runtime.types.performance_configuration
+import aws_sdk_bedrock_runtime.types.prompt_variable_map
+import aws_sdk_bedrock_runtime.types.request_metadata
+import aws_sdk_bedrock_runtime.types.service_tier
+import aws_sdk_bedrock_runtime.types.stop_reason
+import aws_sdk_bedrock_runtime.types.system_content_blocks
+import aws_sdk_bedrock_runtime.types.token_usage
+import aws_sdk_bedrock_runtime.types.tool_configuration
 from aws_sdk_bedrock_runtime._protocol.errors import parse_error_metadata_json
 from aws_sdk_bedrock_runtime._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,66 +49,44 @@ from aws_sdk_bedrock_runtime._services._pipeline import (
 )
 from aws_sdk_bedrock_runtime.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_bedrock_runtime.types.converse_request
-    import aws_sdk_bedrock_runtime.types.converse_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_bedrock_runtime.errors.access_denied_exception
-
             raise aws_sdk_bedrock_runtime.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_bedrock_runtime.errors.internal_server_exception
-
             raise aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ModelErrorException":
-            import aws_sdk_bedrock_runtime.errors.model_error_exception
-
             raise aws_sdk_bedrock_runtime.errors.model_error_exception.ModelErrorException.from_json(
                 data
             )
         case "ModelNotReadyException":
-            import aws_sdk_bedrock_runtime.errors.model_not_ready_exception
-
             raise aws_sdk_bedrock_runtime.errors.model_not_ready_exception.ModelNotReadyException.from_json(
                 data
             )
         case "ModelTimeoutException":
-            import aws_sdk_bedrock_runtime.errors.model_timeout_exception
-
             raise aws_sdk_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_bedrock_runtime.errors.resource_not_found_exception
-
             raise aws_sdk_bedrock_runtime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
-
             raise aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_bedrock_runtime.errors.throttling_exception
-
             raise aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_bedrock_runtime.errors.validation_exception
-
             raise aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -90,13 +95,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse:
-    import aws_sdk_bedrock_runtime.types.converse_response
-
     out: aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse = (
         aws_sdk_bedrock_runtime.types.converse_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse:
+    out: aws_sdk_bedrock_runtime.types.converse_response.ConverseResponse = (
+        aws_sdk_bedrock_runtime.types.converse_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -168,8 +182,7 @@ def converse(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -186,8 +199,7 @@ async def async_converse(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

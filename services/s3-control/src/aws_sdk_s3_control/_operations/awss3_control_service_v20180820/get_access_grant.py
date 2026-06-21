@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,12 @@ from typing_extensions import Never
 
 import aws_sdk_s3_control._auth._signers
 import aws_sdk_s3_control._auth._sigv4
+import aws_sdk_s3_control.types.access_grants_location_configuration
+import aws_sdk_s3_control.types.creation_timestamp
+import aws_sdk_s3_control.types.get_access_grant_request
+import aws_sdk_s3_control.types.get_access_grant_result
+import aws_sdk_s3_control.types.grantee
+import aws_sdk_s3_control.types.permission
 from aws_sdk_s3_control._protocol.errors import parse_error_metadata
 from aws_sdk_s3_control._protocol.xml import fromstring
 from aws_sdk_s3_control._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,10 +24,6 @@ from aws_sdk_s3_control._services._pipeline import (
     OperationOptions,
 )
 from aws_sdk_s3_control.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3_control.types.get_access_grant_request
-    import aws_sdk_s3_control.types.get_access_grant_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -33,13 +35,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3_control.types.get_access_grant_result.GetAccessGrantResult:
-    import aws_sdk_s3_control.types.get_access_grant_result
-
     out: aws_sdk_s3_control.types.get_access_grant_result.GetAccessGrantResult = (
         aws_sdk_s3_control.types.get_access_grant_result.deserialize_xml(
             fromstring(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3_control.types.get_access_grant_result.GetAccessGrantResult:
+    out: aws_sdk_s3_control.types.get_access_grant_result.GetAccessGrantResult = (
+        aws_sdk_s3_control.types.get_access_grant_result.deserialize_xml(
+            fromstring(await response.aread())
         )
     )
     return out
@@ -116,8 +127,7 @@ def get_access_grant(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -135,8 +145,7 @@ async def async_get_access_grant(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

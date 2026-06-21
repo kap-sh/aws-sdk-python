@@ -4,6 +4,8 @@ from typing import TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
+
 
 class SendMessageResponseFailedEvent(TypedDict):
     response_id: NotRequired["str"]
@@ -40,4 +42,17 @@ def deserialize_json(data: dict) -> SendMessageResponseFailedEvent:
         out["error_message"] = data["errorMessage"]
     if "sequenceNumber" in data:
         out["sequence_number"] = data["sequenceNumber"]
+    return out
+
+
+def serialize_event_json(value: SendMessageResponseFailedEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "responseFailed"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> SendMessageResponseFailedEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: SendMessageResponseFailedEvent = {}  # type: ignore[typeddict-item]
     return out

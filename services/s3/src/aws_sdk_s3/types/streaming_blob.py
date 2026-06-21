@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.s3#StreamingBlob``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_s3._iter import AnyIterator
 
 StreamingBlob: TypeAlias = AnyIterator[bytes] | bytes

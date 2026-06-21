@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import aws_sdk_health._auth._signers
 import aws_sdk_health._auth._sigv4
+import aws_sdk_health.errors.concurrent_modification_exception
 from aws_sdk_health._protocol.errors import parse_error_metadata_json
 from aws_sdk_health._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_health._services._pipeline import AsyncOperationOptions, OperationOptions
@@ -21,8 +22,6 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_health.errors.concurrent_modification_exception
-
             raise aws_sdk_health.errors.concurrent_modification_exception.ConcurrentModificationException.from_aws_json_1_1(
                 data
             )
@@ -83,7 +82,6 @@ def disable_health_service_access_for_organization(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -98,7 +96,6 @@ async def async_disable_health_service_access_for_organization(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

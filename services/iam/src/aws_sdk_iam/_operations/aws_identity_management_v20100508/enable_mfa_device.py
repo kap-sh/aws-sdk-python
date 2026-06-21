@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,19 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.concurrent_modification_exception
+import aws_sdk_iam.errors.entity_already_exists_exception
+import aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception
+import aws_sdk_iam.errors.invalid_authentication_code_exception
+import aws_sdk_iam.errors.limit_exceeded_exception
+import aws_sdk_iam.errors.no_such_entity_exception
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.types.enable_mfa_device_request
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.enable_mfa_device_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,44 +30,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_iam.errors.concurrent_modification_exception
-
             raise aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException.from_query(
                 root
             )
         case "EntityAlreadyExistsException":
-            import aws_sdk_iam.errors.entity_already_exists_exception
-
             raise aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException.from_query(
                 root
             )
         case "EntityTemporarilyUnmodifiableException":
-            import aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception
-
             raise aws_sdk_iam.errors.entity_temporarily_unmodifiable_exception.EntityTemporarilyUnmodifiableException.from_query(
                 root
             )
         case "InvalidAuthenticationCodeException":
-            import aws_sdk_iam.errors.invalid_authentication_code_exception
-
             raise aws_sdk_iam.errors.invalid_authentication_code_exception.InvalidAuthenticationCodeException.from_query(
                 root
             )
         case "LimitExceededException":
-            import aws_sdk_iam.errors.limit_exceeded_exception
-
             raise aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException.from_query(
                 root
             )
         case "NoSuchEntityException":
-            import aws_sdk_iam.errors.no_such_entity_exception
-
             raise aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException.from_query(
                 root
             )
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
@@ -129,7 +120,6 @@ def enable_mfa_device(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -145,7 +135,6 @@ async def async_enable_mfa_device(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

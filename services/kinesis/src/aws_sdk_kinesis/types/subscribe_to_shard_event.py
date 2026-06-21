@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_kinesis._protocol.eventstream import HeaderValue, Message
 from aws_sdk_kinesis.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -77,4 +78,17 @@ def deserialize_aws_json_1_1(data: dict) -> SubscribeToShardEvent:
                 data["ChildShards"]
             )
         )
+    return out
+
+
+def serialize_event_aws_json_1_1(value: SubscribeToShardEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "SubscribeToShardEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> SubscribeToShardEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: SubscribeToShardEvent = {}  # type: ignore[typeddict-item]
     return out

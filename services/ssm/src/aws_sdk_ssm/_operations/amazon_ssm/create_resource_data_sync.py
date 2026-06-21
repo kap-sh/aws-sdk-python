@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.resource_data_sync_already_exists_exception
+import aws_sdk_ssm.errors.resource_data_sync_count_exceeded_exception
+import aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception
+import aws_sdk_ssm.types.create_resource_data_sync_request
+import aws_sdk_ssm.types.create_resource_data_sync_result
+import aws_sdk_ssm.types.resource_data_sync_s3_destination
+import aws_sdk_ssm.types.resource_data_sync_source
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.create_resource_data_sync_request
-    import aws_sdk_ssm.types.create_resource_data_sync_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +29,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "ResourceDataSyncAlreadyExistsException":
-            import aws_sdk_ssm.errors.resource_data_sync_already_exists_exception
-
             raise aws_sdk_ssm.errors.resource_data_sync_already_exists_exception.ResourceDataSyncAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "ResourceDataSyncCountExceededException":
-            import aws_sdk_ssm.errors.resource_data_sync_count_exceeded_exception
-
             raise aws_sdk_ssm.errors.resource_data_sync_count_exceeded_exception.ResourceDataSyncCountExceededException.from_aws_json_1_1(
                 data
             )
         case "ResourceDataSyncInvalidConfigurationException":
-            import aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception
-
             raise aws_sdk_ssm.errors.resource_data_sync_invalid_configuration_exception.ResourceDataSyncInvalidConfigurationException.from_aws_json_1_1(
                 data
             )
@@ -53,7 +49,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.create_resource_data_sync_result.CreateResourceDataSyncResult:
+    out: aws_sdk_ssm.types.create_resource_data_sync_result.CreateResourceDataSyncResult = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.create_resource_data_sync_result.CreateResourceDataSyncResult:
     out: aws_sdk_ssm.types.create_resource_data_sync_result.CreateResourceDataSyncResult = {}  # type: ignore[typeddict-item]
     return out
@@ -122,8 +125,7 @@ def create_resource_data_sync(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +143,7 @@ async def async_create_resource_data_sync(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

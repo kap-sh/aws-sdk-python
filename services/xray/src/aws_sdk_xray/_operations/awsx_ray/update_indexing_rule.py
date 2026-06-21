@@ -3,21 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_xray._auth._signers
 import aws_sdk_xray._auth._sigv4
+import aws_sdk_xray.errors.invalid_request_exception
+import aws_sdk_xray.errors.resource_not_found_exception
+import aws_sdk_xray.errors.throttled_exception
+import aws_sdk_xray.types.indexing_rule
+import aws_sdk_xray.types.indexing_rule_value_update
+import aws_sdk_xray.types.update_indexing_rule_request
+import aws_sdk_xray.types.update_indexing_rule_result
 from aws_sdk_xray._protocol.errors import parse_error_metadata_json
 from aws_sdk_xray._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_xray._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_xray.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_xray.types.update_indexing_rule_request
-    import aws_sdk_xray.types.update_indexing_rule_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,20 +28,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidRequestException":
-            import aws_sdk_xray.errors.invalid_request_exception
-
             raise aws_sdk_xray.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_xray.errors.resource_not_found_exception
-
             raise aws_sdk_xray.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottledException":
-            import aws_sdk_xray.errors.throttled_exception
-
             raise aws_sdk_xray.errors.throttled_exception.ThrottledException.from_json(
                 data
             )
@@ -47,13 +44,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_xray.types.update_indexing_rule_result.UpdateIndexingRuleResult:
-    import aws_sdk_xray.types.update_indexing_rule_result
-
     out: aws_sdk_xray.types.update_indexing_rule_result.UpdateIndexingRuleResult = (
         aws_sdk_xray.types.update_indexing_rule_result.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_xray.types.update_indexing_rule_result.UpdateIndexingRuleResult:
+    out: aws_sdk_xray.types.update_indexing_rule_result.UpdateIndexingRuleResult = (
+        aws_sdk_xray.types.update_indexing_rule_result.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -119,8 +125,7 @@ def update_indexing_rule(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -138,8 +143,7 @@ async def async_update_indexing_rule(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

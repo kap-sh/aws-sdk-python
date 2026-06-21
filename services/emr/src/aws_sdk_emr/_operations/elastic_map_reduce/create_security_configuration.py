@@ -3,21 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_emr._auth._signers
 import aws_sdk_emr._auth._sigv4
+import aws_sdk_emr.errors.internal_server_exception
+import aws_sdk_emr.errors.invalid_request_exception
+import aws_sdk_emr.types.create_security_configuration_input
+import aws_sdk_emr.types.create_security_configuration_output
+import aws_sdk_emr.types.date
 from aws_sdk_emr._protocol.errors import parse_error_metadata_json
 from aws_sdk_emr._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_emr._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_emr.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_emr.types.create_security_configuration_input
-    import aws_sdk_emr.types.create_security_configuration_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +26,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerException":
-            import aws_sdk_emr.errors.internal_server_exception
-
             raise aws_sdk_emr.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_emr.errors.invalid_request_exception
-
             raise aws_sdk_emr.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
                 data
             )
@@ -41,12 +38,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_emr.types.create_security_configuration_output.CreateSecurityConfigurationOutput:
-    import aws_sdk_emr.types.create_security_configuration_output
-
     out: aws_sdk_emr.types.create_security_configuration_output.CreateSecurityConfigurationOutput = aws_sdk_emr.types.create_security_configuration_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_emr.types.create_security_configuration_output.CreateSecurityConfigurationOutput:
+    out: aws_sdk_emr.types.create_security_configuration_output.CreateSecurityConfigurationOutput = aws_sdk_emr.types.create_security_configuration_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -116,8 +120,7 @@ def create_security_configuration(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -135,8 +138,7 @@ async def async_create_security_configuration(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

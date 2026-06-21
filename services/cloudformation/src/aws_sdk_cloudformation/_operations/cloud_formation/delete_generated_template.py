@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,9 @@ from typing_extensions import Never
 
 import aws_sdk_cloudformation._auth._signers
 import aws_sdk_cloudformation._auth._sigv4
+import aws_sdk_cloudformation.errors.concurrent_resources_limit_exceeded_exception
+import aws_sdk_cloudformation.errors.generated_template_not_found_exception
+import aws_sdk_cloudformation.types.delete_generated_template_input
 from aws_sdk_cloudformation._protocol.errors import parse_error_metadata
 from aws_sdk_cloudformation._protocol.xml import (
     fromstring,
@@ -24,23 +27,16 @@ from aws_sdk_cloudformation._services._pipeline import (
 )
 from aws_sdk_cloudformation.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudformation.types.delete_generated_template_input
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "ConcurrentResourcesLimitExceededException":
-            import aws_sdk_cloudformation.errors.concurrent_resources_limit_exceeded_exception
-
             raise aws_sdk_cloudformation.errors.concurrent_resources_limit_exceeded_exception.ConcurrentResourcesLimitExceededException.from_query(
                 root
             )
         case "GeneratedTemplateNotFoundException":
-            import aws_sdk_cloudformation.errors.generated_template_not_found_exception
-
             raise aws_sdk_cloudformation.errors.generated_template_not_found_exception.GeneratedTemplateNotFoundException.from_query(
                 root
             )
@@ -111,7 +107,6 @@ def delete_generated_template(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -127,7 +122,6 @@ async def async_delete_generated_template(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

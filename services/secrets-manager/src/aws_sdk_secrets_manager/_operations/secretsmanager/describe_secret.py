@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_secrets_manager._auth._signers
 import aws_sdk_secrets_manager._auth._sigv4
+import aws_sdk_secrets_manager.errors.internal_service_error
+import aws_sdk_secrets_manager.errors.invalid_parameter_exception
+import aws_sdk_secrets_manager.errors.resource_not_found_exception
+import aws_sdk_secrets_manager.types.deleted_date_type
+import aws_sdk_secrets_manager.types.describe_secret_request
+import aws_sdk_secrets_manager.types.describe_secret_response
+import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_type
+import aws_sdk_secrets_manager.types.last_accessed_date_type
+import aws_sdk_secrets_manager.types.last_changed_date_type
+import aws_sdk_secrets_manager.types.last_rotated_date_type
+import aws_sdk_secrets_manager.types.next_rotation_date_type
+import aws_sdk_secrets_manager.types.replication_status_list_type
+import aws_sdk_secrets_manager.types.rotation_rules_type
+import aws_sdk_secrets_manager.types.secret_versions_to_stages_map_type
+import aws_sdk_secrets_manager.types.tag_list_type
+import aws_sdk_secrets_manager.types.timestamp_type
 from aws_sdk_secrets_manager._protocol.errors import parse_error_metadata_json
 from aws_sdk_secrets_manager._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,30 +37,20 @@ from aws_sdk_secrets_manager._services._pipeline import (
 )
 from aws_sdk_secrets_manager.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_secrets_manager.types.describe_secret_request
-    import aws_sdk_secrets_manager.types.describe_secret_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceError":
-            import aws_sdk_secrets_manager.errors.internal_service_error
-
             raise aws_sdk_secrets_manager.errors.internal_service_error.InternalServiceError.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_secrets_manager.errors.invalid_parameter_exception
-
             raise aws_sdk_secrets_manager.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_secrets_manager.errors.resource_not_found_exception
-
             raise aws_sdk_secrets_manager.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -53,12 +59,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_secrets_manager.types.describe_secret_response.DescribeSecretResponse:
-    import aws_sdk_secrets_manager.types.describe_secret_response
-
     out: aws_sdk_secrets_manager.types.describe_secret_response.DescribeSecretResponse = aws_sdk_secrets_manager.types.describe_secret_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_secrets_manager.types.describe_secret_response.DescribeSecretResponse:
+    out: aws_sdk_secrets_manager.types.describe_secret_response.DescribeSecretResponse = aws_sdk_secrets_manager.types.describe_secret_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -128,8 +141,7 @@ def describe_secret(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +159,7 @@ async def async_describe_secret(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

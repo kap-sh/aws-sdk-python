@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,36 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.db_cluster_already_exists_fault
+import aws_sdk_rds.errors.db_cluster_not_found_fault
+import aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault
+import aws_sdk_rds.errors.db_cluster_quota_exceeded_fault
+import aws_sdk_rds.errors.db_subnet_group_not_found_fault
+import aws_sdk_rds.errors.domain_not_found_fault
+import aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault
+import aws_sdk_rds.errors.invalid_db_cluster_state_fault
+import aws_sdk_rds.errors.invalid_db_subnet_group_state_fault
+import aws_sdk_rds.errors.invalid_s3_bucket_fault
+import aws_sdk_rds.errors.invalid_subnet
+import aws_sdk_rds.errors.invalid_vpc_network_state_fault
+import aws_sdk_rds.errors.kms_key_not_accessible_fault
+import aws_sdk_rds.errors.network_type_not_supported
+import aws_sdk_rds.errors.storage_quota_exceeded_fault
+import aws_sdk_rds.errors.storage_type_not_supported_fault
+import aws_sdk_rds.types.availability_zones
+import aws_sdk_rds.types.db_cluster
+import aws_sdk_rds.types.log_type_list
+import aws_sdk_rds.types.restore_db_cluster_from_s3_message
+import aws_sdk_rds.types.restore_db_cluster_from_s3_result
+import aws_sdk_rds.types.serverless_v2_scaling_configuration
+import aws_sdk_rds.types.tag_list
+import aws_sdk_rds.types.tag_specification_list
+import aws_sdk_rds.types.vpc_security_group_id_list
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.restore_db_cluster_from_s3_message
-    import aws_sdk_rds.types.restore_db_cluster_from_s3_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,96 +47,64 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBClusterAlreadyExistsFault":
-            import aws_sdk_rds.errors.db_cluster_already_exists_fault
-
             raise aws_sdk_rds.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault.from_query(
                 root
             )
         case "DBClusterNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBClusterParameterGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault.from_query(
                 root
             )
         case "DBClusterQuotaExceededFault":
-            import aws_sdk_rds.errors.db_cluster_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
                 root
             )
         case "DBSubnetGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_subnet_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
                 root
             )
         case "DomainNotFoundFault":
-            import aws_sdk_rds.errors.domain_not_found_fault
-
             raise aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault.from_query(
                 root
             )
         case "InsufficientStorageClusterCapacityFault":
-            import aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault
-
             raise aws_sdk_rds.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_rds.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
         case "InvalidDBSubnetGroupStateFault":
-            import aws_sdk_rds.errors.invalid_db_subnet_group_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault.from_query(
                 root
             )
         case "InvalidS3BucketFault":
-            import aws_sdk_rds.errors.invalid_s3_bucket_fault
-
             raise aws_sdk_rds.errors.invalid_s3_bucket_fault.InvalidS3BucketFault.from_query(
                 root
             )
         case "InvalidSubnet":
-            import aws_sdk_rds.errors.invalid_subnet
-
             raise aws_sdk_rds.errors.invalid_subnet.InvalidSubnet.from_query(root)
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_rds.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "KMSKeyNotAccessibleFault":
-            import aws_sdk_rds.errors.kms_key_not_accessible_fault
-
             raise aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
                 root
             )
         case "NetworkTypeNotSupported":
-            import aws_sdk_rds.errors.network_type_not_supported
-
             raise aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_rds.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
         case "StorageTypeNotSupportedFault":
-            import aws_sdk_rds.errors.storage_type_not_supported_fault
-
             raise aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault.from_query(
                 root
             )
@@ -124,11 +113,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.restore_db_cluster_from_s3_result.RestoreDBClusterFromS3Result:
-    import aws_sdk_rds.types.restore_db_cluster_from_s3_result
-
     root = fromstring(response.read())
+    result = root.find("RestoreDBClusterFromS3Result")
+    out: aws_sdk_rds.types.restore_db_cluster_from_s3_result.RestoreDBClusterFromS3Result = aws_sdk_rds.types.restore_db_cluster_from_s3_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.restore_db_cluster_from_s3_result.RestoreDBClusterFromS3Result:
+    root = fromstring(await response.aread())
     result = root.find("RestoreDBClusterFromS3Result")
     out: aws_sdk_rds.types.restore_db_cluster_from_s3_result.RestoreDBClusterFromS3Result = aws_sdk_rds.types.restore_db_cluster_from_s3_result.deserialize_query(
         result if result is not None else root
@@ -200,8 +198,7 @@ def restore_db_cluster_from_s3(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -219,8 +216,7 @@ async def async_restore_db_cluster_from_s3(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

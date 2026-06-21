@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_braket._auth._signers
 import aws_sdk_braket._auth._sigv4
+import aws_sdk_braket.errors.access_denied_exception
+import aws_sdk_braket.errors.internal_service_exception
+import aws_sdk_braket.errors.throttling_exception
+import aws_sdk_braket.errors.validation_exception
+import aws_sdk_braket.types.device_summary_list
+import aws_sdk_braket.types.search_devices_filter_list
+import aws_sdk_braket.types.search_devices_request
+import aws_sdk_braket.types.search_devices_response
 from aws_sdk_braket._protocol.errors import parse_error_metadata_json
 from aws_sdk_braket._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_braket._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_braket.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_braket.types.search_devices_request
-    import aws_sdk_braket.types.search_devices_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +29,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_braket.errors.access_denied_exception
-
             raise aws_sdk_braket.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServiceException":
-            import aws_sdk_braket.errors.internal_service_exception
-
             raise aws_sdk_braket.errors.internal_service_exception.InternalServiceException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_braket.errors.throttling_exception
-
             raise aws_sdk_braket.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_braket.errors.validation_exception
-
             raise aws_sdk_braket.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -53,13 +49,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_braket.types.search_devices_response.SearchDevicesResponse:
-    import aws_sdk_braket.types.search_devices_response
-
     out: aws_sdk_braket.types.search_devices_response.SearchDevicesResponse = (
         aws_sdk_braket.types.search_devices_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_braket.types.search_devices_response.SearchDevicesResponse:
+    out: aws_sdk_braket.types.search_devices_response.SearchDevicesResponse = (
+        aws_sdk_braket.types.search_devices_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -126,8 +131,7 @@ def search_devices(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +148,7 @@ async def async_search_devices(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

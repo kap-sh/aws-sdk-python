@@ -2,6 +2,7 @@
 
 from typing import TypedDict
 
+from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
@@ -25,4 +26,17 @@ def deserialize_json(data: dict) -> HarnessContentBlockStopEvent:
         raise DeserializationError(
             "HarnessContentBlockStopEvent.content_block_index required"
         )
+    return out
+
+
+def serialize_event_json(value: HarnessContentBlockStopEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "contentBlockStop"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> HarnessContentBlockStopEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: HarnessContentBlockStopEvent = {}  # type: ignore[typeddict-item]
     return out

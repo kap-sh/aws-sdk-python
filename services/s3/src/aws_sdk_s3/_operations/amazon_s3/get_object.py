@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import datetime
 from email.utils import parsedate_to_datetime as _parse_http_date
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 from urllib.parse import quote
 
 import zapros
@@ -12,6 +12,27 @@ from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.errors.invalid_object_state
+import aws_sdk_s3.errors.no_such_key
+import aws_sdk_s3.types.checksum_mode
+import aws_sdk_s3.types.checksum_type
+import aws_sdk_s3.types.get_object_output
+import aws_sdk_s3.types.get_object_request
+import aws_sdk_s3.types.if_modified_since
+import aws_sdk_s3.types.if_unmodified_since
+import aws_sdk_s3.types.last_modified
+import aws_sdk_s3.types.metadata
+import aws_sdk_s3.types.object_lock_legal_hold_status
+import aws_sdk_s3.types.object_lock_mode
+import aws_sdk_s3.types.object_lock_retain_until_date
+import aws_sdk_s3.types.replication_status
+import aws_sdk_s3.types.request_charged
+import aws_sdk_s3.types.request_payer
+import aws_sdk_s3.types.response_expires
+import aws_sdk_s3.types.server_side_encryption
+import aws_sdk_s3.types.storage_class
+import aws_sdk_s3.types.streaming_blob
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,35 +40,25 @@ from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.get_object_output
-    import aws_sdk_s3.types.get_object_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidObjectState":
-            import aws_sdk_s3.errors.invalid_object_state
-
             raise aws_sdk_s3.errors.invalid_object_state.InvalidObjectState.from_xml(
                 root
             )
         case "NoSuchKey":
-            import aws_sdk_s3.errors.no_such_key
-
             raise aws_sdk_s3.errors.no_such_key.NoSuchKey.from_xml(root)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.get_object_output.GetObjectOutput:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
     out: aws_sdk_s3.types.get_object_output.GetObjectOutput = {"body": _iter}  # type: ignore[reportAssignmentType]
     if "x-amz-delete-marker" in response.headers:
         out["delete_marker"] = response.headers["x-amz-delete-marker"].lower() == "true"
@@ -58,8 +69,6 @@ def handle_response(
     if "x-amz-restore" in response.headers:
         out["restore"] = str(response.headers["x-amz-restore"])
     if "Last-Modified" in response.headers:
-        import aws_sdk_s3.types.last_modified
-
         out["last_modified"] = _parse_http_date(response.headers["Last-Modified"])
     if "Content-Length" in response.headers:
         out["content_length"] = int(response.headers["Content-Length"])
@@ -86,8 +95,6 @@ def handle_response(
     if "x-amz-checksum-xxhash128" in response.headers:
         out["checksum_xxhash128"] = str(response.headers["x-amz-checksum-xxhash128"])
     if "x-amz-checksum-type" in response.headers:
-        import aws_sdk_s3.types.checksum_type
-
         out["checksum_type"] = aws_sdk_s3.types.checksum_type.from_xml_text(
             response.headers["x-amz-checksum-type"]
         )
@@ -114,8 +121,6 @@ def handle_response(
             response.headers["x-amz-website-redirect-location"]
         )
     if "x-amz-server-side-encryption" in response.headers:
-        import aws_sdk_s3.types.server_side_encryption
-
         out["server_side_encryption"] = (
             aws_sdk_s3.types.server_side_encryption.from_xml_text(
                 response.headers["x-amz-server-side-encryption"]
@@ -139,20 +144,14 @@ def handle_response(
             == "true"
         )
     if "x-amz-storage-class" in response.headers:
-        import aws_sdk_s3.types.storage_class
-
         out["storage_class"] = aws_sdk_s3.types.storage_class.from_xml_text(
             response.headers["x-amz-storage-class"]
         )
     if "x-amz-request-charged" in response.headers:
-        import aws_sdk_s3.types.request_charged
-
         out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
         )
     if "x-amz-replication-status" in response.headers:
-        import aws_sdk_s3.types.replication_status
-
         out["replication_status"] = aws_sdk_s3.types.replication_status.from_xml_text(
             response.headers["x-amz-replication-status"]
         )
@@ -161,22 +160,139 @@ def handle_response(
     if "x-amz-tagging-count" in response.headers:
         out["tag_count"] = int(response.headers["x-amz-tagging-count"])
     if "x-amz-object-lock-mode" in response.headers:
-        import aws_sdk_s3.types.object_lock_mode
-
         out["object_lock_mode"] = aws_sdk_s3.types.object_lock_mode.from_xml_text(
             response.headers["x-amz-object-lock-mode"]
         )
     if "x-amz-object-lock-retain-until-date" in response.headers:
-        import aws_sdk_s3.types.object_lock_retain_until_date
-
         out["object_lock_retain_until_date"] = datetime.datetime.fromisoformat(
             response.headers["x-amz-object-lock-retain-until-date"].replace(
                 "Z", "+00:00"
             )
         )
     if "x-amz-object-lock-legal-hold" in response.headers:
-        import aws_sdk_s3.types.object_lock_legal_hold_status
+        out["object_lock_legal_hold_status"] = (
+            aws_sdk_s3.types.object_lock_legal_hold_status.from_xml_text(
+                response.headers["x-amz-object-lock-legal-hold"]
+            )
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.get_object_output.GetObjectOutput:
+    _iter = cast(Any, response.async_iter_bytes())
+    out: aws_sdk_s3.types.get_object_output.GetObjectOutput = {"body": _iter}  # type: ignore[reportAssignmentType]
+    if "x-amz-delete-marker" in response.headers:
+        out["delete_marker"] = response.headers["x-amz-delete-marker"].lower() == "true"
+    if "accept-ranges" in response.headers:
+        out["accept_ranges"] = str(response.headers["accept-ranges"])
+    if "x-amz-expiration" in response.headers:
+        out["expiration"] = str(response.headers["x-amz-expiration"])
+    if "x-amz-restore" in response.headers:
+        out["restore"] = str(response.headers["x-amz-restore"])
+    if "Last-Modified" in response.headers:
+        out["last_modified"] = _parse_http_date(response.headers["Last-Modified"])
+    if "Content-Length" in response.headers:
+        out["content_length"] = int(response.headers["Content-Length"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    if "x-amz-checksum-crc32" in response.headers:
+        out["checksum_crc32"] = str(response.headers["x-amz-checksum-crc32"])
+    if "x-amz-checksum-crc32c" in response.headers:
+        out["checksum_crc32_c"] = str(response.headers["x-amz-checksum-crc32c"])
+    if "x-amz-checksum-crc64nvme" in response.headers:
+        out["checksum_crc64_nvme"] = str(response.headers["x-amz-checksum-crc64nvme"])
+    if "x-amz-checksum-sha1" in response.headers:
+        out["checksum_sha1"] = str(response.headers["x-amz-checksum-sha1"])
+    if "x-amz-checksum-sha256" in response.headers:
+        out["checksum_sha256"] = str(response.headers["x-amz-checksum-sha256"])
+    if "x-amz-checksum-sha512" in response.headers:
+        out["checksum_sha512"] = str(response.headers["x-amz-checksum-sha512"])
+    if "x-amz-checksum-md5" in response.headers:
+        out["checksum_md5"] = str(response.headers["x-amz-checksum-md5"])
+    if "x-amz-checksum-xxhash64" in response.headers:
+        out["checksum_xxhash64"] = str(response.headers["x-amz-checksum-xxhash64"])
+    if "x-amz-checksum-xxhash3" in response.headers:
+        out["checksum_xxhash3"] = str(response.headers["x-amz-checksum-xxhash3"])
+    if "x-amz-checksum-xxhash128" in response.headers:
+        out["checksum_xxhash128"] = str(response.headers["x-amz-checksum-xxhash128"])
+    if "x-amz-checksum-type" in response.headers:
+        out["checksum_type"] = aws_sdk_s3.types.checksum_type.from_xml_text(
+            response.headers["x-amz-checksum-type"]
+        )
+    if "x-amz-missing-meta" in response.headers:
+        out["missing_meta"] = int(response.headers["x-amz-missing-meta"])
+    if "x-amz-version-id" in response.headers:
+        out["version_id"] = str(response.headers["x-amz-version-id"])
+    if "Cache-Control" in response.headers:
+        out["cache_control"] = str(response.headers["Cache-Control"])
+    if "Content-Disposition" in response.headers:
+        out["content_disposition"] = str(response.headers["Content-Disposition"])
+    if "Content-Encoding" in response.headers:
+        out["content_encoding"] = str(response.headers["Content-Encoding"])
+    if "Content-Language" in response.headers:
+        out["content_language"] = str(response.headers["Content-Language"])
+    if "Content-Range" in response.headers:
+        out["content_range"] = str(response.headers["Content-Range"])
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    if "Expires" in response.headers:
+        out["expires"] = str(response.headers["Expires"])
+    if "x-amz-website-redirect-location" in response.headers:
+        out["website_redirect_location"] = str(
+            response.headers["x-amz-website-redirect-location"]
+        )
+    if "x-amz-server-side-encryption" in response.headers:
+        out["server_side_encryption"] = (
+            aws_sdk_s3.types.server_side_encryption.from_xml_text(
+                response.headers["x-amz-server-side-encryption"]
+            )
+        )
+    if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
+        out["sse_customer_algorithm"] = str(
+            response.headers["x-amz-server-side-encryption-customer-algorithm"]
+        )
+    if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
+        out["sse_customer_key_md5"] = str(
+            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
+        )
+    if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
+        out["ssekms_key_id"] = str(
+            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
+        )
+    if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
+        out["bucket_key_enabled"] = (
+            response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
+            == "true"
+        )
+    if "x-amz-storage-class" in response.headers:
+        out["storage_class"] = aws_sdk_s3.types.storage_class.from_xml_text(
+            response.headers["x-amz-storage-class"]
+        )
+    if "x-amz-request-charged" in response.headers:
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    if "x-amz-replication-status" in response.headers:
+        out["replication_status"] = aws_sdk_s3.types.replication_status.from_xml_text(
+            response.headers["x-amz-replication-status"]
+        )
+    if "x-amz-mp-parts-count" in response.headers:
+        out["parts_count"] = int(response.headers["x-amz-mp-parts-count"])
+    if "x-amz-tagging-count" in response.headers:
+        out["tag_count"] = int(response.headers["x-amz-tagging-count"])
+    if "x-amz-object-lock-mode" in response.headers:
+        out["object_lock_mode"] = aws_sdk_s3.types.object_lock_mode.from_xml_text(
+            response.headers["x-amz-object-lock-mode"]
+        )
+    if "x-amz-object-lock-retain-until-date" in response.headers:
+        out["object_lock_retain_until_date"] = datetime.datetime.fromisoformat(
+            response.headers["x-amz-object-lock-retain-until-date"].replace(
+                "Z", "+00:00"
+            )
+        )
+    if "x-amz-object-lock-legal-hold" in response.headers:
         out["object_lock_legal_hold_status"] = (
             aws_sdk_s3.types.object_lock_legal_hold_status.from_xml_text(
                 response.headers["x-amz-object-lock-legal-hold"]
@@ -298,8 +414,7 @@ def get_object(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -314,8 +429,7 @@ async def async_get_object(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

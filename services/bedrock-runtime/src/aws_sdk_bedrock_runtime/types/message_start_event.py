@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_bedrock_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -34,4 +35,17 @@ def deserialize_json(data: dict) -> MessageStartEvent:
         )
     else:
         raise DeserializationError("MessageStartEvent.role required")
+    return out
+
+
+def serialize_event_json(value: MessageStartEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "messageStart"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> MessageStartEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: MessageStartEvent = {}  # type: ignore[typeddict-item]
     return out

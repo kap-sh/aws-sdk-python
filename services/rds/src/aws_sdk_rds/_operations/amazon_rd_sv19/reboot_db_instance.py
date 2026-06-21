@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,17 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.db_instance_not_found_fault
+import aws_sdk_rds.errors.invalid_db_instance_state_fault
+import aws_sdk_rds.errors.kms_key_not_accessible_fault
+import aws_sdk_rds.types.db_instance
+import aws_sdk_rds.types.reboot_db_instance_message
+import aws_sdk_rds.types.reboot_db_instance_result
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.reboot_db_instance_message
-    import aws_sdk_rds.types.reboot_db_instance_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,20 +28,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBInstanceNotFoundFault":
-            import aws_sdk_rds.errors.db_instance_not_found_fault
-
             raise aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_rds.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "KMSKeyNotAccessibleFault":
-            import aws_sdk_rds.errors.kms_key_not_accessible_fault
-
             raise aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
                 root
             )
@@ -48,11 +44,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.reboot_db_instance_result.RebootDBInstanceResult:
-    import aws_sdk_rds.types.reboot_db_instance_result
-
     root = fromstring(response.read())
+    result = root.find("RebootDBInstanceResult")
+    out: aws_sdk_rds.types.reboot_db_instance_result.RebootDBInstanceResult = (
+        aws_sdk_rds.types.reboot_db_instance_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.reboot_db_instance_result.RebootDBInstanceResult:
+    root = fromstring(await response.aread())
     result = root.find("RebootDBInstanceResult")
     out: aws_sdk_rds.types.reboot_db_instance_result.RebootDBInstanceResult = (
         aws_sdk_rds.types.reboot_db_instance_result.deserialize_query(
@@ -123,8 +130,7 @@ def reboot_db_instance(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +147,7 @@ async def async_reboot_db_instance(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

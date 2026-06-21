@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_kinesis._protocol.eventstream import HeaderValue, Message
 from aws_sdk_kinesis.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -46,3 +47,16 @@ class InternalFailureException(ServiceError):
     @classmethod
     def from_aws_json_1_1(cls, data: dict) -> "InternalFailureException":
         return cls(deserialize_aws_json_1_1(data))
+
+
+def serialize_event_aws_json_1_1(value: InternalFailureException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "InternalFailureException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> InternalFailureException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: InternalFailureException_ = {}  # type: ignore[typeddict-item]
+    return out

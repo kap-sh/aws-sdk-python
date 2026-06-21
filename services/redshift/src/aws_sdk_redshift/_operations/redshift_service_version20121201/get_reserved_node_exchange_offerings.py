@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.dependent_service_unavailable_fault
+import aws_sdk_redshift.errors.invalid_reserved_node_state_fault
+import aws_sdk_redshift.errors.reserved_node_already_migrated_fault
+import aws_sdk_redshift.errors.reserved_node_not_found_fault
+import aws_sdk_redshift.errors.reserved_node_offering_not_found_fault
+import aws_sdk_redshift.errors.unsupported_operation_fault
+import aws_sdk_redshift.types.get_reserved_node_exchange_offerings_input_message
+import aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message
+import aws_sdk_redshift.types.reserved_node_offering_list
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.get_reserved_node_exchange_offerings_input_message
-    import aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,38 +31,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DependentServiceUnavailableFault":
-            import aws_sdk_redshift.errors.dependent_service_unavailable_fault
-
             raise aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault.from_query(
                 root
             )
         case "InvalidReservedNodeStateFault":
-            import aws_sdk_redshift.errors.invalid_reserved_node_state_fault
-
             raise aws_sdk_redshift.errors.invalid_reserved_node_state_fault.InvalidReservedNodeStateFault.from_query(
                 root
             )
         case "ReservedNodeAlreadyMigratedFault":
-            import aws_sdk_redshift.errors.reserved_node_already_migrated_fault
-
             raise aws_sdk_redshift.errors.reserved_node_already_migrated_fault.ReservedNodeAlreadyMigratedFault.from_query(
                 root
             )
         case "ReservedNodeNotFoundFault":
-            import aws_sdk_redshift.errors.reserved_node_not_found_fault
-
             raise aws_sdk_redshift.errors.reserved_node_not_found_fault.ReservedNodeNotFoundFault.from_query(
                 root
             )
         case "ReservedNodeOfferingNotFoundFault":
-            import aws_sdk_redshift.errors.reserved_node_offering_not_found_fault
-
             raise aws_sdk_redshift.errors.reserved_node_offering_not_found_fault.ReservedNodeOfferingNotFoundFault.from_query(
                 root
             )
         case "UnsupportedOperationFault":
-            import aws_sdk_redshift.errors.unsupported_operation_fault
-
             raise aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault.from_query(
                 root
             )
@@ -66,11 +59,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.GetReservedNodeExchangeOfferingsOutputMessage:
-    import aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message
-
     root = fromstring(response.read())
+    result = root.find("GetReservedNodeExchangeOfferingsResult")
+    out: aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.GetReservedNodeExchangeOfferingsOutputMessage = aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.GetReservedNodeExchangeOfferingsOutputMessage:
+    root = fromstring(await response.aread())
     result = root.find("GetReservedNodeExchangeOfferingsResult")
     out: aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.GetReservedNodeExchangeOfferingsOutputMessage = aws_sdk_redshift.types.get_reserved_node_exchange_offerings_output_message.deserialize_query(
         result if result is not None else root
@@ -144,8 +146,7 @@ def get_reserved_node_exchange_offerings(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -163,8 +164,7 @@ async def async_get_reserved_node_exchange_offerings(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

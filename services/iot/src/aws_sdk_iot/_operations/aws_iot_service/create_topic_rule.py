@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,19 @@ from typing_extensions import Never
 
 import aws_sdk_iot._auth._signers
 import aws_sdk_iot._auth._sigv4
+import aws_sdk_iot.errors.conflicting_resource_update_exception
+import aws_sdk_iot.errors.internal_exception
+import aws_sdk_iot.errors.invalid_request_exception
+import aws_sdk_iot.errors.resource_already_exists_exception
+import aws_sdk_iot.errors.service_unavailable_exception
+import aws_sdk_iot.errors.sql_parse_exception
+import aws_sdk_iot.errors.unauthorized_exception
+import aws_sdk_iot.types.create_topic_rule_request
+import aws_sdk_iot.types.topic_rule_payload
 from aws_sdk_iot._protocol.errors import parse_error_metadata_json
 from aws_sdk_iot._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iot._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iot.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iot.types.create_topic_rule_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,44 +31,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConflictingResourceUpdateException":
-            import aws_sdk_iot.errors.conflicting_resource_update_exception
-
             raise aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException.from_json(
                 data
             )
         case "InternalException":
-            import aws_sdk_iot.errors.internal_exception
-
             raise aws_sdk_iot.errors.internal_exception.InternalException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_iot.errors.invalid_request_exception
-
             raise aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ResourceAlreadyExistsException":
-            import aws_sdk_iot.errors.resource_already_exists_exception
-
             raise aws_sdk_iot.errors.resource_already_exists_exception.ResourceAlreadyExistsException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_iot.errors.service_unavailable_exception
-
             raise aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "SqlParseException":
-            import aws_sdk_iot.errors.sql_parse_exception
-
             raise aws_sdk_iot.errors.sql_parse_exception.SqlParseException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_iot.errors.unauthorized_exception
-
             raise aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -135,7 +127,6 @@ def create_topic_rule(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -151,7 +142,6 @@ async def async_create_topic_rule(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

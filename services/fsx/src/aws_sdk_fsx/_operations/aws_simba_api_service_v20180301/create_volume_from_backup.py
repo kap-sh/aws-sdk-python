@@ -3,21 +3,30 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_fsx._auth._signers
 import aws_sdk_fsx._auth._sigv4
+import aws_sdk_fsx.errors.backup_not_found
+import aws_sdk_fsx.errors.bad_request
+import aws_sdk_fsx.errors.file_system_not_found
+import aws_sdk_fsx.errors.incompatible_parameter_error
+import aws_sdk_fsx.errors.internal_server_error
+import aws_sdk_fsx.errors.missing_volume_configuration
+import aws_sdk_fsx.errors.service_limit_exceeded
+import aws_sdk_fsx.errors.storage_virtual_machine_not_found
+import aws_sdk_fsx.types.create_ontap_volume_configuration
+import aws_sdk_fsx.types.create_volume_from_backup_request
+import aws_sdk_fsx.types.create_volume_from_backup_response
+import aws_sdk_fsx.types.tags
+import aws_sdk_fsx.types.volume
 from aws_sdk_fsx._protocol.errors import parse_error_metadata_json
 from aws_sdk_fsx._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_fsx._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_fsx.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_fsx.types.create_volume_from_backup_request
-    import aws_sdk_fsx.types.create_volume_from_backup_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,48 +34,32 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BackupNotFound":
-            import aws_sdk_fsx.errors.backup_not_found
-
             raise aws_sdk_fsx.errors.backup_not_found.BackupNotFound.from_aws_json_1_1(
                 data
             )
         case "BadRequest":
-            import aws_sdk_fsx.errors.bad_request
-
             raise aws_sdk_fsx.errors.bad_request.BadRequest.from_aws_json_1_1(data)
         case "FileSystemNotFound":
-            import aws_sdk_fsx.errors.file_system_not_found
-
             raise aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound.from_aws_json_1_1(
                 data
             )
         case "IncompatibleParameterError":
-            import aws_sdk_fsx.errors.incompatible_parameter_error
-
             raise aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_fsx.errors.internal_server_error
-
             raise aws_sdk_fsx.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "MissingVolumeConfiguration":
-            import aws_sdk_fsx.errors.missing_volume_configuration
-
             raise aws_sdk_fsx.errors.missing_volume_configuration.MissingVolumeConfiguration.from_aws_json_1_1(
                 data
             )
         case "ServiceLimitExceeded":
-            import aws_sdk_fsx.errors.service_limit_exceeded
-
             raise aws_sdk_fsx.errors.service_limit_exceeded.ServiceLimitExceeded.from_aws_json_1_1(
                 data
             )
         case "StorageVirtualMachineNotFound":
-            import aws_sdk_fsx.errors.storage_virtual_machine_not_found
-
             raise aws_sdk_fsx.errors.storage_virtual_machine_not_found.StorageVirtualMachineNotFound.from_aws_json_1_1(
                 data
             )
@@ -75,14 +68,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_fsx.types.create_volume_from_backup_response.CreateVolumeFromBackupResponse
 ):
-    import aws_sdk_fsx.types.create_volume_from_backup_response
-
     out: aws_sdk_fsx.types.create_volume_from_backup_response.CreateVolumeFromBackupResponse = aws_sdk_fsx.types.create_volume_from_backup_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_fsx.types.create_volume_from_backup_response.CreateVolumeFromBackupResponse
+):
+    out: aws_sdk_fsx.types.create_volume_from_backup_response.CreateVolumeFromBackupResponse = aws_sdk_fsx.types.create_volume_from_backup_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -150,8 +152,7 @@ def create_volume_from_backup(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -169,8 +170,7 @@ async def async_create_volume_from_backup(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

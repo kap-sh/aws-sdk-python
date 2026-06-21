@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codebuild._auth._signers
 import aws_sdk_codebuild._auth._sigv4
+import aws_sdk_codebuild.errors.invalid_input_exception
+import aws_sdk_codebuild.errors.o_auth_provider_exception
+import aws_sdk_codebuild.errors.resource_not_found_exception
+import aws_sdk_codebuild.types.filter_groups
+import aws_sdk_codebuild.types.pull_request_build_policy
+import aws_sdk_codebuild.types.update_webhook_input
+import aws_sdk_codebuild.types.update_webhook_output
+import aws_sdk_codebuild.types.webhook
+import aws_sdk_codebuild.types.webhook_build_type
 from aws_sdk_codebuild._protocol.errors import parse_error_metadata_json
 from aws_sdk_codebuild._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codebuild._services._pipeline import (
@@ -18,30 +27,20 @@ from aws_sdk_codebuild._services._pipeline import (
 )
 from aws_sdk_codebuild.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codebuild.types.update_webhook_input
-    import aws_sdk_codebuild.types.update_webhook_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidInputException":
-            import aws_sdk_codebuild.errors.invalid_input_exception
-
             raise aws_sdk_codebuild.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "OAuthProviderException":
-            import aws_sdk_codebuild.errors.o_auth_provider_exception
-
             raise aws_sdk_codebuild.errors.o_auth_provider_exception.OAuthProviderException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_codebuild.errors.resource_not_found_exception
-
             raise aws_sdk_codebuild.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -50,13 +49,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codebuild.types.update_webhook_output.UpdateWebhookOutput:
-    import aws_sdk_codebuild.types.update_webhook_output
-
     out: aws_sdk_codebuild.types.update_webhook_output.UpdateWebhookOutput = (
         aws_sdk_codebuild.types.update_webhook_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codebuild.types.update_webhook_output.UpdateWebhookOutput:
+    out: aws_sdk_codebuild.types.update_webhook_output.UpdateWebhookOutput = (
+        aws_sdk_codebuild.types.update_webhook_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -124,8 +132,7 @@ def update_webhook(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -142,8 +149,7 @@ async def async_update_webhook(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

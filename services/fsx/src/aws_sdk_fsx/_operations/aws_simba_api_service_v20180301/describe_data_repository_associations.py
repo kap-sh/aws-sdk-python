@@ -3,21 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_fsx._auth._signers
 import aws_sdk_fsx._auth._sigv4
+import aws_sdk_fsx.errors.bad_request
+import aws_sdk_fsx.errors.data_repository_association_not_found
+import aws_sdk_fsx.errors.file_system_not_found
+import aws_sdk_fsx.errors.internal_server_error
+import aws_sdk_fsx.errors.invalid_data_repository_type
+import aws_sdk_fsx.types.data_repository_association_ids
+import aws_sdk_fsx.types.data_repository_associations
+import aws_sdk_fsx.types.describe_data_repository_associations_request
+import aws_sdk_fsx.types.describe_data_repository_associations_response
+import aws_sdk_fsx.types.filters
 from aws_sdk_fsx._protocol.errors import parse_error_metadata_json
 from aws_sdk_fsx._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_fsx._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_fsx.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_fsx.types.describe_data_repository_associations_request
-    import aws_sdk_fsx.types.describe_data_repository_associations_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,30 +31,20 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequest":
-            import aws_sdk_fsx.errors.bad_request
-
             raise aws_sdk_fsx.errors.bad_request.BadRequest.from_aws_json_1_1(data)
         case "DataRepositoryAssociationNotFound":
-            import aws_sdk_fsx.errors.data_repository_association_not_found
-
             raise aws_sdk_fsx.errors.data_repository_association_not_found.DataRepositoryAssociationNotFound.from_aws_json_1_1(
                 data
             )
         case "FileSystemNotFound":
-            import aws_sdk_fsx.errors.file_system_not_found
-
             raise aws_sdk_fsx.errors.file_system_not_found.FileSystemNotFound.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_fsx.errors.internal_server_error
-
             raise aws_sdk_fsx.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidDataRepositoryType":
-            import aws_sdk_fsx.errors.invalid_data_repository_type
-
             raise aws_sdk_fsx.errors.invalid_data_repository_type.InvalidDataRepositoryType.from_aws_json_1_1(
                 data
             )
@@ -57,12 +53,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_fsx.types.describe_data_repository_associations_response.DescribeDataRepositoryAssociationsResponse:
-    import aws_sdk_fsx.types.describe_data_repository_associations_response
-
     out: aws_sdk_fsx.types.describe_data_repository_associations_response.DescribeDataRepositoryAssociationsResponse = aws_sdk_fsx.types.describe_data_repository_associations_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_fsx.types.describe_data_repository_associations_response.DescribeDataRepositoryAssociationsResponse:
+    out: aws_sdk_fsx.types.describe_data_repository_associations_response.DescribeDataRepositoryAssociationsResponse = aws_sdk_fsx.types.describe_data_repository_associations_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -132,8 +135,7 @@ def describe_data_repository_associations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -151,8 +153,7 @@ async def async_describe_data_repository_associations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

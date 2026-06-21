@@ -2,13 +2,25 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.inconsistent_quantities
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.origin_request_policy_already_exists
+import aws_sdk_cloudfront.errors.too_many_cookies_in_origin_request_policy
+import aws_sdk_cloudfront.errors.too_many_headers_in_origin_request_policy
+import aws_sdk_cloudfront.errors.too_many_origin_request_policies
+import aws_sdk_cloudfront.errors.too_many_query_strings_in_origin_request_policy
+import aws_sdk_cloudfront.types.create_origin_request_policy_request
+import aws_sdk_cloudfront.types.create_origin_request_policy_result
+import aws_sdk_cloudfront.types.origin_request_policy
+import aws_sdk_cloudfront.types.origin_request_policy_config
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import Element, fromstring, tostring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,58 +30,38 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.create_origin_request_policy_request
-    import aws_sdk_cloudfront.types.create_origin_request_policy_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "InconsistentQuantities":
-            import aws_sdk_cloudfront.errors.inconsistent_quantities
-
             raise aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities.from_xml(
                 root
             )
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "OriginRequestPolicyAlreadyExists":
-            import aws_sdk_cloudfront.errors.origin_request_policy_already_exists
-
             raise aws_sdk_cloudfront.errors.origin_request_policy_already_exists.OriginRequestPolicyAlreadyExists.from_xml(
                 root
             )
         case "TooManyCookiesInOriginRequestPolicy":
-            import aws_sdk_cloudfront.errors.too_many_cookies_in_origin_request_policy
-
             raise aws_sdk_cloudfront.errors.too_many_cookies_in_origin_request_policy.TooManyCookiesInOriginRequestPolicy.from_xml(
                 root
             )
         case "TooManyHeadersInOriginRequestPolicy":
-            import aws_sdk_cloudfront.errors.too_many_headers_in_origin_request_policy
-
             raise aws_sdk_cloudfront.errors.too_many_headers_in_origin_request_policy.TooManyHeadersInOriginRequestPolicy.from_xml(
                 root
             )
         case "TooManyOriginRequestPolicies":
-            import aws_sdk_cloudfront.errors.too_many_origin_request_policies
-
             raise aws_sdk_cloudfront.errors.too_many_origin_request_policies.TooManyOriginRequestPolicies.from_xml(
                 root
             )
         case "TooManyQueryStringsInOriginRequestPolicy":
-            import aws_sdk_cloudfront.errors.too_many_query_strings_in_origin_request_policy
-
             raise aws_sdk_cloudfront.errors.too_many_query_strings_in_origin_request_policy.TooManyQueryStringsInOriginRequestPolicy.from_xml(
                 root
             )
@@ -78,13 +70,26 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.create_origin_request_policy_result.CreateOriginRequestPolicyResult:
-    import aws_sdk_cloudfront.types.origin_request_policy
-
     out: aws_sdk_cloudfront.types.create_origin_request_policy_result.CreateOriginRequestPolicyResult = {
         "origin_request_policy": aws_sdk_cloudfront.types.origin_request_policy.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    if "Location" in response.headers:
+        out["location"] = str(response.headers["Location"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.create_origin_request_policy_result.CreateOriginRequestPolicyResult:
+    out: aws_sdk_cloudfront.types.create_origin_request_policy_result.CreateOriginRequestPolicyResult = {
+        "origin_request_policy": aws_sdk_cloudfront.types.origin_request_policy.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
@@ -163,8 +168,7 @@ def create_origin_request_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -182,8 +186,7 @@ async def async_create_origin_request_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

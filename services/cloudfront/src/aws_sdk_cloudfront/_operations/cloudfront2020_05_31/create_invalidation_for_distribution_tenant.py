@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,17 @@ from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.batch_too_large
+import aws_sdk_cloudfront.errors.entity_not_found
+import aws_sdk_cloudfront.errors.inconsistent_quantities
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.missing_body
+import aws_sdk_cloudfront.errors.too_many_invalidations_in_progress
+import aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_request
+import aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result
+import aws_sdk_cloudfront.types.invalidation
+import aws_sdk_cloudfront.types.invalidation_batch
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import Element, fromstring, tostring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,48 +30,30 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_request
-    import aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "BatchTooLarge":
-            import aws_sdk_cloudfront.errors.batch_too_large
-
             raise aws_sdk_cloudfront.errors.batch_too_large.BatchTooLarge.from_xml(root)
         case "EntityNotFound":
-            import aws_sdk_cloudfront.errors.entity_not_found
-
             raise aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(
                 root
             )
         case "InconsistentQuantities":
-            import aws_sdk_cloudfront.errors.inconsistent_quantities
-
             raise aws_sdk_cloudfront.errors.inconsistent_quantities.InconsistentQuantities.from_xml(
                 root
             )
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "MissingBody":
-            import aws_sdk_cloudfront.errors.missing_body
-
             raise aws_sdk_cloudfront.errors.missing_body.MissingBody.from_xml(root)
         case "TooManyInvalidationsInProgress":
-            import aws_sdk_cloudfront.errors.too_many_invalidations_in_progress
-
             raise aws_sdk_cloudfront.errors.too_many_invalidations_in_progress.TooManyInvalidationsInProgress.from_xml(
                 root
             )
@@ -69,13 +62,24 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result.CreateInvalidationForDistributionTenantResult:
-    import aws_sdk_cloudfront.types.invalidation
-
     out: aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result.CreateInvalidationForDistributionTenantResult = {
         "invalidation": aws_sdk_cloudfront.types.invalidation.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    if "Location" in response.headers:
+        out["location"] = str(response.headers["Location"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result.CreateInvalidationForDistributionTenantResult:
+    out: aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_result.CreateInvalidationForDistributionTenantResult = {
+        "invalidation": aws_sdk_cloudfront.types.invalidation.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     if "Location" in response.headers:
@@ -151,8 +155,7 @@ def create_invalidation_for_distribution_tenant(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -170,8 +173,7 @@ async def async_create_invalidation_for_distribution_tenant(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

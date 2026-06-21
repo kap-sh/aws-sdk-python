@@ -2,10 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_agent_runtime.errors import (
-    DeserializationError,
-    SerializationError,
-)
+from aws_sdk_bedrock_agent_runtime._iter import AnyIterator
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
@@ -87,7 +85,7 @@ class _FlowResponseStream_flowMultiTurnInputRequestEvent(TypedDict):
     flowMultiTurnInputRequestEvent: "aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.FlowMultiTurnInputRequestEvent"
 
 
-FlowResponseStream: TypeAlias = (
+_FlowResponseStream: TypeAlias = (
     _FlowResponseStream_flowOutputEvent
     | _FlowResponseStream_flowCompletionEvent
     | _FlowResponseStream_flowTraceEvent
@@ -102,222 +100,207 @@ FlowResponseStream: TypeAlias = (
     | _FlowResponseStream_badGatewayException
     | _FlowResponseStream_flowMultiTurnInputRequestEvent
 )
+FlowResponseStream: TypeAlias = AnyIterator[_FlowResponseStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: FlowResponseStream) -> dict:
-    if "flowOutputEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.flow_output_event
+def serialize_event_json(value: _FlowResponseStream) -> bytes:
+    match value:
+        case {"flowOutputEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.flow_output_event
 
-        return {
-            "flowOutputEvent": aws_sdk_bedrock_agent_runtime.types.flow_output_event.serialize_json(
-                value["flowOutputEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.flow_output_event.serialize_event_json(
+                payload
             )
-        }
-    elif "flowCompletionEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.flow_completion_event
+        case {"flowCompletionEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.flow_completion_event
 
-        return {
-            "flowCompletionEvent": aws_sdk_bedrock_agent_runtime.types.flow_completion_event.serialize_json(
-                value["flowCompletionEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.flow_completion_event.serialize_event_json(
+                payload
             )
-        }
-    elif "flowTraceEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.flow_trace_event
+        case {"flowTraceEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.flow_trace_event
 
-        return {
-            "flowTraceEvent": aws_sdk_bedrock_agent_runtime.types.flow_trace_event.serialize_json(
-                value["flowTraceEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.flow_trace_event.serialize_event_json(
+                payload
             )
-        }
-    elif "internalServerException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
+        case {"internalServerException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.serialize_json(
-                value["internalServerException"]
+            return aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "validationException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.validation_exception
+        case {"validationException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.validation_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_agent_runtime.errors.validation_exception.serialize_json(
-                value["validationException"]
+            return aws_sdk_bedrock_agent_runtime.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "resourceNotFoundException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception
+        case {"resourceNotFoundException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception
 
-        return {
-            "resourceNotFoundException": aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.serialize_json(
-                value["resourceNotFoundException"]
+            return aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "serviceQuotaExceededException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception
+        case {"serviceQuotaExceededException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception
 
-        return {
-            "serviceQuotaExceededException": aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.serialize_json(
-                value["serviceQuotaExceededException"]
+            return aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "throttlingException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
+        case {"throttlingException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
 
-        return {
-            "throttlingException": aws_sdk_bedrock_agent_runtime.errors.throttling_exception.serialize_json(
-                value["throttlingException"]
+            return aws_sdk_bedrock_agent_runtime.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "accessDeniedException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
+        case {"accessDeniedException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
 
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.serialize_json(
-                value["accessDeniedException"]
+            return aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "conflictException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.conflict_exception
+        case {"conflictException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.conflict_exception
 
-        return {
-            "conflictException": aws_sdk_bedrock_agent_runtime.errors.conflict_exception.serialize_json(
-                value["conflictException"]
+            return aws_sdk_bedrock_agent_runtime.errors.conflict_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "dependencyFailedException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
+        case {"dependencyFailedException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
 
-        return {
-            "dependencyFailedException": aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.serialize_json(
-                value["dependencyFailedException"]
+            return aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "badGatewayException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
+        case {"badGatewayException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
 
-        return {
-            "badGatewayException": aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.serialize_json(
-                value["badGatewayException"]
+            return aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "flowMultiTurnInputRequestEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event
+        case {"flowMultiTurnInputRequestEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event
 
-        return {
-            "flowMultiTurnInputRequestEvent": aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.serialize_json(
-                value["flowMultiTurnInputRequestEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("FlowResponseStream: no variant present")
+        case _:
+            raise ValueError(f"FlowResponseStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> FlowResponseStream:
-    if "flowOutputEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.flow_output_event
+def deserialize_event_json(message: Message) -> _FlowResponseStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "internalServerException":
+                import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
 
-        return {
-            "flowOutputEvent": aws_sdk_bedrock_agent_runtime.types.flow_output_event.deserialize_json(
-                data["flowOutputEvent"]
+                raise aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import aws_sdk_bedrock_agent_runtime.errors.validation_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException(
+                    aws_sdk_bedrock_agent_runtime.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "resourceNotFoundException":
+                import aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException(
+                    aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "serviceQuotaExceededException":
+                import aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException(
+                    aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_bedrock_agent_runtime.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "accessDeniedException":
+                import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException(
+                    aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "conflictException":
+                import aws_sdk_bedrock_agent_runtime.errors.conflict_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException(
+                    aws_sdk_bedrock_agent_runtime.errors.conflict_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "dependencyFailedException":
+                import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException(
+                    aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "badGatewayException":
+                import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException(
+                    aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(f"FlowResponseStream: unrecognized error-type {error_type!r}")
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "flowOutputEvent":
+            import aws_sdk_bedrock_agent_runtime.types.flow_output_event
+
+            return {
+                "flowOutputEvent": aws_sdk_bedrock_agent_runtime.types.flow_output_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "flowCompletionEvent":
+            import aws_sdk_bedrock_agent_runtime.types.flow_completion_event
+
+            return {
+                "flowCompletionEvent": aws_sdk_bedrock_agent_runtime.types.flow_completion_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "flowTraceEvent":
+            import aws_sdk_bedrock_agent_runtime.types.flow_trace_event
+
+            return {
+                "flowTraceEvent": aws_sdk_bedrock_agent_runtime.types.flow_trace_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "flowMultiTurnInputRequestEvent":
+            import aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event
+
+            return {
+                "flowMultiTurnInputRequestEvent": aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"FlowResponseStream: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "flowCompletionEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.flow_completion_event
-
-        return {
-            "flowCompletionEvent": aws_sdk_bedrock_agent_runtime.types.flow_completion_event.deserialize_json(
-                data["flowCompletionEvent"]
-            )
-        }
-    elif "flowTraceEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.flow_trace_event
-
-        return {
-            "flowTraceEvent": aws_sdk_bedrock_agent_runtime.types.flow_trace_event.deserialize_json(
-                data["flowTraceEvent"]
-            )
-        }
-    elif "internalServerException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
-
-        return {
-            "internalServerException": aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.deserialize_json(
-                data["internalServerException"]
-            )
-        }
-    elif "validationException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.validation_exception
-
-        return {
-            "validationException": aws_sdk_bedrock_agent_runtime.errors.validation_exception.deserialize_json(
-                data["validationException"]
-            )
-        }
-    elif "resourceNotFoundException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception
-
-        return {
-            "resourceNotFoundException": aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.deserialize_json(
-                data["resourceNotFoundException"]
-            )
-        }
-    elif "serviceQuotaExceededException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception
-
-        return {
-            "serviceQuotaExceededException": aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.deserialize_json(
-                data["serviceQuotaExceededException"]
-            )
-        }
-    elif "throttlingException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
-
-        return {
-            "throttlingException": aws_sdk_bedrock_agent_runtime.errors.throttling_exception.deserialize_json(
-                data["throttlingException"]
-            )
-        }
-    elif "accessDeniedException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
-
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.deserialize_json(
-                data["accessDeniedException"]
-            )
-        }
-    elif "conflictException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.conflict_exception
-
-        return {
-            "conflictException": aws_sdk_bedrock_agent_runtime.errors.conflict_exception.deserialize_json(
-                data["conflictException"]
-            )
-        }
-    elif "dependencyFailedException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
-
-        return {
-            "dependencyFailedException": aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.deserialize_json(
-                data["dependencyFailedException"]
-            )
-        }
-    elif "badGatewayException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
-
-        return {
-            "badGatewayException": aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.deserialize_json(
-                data["badGatewayException"]
-            )
-        }
-    elif "flowMultiTurnInputRequestEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event
-
-        return {
-            "flowMultiTurnInputRequestEvent": aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.deserialize_json(
-                data["flowMultiTurnInputRequestEvent"]
-            )
-        }
-    else:
-        raise DeserializationError("FlowResponseStream: no recognized variant key")

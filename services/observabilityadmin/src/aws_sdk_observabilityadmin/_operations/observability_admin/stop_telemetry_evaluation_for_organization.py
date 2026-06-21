@@ -10,6 +10,10 @@ from typing_extensions import Never
 
 import aws_sdk_observabilityadmin._auth._signers
 import aws_sdk_observabilityadmin._auth._sigv4
+import aws_sdk_observabilityadmin.errors.access_denied_exception
+import aws_sdk_observabilityadmin.errors.internal_server_exception
+import aws_sdk_observabilityadmin.errors.too_many_requests_exception
+import aws_sdk_observabilityadmin.errors.validation_exception
 from aws_sdk_observabilityadmin._protocol.errors import parse_error_metadata_json
 from aws_sdk_observabilityadmin._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -27,26 +31,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_observabilityadmin.errors.access_denied_exception
-
             raise aws_sdk_observabilityadmin.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_observabilityadmin.errors.internal_server_exception
-
             raise aws_sdk_observabilityadmin.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_observabilityadmin.errors.too_many_requests_exception
-
             raise aws_sdk_observabilityadmin.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_observabilityadmin.errors.validation_exception
-
             raise aws_sdk_observabilityadmin.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -104,7 +100,6 @@ def stop_telemetry_evaluation_for_organization(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -119,7 +114,6 @@ async def async_stop_telemetry_evaluation_for_organization(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

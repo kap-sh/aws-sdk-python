@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,31 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_load_balancing_v2._auth._signers
 import aws_sdk_elastic_load_balancing_v2._auth._sigv4
+import aws_sdk_elastic_load_balancing_v2.errors.allocation_id_not_found_exception
+import aws_sdk_elastic_load_balancing_v2.errors.availability_zone_not_supported_exception
+import aws_sdk_elastic_load_balancing_v2.errors.duplicate_load_balancer_name_exception
+import aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_scheme_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_security_group_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception
+import aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception
+import aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception
+import aws_sdk_elastic_load_balancing_v2.errors.subnet_not_found_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_load_balancers_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception
+import aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_input
+import aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output
+import aws_sdk_elastic_load_balancing_v2.types.enable_prefix_for_ipv6_source_nat_enum
+import aws_sdk_elastic_load_balancing_v2.types.ip_address_type
+import aws_sdk_elastic_load_balancing_v2.types.ipam_pools
+import aws_sdk_elastic_load_balancing_v2.types.load_balancer_scheme_enum
+import aws_sdk_elastic_load_balancing_v2.types.load_balancer_type_enum
+import aws_sdk_elastic_load_balancing_v2.types.load_balancers
+import aws_sdk_elastic_load_balancing_v2.types.security_groups
+import aws_sdk_elastic_load_balancing_v2.types.subnet_mappings
+import aws_sdk_elastic_load_balancing_v2.types.subnets
+import aws_sdk_elastic_load_balancing_v2.types.tag_list
 from aws_sdk_elastic_load_balancing_v2._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import (
     fromstring,
@@ -24,90 +49,60 @@ from aws_sdk_elastic_load_balancing_v2._services._pipeline import (
 )
 from aws_sdk_elastic_load_balancing_v2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_input
-    import aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AllocationIdNotFoundException":
-            import aws_sdk_elastic_load_balancing_v2.errors.allocation_id_not_found_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.allocation_id_not_found_exception.AllocationIdNotFoundException.from_query(
                 root
             )
         case "AvailabilityZoneNotSupportedException":
-            import aws_sdk_elastic_load_balancing_v2.errors.availability_zone_not_supported_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.availability_zone_not_supported_exception.AvailabilityZoneNotSupportedException.from_query(
                 root
             )
         case "DuplicateLoadBalancerNameException":
-            import aws_sdk_elastic_load_balancing_v2.errors.duplicate_load_balancer_name_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.duplicate_load_balancer_name_exception.DuplicateLoadBalancerNameException.from_query(
                 root
             )
         case "DuplicateTagKeysException":
-            import aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.duplicate_tag_keys_exception.DuplicateTagKeysException.from_query(
                 root
             )
         case "InvalidConfigurationRequestException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException.from_query(
                 root
             )
         case "InvalidSchemeException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_scheme_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_scheme_exception.InvalidSchemeException.from_query(
                 root
             )
         case "InvalidSecurityGroupException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_security_group_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_security_group_exception.InvalidSecurityGroupException.from_query(
                 root
             )
         case "InvalidSubnetException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_subnet_exception.InvalidSubnetException.from_query(
                 root
             )
         case "OperationNotPermittedException":
-            import aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException.from_query(
                 root
             )
         case "ResourceInUseException":
-            import aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.resource_in_use_exception.ResourceInUseException.from_query(
                 root
             )
         case "SubnetNotFoundException":
-            import aws_sdk_elastic_load_balancing_v2.errors.subnet_not_found_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.subnet_not_found_exception.SubnetNotFoundException.from_query(
                 root
             )
         case "TooManyLoadBalancersException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_load_balancers_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_load_balancers_exception.TooManyLoadBalancersException.from_query(
                 root
             )
         case "TooManyTagsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException.from_query(
                 root
             )
@@ -116,11 +111,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.CreateLoadBalancerOutput:
-    import aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output
-
     root = fromstring(response.read())
+    result = root.find("CreateLoadBalancerResult")
+    out: aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.CreateLoadBalancerOutput = aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.CreateLoadBalancerOutput:
+    root = fromstring(await response.aread())
     result = root.find("CreateLoadBalancerResult")
     out: aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.CreateLoadBalancerOutput = aws_sdk_elastic_load_balancing_v2.types.create_load_balancer_output.deserialize_query(
         result if result is not None else root
@@ -194,8 +198,7 @@ def create_load_balancer(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -213,8 +216,7 @@ async def async_create_load_balancer(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

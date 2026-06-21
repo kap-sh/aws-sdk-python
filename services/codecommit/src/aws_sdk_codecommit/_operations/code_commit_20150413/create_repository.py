@@ -3,13 +3,34 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
+import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
+import aws_sdk_codecommit.errors.encryption_key_disabled_exception
+import aws_sdk_codecommit.errors.encryption_key_invalid_id_exception
+import aws_sdk_codecommit.errors.encryption_key_invalid_usage_exception
+import aws_sdk_codecommit.errors.encryption_key_not_found_exception
+import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
+import aws_sdk_codecommit.errors.invalid_repository_description_exception
+import aws_sdk_codecommit.errors.invalid_repository_name_exception
+import aws_sdk_codecommit.errors.invalid_system_tag_usage_exception
+import aws_sdk_codecommit.errors.invalid_tags_map_exception
+import aws_sdk_codecommit.errors.operation_not_allowed_exception
+import aws_sdk_codecommit.errors.repository_limit_exceeded_exception
+import aws_sdk_codecommit.errors.repository_name_exists_exception
+import aws_sdk_codecommit.errors.repository_name_required_exception
+import aws_sdk_codecommit.errors.tag_policy_exception
+import aws_sdk_codecommit.errors.too_many_tags_exception
+import aws_sdk_codecommit.types.create_repository_input
+import aws_sdk_codecommit.types.create_repository_output
+import aws_sdk_codecommit.types.repository_metadata
+import aws_sdk_codecommit.types.tags_map
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,114 +39,76 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.create_repository_input
-    import aws_sdk_codecommit.types.create_repository_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "EncryptionIntegrityChecksFailedException":
-            import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
-
             raise aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyAccessDeniedException":
-            import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyDisabledException":
-            import aws_sdk_codecommit.errors.encryption_key_disabled_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyInvalidIdException":
-            import aws_sdk_codecommit.errors.encryption_key_invalid_id_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_invalid_id_exception.EncryptionKeyInvalidIdException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyInvalidUsageException":
-            import aws_sdk_codecommit.errors.encryption_key_invalid_usage_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_invalid_usage_exception.EncryptionKeyInvalidUsageException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyNotFoundException":
-            import aws_sdk_codecommit.errors.encryption_key_not_found_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyUnavailableException":
-            import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "InvalidRepositoryDescriptionException":
-            import aws_sdk_codecommit.errors.invalid_repository_description_exception
-
             raise aws_sdk_codecommit.errors.invalid_repository_description_exception.InvalidRepositoryDescriptionException.from_aws_json_1_1(
                 data
             )
         case "InvalidRepositoryNameException":
-            import aws_sdk_codecommit.errors.invalid_repository_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidSystemTagUsageException":
-            import aws_sdk_codecommit.errors.invalid_system_tag_usage_exception
-
             raise aws_sdk_codecommit.errors.invalid_system_tag_usage_exception.InvalidSystemTagUsageException.from_aws_json_1_1(
                 data
             )
         case "InvalidTagsMapException":
-            import aws_sdk_codecommit.errors.invalid_tags_map_exception
-
             raise aws_sdk_codecommit.errors.invalid_tags_map_exception.InvalidTagsMapException.from_aws_json_1_1(
                 data
             )
         case "OperationNotAllowedException":
-            import aws_sdk_codecommit.errors.operation_not_allowed_exception
-
             raise aws_sdk_codecommit.errors.operation_not_allowed_exception.OperationNotAllowedException.from_aws_json_1_1(
                 data
             )
         case "RepositoryLimitExceededException":
-            import aws_sdk_codecommit.errors.repository_limit_exceeded_exception
-
             raise aws_sdk_codecommit.errors.repository_limit_exceeded_exception.RepositoryLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNameExistsException":
-            import aws_sdk_codecommit.errors.repository_name_exists_exception
-
             raise aws_sdk_codecommit.errors.repository_name_exists_exception.RepositoryNameExistsException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNameRequiredException":
-            import aws_sdk_codecommit.errors.repository_name_required_exception
-
             raise aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "TagPolicyException":
-            import aws_sdk_codecommit.errors.tag_policy_exception
-
             raise aws_sdk_codecommit.errors.tag_policy_exception.TagPolicyException.from_aws_json_1_1(
                 data
             )
         case "TooManyTagsException":
-            import aws_sdk_codecommit.errors.too_many_tags_exception
-
             raise aws_sdk_codecommit.errors.too_many_tags_exception.TooManyTagsException.from_aws_json_1_1(
                 data
             )
@@ -134,13 +117,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.create_repository_output.CreateRepositoryOutput:
-    import aws_sdk_codecommit.types.create_repository_output
-
     out: aws_sdk_codecommit.types.create_repository_output.CreateRepositoryOutput = (
         aws_sdk_codecommit.types.create_repository_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.create_repository_output.CreateRepositoryOutput:
+    out: aws_sdk_codecommit.types.create_repository_output.CreateRepositoryOutput = (
+        aws_sdk_codecommit.types.create_repository_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -209,8 +201,7 @@ def create_repository(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -228,8 +219,7 @@ async def async_create_repository(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

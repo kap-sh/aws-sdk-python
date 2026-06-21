@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_organizations._auth._signers
 import aws_sdk_organizations._auth._sigv4
+import aws_sdk_organizations.errors.access_denied_exception
+import aws_sdk_organizations.errors.aws_organizations_not_in_use_exception
+import aws_sdk_organizations.errors.concurrent_modification_exception
+import aws_sdk_organizations.errors.constraint_violation_exception
+import aws_sdk_organizations.errors.invalid_input_exception
+import aws_sdk_organizations.errors.service_exception
+import aws_sdk_organizations.errors.target_not_found_exception
+import aws_sdk_organizations.errors.too_many_requests_exception
+import aws_sdk_organizations.types.tag_keys
+import aws_sdk_organizations.types.untag_resource_request
 from aws_sdk_organizations._protocol.errors import parse_error_metadata_json
 from aws_sdk_organizations._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,59 +31,40 @@ from aws_sdk_organizations._services._pipeline import (
 )
 from aws_sdk_organizations.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_organizations.types.untag_resource_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_organizations.errors.access_denied_exception
-
             raise aws_sdk_organizations.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "AWSOrganizationsNotInUseException":
-            import aws_sdk_organizations.errors.aws_organizations_not_in_use_exception
-
             raise aws_sdk_organizations.errors.aws_organizations_not_in_use_exception.AWSOrganizationsNotInUseException.from_aws_json_1_1(
                 data
             )
         case "ConcurrentModificationException":
-            import aws_sdk_organizations.errors.concurrent_modification_exception
-
             raise aws_sdk_organizations.errors.concurrent_modification_exception.ConcurrentModificationException.from_aws_json_1_1(
                 data
             )
         case "ConstraintViolationException":
-            import aws_sdk_organizations.errors.constraint_violation_exception
-
             raise aws_sdk_organizations.errors.constraint_violation_exception.ConstraintViolationException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_organizations.errors.invalid_input_exception
-
             raise aws_sdk_organizations.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "ServiceException":
-            import aws_sdk_organizations.errors.service_exception
-
             raise aws_sdk_organizations.errors.service_exception.ServiceException.from_aws_json_1_1(
                 data
             )
         case "TargetNotFoundException":
-            import aws_sdk_organizations.errors.target_not_found_exception
-
             raise aws_sdk_organizations.errors.target_not_found_exception.TargetNotFoundException.from_aws_json_1_1(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_organizations.errors.too_many_requests_exception
-
             raise aws_sdk_organizations.errors.too_many_requests_exception.TooManyRequestsException.from_aws_json_1_1(
                 data
             )
@@ -143,7 +134,6 @@ def untag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -159,7 +149,6 @@ async def async_untag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

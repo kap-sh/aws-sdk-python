@@ -3,13 +3,28 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis_analytics_v2._auth._signers
 import aws_sdk_kinesis_analytics_v2._auth._sigv4
+import aws_sdk_kinesis_analytics_v2.errors.invalid_argument_exception
+import aws_sdk_kinesis_analytics_v2.errors.invalid_request_exception
+import aws_sdk_kinesis_analytics_v2.errors.resource_provisioned_throughput_exceeded_exception
+import aws_sdk_kinesis_analytics_v2.errors.service_unavailable_exception
+import aws_sdk_kinesis_analytics_v2.errors.unable_to_detect_schema_exception
+import aws_sdk_kinesis_analytics_v2.errors.unsupported_operation_exception
+import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request
+import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response
+import aws_sdk_kinesis_analytics_v2.types.input_processing_configuration
+import aws_sdk_kinesis_analytics_v2.types.input_starting_position_configuration
+import aws_sdk_kinesis_analytics_v2.types.parsed_input_records
+import aws_sdk_kinesis_analytics_v2.types.processed_input_records
+import aws_sdk_kinesis_analytics_v2.types.raw_input_records
+import aws_sdk_kinesis_analytics_v2.types.s3_configuration
+import aws_sdk_kinesis_analytics_v2.types.source_schema
 from aws_sdk_kinesis_analytics_v2._protocol.errors import parse_error_metadata_json
 from aws_sdk_kinesis_analytics_v2._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +36,32 @@ from aws_sdk_kinesis_analytics_v2._services._pipeline import (
 )
 from aws_sdk_kinesis_analytics_v2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request
-    import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidArgumentException":
-            import aws_sdk_kinesis_analytics_v2.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.invalid_argument_exception.InvalidArgumentException.from_aws_json_1_1(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_kinesis_analytics_v2.errors.invalid_request_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
                 data
             )
         case "ResourceProvisionedThroughputExceededException":
-            import aws_sdk_kinesis_analytics_v2.errors.resource_provisioned_throughput_exceeded_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.resource_provisioned_throughput_exceeded_exception.ResourceProvisionedThroughputExceededException.from_aws_json_1_1(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_kinesis_analytics_v2.errors.service_unavailable_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.service_unavailable_exception.ServiceUnavailableException.from_aws_json_1_1(
                 data
             )
         case "UnableToDetectSchemaException":
-            import aws_sdk_kinesis_analytics_v2.errors.unable_to_detect_schema_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.unable_to_detect_schema_exception.UnableToDetectSchemaException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_kinesis_analytics_v2.errors.unsupported_operation_exception
-
             raise aws_sdk_kinesis_analytics_v2.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -71,12 +70,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse:
-    import aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response
-
     out: aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse = aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse:
+    out: aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.DiscoverInputSchemaResponse = aws_sdk_kinesis_analytics_v2.types.discover_input_schema_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -146,8 +152,7 @@ def discover_input_schema(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -165,8 +170,7 @@ async def async_discover_input_schema(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

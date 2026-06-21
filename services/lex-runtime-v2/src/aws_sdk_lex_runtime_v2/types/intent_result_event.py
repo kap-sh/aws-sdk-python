@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.event_id
     import aws_sdk_lex_runtime_v2.types.input_mode
@@ -126,4 +128,17 @@ def deserialize_json(data: dict) -> IntentResultEvent:
                 data["recognizedBotMember"]
             )
         )
+    return out
+
+
+def serialize_event_json(value: IntentResultEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "IntentResultEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> IntentResultEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: IntentResultEvent = {}  # type: ignore[typeddict-item]
     return out

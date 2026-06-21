@@ -3,21 +3,38 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception
+import aws_sdk_kms.errors.custom_key_store_invalid_state_exception
+import aws_sdk_kms.errors.custom_key_store_not_found_exception
+import aws_sdk_kms.errors.dependency_timeout_exception
+import aws_sdk_kms.errors.invalid_arn_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.errors.limit_exceeded_exception
+import aws_sdk_kms.errors.malformed_policy_document_exception
+import aws_sdk_kms.errors.tag_exception
+import aws_sdk_kms.errors.unsupported_operation_exception
+import aws_sdk_kms.errors.xks_key_already_in_use_exception
+import aws_sdk_kms.errors.xks_key_invalid_configuration_exception
+import aws_sdk_kms.errors.xks_key_not_found_exception
+import aws_sdk_kms.types.create_key_request
+import aws_sdk_kms.types.create_key_response
+import aws_sdk_kms.types.customer_master_key_spec
+import aws_sdk_kms.types.key_metadata
+import aws_sdk_kms.types.key_spec
+import aws_sdk_kms.types.key_usage_type
+import aws_sdk_kms.types.origin_type
+import aws_sdk_kms.types.tag_list
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.create_key_request
-    import aws_sdk_kms.types.create_key_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,78 +42,52 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CloudHsmClusterInvalidConfigurationException":
-            import aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception
-
             raise aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception.CloudHsmClusterInvalidConfigurationException.from_aws_json_1_1(
                 data
             )
         case "CustomKeyStoreInvalidStateException":
-            import aws_sdk_kms.errors.custom_key_store_invalid_state_exception
-
             raise aws_sdk_kms.errors.custom_key_store_invalid_state_exception.CustomKeyStoreInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "CustomKeyStoreNotFoundException":
-            import aws_sdk_kms.errors.custom_key_store_not_found_exception
-
             raise aws_sdk_kms.errors.custom_key_store_not_found_exception.CustomKeyStoreNotFoundException.from_aws_json_1_1(
                 data
             )
         case "DependencyTimeoutException":
-            import aws_sdk_kms.errors.dependency_timeout_exception
-
             raise aws_sdk_kms.errors.dependency_timeout_exception.DependencyTimeoutException.from_aws_json_1_1(
                 data
             )
         case "InvalidArnException":
-            import aws_sdk_kms.errors.invalid_arn_exception
-
             raise aws_sdk_kms.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_kms.errors.limit_exceeded_exception
-
             raise aws_sdk_kms.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "MalformedPolicyDocumentException":
-            import aws_sdk_kms.errors.malformed_policy_document_exception
-
             raise aws_sdk_kms.errors.malformed_policy_document_exception.MalformedPolicyDocumentException.from_aws_json_1_1(
                 data
             )
         case "TagException":
-            import aws_sdk_kms.errors.tag_exception
-
             raise aws_sdk_kms.errors.tag_exception.TagException.from_aws_json_1_1(data)
         case "UnsupportedOperationException":
-            import aws_sdk_kms.errors.unsupported_operation_exception
-
             raise aws_sdk_kms.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
         case "XksKeyAlreadyInUseException":
-            import aws_sdk_kms.errors.xks_key_already_in_use_exception
-
             raise aws_sdk_kms.errors.xks_key_already_in_use_exception.XksKeyAlreadyInUseException.from_aws_json_1_1(
                 data
             )
         case "XksKeyInvalidConfigurationException":
-            import aws_sdk_kms.errors.xks_key_invalid_configuration_exception
-
             raise aws_sdk_kms.errors.xks_key_invalid_configuration_exception.XksKeyInvalidConfigurationException.from_aws_json_1_1(
                 data
             )
         case "XksKeyNotFoundException":
-            import aws_sdk_kms.errors.xks_key_not_found_exception
-
             raise aws_sdk_kms.errors.xks_key_not_found_exception.XksKeyNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -105,13 +96,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kms.types.create_key_response.CreateKeyResponse:
-    import aws_sdk_kms.types.create_key_response
-
     out: aws_sdk_kms.types.create_key_response.CreateKeyResponse = (
         aws_sdk_kms.types.create_key_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kms.types.create_key_response.CreateKeyResponse:
+    out: aws_sdk_kms.types.create_key_response.CreateKeyResponse = (
+        aws_sdk_kms.types.create_key_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -175,8 +175,7 @@ def create_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -191,8 +190,7 @@ async def async_create_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

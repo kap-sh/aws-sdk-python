@@ -3,21 +3,28 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_dlm._auth._signers
 import aws_sdk_dlm._auth._sigv4
+import aws_sdk_dlm.errors.internal_server_exception
+import aws_sdk_dlm.errors.invalid_request_exception
+import aws_sdk_dlm.errors.limit_exceeded_exception
+import aws_sdk_dlm.types.create_lifecycle_policy_request
+import aws_sdk_dlm.types.create_lifecycle_policy_response
+import aws_sdk_dlm.types.cross_region_copy_target_list
+import aws_sdk_dlm.types.default_policy_type_values
+import aws_sdk_dlm.types.exclusions
+import aws_sdk_dlm.types.policy_details
+import aws_sdk_dlm.types.settable_policy_state_values
+import aws_sdk_dlm.types.tag_map
 from aws_sdk_dlm._protocol.errors import parse_error_metadata_json
 from aws_sdk_dlm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dlm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_dlm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_dlm.types.create_lifecycle_policy_request
-    import aws_sdk_dlm.types.create_lifecycle_policy_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,20 +32,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerException":
-            import aws_sdk_dlm.errors.internal_server_exception
-
             raise aws_sdk_dlm.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_dlm.errors.invalid_request_exception
-
             raise aws_sdk_dlm.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_dlm.errors.limit_exceeded_exception
-
             raise aws_sdk_dlm.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
@@ -47,12 +48,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_dlm.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse:
-    import aws_sdk_dlm.types.create_lifecycle_policy_response
-
     out: aws_sdk_dlm.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse = aws_sdk_dlm.types.create_lifecycle_policy_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_dlm.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse:
+    out: aws_sdk_dlm.types.create_lifecycle_policy_response.CreateLifecyclePolicyResponse = aws_sdk_dlm.types.create_lifecycle_policy_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -117,8 +125,7 @@ def create_lifecycle_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -136,8 +143,7 @@ async def async_create_lifecycle_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

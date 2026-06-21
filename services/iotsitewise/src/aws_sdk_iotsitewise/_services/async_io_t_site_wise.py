@@ -2,7 +2,8 @@
 
 import time
 import warnings
-from collections.abc import AsyncIterator
+from collections.abc import AsyncGenerator, AsyncIterator
+from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -3866,6 +3867,7 @@ class AsyncIoTSiteWiseClient:
             if not _token:
                 break
 
+    @asynccontextmanager
     async def invoke_assistant(
         self,
         message: "aws_sdk_iotsitewise.types.message_input.MessageInput",
@@ -3875,7 +3877,7 @@ class AsyncIoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.conversation_id.ConversationId"
         ] = None,
         enable_trace: Optional[bool] = None,
-    ) -> "aws_sdk_iotsitewise.types.invoke_assistant_response.InvokeAssistantResponse":
+    ) -> "AsyncGenerator[aws_sdk_iotsitewise.types.invoke_assistant_response.InvokeAssistantResponse]":
         """<p>Invokes SiteWise Assistant to start or continue a conversation.</p>
 
         Args:
@@ -3912,7 +3914,7 @@ class AsyncIoTSiteWiseClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def list_access_policies(
         self,

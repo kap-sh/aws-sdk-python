@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,21 @@ from typing_extensions import Never
 
 import aws_sdk_ec2._auth._signers
 import aws_sdk_ec2._auth._sigv4
+import aws_sdk_ec2.types.client_connect_options
+import aws_sdk_ec2.types.client_login_banner_options
+import aws_sdk_ec2.types.client_route_enforcement_options
+import aws_sdk_ec2.types.client_vpn_security_group_id_set
+import aws_sdk_ec2.types.connection_log_options
+import aws_sdk_ec2.types.dns_servers_options_modify_structure
+import aws_sdk_ec2.types.modify_client_vpn_endpoint_request
+import aws_sdk_ec2.types.modify_client_vpn_endpoint_result
+import aws_sdk_ec2.types.self_service_portal
+import aws_sdk_ec2.types.transit_gateway_configuration_input_structure
 from aws_sdk_ec2._protocol.errors import parse_error_metadata
 from aws_sdk_ec2._protocol.xml import fromstring
 from aws_sdk_ec2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ec2._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ec2.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ec2.types.modify_client_vpn_endpoint_request
-    import aws_sdk_ec2.types.modify_client_vpn_endpoint_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -30,12 +36,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ec2.types.modify_client_vpn_endpoint_result.ModifyClientVpnEndpointResult:
-    import aws_sdk_ec2.types.modify_client_vpn_endpoint_result
-
     out: aws_sdk_ec2.types.modify_client_vpn_endpoint_result.ModifyClientVpnEndpointResult = aws_sdk_ec2.types.modify_client_vpn_endpoint_result.deserialize_ec2_query(
         fromstring(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ec2.types.modify_client_vpn_endpoint_result.ModifyClientVpnEndpointResult:
+    out: aws_sdk_ec2.types.modify_client_vpn_endpoint_result.ModifyClientVpnEndpointResult = aws_sdk_ec2.types.modify_client_vpn_endpoint_result.deserialize_ec2_query(
+        fromstring(await response.aread())
     )
     return out
 
@@ -104,8 +117,7 @@ def modify_client_vpn_endpoint(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -123,8 +135,7 @@ async def async_modify_client_vpn_endpoint(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

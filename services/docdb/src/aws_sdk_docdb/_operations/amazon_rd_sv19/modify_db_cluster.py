@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,29 @@ from typing_extensions import Never
 
 import aws_sdk_docdb._auth._signers
 import aws_sdk_docdb._auth._sigv4
+import aws_sdk_docdb.errors.db_cluster_already_exists_fault
+import aws_sdk_docdb.errors.db_cluster_not_found_fault
+import aws_sdk_docdb.errors.db_cluster_parameter_group_not_found_fault
+import aws_sdk_docdb.errors.db_subnet_group_not_found_fault
+import aws_sdk_docdb.errors.invalid_db_cluster_state_fault
+import aws_sdk_docdb.errors.invalid_db_instance_state_fault
+import aws_sdk_docdb.errors.invalid_db_security_group_state_fault
+import aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault
+import aws_sdk_docdb.errors.invalid_subnet
+import aws_sdk_docdb.errors.invalid_vpc_network_state_fault
+import aws_sdk_docdb.errors.network_type_not_supported
+import aws_sdk_docdb.errors.storage_quota_exceeded_fault
+import aws_sdk_docdb.types.cloudwatch_logs_export_configuration
+import aws_sdk_docdb.types.db_cluster
+import aws_sdk_docdb.types.modify_db_cluster_message
+import aws_sdk_docdb.types.modify_db_cluster_result
+import aws_sdk_docdb.types.serverless_v2_scaling_configuration
+import aws_sdk_docdb.types.vpc_security_group_id_list
 from aws_sdk_docdb._protocol.errors import parse_error_metadata
 from aws_sdk_docdb._protocol.xml import fromstring
 from aws_sdk_docdb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_docdb._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_docdb.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_docdb.types.modify_db_cluster_message
-    import aws_sdk_docdb.types.modify_db_cluster_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,72 +40,48 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBClusterAlreadyExistsFault":
-            import aws_sdk_docdb.errors.db_cluster_already_exists_fault
-
             raise aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault.from_query(
                 root
             )
         case "DBClusterNotFoundFault":
-            import aws_sdk_docdb.errors.db_cluster_not_found_fault
-
             raise aws_sdk_docdb.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBClusterParameterGroupNotFoundFault":
-            import aws_sdk_docdb.errors.db_cluster_parameter_group_not_found_fault
-
             raise aws_sdk_docdb.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault.from_query(
                 root
             )
         case "DBSubnetGroupNotFoundFault":
-            import aws_sdk_docdb.errors.db_subnet_group_not_found_fault
-
             raise aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_docdb.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_docdb.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "InvalidDBSecurityGroupStateFault":
-            import aws_sdk_docdb.errors.invalid_db_security_group_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault.from_query(
                 root
             )
         case "InvalidDBSubnetGroupStateFault":
-            import aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_subnet_group_state_fault.InvalidDBSubnetGroupStateFault.from_query(
                 root
             )
         case "InvalidSubnet":
-            import aws_sdk_docdb.errors.invalid_subnet
-
             raise aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet.from_query(root)
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_docdb.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "NetworkTypeNotSupported":
-            import aws_sdk_docdb.errors.network_type_not_supported
-
             raise aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_docdb.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
@@ -100,11 +90,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_docdb.types.modify_db_cluster_result.ModifyDBClusterResult:
-    import aws_sdk_docdb.types.modify_db_cluster_result
-
     root = fromstring(response.read())
+    result = root.find("ModifyDBClusterResult")
+    out: aws_sdk_docdb.types.modify_db_cluster_result.ModifyDBClusterResult = (
+        aws_sdk_docdb.types.modify_db_cluster_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_docdb.types.modify_db_cluster_result.ModifyDBClusterResult:
+    root = fromstring(await response.aread())
     result = root.find("ModifyDBClusterResult")
     out: aws_sdk_docdb.types.modify_db_cluster_result.ModifyDBClusterResult = (
         aws_sdk_docdb.types.modify_db_cluster_result.deserialize_query(
@@ -175,8 +176,7 @@ def modify_db_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -193,8 +193,7 @@ async def async_modify_db_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

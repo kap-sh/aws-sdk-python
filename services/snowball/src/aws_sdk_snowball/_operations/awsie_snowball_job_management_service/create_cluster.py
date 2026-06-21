@@ -3,21 +3,34 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_snowball._auth._signers
 import aws_sdk_snowball._auth._sigv4
+import aws_sdk_snowball.errors.ec2_request_failed_exception
+import aws_sdk_snowball.errors.invalid_input_combination_exception
+import aws_sdk_snowball.errors.invalid_resource_exception
+import aws_sdk_snowball.errors.kms_request_failed_exception
+import aws_sdk_snowball.types.create_cluster_request
+import aws_sdk_snowball.types.create_cluster_result
+import aws_sdk_snowball.types.job_list_entry_list
+import aws_sdk_snowball.types.job_resource
+import aws_sdk_snowball.types.job_type
+import aws_sdk_snowball.types.long_term_pricing_id_list
+import aws_sdk_snowball.types.notification
+import aws_sdk_snowball.types.on_device_service_configuration
+import aws_sdk_snowball.types.remote_management
+import aws_sdk_snowball.types.shipping_option
+import aws_sdk_snowball.types.snowball_capacity
+import aws_sdk_snowball.types.snowball_type
+import aws_sdk_snowball.types.tax_documents
 from aws_sdk_snowball._protocol.errors import parse_error_metadata_json
 from aws_sdk_snowball._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_snowball._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_snowball.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_snowball.types.create_cluster_request
-    import aws_sdk_snowball.types.create_cluster_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +38,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "Ec2RequestFailedException":
-            import aws_sdk_snowball.errors.ec2_request_failed_exception
-
             raise aws_sdk_snowball.errors.ec2_request_failed_exception.Ec2RequestFailedException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputCombinationException":
-            import aws_sdk_snowball.errors.invalid_input_combination_exception
-
             raise aws_sdk_snowball.errors.invalid_input_combination_exception.InvalidInputCombinationException.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceException":
-            import aws_sdk_snowball.errors.invalid_resource_exception
-
             raise aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException.from_aws_json_1_1(
                 data
             )
         case "KMSRequestFailedException":
-            import aws_sdk_snowball.errors.kms_request_failed_exception
-
             raise aws_sdk_snowball.errors.kms_request_failed_exception.KMSRequestFailedException.from_aws_json_1_1(
                 data
             )
@@ -53,13 +58,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_snowball.types.create_cluster_result.CreateClusterResult:
-    import aws_sdk_snowball.types.create_cluster_result
-
     out: aws_sdk_snowball.types.create_cluster_result.CreateClusterResult = (
         aws_sdk_snowball.types.create_cluster_result.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_snowball.types.create_cluster_result.CreateClusterResult:
+    out: aws_sdk_snowball.types.create_cluster_result.CreateClusterResult = (
+        aws_sdk_snowball.types.create_cluster_result.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -127,8 +141,7 @@ def create_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -145,8 +158,7 @@ async def async_create_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

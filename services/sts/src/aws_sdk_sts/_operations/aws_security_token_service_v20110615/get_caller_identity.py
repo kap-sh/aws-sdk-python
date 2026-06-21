@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,13 @@ from typing_extensions import Never
 
 import aws_sdk_sts._auth._signers
 import aws_sdk_sts._auth._sigv4
+import aws_sdk_sts.types.get_caller_identity_request
+import aws_sdk_sts.types.get_caller_identity_response
 from aws_sdk_sts._protocol.errors import parse_error_metadata
 from aws_sdk_sts._protocol.xml import fromstring
 from aws_sdk_sts._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sts._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sts.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sts.types.get_caller_identity_request
-    import aws_sdk_sts.types.get_caller_identity_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -30,11 +28,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sts.types.get_caller_identity_response.GetCallerIdentityResponse:
-    import aws_sdk_sts.types.get_caller_identity_response
-
     root = fromstring(response.read())
+    result = root.find("GetCallerIdentityResult")
+    out: aws_sdk_sts.types.get_caller_identity_response.GetCallerIdentityResponse = (
+        aws_sdk_sts.types.get_caller_identity_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sts.types.get_caller_identity_response.GetCallerIdentityResponse:
+    root = fromstring(await response.aread())
     result = root.find("GetCallerIdentityResult")
     out: aws_sdk_sts.types.get_caller_identity_response.GetCallerIdentityResponse = (
         aws_sdk_sts.types.get_caller_identity_response.deserialize_query(
@@ -118,8 +127,7 @@ def get_caller_identity(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -137,8 +145,7 @@ async def async_get_caller_identity(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

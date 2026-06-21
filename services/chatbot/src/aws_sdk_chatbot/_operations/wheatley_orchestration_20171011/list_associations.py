@@ -3,21 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_chatbot._auth._signers
 import aws_sdk_chatbot._auth._sigv4
+import aws_sdk_chatbot.types.association_list
+import aws_sdk_chatbot.types.list_associations_request
+import aws_sdk_chatbot.types.list_associations_result
 from aws_sdk_chatbot._protocol.errors import parse_error_metadata_json
 from aws_sdk_chatbot._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_chatbot._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_chatbot.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_chatbot.types.list_associations_request
-    import aws_sdk_chatbot.types.list_associations_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -29,13 +28,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_chatbot.types.list_associations_result.ListAssociationsResult:
-    import aws_sdk_chatbot.types.list_associations_result
-
     out: aws_sdk_chatbot.types.list_associations_result.ListAssociationsResult = (
         aws_sdk_chatbot.types.list_associations_result.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_chatbot.types.list_associations_result.ListAssociationsResult:
+    out: aws_sdk_chatbot.types.list_associations_result.ListAssociationsResult = (
+        aws_sdk_chatbot.types.list_associations_result.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -103,8 +111,7 @@ def list_associations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -122,8 +129,7 @@ async def async_list_associations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

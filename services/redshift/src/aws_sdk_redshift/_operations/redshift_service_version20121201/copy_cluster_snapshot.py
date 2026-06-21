@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.cluster_not_found_fault
+import aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault
+import aws_sdk_redshift.errors.cluster_snapshot_not_found_fault
+import aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault
+import aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault
+import aws_sdk_redshift.errors.invalid_retention_period_fault
+import aws_sdk_redshift.types.copy_cluster_snapshot_message
+import aws_sdk_redshift.types.copy_cluster_snapshot_result
+import aws_sdk_redshift.types.snapshot
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.copy_cluster_snapshot_message
-    import aws_sdk_redshift.types.copy_cluster_snapshot_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,38 +31,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ClusterNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault.from_query(
                 root
             )
         case "ClusterSnapshotAlreadyExistsFault":
-            import aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault
-
             raise aws_sdk_redshift.errors.cluster_snapshot_already_exists_fault.ClusterSnapshotAlreadyExistsFault.from_query(
                 root
             )
         case "ClusterSnapshotNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_snapshot_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault.from_query(
                 root
             )
         case "ClusterSnapshotQuotaExceededFault":
-            import aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault
-
             raise aws_sdk_redshift.errors.cluster_snapshot_quota_exceeded_fault.ClusterSnapshotQuotaExceededFault.from_query(
                 root
             )
         case "InvalidClusterSnapshotStateFault":
-            import aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault.from_query(
                 root
             )
         case "InvalidRetentionPeriodFault":
-            import aws_sdk_redshift.errors.invalid_retention_period_fault
-
             raise aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault.from_query(
                 root
             )
@@ -66,11 +59,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.copy_cluster_snapshot_result.CopyClusterSnapshotResult:
-    import aws_sdk_redshift.types.copy_cluster_snapshot_result
-
     root = fromstring(response.read())
+    result = root.find("CopyClusterSnapshotResult")
+    out: aws_sdk_redshift.types.copy_cluster_snapshot_result.CopyClusterSnapshotResult = aws_sdk_redshift.types.copy_cluster_snapshot_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.copy_cluster_snapshot_result.CopyClusterSnapshotResult:
+    root = fromstring(await response.aread())
     result = root.find("CopyClusterSnapshotResult")
     out: aws_sdk_redshift.types.copy_cluster_snapshot_result.CopyClusterSnapshotResult = aws_sdk_redshift.types.copy_cluster_snapshot_result.deserialize_query(
         result if result is not None else root
@@ -144,8 +146,7 @@ def copy_cluster_snapshot(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -163,8 +164,7 @@ async def async_copy_cluster_snapshot(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

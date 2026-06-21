@@ -3,20 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_iot._auth._signers
 import aws_sdk_iot._auth._sigv4
+import aws_sdk_iot.errors.internal_exception
+import aws_sdk_iot.errors.invalid_request_exception
+import aws_sdk_iot.errors.service_unavailable_exception
+import aws_sdk_iot.types.logging_options_payload
+import aws_sdk_iot.types.set_logging_options_request
 from aws_sdk_iot._protocol.errors import parse_error_metadata_json
 from aws_sdk_iot._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iot._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iot.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iot.types.set_logging_options_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,20 +26,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalException":
-            import aws_sdk_iot.errors.internal_exception
-
             raise aws_sdk_iot.errors.internal_exception.InternalException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_iot.errors.invalid_request_exception
-
             raise aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_iot.errors.service_unavailable_exception
-
             raise aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
@@ -107,7 +103,6 @@ def set_logging_options(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -123,7 +118,6 @@ async def async_set_logging_options(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

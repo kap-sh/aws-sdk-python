@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.approval_rule_template_content_required_exception
+import aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception
+import aws_sdk_codecommit.errors.approval_rule_template_name_required_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception
+import aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception
+import aws_sdk_codecommit.types.approval_rule_template
+import aws_sdk_codecommit.types.update_approval_rule_template_content_input
+import aws_sdk_codecommit.types.update_approval_rule_template_content_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,48 +27,32 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.update_approval_rule_template_content_input
-    import aws_sdk_codecommit.types.update_approval_rule_template_content_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ApprovalRuleTemplateContentRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_template_content_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_content_required_exception.ApprovalRuleTemplateContentRequiredException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleTemplateDoesNotExistException":
-            import aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_does_not_exist_exception.ApprovalRuleTemplateDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleTemplateNameRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_template_name_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleTemplateContentException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception.InvalidApprovalRuleTemplateContentException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleTemplateNameException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidRuleContentSha256Exception":
-            import aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception
-
             raise aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception.InvalidRuleContentSha256Exception.from_aws_json_1_1(
                 data
             )
@@ -68,12 +61,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.update_approval_rule_template_content_output.UpdateApprovalRuleTemplateContentOutput:
-    import aws_sdk_codecommit.types.update_approval_rule_template_content_output
-
     out: aws_sdk_codecommit.types.update_approval_rule_template_content_output.UpdateApprovalRuleTemplateContentOutput = aws_sdk_codecommit.types.update_approval_rule_template_content_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.update_approval_rule_template_content_output.UpdateApprovalRuleTemplateContentOutput:
+    out: aws_sdk_codecommit.types.update_approval_rule_template_content_output.UpdateApprovalRuleTemplateContentOutput = aws_sdk_codecommit.types.update_approval_rule_template_content_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -143,8 +143,7 @@ def update_approval_rule_template_content(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -162,8 +161,7 @@ async def async_update_approval_rule_template_content(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

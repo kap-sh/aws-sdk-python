@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
+from aws_sdk_bedrock_runtime._iter import AnyIterator
+from aws_sdk_bedrock_runtime._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.errors.internal_server_exception
@@ -48,7 +49,7 @@ class _InvokeModelWithBidirectionalStreamOutput_serviceUnavailableException(Type
     serviceUnavailableException: "aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 
-InvokeModelWithBidirectionalStreamOutput: TypeAlias = (
+_InvokeModelWithBidirectionalStreamOutput: TypeAlias = (
     _InvokeModelWithBidirectionalStreamOutput_chunk
     | _InvokeModelWithBidirectionalStreamOutput_internalServerException
     | _InvokeModelWithBidirectionalStreamOutput_modelStreamErrorException
@@ -57,130 +58,131 @@ InvokeModelWithBidirectionalStreamOutput: TypeAlias = (
     | _InvokeModelWithBidirectionalStreamOutput_modelTimeoutException
     | _InvokeModelWithBidirectionalStreamOutput_serviceUnavailableException
 )
+InvokeModelWithBidirectionalStreamOutput: TypeAlias = AnyIterator[
+    _InvokeModelWithBidirectionalStreamOutput
+]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: InvokeModelWithBidirectionalStreamOutput) -> dict:
-    if "chunk" in value:
-        import aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part
+def serialize_event_json(value: _InvokeModelWithBidirectionalStreamOutput) -> bytes:
+    match value:
+        case {"chunk": payload}:
+            import aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part
 
-        return {
-            "chunk": aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part.serialize_json(
-                value["chunk"]
+            return aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part.serialize_event_json(
+                payload
             )
-        }
-    elif "internalServerException" in value:
-        import aws_sdk_bedrock_runtime.errors.internal_server_exception
+        case {"internalServerException": payload}:
+            import aws_sdk_bedrock_runtime.errors.internal_server_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_runtime.errors.internal_server_exception.serialize_json(
-                value["internalServerException"]
+            return aws_sdk_bedrock_runtime.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "modelStreamErrorException" in value:
-        import aws_sdk_bedrock_runtime.errors.model_stream_error_exception
+        case {"modelStreamErrorException": payload}:
+            import aws_sdk_bedrock_runtime.errors.model_stream_error_exception
 
-        return {
-            "modelStreamErrorException": aws_sdk_bedrock_runtime.errors.model_stream_error_exception.serialize_json(
-                value["modelStreamErrorException"]
+            return aws_sdk_bedrock_runtime.errors.model_stream_error_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "validationException" in value:
-        import aws_sdk_bedrock_runtime.errors.validation_exception
+        case {"validationException": payload}:
+            import aws_sdk_bedrock_runtime.errors.validation_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_runtime.errors.validation_exception.serialize_json(
-                value["validationException"]
+            return aws_sdk_bedrock_runtime.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "throttlingException" in value:
-        import aws_sdk_bedrock_runtime.errors.throttling_exception
+        case {"throttlingException": payload}:
+            import aws_sdk_bedrock_runtime.errors.throttling_exception
 
-        return {
-            "throttlingException": aws_sdk_bedrock_runtime.errors.throttling_exception.serialize_json(
-                value["throttlingException"]
+            return aws_sdk_bedrock_runtime.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "modelTimeoutException" in value:
-        import aws_sdk_bedrock_runtime.errors.model_timeout_exception
+        case {"modelTimeoutException": payload}:
+            import aws_sdk_bedrock_runtime.errors.model_timeout_exception
 
-        return {
-            "modelTimeoutException": aws_sdk_bedrock_runtime.errors.model_timeout_exception.serialize_json(
-                value["modelTimeoutException"]
+            return aws_sdk_bedrock_runtime.errors.model_timeout_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "serviceUnavailableException" in value:
-        import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
+        case {"serviceUnavailableException": payload}:
+            import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
 
-        return {
-            "serviceUnavailableException": aws_sdk_bedrock_runtime.errors.service_unavailable_exception.serialize_json(
-                value["serviceUnavailableException"]
+            return aws_sdk_bedrock_runtime.errors.service_unavailable_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError(
-            "InvokeModelWithBidirectionalStreamOutput: no variant present"
+        case _:
+            raise ValueError(
+                f"InvokeModelWithBidirectionalStreamOutput: unrecognized variant {value!r}"
+            )
+
+
+def deserialize_event_json(
+    message: Message,
+) -> _InvokeModelWithBidirectionalStreamOutput:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "internalServerException":
+                import aws_sdk_bedrock_runtime.errors.internal_server_exception
+
+                raise aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_bedrock_runtime.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "modelStreamErrorException":
+                import aws_sdk_bedrock_runtime.errors.model_stream_error_exception
+
+                raise aws_sdk_bedrock_runtime.errors.model_stream_error_exception.ModelStreamErrorException(
+                    aws_sdk_bedrock_runtime.errors.model_stream_error_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import aws_sdk_bedrock_runtime.errors.validation_exception
+
+                raise aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException(
+                    aws_sdk_bedrock_runtime.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import aws_sdk_bedrock_runtime.errors.throttling_exception
+
+                raise aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_bedrock_runtime.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "modelTimeoutException":
+                import aws_sdk_bedrock_runtime.errors.model_timeout_exception
+
+                raise aws_sdk_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException(
+                    aws_sdk_bedrock_runtime.errors.model_timeout_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "serviceUnavailableException":
+                import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
+
+                raise aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException(
+                    aws_sdk_bedrock_runtime.errors.service_unavailable_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"InvokeModelWithBidirectionalStreamOutput: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "chunk":
+            import aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part
 
-
-def deserialize_json(data: dict) -> InvokeModelWithBidirectionalStreamOutput:
-    if "chunk" in data:
-        import aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part
-
-        return {
-            "chunk": aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part.deserialize_json(
-                data["chunk"]
+            return {
+                "chunk": aws_sdk_bedrock_runtime.types.bidirectional_output_payload_part.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"InvokeModelWithBidirectionalStreamOutput: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "internalServerException" in data:
-        import aws_sdk_bedrock_runtime.errors.internal_server_exception
-
-        return {
-            "internalServerException": aws_sdk_bedrock_runtime.errors.internal_server_exception.deserialize_json(
-                data["internalServerException"]
-            )
-        }
-    elif "modelStreamErrorException" in data:
-        import aws_sdk_bedrock_runtime.errors.model_stream_error_exception
-
-        return {
-            "modelStreamErrorException": aws_sdk_bedrock_runtime.errors.model_stream_error_exception.deserialize_json(
-                data["modelStreamErrorException"]
-            )
-        }
-    elif "validationException" in data:
-        import aws_sdk_bedrock_runtime.errors.validation_exception
-
-        return {
-            "validationException": aws_sdk_bedrock_runtime.errors.validation_exception.deserialize_json(
-                data["validationException"]
-            )
-        }
-    elif "throttlingException" in data:
-        import aws_sdk_bedrock_runtime.errors.throttling_exception
-
-        return {
-            "throttlingException": aws_sdk_bedrock_runtime.errors.throttling_exception.deserialize_json(
-                data["throttlingException"]
-            )
-        }
-    elif "modelTimeoutException" in data:
-        import aws_sdk_bedrock_runtime.errors.model_timeout_exception
-
-        return {
-            "modelTimeoutException": aws_sdk_bedrock_runtime.errors.model_timeout_exception.deserialize_json(
-                data["modelTimeoutException"]
-            )
-        }
-    elif "serviceUnavailableException" in data:
-        import aws_sdk_bedrock_runtime.errors.service_unavailable_exception
-
-        return {
-            "serviceUnavailableException": aws_sdk_bedrock_runtime.errors.service_unavailable_exception.deserialize_json(
-                data["serviceUnavailableException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "InvokeModelWithBidirectionalStreamOutput: no recognized variant key"
-        )

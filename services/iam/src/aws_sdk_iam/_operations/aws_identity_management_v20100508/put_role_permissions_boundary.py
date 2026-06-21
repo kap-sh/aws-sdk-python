@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,17 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.invalid_input_exception
+import aws_sdk_iam.errors.no_such_entity_exception
+import aws_sdk_iam.errors.policy_not_attachable_exception
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.errors.unmodifiable_entity_exception
+import aws_sdk_iam.types.put_role_permissions_boundary_request
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.put_role_permissions_boundary_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +28,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidInputException":
-            import aws_sdk_iam.errors.invalid_input_exception
-
             raise aws_sdk_iam.errors.invalid_input_exception.InvalidInputException.from_query(
                 root
             )
         case "NoSuchEntityException":
-            import aws_sdk_iam.errors.no_such_entity_exception
-
             raise aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException.from_query(
                 root
             )
         case "PolicyNotAttachableException":
-            import aws_sdk_iam.errors.policy_not_attachable_exception
-
             raise aws_sdk_iam.errors.policy_not_attachable_exception.PolicyNotAttachableException.from_query(
                 root
             )
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
         case "UnmodifiableEntityException":
-            import aws_sdk_iam.errors.unmodifiable_entity_exception
-
             raise aws_sdk_iam.errors.unmodifiable_entity_exception.UnmodifiableEntityException.from_query(
                 root
             )
@@ -119,7 +112,6 @@ def put_role_permissions_boundary(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -135,7 +127,6 @@ async def async_put_role_permissions_boundary(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

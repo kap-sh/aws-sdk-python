@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,15 @@ from typing_extensions import Never
 
 import aws_sdk_auto_scaling._auth._signers
 import aws_sdk_auto_scaling._auth._sigv4
+import aws_sdk_auto_scaling.errors.limit_exceeded_fault
+import aws_sdk_auto_scaling.errors.resource_contention_fault
+import aws_sdk_auto_scaling.errors.service_linked_role_failure
+import aws_sdk_auto_scaling.types.alarms
+import aws_sdk_auto_scaling.types.policy_arn_type
+import aws_sdk_auto_scaling.types.predictive_scaling_configuration
+import aws_sdk_auto_scaling.types.put_scaling_policy_type
+import aws_sdk_auto_scaling.types.step_adjustments
+import aws_sdk_auto_scaling.types.target_tracking_configuration
 from aws_sdk_auto_scaling._protocol.errors import parse_error_metadata
 from aws_sdk_auto_scaling._protocol.xml import fromstring
 from aws_sdk_auto_scaling._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,30 +28,20 @@ from aws_sdk_auto_scaling._services._pipeline import (
 )
 from aws_sdk_auto_scaling.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_auto_scaling.types.policy_arn_type
-    import aws_sdk_auto_scaling.types.put_scaling_policy_type
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "LimitExceededFault":
-            import aws_sdk_auto_scaling.errors.limit_exceeded_fault
-
             raise aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault.from_query(
                 root
             )
         case "ResourceContentionFault":
-            import aws_sdk_auto_scaling.errors.resource_contention_fault
-
             raise aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault.from_query(
                 root
             )
         case "ServiceLinkedRoleFailure":
-            import aws_sdk_auto_scaling.errors.service_linked_role_failure
-
             raise aws_sdk_auto_scaling.errors.service_linked_role_failure.ServiceLinkedRoleFailure.from_query(
                 root
             )
@@ -51,11 +50,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_auto_scaling.types.policy_arn_type.PolicyARNType:
-    import aws_sdk_auto_scaling.types.policy_arn_type
-
     root = fromstring(response.read())
+    result = root.find("PutScalingPolicyResult")
+    out: aws_sdk_auto_scaling.types.policy_arn_type.PolicyARNType = (
+        aws_sdk_auto_scaling.types.policy_arn_type.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_auto_scaling.types.policy_arn_type.PolicyARNType:
+    root = fromstring(await response.aread())
     result = root.find("PutScalingPolicyResult")
     out: aws_sdk_auto_scaling.types.policy_arn_type.PolicyARNType = (
         aws_sdk_auto_scaling.types.policy_arn_type.deserialize_query(
@@ -128,8 +138,7 @@ def put_scaling_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +153,7 @@ async def async_put_scaling_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

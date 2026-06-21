@@ -4,6 +4,7 @@ from typing import TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_sagemaker_runtime_http2.errors import ServiceError
 
 
@@ -44,3 +45,16 @@ class InternalStreamFailure(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "InternalStreamFailure":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: InternalStreamFailure_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "InternalStreamFailure"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> InternalStreamFailure_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: InternalStreamFailure_ = {}  # type: ignore[typeddict-item]
+    return out

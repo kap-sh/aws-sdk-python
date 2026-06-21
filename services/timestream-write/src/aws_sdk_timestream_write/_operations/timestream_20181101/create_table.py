@@ -3,13 +3,28 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_timestream_write._auth._signers
 import aws_sdk_timestream_write._auth._sigv4
+import aws_sdk_timestream_write.errors.access_denied_exception
+import aws_sdk_timestream_write.errors.conflict_exception
+import aws_sdk_timestream_write.errors.internal_server_exception
+import aws_sdk_timestream_write.errors.invalid_endpoint_exception
+import aws_sdk_timestream_write.errors.resource_not_found_exception
+import aws_sdk_timestream_write.errors.service_quota_exceeded_exception
+import aws_sdk_timestream_write.errors.throttling_exception
+import aws_sdk_timestream_write.errors.validation_exception
+import aws_sdk_timestream_write.types.create_table_request
+import aws_sdk_timestream_write.types.create_table_response
+import aws_sdk_timestream_write.types.magnetic_store_write_properties
+import aws_sdk_timestream_write.types.retention_properties
+import aws_sdk_timestream_write.types.schema
+import aws_sdk_timestream_write.types.table
+import aws_sdk_timestream_write.types.tag_list
 from aws_sdk_timestream_write._protocol.errors import parse_error_metadata_json
 from aws_sdk_timestream_write._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,60 +36,40 @@ from aws_sdk_timestream_write._services._pipeline import (
 )
 from aws_sdk_timestream_write.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_timestream_write.types.create_table_request
-    import aws_sdk_timestream_write.types.create_table_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_timestream_write.errors.access_denied_exception
-
             raise aws_sdk_timestream_write.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_0(
                 data
             )
         case "ConflictException":
-            import aws_sdk_timestream_write.errors.conflict_exception
-
             raise aws_sdk_timestream_write.errors.conflict_exception.ConflictException.from_aws_json_1_0(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_timestream_write.errors.internal_server_exception
-
             raise aws_sdk_timestream_write.errors.internal_server_exception.InternalServerException.from_aws_json_1_0(
                 data
             )
         case "InvalidEndpointException":
-            import aws_sdk_timestream_write.errors.invalid_endpoint_exception
-
             raise aws_sdk_timestream_write.errors.invalid_endpoint_exception.InvalidEndpointException.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_timestream_write.errors.resource_not_found_exception
-
             raise aws_sdk_timestream_write.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ServiceQuotaExceededException":
-            import aws_sdk_timestream_write.errors.service_quota_exceeded_exception
-
             raise aws_sdk_timestream_write.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_timestream_write.errors.throttling_exception
-
             raise aws_sdk_timestream_write.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
         case "ValidationException":
-            import aws_sdk_timestream_write.errors.validation_exception
-
             raise aws_sdk_timestream_write.errors.validation_exception.ValidationException.from_aws_json_1_0(
                 data
             )
@@ -83,13 +78,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_timestream_write.types.create_table_response.CreateTableResponse:
-    import aws_sdk_timestream_write.types.create_table_response
-
     out: aws_sdk_timestream_write.types.create_table_response.CreateTableResponse = (
         aws_sdk_timestream_write.types.create_table_response.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_timestream_write.types.create_table_response.CreateTableResponse:
+    out: aws_sdk_timestream_write.types.create_table_response.CreateTableResponse = (
+        aws_sdk_timestream_write.types.create_table_response.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -160,8 +164,7 @@ def create_table(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -179,8 +182,7 @@ async def async_create_table(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

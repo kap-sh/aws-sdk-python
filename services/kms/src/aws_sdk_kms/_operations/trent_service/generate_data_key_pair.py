@@ -3,21 +3,36 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.dependency_timeout_exception
+import aws_sdk_kms.errors.disabled_exception
+import aws_sdk_kms.errors.dry_run_operation_exception
+import aws_sdk_kms.errors.invalid_grant_token_exception
+import aws_sdk_kms.errors.invalid_key_usage_exception
+import aws_sdk_kms.errors.key_unavailable_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.errors.kms_invalid_state_exception
+import aws_sdk_kms.errors.not_found_exception
+import aws_sdk_kms.errors.unsupported_operation_exception
+import aws_sdk_kms.types.ciphertext_type
+import aws_sdk_kms.types.data_key_pair_spec
+import aws_sdk_kms.types.encryption_context_type
+import aws_sdk_kms.types.generate_data_key_pair_request
+import aws_sdk_kms.types.generate_data_key_pair_response
+import aws_sdk_kms.types.grant_token_list
+import aws_sdk_kms.types.plaintext_type
+import aws_sdk_kms.types.public_key_type
+import aws_sdk_kms.types.recipient_info
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.generate_data_key_pair_request
-    import aws_sdk_kms.types.generate_data_key_pair_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,62 +40,42 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DependencyTimeoutException":
-            import aws_sdk_kms.errors.dependency_timeout_exception
-
             raise aws_sdk_kms.errors.dependency_timeout_exception.DependencyTimeoutException.from_aws_json_1_1(
                 data
             )
         case "DisabledException":
-            import aws_sdk_kms.errors.disabled_exception
-
             raise aws_sdk_kms.errors.disabled_exception.DisabledException.from_aws_json_1_1(
                 data
             )
         case "DryRunOperationException":
-            import aws_sdk_kms.errors.dry_run_operation_exception
-
             raise aws_sdk_kms.errors.dry_run_operation_exception.DryRunOperationException.from_aws_json_1_1(
                 data
             )
         case "InvalidGrantTokenException":
-            import aws_sdk_kms.errors.invalid_grant_token_exception
-
             raise aws_sdk_kms.errors.invalid_grant_token_exception.InvalidGrantTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidKeyUsageException":
-            import aws_sdk_kms.errors.invalid_key_usage_exception
-
             raise aws_sdk_kms.errors.invalid_key_usage_exception.InvalidKeyUsageException.from_aws_json_1_1(
                 data
             )
         case "KeyUnavailableException":
-            import aws_sdk_kms.errors.key_unavailable_exception
-
             raise aws_sdk_kms.errors.key_unavailable_exception.KeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
         case "KMSInvalidStateException":
-            import aws_sdk_kms.errors.kms_invalid_state_exception
-
             raise aws_sdk_kms.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_kms.errors.not_found_exception
-
             raise aws_sdk_kms.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_kms.errors.unsupported_operation_exception
-
             raise aws_sdk_kms.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -89,12 +84,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kms.types.generate_data_key_pair_response.GenerateDataKeyPairResponse:
-    import aws_sdk_kms.types.generate_data_key_pair_response
-
     out: aws_sdk_kms.types.generate_data_key_pair_response.GenerateDataKeyPairResponse = aws_sdk_kms.types.generate_data_key_pair_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kms.types.generate_data_key_pair_response.GenerateDataKeyPairResponse:
+    out: aws_sdk_kms.types.generate_data_key_pair_response.GenerateDataKeyPairResponse = aws_sdk_kms.types.generate_data_key_pair_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -160,8 +162,7 @@ def generate_data_key_pair(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -179,8 +180,7 @@ async def async_generate_data_key_pair(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

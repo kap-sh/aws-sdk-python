@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,24 @@ from typing_extensions import Never
 
 import aws_sdk_sns._auth._signers
 import aws_sdk_sns._auth._sigv4
+import aws_sdk_sns.errors.authorization_error_exception
+import aws_sdk_sns.errors.concurrent_access_exception
+import aws_sdk_sns.errors.internal_error_exception
+import aws_sdk_sns.errors.invalid_parameter_exception
+import aws_sdk_sns.errors.invalid_security_exception
+import aws_sdk_sns.errors.stale_tag_exception
+import aws_sdk_sns.errors.tag_limit_exceeded_exception
+import aws_sdk_sns.errors.tag_policy_exception
+import aws_sdk_sns.errors.topic_limit_exceeded_exception
+import aws_sdk_sns.types.create_topic_input
+import aws_sdk_sns.types.create_topic_response
+import aws_sdk_sns.types.tag_list
+import aws_sdk_sns.types.topic_attributes_map
 from aws_sdk_sns._protocol.errors import parse_error_metadata
 from aws_sdk_sns._protocol.xml import fromstring
 from aws_sdk_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sns._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sns.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sns.types.create_topic_input
-    import aws_sdk_sns.types.create_topic_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,56 +35,38 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AuthorizationErrorException":
-            import aws_sdk_sns.errors.authorization_error_exception
-
             raise aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
                 root
             )
         case "ConcurrentAccessException":
-            import aws_sdk_sns.errors.concurrent_access_exception
-
             raise aws_sdk_sns.errors.concurrent_access_exception.ConcurrentAccessException.from_query(
                 root
             )
         case "InternalErrorException":
-            import aws_sdk_sns.errors.internal_error_exception
-
             raise aws_sdk_sns.errors.internal_error_exception.InternalErrorException.from_query(
                 root
             )
         case "InvalidParameterException":
-            import aws_sdk_sns.errors.invalid_parameter_exception
-
             raise aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
                 root
             )
         case "InvalidSecurityException":
-            import aws_sdk_sns.errors.invalid_security_exception
-
             raise aws_sdk_sns.errors.invalid_security_exception.InvalidSecurityException.from_query(
                 root
             )
         case "StaleTagException":
-            import aws_sdk_sns.errors.stale_tag_exception
-
             raise aws_sdk_sns.errors.stale_tag_exception.StaleTagException.from_query(
                 root
             )
         case "TagLimitExceededException":
-            import aws_sdk_sns.errors.tag_limit_exceeded_exception
-
             raise aws_sdk_sns.errors.tag_limit_exceeded_exception.TagLimitExceededException.from_query(
                 root
             )
         case "TagPolicyException":
-            import aws_sdk_sns.errors.tag_policy_exception
-
             raise aws_sdk_sns.errors.tag_policy_exception.TagPolicyException.from_query(
                 root
             )
         case "TopicLimitExceededException":
-            import aws_sdk_sns.errors.topic_limit_exceeded_exception
-
             raise aws_sdk_sns.errors.topic_limit_exceeded_exception.TopicLimitExceededException.from_query(
                 root
             )
@@ -84,11 +75,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sns.types.create_topic_response.CreateTopicResponse:
-    import aws_sdk_sns.types.create_topic_response
-
     root = fromstring(response.read())
+    result = root.find("CreateTopicResult")
+    out: aws_sdk_sns.types.create_topic_response.CreateTopicResponse = (
+        aws_sdk_sns.types.create_topic_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sns.types.create_topic_response.CreateTopicResponse:
+    root = fromstring(await response.aread())
     result = root.find("CreateTopicResult")
     out: aws_sdk_sns.types.create_topic_response.CreateTopicResponse = (
         aws_sdk_sns.types.create_topic_response.deserialize_query(
@@ -159,8 +161,7 @@ def create_topic(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -177,8 +178,7 @@ async def async_create_topic(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

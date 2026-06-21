@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,17 @@ from typing_extensions import Never
 
 import aws_sdk_drs._auth._signers
 import aws_sdk_drs._auth._sigv4
+import aws_sdk_drs.errors.access_denied_exception
+import aws_sdk_drs.errors.internal_server_exception
+import aws_sdk_drs.errors.resource_not_found_exception
+import aws_sdk_drs.errors.throttling_exception
+import aws_sdk_drs.errors.validation_exception
+import aws_sdk_drs.types.tag_resource_request
+import aws_sdk_drs.types.tags_map
 from aws_sdk_drs._protocol.errors import parse_error_metadata_json
 from aws_sdk_drs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_drs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_drs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_drs.types.tag_resource_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +29,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_drs.errors.access_denied_exception
-
             raise aws_sdk_drs.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_drs.errors.internal_server_exception
-
             raise aws_sdk_drs.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_drs.errors.resource_not_found_exception
-
             raise aws_sdk_drs.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_drs.errors.throttling_exception
-
             raise aws_sdk_drs.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_drs.errors.validation_exception
-
             raise aws_sdk_drs.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -116,7 +110,6 @@ def tag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -132,7 +125,6 @@ async def async_tag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

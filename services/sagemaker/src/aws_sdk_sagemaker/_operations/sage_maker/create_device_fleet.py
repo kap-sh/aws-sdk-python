@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sagemaker._auth._signers
 import aws_sdk_sagemaker._auth._sigv4
+import aws_sdk_sagemaker.errors.resource_in_use
+import aws_sdk_sagemaker.errors.resource_limit_exceeded
+import aws_sdk_sagemaker.types.create_device_fleet_request
+import aws_sdk_sagemaker.types.edge_output_config
+import aws_sdk_sagemaker.types.tag_list
 from aws_sdk_sagemaker._protocol.errors import parse_error_metadata_json
 from aws_sdk_sagemaker._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sagemaker._services._pipeline import (
@@ -18,23 +23,16 @@ from aws_sdk_sagemaker._services._pipeline import (
 )
 from aws_sdk_sagemaker.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemaker.types.create_device_fleet_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ResourceInUse":
-            import aws_sdk_sagemaker.errors.resource_in_use
-
             raise aws_sdk_sagemaker.errors.resource_in_use.ResourceInUse.from_aws_json_1_1(
                 data
             )
         case "ResourceLimitExceeded":
-            import aws_sdk_sagemaker.errors.resource_limit_exceeded
-
             raise aws_sdk_sagemaker.errors.resource_limit_exceeded.ResourceLimitExceeded.from_aws_json_1_1(
                 data
             )
@@ -104,7 +102,6 @@ def create_device_fleet(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -120,7 +117,6 @@ async def async_create_device_fleet(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sfn._auth._signers
 import aws_sdk_sfn._auth._sigv4
+import aws_sdk_sfn.errors.execution_already_exists
+import aws_sdk_sfn.errors.execution_limit_exceeded
+import aws_sdk_sfn.errors.invalid_arn
+import aws_sdk_sfn.errors.invalid_execution_input
+import aws_sdk_sfn.errors.invalid_name
+import aws_sdk_sfn.errors.kms_access_denied_exception
+import aws_sdk_sfn.errors.kms_invalid_state_exception
+import aws_sdk_sfn.errors.kms_throttling_exception
+import aws_sdk_sfn.errors.state_machine_deleting
+import aws_sdk_sfn.errors.state_machine_does_not_exist
+import aws_sdk_sfn.errors.validation_exception
+import aws_sdk_sfn.types.start_execution_input
+import aws_sdk_sfn.types.start_execution_output
+import aws_sdk_sfn.types.timestamp
 from aws_sdk_sfn._protocol.errors import parse_error_metadata_json
 from aws_sdk_sfn._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sfn._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sfn.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sfn.types.start_execution_input
-    import aws_sdk_sfn.types.start_execution_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,64 +35,42 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ExecutionAlreadyExists":
-            import aws_sdk_sfn.errors.execution_already_exists
-
             raise aws_sdk_sfn.errors.execution_already_exists.ExecutionAlreadyExists.from_aws_json_1_0(
                 data
             )
         case "ExecutionLimitExceeded":
-            import aws_sdk_sfn.errors.execution_limit_exceeded
-
             raise aws_sdk_sfn.errors.execution_limit_exceeded.ExecutionLimitExceeded.from_aws_json_1_0(
                 data
             )
         case "InvalidArn":
-            import aws_sdk_sfn.errors.invalid_arn
-
             raise aws_sdk_sfn.errors.invalid_arn.InvalidArn.from_aws_json_1_0(data)
         case "InvalidExecutionInput":
-            import aws_sdk_sfn.errors.invalid_execution_input
-
             raise aws_sdk_sfn.errors.invalid_execution_input.InvalidExecutionInput.from_aws_json_1_0(
                 data
             )
         case "InvalidName":
-            import aws_sdk_sfn.errors.invalid_name
-
             raise aws_sdk_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(data)
         case "KmsAccessDeniedException":
-            import aws_sdk_sfn.errors.kms_access_denied_exception
-
             raise aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException.from_aws_json_1_0(
                 data
             )
         case "KmsInvalidStateException":
-            import aws_sdk_sfn.errors.kms_invalid_state_exception
-
             raise aws_sdk_sfn.errors.kms_invalid_state_exception.KmsInvalidStateException.from_aws_json_1_0(
                 data
             )
         case "KmsThrottlingException":
-            import aws_sdk_sfn.errors.kms_throttling_exception
-
             raise aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException.from_aws_json_1_0(
                 data
             )
         case "StateMachineDeleting":
-            import aws_sdk_sfn.errors.state_machine_deleting
-
             raise aws_sdk_sfn.errors.state_machine_deleting.StateMachineDeleting.from_aws_json_1_0(
                 data
             )
         case "StateMachineDoesNotExist":
-            import aws_sdk_sfn.errors.state_machine_does_not_exist
-
             raise aws_sdk_sfn.errors.state_machine_does_not_exist.StateMachineDoesNotExist.from_aws_json_1_0(
                 data
             )
         case "ValidationException":
-            import aws_sdk_sfn.errors.validation_exception
-
             raise aws_sdk_sfn.errors.validation_exception.ValidationException.from_aws_json_1_0(
                 data
             )
@@ -91,13 +79,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sfn.types.start_execution_output.StartExecutionOutput:
-    import aws_sdk_sfn.types.start_execution_output
-
     out: aws_sdk_sfn.types.start_execution_output.StartExecutionOutput = (
         aws_sdk_sfn.types.start_execution_output.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sfn.types.start_execution_output.StartExecutionOutput:
+    out: aws_sdk_sfn.types.start_execution_output.StartExecutionOutput = (
+        aws_sdk_sfn.types.start_execution_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -165,8 +162,7 @@ def start_execution(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -183,8 +179,7 @@ async def async_start_execution(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,21 +3,33 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_fsx._auth._signers
 import aws_sdk_fsx._auth._sigv4
+import aws_sdk_fsx.errors.access_point_already_owned_by_you
+import aws_sdk_fsx.errors.bad_request
+import aws_sdk_fsx.errors.incompatible_parameter_error
+import aws_sdk_fsx.errors.internal_server_error
+import aws_sdk_fsx.errors.invalid_access_point
+import aws_sdk_fsx.errors.invalid_request
+import aws_sdk_fsx.errors.too_many_access_points
+import aws_sdk_fsx.errors.unsupported_operation
+import aws_sdk_fsx.errors.volume_not_found
+import aws_sdk_fsx.types.create_and_attach_s3_access_point_ontap_configuration
+import aws_sdk_fsx.types.create_and_attach_s3_access_point_open_zfs_configuration
+import aws_sdk_fsx.types.create_and_attach_s3_access_point_request
+import aws_sdk_fsx.types.create_and_attach_s3_access_point_response
+import aws_sdk_fsx.types.create_and_attach_s3_access_point_s3_configuration
+import aws_sdk_fsx.types.s3_access_point_attachment
+import aws_sdk_fsx.types.s3_access_point_attachment_type
 from aws_sdk_fsx._protocol.errors import parse_error_metadata_json
 from aws_sdk_fsx._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_fsx._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_fsx.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_fsx.types.create_and_attach_s3_access_point_request
-    import aws_sdk_fsx.types.create_and_attach_s3_access_point_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,54 +37,36 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessPointAlreadyOwnedByYou":
-            import aws_sdk_fsx.errors.access_point_already_owned_by_you
-
             raise aws_sdk_fsx.errors.access_point_already_owned_by_you.AccessPointAlreadyOwnedByYou.from_aws_json_1_1(
                 data
             )
         case "BadRequest":
-            import aws_sdk_fsx.errors.bad_request
-
             raise aws_sdk_fsx.errors.bad_request.BadRequest.from_aws_json_1_1(data)
         case "IncompatibleParameterError":
-            import aws_sdk_fsx.errors.incompatible_parameter_error
-
             raise aws_sdk_fsx.errors.incompatible_parameter_error.IncompatibleParameterError.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_fsx.errors.internal_server_error
-
             raise aws_sdk_fsx.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidAccessPoint":
-            import aws_sdk_fsx.errors.invalid_access_point
-
             raise aws_sdk_fsx.errors.invalid_access_point.InvalidAccessPoint.from_aws_json_1_1(
                 data
             )
         case "InvalidRequest":
-            import aws_sdk_fsx.errors.invalid_request
-
             raise aws_sdk_fsx.errors.invalid_request.InvalidRequest.from_aws_json_1_1(
                 data
             )
         case "TooManyAccessPoints":
-            import aws_sdk_fsx.errors.too_many_access_points
-
             raise aws_sdk_fsx.errors.too_many_access_points.TooManyAccessPoints.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperation":
-            import aws_sdk_fsx.errors.unsupported_operation
-
             raise aws_sdk_fsx.errors.unsupported_operation.UnsupportedOperation.from_aws_json_1_1(
                 data
             )
         case "VolumeNotFound":
-            import aws_sdk_fsx.errors.volume_not_found
-
             raise aws_sdk_fsx.errors.volume_not_found.VolumeNotFound.from_aws_json_1_1(
                 data
             )
@@ -81,12 +75,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_fsx.types.create_and_attach_s3_access_point_response.CreateAndAttachS3AccessPointResponse:
-    import aws_sdk_fsx.types.create_and_attach_s3_access_point_response
-
     out: aws_sdk_fsx.types.create_and_attach_s3_access_point_response.CreateAndAttachS3AccessPointResponse = aws_sdk_fsx.types.create_and_attach_s3_access_point_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_fsx.types.create_and_attach_s3_access_point_response.CreateAndAttachS3AccessPointResponse:
+    out: aws_sdk_fsx.types.create_and_attach_s3_access_point_response.CreateAndAttachS3AccessPointResponse = aws_sdk_fsx.types.create_and_attach_s3_access_point_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -156,8 +157,7 @@ def create_and_attach_s3_access_point(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -175,8 +175,7 @@ async def async_create_and_attach_s3_access_point(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

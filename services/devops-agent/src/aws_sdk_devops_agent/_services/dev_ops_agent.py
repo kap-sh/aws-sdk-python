@@ -2,7 +2,8 @@
 
 import datetime
 import warnings
-from collections.abc import Iterator
+from collections.abc import Generator, Iterator
+from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -1603,6 +1604,7 @@ class DevOpsAgentClient:
         )
         return response.output
 
+    @contextmanager
     def send_message(
         self,
         agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId",
@@ -1617,7 +1619,7 @@ class DevOpsAgentClient:
         asset_ids: Optional[
             "aws_sdk_devops_agent.types.asset_id_list.AssetIdList"
         ] = None,
-    ) -> "aws_sdk_devops_agent.types.send_message_response.SendMessageResponse":
+    ) -> "Generator[aws_sdk_devops_agent.types.send_message_response.SendMessageResponse]":
         """<p>Sends a chat message and streams the response for the specified agent space execution</p>
 
         Args:
@@ -1660,7 +1662,7 @@ class DevOpsAgentClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def tag_resource(
         self,

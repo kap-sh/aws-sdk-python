@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 from aws_sdk_polly.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -69,3 +70,16 @@ class ThrottlingException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ThrottlingException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ThrottlingException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "ThrottlingException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ThrottlingException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ThrottlingException_ = {}  # type: ignore[typeddict-item]
+    return out

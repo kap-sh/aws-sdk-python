@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,22 @@ from typing_extensions import Never
 
 import aws_sdk_ses._auth._signers
 import aws_sdk_ses._auth._sigv4
+import aws_sdk_ses.errors.account_sending_paused_exception
+import aws_sdk_ses.errors.configuration_set_does_not_exist_exception
+import aws_sdk_ses.errors.configuration_set_sending_paused_exception
+import aws_sdk_ses.errors.mail_from_domain_not_verified_exception
+import aws_sdk_ses.errors.message_rejected
+import aws_sdk_ses.types.address_list
+import aws_sdk_ses.types.destination
+import aws_sdk_ses.types.message
+import aws_sdk_ses.types.message_tag_list
+import aws_sdk_ses.types.send_email_request
+import aws_sdk_ses.types.send_email_response
 from aws_sdk_ses._protocol.errors import parse_error_metadata
 from aws_sdk_ses._protocol.xml import fromstring
 from aws_sdk_ses._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ses._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ses.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ses.types.send_email_request
-    import aws_sdk_ses.types.send_email_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,43 +33,44 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AccountSendingPausedException":
-            import aws_sdk_ses.errors.account_sending_paused_exception
-
             raise aws_sdk_ses.errors.account_sending_paused_exception.AccountSendingPausedException.from_query(
                 root
             )
         case "ConfigurationSetDoesNotExistException":
-            import aws_sdk_ses.errors.configuration_set_does_not_exist_exception
-
             raise aws_sdk_ses.errors.configuration_set_does_not_exist_exception.ConfigurationSetDoesNotExistException.from_query(
                 root
             )
         case "ConfigurationSetSendingPausedException":
-            import aws_sdk_ses.errors.configuration_set_sending_paused_exception
-
             raise aws_sdk_ses.errors.configuration_set_sending_paused_exception.ConfigurationSetSendingPausedException.from_query(
                 root
             )
         case "MailFromDomainNotVerifiedException":
-            import aws_sdk_ses.errors.mail_from_domain_not_verified_exception
-
             raise aws_sdk_ses.errors.mail_from_domain_not_verified_exception.MailFromDomainNotVerifiedException.from_query(
                 root
             )
         case "MessageRejected":
-            import aws_sdk_ses.errors.message_rejected
-
             raise aws_sdk_ses.errors.message_rejected.MessageRejected.from_query(root)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ses.types.send_email_response.SendEmailResponse:
-    import aws_sdk_ses.types.send_email_response
-
     root = fromstring(response.read())
+    result = root.find("SendEmailResult")
+    out: aws_sdk_ses.types.send_email_response.SendEmailResponse = (
+        aws_sdk_ses.types.send_email_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ses.types.send_email_response.SendEmailResponse:
+    root = fromstring(await response.aread())
     result = root.find("SendEmailResult")
     out: aws_sdk_ses.types.send_email_response.SendEmailResponse = (
         aws_sdk_ses.types.send_email_response.deserialize_query(
@@ -131,8 +139,7 @@ def send_email(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +154,7 @@ async def async_send_email(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

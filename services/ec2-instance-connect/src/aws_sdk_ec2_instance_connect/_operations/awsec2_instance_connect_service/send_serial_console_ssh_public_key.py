@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ec2_instance_connect._auth._signers
 import aws_sdk_ec2_instance_connect._auth._sigv4
+import aws_sdk_ec2_instance_connect.errors.auth_exception
+import aws_sdk_ec2_instance_connect.errors.ec2_instance_not_found_exception
+import aws_sdk_ec2_instance_connect.errors.ec2_instance_state_invalid_exception
+import aws_sdk_ec2_instance_connect.errors.ec2_instance_type_invalid_exception
+import aws_sdk_ec2_instance_connect.errors.ec2_instance_unavailable_exception
+import aws_sdk_ec2_instance_connect.errors.invalid_args_exception
+import aws_sdk_ec2_instance_connect.errors.serial_console_access_disabled_exception
+import aws_sdk_ec2_instance_connect.errors.serial_console_session_limit_exceeded_exception
+import aws_sdk_ec2_instance_connect.errors.serial_console_session_unavailable_exception
+import aws_sdk_ec2_instance_connect.errors.serial_console_session_unsupported_exception
+import aws_sdk_ec2_instance_connect.errors.service_exception
+import aws_sdk_ec2_instance_connect.errors.throttling_exception
+import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request
+import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response
 from aws_sdk_ec2_instance_connect._protocol.errors import parse_error_metadata_json
 from aws_sdk_ec2_instance_connect._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,84 +35,56 @@ from aws_sdk_ec2_instance_connect._services._pipeline import (
 )
 from aws_sdk_ec2_instance_connect.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request
-    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AuthException":
-            import aws_sdk_ec2_instance_connect.errors.auth_exception
-
             raise aws_sdk_ec2_instance_connect.errors.auth_exception.AuthException.from_aws_json_1_1(
                 data
             )
         case "EC2InstanceNotFoundException":
-            import aws_sdk_ec2_instance_connect.errors.ec2_instance_not_found_exception
-
             raise aws_sdk_ec2_instance_connect.errors.ec2_instance_not_found_exception.EC2InstanceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EC2InstanceStateInvalidException":
-            import aws_sdk_ec2_instance_connect.errors.ec2_instance_state_invalid_exception
-
             raise aws_sdk_ec2_instance_connect.errors.ec2_instance_state_invalid_exception.EC2InstanceStateInvalidException.from_aws_json_1_1(
                 data
             )
         case "EC2InstanceTypeInvalidException":
-            import aws_sdk_ec2_instance_connect.errors.ec2_instance_type_invalid_exception
-
             raise aws_sdk_ec2_instance_connect.errors.ec2_instance_type_invalid_exception.EC2InstanceTypeInvalidException.from_aws_json_1_1(
                 data
             )
         case "EC2InstanceUnavailableException":
-            import aws_sdk_ec2_instance_connect.errors.ec2_instance_unavailable_exception
-
             raise aws_sdk_ec2_instance_connect.errors.ec2_instance_unavailable_exception.EC2InstanceUnavailableException.from_aws_json_1_1(
                 data
             )
         case "InvalidArgsException":
-            import aws_sdk_ec2_instance_connect.errors.invalid_args_exception
-
             raise aws_sdk_ec2_instance_connect.errors.invalid_args_exception.InvalidArgsException.from_aws_json_1_1(
                 data
             )
         case "SerialConsoleAccessDisabledException":
-            import aws_sdk_ec2_instance_connect.errors.serial_console_access_disabled_exception
-
             raise aws_sdk_ec2_instance_connect.errors.serial_console_access_disabled_exception.SerialConsoleAccessDisabledException.from_aws_json_1_1(
                 data
             )
         case "SerialConsoleSessionLimitExceededException":
-            import aws_sdk_ec2_instance_connect.errors.serial_console_session_limit_exceeded_exception
-
             raise aws_sdk_ec2_instance_connect.errors.serial_console_session_limit_exceeded_exception.SerialConsoleSessionLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "SerialConsoleSessionUnavailableException":
-            import aws_sdk_ec2_instance_connect.errors.serial_console_session_unavailable_exception
-
             raise aws_sdk_ec2_instance_connect.errors.serial_console_session_unavailable_exception.SerialConsoleSessionUnavailableException.from_aws_json_1_1(
                 data
             )
         case "SerialConsoleSessionUnsupportedException":
-            import aws_sdk_ec2_instance_connect.errors.serial_console_session_unsupported_exception
-
             raise aws_sdk_ec2_instance_connect.errors.serial_console_session_unsupported_exception.SerialConsoleSessionUnsupportedException.from_aws_json_1_1(
                 data
             )
         case "ServiceException":
-            import aws_sdk_ec2_instance_connect.errors.service_exception
-
             raise aws_sdk_ec2_instance_connect.errors.service_exception.ServiceException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_ec2_instance_connect.errors.throttling_exception
-
             raise aws_sdk_ec2_instance_connect.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
@@ -107,12 +93,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse:
-    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response
-
     out: aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse = aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse:
+    out: aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.SendSerialConsoleSSHPublicKeyResponse = aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -184,8 +177,7 @@ def send_serial_console_ssh_public_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -203,8 +195,7 @@ async def async_send_serial_console_ssh_public_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

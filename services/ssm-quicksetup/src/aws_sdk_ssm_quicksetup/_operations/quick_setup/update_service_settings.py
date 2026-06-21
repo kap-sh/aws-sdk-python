@@ -3,13 +3,19 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm_quicksetup._auth._signers
 import aws_sdk_ssm_quicksetup._auth._sigv4
+import aws_sdk_ssm_quicksetup.errors.access_denied_exception
+import aws_sdk_ssm_quicksetup.errors.conflict_exception
+import aws_sdk_ssm_quicksetup.errors.internal_server_exception
+import aws_sdk_ssm_quicksetup.errors.throttling_exception
+import aws_sdk_ssm_quicksetup.errors.validation_exception
+import aws_sdk_ssm_quicksetup.types.update_service_settings_input
 from aws_sdk_ssm_quicksetup._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm_quicksetup._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,41 +27,28 @@ from aws_sdk_ssm_quicksetup._services._pipeline import (
 )
 from aws_sdk_ssm_quicksetup.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_ssm_quicksetup.types.update_service_settings_input
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_ssm_quicksetup.errors.access_denied_exception
-
             raise aws_sdk_ssm_quicksetup.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_ssm_quicksetup.errors.conflict_exception
-
             raise aws_sdk_ssm_quicksetup.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_ssm_quicksetup.errors.internal_server_exception
-
             raise aws_sdk_ssm_quicksetup.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_ssm_quicksetup.errors.throttling_exception
-
             raise aws_sdk_ssm_quicksetup.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_ssm_quicksetup.errors.validation_exception
-
             raise aws_sdk_ssm_quicksetup.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -124,7 +117,6 @@ def update_service_settings(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -140,7 +132,6 @@ async def async_update_service_settings(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

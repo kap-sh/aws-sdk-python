@@ -3,13 +3,19 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_config_service._auth._signers
 import aws_sdk_config_service._auth._sigv4
+import aws_sdk_config_service.errors.insufficient_permissions_exception
+import aws_sdk_config_service.errors.max_active_resources_exceeded_exception
+import aws_sdk_config_service.errors.no_running_configuration_recorder_exception
+import aws_sdk_config_service.errors.validation_exception
+import aws_sdk_config_service.types.put_resource_config_request
+import aws_sdk_config_service.types.tags
 from aws_sdk_config_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_config_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,35 +27,24 @@ from aws_sdk_config_service._services._pipeline import (
 )
 from aws_sdk_config_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_config_service.types.put_resource_config_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InsufficientPermissionsException":
-            import aws_sdk_config_service.errors.insufficient_permissions_exception
-
             raise aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException.from_aws_json_1_1(
                 data
             )
         case "MaxActiveResourcesExceededException":
-            import aws_sdk_config_service.errors.max_active_resources_exceeded_exception
-
             raise aws_sdk_config_service.errors.max_active_resources_exceeded_exception.MaxActiveResourcesExceededException.from_aws_json_1_1(
                 data
             )
         case "NoRunningConfigurationRecorderException":
-            import aws_sdk_config_service.errors.no_running_configuration_recorder_exception
-
             raise aws_sdk_config_service.errors.no_running_configuration_recorder_exception.NoRunningConfigurationRecorderException.from_aws_json_1_1(
                 data
             )
         case "ValidationException":
-            import aws_sdk_config_service.errors.validation_exception
-
             raise aws_sdk_config_service.errors.validation_exception.ValidationException.from_aws_json_1_1(
                 data
             )
@@ -119,7 +114,6 @@ def put_resource_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -135,7 +129,6 @@ async def async_put_resource_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

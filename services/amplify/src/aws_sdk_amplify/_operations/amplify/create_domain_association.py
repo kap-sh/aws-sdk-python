@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,14 +11,22 @@ from typing_extensions import Never
 
 import aws_sdk_amplify._auth._signers
 import aws_sdk_amplify._auth._sigv4
+import aws_sdk_amplify.errors.bad_request_exception
+import aws_sdk_amplify.errors.dependent_service_failure_exception
+import aws_sdk_amplify.errors.internal_failure_exception
+import aws_sdk_amplify.errors.limit_exceeded_exception
+import aws_sdk_amplify.errors.not_found_exception
+import aws_sdk_amplify.errors.unauthorized_exception
+import aws_sdk_amplify.types.auto_sub_domain_creation_patterns
+import aws_sdk_amplify.types.certificate_settings
+import aws_sdk_amplify.types.create_domain_association_request
+import aws_sdk_amplify.types.create_domain_association_result
+import aws_sdk_amplify.types.domain_association
+import aws_sdk_amplify.types.sub_domain_settings
 from aws_sdk_amplify._protocol.errors import parse_error_metadata_json
 from aws_sdk_amplify._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_amplify._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_amplify.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_amplify.types.create_domain_association_request
-    import aws_sdk_amplify.types.create_domain_association_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,38 +34,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_amplify.errors.bad_request_exception
-
             raise aws_sdk_amplify.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "DependentServiceFailureException":
-            import aws_sdk_amplify.errors.dependent_service_failure_exception
-
             raise aws_sdk_amplify.errors.dependent_service_failure_exception.DependentServiceFailureException.from_json(
                 data
             )
         case "InternalFailureException":
-            import aws_sdk_amplify.errors.internal_failure_exception
-
             raise aws_sdk_amplify.errors.internal_failure_exception.InternalFailureException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_amplify.errors.limit_exceeded_exception
-
             raise aws_sdk_amplify.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_amplify.errors.not_found_exception
-
             raise aws_sdk_amplify.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_amplify.errors.unauthorized_exception
-
             raise aws_sdk_amplify.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -66,14 +62,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_amplify.types.create_domain_association_result.CreateDomainAssociationResult
 ):
-    import aws_sdk_amplify.types.create_domain_association_result
-
     out: aws_sdk_amplify.types.create_domain_association_result.CreateDomainAssociationResult = aws_sdk_amplify.types.create_domain_association_result.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_amplify.types.create_domain_association_result.CreateDomainAssociationResult
+):
+    out: aws_sdk_amplify.types.create_domain_association_result.CreateDomainAssociationResult = aws_sdk_amplify.types.create_domain_association_result.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -141,8 +146,7 @@ def create_domain_association(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -160,8 +164,7 @@ async def async_create_domain_association(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

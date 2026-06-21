@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,15 @@ from typing_extensions import Never
 
 import aws_sdk_sagemaker_runtime._auth._signers
 import aws_sdk_sagemaker_runtime._auth._sigv4
+import aws_sdk_sagemaker_runtime.errors.internal_dependency_exception
+import aws_sdk_sagemaker_runtime.errors.internal_failure
+import aws_sdk_sagemaker_runtime.errors.model_error
+import aws_sdk_sagemaker_runtime.errors.model_not_ready_exception
+import aws_sdk_sagemaker_runtime.errors.service_unavailable
+import aws_sdk_sagemaker_runtime.errors.validation_error
+import aws_sdk_sagemaker_runtime.types.body_blob
+import aws_sdk_sagemaker_runtime.types.invoke_endpoint_input
+import aws_sdk_sagemaker_runtime.types.invoke_endpoint_output
 from aws_sdk_sagemaker_runtime._protocol.errors import parse_error_metadata_json
 from aws_sdk_sagemaker_runtime._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,48 +31,32 @@ from aws_sdk_sagemaker_runtime._services._pipeline import (
 )
 from aws_sdk_sagemaker_runtime.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemaker_runtime.types.invoke_endpoint_input
-    import aws_sdk_sagemaker_runtime.types.invoke_endpoint_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalDependencyException":
-            import aws_sdk_sagemaker_runtime.errors.internal_dependency_exception
-
             raise aws_sdk_sagemaker_runtime.errors.internal_dependency_exception.InternalDependencyException.from_json(
                 data
             )
         case "InternalFailure":
-            import aws_sdk_sagemaker_runtime.errors.internal_failure
-
             raise aws_sdk_sagemaker_runtime.errors.internal_failure.InternalFailure.from_json(
                 data
             )
         case "ModelError":
-            import aws_sdk_sagemaker_runtime.errors.model_error
-
             raise aws_sdk_sagemaker_runtime.errors.model_error.ModelError.from_json(
                 data
             )
         case "ModelNotReadyException":
-            import aws_sdk_sagemaker_runtime.errors.model_not_ready_exception
-
             raise aws_sdk_sagemaker_runtime.errors.model_not_ready_exception.ModelNotReadyException.from_json(
                 data
             )
         case "ServiceUnavailable":
-            import aws_sdk_sagemaker_runtime.errors.service_unavailable
-
             raise aws_sdk_sagemaker_runtime.errors.service_unavailable.ServiceUnavailable.from_json(
                 data
             )
         case "ValidationError":
-            import aws_sdk_sagemaker_runtime.errors.validation_error
-
             raise aws_sdk_sagemaker_runtime.errors.validation_error.ValidationError.from_json(
                 data
             )
@@ -72,13 +65,38 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput:
-    import aws_sdk_sagemaker_runtime.types.body_blob
-
     out: aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput = {
         "body": aws_sdk_sagemaker_runtime.types.body_blob.deserialize_json(
             json.loads(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    if "x-Amzn-Invoked-Production-Variant" in response.headers:
+        out["invoked_production_variant"] = str(
+            response.headers["x-Amzn-Invoked-Production-Variant"]
+        )
+    if "X-Amzn-SageMaker-Custom-Attributes" in response.headers:
+        out["custom_attributes"] = str(
+            response.headers["X-Amzn-SageMaker-Custom-Attributes"]
+        )
+    if "X-Amzn-SageMaker-New-Session-Id" in response.headers:
+        out["new_session_id"] = str(response.headers["X-Amzn-SageMaker-New-Session-Id"])
+    if "X-Amzn-SageMaker-Closed-Session-Id" in response.headers:
+        out["closed_session_id"] = str(
+            response.headers["X-Amzn-SageMaker-Closed-Session-Id"]
+        )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput:
+    out: aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput = {
+        "body": aws_sdk_sagemaker_runtime.types.body_blob.deserialize_json(
+            json.loads(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     if "Content-Type" in response.headers:
@@ -192,8 +210,7 @@ def invoke_endpoint(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -211,8 +228,7 @@ async def async_invoke_endpoint(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

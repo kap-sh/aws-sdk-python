@@ -3,21 +3,37 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_textract._auth._signers
 import aws_sdk_textract._auth._sigv4
+import aws_sdk_textract.errors.access_denied_exception
+import aws_sdk_textract.errors.bad_document_exception
+import aws_sdk_textract.errors.document_too_large_exception
+import aws_sdk_textract.errors.human_loop_quota_exceeded_exception
+import aws_sdk_textract.errors.internal_server_error
+import aws_sdk_textract.errors.invalid_parameter_exception
+import aws_sdk_textract.errors.invalid_s3_object_exception
+import aws_sdk_textract.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_textract.errors.throttling_exception
+import aws_sdk_textract.errors.unsupported_document_exception
+import aws_sdk_textract.types.adapters_config
+import aws_sdk_textract.types.analyze_document_request
+import aws_sdk_textract.types.analyze_document_response
+import aws_sdk_textract.types.block_list
+import aws_sdk_textract.types.document
+import aws_sdk_textract.types.document_metadata
+import aws_sdk_textract.types.feature_types
+import aws_sdk_textract.types.human_loop_activation_output
+import aws_sdk_textract.types.human_loop_config
+import aws_sdk_textract.types.queries_config
 from aws_sdk_textract._protocol.errors import parse_error_metadata_json
 from aws_sdk_textract._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_textract._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_textract.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_textract.types.analyze_document_request
-    import aws_sdk_textract.types.analyze_document_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,62 +41,42 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_textract.errors.access_denied_exception
-
             raise aws_sdk_textract.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "BadDocumentException":
-            import aws_sdk_textract.errors.bad_document_exception
-
             raise aws_sdk_textract.errors.bad_document_exception.BadDocumentException.from_aws_json_1_1(
                 data
             )
         case "DocumentTooLargeException":
-            import aws_sdk_textract.errors.document_too_large_exception
-
             raise aws_sdk_textract.errors.document_too_large_exception.DocumentTooLargeException.from_aws_json_1_1(
                 data
             )
         case "HumanLoopQuotaExceededException":
-            import aws_sdk_textract.errors.human_loop_quota_exceeded_exception
-
             raise aws_sdk_textract.errors.human_loop_quota_exceeded_exception.HumanLoopQuotaExceededException.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_textract.errors.internal_server_error
-
             raise aws_sdk_textract.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_textract.errors.invalid_parameter_exception
-
             raise aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3ObjectException":
-            import aws_sdk_textract.errors.invalid_s3_object_exception
-
             raise aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException.from_aws_json_1_1(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_textract.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_textract.errors.throttling_exception
-
             raise aws_sdk_textract.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedDocumentException":
-            import aws_sdk_textract.errors.unsupported_document_exception
-
             raise aws_sdk_textract.errors.unsupported_document_exception.UnsupportedDocumentException.from_aws_json_1_1(
                 data
             )
@@ -89,13 +85,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_textract.types.analyze_document_response.AnalyzeDocumentResponse:
-    import aws_sdk_textract.types.analyze_document_response
-
     out: aws_sdk_textract.types.analyze_document_response.AnalyzeDocumentResponse = (
         aws_sdk_textract.types.analyze_document_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_textract.types.analyze_document_response.AnalyzeDocumentResponse:
+    out: aws_sdk_textract.types.analyze_document_response.AnalyzeDocumentResponse = (
+        aws_sdk_textract.types.analyze_document_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -164,8 +169,7 @@ def analyze_document(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -183,8 +187,7 @@ async def async_analyze_document(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

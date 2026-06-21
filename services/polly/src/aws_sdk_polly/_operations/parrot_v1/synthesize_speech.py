@@ -3,21 +3,36 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_polly._auth._signers
 import aws_sdk_polly._auth._sigv4
+import aws_sdk_polly.errors.engine_not_supported_exception
+import aws_sdk_polly.errors.invalid_sample_rate_exception
+import aws_sdk_polly.errors.invalid_ssml_exception
+import aws_sdk_polly.errors.language_not_supported_exception
+import aws_sdk_polly.errors.lexicon_not_found_exception
+import aws_sdk_polly.errors.marks_not_supported_for_format_exception
+import aws_sdk_polly.errors.service_failure_exception
+import aws_sdk_polly.errors.ssml_marks_not_supported_for_text_type_exception
+import aws_sdk_polly.errors.text_length_exceeded_exception
+import aws_sdk_polly.types.audio_stream
+import aws_sdk_polly.types.engine
+import aws_sdk_polly.types.language_code
+import aws_sdk_polly.types.lexicon_name_list
+import aws_sdk_polly.types.output_format
+import aws_sdk_polly.types.speech_mark_type_list
+import aws_sdk_polly.types.synthesize_speech_input
+import aws_sdk_polly.types.synthesize_speech_output
+import aws_sdk_polly.types.text_type
+import aws_sdk_polly.types.voice_id
 from aws_sdk_polly._protocol.errors import parse_error_metadata_json
 from aws_sdk_polly._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_polly._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_polly.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_polly.types.synthesize_speech_input
-    import aws_sdk_polly.types.synthesize_speech_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,56 +40,38 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "EngineNotSupportedException":
-            import aws_sdk_polly.errors.engine_not_supported_exception
-
             raise aws_sdk_polly.errors.engine_not_supported_exception.EngineNotSupportedException.from_json(
                 data
             )
         case "InvalidSampleRateException":
-            import aws_sdk_polly.errors.invalid_sample_rate_exception
-
             raise aws_sdk_polly.errors.invalid_sample_rate_exception.InvalidSampleRateException.from_json(
                 data
             )
         case "InvalidSsmlException":
-            import aws_sdk_polly.errors.invalid_ssml_exception
-
             raise aws_sdk_polly.errors.invalid_ssml_exception.InvalidSsmlException.from_json(
                 data
             )
         case "LanguageNotSupportedException":
-            import aws_sdk_polly.errors.language_not_supported_exception
-
             raise aws_sdk_polly.errors.language_not_supported_exception.LanguageNotSupportedException.from_json(
                 data
             )
         case "LexiconNotFoundException":
-            import aws_sdk_polly.errors.lexicon_not_found_exception
-
             raise aws_sdk_polly.errors.lexicon_not_found_exception.LexiconNotFoundException.from_json(
                 data
             )
         case "MarksNotSupportedForFormatException":
-            import aws_sdk_polly.errors.marks_not_supported_for_format_exception
-
             raise aws_sdk_polly.errors.marks_not_supported_for_format_exception.MarksNotSupportedForFormatException.from_json(
                 data
             )
         case "ServiceFailureException":
-            import aws_sdk_polly.errors.service_failure_exception
-
             raise aws_sdk_polly.errors.service_failure_exception.ServiceFailureException.from_json(
                 data
             )
         case "SsmlMarksNotSupportedForTextTypeException":
-            import aws_sdk_polly.errors.ssml_marks_not_supported_for_text_type_exception
-
             raise aws_sdk_polly.errors.ssml_marks_not_supported_for_text_type_exception.SsmlMarksNotSupportedForTextTypeException.from_json(
                 data
             )
         case "TextLengthExceededException":
-            import aws_sdk_polly.errors.text_length_exceeded_exception
-
             raise aws_sdk_polly.errors.text_length_exceeded_exception.TextLengthExceededException.from_json(
                 data
             )
@@ -83,11 +80,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_polly.types.synthesize_speech_output.SynthesizeSpeechOutput:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
+    out: aws_sdk_polly.types.synthesize_speech_output.SynthesizeSpeechOutput = {
+        "audio_stream": _iter
+    }  # type: ignore[reportAssignmentType]
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    out["request_characters"] = int(response.headers["x-amzn-RequestCharacters"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_polly.types.synthesize_speech_output.SynthesizeSpeechOutput:
+    _iter = cast(Any, response.async_iter_bytes())
     out: aws_sdk_polly.types.synthesize_speech_output.SynthesizeSpeechOutput = {
         "audio_stream": _iter
     }  # type: ignore[reportAssignmentType]
@@ -158,8 +166,7 @@ def synthesize_speech(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -176,8 +183,7 @@ async def async_synthesize_speech(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,21 +3,41 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_dynamodb._auth._signers
 import aws_sdk_dynamodb._auth._sigv4
+import aws_sdk_dynamodb.errors.conditional_check_failed_exception
+import aws_sdk_dynamodb.errors.internal_server_error
+import aws_sdk_dynamodb.errors.invalid_endpoint_exception
+import aws_sdk_dynamodb.errors.item_collection_size_limit_exceeded_exception
+import aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_dynamodb.errors.replicated_write_conflict_exception
+import aws_sdk_dynamodb.errors.request_limit_exceeded
+import aws_sdk_dynamodb.errors.resource_not_found_exception
+import aws_sdk_dynamodb.errors.throttling_exception
+import aws_sdk_dynamodb.errors.transaction_conflict_exception
+import aws_sdk_dynamodb.types.attribute_map
+import aws_sdk_dynamodb.types.conditional_operator
+import aws_sdk_dynamodb.types.consumed_capacity
+import aws_sdk_dynamodb.types.delete_item_input
+import aws_sdk_dynamodb.types.delete_item_output
+import aws_sdk_dynamodb.types.expected_attribute_map
+import aws_sdk_dynamodb.types.expression_attribute_name_map
+import aws_sdk_dynamodb.types.expression_attribute_value_map
+import aws_sdk_dynamodb.types.item_collection_metrics
+import aws_sdk_dynamodb.types.key
+import aws_sdk_dynamodb.types.return_consumed_capacity
+import aws_sdk_dynamodb.types.return_item_collection_metrics
+import aws_sdk_dynamodb.types.return_value
+import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
 from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
 from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dynamodb._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_dynamodb.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.delete_item_input
-    import aws_sdk_dynamodb.types.delete_item_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,62 +45,42 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConditionalCheckFailedException":
-            import aws_sdk_dynamodb.errors.conditional_check_failed_exception
-
             raise aws_sdk_dynamodb.errors.conditional_check_failed_exception.ConditionalCheckFailedException.from_aws_json_1_0(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_dynamodb.errors.internal_server_error
-
             raise aws_sdk_dynamodb.errors.internal_server_error.InternalServerError.from_aws_json_1_0(
                 data
             )
         case "InvalidEndpointException":
-            import aws_sdk_dynamodb.errors.invalid_endpoint_exception
-
             raise aws_sdk_dynamodb.errors.invalid_endpoint_exception.InvalidEndpointException.from_aws_json_1_0(
                 data
             )
         case "ItemCollectionSizeLimitExceededException":
-            import aws_sdk_dynamodb.errors.item_collection_size_limit_exceeded_exception
-
             raise aws_sdk_dynamodb.errors.item_collection_size_limit_exceeded_exception.ItemCollectionSizeLimitExceededException.from_aws_json_1_0(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_0(
                 data
             )
         case "ReplicatedWriteConflictException":
-            import aws_sdk_dynamodb.errors.replicated_write_conflict_exception
-
             raise aws_sdk_dynamodb.errors.replicated_write_conflict_exception.ReplicatedWriteConflictException.from_aws_json_1_0(
                 data
             )
         case "RequestLimitExceeded":
-            import aws_sdk_dynamodb.errors.request_limit_exceeded
-
             raise aws_sdk_dynamodb.errors.request_limit_exceeded.RequestLimitExceeded.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_dynamodb.errors.resource_not_found_exception
-
             raise aws_sdk_dynamodb.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_dynamodb.errors.throttling_exception
-
             raise aws_sdk_dynamodb.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
         case "TransactionConflictException":
-            import aws_sdk_dynamodb.errors.transaction_conflict_exception
-
             raise aws_sdk_dynamodb.errors.transaction_conflict_exception.TransactionConflictException.from_aws_json_1_0(
                 data
             )
@@ -89,13 +89,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput:
-    import aws_sdk_dynamodb.types.delete_item_output
-
     out: aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput = (
         aws_sdk_dynamodb.types.delete_item_output.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput:
+    out: aws_sdk_dynamodb.types.delete_item_output.DeleteItemOutput = (
+        aws_sdk_dynamodb.types.delete_item_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -165,8 +174,7 @@ def delete_item(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -181,8 +189,7 @@ async def async_delete_item(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

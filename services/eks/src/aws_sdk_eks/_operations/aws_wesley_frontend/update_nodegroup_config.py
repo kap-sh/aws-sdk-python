@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,14 +11,25 @@ from typing_extensions import Never
 
 import aws_sdk_eks._auth._signers
 import aws_sdk_eks._auth._sigv4
+import aws_sdk_eks.errors.client_exception
+import aws_sdk_eks.errors.invalid_parameter_exception
+import aws_sdk_eks.errors.invalid_request_exception
+import aws_sdk_eks.errors.resource_in_use_exception
+import aws_sdk_eks.errors.resource_not_found_exception
+import aws_sdk_eks.errors.server_exception
+import aws_sdk_eks.types.node_repair_config
+import aws_sdk_eks.types.nodegroup_scaling_config
+import aws_sdk_eks.types.nodegroup_update_config
+import aws_sdk_eks.types.update
+import aws_sdk_eks.types.update_labels_payload
+import aws_sdk_eks.types.update_nodegroup_config_request
+import aws_sdk_eks.types.update_nodegroup_config_response
+import aws_sdk_eks.types.update_taints_payload
+import aws_sdk_eks.types.warm_pool_config
 from aws_sdk_eks._protocol.errors import parse_error_metadata_json
 from aws_sdk_eks._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_eks._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_eks.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_eks.types.update_nodegroup_config_request
-    import aws_sdk_eks.types.update_nodegroup_config_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,48 +37,43 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientException":
-            import aws_sdk_eks.errors.client_exception
-
             raise aws_sdk_eks.errors.client_exception.ClientException.from_json(data)
         case "InvalidParameterException":
-            import aws_sdk_eks.errors.invalid_parameter_exception
-
             raise aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_eks.errors.invalid_request_exception
-
             raise aws_sdk_eks.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_eks.errors.resource_in_use_exception
-
             raise aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_eks.errors.resource_not_found_exception
-
             raise aws_sdk_eks.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServerException":
-            import aws_sdk_eks.errors.server_exception
-
             raise aws_sdk_eks.errors.server_exception.ServerException.from_json(data)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_eks.types.update_nodegroup_config_response.UpdateNodegroupConfigResponse:
-    import aws_sdk_eks.types.update_nodegroup_config_response
-
     out: aws_sdk_eks.types.update_nodegroup_config_response.UpdateNodegroupConfigResponse = aws_sdk_eks.types.update_nodegroup_config_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_eks.types.update_nodegroup_config_response.UpdateNodegroupConfigResponse:
+    out: aws_sdk_eks.types.update_nodegroup_config_response.UpdateNodegroupConfigResponse = aws_sdk_eks.types.update_nodegroup_config_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -137,8 +143,7 @@ def update_nodegroup_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +161,7 @@ async def async_update_nodegroup_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

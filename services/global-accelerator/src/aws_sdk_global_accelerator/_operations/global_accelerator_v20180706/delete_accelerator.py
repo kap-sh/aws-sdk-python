@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_global_accelerator._auth._signers
 import aws_sdk_global_accelerator._auth._sigv4
+import aws_sdk_global_accelerator.errors.accelerator_not_disabled_exception
+import aws_sdk_global_accelerator.errors.accelerator_not_found_exception
+import aws_sdk_global_accelerator.errors.associated_listener_found_exception
+import aws_sdk_global_accelerator.errors.internal_service_error_exception
+import aws_sdk_global_accelerator.errors.invalid_argument_exception
+import aws_sdk_global_accelerator.errors.transaction_in_progress_exception
+import aws_sdk_global_accelerator.types.delete_accelerator_request
 from aws_sdk_global_accelerator._protocol.errors import parse_error_metadata_json
 from aws_sdk_global_accelerator._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,47 +28,32 @@ from aws_sdk_global_accelerator._services._pipeline import (
 )
 from aws_sdk_global_accelerator.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_global_accelerator.types.delete_accelerator_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AcceleratorNotDisabledException":
-            import aws_sdk_global_accelerator.errors.accelerator_not_disabled_exception
-
             raise aws_sdk_global_accelerator.errors.accelerator_not_disabled_exception.AcceleratorNotDisabledException.from_aws_json_1_1(
                 data
             )
         case "AcceleratorNotFoundException":
-            import aws_sdk_global_accelerator.errors.accelerator_not_found_exception
-
             raise aws_sdk_global_accelerator.errors.accelerator_not_found_exception.AcceleratorNotFoundException.from_aws_json_1_1(
                 data
             )
         case "AssociatedListenerFoundException":
-            import aws_sdk_global_accelerator.errors.associated_listener_found_exception
-
             raise aws_sdk_global_accelerator.errors.associated_listener_found_exception.AssociatedListenerFoundException.from_aws_json_1_1(
                 data
             )
         case "InternalServiceErrorException":
-            import aws_sdk_global_accelerator.errors.internal_service_error_exception
-
             raise aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_global_accelerator.errors.invalid_argument_exception
-
             raise aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException.from_aws_json_1_1(
                 data
             )
         case "TransactionInProgressException":
-            import aws_sdk_global_accelerator.errors.transaction_in_progress_exception
-
             raise aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException.from_aws_json_1_1(
                 data
             )
@@ -131,7 +123,6 @@ def delete_accelerator(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -147,7 +138,6 @@ async def async_delete_accelerator(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

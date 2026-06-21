@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_lambda._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob
 
@@ -16,17 +18,25 @@ class InvokeResponseStreamUpdate(TypedDict):
 # --- restJson1 ser/de ---
 def serialize_json(value: InvokeResponseStreamUpdate) -> dict:
     out: dict = {}
-    if "payload" in value:
-        import aws_sdk_lambda.types.blob
-
-        out["Payload"] = aws_sdk_lambda.types.blob.serialize_json(value["payload"])
     return out
 
 
 def deserialize_json(data: dict) -> InvokeResponseStreamUpdate:
     out: InvokeResponseStreamUpdate = {}  # type: ignore[typeddict-item]
-    if "Payload" in data:
-        import aws_sdk_lambda.types.blob
+    return out
 
-        out["payload"] = aws_sdk_lambda.types.blob.deserialize_json(data["Payload"])
+
+def serialize_event_json(value: InvokeResponseStreamUpdate) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "PayloadChunk"}
+    payload = b""
+    payload = value["payload"]
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> InvokeResponseStreamUpdate:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: InvokeResponseStreamUpdate = {}  # type: ignore[typeddict-item]
+    if payload:
+        out["payload"] = payload
     return out

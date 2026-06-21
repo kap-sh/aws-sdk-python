@@ -3,21 +3,36 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_workdocs._auth._signers
 import aws_sdk_workdocs._auth._sigv4
+import aws_sdk_workdocs.errors.draft_upload_out_of_sync_exception
+import aws_sdk_workdocs.errors.entity_already_exists_exception
+import aws_sdk_workdocs.errors.entity_not_exists_exception
+import aws_sdk_workdocs.errors.failed_dependency_exception
+import aws_sdk_workdocs.errors.invalid_argument_exception
+import aws_sdk_workdocs.errors.invalid_password_exception
+import aws_sdk_workdocs.errors.limit_exceeded_exception
+import aws_sdk_workdocs.errors.prohibited_state_exception
+import aws_sdk_workdocs.errors.resource_already_checked_out_exception
+import aws_sdk_workdocs.errors.service_unavailable_exception
+import aws_sdk_workdocs.errors.storage_limit_exceeded_exception
+import aws_sdk_workdocs.errors.storage_limit_will_exceed_exception
+import aws_sdk_workdocs.errors.unauthorized_operation_exception
+import aws_sdk_workdocs.errors.unauthorized_resource_access_exception
+import aws_sdk_workdocs.types.document_metadata
+import aws_sdk_workdocs.types.initiate_document_version_upload_request
+import aws_sdk_workdocs.types.initiate_document_version_upload_response
+import aws_sdk_workdocs.types.timestamp_type
+import aws_sdk_workdocs.types.upload_metadata
 from aws_sdk_workdocs._protocol.errors import parse_error_metadata_json
 from aws_sdk_workdocs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_workdocs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_workdocs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_workdocs.types.initiate_document_version_upload_request
-    import aws_sdk_workdocs.types.initiate_document_version_upload_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,86 +40,58 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DraftUploadOutOfSyncException":
-            import aws_sdk_workdocs.errors.draft_upload_out_of_sync_exception
-
             raise aws_sdk_workdocs.errors.draft_upload_out_of_sync_exception.DraftUploadOutOfSyncException.from_json(
                 data
             )
         case "EntityAlreadyExistsException":
-            import aws_sdk_workdocs.errors.entity_already_exists_exception
-
             raise aws_sdk_workdocs.errors.entity_already_exists_exception.EntityAlreadyExistsException.from_json(
                 data
             )
         case "EntityNotExistsException":
-            import aws_sdk_workdocs.errors.entity_not_exists_exception
-
             raise aws_sdk_workdocs.errors.entity_not_exists_exception.EntityNotExistsException.from_json(
                 data
             )
         case "FailedDependencyException":
-            import aws_sdk_workdocs.errors.failed_dependency_exception
-
             raise aws_sdk_workdocs.errors.failed_dependency_exception.FailedDependencyException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_workdocs.errors.invalid_argument_exception
-
             raise aws_sdk_workdocs.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "InvalidPasswordException":
-            import aws_sdk_workdocs.errors.invalid_password_exception
-
             raise aws_sdk_workdocs.errors.invalid_password_exception.InvalidPasswordException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_workdocs.errors.limit_exceeded_exception
-
             raise aws_sdk_workdocs.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
         case "ProhibitedStateException":
-            import aws_sdk_workdocs.errors.prohibited_state_exception
-
             raise aws_sdk_workdocs.errors.prohibited_state_exception.ProhibitedStateException.from_json(
                 data
             )
         case "ResourceAlreadyCheckedOutException":
-            import aws_sdk_workdocs.errors.resource_already_checked_out_exception
-
             raise aws_sdk_workdocs.errors.resource_already_checked_out_exception.ResourceAlreadyCheckedOutException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_workdocs.errors.service_unavailable_exception
-
             raise aws_sdk_workdocs.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "StorageLimitExceededException":
-            import aws_sdk_workdocs.errors.storage_limit_exceeded_exception
-
             raise aws_sdk_workdocs.errors.storage_limit_exceeded_exception.StorageLimitExceededException.from_json(
                 data
             )
         case "StorageLimitWillExceedException":
-            import aws_sdk_workdocs.errors.storage_limit_will_exceed_exception
-
             raise aws_sdk_workdocs.errors.storage_limit_will_exceed_exception.StorageLimitWillExceedException.from_json(
                 data
             )
         case "UnauthorizedOperationException":
-            import aws_sdk_workdocs.errors.unauthorized_operation_exception
-
             raise aws_sdk_workdocs.errors.unauthorized_operation_exception.UnauthorizedOperationException.from_json(
                 data
             )
         case "UnauthorizedResourceAccessException":
-            import aws_sdk_workdocs.errors.unauthorized_resource_access_exception
-
             raise aws_sdk_workdocs.errors.unauthorized_resource_access_exception.UnauthorizedResourceAccessException.from_json(
                 data
             )
@@ -113,12 +100,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_workdocs.types.initiate_document_version_upload_response.InitiateDocumentVersionUploadResponse:
-    import aws_sdk_workdocs.types.initiate_document_version_upload_response
-
     out: aws_sdk_workdocs.types.initiate_document_version_upload_response.InitiateDocumentVersionUploadResponse = aws_sdk_workdocs.types.initiate_document_version_upload_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_workdocs.types.initiate_document_version_upload_response.InitiateDocumentVersionUploadResponse:
+    out: aws_sdk_workdocs.types.initiate_document_version_upload_response.InitiateDocumentVersionUploadResponse = aws_sdk_workdocs.types.initiate_document_version_upload_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -189,8 +183,7 @@ def initiate_document_version_upload(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -208,8 +201,7 @@ async def async_initiate_document_version_upload(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

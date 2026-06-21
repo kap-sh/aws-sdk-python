@@ -3,13 +3,19 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_directory_service._auth._signers
 import aws_sdk_directory_service._auth._sigv4
+import aws_sdk_directory_service.errors.client_exception
+import aws_sdk_directory_service.errors.entity_does_not_exist_exception
+import aws_sdk_directory_service.errors.service_exception
+import aws_sdk_directory_service.errors.unsupported_operation_exception
+import aws_sdk_directory_service.types.delete_log_subscription_request
+import aws_sdk_directory_service.types.delete_log_subscription_result
 from aws_sdk_directory_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_directory_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,36 +27,24 @@ from aws_sdk_directory_service._services._pipeline import (
 )
 from aws_sdk_directory_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_directory_service.types.delete_log_subscription_request
-    import aws_sdk_directory_service.types.delete_log_subscription_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientException":
-            import aws_sdk_directory_service.errors.client_exception
-
             raise aws_sdk_directory_service.errors.client_exception.ClientException.from_aws_json_1_1(
                 data
             )
         case "EntityDoesNotExistException":
-            import aws_sdk_directory_service.errors.entity_does_not_exist_exception
-
             raise aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ServiceException":
-            import aws_sdk_directory_service.errors.service_exception
-
             raise aws_sdk_directory_service.errors.service_exception.ServiceException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_directory_service.errors.unsupported_operation_exception
-
             raise aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -59,7 +53,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_directory_service.types.delete_log_subscription_result.DeleteLogSubscriptionResult:
+    out: aws_sdk_directory_service.types.delete_log_subscription_result.DeleteLogSubscriptionResult = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_directory_service.types.delete_log_subscription_result.DeleteLogSubscriptionResult:
     out: aws_sdk_directory_service.types.delete_log_subscription_result.DeleteLogSubscriptionResult = {}  # type: ignore[typeddict-item]
     return out
@@ -130,8 +131,7 @@ def delete_log_subscription(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -149,8 +149,7 @@ async def async_delete_log_subscription(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

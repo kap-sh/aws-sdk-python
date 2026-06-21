@@ -10,6 +10,9 @@ from typing_extensions import Never
 
 import aws_sdk_elasticsearch_service._auth._signers
 import aws_sdk_elasticsearch_service._auth._sigv4
+import aws_sdk_elasticsearch_service.errors.base_exception
+import aws_sdk_elasticsearch_service.errors.internal_exception
+import aws_sdk_elasticsearch_service.errors.validation_exception
 from aws_sdk_elasticsearch_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_elasticsearch_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -27,20 +30,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BaseException":
-            import aws_sdk_elasticsearch_service.errors.base_exception
-
             raise aws_sdk_elasticsearch_service.errors.base_exception.BaseException.from_json(
                 data
             )
         case "InternalException":
-            import aws_sdk_elasticsearch_service.errors.internal_exception
-
             raise aws_sdk_elasticsearch_service.errors.internal_exception.InternalException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_elasticsearch_service.errors.validation_exception
-
             raise aws_sdk_elasticsearch_service.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -98,7 +95,6 @@ def delete_elasticsearch_service_role(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -113,7 +109,6 @@ async def async_delete_elasticsearch_service_role(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

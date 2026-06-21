@@ -3,20 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_chime._auth._signers
 import aws_sdk_chime._auth._sigv4
+import aws_sdk_chime.errors.bad_request_exception
+import aws_sdk_chime.errors.forbidden_exception
+import aws_sdk_chime.errors.service_failure_exception
+import aws_sdk_chime.errors.service_unavailable_exception
+import aws_sdk_chime.errors.throttled_client_exception
+import aws_sdk_chime.errors.unauthorized_client_exception
+import aws_sdk_chime.types.update_phone_number_settings_request
 from aws_sdk_chime._protocol.errors import parse_error_metadata_json
 from aws_sdk_chime._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_chime._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_chime.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_chime.types.update_phone_number_settings_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,38 +28,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_chime.errors.bad_request_exception
-
             raise aws_sdk_chime.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_chime.errors.forbidden_exception
-
             raise aws_sdk_chime.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "ServiceFailureException":
-            import aws_sdk_chime.errors.service_failure_exception
-
             raise aws_sdk_chime.errors.service_failure_exception.ServiceFailureException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_chime.errors.service_unavailable_exception
-
             raise aws_sdk_chime.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "ThrottledClientException":
-            import aws_sdk_chime.errors.throttled_client_exception
-
             raise aws_sdk_chime.errors.throttled_client_exception.ThrottledClientException.from_json(
                 data
             )
         case "UnauthorizedClientException":
-            import aws_sdk_chime.errors.unauthorized_client_exception
-
             raise aws_sdk_chime.errors.unauthorized_client_exception.UnauthorizedClientException.from_json(
                 data
             )
@@ -122,7 +114,6 @@ def update_phone_number_settings(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -138,7 +129,6 @@ async def async_update_phone_number_settings(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

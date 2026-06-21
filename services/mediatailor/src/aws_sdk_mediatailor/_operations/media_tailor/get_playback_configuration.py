@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,22 @@ from typing_extensions import Never
 
 import aws_sdk_mediatailor._auth._signers
 import aws_sdk_mediatailor._auth._sigv4
+import aws_sdk_mediatailor.types.__map_of__string
+import aws_sdk_mediatailor.types.ad_conditioning_configuration
+import aws_sdk_mediatailor.types.ad_decision_server_configuration
+import aws_sdk_mediatailor.types.avail_suppression
+import aws_sdk_mediatailor.types.bumper
+import aws_sdk_mediatailor.types.cdn_configuration
+import aws_sdk_mediatailor.types.configuration_aliases_response
+import aws_sdk_mediatailor.types.dash_configuration
+import aws_sdk_mediatailor.types.function_mapping
+import aws_sdk_mediatailor.types.get_playback_configuration_request
+import aws_sdk_mediatailor.types.get_playback_configuration_response
+import aws_sdk_mediatailor.types.hls_configuration
+import aws_sdk_mediatailor.types.insertion_mode
+import aws_sdk_mediatailor.types.live_pre_roll_configuration
+import aws_sdk_mediatailor.types.log_configuration
+import aws_sdk_mediatailor.types.manifest_processing_rules
 from aws_sdk_mediatailor._protocol.errors import parse_error_metadata_json
 from aws_sdk_mediatailor._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_mediatailor._services._pipeline import (
@@ -18,10 +34,6 @@ from aws_sdk_mediatailor._services._pipeline import (
     OperationOptions,
 )
 from aws_sdk_mediatailor.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_mediatailor.types.get_playback_configuration_request
-    import aws_sdk_mediatailor.types.get_playback_configuration_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -33,12 +45,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse:
-    import aws_sdk_mediatailor.types.get_playback_configuration_response
-
     out: aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse = aws_sdk_mediatailor.types.get_playback_configuration_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse:
+    out: aws_sdk_mediatailor.types.get_playback_configuration_response.GetPlaybackConfigurationResponse = aws_sdk_mediatailor.types.get_playback_configuration_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -101,8 +120,7 @@ def get_playback_configuration(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -120,8 +138,7 @@ async def async_get_playback_configuration(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

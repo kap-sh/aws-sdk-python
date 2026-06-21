@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.client_request_token_required_exception
+import aws_sdk_codecommit.errors.comment_content_required_exception
+import aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception
+import aws_sdk_codecommit.errors.comment_does_not_exist_exception
+import aws_sdk_codecommit.errors.comment_id_required_exception
+import aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception
+import aws_sdk_codecommit.errors.invalid_client_request_token_exception
+import aws_sdk_codecommit.errors.invalid_comment_id_exception
+import aws_sdk_codecommit.types.comment
+import aws_sdk_codecommit.types.post_comment_reply_input
+import aws_sdk_codecommit.types.post_comment_reply_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,60 +29,40 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.post_comment_reply_input
-    import aws_sdk_codecommit.types.post_comment_reply_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientRequestTokenRequiredException":
-            import aws_sdk_codecommit.errors.client_request_token_required_exception
-
             raise aws_sdk_codecommit.errors.client_request_token_required_exception.ClientRequestTokenRequiredException.from_aws_json_1_1(
                 data
             )
         case "CommentContentRequiredException":
-            import aws_sdk_codecommit.errors.comment_content_required_exception
-
             raise aws_sdk_codecommit.errors.comment_content_required_exception.CommentContentRequiredException.from_aws_json_1_1(
                 data
             )
         case "CommentContentSizeLimitExceededException":
-            import aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception
-
             raise aws_sdk_codecommit.errors.comment_content_size_limit_exceeded_exception.CommentContentSizeLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "CommentDoesNotExistException":
-            import aws_sdk_codecommit.errors.comment_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "CommentIdRequiredException":
-            import aws_sdk_codecommit.errors.comment_id_required_exception
-
             raise aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException.from_aws_json_1_1(
                 data
             )
         case "IdempotencyParameterMismatchException":
-            import aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception
-
             raise aws_sdk_codecommit.errors.idempotency_parameter_mismatch_exception.IdempotencyParameterMismatchException.from_aws_json_1_1(
                 data
             )
         case "InvalidClientRequestTokenException":
-            import aws_sdk_codecommit.errors.invalid_client_request_token_exception
-
             raise aws_sdk_codecommit.errors.invalid_client_request_token_exception.InvalidClientRequestTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidCommentIdException":
-            import aws_sdk_codecommit.errors.invalid_comment_id_exception
-
             raise aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException.from_aws_json_1_1(
                 data
             )
@@ -80,13 +71,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.post_comment_reply_output.PostCommentReplyOutput:
-    import aws_sdk_codecommit.types.post_comment_reply_output
-
     out: aws_sdk_codecommit.types.post_comment_reply_output.PostCommentReplyOutput = (
         aws_sdk_codecommit.types.post_comment_reply_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.post_comment_reply_output.PostCommentReplyOutput:
+    out: aws_sdk_codecommit.types.post_comment_reply_output.PostCommentReplyOutput = (
+        aws_sdk_codecommit.types.post_comment_reply_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -155,8 +155,7 @@ def post_comment_reply(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -174,8 +173,7 @@ async def async_post_comment_reply(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

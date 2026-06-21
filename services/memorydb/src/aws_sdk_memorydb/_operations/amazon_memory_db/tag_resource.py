@@ -3,21 +3,33 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_memorydb._auth._signers
 import aws_sdk_memorydb._auth._sigv4
+import aws_sdk_memorydb.errors.acl_not_found_fault
+import aws_sdk_memorydb.errors.cluster_not_found_fault
+import aws_sdk_memorydb.errors.invalid_arn_fault
+import aws_sdk_memorydb.errors.invalid_cluster_state_fault
+import aws_sdk_memorydb.errors.invalid_parameter_value_exception
+import aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault
+import aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault
+import aws_sdk_memorydb.errors.parameter_group_not_found_fault
+import aws_sdk_memorydb.errors.service_linked_role_not_found_fault
+import aws_sdk_memorydb.errors.snapshot_not_found_fault
+import aws_sdk_memorydb.errors.subnet_group_not_found_fault
+import aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded
+import aws_sdk_memorydb.errors.user_not_found_fault
+import aws_sdk_memorydb.types.tag_list
+import aws_sdk_memorydb.types.tag_resource_request
+import aws_sdk_memorydb.types.tag_resource_response
 from aws_sdk_memorydb._protocol.errors import parse_error_metadata_json
 from aws_sdk_memorydb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_memorydb._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_memorydb.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_memorydb.types.tag_resource_request
-    import aws_sdk_memorydb.types.tag_resource_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,80 +37,54 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ACLNotFoundFault":
-            import aws_sdk_memorydb.errors.acl_not_found_fault
-
             raise aws_sdk_memorydb.errors.acl_not_found_fault.ACLNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ClusterNotFoundFault":
-            import aws_sdk_memorydb.errors.cluster_not_found_fault
-
             raise aws_sdk_memorydb.errors.cluster_not_found_fault.ClusterNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "InvalidARNFault":
-            import aws_sdk_memorydb.errors.invalid_arn_fault
-
             raise aws_sdk_memorydb.errors.invalid_arn_fault.InvalidARNFault.from_aws_json_1_1(
                 data
             )
         case "InvalidClusterStateFault":
-            import aws_sdk_memorydb.errors.invalid_cluster_state_fault
-
             raise aws_sdk_memorydb.errors.invalid_cluster_state_fault.InvalidClusterStateFault.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_memorydb.errors.invalid_parameter_value_exception
-
             raise aws_sdk_memorydb.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_1(
                 data
             )
         case "MultiRegionClusterNotFoundFault":
-            import aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault
-
             raise aws_sdk_memorydb.errors.multi_region_cluster_not_found_fault.MultiRegionClusterNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "MultiRegionParameterGroupNotFoundFault":
-            import aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault
-
             raise aws_sdk_memorydb.errors.multi_region_parameter_group_not_found_fault.MultiRegionParameterGroupNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ParameterGroupNotFoundFault":
-            import aws_sdk_memorydb.errors.parameter_group_not_found_fault
-
             raise aws_sdk_memorydb.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ServiceLinkedRoleNotFoundFault":
-            import aws_sdk_memorydb.errors.service_linked_role_not_found_fault
-
             raise aws_sdk_memorydb.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "SnapshotNotFoundFault":
-            import aws_sdk_memorydb.errors.snapshot_not_found_fault
-
             raise aws_sdk_memorydb.errors.snapshot_not_found_fault.SnapshotNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "SubnetGroupNotFoundFault":
-            import aws_sdk_memorydb.errors.subnet_group_not_found_fault
-
             raise aws_sdk_memorydb.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "TagQuotaPerResourceExceeded":
-            import aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded
-
             raise aws_sdk_memorydb.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded.from_aws_json_1_1(
                 data
             )
         case "UserNotFoundFault":
-            import aws_sdk_memorydb.errors.user_not_found_fault
-
             raise aws_sdk_memorydb.errors.user_not_found_fault.UserNotFoundFault.from_aws_json_1_1(
                 data
             )
@@ -107,13 +93,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_memorydb.types.tag_resource_response.TagResourceResponse:
-    import aws_sdk_memorydb.types.tag_resource_response
-
     out: aws_sdk_memorydb.types.tag_resource_response.TagResourceResponse = (
         aws_sdk_memorydb.types.tag_resource_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_memorydb.types.tag_resource_response.TagResourceResponse:
+    out: aws_sdk_memorydb.types.tag_resource_response.TagResourceResponse = (
+        aws_sdk_memorydb.types.tag_resource_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -181,8 +176,7 @@ def tag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -199,8 +193,7 @@ async def async_tag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

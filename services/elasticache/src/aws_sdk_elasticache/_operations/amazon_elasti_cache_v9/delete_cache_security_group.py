@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,11 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
+import aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault
+import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
+import aws_sdk_elasticache.errors.invalid_parameter_value_exception
+import aws_sdk_elasticache.types.delete_cache_security_group_message
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,35 +24,24 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.delete_cache_security_group_message
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "CacheSecurityGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "InvalidCacheSecurityGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault.from_query(
                 root
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_elasticache.errors.invalid_parameter_value_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
@@ -118,7 +112,6 @@ def delete_cache_security_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -134,7 +127,6 @@ async def async_delete_cache_security_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,15 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.limit_exceeded_exception
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.types.generate_credential_report_response
+import aws_sdk_iam.types.report_state_type
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.generate_credential_report_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +26,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "LimitExceededException":
-            import aws_sdk_iam.errors.limit_exceeded_exception
-
             raise aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException.from_query(
                 root
             )
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
@@ -41,11 +38,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_iam.types.generate_credential_report_response.GenerateCredentialReportResponse:
-    import aws_sdk_iam.types.generate_credential_report_response
-
     root = fromstring(response.read())
+    result = root.find("GenerateCredentialReportResult")
+    out: aws_sdk_iam.types.generate_credential_report_response.GenerateCredentialReportResponse = aws_sdk_iam.types.generate_credential_report_response.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_iam.types.generate_credential_report_response.GenerateCredentialReportResponse:
+    root = fromstring(await response.aread())
     result = root.find("GenerateCredentialReportResult")
     out: aws_sdk_iam.types.generate_credential_report_response.GenerateCredentialReportResponse = aws_sdk_iam.types.generate_credential_report_response.deserialize_query(
         result if result is not None else root
@@ -108,8 +114,7 @@ def generate_credential_report(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -126,8 +131,7 @@ async def async_generate_credential_report(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

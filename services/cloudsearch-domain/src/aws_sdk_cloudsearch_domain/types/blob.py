@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#Blob``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_cloudsearch_domain._iter import AnyIterator
 
 Blob: TypeAlias = AnyIterator[bytes] | bytes

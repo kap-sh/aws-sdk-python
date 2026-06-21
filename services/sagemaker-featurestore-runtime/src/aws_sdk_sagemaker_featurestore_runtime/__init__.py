@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import _iter as _iter
+
 from ._auth._identity import Credentials as Credentials
 from ._auth._identity import Identity as Identity
 from ._auth._providers import (

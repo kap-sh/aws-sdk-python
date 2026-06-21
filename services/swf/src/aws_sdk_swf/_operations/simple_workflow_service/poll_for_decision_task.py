@@ -3,21 +3,26 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_swf._auth._signers
 import aws_sdk_swf._auth._sigv4
+import aws_sdk_swf.errors.limit_exceeded_fault
+import aws_sdk_swf.errors.operation_not_permitted_fault
+import aws_sdk_swf.errors.unknown_resource_fault
+import aws_sdk_swf.types.decision_task
+import aws_sdk_swf.types.history_event_list
+import aws_sdk_swf.types.poll_for_decision_task_input
+import aws_sdk_swf.types.task_list
+import aws_sdk_swf.types.workflow_execution
+import aws_sdk_swf.types.workflow_type
 from aws_sdk_swf._protocol.errors import parse_error_metadata_json
 from aws_sdk_swf._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_swf._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_swf.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_swf.types.decision_task
-    import aws_sdk_swf.types.poll_for_decision_task_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,20 +30,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "LimitExceededFault":
-            import aws_sdk_swf.errors.limit_exceeded_fault
-
             raise aws_sdk_swf.errors.limit_exceeded_fault.LimitExceededFault.from_aws_json_1_0(
                 data
             )
         case "OperationNotPermittedFault":
-            import aws_sdk_swf.errors.operation_not_permitted_fault
-
             raise aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault.from_aws_json_1_0(
                 data
             )
         case "UnknownResourceFault":
-            import aws_sdk_swf.errors.unknown_resource_fault
-
             raise aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault.from_aws_json_1_0(
                 data
             )
@@ -47,13 +46,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_swf.types.decision_task.DecisionTask:
-    import aws_sdk_swf.types.decision_task
-
     out: aws_sdk_swf.types.decision_task.DecisionTask = (
         aws_sdk_swf.types.decision_task.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_swf.types.decision_task.DecisionTask:
+    out: aws_sdk_swf.types.decision_task.DecisionTask = (
+        aws_sdk_swf.types.decision_task.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -117,8 +125,7 @@ def poll_for_decision_task(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -133,8 +140,7 @@ async def async_poll_for_decision_task(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

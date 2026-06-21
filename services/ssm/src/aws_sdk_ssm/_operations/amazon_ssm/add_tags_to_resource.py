@@ -3,21 +3,26 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.invalid_resource_id
+import aws_sdk_ssm.errors.invalid_resource_type
+import aws_sdk_ssm.errors.too_many_tags_error
+import aws_sdk_ssm.errors.too_many_updates
+import aws_sdk_ssm.types.add_tags_to_resource_request
+import aws_sdk_ssm.types.add_tags_to_resource_result
+import aws_sdk_ssm.types.resource_type_for_tagging
+import aws_sdk_ssm.types.tag_list
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.add_tags_to_resource_request
-    import aws_sdk_ssm.types.add_tags_to_resource_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +30,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceId":
-            import aws_sdk_ssm.errors.invalid_resource_id
-
             raise aws_sdk_ssm.errors.invalid_resource_id.InvalidResourceId.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceType":
-            import aws_sdk_ssm.errors.invalid_resource_type
-
             raise aws_sdk_ssm.errors.invalid_resource_type.InvalidResourceType.from_aws_json_1_1(
                 data
             )
         case "TooManyTagsError":
-            import aws_sdk_ssm.errors.too_many_tags_error
-
             raise aws_sdk_ssm.errors.too_many_tags_error.TooManyTagsError.from_aws_json_1_1(
                 data
             )
         case "TooManyUpdates":
-            import aws_sdk_ssm.errors.too_many_updates
-
             raise aws_sdk_ssm.errors.too_many_updates.TooManyUpdates.from_aws_json_1_1(
                 data
             )
@@ -59,7 +54,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.add_tags_to_resource_result.AddTagsToResourceResult:
+    out: aws_sdk_ssm.types.add_tags_to_resource_result.AddTagsToResourceResult = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.add_tags_to_resource_result.AddTagsToResourceResult:
     out: aws_sdk_ssm.types.add_tags_to_resource_result.AddTagsToResourceResult = {}  # type: ignore[typeddict-item]
     return out
@@ -126,8 +128,7 @@ def add_tags_to_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -145,8 +146,7 @@ async def async_add_tags_to_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,13 @@ from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.no_such_distribution
+import aws_sdk_cloudfront.errors.no_such_monitoring_subscription
+import aws_sdk_cloudfront.errors.unsupported_operation
+import aws_sdk_cloudfront.types.get_monitoring_subscription_request
+import aws_sdk_cloudfront.types.get_monitoring_subscription_result
+import aws_sdk_cloudfront.types.monitoring_subscription
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import fromstring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,34 +26,22 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.get_monitoring_subscription_request
-    import aws_sdk_cloudfront.types.get_monitoring_subscription_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "NoSuchDistribution":
-            import aws_sdk_cloudfront.errors.no_such_distribution
-
             raise aws_sdk_cloudfront.errors.no_such_distribution.NoSuchDistribution.from_xml(
                 root
             )
         case "NoSuchMonitoringSubscription":
-            import aws_sdk_cloudfront.errors.no_such_monitoring_subscription
-
             raise aws_sdk_cloudfront.errors.no_such_monitoring_subscription.NoSuchMonitoringSubscription.from_xml(
                 root
             )
         case "UnsupportedOperation":
-            import aws_sdk_cloudfront.errors.unsupported_operation
-
             raise aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation.from_xml(
                 root
             )
@@ -55,13 +50,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.get_monitoring_subscription_result.GetMonitoringSubscriptionResult:
-    import aws_sdk_cloudfront.types.monitoring_subscription
-
     out: aws_sdk_cloudfront.types.get_monitoring_subscription_result.GetMonitoringSubscriptionResult = {
         "monitoring_subscription": aws_sdk_cloudfront.types.monitoring_subscription.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.get_monitoring_subscription_result.GetMonitoringSubscriptionResult:
+    out: aws_sdk_cloudfront.types.get_monitoring_subscription_result.GetMonitoringSubscriptionResult = {
+        "monitoring_subscription": aws_sdk_cloudfront.types.monitoring_subscription.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     return out
@@ -130,8 +134,7 @@ def get_monitoring_subscription(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -149,8 +152,7 @@ async def async_get_monitoring_subscription(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

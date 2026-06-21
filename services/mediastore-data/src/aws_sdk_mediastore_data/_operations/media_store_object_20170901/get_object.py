@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from email.utils import parsedate_to_datetime as _parse_http_date
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 from urllib.parse import quote
 
 import zapros
@@ -12,6 +12,14 @@ from typing_extensions import Never
 
 import aws_sdk_mediastore_data._auth._signers
 import aws_sdk_mediastore_data._auth._sigv4
+import aws_sdk_mediastore_data.errors.container_not_found_exception
+import aws_sdk_mediastore_data.errors.internal_server_error
+import aws_sdk_mediastore_data.errors.object_not_found_exception
+import aws_sdk_mediastore_data.errors.requested_range_not_satisfiable_exception
+import aws_sdk_mediastore_data.types.get_object_request
+import aws_sdk_mediastore_data.types.get_object_response
+import aws_sdk_mediastore_data.types.payload_blob
+import aws_sdk_mediastore_data.types.time_stamp
 from aws_sdk_mediastore_data._protocol.errors import parse_error_metadata_json
 from aws_sdk_mediastore_data._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -23,36 +31,24 @@ from aws_sdk_mediastore_data._services._pipeline import (
 )
 from aws_sdk_mediastore_data.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_mediastore_data.types.get_object_request
-    import aws_sdk_mediastore_data.types.get_object_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ContainerNotFoundException":
-            import aws_sdk_mediastore_data.errors.container_not_found_exception
-
             raise aws_sdk_mediastore_data.errors.container_not_found_exception.ContainerNotFoundException.from_json(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_mediastore_data.errors.internal_server_error
-
             raise aws_sdk_mediastore_data.errors.internal_server_error.InternalServerError.from_json(
                 data
             )
         case "ObjectNotFoundException":
-            import aws_sdk_mediastore_data.errors.object_not_found_exception
-
             raise aws_sdk_mediastore_data.errors.object_not_found_exception.ObjectNotFoundException.from_json(
                 data
             )
         case "RequestedRangeNotSatisfiableException":
-            import aws_sdk_mediastore_data.errors.requested_range_not_satisfiable_exception
-
             raise aws_sdk_mediastore_data.errors.requested_range_not_satisfiable_exception.RequestedRangeNotSatisfiableException.from_json(
                 data
             )
@@ -61,11 +57,32 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_mediastore_data.types.get_object_response.GetObjectResponse:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
+    out: aws_sdk_mediastore_data.types.get_object_response.GetObjectResponse = {
+        "body": _iter
+    }  # type: ignore[reportAssignmentType]
+    if "Cache-Control" in response.headers:
+        out["cache_control"] = str(response.headers["Cache-Control"])
+    if "Content-Range" in response.headers:
+        out["content_range"] = str(response.headers["Content-Range"])
+    if "Content-Length" in response.headers:
+        out["content_length"] = int(response.headers["Content-Length"])
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    if "Last-Modified" in response.headers:
+        out["last_modified"] = _parse_http_date(response.headers["Last-Modified"])
+    out["status_code"] = response.status
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_mediastore_data.types.get_object_response.GetObjectResponse:
+    _iter = cast(Any, response.async_iter_bytes())
     out: aws_sdk_mediastore_data.types.get_object_response.GetObjectResponse = {
         "body": _iter
     }  # type: ignore[reportAssignmentType]
@@ -144,8 +161,7 @@ def get_object(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -162,8 +178,7 @@ async def async_get_object(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

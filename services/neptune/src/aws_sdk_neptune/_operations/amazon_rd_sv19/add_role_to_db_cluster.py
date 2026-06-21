@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,16 @@ from typing_extensions import Never
 
 import aws_sdk_neptune._auth._signers
 import aws_sdk_neptune._auth._sigv4
+import aws_sdk_neptune.errors.db_cluster_not_found_fault
+import aws_sdk_neptune.errors.db_cluster_role_already_exists_fault
+import aws_sdk_neptune.errors.db_cluster_role_quota_exceeded_fault
+import aws_sdk_neptune.errors.invalid_db_cluster_state_fault
+import aws_sdk_neptune.types.add_role_to_db_cluster_message
 from aws_sdk_neptune._protocol.errors import parse_error_metadata
 from aws_sdk_neptune._protocol.xml import fromstring
 from aws_sdk_neptune._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_neptune._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_neptune.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_neptune.types.add_role_to_db_cluster_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +27,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBClusterNotFoundFault":
-            import aws_sdk_neptune.errors.db_cluster_not_found_fault
-
             raise aws_sdk_neptune.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBClusterRoleAlreadyExistsFault":
-            import aws_sdk_neptune.errors.db_cluster_role_already_exists_fault
-
             raise aws_sdk_neptune.errors.db_cluster_role_already_exists_fault.DBClusterRoleAlreadyExistsFault.from_query(
                 root
             )
         case "DBClusterRoleQuotaExceededFault":
-            import aws_sdk_neptune.errors.db_cluster_role_quota_exceeded_fault
-
             raise aws_sdk_neptune.errors.db_cluster_role_quota_exceeded_fault.DBClusterRoleQuotaExceededFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_neptune.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_neptune.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
@@ -115,7 +109,6 @@ def add_role_to_db_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -131,7 +124,6 @@ async def async_add_role_to_db_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

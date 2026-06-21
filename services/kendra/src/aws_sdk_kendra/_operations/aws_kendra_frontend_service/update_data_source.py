@@ -3,20 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kendra._auth._signers
 import aws_sdk_kendra._auth._sigv4
+import aws_sdk_kendra.errors.access_denied_exception
+import aws_sdk_kendra.errors.conflict_exception
+import aws_sdk_kendra.errors.internal_server_exception
+import aws_sdk_kendra.errors.resource_not_found_exception
+import aws_sdk_kendra.errors.throttling_exception
+import aws_sdk_kendra.errors.validation_exception
+import aws_sdk_kendra.types.custom_document_enrichment_configuration
+import aws_sdk_kendra.types.data_source_configuration
+import aws_sdk_kendra.types.data_source_vpc_configuration
+import aws_sdk_kendra.types.update_data_source_request
 from aws_sdk_kendra._protocol.errors import parse_error_metadata_json
 from aws_sdk_kendra._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kendra._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kendra.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kendra.types.update_data_source_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,38 +31,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_kendra.errors.access_denied_exception
-
             raise aws_sdk_kendra.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "ConflictException":
-            import aws_sdk_kendra.errors.conflict_exception
-
             raise aws_sdk_kendra.errors.conflict_exception.ConflictException.from_aws_json_1_1(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_kendra.errors.internal_server_exception
-
             raise aws_sdk_kendra.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_kendra.errors.resource_not_found_exception
-
             raise aws_sdk_kendra.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_kendra.errors.throttling_exception
-
             raise aws_sdk_kendra.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
         case "ValidationException":
-            import aws_sdk_kendra.errors.validation_exception
-
             raise aws_sdk_kendra.errors.validation_exception.ValidationException.from_aws_json_1_1(
                 data
             )
@@ -123,7 +118,6 @@ def update_data_source(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -139,7 +133,6 @@ async def async_update_data_source(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,28 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.event_subscription_quota_exceeded_fault
+import aws_sdk_redshift.errors.invalid_tag_fault
+import aws_sdk_redshift.errors.sns_invalid_topic_fault
+import aws_sdk_redshift.errors.sns_no_authorization_fault
+import aws_sdk_redshift.errors.sns_topic_arn_not_found_fault
+import aws_sdk_redshift.errors.source_not_found_fault
+import aws_sdk_redshift.errors.subscription_already_exist_fault
+import aws_sdk_redshift.errors.subscription_category_not_found_fault
+import aws_sdk_redshift.errors.subscription_event_id_not_found_fault
+import aws_sdk_redshift.errors.subscription_severity_not_found_fault
+import aws_sdk_redshift.errors.tag_limit_exceeded_fault
+import aws_sdk_redshift.types.create_event_subscription_message
+import aws_sdk_redshift.types.create_event_subscription_result
+import aws_sdk_redshift.types.event_categories_list
+import aws_sdk_redshift.types.event_subscription
+import aws_sdk_redshift.types.source_ids_list
+import aws_sdk_redshift.types.tag_list
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.create_event_subscription_message
-    import aws_sdk_redshift.types.create_event_subscription_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,68 +39,46 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "EventSubscriptionQuotaExceededFault":
-            import aws_sdk_redshift.errors.event_subscription_quota_exceeded_fault
-
             raise aws_sdk_redshift.errors.event_subscription_quota_exceeded_fault.EventSubscriptionQuotaExceededFault.from_query(
                 root
             )
         case "InvalidTagFault":
-            import aws_sdk_redshift.errors.invalid_tag_fault
-
             raise aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault.from_query(
                 root
             )
         case "SNSInvalidTopicFault":
-            import aws_sdk_redshift.errors.sns_invalid_topic_fault
-
             raise aws_sdk_redshift.errors.sns_invalid_topic_fault.SNSInvalidTopicFault.from_query(
                 root
             )
         case "SNSNoAuthorizationFault":
-            import aws_sdk_redshift.errors.sns_no_authorization_fault
-
             raise aws_sdk_redshift.errors.sns_no_authorization_fault.SNSNoAuthorizationFault.from_query(
                 root
             )
         case "SNSTopicArnNotFoundFault":
-            import aws_sdk_redshift.errors.sns_topic_arn_not_found_fault
-
             raise aws_sdk_redshift.errors.sns_topic_arn_not_found_fault.SNSTopicArnNotFoundFault.from_query(
                 root
             )
         case "SourceNotFoundFault":
-            import aws_sdk_redshift.errors.source_not_found_fault
-
             raise aws_sdk_redshift.errors.source_not_found_fault.SourceNotFoundFault.from_query(
                 root
             )
         case "SubscriptionAlreadyExistFault":
-            import aws_sdk_redshift.errors.subscription_already_exist_fault
-
             raise aws_sdk_redshift.errors.subscription_already_exist_fault.SubscriptionAlreadyExistFault.from_query(
                 root
             )
         case "SubscriptionCategoryNotFoundFault":
-            import aws_sdk_redshift.errors.subscription_category_not_found_fault
-
             raise aws_sdk_redshift.errors.subscription_category_not_found_fault.SubscriptionCategoryNotFoundFault.from_query(
                 root
             )
         case "SubscriptionEventIdNotFoundFault":
-            import aws_sdk_redshift.errors.subscription_event_id_not_found_fault
-
             raise aws_sdk_redshift.errors.subscription_event_id_not_found_fault.SubscriptionEventIdNotFoundFault.from_query(
                 root
             )
         case "SubscriptionSeverityNotFoundFault":
-            import aws_sdk_redshift.errors.subscription_severity_not_found_fault
-
             raise aws_sdk_redshift.errors.subscription_severity_not_found_fault.SubscriptionSeverityNotFoundFault.from_query(
                 root
             )
         case "TagLimitExceededFault":
-            import aws_sdk_redshift.errors.tag_limit_exceeded_fault
-
             raise aws_sdk_redshift.errors.tag_limit_exceeded_fault.TagLimitExceededFault.from_query(
                 root
             )
@@ -96,11 +87,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.create_event_subscription_result.CreateEventSubscriptionResult:
-    import aws_sdk_redshift.types.create_event_subscription_result
-
     root = fromstring(response.read())
+    result = root.find("CreateEventSubscriptionResult")
+    out: aws_sdk_redshift.types.create_event_subscription_result.CreateEventSubscriptionResult = aws_sdk_redshift.types.create_event_subscription_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.create_event_subscription_result.CreateEventSubscriptionResult:
+    root = fromstring(await response.aread())
     result = root.find("CreateEventSubscriptionResult")
     out: aws_sdk_redshift.types.create_event_subscription_result.CreateEventSubscriptionResult = aws_sdk_redshift.types.create_event_subscription_result.deserialize_query(
         result if result is not None else root
@@ -174,8 +174,7 @@ def create_event_subscription(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -193,8 +192,7 @@ async def async_create_event_subscription(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

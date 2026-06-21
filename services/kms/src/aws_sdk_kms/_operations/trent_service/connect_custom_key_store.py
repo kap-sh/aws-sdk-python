@@ -3,21 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception
+import aws_sdk_kms.errors.cloud_hsm_cluster_not_active_exception
+import aws_sdk_kms.errors.custom_key_store_invalid_state_exception
+import aws_sdk_kms.errors.custom_key_store_not_found_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.types.connect_custom_key_store_request
+import aws_sdk_kms.types.connect_custom_key_store_response
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.connect_custom_key_store_request
-    import aws_sdk_kms.types.connect_custom_key_store_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +28,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CloudHsmClusterInvalidConfigurationException":
-            import aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception
-
             raise aws_sdk_kms.errors.cloud_hsm_cluster_invalid_configuration_exception.CloudHsmClusterInvalidConfigurationException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmClusterNotActiveException":
-            import aws_sdk_kms.errors.cloud_hsm_cluster_not_active_exception
-
             raise aws_sdk_kms.errors.cloud_hsm_cluster_not_active_exception.CloudHsmClusterNotActiveException.from_aws_json_1_1(
                 data
             )
         case "CustomKeyStoreInvalidStateException":
-            import aws_sdk_kms.errors.custom_key_store_invalid_state_exception
-
             raise aws_sdk_kms.errors.custom_key_store_invalid_state_exception.CustomKeyStoreInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "CustomKeyStoreNotFoundException":
-            import aws_sdk_kms.errors.custom_key_store_not_found_exception
-
             raise aws_sdk_kms.errors.custom_key_store_not_found_exception.CustomKeyStoreNotFoundException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
@@ -59,7 +52,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_kms.types.connect_custom_key_store_response.ConnectCustomKeyStoreResponse:
+    out: aws_sdk_kms.types.connect_custom_key_store_response.ConnectCustomKeyStoreResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_kms.types.connect_custom_key_store_response.ConnectCustomKeyStoreResponse:
     out: aws_sdk_kms.types.connect_custom_key_store_response.ConnectCustomKeyStoreResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -128,8 +128,7 @@ def connect_custom_key_store(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +146,7 @@ async def async_connect_custom_key_store(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

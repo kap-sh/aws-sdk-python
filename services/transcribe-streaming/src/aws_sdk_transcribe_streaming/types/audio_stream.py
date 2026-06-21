@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError, SerializationError
+from aws_sdk_transcribe_streaming._iter import AnyIterator
+from aws_sdk_transcribe_streaming._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.audio_event
@@ -19,47 +20,48 @@ class _AudioStream_ConfigurationEvent(TypedDict):
     )
 
 
-AudioStream: TypeAlias = _AudioStream_AudioEvent | _AudioStream_ConfigurationEvent
+_AudioStream: TypeAlias = _AudioStream_AudioEvent | _AudioStream_ConfigurationEvent
+AudioStream: TypeAlias = AnyIterator[_AudioStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: AudioStream) -> dict:
-    if "AudioEvent" in value:
-        import aws_sdk_transcribe_streaming.types.audio_event
+def serialize_event_json(value: _AudioStream) -> bytes:
+    match value:
+        case {"AudioEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.audio_event
 
-        return {
-            "AudioEvent": aws_sdk_transcribe_streaming.types.audio_event.serialize_json(
-                value["AudioEvent"]
+            return aws_sdk_transcribe_streaming.types.audio_event.serialize_event_json(
+                payload
             )
-        }
-    elif "ConfigurationEvent" in value:
-        import aws_sdk_transcribe_streaming.types.configuration_event
+        case {"ConfigurationEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.configuration_event
 
-        return {
-            "ConfigurationEvent": aws_sdk_transcribe_streaming.types.configuration_event.serialize_json(
-                value["ConfigurationEvent"]
+            return aws_sdk_transcribe_streaming.types.configuration_event.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("AudioStream: no variant present")
+        case _:
+            raise ValueError(f"AudioStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> AudioStream:
-    if "AudioEvent" in data:
-        import aws_sdk_transcribe_streaming.types.audio_event
+def deserialize_event_json(message: Message) -> _AudioStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "AudioEvent":
+            import aws_sdk_transcribe_streaming.types.audio_event
 
-        return {
-            "AudioEvent": aws_sdk_transcribe_streaming.types.audio_event.deserialize_json(
-                data["AudioEvent"]
-            )
-        }
-    elif "ConfigurationEvent" in data:
-        import aws_sdk_transcribe_streaming.types.configuration_event
+            return {
+                "AudioEvent": aws_sdk_transcribe_streaming.types.audio_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "ConfigurationEvent":
+            import aws_sdk_transcribe_streaming.types.configuration_event
 
-        return {
-            "ConfigurationEvent": aws_sdk_transcribe_streaming.types.configuration_event.deserialize_json(
-                data["ConfigurationEvent"]
-            )
-        }
-    else:
-        raise DeserializationError("AudioStream: no recognized variant key")
+            return {
+                "ConfigurationEvent": aws_sdk_transcribe_streaming.types.configuration_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(f"AudioStream: unrecognized event-type {event_type!r}")

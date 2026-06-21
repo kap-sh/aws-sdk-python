@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_cloudwatch_logs._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data
 
@@ -33,4 +35,17 @@ def deserialize_aws_json_1_1(data: dict) -> FieldsData:
         out["data"] = aws_sdk_cloudwatch_logs.types.data.deserialize_aws_json_1_1(
             data["data"]
         )
+    return out
+
+
+def serialize_event_aws_json_1_1(value: FieldsData) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "fields"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> FieldsData:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: FieldsData = {}  # type: ignore[typeddict-item]
     return out

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,20 @@ from typing_extensions import Never
 
 import aws_sdk_mediapackagev2._auth._signers
 import aws_sdk_mediapackagev2._auth._sigv4
+import aws_sdk_mediapackagev2.errors.access_denied_exception
+import aws_sdk_mediapackagev2.errors.conflict_exception
+import aws_sdk_mediapackagev2.errors.internal_server_exception
+import aws_sdk_mediapackagev2.errors.resource_not_found_exception
+import aws_sdk_mediapackagev2.errors.service_quota_exceeded_exception
+import aws_sdk_mediapackagev2.errors.throttling_exception
+import aws_sdk_mediapackagev2.errors.validation_exception
+import aws_sdk_mediapackagev2.types.create_channel_request
+import aws_sdk_mediapackagev2.types.create_channel_response
+import aws_sdk_mediapackagev2.types.ingest_endpoint_list
+import aws_sdk_mediapackagev2.types.input_switch_configuration
+import aws_sdk_mediapackagev2.types.input_type
+import aws_sdk_mediapackagev2.types.output_header_configuration
+import aws_sdk_mediapackagev2.types.tag_map
 from aws_sdk_mediapackagev2._protocol.errors import parse_error_metadata_json
 from aws_sdk_mediapackagev2._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,54 +36,36 @@ from aws_sdk_mediapackagev2._services._pipeline import (
 )
 from aws_sdk_mediapackagev2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_mediapackagev2.types.create_channel_request
-    import aws_sdk_mediapackagev2.types.create_channel_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_mediapackagev2.errors.access_denied_exception
-
             raise aws_sdk_mediapackagev2.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_mediapackagev2.errors.conflict_exception
-
             raise aws_sdk_mediapackagev2.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_mediapackagev2.errors.internal_server_exception
-
             raise aws_sdk_mediapackagev2.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_mediapackagev2.errors.resource_not_found_exception
-
             raise aws_sdk_mediapackagev2.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceQuotaExceededException":
-            import aws_sdk_mediapackagev2.errors.service_quota_exceeded_exception
-
             raise aws_sdk_mediapackagev2.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_mediapackagev2.errors.throttling_exception
-
             raise aws_sdk_mediapackagev2.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_mediapackagev2.errors.validation_exception
-
             raise aws_sdk_mediapackagev2.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -78,13 +74,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_mediapackagev2.types.create_channel_response.CreateChannelResponse:
-    import aws_sdk_mediapackagev2.types.create_channel_response
-
     out: aws_sdk_mediapackagev2.types.create_channel_response.CreateChannelResponse = (
         aws_sdk_mediapackagev2.types.create_channel_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_mediapackagev2.types.create_channel_response.CreateChannelResponse:
+    out: aws_sdk_mediapackagev2.types.create_channel_response.CreateChannelResponse = (
+        aws_sdk_mediapackagev2.types.create_channel_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -157,8 +162,7 @@ def create_channel(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -176,8 +180,7 @@ async def async_create_channel(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

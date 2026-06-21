@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,27 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.blue_green_deployment_already_exists_fault
+import aws_sdk_rds.errors.db_cluster_not_found_fault
+import aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault
+import aws_sdk_rds.errors.db_cluster_quota_exceeded_fault
+import aws_sdk_rds.errors.db_instance_not_found_fault
+import aws_sdk_rds.errors.db_parameter_group_not_found_fault
+import aws_sdk_rds.errors.instance_quota_exceeded_fault
+import aws_sdk_rds.errors.invalid_db_cluster_state_fault
+import aws_sdk_rds.errors.invalid_db_instance_state_fault
+import aws_sdk_rds.errors.source_cluster_not_supported_fault
+import aws_sdk_rds.errors.source_database_not_supported_fault
+import aws_sdk_rds.errors.storage_quota_exceeded_fault
+import aws_sdk_rds.types.blue_green_deployment
+import aws_sdk_rds.types.create_blue_green_deployment_request
+import aws_sdk_rds.types.create_blue_green_deployment_response
+import aws_sdk_rds.types.tag_list
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.create_blue_green_deployment_request
-    import aws_sdk_rds.types.create_blue_green_deployment_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,74 +38,50 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "BlueGreenDeploymentAlreadyExistsFault":
-            import aws_sdk_rds.errors.blue_green_deployment_already_exists_fault
-
             raise aws_sdk_rds.errors.blue_green_deployment_already_exists_fault.BlueGreenDeploymentAlreadyExistsFault.from_query(
                 root
             )
         case "DBClusterNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBClusterParameterGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_parameter_group_not_found_fault.DBClusterParameterGroupNotFoundFault.from_query(
                 root
             )
         case "DBClusterQuotaExceededFault":
-            import aws_sdk_rds.errors.db_cluster_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
                 root
             )
         case "DBInstanceNotFoundFault":
-            import aws_sdk_rds.errors.db_instance_not_found_fault
-
             raise aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "DBParameterGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_parameter_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault.from_query(
                 root
             )
         case "InstanceQuotaExceededFault":
-            import aws_sdk_rds.errors.instance_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_rds.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_rds.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "SourceClusterNotSupportedFault":
-            import aws_sdk_rds.errors.source_cluster_not_supported_fault
-
             raise aws_sdk_rds.errors.source_cluster_not_supported_fault.SourceClusterNotSupportedFault.from_query(
                 root
             )
         case "SourceDatabaseNotSupportedFault":
-            import aws_sdk_rds.errors.source_database_not_supported_fault
-
             raise aws_sdk_rds.errors.source_database_not_supported_fault.SourceDatabaseNotSupportedFault.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_rds.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
@@ -102,11 +90,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.create_blue_green_deployment_response.CreateBlueGreenDeploymentResponse:
-    import aws_sdk_rds.types.create_blue_green_deployment_response
-
     root = fromstring(response.read())
+    result = root.find("CreateBlueGreenDeploymentResult")
+    out: aws_sdk_rds.types.create_blue_green_deployment_response.CreateBlueGreenDeploymentResponse = aws_sdk_rds.types.create_blue_green_deployment_response.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.create_blue_green_deployment_response.CreateBlueGreenDeploymentResponse:
+    root = fromstring(await response.aread())
     result = root.find("CreateBlueGreenDeploymentResult")
     out: aws_sdk_rds.types.create_blue_green_deployment_response.CreateBlueGreenDeploymentResponse = aws_sdk_rds.types.create_blue_green_deployment_response.deserialize_query(
         result if result is not None else root
@@ -178,8 +175,7 @@ def create_blue_green_deployment(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -197,8 +193,7 @@ async def async_create_blue_green_deployment(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

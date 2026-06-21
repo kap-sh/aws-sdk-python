@@ -3,13 +3,38 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cognito_identity_provider._auth._signers
 import aws_sdk_cognito_identity_provider._auth._sigv4
+import aws_sdk_cognito_identity_provider.errors.alias_exists_exception
+import aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception
+import aws_sdk_cognito_identity_provider.errors.code_mismatch_exception
+import aws_sdk_cognito_identity_provider.errors.expired_code_exception
+import aws_sdk_cognito_identity_provider.errors.forbidden_exception
+import aws_sdk_cognito_identity_provider.errors.internal_error_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception
+import aws_sdk_cognito_identity_provider.errors.not_authorized_exception
+import aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception
+import aws_sdk_cognito_identity_provider.errors.password_reset_required_exception
+import aws_sdk_cognito_identity_provider.errors.resource_not_found_exception
+import aws_sdk_cognito_identity_provider.errors.too_many_requests_exception
+import aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception
+import aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception
+import aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception
+import aws_sdk_cognito_identity_provider.errors.user_not_found_exception
+import aws_sdk_cognito_identity_provider.types.attribute_list_type
+import aws_sdk_cognito_identity_provider.types.client_metadata_type
+import aws_sdk_cognito_identity_provider.types.code_delivery_details_list_type
+import aws_sdk_cognito_identity_provider.types.update_user_attributes_request
+import aws_sdk_cognito_identity_provider.types.update_user_attributes_response
 from aws_sdk_cognito_identity_provider._protocol.errors import parse_error_metadata_json
 from aws_sdk_cognito_identity_provider._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,132 +46,88 @@ from aws_sdk_cognito_identity_provider._services._pipeline import (
 )
 from aws_sdk_cognito_identity_provider.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cognito_identity_provider.types.update_user_attributes_request
-    import aws_sdk_cognito_identity_provider.types.update_user_attributes_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AliasExistsException":
-            import aws_sdk_cognito_identity_provider.errors.alias_exists_exception
-
             raise aws_sdk_cognito_identity_provider.errors.alias_exists_exception.AliasExistsException.from_aws_json_1_1(
                 data
             )
         case "CodeDeliveryFailureException":
-            import aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception
-
             raise aws_sdk_cognito_identity_provider.errors.code_delivery_failure_exception.CodeDeliveryFailureException.from_aws_json_1_1(
                 data
             )
         case "CodeMismatchException":
-            import aws_sdk_cognito_identity_provider.errors.code_mismatch_exception
-
             raise aws_sdk_cognito_identity_provider.errors.code_mismatch_exception.CodeMismatchException.from_aws_json_1_1(
                 data
             )
         case "ExpiredCodeException":
-            import aws_sdk_cognito_identity_provider.errors.expired_code_exception
-
             raise aws_sdk_cognito_identity_provider.errors.expired_code_exception.ExpiredCodeException.from_aws_json_1_1(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_cognito_identity_provider.errors.forbidden_exception
-
             raise aws_sdk_cognito_identity_provider.errors.forbidden_exception.ForbiddenException.from_aws_json_1_1(
                 data
             )
         case "InternalErrorException":
-            import aws_sdk_cognito_identity_provider.errors.internal_error_exception
-
             raise aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidEmailRoleAccessPolicyException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidLambdaResponseException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_lambda_response_exception.InvalidLambdaResponseException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidSmsRoleAccessPolicyException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidSmsRoleTrustRelationshipException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException.from_aws_json_1_1(
                 data
             )
         case "NotAuthorizedException":
-            import aws_sdk_cognito_identity_provider.errors.not_authorized_exception
-
             raise aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException.from_aws_json_1_1(
                 data
             )
         case "OperationNotEnabledException":
-            import aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception
-
             raise aws_sdk_cognito_identity_provider.errors.operation_not_enabled_exception.OperationNotEnabledException.from_aws_json_1_1(
                 data
             )
         case "PasswordResetRequiredException":
-            import aws_sdk_cognito_identity_provider.errors.password_reset_required_exception
-
             raise aws_sdk_cognito_identity_provider.errors.password_reset_required_exception.PasswordResetRequiredException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_cognito_identity_provider.errors.resource_not_found_exception
-
             raise aws_sdk_cognito_identity_provider.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_cognito_identity_provider.errors.too_many_requests_exception
-
             raise aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException.from_aws_json_1_1(
                 data
             )
         case "UnexpectedLambdaException":
-            import aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception
-
             raise aws_sdk_cognito_identity_provider.errors.unexpected_lambda_exception.UnexpectedLambdaException.from_aws_json_1_1(
                 data
             )
         case "UserLambdaValidationException":
-            import aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception
-
             raise aws_sdk_cognito_identity_provider.errors.user_lambda_validation_exception.UserLambdaValidationException.from_aws_json_1_1(
                 data
             )
         case "UserNotConfirmedException":
-            import aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception
-
             raise aws_sdk_cognito_identity_provider.errors.user_not_confirmed_exception.UserNotConfirmedException.from_aws_json_1_1(
                 data
             )
         case "UserNotFoundException":
-            import aws_sdk_cognito_identity_provider.errors.user_not_found_exception
-
             raise aws_sdk_cognito_identity_provider.errors.user_not_found_exception.UserNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -155,12 +136,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse:
-    import aws_sdk_cognito_identity_provider.types.update_user_attributes_response
-
     out: aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse = aws_sdk_cognito_identity_provider.types.update_user_attributes_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse:
+    out: aws_sdk_cognito_identity_provider.types.update_user_attributes_response.UpdateUserAttributesResponse = aws_sdk_cognito_identity_provider.types.update_user_attributes_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -230,8 +218,7 @@ def update_user_attributes(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -249,8 +236,7 @@ async def async_update_user_attributes(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

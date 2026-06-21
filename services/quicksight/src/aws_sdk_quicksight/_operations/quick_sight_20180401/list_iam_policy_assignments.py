@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,16 @@ from typing_extensions import Never
 
 import aws_sdk_quicksight._auth._signers
 import aws_sdk_quicksight._auth._sigv4
+import aws_sdk_quicksight.errors.access_denied_exception
+import aws_sdk_quicksight.errors.internal_failure_exception
+import aws_sdk_quicksight.errors.invalid_next_token_exception
+import aws_sdk_quicksight.errors.invalid_parameter_value_exception
+import aws_sdk_quicksight.errors.resource_not_found_exception
+import aws_sdk_quicksight.errors.throttling_exception
+import aws_sdk_quicksight.types.assignment_status
+import aws_sdk_quicksight.types.iam_policy_assignment_summary_list
+import aws_sdk_quicksight.types.list_iam_policy_assignments_request
+import aws_sdk_quicksight.types.list_iam_policy_assignments_response
 from aws_sdk_quicksight._protocol.errors import parse_error_metadata_json
 from aws_sdk_quicksight._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_quicksight._services._pipeline import (
@@ -19,48 +29,32 @@ from aws_sdk_quicksight._services._pipeline import (
 )
 from aws_sdk_quicksight.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_quicksight.types.list_iam_policy_assignments_request
-    import aws_sdk_quicksight.types.list_iam_policy_assignments_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_quicksight.errors.access_denied_exception
-
             raise aws_sdk_quicksight.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalFailureException":
-            import aws_sdk_quicksight.errors.internal_failure_exception
-
             raise aws_sdk_quicksight.errors.internal_failure_exception.InternalFailureException.from_json(
                 data
             )
         case "InvalidNextTokenException":
-            import aws_sdk_quicksight.errors.invalid_next_token_exception
-
             raise aws_sdk_quicksight.errors.invalid_next_token_exception.InvalidNextTokenException.from_json(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_quicksight.errors.invalid_parameter_value_exception
-
             raise aws_sdk_quicksight.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_quicksight.errors.resource_not_found_exception
-
             raise aws_sdk_quicksight.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_quicksight.errors.throttling_exception
-
             raise aws_sdk_quicksight.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
@@ -69,12 +63,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_quicksight.types.list_iam_policy_assignments_response.ListIAMPolicyAssignmentsResponse:
-    import aws_sdk_quicksight.types.list_iam_policy_assignments_response
-
     out: aws_sdk_quicksight.types.list_iam_policy_assignments_response.ListIAMPolicyAssignmentsResponse = aws_sdk_quicksight.types.list_iam_policy_assignments_response.deserialize_json(
         json.loads(response.read())
+    )
+    out["status"] = response.status
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_quicksight.types.list_iam_policy_assignments_response.ListIAMPolicyAssignmentsResponse:
+    out: aws_sdk_quicksight.types.list_iam_policy_assignments_response.ListIAMPolicyAssignmentsResponse = aws_sdk_quicksight.types.list_iam_policy_assignments_response.deserialize_json(
+        json.loads(await response.aread())
     )
     out["status"] = response.status
     return out
@@ -148,8 +150,7 @@ def list_iam_policy_assignments(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +168,7 @@ async def async_list_iam_policy_assignments(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

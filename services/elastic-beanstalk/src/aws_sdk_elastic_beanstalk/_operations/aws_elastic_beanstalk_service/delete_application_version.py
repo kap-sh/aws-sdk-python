@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,11 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_beanstalk._auth._signers
 import aws_sdk_elastic_beanstalk._auth._sigv4
+import aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception
+import aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception
+import aws_sdk_elastic_beanstalk.errors.s3_location_not_in_service_region_exception
+import aws_sdk_elastic_beanstalk.errors.source_bundle_deletion_exception
+import aws_sdk_elastic_beanstalk.types.delete_application_version_message
 from aws_sdk_elastic_beanstalk._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_beanstalk._protocol.xml import (
     fromstring,
@@ -24,35 +29,24 @@ from aws_sdk_elastic_beanstalk._services._pipeline import (
 )
 from aws_sdk_elastic_beanstalk.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_beanstalk.types.delete_application_version_message
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "InsufficientPrivilegesException":
-            import aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception
-
             raise aws_sdk_elastic_beanstalk.errors.insufficient_privileges_exception.InsufficientPrivilegesException.from_query(
                 root
             )
         case "OperationInProgressException":
-            import aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception
-
             raise aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException.from_query(
                 root
             )
         case "S3LocationNotInServiceRegionException":
-            import aws_sdk_elastic_beanstalk.errors.s3_location_not_in_service_region_exception
-
             raise aws_sdk_elastic_beanstalk.errors.s3_location_not_in_service_region_exception.S3LocationNotInServiceRegionException.from_query(
                 root
             )
         case "SourceBundleDeletionException":
-            import aws_sdk_elastic_beanstalk.errors.source_bundle_deletion_exception
-
             raise aws_sdk_elastic_beanstalk.errors.source_bundle_deletion_exception.SourceBundleDeletionException.from_query(
                 root
             )
@@ -123,7 +117,6 @@ def delete_application_version(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -139,7 +132,6 @@ async def async_delete_application_version(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

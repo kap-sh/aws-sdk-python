@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,15 @@ from typing_extensions import Never
 
 import aws_sdk_chime_sdk_messaging._auth._signers
 import aws_sdk_chime_sdk_messaging._auth._sigv4
+import aws_sdk_chime_sdk_messaging.errors.bad_request_exception
+import aws_sdk_chime_sdk_messaging.errors.conflict_exception
+import aws_sdk_chime_sdk_messaging.errors.forbidden_exception
+import aws_sdk_chime_sdk_messaging.errors.not_found_exception
+import aws_sdk_chime_sdk_messaging.errors.service_failure_exception
+import aws_sdk_chime_sdk_messaging.errors.service_unavailable_exception
+import aws_sdk_chime_sdk_messaging.errors.throttled_client_exception
+import aws_sdk_chime_sdk_messaging.errors.unauthorized_client_exception
+import aws_sdk_chime_sdk_messaging.types.disassociate_channel_flow_request
 from aws_sdk_chime_sdk_messaging._protocol.errors import parse_error_metadata_json
 from aws_sdk_chime_sdk_messaging._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,59 +31,40 @@ from aws_sdk_chime_sdk_messaging._services._pipeline import (
 )
 from aws_sdk_chime_sdk_messaging.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_chime_sdk_messaging.types.disassociate_channel_flow_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_chime_sdk_messaging.errors.bad_request_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_chime_sdk_messaging.errors.conflict_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_chime_sdk_messaging.errors.forbidden_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_chime_sdk_messaging.errors.not_found_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "ServiceFailureException":
-            import aws_sdk_chime_sdk_messaging.errors.service_failure_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.service_failure_exception.ServiceFailureException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_chime_sdk_messaging.errors.service_unavailable_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "ThrottledClientException":
-            import aws_sdk_chime_sdk_messaging.errors.throttled_client_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.throttled_client_exception.ThrottledClientException.from_json(
                 data
             )
         case "UnauthorizedClientException":
-            import aws_sdk_chime_sdk_messaging.errors.unauthorized_client_exception
-
             raise aws_sdk_chime_sdk_messaging.errors.unauthorized_client_exception.UnauthorizedClientException.from_json(
                 data
             )
@@ -145,7 +135,6 @@ def disassociate_channel_flow(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -161,7 +150,6 @@ async def async_disassociate_channel_flow(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

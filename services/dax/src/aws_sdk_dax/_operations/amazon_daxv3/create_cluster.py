@@ -3,21 +3,41 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_dax._auth._signers
 import aws_sdk_dax._auth._sigv4
+import aws_sdk_dax.errors.cluster_already_exists_fault
+import aws_sdk_dax.errors.cluster_quota_for_customer_exceeded_fault
+import aws_sdk_dax.errors.insufficient_cluster_capacity_fault
+import aws_sdk_dax.errors.invalid_cluster_state_fault
+import aws_sdk_dax.errors.invalid_parameter_combination_exception
+import aws_sdk_dax.errors.invalid_parameter_group_state_fault
+import aws_sdk_dax.errors.invalid_parameter_value_exception
+import aws_sdk_dax.errors.invalid_vpc_network_state_fault
+import aws_sdk_dax.errors.node_quota_for_cluster_exceeded_fault
+import aws_sdk_dax.errors.node_quota_for_customer_exceeded_fault
+import aws_sdk_dax.errors.parameter_group_not_found_fault
+import aws_sdk_dax.errors.service_linked_role_not_found_fault
+import aws_sdk_dax.errors.service_quota_exceeded_exception
+import aws_sdk_dax.errors.subnet_group_not_found_fault
+import aws_sdk_dax.errors.tag_quota_per_resource_exceeded
+import aws_sdk_dax.types.availability_zone_list
+import aws_sdk_dax.types.cluster
+import aws_sdk_dax.types.cluster_endpoint_encryption_type
+import aws_sdk_dax.types.create_cluster_request
+import aws_sdk_dax.types.create_cluster_response
+import aws_sdk_dax.types.network_type
+import aws_sdk_dax.types.security_group_identifier_list
+import aws_sdk_dax.types.sse_specification
+import aws_sdk_dax.types.tag_list
 from aws_sdk_dax._protocol.errors import parse_error_metadata_json
 from aws_sdk_dax._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dax._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_dax.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_dax.types.create_cluster_request
-    import aws_sdk_dax.types.create_cluster_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,92 +45,62 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClusterAlreadyExistsFault":
-            import aws_sdk_dax.errors.cluster_already_exists_fault
-
             raise aws_sdk_dax.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault.from_aws_json_1_1(
                 data
             )
         case "ClusterQuotaForCustomerExceededFault":
-            import aws_sdk_dax.errors.cluster_quota_for_customer_exceeded_fault
-
             raise aws_sdk_dax.errors.cluster_quota_for_customer_exceeded_fault.ClusterQuotaForCustomerExceededFault.from_aws_json_1_1(
                 data
             )
         case "InsufficientClusterCapacityFault":
-            import aws_sdk_dax.errors.insufficient_cluster_capacity_fault
-
             raise aws_sdk_dax.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault.from_aws_json_1_1(
                 data
             )
         case "InvalidClusterStateFault":
-            import aws_sdk_dax.errors.invalid_cluster_state_fault
-
             raise aws_sdk_dax.errors.invalid_cluster_state_fault.InvalidClusterStateFault.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_dax.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_dax.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterGroupStateFault":
-            import aws_sdk_dax.errors.invalid_parameter_group_state_fault
-
             raise aws_sdk_dax.errors.invalid_parameter_group_state_fault.InvalidParameterGroupStateFault.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_dax.errors.invalid_parameter_value_exception
-
             raise aws_sdk_dax.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_1(
                 data
             )
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_dax.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_dax.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_aws_json_1_1(
                 data
             )
         case "NodeQuotaForClusterExceededFault":
-            import aws_sdk_dax.errors.node_quota_for_cluster_exceeded_fault
-
             raise aws_sdk_dax.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault.from_aws_json_1_1(
                 data
             )
         case "NodeQuotaForCustomerExceededFault":
-            import aws_sdk_dax.errors.node_quota_for_customer_exceeded_fault
-
             raise aws_sdk_dax.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault.from_aws_json_1_1(
                 data
             )
         case "ParameterGroupNotFoundFault":
-            import aws_sdk_dax.errors.parameter_group_not_found_fault
-
             raise aws_sdk_dax.errors.parameter_group_not_found_fault.ParameterGroupNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ServiceLinkedRoleNotFoundFault":
-            import aws_sdk_dax.errors.service_linked_role_not_found_fault
-
             raise aws_sdk_dax.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ServiceQuotaExceededException":
-            import aws_sdk_dax.errors.service_quota_exceeded_exception
-
             raise aws_sdk_dax.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_aws_json_1_1(
                 data
             )
         case "SubnetGroupNotFoundFault":
-            import aws_sdk_dax.errors.subnet_group_not_found_fault
-
             raise aws_sdk_dax.errors.subnet_group_not_found_fault.SubnetGroupNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "TagQuotaPerResourceExceeded":
-            import aws_sdk_dax.errors.tag_quota_per_resource_exceeded
-
             raise aws_sdk_dax.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded.from_aws_json_1_1(
                 data
             )
@@ -119,13 +109,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_dax.types.create_cluster_response.CreateClusterResponse:
-    import aws_sdk_dax.types.create_cluster_response
-
     out: aws_sdk_dax.types.create_cluster_response.CreateClusterResponse = (
         aws_sdk_dax.types.create_cluster_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_dax.types.create_cluster_response.CreateClusterResponse:
+    out: aws_sdk_dax.types.create_cluster_response.CreateClusterResponse = (
+        aws_sdk_dax.types.create_cluster_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -191,8 +190,7 @@ def create_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -209,8 +207,7 @@ async def async_create_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_gamelift._auth._signers
 import aws_sdk_gamelift._auth._sigv4
+import aws_sdk_gamelift.errors.internal_service_exception
+import aws_sdk_gamelift.errors.invalid_request_exception
+import aws_sdk_gamelift.errors.unauthorized_exception
+import aws_sdk_gamelift.errors.unsupported_region_exception
+import aws_sdk_gamelift.types.compute_list
+import aws_sdk_gamelift.types.list_compute_input
+import aws_sdk_gamelift.types.list_compute_input_status
+import aws_sdk_gamelift.types.list_compute_output
 from aws_sdk_gamelift._protocol.errors import parse_error_metadata_json
 from aws_sdk_gamelift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_gamelift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_gamelift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_gamelift.types.list_compute_input
-    import aws_sdk_gamelift.types.list_compute_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +29,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceException":
-            import aws_sdk_gamelift.errors.internal_service_exception
-
             raise aws_sdk_gamelift.errors.internal_service_exception.InternalServiceException.from_aws_json_1_1(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_gamelift.errors.invalid_request_exception
-
             raise aws_sdk_gamelift.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_gamelift.errors.unauthorized_exception
-
             raise aws_sdk_gamelift.errors.unauthorized_exception.UnauthorizedException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedRegionException":
-            import aws_sdk_gamelift.errors.unsupported_region_exception
-
             raise aws_sdk_gamelift.errors.unsupported_region_exception.UnsupportedRegionException.from_aws_json_1_1(
                 data
             )
@@ -53,13 +49,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_gamelift.types.list_compute_output.ListComputeOutput:
-    import aws_sdk_gamelift.types.list_compute_output
-
     out: aws_sdk_gamelift.types.list_compute_output.ListComputeOutput = (
         aws_sdk_gamelift.types.list_compute_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_gamelift.types.list_compute_output.ListComputeOutput:
+    out: aws_sdk_gamelift.types.list_compute_output.ListComputeOutput = (
+        aws_sdk_gamelift.types.list_compute_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -127,8 +132,7 @@ def list_compute(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -145,8 +149,7 @@ async def async_list_compute(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

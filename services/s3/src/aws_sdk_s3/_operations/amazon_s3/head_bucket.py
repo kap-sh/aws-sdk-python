@@ -2,13 +2,18 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.errors.not_found
+import aws_sdk_s3.types.head_bucket_output
+import aws_sdk_s3.types.head_bucket_request
+import aws_sdk_s3.types.location_type
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -16,32 +21,47 @@ from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.head_bucket_output
-    import aws_sdk_s3.types.head_bucket_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "NotFound":
-            import aws_sdk_s3.errors.not_found
-
             raise aws_sdk_s3.errors.not_found.NotFound.from_xml(root)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.head_bucket_output.HeadBucketOutput:
     out: aws_sdk_s3.types.head_bucket_output.HeadBucketOutput = {}  # type: ignore[typeddict-item]
     if "x-amz-bucket-arn" in response.headers:
         out["bucket_arn"] = str(response.headers["x-amz-bucket-arn"])
     if "x-amz-bucket-location-type" in response.headers:
-        import aws_sdk_s3.types.location_type
+        out["bucket_location_type"] = aws_sdk_s3.types.location_type.from_xml_text(
+            response.headers["x-amz-bucket-location-type"]
+        )
+    if "x-amz-bucket-location-name" in response.headers:
+        out["bucket_location_name"] = str(
+            response.headers["x-amz-bucket-location-name"]
+        )
+    if "x-amz-bucket-region" in response.headers:
+        out["bucket_region"] = str(response.headers["x-amz-bucket-region"])
+    if "x-amz-access-point-alias" in response.headers:
+        out["access_point_alias"] = (
+            response.headers["x-amz-access-point-alias"].lower() == "true"
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.head_bucket_output.HeadBucketOutput:
+    out: aws_sdk_s3.types.head_bucket_output.HeadBucketOutput = {}  # type: ignore[typeddict-item]
+    if "x-amz-bucket-arn" in response.headers:
+        out["bucket_arn"] = str(response.headers["x-amz-bucket-arn"])
+    if "x-amz-bucket-location-type" in response.headers:
         out["bucket_location_type"] = aws_sdk_s3.types.location_type.from_xml_text(
             response.headers["x-amz-bucket-location-type"]
         )
@@ -126,8 +146,7 @@ def head_bucket(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -142,8 +161,7 @@ async def async_head_bucket(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

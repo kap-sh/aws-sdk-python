@@ -3,21 +3,37 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.hierarchy_level_limit_exceeded_exception
+import aws_sdk_ssm.errors.hierarchy_type_mismatch_exception
+import aws_sdk_ssm.errors.incompatible_policy_exception
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.invalid_allowed_pattern_exception
+import aws_sdk_ssm.errors.invalid_key_id
+import aws_sdk_ssm.errors.invalid_policy_attribute_exception
+import aws_sdk_ssm.errors.invalid_policy_type_exception
+import aws_sdk_ssm.errors.parameter_already_exists
+import aws_sdk_ssm.errors.parameter_limit_exceeded
+import aws_sdk_ssm.errors.parameter_max_version_limit_exceeded
+import aws_sdk_ssm.errors.parameter_pattern_mismatch_exception
+import aws_sdk_ssm.errors.policies_limit_exceeded_exception
+import aws_sdk_ssm.errors.too_many_updates
+import aws_sdk_ssm.errors.unsupported_parameter_type
+import aws_sdk_ssm.types.parameter_tier
+import aws_sdk_ssm.types.parameter_type
+import aws_sdk_ssm.types.put_parameter_request
+import aws_sdk_ssm.types.put_parameter_result
+import aws_sdk_ssm.types.tag_list
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.put_parameter_request
-    import aws_sdk_ssm.types.put_parameter_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,90 +41,60 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "HierarchyLevelLimitExceededException":
-            import aws_sdk_ssm.errors.hierarchy_level_limit_exceeded_exception
-
             raise aws_sdk_ssm.errors.hierarchy_level_limit_exceeded_exception.HierarchyLevelLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "HierarchyTypeMismatchException":
-            import aws_sdk_ssm.errors.hierarchy_type_mismatch_exception
-
             raise aws_sdk_ssm.errors.hierarchy_type_mismatch_exception.HierarchyTypeMismatchException.from_aws_json_1_1(
                 data
             )
         case "IncompatiblePolicyException":
-            import aws_sdk_ssm.errors.incompatible_policy_exception
-
             raise aws_sdk_ssm.errors.incompatible_policy_exception.IncompatiblePolicyException.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidAllowedPatternException":
-            import aws_sdk_ssm.errors.invalid_allowed_pattern_exception
-
             raise aws_sdk_ssm.errors.invalid_allowed_pattern_exception.InvalidAllowedPatternException.from_aws_json_1_1(
                 data
             )
         case "InvalidKeyId":
-            import aws_sdk_ssm.errors.invalid_key_id
-
             raise aws_sdk_ssm.errors.invalid_key_id.InvalidKeyId.from_aws_json_1_1(data)
         case "InvalidPolicyAttributeException":
-            import aws_sdk_ssm.errors.invalid_policy_attribute_exception
-
             raise aws_sdk_ssm.errors.invalid_policy_attribute_exception.InvalidPolicyAttributeException.from_aws_json_1_1(
                 data
             )
         case "InvalidPolicyTypeException":
-            import aws_sdk_ssm.errors.invalid_policy_type_exception
-
             raise aws_sdk_ssm.errors.invalid_policy_type_exception.InvalidPolicyTypeException.from_aws_json_1_1(
                 data
             )
         case "ParameterAlreadyExists":
-            import aws_sdk_ssm.errors.parameter_already_exists
-
             raise aws_sdk_ssm.errors.parameter_already_exists.ParameterAlreadyExists.from_aws_json_1_1(
                 data
             )
         case "ParameterLimitExceeded":
-            import aws_sdk_ssm.errors.parameter_limit_exceeded
-
             raise aws_sdk_ssm.errors.parameter_limit_exceeded.ParameterLimitExceeded.from_aws_json_1_1(
                 data
             )
         case "ParameterMaxVersionLimitExceeded":
-            import aws_sdk_ssm.errors.parameter_max_version_limit_exceeded
-
             raise aws_sdk_ssm.errors.parameter_max_version_limit_exceeded.ParameterMaxVersionLimitExceeded.from_aws_json_1_1(
                 data
             )
         case "ParameterPatternMismatchException":
-            import aws_sdk_ssm.errors.parameter_pattern_mismatch_exception
-
             raise aws_sdk_ssm.errors.parameter_pattern_mismatch_exception.ParameterPatternMismatchException.from_aws_json_1_1(
                 data
             )
         case "PoliciesLimitExceededException":
-            import aws_sdk_ssm.errors.policies_limit_exceeded_exception
-
             raise aws_sdk_ssm.errors.policies_limit_exceeded_exception.PoliciesLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "TooManyUpdates":
-            import aws_sdk_ssm.errors.too_many_updates
-
             raise aws_sdk_ssm.errors.too_many_updates.TooManyUpdates.from_aws_json_1_1(
                 data
             )
         case "UnsupportedParameterType":
-            import aws_sdk_ssm.errors.unsupported_parameter_type
-
             raise aws_sdk_ssm.errors.unsupported_parameter_type.UnsupportedParameterType.from_aws_json_1_1(
                 data
             )
@@ -117,13 +103,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.put_parameter_result.PutParameterResult:
-    import aws_sdk_ssm.types.put_parameter_result
-
     out: aws_sdk_ssm.types.put_parameter_result.PutParameterResult = (
         aws_sdk_ssm.types.put_parameter_result.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.put_parameter_result.PutParameterResult:
+    out: aws_sdk_ssm.types.put_parameter_result.PutParameterResult = (
+        aws_sdk_ssm.types.put_parameter_result.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -187,8 +182,7 @@ def put_parameter(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -203,8 +197,7 @@ async def async_put_parameter(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

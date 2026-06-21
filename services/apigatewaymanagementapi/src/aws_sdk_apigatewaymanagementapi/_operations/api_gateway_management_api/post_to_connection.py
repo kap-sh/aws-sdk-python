@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,12 @@ from typing_extensions import Never
 
 import aws_sdk_apigatewaymanagementapi._auth._signers
 import aws_sdk_apigatewaymanagementapi._auth._sigv4
+import aws_sdk_apigatewaymanagementapi.errors.forbidden_exception
+import aws_sdk_apigatewaymanagementapi.errors.gone_exception
+import aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception
+import aws_sdk_apigatewaymanagementapi.errors.payload_too_large_exception
+import aws_sdk_apigatewaymanagementapi.types.data
+import aws_sdk_apigatewaymanagementapi.types.post_to_connection_request
 from aws_sdk_apigatewaymanagementapi._protocol.errors import parse_error_metadata_json
 from aws_sdk_apigatewaymanagementapi._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,35 +28,24 @@ from aws_sdk_apigatewaymanagementapi._services._pipeline import (
 )
 from aws_sdk_apigatewaymanagementapi.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_apigatewaymanagementapi.types.post_to_connection_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ForbiddenException":
-            import aws_sdk_apigatewaymanagementapi.errors.forbidden_exception
-
             raise aws_sdk_apigatewaymanagementapi.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "GoneException":
-            import aws_sdk_apigatewaymanagementapi.errors.gone_exception
-
             raise aws_sdk_apigatewaymanagementapi.errors.gone_exception.GoneException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception
-
             raise aws_sdk_apigatewaymanagementapi.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
         case "PayloadTooLargeException":
-            import aws_sdk_apigatewaymanagementapi.errors.payload_too_large_exception
-
             raise aws_sdk_apigatewaymanagementapi.errors.payload_too_large_exception.PayloadTooLargeException.from_json(
                 data
             )
@@ -121,7 +116,6 @@ def post_to_connection(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -137,7 +131,6 @@ async def async_post_to_connection(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

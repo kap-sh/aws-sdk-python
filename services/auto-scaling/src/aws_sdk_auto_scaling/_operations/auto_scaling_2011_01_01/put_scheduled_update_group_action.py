@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,11 @@ from typing_extensions import Never
 
 import aws_sdk_auto_scaling._auth._signers
 import aws_sdk_auto_scaling._auth._sigv4
+import aws_sdk_auto_scaling.errors.already_exists_fault
+import aws_sdk_auto_scaling.errors.limit_exceeded_fault
+import aws_sdk_auto_scaling.errors.resource_contention_fault
+import aws_sdk_auto_scaling.types.put_scheduled_update_group_action_type
+import aws_sdk_auto_scaling.types.timestamp_type
 from aws_sdk_auto_scaling._protocol.errors import parse_error_metadata
 from aws_sdk_auto_scaling._protocol.xml import fromstring
 from aws_sdk_auto_scaling._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,29 +24,20 @@ from aws_sdk_auto_scaling._services._pipeline import (
 )
 from aws_sdk_auto_scaling.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_auto_scaling.types.put_scheduled_update_group_action_type
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AlreadyExistsFault":
-            import aws_sdk_auto_scaling.errors.already_exists_fault
-
             raise aws_sdk_auto_scaling.errors.already_exists_fault.AlreadyExistsFault.from_query(
                 root
             )
         case "LimitExceededFault":
-            import aws_sdk_auto_scaling.errors.limit_exceeded_fault
-
             raise aws_sdk_auto_scaling.errors.limit_exceeded_fault.LimitExceededFault.from_query(
                 root
             )
         case "ResourceContentionFault":
-            import aws_sdk_auto_scaling.errors.resource_contention_fault
-
             raise aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault.from_query(
                 root
             )
@@ -112,7 +108,6 @@ def put_scheduled_update_group_action(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -128,7 +123,6 @@ async def async_put_scheduled_update_group_action(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

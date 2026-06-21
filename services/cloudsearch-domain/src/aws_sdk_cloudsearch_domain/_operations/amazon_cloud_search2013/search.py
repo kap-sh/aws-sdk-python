@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudsearch_domain._auth._signers
 import aws_sdk_cloudsearch_domain._auth._sigv4
+import aws_sdk_cloudsearch_domain.errors.search_exception
+import aws_sdk_cloudsearch_domain.types.facets
+import aws_sdk_cloudsearch_domain.types.hits
+import aws_sdk_cloudsearch_domain.types.query_parser
+import aws_sdk_cloudsearch_domain.types.search_request
+import aws_sdk_cloudsearch_domain.types.search_response
+import aws_sdk_cloudsearch_domain.types.search_status
+import aws_sdk_cloudsearch_domain.types.stats
 from aws_sdk_cloudsearch_domain._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudsearch_domain._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,18 +29,12 @@ from aws_sdk_cloudsearch_domain._services._pipeline import (
 )
 from aws_sdk_cloudsearch_domain.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudsearch_domain.types.search_request
-    import aws_sdk_cloudsearch_domain.types.search_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "SearchException":
-            import aws_sdk_cloudsearch_domain.errors.search_exception
-
             raise aws_sdk_cloudsearch_domain.errors.search_exception.SearchException.from_json(
                 data
             )
@@ -41,13 +43,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudsearch_domain.types.search_response.SearchResponse:
-    import aws_sdk_cloudsearch_domain.types.search_response
-
     out: aws_sdk_cloudsearch_domain.types.search_response.SearchResponse = (
         aws_sdk_cloudsearch_domain.types.search_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudsearch_domain.types.search_response.SearchResponse:
+    out: aws_sdk_cloudsearch_domain.types.search_response.SearchResponse = (
+        aws_sdk_cloudsearch_domain.types.search_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -134,8 +145,7 @@ def search(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -152,8 +162,7 @@ async def async_search(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

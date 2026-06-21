@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sqs._auth._signers
 import aws_sdk_sqs._auth._sigv4
+import aws_sdk_sqs.errors.invalid_address
+import aws_sdk_sqs.errors.invalid_attribute_name
+import aws_sdk_sqs.errors.invalid_attribute_value
+import aws_sdk_sqs.errors.invalid_security
+import aws_sdk_sqs.errors.queue_deleted_recently
+import aws_sdk_sqs.errors.queue_name_exists
+import aws_sdk_sqs.errors.request_throttled
+import aws_sdk_sqs.errors.unsupported_operation
+import aws_sdk_sqs.types.create_queue_request
+import aws_sdk_sqs.types.create_queue_result
+import aws_sdk_sqs.types.queue_attribute_map
+import aws_sdk_sqs.types.tag_map
 from aws_sdk_sqs._protocol.errors import parse_error_metadata_json
 from aws_sdk_sqs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sqs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sqs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sqs.types.create_queue_request
-    import aws_sdk_sqs.types.create_queue_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +33,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidAddress":
-            import aws_sdk_sqs.errors.invalid_address
-
             raise aws_sdk_sqs.errors.invalid_address.InvalidAddress.from_aws_json_1_0(
                 data
             )
         case "InvalidAttributeName":
-            import aws_sdk_sqs.errors.invalid_attribute_name
-
             raise aws_sdk_sqs.errors.invalid_attribute_name.InvalidAttributeName.from_aws_json_1_0(
                 data
             )
         case "InvalidAttributeValue":
-            import aws_sdk_sqs.errors.invalid_attribute_value
-
             raise aws_sdk_sqs.errors.invalid_attribute_value.InvalidAttributeValue.from_aws_json_1_0(
                 data
             )
         case "InvalidSecurity":
-            import aws_sdk_sqs.errors.invalid_security
-
             raise aws_sdk_sqs.errors.invalid_security.InvalidSecurity.from_aws_json_1_0(
                 data
             )
         case "QueueDeletedRecently":
-            import aws_sdk_sqs.errors.queue_deleted_recently
-
             raise aws_sdk_sqs.errors.queue_deleted_recently.QueueDeletedRecently.from_aws_json_1_0(
                 data
             )
         case "QueueNameExists":
-            import aws_sdk_sqs.errors.queue_name_exists
-
             raise aws_sdk_sqs.errors.queue_name_exists.QueueNameExists.from_aws_json_1_0(
                 data
             )
         case "RequestThrottled":
-            import aws_sdk_sqs.errors.request_throttled
-
             raise aws_sdk_sqs.errors.request_throttled.RequestThrottled.from_aws_json_1_0(
                 data
             )
         case "UnsupportedOperation":
-            import aws_sdk_sqs.errors.unsupported_operation
-
             raise aws_sdk_sqs.errors.unsupported_operation.UnsupportedOperation.from_aws_json_1_0(
                 data
             )
@@ -77,13 +69,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sqs.types.create_queue_result.CreateQueueResult:
-    import aws_sdk_sqs.types.create_queue_result
-
     out: aws_sdk_sqs.types.create_queue_result.CreateQueueResult = (
         aws_sdk_sqs.types.create_queue_result.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sqs.types.create_queue_result.CreateQueueResult:
+    out: aws_sdk_sqs.types.create_queue_result.CreateQueueResult = (
+        aws_sdk_sqs.types.create_queue_result.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -147,8 +148,7 @@ def create_queue(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -163,8 +163,7 @@ async def async_create_queue(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudtrail._auth._signers
 import aws_sdk_cloudtrail._auth._sigv4
+import aws_sdk_cloudtrail.errors.channel_exists_for_eds_exception
+import aws_sdk_cloudtrail.errors.conflict_exception
+import aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception
+import aws_sdk_cloudtrail.errors.event_data_store_federation_enabled_exception
+import aws_sdk_cloudtrail.errors.event_data_store_has_ongoing_import_exception
+import aws_sdk_cloudtrail.errors.event_data_store_not_found_exception
+import aws_sdk_cloudtrail.errors.event_data_store_termination_protected_exception
+import aws_sdk_cloudtrail.errors.inactive_event_data_store_exception
+import aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception
+import aws_sdk_cloudtrail.errors.invalid_parameter_exception
+import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
+import aws_sdk_cloudtrail.errors.not_organization_master_account_exception
+import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
+import aws_sdk_cloudtrail.errors.unsupported_operation_exception
+import aws_sdk_cloudtrail.types.delete_event_data_store_request
+import aws_sdk_cloudtrail.types.delete_event_data_store_response
 from aws_sdk_cloudtrail._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudtrail._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudtrail._services._pipeline import (
@@ -18,96 +34,64 @@ from aws_sdk_cloudtrail._services._pipeline import (
 )
 from aws_sdk_cloudtrail.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudtrail.types.delete_event_data_store_request
-    import aws_sdk_cloudtrail.types.delete_event_data_store_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ChannelExistsForEDSException":
-            import aws_sdk_cloudtrail.errors.channel_exists_for_eds_exception
-
             raise aws_sdk_cloudtrail.errors.channel_exists_for_eds_exception.ChannelExistsForEDSException.from_aws_json_1_1(
                 data
             )
         case "ConflictException":
-            import aws_sdk_cloudtrail.errors.conflict_exception
-
             raise aws_sdk_cloudtrail.errors.conflict_exception.ConflictException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreARNInvalidException":
-            import aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreFederationEnabledException":
-            import aws_sdk_cloudtrail.errors.event_data_store_federation_enabled_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_federation_enabled_exception.EventDataStoreFederationEnabledException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreHasOngoingImportException":
-            import aws_sdk_cloudtrail.errors.event_data_store_has_ongoing_import_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_has_ongoing_import_exception.EventDataStoreHasOngoingImportException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreNotFoundException":
-            import aws_sdk_cloudtrail.errors.event_data_store_not_found_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreTerminationProtectedException":
-            import aws_sdk_cloudtrail.errors.event_data_store_termination_protected_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_termination_protected_exception.EventDataStoreTerminationProtectedException.from_aws_json_1_1(
                 data
             )
         case "InactiveEventDataStoreException":
-            import aws_sdk_cloudtrail.errors.inactive_event_data_store_exception
-
             raise aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException.from_aws_json_1_1(
                 data
             )
         case "InsufficientDependencyServiceAccessPermissionException":
-            import aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception
-
             raise aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_cloudtrail.errors.invalid_parameter_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "NoManagementAccountSLRExistsException":
-            import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
-
             raise aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException.from_aws_json_1_1(
                 data
             )
         case "NotOrganizationMasterAccountException":
-            import aws_sdk_cloudtrail.errors.not_organization_master_account_exception
-
             raise aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException.from_aws_json_1_1(
                 data
             )
         case "OperationNotPermittedException":
-            import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
-
             raise aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_cloudtrail.errors.unsupported_operation_exception
-
             raise aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -116,7 +100,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_cloudtrail.types.delete_event_data_store_response.DeleteEventDataStoreResponse:
+    out: aws_sdk_cloudtrail.types.delete_event_data_store_response.DeleteEventDataStoreResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_cloudtrail.types.delete_event_data_store_response.DeleteEventDataStoreResponse:
     out: aws_sdk_cloudtrail.types.delete_event_data_store_response.DeleteEventDataStoreResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -187,8 +178,7 @@ def delete_event_data_store(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -206,8 +196,7 @@ async def async_delete_event_data_store(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

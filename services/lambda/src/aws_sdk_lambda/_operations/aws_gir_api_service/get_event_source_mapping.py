@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,14 +11,33 @@ from typing_extensions import Never
 
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+import aws_sdk_lambda.errors.invalid_parameter_value_exception
+import aws_sdk_lambda.errors.resource_not_found_exception
+import aws_sdk_lambda.errors.service_exception
+import aws_sdk_lambda.errors.too_many_requests_exception
+import aws_sdk_lambda.types.amazon_managed_kafka_event_source_config
+import aws_sdk_lambda.types.date
+import aws_sdk_lambda.types.destination_config
+import aws_sdk_lambda.types.document_db_event_source_config
+import aws_sdk_lambda.types.event_source_mapping_configuration
+import aws_sdk_lambda.types.event_source_mapping_logging_config
+import aws_sdk_lambda.types.event_source_mapping_metrics_config
+import aws_sdk_lambda.types.event_source_position
+import aws_sdk_lambda.types.filter_criteria
+import aws_sdk_lambda.types.filter_criteria_error
+import aws_sdk_lambda.types.function_response_type_list
+import aws_sdk_lambda.types.get_event_source_mapping_request
+import aws_sdk_lambda.types.provisioned_poller_config
+import aws_sdk_lambda.types.queues
+import aws_sdk_lambda.types.scaling_config
+import aws_sdk_lambda.types.self_managed_event_source
+import aws_sdk_lambda.types.self_managed_kafka_event_source_config
+import aws_sdk_lambda.types.source_access_configurations
+import aws_sdk_lambda.types.topics
 from aws_sdk_lambda._protocol.errors import parse_error_metadata_json
 from aws_sdk_lambda._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_lambda._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_lambda.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_lambda.types.event_source_mapping_configuration
-    import aws_sdk_lambda.types.get_event_source_mapping_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,26 +45,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidParameterValueException":
-            import aws_sdk_lambda.errors.invalid_parameter_value_exception
-
             raise aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_lambda.errors.resource_not_found_exception
-
             raise aws_sdk_lambda.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceException":
-            import aws_sdk_lambda.errors.service_exception
-
             raise aws_sdk_lambda.errors.service_exception.ServiceException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_lambda.errors.too_many_requests_exception
-
             raise aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -54,12 +65,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration:
-    import aws_sdk_lambda.types.event_source_mapping_configuration
-
     out: aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration = aws_sdk_lambda.types.event_source_mapping_configuration.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration:
+    out: aws_sdk_lambda.types.event_source_mapping_configuration.EventSourceMappingConfiguration = aws_sdk_lambda.types.event_source_mapping_configuration.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -122,8 +140,7 @@ def get_event_source_mapping(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +158,7 @@ async def async_get_event_source_mapping(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

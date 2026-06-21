@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,19 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.invalid_credentials_exception
+import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
+import aws_sdk_elasticache.errors.invalid_parameter_value_exception
+import aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault
+import aws_sdk_elasticache.errors.invalid_user_group_state_fault
+import aws_sdk_elasticache.errors.serverless_cache_not_found_fault
+import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
+import aws_sdk_elasticache.errors.user_group_not_found_fault
+import aws_sdk_elasticache.types.cache_usage_limits
+import aws_sdk_elasticache.types.modify_serverless_cache_request
+import aws_sdk_elasticache.types.modify_serverless_cache_response
+import aws_sdk_elasticache.types.security_group_ids_list
+import aws_sdk_elasticache.types.serverless_cache
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,60 +32,40 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.modify_serverless_cache_request
-    import aws_sdk_elasticache.types.modify_serverless_cache_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidCredentialsException":
-            import aws_sdk_elasticache.errors.invalid_credentials_exception
-
             raise aws_sdk_elasticache.errors.invalid_credentials_exception.InvalidCredentialsException.from_query(
                 root
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_elasticache.errors.invalid_parameter_value_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
         case "InvalidServerlessCacheStateFault":
-            import aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault.from_query(
                 root
             )
         case "InvalidUserGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_user_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault.from_query(
                 root
             )
         case "ServerlessCacheNotFoundFault":
-            import aws_sdk_elasticache.errors.serverless_cache_not_found_fault
-
             raise aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault.from_query(
                 root
             )
         case "ServiceLinkedRoleNotFoundFault":
-            import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
-
             raise aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_query(
                 root
             )
         case "UserGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.user_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault.from_query(
                 root
             )
@@ -81,11 +74,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elasticache.types.modify_serverless_cache_response.ModifyServerlessCacheResponse:
-    import aws_sdk_elasticache.types.modify_serverless_cache_response
-
     root = fromstring(response.read())
+    result = root.find("ModifyServerlessCacheResult")
+    out: aws_sdk_elasticache.types.modify_serverless_cache_response.ModifyServerlessCacheResponse = aws_sdk_elasticache.types.modify_serverless_cache_response.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elasticache.types.modify_serverless_cache_response.ModifyServerlessCacheResponse:
+    root = fromstring(await response.aread())
     result = root.find("ModifyServerlessCacheResult")
     out: aws_sdk_elasticache.types.modify_serverless_cache_response.ModifyServerlessCacheResponse = aws_sdk_elasticache.types.modify_serverless_cache_response.deserialize_query(
         result if result is not None else root
@@ -159,8 +161,7 @@ def modify_serverless_cache(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -178,8 +179,7 @@ async def async_modify_serverless_cache(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

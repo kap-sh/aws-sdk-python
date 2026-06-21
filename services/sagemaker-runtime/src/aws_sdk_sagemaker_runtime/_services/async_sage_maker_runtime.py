@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#AmazonSageMakerRuntime``."""
 
 import warnings
+from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -327,6 +329,7 @@ class AsyncSageMakerRuntimeClient:
         )
         return response.output
 
+    @asynccontextmanager
     async def invoke_endpoint_with_response_stream(
         self,
         endpoint_name: "aws_sdk_sagemaker_runtime.types.endpoint_name.EndpointName",
@@ -353,7 +356,7 @@ class AsyncSageMakerRuntimeClient:
         session_id: Optional[
             "aws_sdk_sagemaker_runtime.types.session_id_header.SessionIdHeader"
         ] = None,
-    ) -> "aws_sdk_sagemaker_runtime.types.invoke_endpoint_with_response_stream_output.InvokeEndpointWithResponseStreamOutput":
+    ) -> "AsyncGenerator[aws_sdk_sagemaker_runtime.types.invoke_endpoint_with_response_stream_output.InvokeEndpointWithResponseStreamOutput]":
         r"""<p>Invokes a model at the specified endpoint to return the inference response as a stream. The inference stream provides the response payload incrementally as a series of parts. Before you can get an inference stream, you must have access to a model that's deployed using Amazon SageMaker AI hosting services, and the container for that model must support inference streaming.</p> <p>For more information that can help you use this API, see the following sections in the <i>Amazon SageMaker AI Developer Guide</i>:</p> <ul> <li> <p>For information about how to add streaming support to a model, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-code-how-containe-serves-requests\">How Containers Serve Requests</a>.</p> </li> <li> <p>For information about how to process the streaming response, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-test-endpoints.html\">Invoke real-time endpoints</a>.</p> </li> </ul> <p>Before you can use this operation, your IAM permissions must allow the <code>sagemaker:InvokeEndpoint</code> action. For more information about Amazon SageMaker AI actions for IAM policies, see <a href=\"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html\">Actions, resources, and condition keys for Amazon SageMaker AI</a> in the <i>IAM Service Authorization Reference</i>.</p> <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p> <p>Calls to <code>InvokeEndpointWithResponseStream</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html\">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p>
 
         Args:
@@ -410,7 +413,7 @@ class AsyncSageMakerRuntimeClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def __aenter__(self) -> Self:
         return self

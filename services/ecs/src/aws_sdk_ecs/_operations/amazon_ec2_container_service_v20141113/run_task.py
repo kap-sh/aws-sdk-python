@@ -3,21 +3,40 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ecs._auth._signers
 import aws_sdk_ecs._auth._sigv4
+import aws_sdk_ecs.errors.access_denied_exception
+import aws_sdk_ecs.errors.blocked_exception
+import aws_sdk_ecs.errors.client_exception
+import aws_sdk_ecs.errors.cluster_not_found_exception
+import aws_sdk_ecs.errors.conflict_exception
+import aws_sdk_ecs.errors.invalid_parameter_exception
+import aws_sdk_ecs.errors.platform_task_definition_incompatibility_exception
+import aws_sdk_ecs.errors.platform_unknown_exception
+import aws_sdk_ecs.errors.server_exception
+import aws_sdk_ecs.errors.unsupported_feature_exception
+import aws_sdk_ecs.types.capacity_provider_strategy
+import aws_sdk_ecs.types.failures
+import aws_sdk_ecs.types.launch_type
+import aws_sdk_ecs.types.network_configuration
+import aws_sdk_ecs.types.placement_constraints
+import aws_sdk_ecs.types.placement_strategies
+import aws_sdk_ecs.types.propagate_tags
+import aws_sdk_ecs.types.run_task_request
+import aws_sdk_ecs.types.run_task_response
+import aws_sdk_ecs.types.tags
+import aws_sdk_ecs.types.task_override
+import aws_sdk_ecs.types.task_volume_configurations
+import aws_sdk_ecs.types.tasks
 from aws_sdk_ecs._protocol.errors import parse_error_metadata_json
 from aws_sdk_ecs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ecs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ecs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ecs.types.run_task_request
-    import aws_sdk_ecs.types.run_task_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,62 +44,42 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_ecs.errors.access_denied_exception
-
             raise aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "BlockedException":
-            import aws_sdk_ecs.errors.blocked_exception
-
             raise aws_sdk_ecs.errors.blocked_exception.BlockedException.from_aws_json_1_1(
                 data
             )
         case "ClientException":
-            import aws_sdk_ecs.errors.client_exception
-
             raise aws_sdk_ecs.errors.client_exception.ClientException.from_aws_json_1_1(
                 data
             )
         case "ClusterNotFoundException":
-            import aws_sdk_ecs.errors.cluster_not_found_exception
-
             raise aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ConflictException":
-            import aws_sdk_ecs.errors.conflict_exception
-
             raise aws_sdk_ecs.errors.conflict_exception.ConflictException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_ecs.errors.invalid_parameter_exception
-
             raise aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "PlatformTaskDefinitionIncompatibilityException":
-            import aws_sdk_ecs.errors.platform_task_definition_incompatibility_exception
-
             raise aws_sdk_ecs.errors.platform_task_definition_incompatibility_exception.PlatformTaskDefinitionIncompatibilityException.from_aws_json_1_1(
                 data
             )
         case "PlatformUnknownException":
-            import aws_sdk_ecs.errors.platform_unknown_exception
-
             raise aws_sdk_ecs.errors.platform_unknown_exception.PlatformUnknownException.from_aws_json_1_1(
                 data
             )
         case "ServerException":
-            import aws_sdk_ecs.errors.server_exception
-
             raise aws_sdk_ecs.errors.server_exception.ServerException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedFeatureException":
-            import aws_sdk_ecs.errors.unsupported_feature_exception
-
             raise aws_sdk_ecs.errors.unsupported_feature_exception.UnsupportedFeatureException.from_aws_json_1_1(
                 data
             )
@@ -89,13 +88,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ecs.types.run_task_response.RunTaskResponse:
-    import aws_sdk_ecs.types.run_task_response
-
     out: aws_sdk_ecs.types.run_task_response.RunTaskResponse = (
         aws_sdk_ecs.types.run_task_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ecs.types.run_task_response.RunTaskResponse:
+    out: aws_sdk_ecs.types.run_task_response.RunTaskResponse = (
+        aws_sdk_ecs.types.run_task_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -158,8 +166,7 @@ def run_task(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -174,8 +181,7 @@ async def async_run_task(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

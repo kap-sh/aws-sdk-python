@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_servicediscovery._auth._signers
 import aws_sdk_servicediscovery._auth._sigv4
+import aws_sdk_servicediscovery.errors.invalid_input
+import aws_sdk_servicediscovery.errors.resource_in_use
+import aws_sdk_servicediscovery.errors.service_not_found
+import aws_sdk_servicediscovery.types.delete_service_request
+import aws_sdk_servicediscovery.types.delete_service_response
 from aws_sdk_servicediscovery._protocol.errors import parse_error_metadata_json
 from aws_sdk_servicediscovery._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,30 +26,20 @@ from aws_sdk_servicediscovery._services._pipeline import (
 )
 from aws_sdk_servicediscovery.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_servicediscovery.types.delete_service_request
-    import aws_sdk_servicediscovery.types.delete_service_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidInput":
-            import aws_sdk_servicediscovery.errors.invalid_input
-
             raise aws_sdk_servicediscovery.errors.invalid_input.InvalidInput.from_aws_json_1_1(
                 data
             )
         case "ResourceInUse":
-            import aws_sdk_servicediscovery.errors.resource_in_use
-
             raise aws_sdk_servicediscovery.errors.resource_in_use.ResourceInUse.from_aws_json_1_1(
                 data
             )
         case "ServiceNotFound":
-            import aws_sdk_servicediscovery.errors.service_not_found
-
             raise aws_sdk_servicediscovery.errors.service_not_found.ServiceNotFound.from_aws_json_1_1(
                 data
             )
@@ -53,7 +48,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_servicediscovery.types.delete_service_response.DeleteServiceResponse:
+    out: aws_sdk_servicediscovery.types.delete_service_response.DeleteServiceResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_servicediscovery.types.delete_service_response.DeleteServiceResponse:
     out: aws_sdk_servicediscovery.types.delete_service_response.DeleteServiceResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -124,8 +126,7 @@ def delete_service(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -143,8 +144,7 @@ async def async_delete_service(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

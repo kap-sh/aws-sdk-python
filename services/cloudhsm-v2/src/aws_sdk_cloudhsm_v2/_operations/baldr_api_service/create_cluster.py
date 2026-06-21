@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudhsm_v2._auth._signers
 import aws_sdk_cloudhsm_v2._auth._sigv4
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception
+import aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception
+import aws_sdk_cloudhsm_v2.types.backup_retention_policy
+import aws_sdk_cloudhsm_v2.types.cluster
+import aws_sdk_cloudhsm_v2.types.cluster_mode
+import aws_sdk_cloudhsm_v2.types.create_cluster_request
+import aws_sdk_cloudhsm_v2.types.create_cluster_response
+import aws_sdk_cloudhsm_v2.types.network_type
+import aws_sdk_cloudhsm_v2.types.subnet_ids
+import aws_sdk_cloudhsm_v2.types.tag_list
 from aws_sdk_cloudhsm_v2._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudhsm_v2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudhsm_v2._services._pipeline import (
@@ -18,48 +32,32 @@ from aws_sdk_cloudhsm_v2._services._pipeline import (
 )
 from aws_sdk_cloudhsm_v2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudhsm_v2.types.create_cluster_request
-    import aws_sdk_cloudhsm_v2.types.create_cluster_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CloudHsmAccessDeniedException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_access_denied_exception.CloudHsmAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmInternalFailureException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_internal_failure_exception.CloudHsmInternalFailureException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmInvalidRequestException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_invalid_request_exception.CloudHsmInvalidRequestException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmResourceNotFoundException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_resource_not_found_exception.CloudHsmResourceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmServiceException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_service_exception.CloudHsmServiceException.from_aws_json_1_1(
                 data
             )
         case "CloudHsmTagException":
-            import aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception
-
             raise aws_sdk_cloudhsm_v2.errors.cloud_hsm_tag_exception.CloudHsmTagException.from_aws_json_1_1(
                 data
             )
@@ -68,13 +66,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudhsm_v2.types.create_cluster_response.CreateClusterResponse:
-    import aws_sdk_cloudhsm_v2.types.create_cluster_response
-
     out: aws_sdk_cloudhsm_v2.types.create_cluster_response.CreateClusterResponse = (
         aws_sdk_cloudhsm_v2.types.create_cluster_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudhsm_v2.types.create_cluster_response.CreateClusterResponse:
+    out: aws_sdk_cloudhsm_v2.types.create_cluster_response.CreateClusterResponse = (
+        aws_sdk_cloudhsm_v2.types.create_cluster_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -143,8 +150,7 @@ def create_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -162,8 +168,7 @@ async def async_create_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

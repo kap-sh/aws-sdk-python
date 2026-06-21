@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from email.utils import parsedate_to_datetime as _parse_http_date
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,16 +11,24 @@ from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.types.abort_date
+import aws_sdk_s3.types.checksum_algorithm
+import aws_sdk_s3.types.checksum_type
+import aws_sdk_s3.types.initiator
+import aws_sdk_s3.types.list_parts_output
+import aws_sdk_s3.types.list_parts_request
+import aws_sdk_s3.types.owner
+import aws_sdk_s3.types.parts
+import aws_sdk_s3.types.request_charged
+import aws_sdk_s3.types.request_payer
+import aws_sdk_s3.types.storage_class
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.list_parts_output
-    import aws_sdk_s3.types.list_parts_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -32,22 +40,35 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.list_parts_output.ListPartsOutput:
-    import aws_sdk_s3.types.list_parts_output
-
     out: aws_sdk_s3.types.list_parts_output.ListPartsOutput = (
         aws_sdk_s3.types.list_parts_output.deserialize_xml(fromstring(response.read()))
     )
     if "x-amz-abort-date" in response.headers:
-        import aws_sdk_s3.types.abort_date
-
         out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
     if "x-amz-abort-rule-id" in response.headers:
         out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
     if "x-amz-request-charged" in response.headers:
-        import aws_sdk_s3.types.request_charged
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.list_parts_output.ListPartsOutput:
+    out: aws_sdk_s3.types.list_parts_output.ListPartsOutput = (
+        aws_sdk_s3.types.list_parts_output.deserialize_xml(
+            fromstring(await response.aread())
+        )
+    )
+    if "x-amz-abort-date" in response.headers:
+        out["abort_date"] = _parse_http_date(response.headers["x-amz-abort-date"])
+    if "x-amz-abort-rule-id" in response.headers:
+        out["abort_rule_id"] = str(response.headers["x-amz-abort-rule-id"])
+    if "x-amz-request-charged" in response.headers:
         out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
         )
@@ -143,8 +164,7 @@ def list_parts(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -159,8 +179,7 @@ async def async_list_parts(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

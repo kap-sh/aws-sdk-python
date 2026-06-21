@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.conversation_id
     import aws_sdk_qbusiness.types.message_id
@@ -68,4 +70,17 @@ def deserialize_json(data: dict) -> TextOutputEvent:
         out["system_message_id"] = data["systemMessageId"]
     if "systemMessage" in data:
         out["system_message"] = data["systemMessage"]
+    return out
+
+
+def serialize_event_json(value: TextOutputEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "textEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> TextOutputEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: TextOutputEvent = {}  # type: ignore[typeddict-item]
     return out

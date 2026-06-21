@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.duplicate_user_name_fault
+import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
+import aws_sdk_elasticache.errors.invalid_parameter_value_exception
+import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
+import aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded
+import aws_sdk_elasticache.errors.user_already_exists_fault
+import aws_sdk_elasticache.errors.user_quota_exceeded_fault
+import aws_sdk_elasticache.types.authentication
+import aws_sdk_elasticache.types.authentication_mode
+import aws_sdk_elasticache.types.create_user_message
+import aws_sdk_elasticache.types.password_list_input
+import aws_sdk_elasticache.types.tag_list
+import aws_sdk_elasticache.types.user
+import aws_sdk_elasticache.types.user_group_id_list
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,54 +33,36 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.create_user_message
-    import aws_sdk_elasticache.types.user
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "DuplicateUserNameFault":
-            import aws_sdk_elasticache.errors.duplicate_user_name_fault
-
             raise aws_sdk_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault.from_query(
                 root
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_elasticache.errors.invalid_parameter_value_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
         case "ServiceLinkedRoleNotFoundFault":
-            import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
-
             raise aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_query(
                 root
             )
         case "TagQuotaPerResourceExceeded":
-            import aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded
-
             raise aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded.from_query(
                 root
             )
         case "UserAlreadyExistsFault":
-            import aws_sdk_elasticache.errors.user_already_exists_fault
-
             raise aws_sdk_elasticache.errors.user_already_exists_fault.UserAlreadyExistsFault.from_query(
                 root
             )
         case "UserQuotaExceededFault":
-            import aws_sdk_elasticache.errors.user_quota_exceeded_fault
-
             raise aws_sdk_elasticache.errors.user_quota_exceeded_fault.UserQuotaExceededFault.from_query(
                 root
             )
@@ -74,12 +70,21 @@ def handle_error(response: zapros.Response) -> Never:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
-def handle_response(
-    response: zapros.Response, is_async: bool
-) -> aws_sdk_elasticache.types.user.User:
-    import aws_sdk_elasticache.types.user
-
+def handle_response(response: zapros.Response) -> aws_sdk_elasticache.types.user.User:
     root = fromstring(response.read())
+    result = root.find("CreateUserResult")
+    out: aws_sdk_elasticache.types.user.User = (
+        aws_sdk_elasticache.types.user.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elasticache.types.user.User:
+    root = fromstring(await response.aread())
     result = root.find("CreateUserResult")
     out: aws_sdk_elasticache.types.user.User = (
         aws_sdk_elasticache.types.user.deserialize_query(
@@ -150,8 +155,7 @@ def create_user(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -166,8 +170,7 @@ async def async_create_user(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

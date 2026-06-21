@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudtrail_data._auth._signers
 import aws_sdk_cloudtrail_data._auth._sigv4
+import aws_sdk_cloudtrail_data.errors.channel_insufficient_permission
+import aws_sdk_cloudtrail_data.errors.channel_not_found
+import aws_sdk_cloudtrail_data.errors.channel_unsupported_schema
+import aws_sdk_cloudtrail_data.errors.duplicated_audit_event_id
+import aws_sdk_cloudtrail_data.errors.invalid_channel_arn
+import aws_sdk_cloudtrail_data.errors.unsupported_operation_exception
+import aws_sdk_cloudtrail_data.types.audit_event_result_entries
+import aws_sdk_cloudtrail_data.types.audit_events
+import aws_sdk_cloudtrail_data.types.put_audit_events_request
+import aws_sdk_cloudtrail_data.types.put_audit_events_response
+import aws_sdk_cloudtrail_data.types.result_error_entries
 from aws_sdk_cloudtrail_data._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudtrail_data._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +32,32 @@ from aws_sdk_cloudtrail_data._services._pipeline import (
 )
 from aws_sdk_cloudtrail_data.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudtrail_data.types.put_audit_events_request
-    import aws_sdk_cloudtrail_data.types.put_audit_events_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ChannelInsufficientPermission":
-            import aws_sdk_cloudtrail_data.errors.channel_insufficient_permission
-
             raise aws_sdk_cloudtrail_data.errors.channel_insufficient_permission.ChannelInsufficientPermission.from_json(
                 data
             )
         case "ChannelNotFound":
-            import aws_sdk_cloudtrail_data.errors.channel_not_found
-
             raise aws_sdk_cloudtrail_data.errors.channel_not_found.ChannelNotFound.from_json(
                 data
             )
         case "ChannelUnsupportedSchema":
-            import aws_sdk_cloudtrail_data.errors.channel_unsupported_schema
-
             raise aws_sdk_cloudtrail_data.errors.channel_unsupported_schema.ChannelUnsupportedSchema.from_json(
                 data
             )
         case "DuplicatedAuditEventId":
-            import aws_sdk_cloudtrail_data.errors.duplicated_audit_event_id
-
             raise aws_sdk_cloudtrail_data.errors.duplicated_audit_event_id.DuplicatedAuditEventId.from_json(
                 data
             )
         case "InvalidChannelARN":
-            import aws_sdk_cloudtrail_data.errors.invalid_channel_arn
-
             raise aws_sdk_cloudtrail_data.errors.invalid_channel_arn.InvalidChannelARN.from_json(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_cloudtrail_data.errors.unsupported_operation_exception
-
             raise aws_sdk_cloudtrail_data.errors.unsupported_operation_exception.UnsupportedOperationException.from_json(
                 data
             )
@@ -71,12 +66,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudtrail_data.types.put_audit_events_response.PutAuditEventsResponse:
-    import aws_sdk_cloudtrail_data.types.put_audit_events_response
-
     out: aws_sdk_cloudtrail_data.types.put_audit_events_response.PutAuditEventsResponse = aws_sdk_cloudtrail_data.types.put_audit_events_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudtrail_data.types.put_audit_events_response.PutAuditEventsResponse:
+    out: aws_sdk_cloudtrail_data.types.put_audit_events_response.PutAuditEventsResponse = aws_sdk_cloudtrail_data.types.put_audit_events_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -147,8 +149,7 @@ def put_audit_events(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -166,8 +167,7 @@ async def async_put_audit_events(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

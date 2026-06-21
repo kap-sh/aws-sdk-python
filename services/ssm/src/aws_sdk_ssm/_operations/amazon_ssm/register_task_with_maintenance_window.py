@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.does_not_exist_exception
+import aws_sdk_ssm.errors.feature_not_available_exception
+import aws_sdk_ssm.errors.idempotent_parameter_mismatch
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.resource_limit_exceeded_exception
+import aws_sdk_ssm.types.alarm_configuration
+import aws_sdk_ssm.types.logging_info
+import aws_sdk_ssm.types.maintenance_window_task_cutoff_behavior
+import aws_sdk_ssm.types.maintenance_window_task_invocation_parameters
+import aws_sdk_ssm.types.maintenance_window_task_parameters
+import aws_sdk_ssm.types.maintenance_window_task_type
+import aws_sdk_ssm.types.register_task_with_maintenance_window_request
+import aws_sdk_ssm.types.register_task_with_maintenance_window_result
+import aws_sdk_ssm.types.targets
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.register_task_with_maintenance_window_request
-    import aws_sdk_ssm.types.register_task_with_maintenance_window_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +35,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DoesNotExistException":
-            import aws_sdk_ssm.errors.does_not_exist_exception
-
             raise aws_sdk_ssm.errors.does_not_exist_exception.DoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "FeatureNotAvailableException":
-            import aws_sdk_ssm.errors.feature_not_available_exception
-
             raise aws_sdk_ssm.errors.feature_not_available_exception.FeatureNotAvailableException.from_aws_json_1_1(
                 data
             )
         case "IdempotentParameterMismatch":
-            import aws_sdk_ssm.errors.idempotent_parameter_mismatch
-
             raise aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "ResourceLimitExceededException":
-            import aws_sdk_ssm.errors.resource_limit_exceeded_exception
-
             raise aws_sdk_ssm.errors.resource_limit_exceeded_exception.ResourceLimitExceededException.from_aws_json_1_1(
                 data
             )
@@ -59,12 +59,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.register_task_with_maintenance_window_result.RegisterTaskWithMaintenanceWindowResult:
-    import aws_sdk_ssm.types.register_task_with_maintenance_window_result
-
     out: aws_sdk_ssm.types.register_task_with_maintenance_window_result.RegisterTaskWithMaintenanceWindowResult = aws_sdk_ssm.types.register_task_with_maintenance_window_result.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.register_task_with_maintenance_window_result.RegisterTaskWithMaintenanceWindowResult:
+    out: aws_sdk_ssm.types.register_task_with_maintenance_window_result.RegisterTaskWithMaintenanceWindowResult = aws_sdk_ssm.types.register_task_with_maintenance_window_result.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -132,8 +139,7 @@ def register_task_with_maintenance_window(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -151,8 +157,7 @@ async def async_register_task_with_maintenance_window(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

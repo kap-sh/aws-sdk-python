@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_apprunner._auth._signers
 import aws_sdk_apprunner._auth._sigv4
+import aws_sdk_apprunner.errors.internal_service_error_exception
+import aws_sdk_apprunner.errors.invalid_request_exception
+import aws_sdk_apprunner.errors.invalid_state_exception
+import aws_sdk_apprunner.types.associate_custom_domain_request
+import aws_sdk_apprunner.types.associate_custom_domain_response
+import aws_sdk_apprunner.types.custom_domain
+import aws_sdk_apprunner.types.vpc_dns_target_list
 from aws_sdk_apprunner._protocol.errors import parse_error_metadata_json
 from aws_sdk_apprunner._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_apprunner._services._pipeline import (
@@ -18,30 +25,20 @@ from aws_sdk_apprunner._services._pipeline import (
 )
 from aws_sdk_apprunner.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_apprunner.types.associate_custom_domain_request
-    import aws_sdk_apprunner.types.associate_custom_domain_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceErrorException":
-            import aws_sdk_apprunner.errors.internal_service_error_exception
-
             raise aws_sdk_apprunner.errors.internal_service_error_exception.InternalServiceErrorException.from_aws_json_1_0(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_apprunner.errors.invalid_request_exception
-
             raise aws_sdk_apprunner.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_0(
                 data
             )
         case "InvalidStateException":
-            import aws_sdk_apprunner.errors.invalid_state_exception
-
             raise aws_sdk_apprunner.errors.invalid_state_exception.InvalidStateException.from_aws_json_1_0(
                 data
             )
@@ -50,12 +47,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_apprunner.types.associate_custom_domain_response.AssociateCustomDomainResponse:
-    import aws_sdk_apprunner.types.associate_custom_domain_response
-
     out: aws_sdk_apprunner.types.associate_custom_domain_response.AssociateCustomDomainResponse = aws_sdk_apprunner.types.associate_custom_domain_response.deserialize_aws_json_1_0(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_apprunner.types.associate_custom_domain_response.AssociateCustomDomainResponse:
+    out: aws_sdk_apprunner.types.associate_custom_domain_response.AssociateCustomDomainResponse = aws_sdk_apprunner.types.associate_custom_domain_response.deserialize_aws_json_1_0(
+        json.loads(await response.aread())
     )
     return out
 
@@ -125,8 +129,7 @@ def associate_custom_domain(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +147,7 @@ async def async_associate_custom_domain(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -48,3 +49,16 @@ class ModelNotReadyException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ModelNotReadyException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ModelNotReadyException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "modelNotReadyException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ModelNotReadyException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ModelNotReadyException_ = {}  # type: ignore[typeddict-item]
+    return out

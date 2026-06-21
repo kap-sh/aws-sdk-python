@@ -1,7 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#Transcribe``."""
 
 import warnings
-from collections.abc import AsyncIterator
+from collections.abc import AsyncGenerator, AsyncIterator
+from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -198,6 +199,7 @@ class AsyncTranscribeStreamingClient:
         )
         return response.output
 
+    @asynccontextmanager
     async def start_call_analytics_stream_transcription(
         self,
         media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.media_sample_rate_hertz.MediaSampleRateHertz",
@@ -253,7 +255,7 @@ class AsyncTranscribeStreamingClient:
         pii_entity_types: Optional[
             "aws_sdk_transcribe_streaming.types.pii_entity_types.PiiEntityTypes"
         ] = None,
-    ) -> "aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_response.StartCallAnalyticsStreamTranscriptionResponse":
+    ) -> "AsyncGenerator[aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_response.StartCallAnalyticsStreamTranscriptionResponse]":
         r"""<p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application. Use this operation for <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html\">Call Analytics</a> transcriptions.</p> <p>The following parameters are required:</p> <ul> <li> <p> <code>language-code</code> or <code>identify-language</code> </p> </li> <li> <p> <code>media-encoding</code> </p> </li> <li> <p> <code>sample-rate</code> </p> </li> </ul> <p>For more information on streaming with Amazon Transcribe, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html\">Transcribing streaming audio</a>.</p>
 
         Args:
@@ -338,8 +340,9 @@ class AsyncTranscribeStreamingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
+    @asynccontextmanager
     async def start_medical_scribe_stream(
         self,
         language_code: "aws_sdk_transcribe_streaming.types.medical_scribe_language_code.MedicalScribeLanguageCode",
@@ -351,7 +354,7 @@ class AsyncTranscribeStreamingClient:
         session_id: Optional[
             "aws_sdk_transcribe_streaming.types.session_id.SessionId"
         ] = None,
-    ) -> "aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_response.StartMedicalScribeStreamResponse":
+    ) -> "AsyncGenerator[aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_response.StartMedicalScribeStreamResponse]":
         r"""<p>Starts a bidirectional HTTP/2 stream, where audio is streamed to Amazon Web Services HealthScribe and the transcription results are streamed to your application.</p> <p>When you start a stream, you first specify the stream configuration in a <code>MedicalScribeConfigurationEvent</code>. This event includes channel definitions, encryption settings, medical scribe context, and post-stream analytics settings, such as the output configuration for aggregated transcript and clinical note generation. These are additional streaming session configurations beyond those provided in your initial start request headers. Whether you are starting a new session or resuming an existing session, your first event must be a <code>MedicalScribeConfigurationEvent</code>. </p> <p> After you send a <code>MedicalScribeConfigurationEvent</code>, you start <code>AudioEvents</code> and Amazon Web Services HealthScribe responds with real-time transcription results. When you are finished, to start processing the results with the post-stream analytics, send a <code>MedicalScribeSessionControlEvent</code> with a <code>Type</code> of <code>END_OF_SESSION</code> and Amazon Web Services HealthScribe starts the analytics. </p> <p>You can pause or resume streaming. To pause streaming, complete the input stream without sending the <code>MedicalScribeSessionControlEvent</code>. To resume streaming, call the <code>StartMedicalScribeStream</code> and specify the same SessionId you used to start the stream. </p> <p>The following parameters are required:</p> <ul> <li> <p> <code>language-code</code> </p> </li> <li> <p> <code>media-encoding</code> </p> </li> <li> <p> <code>media-sample-rate-hertz</code> </p> </li> </ul> <p></p> <p>For more information on streaming with Amazon Web Services HealthScribe, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe-streaming.html\">Amazon Web Services HealthScribe</a>. </p>
 
         Args:
@@ -391,8 +394,9 @@ class AsyncTranscribeStreamingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
+    @asynccontextmanager
     async def start_medical_stream_transcription(
         self,
         language_code: "aws_sdk_transcribe_streaming.types.language_code.LanguageCode",
@@ -421,7 +425,7 @@ class AsyncTranscribeStreamingClient:
         content_identification_type: Optional[
             "aws_sdk_transcribe_streaming.types.medical_content_identification_type.MedicalContentIdentificationType"
         ] = None,
-    ) -> "aws_sdk_transcribe_streaming.types.start_medical_stream_transcription_response.StartMedicalStreamTranscriptionResponse":
+    ) -> "AsyncGenerator[aws_sdk_transcribe_streaming.types.start_medical_stream_transcription_response.StartMedicalStreamTranscriptionResponse]":
         r"""<p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to Amazon Transcribe Medical and the transcription results are streamed to your application.</p> <p>The following parameters are required:</p> <ul> <li> <p> <code>language-code</code> </p> </li> <li> <p> <code>media-encoding</code> </p> </li> <li> <p> <code>sample-rate</code> </p> </li> </ul> <p>For more information on streaming with Amazon Transcribe Medical, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html\">Transcribing streaming audio</a>.</p>
 
         Args:
@@ -479,8 +483,9 @@ class AsyncTranscribeStreamingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
+    @asynccontextmanager
     async def start_stream_transcription(
         self,
         media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.media_sample_rate_hertz.MediaSampleRateHertz",
@@ -551,7 +556,7 @@ class AsyncTranscribeStreamingClient:
         session_resume_window: Optional[
             "aws_sdk_transcribe_streaming.types.session_resume_window.SessionResumeWindow"
         ] = None,
-    ) -> "aws_sdk_transcribe_streaming.types.start_stream_transcription_response.StartStreamTranscriptionResponse":
+    ) -> "AsyncGenerator[aws_sdk_transcribe_streaming.types.start_stream_transcription_response.StartStreamTranscriptionResponse]":
         r"""<p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application.</p> <p>The following parameters are required:</p> <ul> <li> <p> <code>language-code</code> or <code>identify-language</code> or <code>identify-multiple-language</code> </p> </li> <li> <p> <code>media-encoding</code> </p> </li> <li> <p> <code>sample-rate</code> </p> </li> </ul> <p>For more information on streaming with Amazon Transcribe, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html\">Transcribing streaming audio</a>.</p>
 
         Args:
@@ -651,7 +656,7 @@ class AsyncTranscribeStreamingClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def __aenter__(self) -> Self:
         return self

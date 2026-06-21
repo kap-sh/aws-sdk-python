@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_transcript
 
@@ -39,4 +41,17 @@ def deserialize_json(data: dict) -> MedicalTranscriptEvent:
                 data["Transcript"]
             )
         )
+    return out
+
+
+def serialize_event_json(value: MedicalTranscriptEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "TranscriptEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> MedicalTranscriptEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: MedicalTranscriptEvent = {}  # type: ignore[typeddict-item]
     return out

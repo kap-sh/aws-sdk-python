@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,16 @@ from typing_extensions import Never
 
 import aws_sdk_qbusiness._auth._signers
 import aws_sdk_qbusiness._auth._sigv4
+import aws_sdk_qbusiness.errors.access_denied_exception
+import aws_sdk_qbusiness.errors.internal_server_exception
+import aws_sdk_qbusiness.errors.license_not_found_exception
+import aws_sdk_qbusiness.errors.media_too_large_exception
+import aws_sdk_qbusiness.errors.resource_not_found_exception
+import aws_sdk_qbusiness.errors.throttling_exception
+import aws_sdk_qbusiness.errors.validation_exception
+import aws_sdk_qbusiness.types.blob
+import aws_sdk_qbusiness.types.get_media_request
+import aws_sdk_qbusiness.types.get_media_response
 from aws_sdk_qbusiness._protocol.errors import parse_error_metadata_json
 from aws_sdk_qbusiness._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_qbusiness._services._pipeline import (
@@ -19,54 +29,36 @@ from aws_sdk_qbusiness._services._pipeline import (
 )
 from aws_sdk_qbusiness.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_qbusiness.types.get_media_request
-    import aws_sdk_qbusiness.types.get_media_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_qbusiness.errors.access_denied_exception
-
             raise aws_sdk_qbusiness.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_qbusiness.errors.internal_server_exception
-
             raise aws_sdk_qbusiness.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "LicenseNotFoundException":
-            import aws_sdk_qbusiness.errors.license_not_found_exception
-
             raise aws_sdk_qbusiness.errors.license_not_found_exception.LicenseNotFoundException.from_json(
                 data
             )
         case "MediaTooLargeException":
-            import aws_sdk_qbusiness.errors.media_too_large_exception
-
             raise aws_sdk_qbusiness.errors.media_too_large_exception.MediaTooLargeException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_qbusiness.errors.resource_not_found_exception
-
             raise aws_sdk_qbusiness.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_qbusiness.errors.throttling_exception
-
             raise aws_sdk_qbusiness.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_qbusiness.errors.validation_exception
-
             raise aws_sdk_qbusiness.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -75,13 +67,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_qbusiness.types.get_media_response.GetMediaResponse:
-    import aws_sdk_qbusiness.types.get_media_response
-
     out: aws_sdk_qbusiness.types.get_media_response.GetMediaResponse = (
         aws_sdk_qbusiness.types.get_media_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_qbusiness.types.get_media_response.GetMediaResponse:
+    out: aws_sdk_qbusiness.types.get_media_response.GetMediaResponse = (
+        aws_sdk_qbusiness.types.get_media_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -149,8 +150,7 @@ def get_media(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +167,7 @@ async def async_get_media(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

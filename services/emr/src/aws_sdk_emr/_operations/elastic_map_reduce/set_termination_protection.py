@@ -3,20 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_emr._auth._signers
 import aws_sdk_emr._auth._sigv4
+import aws_sdk_emr.errors.internal_server_error
+import aws_sdk_emr.types.set_termination_protection_input
+import aws_sdk_emr.types.xml_string_list
 from aws_sdk_emr._protocol.errors import parse_error_metadata_json
 from aws_sdk_emr._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_emr._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_emr.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_emr.types.set_termination_protection_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,8 +24,6 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerError":
-            import aws_sdk_emr.errors.internal_server_error
-
             raise aws_sdk_emr.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
@@ -95,7 +93,6 @@ def set_termination_protection(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -111,7 +108,6 @@ async def async_set_termination_protection(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

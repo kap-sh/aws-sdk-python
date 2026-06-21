@@ -3,21 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_waf._auth._signers
 import aws_sdk_waf._auth._sigv4
+import aws_sdk_waf.errors.waf_internal_error_exception
+import aws_sdk_waf.errors.waf_invalid_account_exception
+import aws_sdk_waf.errors.waf_non_empty_entity_exception
+import aws_sdk_waf.errors.waf_nonexistent_item_exception
+import aws_sdk_waf.errors.waf_referenced_item_exception
+import aws_sdk_waf.errors.waf_stale_data_exception
+import aws_sdk_waf.errors.waf_tag_operation_exception
+import aws_sdk_waf.errors.waf_tag_operation_internal_error_exception
+import aws_sdk_waf.types.delete_web_acl_request
+import aws_sdk_waf.types.delete_web_acl_response
 from aws_sdk_waf._protocol.errors import parse_error_metadata_json
 from aws_sdk_waf._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_waf._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_waf.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_waf.types.delete_web_acl_request
-    import aws_sdk_waf.types.delete_web_acl_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +31,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "WAFInternalErrorException":
-            import aws_sdk_waf.errors.waf_internal_error_exception
-
             raise aws_sdk_waf.errors.waf_internal_error_exception.WAFInternalErrorException.from_aws_json_1_1(
                 data
             )
         case "WAFInvalidAccountException":
-            import aws_sdk_waf.errors.waf_invalid_account_exception
-
             raise aws_sdk_waf.errors.waf_invalid_account_exception.WAFInvalidAccountException.from_aws_json_1_1(
                 data
             )
         case "WAFNonEmptyEntityException":
-            import aws_sdk_waf.errors.waf_non_empty_entity_exception
-
             raise aws_sdk_waf.errors.waf_non_empty_entity_exception.WAFNonEmptyEntityException.from_aws_json_1_1(
                 data
             )
         case "WAFNonexistentItemException":
-            import aws_sdk_waf.errors.waf_nonexistent_item_exception
-
             raise aws_sdk_waf.errors.waf_nonexistent_item_exception.WAFNonexistentItemException.from_aws_json_1_1(
                 data
             )
         case "WAFReferencedItemException":
-            import aws_sdk_waf.errors.waf_referenced_item_exception
-
             raise aws_sdk_waf.errors.waf_referenced_item_exception.WAFReferencedItemException.from_aws_json_1_1(
                 data
             )
         case "WAFStaleDataException":
-            import aws_sdk_waf.errors.waf_stale_data_exception
-
             raise aws_sdk_waf.errors.waf_stale_data_exception.WAFStaleDataException.from_aws_json_1_1(
                 data
             )
         case "WAFTagOperationException":
-            import aws_sdk_waf.errors.waf_tag_operation_exception
-
             raise aws_sdk_waf.errors.waf_tag_operation_exception.WAFTagOperationException.from_aws_json_1_1(
                 data
             )
         case "WAFTagOperationInternalErrorException":
-            import aws_sdk_waf.errors.waf_tag_operation_internal_error_exception
-
             raise aws_sdk_waf.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException.from_aws_json_1_1(
                 data
             )
@@ -77,13 +67,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_waf.types.delete_web_acl_response.DeleteWebACLResponse:
-    import aws_sdk_waf.types.delete_web_acl_response
-
     out: aws_sdk_waf.types.delete_web_acl_response.DeleteWebACLResponse = (
         aws_sdk_waf.types.delete_web_acl_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_waf.types.delete_web_acl_response.DeleteWebACLResponse:
+    out: aws_sdk_waf.types.delete_web_acl_response.DeleteWebACLResponse = (
+        aws_sdk_waf.types.delete_web_acl_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -149,8 +148,7 @@ def delete_web_acl(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +165,7 @@ async def async_delete_web_acl(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

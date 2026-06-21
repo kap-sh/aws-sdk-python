@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.matched_category_details
     import aws_sdk_transcribe_streaming.types.string_list
@@ -60,4 +62,17 @@ def deserialize_json(data: dict) -> CategoryEvent:
                 data["MatchedDetails"]
             )
         )
+    return out
+
+
+def serialize_event_json(value: CategoryEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "CategoryEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> CategoryEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: CategoryEvent = {}  # type: ignore[typeddict-item]
     return out

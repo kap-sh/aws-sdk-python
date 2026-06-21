@@ -3,13 +3,57 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.commit_message_length_exceeded_exception
+import aws_sdk_codecommit.errors.concurrent_reference_update_exception
+import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
+import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
+import aws_sdk_codecommit.errors.encryption_key_disabled_exception
+import aws_sdk_codecommit.errors.encryption_key_not_found_exception
+import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
+import aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception
+import aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception
+import aws_sdk_codecommit.errors.invalid_commit_id_exception
+import aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception
+import aws_sdk_codecommit.errors.invalid_conflict_resolution_exception
+import aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception
+import aws_sdk_codecommit.errors.invalid_email_exception
+import aws_sdk_codecommit.errors.invalid_file_mode_exception
+import aws_sdk_codecommit.errors.invalid_path_exception
+import aws_sdk_codecommit.errors.invalid_pull_request_id_exception
+import aws_sdk_codecommit.errors.invalid_replacement_content_exception
+import aws_sdk_codecommit.errors.invalid_replacement_type_exception
+import aws_sdk_codecommit.errors.invalid_repository_name_exception
+import aws_sdk_codecommit.errors.manual_merge_required_exception
+import aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception
+import aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception
+import aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception
+import aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception
+import aws_sdk_codecommit.errors.name_length_exceeded_exception
+import aws_sdk_codecommit.errors.path_required_exception
+import aws_sdk_codecommit.errors.pull_request_already_closed_exception
+import aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception
+import aws_sdk_codecommit.errors.pull_request_does_not_exist_exception
+import aws_sdk_codecommit.errors.pull_request_id_required_exception
+import aws_sdk_codecommit.errors.replacement_content_required_exception
+import aws_sdk_codecommit.errors.replacement_type_required_exception
+import aws_sdk_codecommit.errors.repository_does_not_exist_exception
+import aws_sdk_codecommit.errors.repository_name_required_exception
+import aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception
+import aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception
+import aws_sdk_codecommit.errors.tips_divergence_exceeded_exception
+import aws_sdk_codecommit.types.conflict_detail_level_type_enum
+import aws_sdk_codecommit.types.conflict_resolution
+import aws_sdk_codecommit.types.conflict_resolution_strategy_type_enum
+import aws_sdk_codecommit.types.merge_pull_request_by_squash_input
+import aws_sdk_codecommit.types.merge_pull_request_by_squash_output
+import aws_sdk_codecommit.types.pull_request
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,240 +62,160 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.merge_pull_request_by_squash_input
-    import aws_sdk_codecommit.types.merge_pull_request_by_squash_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CommitMessageLengthExceededException":
-            import aws_sdk_codecommit.errors.commit_message_length_exceeded_exception
-
             raise aws_sdk_codecommit.errors.commit_message_length_exceeded_exception.CommitMessageLengthExceededException.from_aws_json_1_1(
                 data
             )
         case "ConcurrentReferenceUpdateException":
-            import aws_sdk_codecommit.errors.concurrent_reference_update_exception
-
             raise aws_sdk_codecommit.errors.concurrent_reference_update_exception.ConcurrentReferenceUpdateException.from_aws_json_1_1(
                 data
             )
         case "EncryptionIntegrityChecksFailedException":
-            import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
-
             raise aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyAccessDeniedException":
-            import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyDisabledException":
-            import aws_sdk_codecommit.errors.encryption_key_disabled_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyNotFoundException":
-            import aws_sdk_codecommit.errors.encryption_key_not_found_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyUnavailableException":
-            import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "FileContentSizeLimitExceededException":
-            import aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception
-
             raise aws_sdk_codecommit.errors.file_content_size_limit_exceeded_exception.FileContentSizeLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "FolderContentSizeLimitExceededException":
-            import aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception
-
             raise aws_sdk_codecommit.errors.folder_content_size_limit_exceeded_exception.FolderContentSizeLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "InvalidCommitIdException":
-            import aws_sdk_codecommit.errors.invalid_commit_id_exception
-
             raise aws_sdk_codecommit.errors.invalid_commit_id_exception.InvalidCommitIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidConflictDetailLevelException":
-            import aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception
-
             raise aws_sdk_codecommit.errors.invalid_conflict_detail_level_exception.InvalidConflictDetailLevelException.from_aws_json_1_1(
                 data
             )
         case "InvalidConflictResolutionException":
-            import aws_sdk_codecommit.errors.invalid_conflict_resolution_exception
-
             raise aws_sdk_codecommit.errors.invalid_conflict_resolution_exception.InvalidConflictResolutionException.from_aws_json_1_1(
                 data
             )
         case "InvalidConflictResolutionStrategyException":
-            import aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception
-
             raise aws_sdk_codecommit.errors.invalid_conflict_resolution_strategy_exception.InvalidConflictResolutionStrategyException.from_aws_json_1_1(
                 data
             )
         case "InvalidEmailException":
-            import aws_sdk_codecommit.errors.invalid_email_exception
-
             raise aws_sdk_codecommit.errors.invalid_email_exception.InvalidEmailException.from_aws_json_1_1(
                 data
             )
         case "InvalidFileModeException":
-            import aws_sdk_codecommit.errors.invalid_file_mode_exception
-
             raise aws_sdk_codecommit.errors.invalid_file_mode_exception.InvalidFileModeException.from_aws_json_1_1(
                 data
             )
         case "InvalidPathException":
-            import aws_sdk_codecommit.errors.invalid_path_exception
-
             raise aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException.from_aws_json_1_1(
                 data
             )
         case "InvalidPullRequestIdException":
-            import aws_sdk_codecommit.errors.invalid_pull_request_id_exception
-
             raise aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidReplacementContentException":
-            import aws_sdk_codecommit.errors.invalid_replacement_content_exception
-
             raise aws_sdk_codecommit.errors.invalid_replacement_content_exception.InvalidReplacementContentException.from_aws_json_1_1(
                 data
             )
         case "InvalidReplacementTypeException":
-            import aws_sdk_codecommit.errors.invalid_replacement_type_exception
-
             raise aws_sdk_codecommit.errors.invalid_replacement_type_exception.InvalidReplacementTypeException.from_aws_json_1_1(
                 data
             )
         case "InvalidRepositoryNameException":
-            import aws_sdk_codecommit.errors.invalid_repository_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException.from_aws_json_1_1(
                 data
             )
         case "ManualMergeRequiredException":
-            import aws_sdk_codecommit.errors.manual_merge_required_exception
-
             raise aws_sdk_codecommit.errors.manual_merge_required_exception.ManualMergeRequiredException.from_aws_json_1_1(
                 data
             )
         case "MaximumConflictResolutionEntriesExceededException":
-            import aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception
-
             raise aws_sdk_codecommit.errors.maximum_conflict_resolution_entries_exceeded_exception.MaximumConflictResolutionEntriesExceededException.from_aws_json_1_1(
                 data
             )
         case "MaximumFileContentToLoadExceededException":
-            import aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception
-
             raise aws_sdk_codecommit.errors.maximum_file_content_to_load_exceeded_exception.MaximumFileContentToLoadExceededException.from_aws_json_1_1(
                 data
             )
         case "MaximumItemsToCompareExceededException":
-            import aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception
-
             raise aws_sdk_codecommit.errors.maximum_items_to_compare_exceeded_exception.MaximumItemsToCompareExceededException.from_aws_json_1_1(
                 data
             )
         case "MultipleConflictResolutionEntriesException":
-            import aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception
-
             raise aws_sdk_codecommit.errors.multiple_conflict_resolution_entries_exception.MultipleConflictResolutionEntriesException.from_aws_json_1_1(
                 data
             )
         case "NameLengthExceededException":
-            import aws_sdk_codecommit.errors.name_length_exceeded_exception
-
             raise aws_sdk_codecommit.errors.name_length_exceeded_exception.NameLengthExceededException.from_aws_json_1_1(
                 data
             )
         case "PathRequiredException":
-            import aws_sdk_codecommit.errors.path_required_exception
-
             raise aws_sdk_codecommit.errors.path_required_exception.PathRequiredException.from_aws_json_1_1(
                 data
             )
         case "PullRequestAlreadyClosedException":
-            import aws_sdk_codecommit.errors.pull_request_already_closed_exception
-
             raise aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException.from_aws_json_1_1(
                 data
             )
         case "PullRequestApprovalRulesNotSatisfiedException":
-            import aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception
-
             raise aws_sdk_codecommit.errors.pull_request_approval_rules_not_satisfied_exception.PullRequestApprovalRulesNotSatisfiedException.from_aws_json_1_1(
                 data
             )
         case "PullRequestDoesNotExistException":
-            import aws_sdk_codecommit.errors.pull_request_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "PullRequestIdRequiredException":
-            import aws_sdk_codecommit.errors.pull_request_id_required_exception
-
             raise aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException.from_aws_json_1_1(
                 data
             )
         case "ReplacementContentRequiredException":
-            import aws_sdk_codecommit.errors.replacement_content_required_exception
-
             raise aws_sdk_codecommit.errors.replacement_content_required_exception.ReplacementContentRequiredException.from_aws_json_1_1(
                 data
             )
         case "ReplacementTypeRequiredException":
-            import aws_sdk_codecommit.errors.replacement_type_required_exception
-
             raise aws_sdk_codecommit.errors.replacement_type_required_exception.ReplacementTypeRequiredException.from_aws_json_1_1(
                 data
             )
         case "RepositoryDoesNotExistException":
-            import aws_sdk_codecommit.errors.repository_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNameRequiredException":
-            import aws_sdk_codecommit.errors.repository_name_required_exception
-
             raise aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNotAssociatedWithPullRequestException":
-            import aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception
-
             raise aws_sdk_codecommit.errors.repository_not_associated_with_pull_request_exception.RepositoryNotAssociatedWithPullRequestException.from_aws_json_1_1(
                 data
             )
         case "TipOfSourceReferenceIsDifferentException":
-            import aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception
-
             raise aws_sdk_codecommit.errors.tip_of_source_reference_is_different_exception.TipOfSourceReferenceIsDifferentException.from_aws_json_1_1(
                 data
             )
         case "TipsDivergenceExceededException":
-            import aws_sdk_codecommit.errors.tips_divergence_exceeded_exception
-
             raise aws_sdk_codecommit.errors.tips_divergence_exceeded_exception.TipsDivergenceExceededException.from_aws_json_1_1(
                 data
             )
@@ -260,12 +224,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.merge_pull_request_by_squash_output.MergePullRequestBySquashOutput:
-    import aws_sdk_codecommit.types.merge_pull_request_by_squash_output
-
     out: aws_sdk_codecommit.types.merge_pull_request_by_squash_output.MergePullRequestBySquashOutput = aws_sdk_codecommit.types.merge_pull_request_by_squash_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.merge_pull_request_by_squash_output.MergePullRequestBySquashOutput:
+    out: aws_sdk_codecommit.types.merge_pull_request_by_squash_output.MergePullRequestBySquashOutput = aws_sdk_codecommit.types.merge_pull_request_by_squash_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -335,8 +306,7 @@ def merge_pull_request_by_squash(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -354,8 +324,7 @@ async def async_merge_pull_request_by_squash(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_cloudwatch_logs._protocol.eventstream import HeaderValue, Message
 from aws_sdk_cloudwatch_logs.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -46,3 +47,16 @@ class SessionStreamingException(ServiceError):
     @classmethod
     def from_aws_json_1_1(cls, data: dict) -> "SessionStreamingException":
         return cls(deserialize_aws_json_1_1(data))
+
+
+def serialize_event_aws_json_1_1(value: SessionStreamingException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "SessionStreamingException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> SessionStreamingException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: SessionStreamingException_ = {}  # type: ignore[typeddict-item]
+    return out

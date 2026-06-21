@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_textract._auth._signers
 import aws_sdk_textract._auth._sigv4
+import aws_sdk_textract.errors.access_denied_exception
+import aws_sdk_textract.errors.internal_server_error
+import aws_sdk_textract.errors.invalid_job_id_exception
+import aws_sdk_textract.errors.invalid_kms_key_exception
+import aws_sdk_textract.errors.invalid_parameter_exception
+import aws_sdk_textract.errors.invalid_s3_object_exception
+import aws_sdk_textract.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_textract.errors.throttling_exception
+import aws_sdk_textract.types.document_metadata
+import aws_sdk_textract.types.get_lending_analysis_request
+import aws_sdk_textract.types.get_lending_analysis_response
+import aws_sdk_textract.types.job_status
+import aws_sdk_textract.types.lending_result_list
+import aws_sdk_textract.types.warnings
 from aws_sdk_textract._protocol.errors import parse_error_metadata_json
 from aws_sdk_textract._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_textract._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_textract.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_textract.types.get_lending_analysis_request
-    import aws_sdk_textract.types.get_lending_analysis_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +35,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_textract.errors.access_denied_exception
-
             raise aws_sdk_textract.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_textract.errors.internal_server_error
-
             raise aws_sdk_textract.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidJobIdException":
-            import aws_sdk_textract.errors.invalid_job_id_exception
-
             raise aws_sdk_textract.errors.invalid_job_id_exception.InvalidJobIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidKMSKeyException":
-            import aws_sdk_textract.errors.invalid_kms_key_exception
-
             raise aws_sdk_textract.errors.invalid_kms_key_exception.InvalidKMSKeyException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_textract.errors.invalid_parameter_exception
-
             raise aws_sdk_textract.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3ObjectException":
-            import aws_sdk_textract.errors.invalid_s3_object_exception
-
             raise aws_sdk_textract.errors.invalid_s3_object_exception.InvalidS3ObjectException.from_aws_json_1_1(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_textract.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_textract.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_textract.errors.throttling_exception
-
             raise aws_sdk_textract.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
@@ -77,12 +71,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_textract.types.get_lending_analysis_response.GetLendingAnalysisResponse:
-    import aws_sdk_textract.types.get_lending_analysis_response
-
     out: aws_sdk_textract.types.get_lending_analysis_response.GetLendingAnalysisResponse = aws_sdk_textract.types.get_lending_analysis_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_textract.types.get_lending_analysis_response.GetLendingAnalysisResponse:
+    out: aws_sdk_textract.types.get_lending_analysis_response.GetLendingAnalysisResponse = aws_sdk_textract.types.get_lending_analysis_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -152,8 +153,7 @@ def get_lending_analysis(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -171,8 +171,7 @@ async def async_get_lending_analysis(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

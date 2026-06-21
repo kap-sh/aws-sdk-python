@@ -3,13 +3,30 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_neptunedata._auth._signers
 import aws_sdk_neptunedata._auth._sigv4
+import aws_sdk_neptunedata.errors.access_denied_exception
+import aws_sdk_neptunedata.errors.bad_request_exception
+import aws_sdk_neptunedata.errors.client_timeout_exception
+import aws_sdk_neptunedata.errors.constraint_violation_exception
+import aws_sdk_neptunedata.errors.illegal_argument_exception
+import aws_sdk_neptunedata.errors.invalid_argument_exception
+import aws_sdk_neptunedata.errors.invalid_parameter_exception
+import aws_sdk_neptunedata.errors.missing_parameter_exception
+import aws_sdk_neptunedata.errors.preconditions_failed_exception
+import aws_sdk_neptunedata.errors.read_only_violation_exception
+import aws_sdk_neptunedata.errors.statistics_not_available_exception
+import aws_sdk_neptunedata.errors.too_many_requests_exception
+import aws_sdk_neptunedata.errors.unsupported_operation_exception
+import aws_sdk_neptunedata.types.manage_propertygraph_statistics_input
+import aws_sdk_neptunedata.types.manage_propertygraph_statistics_output
+import aws_sdk_neptunedata.types.refresh_statistics_id_map
+import aws_sdk_neptunedata.types.statistics_auto_generation_mode
 from aws_sdk_neptunedata._protocol.errors import parse_error_metadata_json
 from aws_sdk_neptunedata._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_neptunedata._services._pipeline import (
@@ -18,90 +35,60 @@ from aws_sdk_neptunedata._services._pipeline import (
 )
 from aws_sdk_neptunedata.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_neptunedata.types.manage_propertygraph_statistics_input
-    import aws_sdk_neptunedata.types.manage_propertygraph_statistics_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_neptunedata.errors.access_denied_exception
-
             raise aws_sdk_neptunedata.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "BadRequestException":
-            import aws_sdk_neptunedata.errors.bad_request_exception
-
             raise aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ClientTimeoutException":
-            import aws_sdk_neptunedata.errors.client_timeout_exception
-
             raise aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException.from_json(
                 data
             )
         case "ConstraintViolationException":
-            import aws_sdk_neptunedata.errors.constraint_violation_exception
-
             raise aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException.from_json(
                 data
             )
         case "IllegalArgumentException":
-            import aws_sdk_neptunedata.errors.illegal_argument_exception
-
             raise aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_neptunedata.errors.invalid_argument_exception
-
             raise aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_neptunedata.errors.invalid_parameter_exception
-
             raise aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "MissingParameterException":
-            import aws_sdk_neptunedata.errors.missing_parameter_exception
-
             raise aws_sdk_neptunedata.errors.missing_parameter_exception.MissingParameterException.from_json(
                 data
             )
         case "PreconditionsFailedException":
-            import aws_sdk_neptunedata.errors.preconditions_failed_exception
-
             raise aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException.from_json(
                 data
             )
         case "ReadOnlyViolationException":
-            import aws_sdk_neptunedata.errors.read_only_violation_exception
-
             raise aws_sdk_neptunedata.errors.read_only_violation_exception.ReadOnlyViolationException.from_json(
                 data
             )
         case "StatisticsNotAvailableException":
-            import aws_sdk_neptunedata.errors.statistics_not_available_exception
-
             raise aws_sdk_neptunedata.errors.statistics_not_available_exception.StatisticsNotAvailableException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_neptunedata.errors.too_many_requests_exception
-
             raise aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_neptunedata.errors.unsupported_operation_exception
-
             raise aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException.from_json(
                 data
             )
@@ -110,12 +97,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput:
-    import aws_sdk_neptunedata.types.manage_propertygraph_statistics_output
-
     out: aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput = aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput:
+    out: aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.ManagePropertygraphStatisticsOutput = aws_sdk_neptunedata.types.manage_propertygraph_statistics_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -184,8 +178,7 @@ def manage_propertygraph_statistics(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -203,8 +196,7 @@ async def async_manage_propertygraph_statistics(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

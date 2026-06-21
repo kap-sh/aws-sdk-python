@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,16 @@ from typing_extensions import Never
 
 import aws_sdk_ses._auth._signers
 import aws_sdk_ses._auth._sigv4
+import aws_sdk_ses.errors.custom_verification_email_invalid_content_exception
+import aws_sdk_ses.errors.custom_verification_email_template_already_exists_exception
+import aws_sdk_ses.errors.from_email_address_not_verified_exception
+import aws_sdk_ses.errors.limit_exceeded_exception
+import aws_sdk_ses.types.create_custom_verification_email_template_request
 from aws_sdk_ses._protocol.errors import parse_error_metadata
 from aws_sdk_ses._protocol.xml import fromstring
 from aws_sdk_ses._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ses._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ses.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ses.types.create_custom_verification_email_template_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +27,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "CustomVerificationEmailInvalidContentException":
-            import aws_sdk_ses.errors.custom_verification_email_invalid_content_exception
-
             raise aws_sdk_ses.errors.custom_verification_email_invalid_content_exception.CustomVerificationEmailInvalidContentException.from_query(
                 root
             )
         case "CustomVerificationEmailTemplateAlreadyExistsException":
-            import aws_sdk_ses.errors.custom_verification_email_template_already_exists_exception
-
             raise aws_sdk_ses.errors.custom_verification_email_template_already_exists_exception.CustomVerificationEmailTemplateAlreadyExistsException.from_query(
                 root
             )
         case "FromEmailAddressNotVerifiedException":
-            import aws_sdk_ses.errors.from_email_address_not_verified_exception
-
             raise aws_sdk_ses.errors.from_email_address_not_verified_exception.FromEmailAddressNotVerifiedException.from_query(
                 root
             )
         case "LimitExceededException":
-            import aws_sdk_ses.errors.limit_exceeded_exception
-
             raise aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException.from_query(
                 root
             )
@@ -113,7 +107,6 @@ def create_custom_verification_email_template(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -129,7 +122,6 @@ async def async_create_custom_verification_email_template(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

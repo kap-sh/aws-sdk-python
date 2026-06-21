@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_comprehend._auth._signers
 import aws_sdk_comprehend._auth._sigv4
+import aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception
+import aws_sdk_comprehend.errors.internal_server_exception
+import aws_sdk_comprehend.errors.invalid_request_exception
+import aws_sdk_comprehend.errors.text_size_limit_exceeded_exception
+import aws_sdk_comprehend.errors.unsupported_language_exception
+import aws_sdk_comprehend.types.batch_detect_sentiment_request
+import aws_sdk_comprehend.types.batch_detect_sentiment_response
+import aws_sdk_comprehend.types.batch_item_error_list
+import aws_sdk_comprehend.types.customer_input_string_list
+import aws_sdk_comprehend.types.language_code
+import aws_sdk_comprehend.types.list_of_detect_sentiment_result
 from aws_sdk_comprehend._protocol.errors import parse_error_metadata_json
 from aws_sdk_comprehend._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_comprehend._services._pipeline import (
@@ -18,42 +29,28 @@ from aws_sdk_comprehend._services._pipeline import (
 )
 from aws_sdk_comprehend.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_comprehend.types.batch_detect_sentiment_request
-    import aws_sdk_comprehend.types.batch_detect_sentiment_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BatchSizeLimitExceededException":
-            import aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception
-
             raise aws_sdk_comprehend.errors.batch_size_limit_exceeded_exception.BatchSizeLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_comprehend.errors.internal_server_exception
-
             raise aws_sdk_comprehend.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_comprehend.errors.invalid_request_exception
-
             raise aws_sdk_comprehend.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
                 data
             )
         case "TextSizeLimitExceededException":
-            import aws_sdk_comprehend.errors.text_size_limit_exceeded_exception
-
             raise aws_sdk_comprehend.errors.text_size_limit_exceeded_exception.TextSizeLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedLanguageException":
-            import aws_sdk_comprehend.errors.unsupported_language_exception
-
             raise aws_sdk_comprehend.errors.unsupported_language_exception.UnsupportedLanguageException.from_aws_json_1_1(
                 data
             )
@@ -62,12 +59,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_comprehend.types.batch_detect_sentiment_response.BatchDetectSentimentResponse:
-    import aws_sdk_comprehend.types.batch_detect_sentiment_response
-
     out: aws_sdk_comprehend.types.batch_detect_sentiment_response.BatchDetectSentimentResponse = aws_sdk_comprehend.types.batch_detect_sentiment_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_comprehend.types.batch_detect_sentiment_response.BatchDetectSentimentResponse:
+    out: aws_sdk_comprehend.types.batch_detect_sentiment_response.BatchDetectSentimentResponse = aws_sdk_comprehend.types.batch_detect_sentiment_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -137,8 +141,7 @@ def batch_detect_sentiment(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +159,7 @@ async def async_batch_detect_sentiment(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

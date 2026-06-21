@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_lakeformation._auth._signers
 import aws_sdk_lakeformation._auth._sigv4
+import aws_sdk_lakeformation.errors.concurrent_modification_exception
+import aws_sdk_lakeformation.errors.entity_not_found_exception
+import aws_sdk_lakeformation.errors.internal_service_exception
+import aws_sdk_lakeformation.errors.invalid_input_exception
+import aws_sdk_lakeformation.errors.operation_timeout_exception
+import aws_sdk_lakeformation.errors.resource_not_ready_exception
+import aws_sdk_lakeformation.errors.transaction_canceled_exception
+import aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception
+import aws_sdk_lakeformation.errors.transaction_committed_exception
+import aws_sdk_lakeformation.types.update_table_objects_request
+import aws_sdk_lakeformation.types.update_table_objects_response
+import aws_sdk_lakeformation.types.write_operation_list
 from aws_sdk_lakeformation._protocol.errors import parse_error_metadata_json
 from aws_sdk_lakeformation._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,66 +33,44 @@ from aws_sdk_lakeformation._services._pipeline import (
 )
 from aws_sdk_lakeformation.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_lakeformation.types.update_table_objects_request
-    import aws_sdk_lakeformation.types.update_table_objects_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_lakeformation.errors.concurrent_modification_exception
-
             raise aws_sdk_lakeformation.errors.concurrent_modification_exception.ConcurrentModificationException.from_json(
                 data
             )
         case "EntityNotFoundException":
-            import aws_sdk_lakeformation.errors.entity_not_found_exception
-
             raise aws_sdk_lakeformation.errors.entity_not_found_exception.EntityNotFoundException.from_json(
                 data
             )
         case "InternalServiceException":
-            import aws_sdk_lakeformation.errors.internal_service_exception
-
             raise aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException.from_json(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_lakeformation.errors.invalid_input_exception
-
             raise aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException.from_json(
                 data
             )
         case "OperationTimeoutException":
-            import aws_sdk_lakeformation.errors.operation_timeout_exception
-
             raise aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException.from_json(
                 data
             )
         case "ResourceNotReadyException":
-            import aws_sdk_lakeformation.errors.resource_not_ready_exception
-
             raise aws_sdk_lakeformation.errors.resource_not_ready_exception.ResourceNotReadyException.from_json(
                 data
             )
         case "TransactionCanceledException":
-            import aws_sdk_lakeformation.errors.transaction_canceled_exception
-
             raise aws_sdk_lakeformation.errors.transaction_canceled_exception.TransactionCanceledException.from_json(
                 data
             )
         case "TransactionCommitInProgressException":
-            import aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception
-
             raise aws_sdk_lakeformation.errors.transaction_commit_in_progress_exception.TransactionCommitInProgressException.from_json(
                 data
             )
         case "TransactionCommittedException":
-            import aws_sdk_lakeformation.errors.transaction_committed_exception
-
             raise aws_sdk_lakeformation.errors.transaction_committed_exception.TransactionCommittedException.from_json(
                 data
             )
@@ -89,7 +79,16 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> (
+    aws_sdk_lakeformation.types.update_table_objects_response.UpdateTableObjectsResponse
+):
+    out: aws_sdk_lakeformation.types.update_table_objects_response.UpdateTableObjectsResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> (
     aws_sdk_lakeformation.types.update_table_objects_response.UpdateTableObjectsResponse
 ):
@@ -159,8 +158,7 @@ def update_table_objects(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -178,8 +176,7 @@ async def async_update_table_objects(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

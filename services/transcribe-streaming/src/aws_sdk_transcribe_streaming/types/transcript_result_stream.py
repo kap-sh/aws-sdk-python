@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError, SerializationError
+from aws_sdk_transcribe_streaming._iter import AnyIterator
+from aws_sdk_transcribe_streaming._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.errors.bad_request_exception
@@ -43,7 +44,7 @@ class _TranscriptResultStream_ServiceUnavailableException(TypedDict):
     ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 
-TranscriptResultStream: TypeAlias = (
+_TranscriptResultStream: TypeAlias = (
     _TranscriptResultStream_TranscriptEvent
     | _TranscriptResultStream_BadRequestException
     | _TranscriptResultStream_LimitExceededException
@@ -51,110 +52,111 @@ TranscriptResultStream: TypeAlias = (
     | _TranscriptResultStream_ConflictException
     | _TranscriptResultStream_ServiceUnavailableException
 )
+TranscriptResultStream: TypeAlias = AnyIterator[_TranscriptResultStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: TranscriptResultStream) -> dict:
-    if "TranscriptEvent" in value:
-        import aws_sdk_transcribe_streaming.types.transcript_event
+def serialize_event_json(value: _TranscriptResultStream) -> bytes:
+    match value:
+        case {"TranscriptEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.transcript_event
 
-        return {
-            "TranscriptEvent": aws_sdk_transcribe_streaming.types.transcript_event.serialize_json(
-                value["TranscriptEvent"]
+            return aws_sdk_transcribe_streaming.types.transcript_event.serialize_event_json(
+                payload
             )
-        }
-    elif "BadRequestException" in value:
-        import aws_sdk_transcribe_streaming.errors.bad_request_exception
+        case {"BadRequestException": payload}:
+            import aws_sdk_transcribe_streaming.errors.bad_request_exception
 
-        return {
-            "BadRequestException": aws_sdk_transcribe_streaming.errors.bad_request_exception.serialize_json(
-                value["BadRequestException"]
+            return aws_sdk_transcribe_streaming.errors.bad_request_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "LimitExceededException" in value:
-        import aws_sdk_transcribe_streaming.errors.limit_exceeded_exception
+        case {"LimitExceededException": payload}:
+            import aws_sdk_transcribe_streaming.errors.limit_exceeded_exception
 
-        return {
-            "LimitExceededException": aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.serialize_json(
-                value["LimitExceededException"]
+            return aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "InternalFailureException" in value:
-        import aws_sdk_transcribe_streaming.errors.internal_failure_exception
+        case {"InternalFailureException": payload}:
+            import aws_sdk_transcribe_streaming.errors.internal_failure_exception
 
-        return {
-            "InternalFailureException": aws_sdk_transcribe_streaming.errors.internal_failure_exception.serialize_json(
-                value["InternalFailureException"]
+            return aws_sdk_transcribe_streaming.errors.internal_failure_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ConflictException" in value:
-        import aws_sdk_transcribe_streaming.errors.conflict_exception
+        case {"ConflictException": payload}:
+            import aws_sdk_transcribe_streaming.errors.conflict_exception
 
-        return {
-            "ConflictException": aws_sdk_transcribe_streaming.errors.conflict_exception.serialize_json(
-                value["ConflictException"]
+            return aws_sdk_transcribe_streaming.errors.conflict_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ServiceUnavailableException" in value:
-        import aws_sdk_transcribe_streaming.errors.service_unavailable_exception
+        case {"ServiceUnavailableException": payload}:
+            import aws_sdk_transcribe_streaming.errors.service_unavailable_exception
 
-        return {
-            "ServiceUnavailableException": aws_sdk_transcribe_streaming.errors.service_unavailable_exception.serialize_json(
-                value["ServiceUnavailableException"]
+            return aws_sdk_transcribe_streaming.errors.service_unavailable_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("TranscriptResultStream: no variant present")
+        case _:
+            raise ValueError(f"TranscriptResultStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> TranscriptResultStream:
-    if "TranscriptEvent" in data:
-        import aws_sdk_transcribe_streaming.types.transcript_event
+def deserialize_event_json(message: Message) -> _TranscriptResultStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "BadRequestException":
+                import aws_sdk_transcribe_streaming.errors.bad_request_exception
 
-        return {
-            "TranscriptEvent": aws_sdk_transcribe_streaming.types.transcript_event.deserialize_json(
-                data["TranscriptEvent"]
+                raise aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException(
+                    aws_sdk_transcribe_streaming.errors.bad_request_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "LimitExceededException":
+                import aws_sdk_transcribe_streaming.errors.limit_exceeded_exception
+
+                raise aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException(
+                    aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "InternalFailureException":
+                import aws_sdk_transcribe_streaming.errors.internal_failure_exception
+
+                raise aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException(
+                    aws_sdk_transcribe_streaming.errors.internal_failure_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ConflictException":
+                import aws_sdk_transcribe_streaming.errors.conflict_exception
+
+                raise aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException(
+                    aws_sdk_transcribe_streaming.errors.conflict_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ServiceUnavailableException":
+                import aws_sdk_transcribe_streaming.errors.service_unavailable_exception
+
+                raise aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException(
+                    aws_sdk_transcribe_streaming.errors.service_unavailable_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"TranscriptResultStream: unrecognized error-type {error_type!r}"
+        )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "TranscriptEvent":
+            import aws_sdk_transcribe_streaming.types.transcript_event
+
+            return {
+                "TranscriptEvent": aws_sdk_transcribe_streaming.types.transcript_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"TranscriptResultStream: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "BadRequestException" in data:
-        import aws_sdk_transcribe_streaming.errors.bad_request_exception
-
-        return {
-            "BadRequestException": aws_sdk_transcribe_streaming.errors.bad_request_exception.deserialize_json(
-                data["BadRequestException"]
-            )
-        }
-    elif "LimitExceededException" in data:
-        import aws_sdk_transcribe_streaming.errors.limit_exceeded_exception
-
-        return {
-            "LimitExceededException": aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.deserialize_json(
-                data["LimitExceededException"]
-            )
-        }
-    elif "InternalFailureException" in data:
-        import aws_sdk_transcribe_streaming.errors.internal_failure_exception
-
-        return {
-            "InternalFailureException": aws_sdk_transcribe_streaming.errors.internal_failure_exception.deserialize_json(
-                data["InternalFailureException"]
-            )
-        }
-    elif "ConflictException" in data:
-        import aws_sdk_transcribe_streaming.errors.conflict_exception
-
-        return {
-            "ConflictException": aws_sdk_transcribe_streaming.errors.conflict_exception.deserialize_json(
-                data["ConflictException"]
-            )
-        }
-    elif "ServiceUnavailableException" in data:
-        import aws_sdk_transcribe_streaming.errors.service_unavailable_exception
-
-        return {
-            "ServiceUnavailableException": aws_sdk_transcribe_streaming.errors.service_unavailable_exception.deserialize_json(
-                data["ServiceUnavailableException"]
-            )
-        }
-    else:
-        raise DeserializationError("TranscriptResultStream: no recognized variant key")

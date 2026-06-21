@@ -1,7 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ExpertQ``."""
 
 import warnings
-from collections.abc import Iterator
+from collections.abc import Generator, Iterator
+from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -497,6 +498,7 @@ class QBusinessClient:
         )
         return response.output
 
+    @contextmanager
     def chat(
         self,
         application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId",
@@ -514,7 +516,7 @@ class QBusinessClient:
             "aws_sdk_qbusiness.types.client_token.ClientToken"
         ] = None,
         input_stream: Optional[Iterator[bytes] | bytes] = None,
-    ) -> "aws_sdk_qbusiness.types.chat_output.ChatOutput":
+    ) -> "Generator[aws_sdk_qbusiness.types.chat_output.ChatOutput]":
         """<p>Starts or continues a streaming Amazon Q Business conversation.</p>
 
         Args:
@@ -558,7 +560,7 @@ class QBusinessClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def chat_sync(
         self,

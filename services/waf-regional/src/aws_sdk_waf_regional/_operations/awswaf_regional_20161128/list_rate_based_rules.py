@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_waf_regional._auth._signers
 import aws_sdk_waf_regional._auth._sigv4
+import aws_sdk_waf_regional.errors.waf_internal_error_exception
+import aws_sdk_waf_regional.errors.waf_invalid_account_exception
+import aws_sdk_waf_regional.types.list_rate_based_rules_request
+import aws_sdk_waf_regional.types.list_rate_based_rules_response
+import aws_sdk_waf_regional.types.rule_summaries
 from aws_sdk_waf_regional._protocol.errors import parse_error_metadata_json
 from aws_sdk_waf_regional._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_waf_regional._services._pipeline import (
@@ -18,24 +23,16 @@ from aws_sdk_waf_regional._services._pipeline import (
 )
 from aws_sdk_waf_regional.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_waf_regional.types.list_rate_based_rules_request
-    import aws_sdk_waf_regional.types.list_rate_based_rules_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "WAFInternalErrorException":
-            import aws_sdk_waf_regional.errors.waf_internal_error_exception
-
             raise aws_sdk_waf_regional.errors.waf_internal_error_exception.WAFInternalErrorException.from_aws_json_1_1(
                 data
             )
         case "WAFInvalidAccountException":
-            import aws_sdk_waf_regional.errors.waf_invalid_account_exception
-
             raise aws_sdk_waf_regional.errors.waf_invalid_account_exception.WAFInvalidAccountException.from_aws_json_1_1(
                 data
             )
@@ -44,14 +41,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_waf_regional.types.list_rate_based_rules_response.ListRateBasedRulesResponse
 ):
-    import aws_sdk_waf_regional.types.list_rate_based_rules_response
-
     out: aws_sdk_waf_regional.types.list_rate_based_rules_response.ListRateBasedRulesResponse = aws_sdk_waf_regional.types.list_rate_based_rules_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_waf_regional.types.list_rate_based_rules_response.ListRateBasedRulesResponse
+):
+    out: aws_sdk_waf_regional.types.list_rate_based_rules_response.ListRateBasedRulesResponse = aws_sdk_waf_regional.types.list_rate_based_rules_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -121,8 +127,7 @@ def list_rate_based_rules(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -140,8 +145,7 @@ async def async_list_rate_based_rules(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

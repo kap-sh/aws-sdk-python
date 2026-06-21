@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.ops_item_conflict_exception
+import aws_sdk_ssm.errors.ops_item_invalid_parameter_exception
+import aws_sdk_ssm.errors.ops_item_limit_exceeded_exception
+import aws_sdk_ssm.errors.ops_item_not_found_exception
+import aws_sdk_ssm.errors.ops_item_related_item_already_exists_exception
+import aws_sdk_ssm.types.associate_ops_item_related_item_request
+import aws_sdk_ssm.types.associate_ops_item_related_item_response
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.associate_ops_item_related_item_request
-    import aws_sdk_ssm.types.associate_ops_item_related_item_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +29,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "OpsItemConflictException":
-            import aws_sdk_ssm.errors.ops_item_conflict_exception
-
             raise aws_sdk_ssm.errors.ops_item_conflict_exception.OpsItemConflictException.from_aws_json_1_1(
                 data
             )
         case "OpsItemInvalidParameterException":
-            import aws_sdk_ssm.errors.ops_item_invalid_parameter_exception
-
             raise aws_sdk_ssm.errors.ops_item_invalid_parameter_exception.OpsItemInvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "OpsItemLimitExceededException":
-            import aws_sdk_ssm.errors.ops_item_limit_exceeded_exception
-
             raise aws_sdk_ssm.errors.ops_item_limit_exceeded_exception.OpsItemLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "OpsItemNotFoundException":
-            import aws_sdk_ssm.errors.ops_item_not_found_exception
-
             raise aws_sdk_ssm.errors.ops_item_not_found_exception.OpsItemNotFoundException.from_aws_json_1_1(
                 data
             )
         case "OpsItemRelatedItemAlreadyExistsException":
-            import aws_sdk_ssm.errors.ops_item_related_item_already_exists_exception
-
             raise aws_sdk_ssm.errors.ops_item_related_item_already_exists_exception.OpsItemRelatedItemAlreadyExistsException.from_aws_json_1_1(
                 data
             )
@@ -65,12 +57,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.associate_ops_item_related_item_response.AssociateOpsItemRelatedItemResponse:
-    import aws_sdk_ssm.types.associate_ops_item_related_item_response
-
     out: aws_sdk_ssm.types.associate_ops_item_related_item_response.AssociateOpsItemRelatedItemResponse = aws_sdk_ssm.types.associate_ops_item_related_item_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.associate_ops_item_related_item_response.AssociateOpsItemRelatedItemResponse:
+    out: aws_sdk_ssm.types.associate_ops_item_related_item_response.AssociateOpsItemRelatedItemResponse = aws_sdk_ssm.types.associate_ops_item_related_item_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -138,8 +137,7 @@ def associate_ops_item_related_item(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -157,8 +155,7 @@ async def async_associate_ops_item_related_item(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

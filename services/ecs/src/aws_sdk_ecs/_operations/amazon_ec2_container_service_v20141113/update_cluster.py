@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ecs._auth._signers
 import aws_sdk_ecs._auth._sigv4
+import aws_sdk_ecs.errors.access_denied_exception
+import aws_sdk_ecs.errors.client_exception
+import aws_sdk_ecs.errors.cluster_not_found_exception
+import aws_sdk_ecs.errors.invalid_parameter_exception
+import aws_sdk_ecs.errors.namespace_not_found_exception
+import aws_sdk_ecs.errors.server_exception
+import aws_sdk_ecs.types.cluster
+import aws_sdk_ecs.types.cluster_configuration
+import aws_sdk_ecs.types.cluster_service_connect_defaults_request
+import aws_sdk_ecs.types.cluster_settings
+import aws_sdk_ecs.types.update_cluster_request
+import aws_sdk_ecs.types.update_cluster_response
 from aws_sdk_ecs._protocol.errors import parse_error_metadata_json
 from aws_sdk_ecs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ecs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ecs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ecs.types.update_cluster_request
-    import aws_sdk_ecs.types.update_cluster_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +33,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_ecs.errors.access_denied_exception
-
             raise aws_sdk_ecs.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "ClientException":
-            import aws_sdk_ecs.errors.client_exception
-
             raise aws_sdk_ecs.errors.client_exception.ClientException.from_aws_json_1_1(
                 data
             )
         case "ClusterNotFoundException":
-            import aws_sdk_ecs.errors.cluster_not_found_exception
-
             raise aws_sdk_ecs.errors.cluster_not_found_exception.ClusterNotFoundException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_ecs.errors.invalid_parameter_exception
-
             raise aws_sdk_ecs.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "NamespaceNotFoundException":
-            import aws_sdk_ecs.errors.namespace_not_found_exception
-
             raise aws_sdk_ecs.errors.namespace_not_found_exception.NamespaceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ServerException":
-            import aws_sdk_ecs.errors.server_exception
-
             raise aws_sdk_ecs.errors.server_exception.ServerException.from_aws_json_1_1(
                 data
             )
@@ -65,13 +61,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse:
-    import aws_sdk_ecs.types.update_cluster_response
-
     out: aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse = (
         aws_sdk_ecs.types.update_cluster_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse:
+    out: aws_sdk_ecs.types.update_cluster_response.UpdateClusterResponse = (
+        aws_sdk_ecs.types.update_cluster_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -137,8 +142,7 @@ def update_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -155,8 +159,7 @@ async def async_update_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

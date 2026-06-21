@@ -3,21 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_outposts._auth._signers
 import aws_sdk_outposts._auth._sigv4
+import aws_sdk_outposts.errors.access_denied_exception
+import aws_sdk_outposts.errors.internal_server_exception
+import aws_sdk_outposts.errors.not_found_exception
+import aws_sdk_outposts.errors.validation_exception
+import aws_sdk_outposts.types.catalog_item_class_list
+import aws_sdk_outposts.types.catalog_item_list_definition
+import aws_sdk_outposts.types.ec2_family_list
+import aws_sdk_outposts.types.list_catalog_items_input
+import aws_sdk_outposts.types.list_catalog_items_output
+import aws_sdk_outposts.types.supported_storage_list
 from aws_sdk_outposts._protocol.errors import parse_error_metadata_json
 from aws_sdk_outposts._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_outposts._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_outposts.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_outposts.types.list_catalog_items_input
-    import aws_sdk_outposts.types.list_catalog_items_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +31,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_outposts.errors.access_denied_exception
-
             raise aws_sdk_outposts.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_outposts.errors.internal_server_exception
-
             raise aws_sdk_outposts.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_outposts.errors.not_found_exception
-
             raise aws_sdk_outposts.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_outposts.errors.validation_exception
-
             raise aws_sdk_outposts.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -53,13 +51,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_outposts.types.list_catalog_items_output.ListCatalogItemsOutput:
-    import aws_sdk_outposts.types.list_catalog_items_output
-
     out: aws_sdk_outposts.types.list_catalog_items_output.ListCatalogItemsOutput = (
         aws_sdk_outposts.types.list_catalog_items_output.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_outposts.types.list_catalog_items_output.ListCatalogItemsOutput:
+    out: aws_sdk_outposts.types.list_catalog_items_output.ListCatalogItemsOutput = (
+        aws_sdk_outposts.types.list_catalog_items_output.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -132,8 +139,7 @@ def list_catalog_items(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -151,8 +157,7 @@ async def async_list_catalog_items(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

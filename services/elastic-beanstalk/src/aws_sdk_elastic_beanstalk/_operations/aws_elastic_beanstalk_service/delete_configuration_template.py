@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,8 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_beanstalk._auth._signers
 import aws_sdk_elastic_beanstalk._auth._sigv4
+import aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception
+import aws_sdk_elastic_beanstalk.types.delete_configuration_template_message
 from aws_sdk_elastic_beanstalk._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_beanstalk._protocol.xml import (
     fromstring,
@@ -24,17 +26,12 @@ from aws_sdk_elastic_beanstalk._services._pipeline import (
 )
 from aws_sdk_elastic_beanstalk.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_beanstalk.types.delete_configuration_template_message
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "OperationInProgressException":
-            import aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception
-
             raise aws_sdk_elastic_beanstalk.errors.operation_in_progress_exception.OperationInProgressException.from_query(
                 root
             )
@@ -105,7 +102,6 @@ def delete_configuration_template(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -121,7 +117,6 @@ async def async_delete_configuration_template(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

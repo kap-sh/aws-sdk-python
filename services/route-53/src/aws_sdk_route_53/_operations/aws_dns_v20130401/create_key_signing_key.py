@@ -2,22 +2,32 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4
+import aws_sdk_route_53.errors.concurrent_modification
+import aws_sdk_route_53.errors.invalid_argument
+import aws_sdk_route_53.errors.invalid_input
+import aws_sdk_route_53.errors.invalid_key_signing_key_name
+import aws_sdk_route_53.errors.invalid_key_signing_key_status
+import aws_sdk_route_53.errors.invalid_kms_arn
+import aws_sdk_route_53.errors.invalid_signing_status
+import aws_sdk_route_53.errors.key_signing_key_already_exists
+import aws_sdk_route_53.errors.no_such_hosted_zone
+import aws_sdk_route_53.errors.too_many_key_signing_keys
+import aws_sdk_route_53.types.change_info
+import aws_sdk_route_53.types.create_key_signing_key_request
+import aws_sdk_route_53.types.create_key_signing_key_response
+import aws_sdk_route_53.types.key_signing_key
 from aws_sdk_route_53._protocol.errors import parse_error_metadata
 from aws_sdk_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from aws_sdk_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_route_53.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_route_53.types.create_key_signing_key_request
-    import aws_sdk_route_53.types.create_key_signing_key_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,58 +35,38 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ConcurrentModification":
-            import aws_sdk_route_53.errors.concurrent_modification
-
             raise aws_sdk_route_53.errors.concurrent_modification.ConcurrentModification.from_xml(
                 root
             )
         case "InvalidArgument":
-            import aws_sdk_route_53.errors.invalid_argument
-
             raise aws_sdk_route_53.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "InvalidInput":
-            import aws_sdk_route_53.errors.invalid_input
-
             raise aws_sdk_route_53.errors.invalid_input.InvalidInput.from_xml(root)
         case "InvalidKeySigningKeyName":
-            import aws_sdk_route_53.errors.invalid_key_signing_key_name
-
             raise aws_sdk_route_53.errors.invalid_key_signing_key_name.InvalidKeySigningKeyName.from_xml(
                 root
             )
         case "InvalidKeySigningKeyStatus":
-            import aws_sdk_route_53.errors.invalid_key_signing_key_status
-
             raise aws_sdk_route_53.errors.invalid_key_signing_key_status.InvalidKeySigningKeyStatus.from_xml(
                 root
             )
         case "InvalidKMSArn":
-            import aws_sdk_route_53.errors.invalid_kms_arn
-
             raise aws_sdk_route_53.errors.invalid_kms_arn.InvalidKMSArn.from_xml(root)
         case "InvalidSigningStatus":
-            import aws_sdk_route_53.errors.invalid_signing_status
-
             raise aws_sdk_route_53.errors.invalid_signing_status.InvalidSigningStatus.from_xml(
                 root
             )
         case "KeySigningKeyAlreadyExists":
-            import aws_sdk_route_53.errors.key_signing_key_already_exists
-
             raise aws_sdk_route_53.errors.key_signing_key_already_exists.KeySigningKeyAlreadyExists.from_xml(
                 root
             )
         case "NoSuchHostedZone":
-            import aws_sdk_route_53.errors.no_such_hosted_zone
-
             raise aws_sdk_route_53.errors.no_such_hosted_zone.NoSuchHostedZone.from_xml(
                 root
             )
         case "TooManyKeySigningKeys":
-            import aws_sdk_route_53.errors.too_many_key_signing_keys
-
             raise aws_sdk_route_53.errors.too_many_key_signing_keys.TooManyKeySigningKeys.from_xml(
                 root
             )
@@ -85,12 +75,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse:
-    import aws_sdk_route_53.types.create_key_signing_key_response
-
     out: aws_sdk_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse = aws_sdk_route_53.types.create_key_signing_key_response.deserialize_xml(
         fromstring(response.read())
+    )
+    out["location"] = str(response.headers["Location"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse:
+    out: aws_sdk_route_53.types.create_key_signing_key_response.CreateKeySigningKeyResponse = aws_sdk_route_53.types.create_key_signing_key_response.deserialize_xml(
+        fromstring(await response.aread())
     )
     out["location"] = str(response.headers["Location"])
     return out
@@ -167,8 +165,7 @@ def create_key_signing_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -186,8 +183,7 @@ async def async_create_key_signing_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

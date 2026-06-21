@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
+from aws_sdk_cloudwatch_logs._iter import AnyIterator
+from aws_sdk_cloudwatch_logs._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
@@ -17,52 +18,63 @@ class _GetLogObjectResponseStream_InternalStreamingException(TypedDict):
     InternalStreamingException: "aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.InternalStreamingException_"
 
 
-GetLogObjectResponseStream: TypeAlias = (
+_GetLogObjectResponseStream: TypeAlias = (
     _GetLogObjectResponseStream_fields
     | _GetLogObjectResponseStream_InternalStreamingException
 )
+GetLogObjectResponseStream: TypeAlias = AnyIterator[_GetLogObjectResponseStream]
 
 
-# --- awsJson1_1 ser/de ---
-def serialize_aws_json_1_1(value: GetLogObjectResponseStream) -> dict:
-    if "fields" in value:
-        import aws_sdk_cloudwatch_logs.types.fields_data
+def serialize_event_aws_json_1_1(value: _GetLogObjectResponseStream) -> bytes:
+    match value:
+        case {"fields": payload}:
+            import aws_sdk_cloudwatch_logs.types.fields_data
 
-        return {
-            "fields": aws_sdk_cloudwatch_logs.types.fields_data.serialize_aws_json_1_1(
-                value["fields"]
+            return (
+                aws_sdk_cloudwatch_logs.types.fields_data.serialize_event_aws_json_1_1(
+                    payload
+                )
             )
-        }
-    elif "InternalStreamingException" in value:
-        import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
+        case {"InternalStreamingException": payload}:
+            import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
 
-        return {
-            "InternalStreamingException": aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.serialize_aws_json_1_1(
-                value["InternalStreamingException"]
+            return aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    else:
-        raise SerializationError("GetLogObjectResponseStream: no variant present")
-
-
-def deserialize_aws_json_1_1(data: dict) -> GetLogObjectResponseStream:
-    if "fields" in data:
-        import aws_sdk_cloudwatch_logs.types.fields_data
-
-        return {
-            "fields": aws_sdk_cloudwatch_logs.types.fields_data.deserialize_aws_json_1_1(
-                data["fields"]
+        case _:
+            raise ValueError(
+                f"GetLogObjectResponseStream: unrecognized variant {value!r}"
             )
-        }
-    elif "InternalStreamingException" in data:
-        import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
 
-        return {
-            "InternalStreamingException": aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.deserialize_aws_json_1_1(
-                data["InternalStreamingException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "GetLogObjectResponseStream: no recognized variant key"
+
+def deserialize_event_aws_json_1_1(message: Message) -> _GetLogObjectResponseStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "InternalStreamingException":
+                import aws_sdk_cloudwatch_logs.errors.internal_streaming_exception
+
+                raise aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.InternalStreamingException(
+                    aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"GetLogObjectResponseStream: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "fields":
+            import aws_sdk_cloudwatch_logs.types.fields_data
+
+            return {
+                "fields": aws_sdk_cloudwatch_logs.types.fields_data.deserialize_event_aws_json_1_1(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"GetLogObjectResponseStream: unrecognized event-type {event_type!r}"
+            )

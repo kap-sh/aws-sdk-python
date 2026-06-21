@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_s3._protocol.eventstream import HeaderValue, Message
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 if TYPE_CHECKING:
@@ -17,18 +18,25 @@ class RecordsEvent(TypedDict):
 
 # --- restXml ser/de ---
 def serialize_xml(value: RecordsEvent, parent: Element, tag: str) -> None:
-    el = SubElement(parent, tag)
-    if "payload" in value:
-        import aws_sdk_s3.types.body
-
-        aws_sdk_s3.types.body.serialize_xml(value["payload"], el, "Payload")
+    SubElement(parent, tag)
 
 
 def deserialize_xml(el: Element) -> RecordsEvent:
     out: RecordsEvent = {}  # type: ignore[typeddict-item]
-    child_payload = el.find("Payload")
-    if child_payload is not None:
-        import aws_sdk_s3.types.body
+    return out
 
-        out["payload"] = aws_sdk_s3.types.body.deserialize_xml(child_payload)
+
+def serialize_event_xml(value: RecordsEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "Records"}
+    payload = b""
+    payload = value["payload"]
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_xml(message: Message) -> RecordsEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: RecordsEvent = {}  # type: ignore[typeddict-item]
+    if payload:
+        out["payload"] = payload
     return out

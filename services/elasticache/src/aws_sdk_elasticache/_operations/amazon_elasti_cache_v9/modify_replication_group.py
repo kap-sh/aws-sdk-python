@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,34 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.cache_cluster_not_found_fault
+import aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault
+import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
+import aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault
+import aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault
+import aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault
+import aws_sdk_elasticache.errors.invalid_kms_key_fault
+import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
+import aws_sdk_elasticache.errors.invalid_parameter_value_exception
+import aws_sdk_elasticache.errors.invalid_replication_group_state_fault
+import aws_sdk_elasticache.errors.invalid_user_group_state_fault
+import aws_sdk_elasticache.errors.invalid_vpc_network_state_fault
+import aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault
+import aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault
+import aws_sdk_elasticache.errors.replication_group_not_found_fault
+import aws_sdk_elasticache.errors.user_group_not_found_fault
+import aws_sdk_elasticache.types.auth_token_update_strategy_type
+import aws_sdk_elasticache.types.cache_security_group_name_list
+import aws_sdk_elasticache.types.cluster_mode
+import aws_sdk_elasticache.types.durability
+import aws_sdk_elasticache.types.ip_discovery
+import aws_sdk_elasticache.types.log_delivery_configuration_request_list
+import aws_sdk_elasticache.types.modify_replication_group_message
+import aws_sdk_elasticache.types.modify_replication_group_result
+import aws_sdk_elasticache.types.replication_group
+import aws_sdk_elasticache.types.security_group_ids_list
+import aws_sdk_elasticache.types.transit_encryption_mode
+import aws_sdk_elasticache.types.user_group_id_list
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,108 +47,72 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.modify_replication_group_message
-    import aws_sdk_elasticache.types.modify_replication_group_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "CacheClusterNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_cluster_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault.from_query(
                 root
             )
         case "CacheParameterGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault.from_query(
                 root
             )
         case "CacheSecurityGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "InsufficientCacheClusterCapacityFault":
-            import aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault
-
             raise aws_sdk_elasticache.errors.insufficient_cache_cluster_capacity_fault.InsufficientCacheClusterCapacityFault.from_query(
                 root
             )
         case "InvalidCacheClusterStateFault":
-            import aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_cache_cluster_state_fault.InvalidCacheClusterStateFault.from_query(
                 root
             )
         case "InvalidCacheSecurityGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_cache_security_group_state_fault.InvalidCacheSecurityGroupStateFault.from_query(
                 root
             )
         case "InvalidKMSKeyFault":
-            import aws_sdk_elasticache.errors.invalid_kms_key_fault
-
             raise aws_sdk_elasticache.errors.invalid_kms_key_fault.InvalidKMSKeyFault.from_query(
                 root
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_elasticache.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_elasticache.errors.invalid_parameter_value_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
         case "InvalidReplicationGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_replication_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault.from_query(
                 root
             )
         case "InvalidUserGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_user_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_user_group_state_fault.InvalidUserGroupStateFault.from_query(
                 root
             )
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_elasticache.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "NodeQuotaForClusterExceededFault":
-            import aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault
-
             raise aws_sdk_elasticache.errors.node_quota_for_cluster_exceeded_fault.NodeQuotaForClusterExceededFault.from_query(
                 root
             )
         case "NodeQuotaForCustomerExceededFault":
-            import aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault
-
             raise aws_sdk_elasticache.errors.node_quota_for_customer_exceeded_fault.NodeQuotaForCustomerExceededFault.from_query(
                 root
             )
         case "ReplicationGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.replication_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault.from_query(
                 root
             )
         case "UserGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.user_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault.from_query(
                 root
             )
@@ -129,11 +121,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elasticache.types.modify_replication_group_result.ModifyReplicationGroupResult:
-    import aws_sdk_elasticache.types.modify_replication_group_result
-
     root = fromstring(response.read())
+    result = root.find("ModifyReplicationGroupResult")
+    out: aws_sdk_elasticache.types.modify_replication_group_result.ModifyReplicationGroupResult = aws_sdk_elasticache.types.modify_replication_group_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elasticache.types.modify_replication_group_result.ModifyReplicationGroupResult:
+    root = fromstring(await response.aread())
     result = root.find("ModifyReplicationGroupResult")
     out: aws_sdk_elasticache.types.modify_replication_group_result.ModifyReplicationGroupResult = aws_sdk_elasticache.types.modify_replication_group_result.deserialize_query(
         result if result is not None else root
@@ -207,8 +208,7 @@ def modify_replication_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -226,8 +226,7 @@ async def async_modify_replication_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

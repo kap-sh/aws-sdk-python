@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,25 @@ from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.errors.object_not_in_active_tier_error
+import aws_sdk_s3.types.checksum_algorithm
+import aws_sdk_s3.types.copy_object_output
+import aws_sdk_s3.types.copy_object_request
+import aws_sdk_s3.types.copy_object_result
+import aws_sdk_s3.types.copy_source_if_modified_since
+import aws_sdk_s3.types.copy_source_if_unmodified_since
+import aws_sdk_s3.types.metadata
+import aws_sdk_s3.types.metadata_directive
+import aws_sdk_s3.types.object_canned_acl
+import aws_sdk_s3.types.object_lock_legal_hold_status
+import aws_sdk_s3.types.object_lock_mode
+import aws_sdk_s3.types.object_lock_retain_until_date
+import aws_sdk_s3.types.request_charged
+import aws_sdk_s3.types.request_payer
+import aws_sdk_s3.types.server_side_encryption
+import aws_sdk_s3.types.storage_class
+import aws_sdk_s3.types.tagging_directive
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -17,18 +36,12 @@ from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.copy_object_output
-    import aws_sdk_s3.types.copy_object_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "ObjectNotInActiveTierError":
-            import aws_sdk_s3.errors.object_not_in_active_tier_error
-
             raise aws_sdk_s3.errors.object_not_in_active_tier_error.ObjectNotInActiveTierError.from_xml(
                 root
             )
@@ -37,10 +50,8 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.copy_object_output.CopyObjectOutput:
-    import aws_sdk_s3.types.copy_object_result
-
     out: aws_sdk_s3.types.copy_object_output.CopyObjectOutput = {
         "copy_object_result": aws_sdk_s3.types.copy_object_result.deserialize_xml(
             fromstring(response.read())
@@ -55,8 +66,6 @@ def handle_response(
     if "x-amz-version-id" in response.headers:
         out["version_id"] = str(response.headers["x-amz-version-id"])
     if "x-amz-server-side-encryption" in response.headers:
-        import aws_sdk_s3.types.server_side_encryption
-
         out["server_side_encryption"] = (
             aws_sdk_s3.types.server_side_encryption.from_xml_text(
                 response.headers["x-amz-server-side-encryption"]
@@ -84,8 +93,56 @@ def handle_response(
             == "true"
         )
     if "x-amz-request-charged" in response.headers:
-        import aws_sdk_s3.types.request_charged
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.copy_object_output.CopyObjectOutput:
+    out: aws_sdk_s3.types.copy_object_output.CopyObjectOutput = {
+        "copy_object_result": aws_sdk_s3.types.copy_object_result.deserialize_xml(
+            fromstring(await response.aread())
+        )
+    }  # type: ignore[typeddict-item]
+    if "x-amz-expiration" in response.headers:
+        out["expiration"] = str(response.headers["x-amz-expiration"])
+    if "x-amz-copy-source-version-id" in response.headers:
+        out["copy_source_version_id"] = str(
+            response.headers["x-amz-copy-source-version-id"]
+        )
+    if "x-amz-version-id" in response.headers:
+        out["version_id"] = str(response.headers["x-amz-version-id"])
+    if "x-amz-server-side-encryption" in response.headers:
+        out["server_side_encryption"] = (
+            aws_sdk_s3.types.server_side_encryption.from_xml_text(
+                response.headers["x-amz-server-side-encryption"]
+            )
+        )
+    if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
+        out["sse_customer_algorithm"] = str(
+            response.headers["x-amz-server-side-encryption-customer-algorithm"]
+        )
+    if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
+        out["sse_customer_key_md5"] = str(
+            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
+        )
+    if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
+        out["ssekms_key_id"] = str(
+            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
+        )
+    if "x-amz-server-side-encryption-context" in response.headers:
+        out["ssekms_encryption_context"] = str(
+            response.headers["x-amz-server-side-encryption-context"]
+        )
+    if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
+        out["bucket_key_enabled"] = (
+            response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
+            == "true"
+        )
+    if "x-amz-request-charged" in response.headers:
         out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
         )
@@ -271,8 +328,7 @@ def copy_object(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -287,8 +343,7 @@ async def async_copy_object(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

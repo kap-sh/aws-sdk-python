@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,26 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.cache_cluster_not_found_fault
+import aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault
+import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
+import aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault
+import aws_sdk_elasticache.errors.invalid_arn_fault
+import aws_sdk_elasticache.errors.invalid_replication_group_state_fault
+import aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault
+import aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault
+import aws_sdk_elasticache.errors.replication_group_not_found_fault
+import aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault
+import aws_sdk_elasticache.errors.serverless_cache_not_found_fault
+import aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault
+import aws_sdk_elasticache.errors.snapshot_not_found_fault
+import aws_sdk_elasticache.errors.tag_not_found_fault
+import aws_sdk_elasticache.errors.user_group_not_found_fault
+import aws_sdk_elasticache.errors.user_not_found_fault
+import aws_sdk_elasticache.types.key_list
+import aws_sdk_elasticache.types.remove_tags_from_resource_message
+import aws_sdk_elasticache.types.tag_list
+import aws_sdk_elasticache.types.tag_list_message
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,108 +39,72 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.remove_tags_from_resource_message
-    import aws_sdk_elasticache.types.tag_list_message
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "CacheClusterNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_cluster_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_cluster_not_found_fault.CacheClusterNotFoundFault.from_query(
                 root
             )
         case "CacheParameterGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_parameter_group_not_found_fault.CacheParameterGroupNotFoundFault.from_query(
                 root
             )
         case "CacheSecurityGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_security_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_security_group_not_found_fault.CacheSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "CacheSubnetGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.cache_subnet_group_not_found_fault.CacheSubnetGroupNotFoundFault.from_query(
                 root
             )
         case "InvalidARNFault":
-            import aws_sdk_elasticache.errors.invalid_arn_fault
-
             raise aws_sdk_elasticache.errors.invalid_arn_fault.InvalidARNFault.from_query(
                 root
             )
         case "InvalidReplicationGroupStateFault":
-            import aws_sdk_elasticache.errors.invalid_replication_group_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_replication_group_state_fault.InvalidReplicationGroupStateFault.from_query(
                 root
             )
         case "InvalidServerlessCacheSnapshotStateFault":
-            import aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_serverless_cache_snapshot_state_fault.InvalidServerlessCacheSnapshotStateFault.from_query(
                 root
             )
         case "InvalidServerlessCacheStateFault":
-            import aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault
-
             raise aws_sdk_elasticache.errors.invalid_serverless_cache_state_fault.InvalidServerlessCacheStateFault.from_query(
                 root
             )
         case "ReplicationGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.replication_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.replication_group_not_found_fault.ReplicationGroupNotFoundFault.from_query(
                 root
             )
         case "ReservedCacheNodeNotFoundFault":
-            import aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault
-
             raise aws_sdk_elasticache.errors.reserved_cache_node_not_found_fault.ReservedCacheNodeNotFoundFault.from_query(
                 root
             )
         case "ServerlessCacheNotFoundFault":
-            import aws_sdk_elasticache.errors.serverless_cache_not_found_fault
-
             raise aws_sdk_elasticache.errors.serverless_cache_not_found_fault.ServerlessCacheNotFoundFault.from_query(
                 root
             )
         case "ServerlessCacheSnapshotNotFoundFault":
-            import aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault
-
             raise aws_sdk_elasticache.errors.serverless_cache_snapshot_not_found_fault.ServerlessCacheSnapshotNotFoundFault.from_query(
                 root
             )
         case "SnapshotNotFoundFault":
-            import aws_sdk_elasticache.errors.snapshot_not_found_fault
-
             raise aws_sdk_elasticache.errors.snapshot_not_found_fault.SnapshotNotFoundFault.from_query(
                 root
             )
         case "TagNotFoundFault":
-            import aws_sdk_elasticache.errors.tag_not_found_fault
-
             raise aws_sdk_elasticache.errors.tag_not_found_fault.TagNotFoundFault.from_query(
                 root
             )
         case "UserGroupNotFoundFault":
-            import aws_sdk_elasticache.errors.user_group_not_found_fault
-
             raise aws_sdk_elasticache.errors.user_group_not_found_fault.UserGroupNotFoundFault.from_query(
                 root
             )
         case "UserNotFoundFault":
-            import aws_sdk_elasticache.errors.user_not_found_fault
-
             raise aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault.from_query(
                 root
             )
@@ -129,11 +113,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elasticache.types.tag_list_message.TagListMessage:
-    import aws_sdk_elasticache.types.tag_list_message
-
     root = fromstring(response.read())
+    result = root.find("RemoveTagsFromResourceResult")
+    out: aws_sdk_elasticache.types.tag_list_message.TagListMessage = (
+        aws_sdk_elasticache.types.tag_list_message.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elasticache.types.tag_list_message.TagListMessage:
+    root = fromstring(await response.aread())
     result = root.find("RemoveTagsFromResourceResult")
     out: aws_sdk_elasticache.types.tag_list_message.TagListMessage = (
         aws_sdk_elasticache.types.tag_list_message.deserialize_query(
@@ -206,8 +201,7 @@ def remove_tags_from_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -222,8 +216,7 @@ async def async_remove_tags_from_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

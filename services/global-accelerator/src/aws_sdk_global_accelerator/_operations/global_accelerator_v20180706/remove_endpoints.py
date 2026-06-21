@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_global_accelerator._auth._signers
 import aws_sdk_global_accelerator._auth._sigv4
+import aws_sdk_global_accelerator.errors.access_denied_exception
+import aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception
+import aws_sdk_global_accelerator.errors.internal_service_error_exception
+import aws_sdk_global_accelerator.errors.invalid_argument_exception
+import aws_sdk_global_accelerator.errors.transaction_in_progress_exception
+import aws_sdk_global_accelerator.types.endpoint_identifiers
+import aws_sdk_global_accelerator.types.remove_endpoints_request
 from aws_sdk_global_accelerator._protocol.errors import parse_error_metadata_json
 from aws_sdk_global_accelerator._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,41 +28,28 @@ from aws_sdk_global_accelerator._services._pipeline import (
 )
 from aws_sdk_global_accelerator.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_global_accelerator.types.remove_endpoints_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_global_accelerator.errors.access_denied_exception
-
             raise aws_sdk_global_accelerator.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EndpointGroupNotFoundException":
-            import aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception
-
             raise aws_sdk_global_accelerator.errors.endpoint_group_not_found_exception.EndpointGroupNotFoundException.from_aws_json_1_1(
                 data
             )
         case "InternalServiceErrorException":
-            import aws_sdk_global_accelerator.errors.internal_service_error_exception
-
             raise aws_sdk_global_accelerator.errors.internal_service_error_exception.InternalServiceErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_global_accelerator.errors.invalid_argument_exception
-
             raise aws_sdk_global_accelerator.errors.invalid_argument_exception.InvalidArgumentException.from_aws_json_1_1(
                 data
             )
         case "TransactionInProgressException":
-            import aws_sdk_global_accelerator.errors.transaction_in_progress_exception
-
             raise aws_sdk_global_accelerator.errors.transaction_in_progress_exception.TransactionInProgressException.from_aws_json_1_1(
                 data
             )
@@ -125,7 +119,6 @@ def remove_endpoints(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -141,7 +134,6 @@ async def async_remove_endpoints(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

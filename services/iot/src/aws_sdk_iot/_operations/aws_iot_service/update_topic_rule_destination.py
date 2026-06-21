@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_iot._auth._signers
 import aws_sdk_iot._auth._sigv4
+import aws_sdk_iot.errors.conflicting_resource_update_exception
+import aws_sdk_iot.errors.internal_exception
+import aws_sdk_iot.errors.invalid_request_exception
+import aws_sdk_iot.errors.service_unavailable_exception
+import aws_sdk_iot.errors.unauthorized_exception
+import aws_sdk_iot.types.topic_rule_destination_status
+import aws_sdk_iot.types.update_topic_rule_destination_request
+import aws_sdk_iot.types.update_topic_rule_destination_response
 from aws_sdk_iot._protocol.errors import parse_error_metadata_json
 from aws_sdk_iot._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iot._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iot.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iot.types.update_topic_rule_destination_request
-    import aws_sdk_iot.types.update_topic_rule_destination_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +29,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConflictingResourceUpdateException":
-            import aws_sdk_iot.errors.conflicting_resource_update_exception
-
             raise aws_sdk_iot.errors.conflicting_resource_update_exception.ConflictingResourceUpdateException.from_json(
                 data
             )
         case "InternalException":
-            import aws_sdk_iot.errors.internal_exception
-
             raise aws_sdk_iot.errors.internal_exception.InternalException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_iot.errors.invalid_request_exception
-
             raise aws_sdk_iot.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_iot.errors.service_unavailable_exception
-
             raise aws_sdk_iot.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_iot.errors.unauthorized_exception
-
             raise aws_sdk_iot.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -59,7 +53,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_iot.types.update_topic_rule_destination_response.UpdateTopicRuleDestinationResponse:
+    out: aws_sdk_iot.types.update_topic_rule_destination_response.UpdateTopicRuleDestinationResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_iot.types.update_topic_rule_destination_response.UpdateTopicRuleDestinationResponse:
     out: aws_sdk_iot.types.update_topic_rule_destination_response.UpdateTopicRuleDestinationResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -125,8 +126,7 @@ def update_topic_rule_destination(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +144,7 @@ async def async_update_topic_rule_destination(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

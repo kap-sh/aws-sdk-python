@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_bedrock_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -28,4 +29,17 @@ def deserialize_json(data: dict) -> ContentBlockStopEvent:
         out["content_block_index"] = data["contentBlockIndex"]
     else:
         raise DeserializationError("ContentBlockStopEvent.content_block_index required")
+    return out
+
+
+def serialize_event_json(value: ContentBlockStopEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "contentBlockStop"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ContentBlockStopEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ContentBlockStopEvent = {}  # type: ignore[typeddict-item]
     return out

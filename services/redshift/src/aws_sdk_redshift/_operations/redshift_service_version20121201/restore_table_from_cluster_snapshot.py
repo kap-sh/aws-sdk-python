@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,21 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.cluster_not_found_fault
+import aws_sdk_redshift.errors.cluster_snapshot_not_found_fault
+import aws_sdk_redshift.errors.in_progress_table_restore_quota_exceeded_fault
+import aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault
+import aws_sdk_redshift.errors.invalid_cluster_state_fault
+import aws_sdk_redshift.errors.invalid_table_restore_argument_fault
+import aws_sdk_redshift.errors.unsupported_operation_fault
+import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message
+import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result
+import aws_sdk_redshift.types.table_restore_status
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message
-    import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,44 +32,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ClusterNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault.from_query(
                 root
             )
         case "ClusterSnapshotNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_snapshot_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_snapshot_not_found_fault.ClusterSnapshotNotFoundFault.from_query(
                 root
             )
         case "InProgressTableRestoreQuotaExceededFault":
-            import aws_sdk_redshift.errors.in_progress_table_restore_quota_exceeded_fault
-
             raise aws_sdk_redshift.errors.in_progress_table_restore_quota_exceeded_fault.InProgressTableRestoreQuotaExceededFault.from_query(
                 root
             )
         case "InvalidClusterSnapshotStateFault":
-            import aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_snapshot_state_fault.InvalidClusterSnapshotStateFault.from_query(
                 root
             )
         case "InvalidClusterStateFault":
-            import aws_sdk_redshift.errors.invalid_cluster_state_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault.from_query(
                 root
             )
         case "InvalidTableRestoreArgumentFault":
-            import aws_sdk_redshift.errors.invalid_table_restore_argument_fault
-
             raise aws_sdk_redshift.errors.invalid_table_restore_argument_fault.InvalidTableRestoreArgumentFault.from_query(
                 root
             )
         case "UnsupportedOperationFault":
-            import aws_sdk_redshift.errors.unsupported_operation_fault
-
             raise aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault.from_query(
                 root
             )
@@ -72,11 +64,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.RestoreTableFromClusterSnapshotResult:
-    import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result
-
     root = fromstring(response.read())
+    result = root.find("RestoreTableFromClusterSnapshotResult")
+    out: aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.RestoreTableFromClusterSnapshotResult = aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.RestoreTableFromClusterSnapshotResult:
+    root = fromstring(await response.aread())
     result = root.find("RestoreTableFromClusterSnapshotResult")
     out: aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.RestoreTableFromClusterSnapshotResult = aws_sdk_redshift.types.restore_table_from_cluster_snapshot_result.deserialize_query(
         result if result is not None else root
@@ -150,8 +151,7 @@ def restore_table_from_cluster_snapshot(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -169,8 +169,7 @@ async def async_restore_table_from_cluster_snapshot(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -56,3 +57,16 @@ class DependencyFailedException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "DependencyFailedException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: DependencyFailedException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "dependencyFailedException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> DependencyFailedException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: DependencyFailedException_ = {}  # type: ignore[typeddict-item]
+    return out

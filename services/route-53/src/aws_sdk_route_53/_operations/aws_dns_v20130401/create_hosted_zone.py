@@ -2,22 +2,34 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4
+import aws_sdk_route_53.errors.conflicting_domain_exists
+import aws_sdk_route_53.errors.delegation_set_not_available
+import aws_sdk_route_53.errors.delegation_set_not_reusable
+import aws_sdk_route_53.errors.hosted_zone_already_exists
+import aws_sdk_route_53.errors.invalid_domain_name
+import aws_sdk_route_53.errors.invalid_input
+import aws_sdk_route_53.errors.invalid_vpc_id
+import aws_sdk_route_53.errors.no_such_delegation_set
+import aws_sdk_route_53.errors.too_many_hosted_zones
+import aws_sdk_route_53.types.change_info
+import aws_sdk_route_53.types.create_hosted_zone_request
+import aws_sdk_route_53.types.create_hosted_zone_response
+import aws_sdk_route_53.types.delegation_set
+import aws_sdk_route_53.types.hosted_zone
+import aws_sdk_route_53.types.hosted_zone_config
+import aws_sdk_route_53.types.vpc
 from aws_sdk_route_53._protocol.errors import parse_error_metadata
 from aws_sdk_route_53._protocol.xml import Element, SubElement, fromstring, tostring
 from aws_sdk_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_route_53.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_route_53.types.create_hosted_zone_request
-    import aws_sdk_route_53.types.create_hosted_zone_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,52 +37,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ConflictingDomainExists":
-            import aws_sdk_route_53.errors.conflicting_domain_exists
-
             raise aws_sdk_route_53.errors.conflicting_domain_exists.ConflictingDomainExists.from_xml(
                 root
             )
         case "DelegationSetNotAvailable":
-            import aws_sdk_route_53.errors.delegation_set_not_available
-
             raise aws_sdk_route_53.errors.delegation_set_not_available.DelegationSetNotAvailable.from_xml(
                 root
             )
         case "DelegationSetNotReusable":
-            import aws_sdk_route_53.errors.delegation_set_not_reusable
-
             raise aws_sdk_route_53.errors.delegation_set_not_reusable.DelegationSetNotReusable.from_xml(
                 root
             )
         case "HostedZoneAlreadyExists":
-            import aws_sdk_route_53.errors.hosted_zone_already_exists
-
             raise aws_sdk_route_53.errors.hosted_zone_already_exists.HostedZoneAlreadyExists.from_xml(
                 root
             )
         case "InvalidDomainName":
-            import aws_sdk_route_53.errors.invalid_domain_name
-
             raise aws_sdk_route_53.errors.invalid_domain_name.InvalidDomainName.from_xml(
                 root
             )
         case "InvalidInput":
-            import aws_sdk_route_53.errors.invalid_input
-
             raise aws_sdk_route_53.errors.invalid_input.InvalidInput.from_xml(root)
         case "InvalidVPCId":
-            import aws_sdk_route_53.errors.invalid_vpc_id
-
             raise aws_sdk_route_53.errors.invalid_vpc_id.InvalidVPCId.from_xml(root)
         case "NoSuchDelegationSet":
-            import aws_sdk_route_53.errors.no_such_delegation_set
-
             raise aws_sdk_route_53.errors.no_such_delegation_set.NoSuchDelegationSet.from_xml(
                 root
             )
         case "TooManyHostedZones":
-            import aws_sdk_route_53.errors.too_many_hosted_zones
-
             raise aws_sdk_route_53.errors.too_many_hosted_zones.TooManyHostedZones.from_xml(
                 root
             )
@@ -79,13 +73,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route_53.types.create_hosted_zone_response.CreateHostedZoneResponse:
-    import aws_sdk_route_53.types.create_hosted_zone_response
-
     out: aws_sdk_route_53.types.create_hosted_zone_response.CreateHostedZoneResponse = (
         aws_sdk_route_53.types.create_hosted_zone_response.deserialize_xml(
             fromstring(response.read())
+        )
+    )
+    out["location"] = str(response.headers["Location"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route_53.types.create_hosted_zone_response.CreateHostedZoneResponse:
+    out: aws_sdk_route_53.types.create_hosted_zone_response.CreateHostedZoneResponse = (
+        aws_sdk_route_53.types.create_hosted_zone_response.deserialize_xml(
+            fromstring(await response.aread())
         )
     )
     out["location"] = str(response.headers["Location"])
@@ -167,8 +171,7 @@ def create_hosted_zone(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -186,8 +189,7 @@ async def async_create_hosted_zone(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -4,6 +4,8 @@ from typing import TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
+
 
 class SendMessageContentBlockStopEvent(TypedDict):
     index: NotRequired["int"]
@@ -46,4 +48,17 @@ def deserialize_json(data: dict) -> SendMessageContentBlockStopEvent:
         out["last"] = data["last"]
     if "sequenceNumber" in data:
         out["sequence_number"] = data["sequenceNumber"]
+    return out
+
+
+def serialize_event_json(value: SendMessageContentBlockStopEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "contentBlockStop"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> SendMessageContentBlockStopEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: SendMessageContentBlockStopEvent = {}  # type: ignore[typeddict-item]
     return out

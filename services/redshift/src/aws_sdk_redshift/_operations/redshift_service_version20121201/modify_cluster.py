@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,38 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.cluster_already_exists_fault
+import aws_sdk_redshift.errors.cluster_not_found_fault
+import aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault
+import aws_sdk_redshift.errors.cluster_security_group_not_found_fault
+import aws_sdk_redshift.errors.custom_cname_association_fault
+import aws_sdk_redshift.errors.dependent_service_request_throttling_fault
+import aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault
+import aws_sdk_redshift.errors.hsm_configuration_not_found_fault
+import aws_sdk_redshift.errors.insufficient_cluster_capacity_fault
+import aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault
+import aws_sdk_redshift.errors.invalid_cluster_state_fault
+import aws_sdk_redshift.errors.invalid_cluster_track_fault
+import aws_sdk_redshift.errors.invalid_elastic_ip_fault
+import aws_sdk_redshift.errors.invalid_retention_period_fault
+import aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault
+import aws_sdk_redshift.errors.limit_exceeded_fault
+import aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault
+import aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault
+import aws_sdk_redshift.errors.table_limit_exceeded_fault
+import aws_sdk_redshift.errors.unauthorized_operation
+import aws_sdk_redshift.errors.unsupported_operation_fault
+import aws_sdk_redshift.errors.unsupported_option_fault
+import aws_sdk_redshift.types.cluster
+import aws_sdk_redshift.types.cluster_security_group_name_list
+import aws_sdk_redshift.types.modify_cluster_message
+import aws_sdk_redshift.types.modify_cluster_result
+import aws_sdk_redshift.types.vpc_security_group_id_list
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.modify_cluster_message
-    import aws_sdk_redshift.types.modify_cluster_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,134 +49,90 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ClusterAlreadyExistsFault":
-            import aws_sdk_redshift.errors.cluster_already_exists_fault
-
             raise aws_sdk_redshift.errors.cluster_already_exists_fault.ClusterAlreadyExistsFault.from_query(
                 root
             )
         case "ClusterNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault.from_query(
                 root
             )
         case "ClusterParameterGroupNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_parameter_group_not_found_fault.ClusterParameterGroupNotFoundFault.from_query(
                 root
             )
         case "ClusterSecurityGroupNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_security_group_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_security_group_not_found_fault.ClusterSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "CustomCnameAssociationFault":
-            import aws_sdk_redshift.errors.custom_cname_association_fault
-
             raise aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault.from_query(
                 root
             )
         case "DependentServiceRequestThrottlingFault":
-            import aws_sdk_redshift.errors.dependent_service_request_throttling_fault
-
             raise aws_sdk_redshift.errors.dependent_service_request_throttling_fault.DependentServiceRequestThrottlingFault.from_query(
                 root
             )
         case "HsmClientCertificateNotFoundFault":
-            import aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault
-
             raise aws_sdk_redshift.errors.hsm_client_certificate_not_found_fault.HsmClientCertificateNotFoundFault.from_query(
                 root
             )
         case "HsmConfigurationNotFoundFault":
-            import aws_sdk_redshift.errors.hsm_configuration_not_found_fault
-
             raise aws_sdk_redshift.errors.hsm_configuration_not_found_fault.HsmConfigurationNotFoundFault.from_query(
                 root
             )
         case "InsufficientClusterCapacityFault":
-            import aws_sdk_redshift.errors.insufficient_cluster_capacity_fault
-
             raise aws_sdk_redshift.errors.insufficient_cluster_capacity_fault.InsufficientClusterCapacityFault.from_query(
                 root
             )
         case "InvalidClusterSecurityGroupStateFault":
-            import aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_security_group_state_fault.InvalidClusterSecurityGroupStateFault.from_query(
                 root
             )
         case "InvalidClusterStateFault":
-            import aws_sdk_redshift.errors.invalid_cluster_state_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_state_fault.InvalidClusterStateFault.from_query(
                 root
             )
         case "InvalidClusterTrackFault":
-            import aws_sdk_redshift.errors.invalid_cluster_track_fault
-
             raise aws_sdk_redshift.errors.invalid_cluster_track_fault.InvalidClusterTrackFault.from_query(
                 root
             )
         case "InvalidElasticIpFault":
-            import aws_sdk_redshift.errors.invalid_elastic_ip_fault
-
             raise aws_sdk_redshift.errors.invalid_elastic_ip_fault.InvalidElasticIpFault.from_query(
                 root
             )
         case "InvalidRetentionPeriodFault":
-            import aws_sdk_redshift.errors.invalid_retention_period_fault
-
             raise aws_sdk_redshift.errors.invalid_retention_period_fault.InvalidRetentionPeriodFault.from_query(
                 root
             )
         case "Ipv6CidrBlockNotFoundFault":
-            import aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault
-
             raise aws_sdk_redshift.errors.ipv6_cidr_block_not_found_fault.Ipv6CidrBlockNotFoundFault.from_query(
                 root
             )
         case "LimitExceededFault":
-            import aws_sdk_redshift.errors.limit_exceeded_fault
-
             raise aws_sdk_redshift.errors.limit_exceeded_fault.LimitExceededFault.from_query(
                 root
             )
         case "NumberOfNodesPerClusterLimitExceededFault":
-            import aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault
-
             raise aws_sdk_redshift.errors.number_of_nodes_per_cluster_limit_exceeded_fault.NumberOfNodesPerClusterLimitExceededFault.from_query(
                 root
             )
         case "NumberOfNodesQuotaExceededFault":
-            import aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault
-
             raise aws_sdk_redshift.errors.number_of_nodes_quota_exceeded_fault.NumberOfNodesQuotaExceededFault.from_query(
                 root
             )
         case "TableLimitExceededFault":
-            import aws_sdk_redshift.errors.table_limit_exceeded_fault
-
             raise aws_sdk_redshift.errors.table_limit_exceeded_fault.TableLimitExceededFault.from_query(
                 root
             )
         case "UnauthorizedOperation":
-            import aws_sdk_redshift.errors.unauthorized_operation
-
             raise aws_sdk_redshift.errors.unauthorized_operation.UnauthorizedOperation.from_query(
                 root
             )
         case "UnsupportedOperationFault":
-            import aws_sdk_redshift.errors.unsupported_operation_fault
-
             raise aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault.from_query(
                 root
             )
         case "UnsupportedOptionFault":
-            import aws_sdk_redshift.errors.unsupported_option_fault
-
             raise aws_sdk_redshift.errors.unsupported_option_fault.UnsupportedOptionFault.from_query(
                 root
             )
@@ -162,11 +141,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.modify_cluster_result.ModifyClusterResult:
-    import aws_sdk_redshift.types.modify_cluster_result
-
     root = fromstring(response.read())
+    result = root.find("ModifyClusterResult")
+    out: aws_sdk_redshift.types.modify_cluster_result.ModifyClusterResult = (
+        aws_sdk_redshift.types.modify_cluster_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.modify_cluster_result.ModifyClusterResult:
+    root = fromstring(await response.aread())
     result = root.find("ModifyClusterResult")
     out: aws_sdk_redshift.types.modify_cluster_result.ModifyClusterResult = (
         aws_sdk_redshift.types.modify_cluster_result.deserialize_query(
@@ -239,8 +229,7 @@ def modify_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -257,8 +246,7 @@ async def async_modify_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

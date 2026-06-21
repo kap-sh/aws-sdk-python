@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_lex_runtime_v2.errors import DeserializationError, ServiceError
 
 if TYPE_CHECKING:
@@ -45,3 +46,16 @@ class AccessDeniedException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "AccessDeniedException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: AccessDeniedException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "AccessDeniedException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> AccessDeniedException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: AccessDeniedException_ = {}  # type: ignore[typeddict-item]
+    return out

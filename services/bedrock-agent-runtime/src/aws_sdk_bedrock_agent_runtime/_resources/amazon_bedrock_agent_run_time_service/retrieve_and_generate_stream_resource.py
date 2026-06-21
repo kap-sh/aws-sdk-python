@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -34,6 +36,7 @@ class RetrieveAndGenerateStreamResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @contextmanager
     def retrieve_and_generate_stream(
         self,
         input: "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_input.RetrieveAndGenerateInput",
@@ -48,7 +51,7 @@ class RetrieveAndGenerateStreamResource:
         session_configuration: Optional[
             "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_session_configuration.RetrieveAndGenerateSessionConfiguration"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_response.RetrieveAndGenerateStreamResponse":
+    ) -> "Generator[aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_response.RetrieveAndGenerateStreamResponse]":
         r"""<p>Queries a knowledge base and generates responses based on the retrieved results, with output in streaming format.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>This operation requires permission for the <code> bedrock:RetrieveAndGenerate</code> action.</p>
 
         Args:
@@ -89,13 +92,14 @@ class RetrieveAndGenerateStreamResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
 
 class AsyncRetrieveAndGenerateStreamResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @asynccontextmanager
     async def retrieve_and_generate_stream(
         self,
         input: "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_input.RetrieveAndGenerateInput",
@@ -110,7 +114,7 @@ class AsyncRetrieveAndGenerateStreamResource:
         session_configuration: Optional[
             "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_session_configuration.RetrieveAndGenerateSessionConfiguration"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_response.RetrieveAndGenerateStreamResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_response.RetrieveAndGenerateStreamResponse]":
         r"""<p>Queries a knowledge base and generates responses based on the retrieved results, with output in streaming format.</p> <note> <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p> </note> <p>This operation requires permission for the <code> bedrock:RetrieveAndGenerate</code> action.</p>
 
         Args:
@@ -152,4 +156,4 @@ class AsyncRetrieveAndGenerateStreamResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output

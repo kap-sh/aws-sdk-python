@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,27 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.blue_green_deployment_not_found_fault
+import aws_sdk_rds.errors.db_cluster_not_found_fault
+import aws_sdk_rds.errors.db_instance_not_found_fault
+import aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault
+import aws_sdk_rds.errors.db_proxy_not_found_fault
+import aws_sdk_rds.errors.db_proxy_target_group_not_found_fault
+import aws_sdk_rds.errors.db_shard_group_not_found_fault
+import aws_sdk_rds.errors.db_snapshot_not_found_fault
+import aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault
+import aws_sdk_rds.errors.integration_not_found_fault
+import aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault
+import aws_sdk_rds.errors.invalid_db_cluster_state_fault
+import aws_sdk_rds.errors.invalid_db_instance_state_fault
+import aws_sdk_rds.errors.tenant_database_not_found_fault
+import aws_sdk_rds.types.add_tags_to_resource_message
+import aws_sdk_rds.types.tag_list
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.add_tags_to_resource_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,86 +38,58 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "BlueGreenDeploymentNotFoundFault":
-            import aws_sdk_rds.errors.blue_green_deployment_not_found_fault
-
             raise aws_sdk_rds.errors.blue_green_deployment_not_found_fault.BlueGreenDeploymentNotFoundFault.from_query(
                 root
             )
         case "DBClusterNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBInstanceNotFoundFault":
-            import aws_sdk_rds.errors.db_instance_not_found_fault
-
             raise aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "DBProxyEndpointNotFoundFault":
-            import aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault
-
             raise aws_sdk_rds.errors.db_proxy_endpoint_not_found_fault.DBProxyEndpointNotFoundFault.from_query(
                 root
             )
         case "DBProxyNotFoundFault":
-            import aws_sdk_rds.errors.db_proxy_not_found_fault
-
             raise aws_sdk_rds.errors.db_proxy_not_found_fault.DBProxyNotFoundFault.from_query(
                 root
             )
         case "DBProxyTargetGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_proxy_target_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_proxy_target_group_not_found_fault.DBProxyTargetGroupNotFoundFault.from_query(
                 root
             )
         case "DBShardGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_shard_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_shard_group_not_found_fault.DBShardGroupNotFoundFault.from_query(
                 root
             )
         case "DBSnapshotNotFoundFault":
-            import aws_sdk_rds.errors.db_snapshot_not_found_fault
-
             raise aws_sdk_rds.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault.from_query(
                 root
             )
         case "DBSnapshotTenantDatabaseNotFoundFault":
-            import aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault
-
             raise aws_sdk_rds.errors.db_snapshot_tenant_database_not_found_fault.DBSnapshotTenantDatabaseNotFoundFault.from_query(
                 root
             )
         case "IntegrationNotFoundFault":
-            import aws_sdk_rds.errors.integration_not_found_fault
-
             raise aws_sdk_rds.errors.integration_not_found_fault.IntegrationNotFoundFault.from_query(
                 root
             )
         case "InvalidDBClusterEndpointStateFault":
-            import aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_cluster_endpoint_state_fault.InvalidDBClusterEndpointStateFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_rds.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_rds.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "TenantDatabaseNotFoundFault":
-            import aws_sdk_rds.errors.tenant_database_not_found_fault
-
             raise aws_sdk_rds.errors.tenant_database_not_found_fault.TenantDatabaseNotFoundFault.from_query(
                 root
             )
@@ -171,7 +156,6 @@ def add_tags_to_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -187,7 +171,6 @@ async def async_add_tags_to_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

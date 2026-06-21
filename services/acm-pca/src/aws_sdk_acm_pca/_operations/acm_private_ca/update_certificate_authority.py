@@ -3,20 +3,26 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_acm_pca._auth._signers
 import aws_sdk_acm_pca._auth._sigv4
+import aws_sdk_acm_pca.errors.concurrent_modification_exception
+import aws_sdk_acm_pca.errors.invalid_args_exception
+import aws_sdk_acm_pca.errors.invalid_arn_exception
+import aws_sdk_acm_pca.errors.invalid_policy_exception
+import aws_sdk_acm_pca.errors.invalid_state_exception
+import aws_sdk_acm_pca.errors.resource_not_found_exception
+import aws_sdk_acm_pca.types.certificate_authority_status
+import aws_sdk_acm_pca.types.revocation_configuration
+import aws_sdk_acm_pca.types.update_certificate_authority_request
 from aws_sdk_acm_pca._protocol.errors import parse_error_metadata_json
 from aws_sdk_acm_pca._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_acm_pca._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_acm_pca.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_acm_pca.types.update_certificate_authority_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,38 +30,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_acm_pca.errors.concurrent_modification_exception
-
             raise aws_sdk_acm_pca.errors.concurrent_modification_exception.ConcurrentModificationException.from_aws_json_1_1(
                 data
             )
         case "InvalidArgsException":
-            import aws_sdk_acm_pca.errors.invalid_args_exception
-
             raise aws_sdk_acm_pca.errors.invalid_args_exception.InvalidArgsException.from_aws_json_1_1(
                 data
             )
         case "InvalidArnException":
-            import aws_sdk_acm_pca.errors.invalid_arn_exception
-
             raise aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidPolicyException":
-            import aws_sdk_acm_pca.errors.invalid_policy_exception
-
             raise aws_sdk_acm_pca.errors.invalid_policy_exception.InvalidPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidStateException":
-            import aws_sdk_acm_pca.errors.invalid_state_exception
-
             raise aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_acm_pca.errors.resource_not_found_exception
-
             raise aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -125,7 +119,6 @@ def update_certificate_authority(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -141,7 +134,6 @@ async def async_update_certificate_authority(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

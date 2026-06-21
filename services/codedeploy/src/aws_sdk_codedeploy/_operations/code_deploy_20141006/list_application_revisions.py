@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codedeploy._auth._signers
 import aws_sdk_codedeploy._auth._sigv4
+import aws_sdk_codedeploy.errors.application_does_not_exist_exception
+import aws_sdk_codedeploy.errors.application_name_required_exception
+import aws_sdk_codedeploy.errors.bucket_name_filter_required_exception
+import aws_sdk_codedeploy.errors.invalid_application_name_exception
+import aws_sdk_codedeploy.errors.invalid_bucket_name_filter_exception
+import aws_sdk_codedeploy.errors.invalid_deployed_state_filter_exception
+import aws_sdk_codedeploy.errors.invalid_key_prefix_filter_exception
+import aws_sdk_codedeploy.errors.invalid_next_token_exception
+import aws_sdk_codedeploy.errors.invalid_sort_by_exception
+import aws_sdk_codedeploy.errors.invalid_sort_order_exception
+import aws_sdk_codedeploy.types.application_revision_sort_by
+import aws_sdk_codedeploy.types.list_application_revisions_input
+import aws_sdk_codedeploy.types.list_application_revisions_output
+import aws_sdk_codedeploy.types.list_state_filter_action
+import aws_sdk_codedeploy.types.revision_location_list
+import aws_sdk_codedeploy.types.sort_order
 from aws_sdk_codedeploy._protocol.errors import parse_error_metadata_json
 from aws_sdk_codedeploy._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codedeploy._services._pipeline import (
@@ -18,72 +34,48 @@ from aws_sdk_codedeploy._services._pipeline import (
 )
 from aws_sdk_codedeploy.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codedeploy.types.list_application_revisions_input
-    import aws_sdk_codedeploy.types.list_application_revisions_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ApplicationDoesNotExistException":
-            import aws_sdk_codedeploy.errors.application_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ApplicationNameRequiredException":
-            import aws_sdk_codedeploy.errors.application_name_required_exception
-
             raise aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "BucketNameFilterRequiredException":
-            import aws_sdk_codedeploy.errors.bucket_name_filter_required_exception
-
             raise aws_sdk_codedeploy.errors.bucket_name_filter_required_exception.BucketNameFilterRequiredException.from_aws_json_1_1(
                 data
             )
         case "InvalidApplicationNameException":
-            import aws_sdk_codedeploy.errors.invalid_application_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidBucketNameFilterException":
-            import aws_sdk_codedeploy.errors.invalid_bucket_name_filter_exception
-
             raise aws_sdk_codedeploy.errors.invalid_bucket_name_filter_exception.InvalidBucketNameFilterException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeployedStateFilterException":
-            import aws_sdk_codedeploy.errors.invalid_deployed_state_filter_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployed_state_filter_exception.InvalidDeployedStateFilterException.from_aws_json_1_1(
                 data
             )
         case "InvalidKeyPrefixFilterException":
-            import aws_sdk_codedeploy.errors.invalid_key_prefix_filter_exception
-
             raise aws_sdk_codedeploy.errors.invalid_key_prefix_filter_exception.InvalidKeyPrefixFilterException.from_aws_json_1_1(
                 data
             )
         case "InvalidNextTokenException":
-            import aws_sdk_codedeploy.errors.invalid_next_token_exception
-
             raise aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidSortByException":
-            import aws_sdk_codedeploy.errors.invalid_sort_by_exception
-
             raise aws_sdk_codedeploy.errors.invalid_sort_by_exception.InvalidSortByException.from_aws_json_1_1(
                 data
             )
         case "InvalidSortOrderException":
-            import aws_sdk_codedeploy.errors.invalid_sort_order_exception
-
             raise aws_sdk_codedeploy.errors.invalid_sort_order_exception.InvalidSortOrderException.from_aws_json_1_1(
                 data
             )
@@ -92,12 +84,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codedeploy.types.list_application_revisions_output.ListApplicationRevisionsOutput:
-    import aws_sdk_codedeploy.types.list_application_revisions_output
-
     out: aws_sdk_codedeploy.types.list_application_revisions_output.ListApplicationRevisionsOutput = aws_sdk_codedeploy.types.list_application_revisions_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codedeploy.types.list_application_revisions_output.ListApplicationRevisionsOutput:
+    out: aws_sdk_codedeploy.types.list_application_revisions_output.ListApplicationRevisionsOutput = aws_sdk_codedeploy.types.list_application_revisions_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -167,8 +166,7 @@ def list_application_revisions(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -186,8 +184,7 @@ async def async_list_application_revisions(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

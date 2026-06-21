@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudtrail._auth._signers
 import aws_sdk_cloudtrail._auth._sigv4
+import aws_sdk_cloudtrail.errors.channel_already_exists_exception
+import aws_sdk_cloudtrail.errors.channel_max_limit_exceeded_exception
+import aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception
+import aws_sdk_cloudtrail.errors.event_data_store_not_found_exception
+import aws_sdk_cloudtrail.errors.inactive_event_data_store_exception
+import aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception
+import aws_sdk_cloudtrail.errors.invalid_parameter_exception
+import aws_sdk_cloudtrail.errors.invalid_source_exception
+import aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception
+import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
+import aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception
+import aws_sdk_cloudtrail.errors.unsupported_operation_exception
+import aws_sdk_cloudtrail.types.create_channel_request
+import aws_sdk_cloudtrail.types.create_channel_response
+import aws_sdk_cloudtrail.types.destinations
+import aws_sdk_cloudtrail.types.tags_list
 from aws_sdk_cloudtrail._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudtrail._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudtrail._services._pipeline import (
@@ -18,84 +34,56 @@ from aws_sdk_cloudtrail._services._pipeline import (
 )
 from aws_sdk_cloudtrail.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudtrail.types.create_channel_request
-    import aws_sdk_cloudtrail.types.create_channel_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ChannelAlreadyExistsException":
-            import aws_sdk_cloudtrail.errors.channel_already_exists_exception
-
             raise aws_sdk_cloudtrail.errors.channel_already_exists_exception.ChannelAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "ChannelMaxLimitExceededException":
-            import aws_sdk_cloudtrail.errors.channel_max_limit_exceeded_exception
-
             raise aws_sdk_cloudtrail.errors.channel_max_limit_exceeded_exception.ChannelMaxLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreARNInvalidException":
-            import aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_arn_invalid_exception.EventDataStoreARNInvalidException.from_aws_json_1_1(
                 data
             )
         case "EventDataStoreNotFoundException":
-            import aws_sdk_cloudtrail.errors.event_data_store_not_found_exception
-
             raise aws_sdk_cloudtrail.errors.event_data_store_not_found_exception.EventDataStoreNotFoundException.from_aws_json_1_1(
                 data
             )
         case "InactiveEventDataStoreException":
-            import aws_sdk_cloudtrail.errors.inactive_event_data_store_exception
-
             raise aws_sdk_cloudtrail.errors.inactive_event_data_store_exception.InactiveEventDataStoreException.from_aws_json_1_1(
                 data
             )
         case "InvalidEventDataStoreCategoryException":
-            import aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_event_data_store_category_exception.InvalidEventDataStoreCategoryException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_cloudtrail.errors.invalid_parameter_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidSourceException":
-            import aws_sdk_cloudtrail.errors.invalid_source_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_source_exception.InvalidSourceException.from_aws_json_1_1(
                 data
             )
         case "InvalidTagParameterException":
-            import aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException.from_aws_json_1_1(
                 data
             )
         case "OperationNotPermittedException":
-            import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
-
             raise aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException.from_aws_json_1_1(
                 data
             )
         case "TagsLimitExceededException":
-            import aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception
-
             raise aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception.TagsLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_cloudtrail.errors.unsupported_operation_exception
-
             raise aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -104,13 +92,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudtrail.types.create_channel_response.CreateChannelResponse:
-    import aws_sdk_cloudtrail.types.create_channel_response
-
     out: aws_sdk_cloudtrail.types.create_channel_response.CreateChannelResponse = (
         aws_sdk_cloudtrail.types.create_channel_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudtrail.types.create_channel_response.CreateChannelResponse:
+    out: aws_sdk_cloudtrail.types.create_channel_response.CreateChannelResponse = (
+        aws_sdk_cloudtrail.types.create_channel_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -179,8 +176,7 @@ def create_channel(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -198,8 +194,7 @@ async def async_create_channel(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

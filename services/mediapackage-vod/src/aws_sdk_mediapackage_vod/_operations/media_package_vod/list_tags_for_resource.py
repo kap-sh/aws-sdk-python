@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,9 @@ from typing_extensions import Never
 
 import aws_sdk_mediapackage_vod._auth._signers
 import aws_sdk_mediapackage_vod._auth._sigv4
+import aws_sdk_mediapackage_vod.types.__map_of__string
+import aws_sdk_mediapackage_vod.types.list_tags_for_resource_request
+import aws_sdk_mediapackage_vod.types.list_tags_for_resource_response
 from aws_sdk_mediapackage_vod._protocol.errors import parse_error_metadata_json
 from aws_sdk_mediapackage_vod._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,10 +25,6 @@ from aws_sdk_mediapackage_vod._services._pipeline import (
 )
 from aws_sdk_mediapackage_vod.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_mediapackage_vod.types.list_tags_for_resource_request
-    import aws_sdk_mediapackage_vod.types.list_tags_for_resource_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -36,12 +35,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse:
-    import aws_sdk_mediapackage_vod.types.list_tags_for_resource_response
-
     out: aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse = aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse:
+    out: aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.ListTagsForResourceResponse = aws_sdk_mediapackage_vod.types.list_tags_for_resource_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -104,8 +110,7 @@ def list_tags_for_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -123,8 +128,7 @@ async def async_list_tags_for_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

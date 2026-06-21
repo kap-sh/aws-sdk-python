@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#BlockData``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_ebs._iter import AnyIterator
 
 BlockData: TypeAlias = AnyIterator[bytes] | bytes

@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_compute_optimizer._auth._signers
 import aws_sdk_compute_optimizer._auth._sigv4
+import aws_sdk_compute_optimizer.errors.access_denied_exception
+import aws_sdk_compute_optimizer.errors.internal_server_exception
+import aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception
+import aws_sdk_compute_optimizer.errors.missing_authentication_token
+import aws_sdk_compute_optimizer.errors.opt_in_required_exception
+import aws_sdk_compute_optimizer.errors.resource_not_found_exception
+import aws_sdk_compute_optimizer.errors.service_unavailable_exception
+import aws_sdk_compute_optimizer.errors.throttling_exception
+import aws_sdk_compute_optimizer.types.account_ids
+import aws_sdk_compute_optimizer.types.auto_scaling_group_arns
+import aws_sdk_compute_optimizer.types.auto_scaling_group_recommendations
+import aws_sdk_compute_optimizer.types.filters
+import aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_request
+import aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response
+import aws_sdk_compute_optimizer.types.get_recommendation_errors
+import aws_sdk_compute_optimizer.types.recommendation_preferences
 from aws_sdk_compute_optimizer._protocol.errors import parse_error_metadata_json
 from aws_sdk_compute_optimizer._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,60 +37,40 @@ from aws_sdk_compute_optimizer._services._pipeline import (
 )
 from aws_sdk_compute_optimizer.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_request
-    import aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_compute_optimizer.errors.access_denied_exception
-
             raise aws_sdk_compute_optimizer.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_0(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_compute_optimizer.errors.internal_server_exception
-
             raise aws_sdk_compute_optimizer.errors.internal_server_exception.InternalServerException.from_aws_json_1_0(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception
-
             raise aws_sdk_compute_optimizer.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_0(
                 data
             )
         case "MissingAuthenticationToken":
-            import aws_sdk_compute_optimizer.errors.missing_authentication_token
-
             raise aws_sdk_compute_optimizer.errors.missing_authentication_token.MissingAuthenticationToken.from_aws_json_1_0(
                 data
             )
         case "OptInRequiredException":
-            import aws_sdk_compute_optimizer.errors.opt_in_required_exception
-
             raise aws_sdk_compute_optimizer.errors.opt_in_required_exception.OptInRequiredException.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_compute_optimizer.errors.resource_not_found_exception
-
             raise aws_sdk_compute_optimizer.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_compute_optimizer.errors.service_unavailable_exception
-
             raise aws_sdk_compute_optimizer.errors.service_unavailable_exception.ServiceUnavailableException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_compute_optimizer.errors.throttling_exception
-
             raise aws_sdk_compute_optimizer.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
@@ -83,12 +79,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.GetAutoScalingGroupRecommendationsResponse:
-    import aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response
-
     out: aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.GetAutoScalingGroupRecommendationsResponse = aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.deserialize_aws_json_1_0(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.GetAutoScalingGroupRecommendationsResponse:
+    out: aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.GetAutoScalingGroupRecommendationsResponse = aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_response.deserialize_aws_json_1_0(
+        json.loads(await response.aread())
     )
     return out
 
@@ -160,8 +163,7 @@ def get_auto_scaling_group_recommendations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -179,8 +181,7 @@ async def async_get_auto_scaling_group_recommendations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

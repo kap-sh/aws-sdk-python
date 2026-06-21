@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,33 @@ from typing_extensions import Never
 
 import aws_sdk_neptune._auth._signers
 import aws_sdk_neptune._auth._sigv4
+import aws_sdk_neptune.errors.authorization_not_found_fault
+import aws_sdk_neptune.errors.certificate_not_found_fault
+import aws_sdk_neptune.errors.db_instance_already_exists_fault
+import aws_sdk_neptune.errors.db_instance_not_found_fault
+import aws_sdk_neptune.errors.db_parameter_group_not_found_fault
+import aws_sdk_neptune.errors.db_security_group_not_found_fault
+import aws_sdk_neptune.errors.db_upgrade_dependency_failure_fault
+import aws_sdk_neptune.errors.domain_not_found_fault
+import aws_sdk_neptune.errors.insufficient_db_instance_capacity_fault
+import aws_sdk_neptune.errors.invalid_db_instance_state_fault
+import aws_sdk_neptune.errors.invalid_db_security_group_state_fault
+import aws_sdk_neptune.errors.invalid_vpc_network_state_fault
+import aws_sdk_neptune.errors.option_group_not_found_fault
+import aws_sdk_neptune.errors.provisioned_iops_not_available_in_az_fault
+import aws_sdk_neptune.errors.storage_quota_exceeded_fault
+import aws_sdk_neptune.errors.storage_type_not_supported_fault
+import aws_sdk_neptune.types.cloudwatch_logs_export_configuration
+import aws_sdk_neptune.types.db_instance
+import aws_sdk_neptune.types.db_security_group_name_list
+import aws_sdk_neptune.types.modify_db_instance_message
+import aws_sdk_neptune.types.modify_db_instance_result
+import aws_sdk_neptune.types.vpc_security_group_id_list
 from aws_sdk_neptune._protocol.errors import parse_error_metadata
 from aws_sdk_neptune._protocol.xml import fromstring
 from aws_sdk_neptune._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_neptune._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_neptune.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_neptune.types.modify_db_instance_message
-    import aws_sdk_neptune.types.modify_db_instance_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,98 +44,66 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AuthorizationNotFoundFault":
-            import aws_sdk_neptune.errors.authorization_not_found_fault
-
             raise aws_sdk_neptune.errors.authorization_not_found_fault.AuthorizationNotFoundFault.from_query(
                 root
             )
         case "CertificateNotFoundFault":
-            import aws_sdk_neptune.errors.certificate_not_found_fault
-
             raise aws_sdk_neptune.errors.certificate_not_found_fault.CertificateNotFoundFault.from_query(
                 root
             )
         case "DBInstanceAlreadyExistsFault":
-            import aws_sdk_neptune.errors.db_instance_already_exists_fault
-
             raise aws_sdk_neptune.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault.from_query(
                 root
             )
         case "DBInstanceNotFoundFault":
-            import aws_sdk_neptune.errors.db_instance_not_found_fault
-
             raise aws_sdk_neptune.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "DBParameterGroupNotFoundFault":
-            import aws_sdk_neptune.errors.db_parameter_group_not_found_fault
-
             raise aws_sdk_neptune.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault.from_query(
                 root
             )
         case "DBSecurityGroupNotFoundFault":
-            import aws_sdk_neptune.errors.db_security_group_not_found_fault
-
             raise aws_sdk_neptune.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "DBUpgradeDependencyFailureFault":
-            import aws_sdk_neptune.errors.db_upgrade_dependency_failure_fault
-
             raise aws_sdk_neptune.errors.db_upgrade_dependency_failure_fault.DBUpgradeDependencyFailureFault.from_query(
                 root
             )
         case "DomainNotFoundFault":
-            import aws_sdk_neptune.errors.domain_not_found_fault
-
             raise aws_sdk_neptune.errors.domain_not_found_fault.DomainNotFoundFault.from_query(
                 root
             )
         case "InsufficientDBInstanceCapacityFault":
-            import aws_sdk_neptune.errors.insufficient_db_instance_capacity_fault
-
             raise aws_sdk_neptune.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_neptune.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_neptune.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "InvalidDBSecurityGroupStateFault":
-            import aws_sdk_neptune.errors.invalid_db_security_group_state_fault
-
             raise aws_sdk_neptune.errors.invalid_db_security_group_state_fault.InvalidDBSecurityGroupStateFault.from_query(
                 root
             )
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_neptune.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_neptune.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "OptionGroupNotFoundFault":
-            import aws_sdk_neptune.errors.option_group_not_found_fault
-
             raise aws_sdk_neptune.errors.option_group_not_found_fault.OptionGroupNotFoundFault.from_query(
                 root
             )
         case "ProvisionedIopsNotAvailableInAZFault":
-            import aws_sdk_neptune.errors.provisioned_iops_not_available_in_az_fault
-
             raise aws_sdk_neptune.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_neptune.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_neptune.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
         case "StorageTypeNotSupportedFault":
-            import aws_sdk_neptune.errors.storage_type_not_supported_fault
-
             raise aws_sdk_neptune.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault.from_query(
                 root
             )
@@ -126,11 +112,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_neptune.types.modify_db_instance_result.ModifyDBInstanceResult:
-    import aws_sdk_neptune.types.modify_db_instance_result
-
     root = fromstring(response.read())
+    result = root.find("ModifyDBInstanceResult")
+    out: aws_sdk_neptune.types.modify_db_instance_result.ModifyDBInstanceResult = (
+        aws_sdk_neptune.types.modify_db_instance_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_neptune.types.modify_db_instance_result.ModifyDBInstanceResult:
+    root = fromstring(await response.aread())
     result = root.find("ModifyDBInstanceResult")
     out: aws_sdk_neptune.types.modify_db_instance_result.ModifyDBInstanceResult = (
         aws_sdk_neptune.types.modify_db_instance_result.deserialize_query(
@@ -204,8 +201,7 @@ def modify_db_instance(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -223,8 +219,7 @@ async def async_modify_db_instance(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

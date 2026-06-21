@@ -2,13 +2,20 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.invalid_tagging
+import aws_sdk_cloudfront.errors.no_such_resource
+import aws_sdk_cloudfront.types.list_tags_for_resource_request
+import aws_sdk_cloudfront.types.list_tags_for_resource_result
+import aws_sdk_cloudfront.types.tags
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import fromstring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,34 +25,22 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.list_tags_for_resource_request
-    import aws_sdk_cloudfront.types.list_tags_for_resource_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "InvalidTagging":
-            import aws_sdk_cloudfront.errors.invalid_tagging
-
             raise aws_sdk_cloudfront.errors.invalid_tagging.InvalidTagging.from_xml(
                 root
             )
         case "NoSuchResource":
-            import aws_sdk_cloudfront.errors.no_such_resource
-
             raise aws_sdk_cloudfront.errors.no_such_resource.NoSuchResource.from_xml(
                 root
             )
@@ -54,13 +49,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.list_tags_for_resource_result.ListTagsForResourceResult:
-    import aws_sdk_cloudfront.types.tags
-
     out: aws_sdk_cloudfront.types.list_tags_for_resource_result.ListTagsForResourceResult = {
         "tags": aws_sdk_cloudfront.types.tags.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.list_tags_for_resource_result.ListTagsForResourceResult:
+    out: aws_sdk_cloudfront.types.list_tags_for_resource_result.ListTagsForResourceResult = {
+        "tags": aws_sdk_cloudfront.types.tags.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     return out
@@ -125,8 +129,7 @@ def list_tags_for_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +147,7 @@ async def async_list_tags_for_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

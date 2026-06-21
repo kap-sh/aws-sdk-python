@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -58,4 +59,17 @@ def deserialize_json(data: dict) -> AudioInputEvent:
         out["client_timestamp_millis"] = data["clientTimestampMillis"]
     else:
         out["client_timestamp_millis"] = 0
+    return out
+
+
+def serialize_event_json(value: AudioInputEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "AudioInputEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> AudioInputEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: AudioInputEvent = {}  # type: ignore[typeddict-item]
     return out

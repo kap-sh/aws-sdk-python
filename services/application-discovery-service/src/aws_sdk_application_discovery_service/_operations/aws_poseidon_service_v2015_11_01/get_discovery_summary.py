@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_application_discovery_service._auth._signers
 import aws_sdk_application_discovery_service._auth._sigv4
+import aws_sdk_application_discovery_service.errors.authorization_error_exception
+import aws_sdk_application_discovery_service.errors.home_region_not_set_exception
+import aws_sdk_application_discovery_service.errors.invalid_parameter_exception
+import aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception
+import aws_sdk_application_discovery_service.errors.server_internal_error_exception
+import aws_sdk_application_discovery_service.types.customer_agent_info
+import aws_sdk_application_discovery_service.types.customer_agentless_collector_info
+import aws_sdk_application_discovery_service.types.customer_connector_info
+import aws_sdk_application_discovery_service.types.customer_me_collector_info
+import aws_sdk_application_discovery_service.types.get_discovery_summary_request
+import aws_sdk_application_discovery_service.types.get_discovery_summary_response
 from aws_sdk_application_discovery_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -25,42 +36,28 @@ from aws_sdk_application_discovery_service.errors import (
     UnknownServiceError,
 )
 
-if TYPE_CHECKING:
-    import aws_sdk_application_discovery_service.types.get_discovery_summary_request
-    import aws_sdk_application_discovery_service.types.get_discovery_summary_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AuthorizationErrorException":
-            import aws_sdk_application_discovery_service.errors.authorization_error_exception
-
             raise aws_sdk_application_discovery_service.errors.authorization_error_exception.AuthorizationErrorException.from_aws_json_1_1(
                 data
             )
         case "HomeRegionNotSetException":
-            import aws_sdk_application_discovery_service.errors.home_region_not_set_exception
-
             raise aws_sdk_application_discovery_service.errors.home_region_not_set_exception.HomeRegionNotSetException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_application_discovery_service.errors.invalid_parameter_exception
-
             raise aws_sdk_application_discovery_service.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception
-
             raise aws_sdk_application_discovery_service.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_1(
                 data
             )
         case "ServerInternalErrorException":
-            import aws_sdk_application_discovery_service.errors.server_internal_error_exception
-
             raise aws_sdk_application_discovery_service.errors.server_internal_error_exception.ServerInternalErrorException.from_aws_json_1_1(
                 data
             )
@@ -69,12 +66,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_application_discovery_service.types.get_discovery_summary_response.GetDiscoverySummaryResponse:
-    import aws_sdk_application_discovery_service.types.get_discovery_summary_response
-
     out: aws_sdk_application_discovery_service.types.get_discovery_summary_response.GetDiscoverySummaryResponse = aws_sdk_application_discovery_service.types.get_discovery_summary_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_application_discovery_service.types.get_discovery_summary_response.GetDiscoverySummaryResponse:
+    out: aws_sdk_application_discovery_service.types.get_discovery_summary_response.GetDiscoverySummaryResponse = aws_sdk_application_discovery_service.types.get_discovery_summary_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -137,8 +141,7 @@ def get_discovery_summary(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +159,7 @@ async def async_get_discovery_summary(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

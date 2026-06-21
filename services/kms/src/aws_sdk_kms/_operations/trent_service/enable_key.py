@@ -3,20 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.dependency_timeout_exception
+import aws_sdk_kms.errors.invalid_arn_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.errors.kms_invalid_state_exception
+import aws_sdk_kms.errors.limit_exceeded_exception
+import aws_sdk_kms.errors.not_found_exception
+import aws_sdk_kms.types.enable_key_request
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.enable_key_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,38 +28,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DependencyTimeoutException":
-            import aws_sdk_kms.errors.dependency_timeout_exception
-
             raise aws_sdk_kms.errors.dependency_timeout_exception.DependencyTimeoutException.from_aws_json_1_1(
                 data
             )
         case "InvalidArnException":
-            import aws_sdk_kms.errors.invalid_arn_exception
-
             raise aws_sdk_kms.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
         case "KMSInvalidStateException":
-            import aws_sdk_kms.errors.kms_invalid_state_exception
-
             raise aws_sdk_kms.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_kms.errors.limit_exceeded_exception
-
             raise aws_sdk_kms.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_kms.errors.not_found_exception
-
             raise aws_sdk_kms.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
                 data
             )
@@ -121,7 +113,6 @@ def enable_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -137,7 +128,6 @@ async def async_enable_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

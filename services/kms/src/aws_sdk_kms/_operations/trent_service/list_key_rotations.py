@@ -3,21 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.invalid_arn_exception
+import aws_sdk_kms.errors.invalid_marker_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.errors.kms_invalid_state_exception
+import aws_sdk_kms.errors.not_found_exception
+import aws_sdk_kms.errors.unsupported_operation_exception
+import aws_sdk_kms.types.include_key_material
+import aws_sdk_kms.types.list_key_rotations_request
+import aws_sdk_kms.types.list_key_rotations_response
+import aws_sdk_kms.types.rotations_list
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.list_key_rotations_request
-    import aws_sdk_kms.types.list_key_rotations_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +31,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidArnException":
-            import aws_sdk_kms.errors.invalid_arn_exception
-
             raise aws_sdk_kms.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidMarkerException":
-            import aws_sdk_kms.errors.invalid_marker_exception
-
             raise aws_sdk_kms.errors.invalid_marker_exception.InvalidMarkerException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
         case "KMSInvalidStateException":
-            import aws_sdk_kms.errors.kms_invalid_state_exception
-
             raise aws_sdk_kms.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_kms.errors.not_found_exception
-
             raise aws_sdk_kms.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_kms.errors.unsupported_operation_exception
-
             raise aws_sdk_kms.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -65,13 +59,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kms.types.list_key_rotations_response.ListKeyRotationsResponse:
-    import aws_sdk_kms.types.list_key_rotations_response
-
     out: aws_sdk_kms.types.list_key_rotations_response.ListKeyRotationsResponse = (
         aws_sdk_kms.types.list_key_rotations_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kms.types.list_key_rotations_response.ListKeyRotationsResponse:
+    out: aws_sdk_kms.types.list_key_rotations_response.ListKeyRotationsResponse = (
+        aws_sdk_kms.types.list_key_rotations_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -138,8 +141,7 @@ def list_key_rotations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -157,8 +159,7 @@ async def async_list_key_rotations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

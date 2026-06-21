@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_lex_runtime_v2.errors import DeserializationError, SerializationError
+from aws_sdk_lex_runtime_v2._iter import AnyIterator
+from aws_sdk_lex_runtime_v2._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.errors.access_denied_exception
@@ -93,7 +94,7 @@ class _StartConversationResponseEventStream_BadGatewayException(TypedDict):
     )
 
 
-StartConversationResponseEventStream: TypeAlias = (
+_StartConversationResponseEventStream: TypeAlias = (
     _StartConversationResponseEventStream_PlaybackInterruptionEvent
     | _StartConversationResponseEventStream_TranscriptEvent
     | _StartConversationResponseEventStream_IntentResultEvent
@@ -109,242 +110,239 @@ StartConversationResponseEventStream: TypeAlias = (
     | _StartConversationResponseEventStream_DependencyFailedException
     | _StartConversationResponseEventStream_BadGatewayException
 )
+StartConversationResponseEventStream: TypeAlias = AnyIterator[
+    _StartConversationResponseEventStream
+]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: StartConversationResponseEventStream) -> dict:
-    if "PlaybackInterruptionEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.playback_interruption_event
+def serialize_event_json(value: _StartConversationResponseEventStream) -> bytes:
+    match value:
+        case {"PlaybackInterruptionEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.playback_interruption_event
 
-        return {
-            "PlaybackInterruptionEvent": aws_sdk_lex_runtime_v2.types.playback_interruption_event.serialize_json(
-                value["PlaybackInterruptionEvent"]
+            return aws_sdk_lex_runtime_v2.types.playback_interruption_event.serialize_event_json(
+                payload
             )
-        }
-    elif "TranscriptEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.transcript_event
+        case {"TranscriptEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.transcript_event
 
-        return {
-            "TranscriptEvent": aws_sdk_lex_runtime_v2.types.transcript_event.serialize_json(
-                value["TranscriptEvent"]
+            return aws_sdk_lex_runtime_v2.types.transcript_event.serialize_event_json(
+                payload
             )
-        }
-    elif "IntentResultEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.intent_result_event
+        case {"IntentResultEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.intent_result_event
 
-        return {
-            "IntentResultEvent": aws_sdk_lex_runtime_v2.types.intent_result_event.serialize_json(
-                value["IntentResultEvent"]
+            return (
+                aws_sdk_lex_runtime_v2.types.intent_result_event.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "TextResponseEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.text_response_event
+        case {"TextResponseEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.text_response_event
 
-        return {
-            "TextResponseEvent": aws_sdk_lex_runtime_v2.types.text_response_event.serialize_json(
-                value["TextResponseEvent"]
+            return (
+                aws_sdk_lex_runtime_v2.types.text_response_event.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "AudioResponseEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.audio_response_event
+        case {"AudioResponseEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.audio_response_event
 
-        return {
-            "AudioResponseEvent": aws_sdk_lex_runtime_v2.types.audio_response_event.serialize_json(
-                value["AudioResponseEvent"]
+            return (
+                aws_sdk_lex_runtime_v2.types.audio_response_event.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "HeartbeatEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.heartbeat_event
+        case {"HeartbeatEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.heartbeat_event
 
-        return {
-            "HeartbeatEvent": aws_sdk_lex_runtime_v2.types.heartbeat_event.serialize_json(
-                value["HeartbeatEvent"]
+            return aws_sdk_lex_runtime_v2.types.heartbeat_event.serialize_event_json(
+                payload
             )
-        }
-    elif "AccessDeniedException" in value:
-        import aws_sdk_lex_runtime_v2.errors.access_denied_exception
+        case {"AccessDeniedException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.access_denied_exception
 
-        return {
-            "AccessDeniedException": aws_sdk_lex_runtime_v2.errors.access_denied_exception.serialize_json(
-                value["AccessDeniedException"]
+            return aws_sdk_lex_runtime_v2.errors.access_denied_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ResourceNotFoundException" in value:
-        import aws_sdk_lex_runtime_v2.errors.resource_not_found_exception
+        case {"ResourceNotFoundException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.resource_not_found_exception
 
-        return {
-            "ResourceNotFoundException": aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.serialize_json(
-                value["ResourceNotFoundException"]
+            return aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ValidationException" in value:
-        import aws_sdk_lex_runtime_v2.errors.validation_exception
+        case {"ValidationException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.validation_exception
 
-        return {
-            "ValidationException": aws_sdk_lex_runtime_v2.errors.validation_exception.serialize_json(
-                value["ValidationException"]
+            return (
+                aws_sdk_lex_runtime_v2.errors.validation_exception.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "ThrottlingException" in value:
-        import aws_sdk_lex_runtime_v2.errors.throttling_exception
+        case {"ThrottlingException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.throttling_exception
 
-        return {
-            "ThrottlingException": aws_sdk_lex_runtime_v2.errors.throttling_exception.serialize_json(
-                value["ThrottlingException"]
+            return (
+                aws_sdk_lex_runtime_v2.errors.throttling_exception.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "InternalServerException" in value:
-        import aws_sdk_lex_runtime_v2.errors.internal_server_exception
+        case {"InternalServerException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.internal_server_exception
 
-        return {
-            "InternalServerException": aws_sdk_lex_runtime_v2.errors.internal_server_exception.serialize_json(
-                value["InternalServerException"]
+            return aws_sdk_lex_runtime_v2.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ConflictException" in value:
-        import aws_sdk_lex_runtime_v2.errors.conflict_exception
+        case {"ConflictException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.conflict_exception
 
-        return {
-            "ConflictException": aws_sdk_lex_runtime_v2.errors.conflict_exception.serialize_json(
-                value["ConflictException"]
+            return (
+                aws_sdk_lex_runtime_v2.errors.conflict_exception.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "DependencyFailedException" in value:
-        import aws_sdk_lex_runtime_v2.errors.dependency_failed_exception
+        case {"DependencyFailedException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.dependency_failed_exception
 
-        return {
-            "DependencyFailedException": aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.serialize_json(
-                value["DependencyFailedException"]
+            return aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "BadGatewayException" in value:
-        import aws_sdk_lex_runtime_v2.errors.bad_gateway_exception
+        case {"BadGatewayException": payload}:
+            import aws_sdk_lex_runtime_v2.errors.bad_gateway_exception
 
-        return {
-            "BadGatewayException": aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.serialize_json(
-                value["BadGatewayException"]
+            return aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError(
-            "StartConversationResponseEventStream: no variant present"
+        case _:
+            raise ValueError(
+                f"StartConversationResponseEventStream: unrecognized variant {value!r}"
+            )
+
+
+def deserialize_event_json(message: Message) -> _StartConversationResponseEventStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "AccessDeniedException":
+                import aws_sdk_lex_runtime_v2.errors.access_denied_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException(
+                    aws_sdk_lex_runtime_v2.errors.access_denied_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ResourceNotFoundException":
+                import aws_sdk_lex_runtime_v2.errors.resource_not_found_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException(
+                    aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ValidationException":
+                import aws_sdk_lex_runtime_v2.errors.validation_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException(
+                    aws_sdk_lex_runtime_v2.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ThrottlingException":
+                import aws_sdk_lex_runtime_v2.errors.throttling_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_lex_runtime_v2.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "InternalServerException":
+                import aws_sdk_lex_runtime_v2.errors.internal_server_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_lex_runtime_v2.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ConflictException":
+                import aws_sdk_lex_runtime_v2.errors.conflict_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException(
+                    aws_sdk_lex_runtime_v2.errors.conflict_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "DependencyFailedException":
+                import aws_sdk_lex_runtime_v2.errors.dependency_failed_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException(
+                    aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "BadGatewayException":
+                import aws_sdk_lex_runtime_v2.errors.bad_gateway_exception
+
+                raise aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException(
+                    aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"StartConversationResponseEventStream: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "PlaybackInterruptionEvent":
+            import aws_sdk_lex_runtime_v2.types.playback_interruption_event
 
+            return {
+                "PlaybackInterruptionEvent": aws_sdk_lex_runtime_v2.types.playback_interruption_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "TranscriptEvent":
+            import aws_sdk_lex_runtime_v2.types.transcript_event
 
-def deserialize_json(data: dict) -> StartConversationResponseEventStream:
-    if "PlaybackInterruptionEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.playback_interruption_event
+            return {
+                "TranscriptEvent": aws_sdk_lex_runtime_v2.types.transcript_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "IntentResultEvent":
+            import aws_sdk_lex_runtime_v2.types.intent_result_event
 
-        return {
-            "PlaybackInterruptionEvent": aws_sdk_lex_runtime_v2.types.playback_interruption_event.deserialize_json(
-                data["PlaybackInterruptionEvent"]
+            return {
+                "IntentResultEvent": aws_sdk_lex_runtime_v2.types.intent_result_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "TextResponseEvent":
+            import aws_sdk_lex_runtime_v2.types.text_response_event
+
+            return {
+                "TextResponseEvent": aws_sdk_lex_runtime_v2.types.text_response_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "AudioResponseEvent":
+            import aws_sdk_lex_runtime_v2.types.audio_response_event
+
+            return {
+                "AudioResponseEvent": aws_sdk_lex_runtime_v2.types.audio_response_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "HeartbeatEvent":
+            import aws_sdk_lex_runtime_v2.types.heartbeat_event
+
+            return {
+                "HeartbeatEvent": aws_sdk_lex_runtime_v2.types.heartbeat_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"StartConversationResponseEventStream: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "TranscriptEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.transcript_event
-
-        return {
-            "TranscriptEvent": aws_sdk_lex_runtime_v2.types.transcript_event.deserialize_json(
-                data["TranscriptEvent"]
-            )
-        }
-    elif "IntentResultEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.intent_result_event
-
-        return {
-            "IntentResultEvent": aws_sdk_lex_runtime_v2.types.intent_result_event.deserialize_json(
-                data["IntentResultEvent"]
-            )
-        }
-    elif "TextResponseEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.text_response_event
-
-        return {
-            "TextResponseEvent": aws_sdk_lex_runtime_v2.types.text_response_event.deserialize_json(
-                data["TextResponseEvent"]
-            )
-        }
-    elif "AudioResponseEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.audio_response_event
-
-        return {
-            "AudioResponseEvent": aws_sdk_lex_runtime_v2.types.audio_response_event.deserialize_json(
-                data["AudioResponseEvent"]
-            )
-        }
-    elif "HeartbeatEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.heartbeat_event
-
-        return {
-            "HeartbeatEvent": aws_sdk_lex_runtime_v2.types.heartbeat_event.deserialize_json(
-                data["HeartbeatEvent"]
-            )
-        }
-    elif "AccessDeniedException" in data:
-        import aws_sdk_lex_runtime_v2.errors.access_denied_exception
-
-        return {
-            "AccessDeniedException": aws_sdk_lex_runtime_v2.errors.access_denied_exception.deserialize_json(
-                data["AccessDeniedException"]
-            )
-        }
-    elif "ResourceNotFoundException" in data:
-        import aws_sdk_lex_runtime_v2.errors.resource_not_found_exception
-
-        return {
-            "ResourceNotFoundException": aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.deserialize_json(
-                data["ResourceNotFoundException"]
-            )
-        }
-    elif "ValidationException" in data:
-        import aws_sdk_lex_runtime_v2.errors.validation_exception
-
-        return {
-            "ValidationException": aws_sdk_lex_runtime_v2.errors.validation_exception.deserialize_json(
-                data["ValidationException"]
-            )
-        }
-    elif "ThrottlingException" in data:
-        import aws_sdk_lex_runtime_v2.errors.throttling_exception
-
-        return {
-            "ThrottlingException": aws_sdk_lex_runtime_v2.errors.throttling_exception.deserialize_json(
-                data["ThrottlingException"]
-            )
-        }
-    elif "InternalServerException" in data:
-        import aws_sdk_lex_runtime_v2.errors.internal_server_exception
-
-        return {
-            "InternalServerException": aws_sdk_lex_runtime_v2.errors.internal_server_exception.deserialize_json(
-                data["InternalServerException"]
-            )
-        }
-    elif "ConflictException" in data:
-        import aws_sdk_lex_runtime_v2.errors.conflict_exception
-
-        return {
-            "ConflictException": aws_sdk_lex_runtime_v2.errors.conflict_exception.deserialize_json(
-                data["ConflictException"]
-            )
-        }
-    elif "DependencyFailedException" in data:
-        import aws_sdk_lex_runtime_v2.errors.dependency_failed_exception
-
-        return {
-            "DependencyFailedException": aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.deserialize_json(
-                data["DependencyFailedException"]
-            )
-        }
-    elif "BadGatewayException" in data:
-        import aws_sdk_lex_runtime_v2.errors.bad_gateway_exception
-
-        return {
-            "BadGatewayException": aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.deserialize_json(
-                data["BadGatewayException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "StartConversationResponseEventStream: no recognized variant key"
-        )

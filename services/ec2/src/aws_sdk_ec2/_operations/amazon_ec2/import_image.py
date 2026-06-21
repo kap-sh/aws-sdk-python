@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,21 @@ from typing_extensions import Never
 
 import aws_sdk_ec2._auth._signers
 import aws_sdk_ec2._auth._sigv4
+import aws_sdk_ec2.types.boot_mode_values
+import aws_sdk_ec2.types.client_data
+import aws_sdk_ec2.types.image_disk_container_list
+import aws_sdk_ec2.types.import_image_license_specification_list_request
+import aws_sdk_ec2.types.import_image_license_specification_list_response
+import aws_sdk_ec2.types.import_image_request
+import aws_sdk_ec2.types.import_image_result
+import aws_sdk_ec2.types.snapshot_detail_list
+import aws_sdk_ec2.types.tag_list
+import aws_sdk_ec2.types.tag_specification_list
 from aws_sdk_ec2._protocol.errors import parse_error_metadata
 from aws_sdk_ec2._protocol.xml import fromstring
 from aws_sdk_ec2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ec2._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ec2.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ec2.types.import_image_request
-    import aws_sdk_ec2.types.import_image_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -30,13 +36,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ec2.types.import_image_result.ImportImageResult:
-    import aws_sdk_ec2.types.import_image_result
-
     out: aws_sdk_ec2.types.import_image_result.ImportImageResult = (
         aws_sdk_ec2.types.import_image_result.deserialize_ec2_query(
             fromstring(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ec2.types.import_image_result.ImportImageResult:
+    out: aws_sdk_ec2.types.import_image_result.ImportImageResult = (
+        aws_sdk_ec2.types.import_image_result.deserialize_ec2_query(
+            fromstring(await response.aread())
         )
     )
     return out
@@ -101,8 +116,7 @@ def import_image(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -117,8 +131,7 @@ async def async_import_image(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

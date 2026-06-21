@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_acm_pca._auth._signers
 import aws_sdk_acm_pca._auth._sigv4
+import aws_sdk_acm_pca.errors.invalid_arn_exception
+import aws_sdk_acm_pca.errors.invalid_next_token_exception
+import aws_sdk_acm_pca.errors.invalid_state_exception
+import aws_sdk_acm_pca.errors.request_failed_exception
+import aws_sdk_acm_pca.errors.resource_not_found_exception
+import aws_sdk_acm_pca.types.list_permissions_request
+import aws_sdk_acm_pca.types.list_permissions_response
+import aws_sdk_acm_pca.types.permission_list
 from aws_sdk_acm_pca._protocol.errors import parse_error_metadata_json
 from aws_sdk_acm_pca._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_acm_pca._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_acm_pca.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_acm_pca.types.list_permissions_request
-    import aws_sdk_acm_pca.types.list_permissions_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,32 +29,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidArnException":
-            import aws_sdk_acm_pca.errors.invalid_arn_exception
-
             raise aws_sdk_acm_pca.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidNextTokenException":
-            import aws_sdk_acm_pca.errors.invalid_next_token_exception
-
             raise aws_sdk_acm_pca.errors.invalid_next_token_exception.InvalidNextTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidStateException":
-            import aws_sdk_acm_pca.errors.invalid_state_exception
-
             raise aws_sdk_acm_pca.errors.invalid_state_exception.InvalidStateException.from_aws_json_1_1(
                 data
             )
         case "RequestFailedException":
-            import aws_sdk_acm_pca.errors.request_failed_exception
-
             raise aws_sdk_acm_pca.errors.request_failed_exception.RequestFailedException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_acm_pca.errors.resource_not_found_exception
-
             raise aws_sdk_acm_pca.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -59,13 +53,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_acm_pca.types.list_permissions_response.ListPermissionsResponse:
-    import aws_sdk_acm_pca.types.list_permissions_response
-
     out: aws_sdk_acm_pca.types.list_permissions_response.ListPermissionsResponse = (
         aws_sdk_acm_pca.types.list_permissions_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_acm_pca.types.list_permissions_response.ListPermissionsResponse:
+    out: aws_sdk_acm_pca.types.list_permissions_response.ListPermissionsResponse = (
+        aws_sdk_acm_pca.types.list_permissions_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -134,8 +137,7 @@ def list_permissions(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -153,8 +155,7 @@ async def async_list_permissions(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

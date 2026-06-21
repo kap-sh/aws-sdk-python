@@ -3,21 +3,36 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_wafv2._auth._signers
 import aws_sdk_wafv2._auth._sigv4
+import aws_sdk_wafv2.errors.waf_duplicate_item_exception
+import aws_sdk_wafv2.errors.waf_internal_error_exception
+import aws_sdk_wafv2.errors.waf_invalid_operation_exception
+import aws_sdk_wafv2.errors.waf_invalid_parameter_exception
+import aws_sdk_wafv2.errors.waf_limits_exceeded_exception
+import aws_sdk_wafv2.errors.waf_nonexistent_item_exception
+import aws_sdk_wafv2.errors.waf_optimistic_lock_exception
+import aws_sdk_wafv2.errors.waf_subscription_not_found_exception
+import aws_sdk_wafv2.errors.waf_tag_operation_exception
+import aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception
+import aws_sdk_wafv2.errors.waf_unavailable_entity_exception
+import aws_sdk_wafv2.types.create_rule_group_request
+import aws_sdk_wafv2.types.create_rule_group_response
+import aws_sdk_wafv2.types.custom_response_bodies
+import aws_sdk_wafv2.types.rule_group_summary
+import aws_sdk_wafv2.types.rules
+import aws_sdk_wafv2.types.scope
+import aws_sdk_wafv2.types.tag_list
+import aws_sdk_wafv2.types.visibility_config
 from aws_sdk_wafv2._protocol.errors import parse_error_metadata_json
 from aws_sdk_wafv2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_wafv2._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_wafv2.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_wafv2.types.create_rule_group_request
-    import aws_sdk_wafv2.types.create_rule_group_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,68 +40,46 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "WAFDuplicateItemException":
-            import aws_sdk_wafv2.errors.waf_duplicate_item_exception
-
             raise aws_sdk_wafv2.errors.waf_duplicate_item_exception.WAFDuplicateItemException.from_aws_json_1_1(
                 data
             )
         case "WAFInternalErrorException":
-            import aws_sdk_wafv2.errors.waf_internal_error_exception
-
             raise aws_sdk_wafv2.errors.waf_internal_error_exception.WAFInternalErrorException.from_aws_json_1_1(
                 data
             )
         case "WAFInvalidOperationException":
-            import aws_sdk_wafv2.errors.waf_invalid_operation_exception
-
             raise aws_sdk_wafv2.errors.waf_invalid_operation_exception.WAFInvalidOperationException.from_aws_json_1_1(
                 data
             )
         case "WAFInvalidParameterException":
-            import aws_sdk_wafv2.errors.waf_invalid_parameter_exception
-
             raise aws_sdk_wafv2.errors.waf_invalid_parameter_exception.WAFInvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "WAFLimitsExceededException":
-            import aws_sdk_wafv2.errors.waf_limits_exceeded_exception
-
             raise aws_sdk_wafv2.errors.waf_limits_exceeded_exception.WAFLimitsExceededException.from_aws_json_1_1(
                 data
             )
         case "WAFNonexistentItemException":
-            import aws_sdk_wafv2.errors.waf_nonexistent_item_exception
-
             raise aws_sdk_wafv2.errors.waf_nonexistent_item_exception.WAFNonexistentItemException.from_aws_json_1_1(
                 data
             )
         case "WAFOptimisticLockException":
-            import aws_sdk_wafv2.errors.waf_optimistic_lock_exception
-
             raise aws_sdk_wafv2.errors.waf_optimistic_lock_exception.WAFOptimisticLockException.from_aws_json_1_1(
                 data
             )
         case "WAFSubscriptionNotFoundException":
-            import aws_sdk_wafv2.errors.waf_subscription_not_found_exception
-
             raise aws_sdk_wafv2.errors.waf_subscription_not_found_exception.WAFSubscriptionNotFoundException.from_aws_json_1_1(
                 data
             )
         case "WAFTagOperationException":
-            import aws_sdk_wafv2.errors.waf_tag_operation_exception
-
             raise aws_sdk_wafv2.errors.waf_tag_operation_exception.WAFTagOperationException.from_aws_json_1_1(
                 data
             )
         case "WAFTagOperationInternalErrorException":
-            import aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception
-
             raise aws_sdk_wafv2.errors.waf_tag_operation_internal_error_exception.WAFTagOperationInternalErrorException.from_aws_json_1_1(
                 data
             )
         case "WAFUnavailableEntityException":
-            import aws_sdk_wafv2.errors.waf_unavailable_entity_exception
-
             raise aws_sdk_wafv2.errors.waf_unavailable_entity_exception.WAFUnavailableEntityException.from_aws_json_1_1(
                 data
             )
@@ -95,13 +88,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_wafv2.types.create_rule_group_response.CreateRuleGroupResponse:
-    import aws_sdk_wafv2.types.create_rule_group_response
-
     out: aws_sdk_wafv2.types.create_rule_group_response.CreateRuleGroupResponse = (
         aws_sdk_wafv2.types.create_rule_group_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_wafv2.types.create_rule_group_response.CreateRuleGroupResponse:
+    out: aws_sdk_wafv2.types.create_rule_group_response.CreateRuleGroupResponse = (
+        aws_sdk_wafv2.types.create_rule_group_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -170,8 +172,7 @@ def create_rule_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -189,8 +190,7 @@ async def async_create_rule_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

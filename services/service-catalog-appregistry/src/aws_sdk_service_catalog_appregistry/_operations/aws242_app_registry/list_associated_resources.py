@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,12 @@ from typing_extensions import Never
 
 import aws_sdk_service_catalog_appregistry._auth._signers
 import aws_sdk_service_catalog_appregistry._auth._sigv4
+import aws_sdk_service_catalog_appregistry.errors.internal_server_exception
+import aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception
+import aws_sdk_service_catalog_appregistry.errors.validation_exception
+import aws_sdk_service_catalog_appregistry.types.list_associated_resources_request
+import aws_sdk_service_catalog_appregistry.types.list_associated_resources_response
+import aws_sdk_service_catalog_appregistry.types.resources
 from aws_sdk_service_catalog_appregistry._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -24,30 +30,20 @@ from aws_sdk_service_catalog_appregistry._services._pipeline import (
 )
 from aws_sdk_service_catalog_appregistry.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_service_catalog_appregistry.types.list_associated_resources_request
-    import aws_sdk_service_catalog_appregistry.types.list_associated_resources_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerException":
-            import aws_sdk_service_catalog_appregistry.errors.internal_server_exception
-
             raise aws_sdk_service_catalog_appregistry.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception
-
             raise aws_sdk_service_catalog_appregistry.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_service_catalog_appregistry.errors.validation_exception
-
             raise aws_sdk_service_catalog_appregistry.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -56,12 +52,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.ListAssociatedResourcesResponse:
-    import aws_sdk_service_catalog_appregistry.types.list_associated_resources_response
-
     out: aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.ListAssociatedResourcesResponse = aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.ListAssociatedResourcesResponse:
+    out: aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.ListAssociatedResourcesResponse = aws_sdk_service_catalog_appregistry.types.list_associated_resources_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -128,8 +131,7 @@ def list_associated_resources(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +149,7 @@ async def async_list_associated_resources(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

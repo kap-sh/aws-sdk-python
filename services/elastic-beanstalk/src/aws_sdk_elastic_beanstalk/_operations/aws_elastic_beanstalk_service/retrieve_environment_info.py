@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,10 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_beanstalk._auth._signers
 import aws_sdk_elastic_beanstalk._auth._sigv4
+import aws_sdk_elastic_beanstalk.types.environment_info_description_list
+import aws_sdk_elastic_beanstalk.types.environment_info_type
+import aws_sdk_elastic_beanstalk.types.retrieve_environment_info_message
+import aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message
 from aws_sdk_elastic_beanstalk._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_beanstalk._protocol.xml import (
     fromstring,
@@ -24,10 +28,6 @@ from aws_sdk_elastic_beanstalk._services._pipeline import (
 )
 from aws_sdk_elastic_beanstalk.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_beanstalk.types.retrieve_environment_info_message
-    import aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
@@ -38,11 +38,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.RetrieveEnvironmentInfoResultMessage:
-    import aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message
-
     root = fromstring(response.read())
+    result = root.find("RetrieveEnvironmentInfoResult")
+    out: aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.RetrieveEnvironmentInfoResultMessage = aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.RetrieveEnvironmentInfoResultMessage:
+    root = fromstring(await response.aread())
     result = root.find("RetrieveEnvironmentInfoResult")
     out: aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.RetrieveEnvironmentInfoResultMessage = aws_sdk_elastic_beanstalk.types.retrieve_environment_info_result_message.deserialize_query(
         result if result is not None else root
@@ -116,8 +125,7 @@ def retrieve_environment_info(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -135,8 +143,7 @@ async def async_retrieve_environment_info(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

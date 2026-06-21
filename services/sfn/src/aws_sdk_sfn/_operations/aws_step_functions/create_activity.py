@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sfn._auth._signers
 import aws_sdk_sfn._auth._sigv4
+import aws_sdk_sfn.errors.activity_already_exists
+import aws_sdk_sfn.errors.activity_limit_exceeded
+import aws_sdk_sfn.errors.invalid_encryption_configuration
+import aws_sdk_sfn.errors.invalid_name
+import aws_sdk_sfn.errors.kms_access_denied_exception
+import aws_sdk_sfn.errors.kms_throttling_exception
+import aws_sdk_sfn.errors.too_many_tags
+import aws_sdk_sfn.types.create_activity_input
+import aws_sdk_sfn.types.create_activity_output
+import aws_sdk_sfn.types.encryption_configuration
+import aws_sdk_sfn.types.tag_list
+import aws_sdk_sfn.types.timestamp
 from aws_sdk_sfn._protocol.errors import parse_error_metadata_json
 from aws_sdk_sfn._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sfn._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sfn.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sfn.types.create_activity_input
-    import aws_sdk_sfn.types.create_activity_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,55 +33,50 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ActivityAlreadyExists":
-            import aws_sdk_sfn.errors.activity_already_exists
-
             raise aws_sdk_sfn.errors.activity_already_exists.ActivityAlreadyExists.from_aws_json_1_0(
                 data
             )
         case "ActivityLimitExceeded":
-            import aws_sdk_sfn.errors.activity_limit_exceeded
-
             raise aws_sdk_sfn.errors.activity_limit_exceeded.ActivityLimitExceeded.from_aws_json_1_0(
                 data
             )
         case "InvalidEncryptionConfiguration":
-            import aws_sdk_sfn.errors.invalid_encryption_configuration
-
             raise aws_sdk_sfn.errors.invalid_encryption_configuration.InvalidEncryptionConfiguration.from_aws_json_1_0(
                 data
             )
         case "InvalidName":
-            import aws_sdk_sfn.errors.invalid_name
-
             raise aws_sdk_sfn.errors.invalid_name.InvalidName.from_aws_json_1_0(data)
         case "KmsAccessDeniedException":
-            import aws_sdk_sfn.errors.kms_access_denied_exception
-
             raise aws_sdk_sfn.errors.kms_access_denied_exception.KmsAccessDeniedException.from_aws_json_1_0(
                 data
             )
         case "KmsThrottlingException":
-            import aws_sdk_sfn.errors.kms_throttling_exception
-
             raise aws_sdk_sfn.errors.kms_throttling_exception.KmsThrottlingException.from_aws_json_1_0(
                 data
             )
         case "TooManyTags":
-            import aws_sdk_sfn.errors.too_many_tags
-
             raise aws_sdk_sfn.errors.too_many_tags.TooManyTags.from_aws_json_1_0(data)
         case _:
             raise UnknownServiceError(code=code, message=message, response=response)
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sfn.types.create_activity_output.CreateActivityOutput:
-    import aws_sdk_sfn.types.create_activity_output
-
     out: aws_sdk_sfn.types.create_activity_output.CreateActivityOutput = (
         aws_sdk_sfn.types.create_activity_output.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sfn.types.create_activity_output.CreateActivityOutput:
+    out: aws_sdk_sfn.types.create_activity_output.CreateActivityOutput = (
+        aws_sdk_sfn.types.create_activity_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -141,8 +144,7 @@ def create_activity(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -159,8 +161,7 @@ async def async_create_activity(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

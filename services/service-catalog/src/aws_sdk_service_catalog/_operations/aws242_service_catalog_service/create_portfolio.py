@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_service_catalog._auth._signers
 import aws_sdk_service_catalog._auth._sigv4
+import aws_sdk_service_catalog.errors.invalid_parameters_exception
+import aws_sdk_service_catalog.errors.limit_exceeded_exception
+import aws_sdk_service_catalog.errors.tag_option_not_migrated_exception
+import aws_sdk_service_catalog.types.add_tags
+import aws_sdk_service_catalog.types.create_portfolio_input
+import aws_sdk_service_catalog.types.create_portfolio_output
+import aws_sdk_service_catalog.types.portfolio_detail
+import aws_sdk_service_catalog.types.tags
 from aws_sdk_service_catalog._protocol.errors import parse_error_metadata_json
 from aws_sdk_service_catalog._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,30 +29,20 @@ from aws_sdk_service_catalog._services._pipeline import (
 )
 from aws_sdk_service_catalog.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_service_catalog.types.create_portfolio_input
-    import aws_sdk_service_catalog.types.create_portfolio_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidParametersException":
-            import aws_sdk_service_catalog.errors.invalid_parameters_exception
-
             raise aws_sdk_service_catalog.errors.invalid_parameters_exception.InvalidParametersException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_service_catalog.errors.limit_exceeded_exception
-
             raise aws_sdk_service_catalog.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "TagOptionNotMigratedException":
-            import aws_sdk_service_catalog.errors.tag_option_not_migrated_exception
-
             raise aws_sdk_service_catalog.errors.tag_option_not_migrated_exception.TagOptionNotMigratedException.from_aws_json_1_1(
                 data
             )
@@ -53,13 +51,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_service_catalog.types.create_portfolio_output.CreatePortfolioOutput:
-    import aws_sdk_service_catalog.types.create_portfolio_output
-
     out: aws_sdk_service_catalog.types.create_portfolio_output.CreatePortfolioOutput = (
         aws_sdk_service_catalog.types.create_portfolio_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_service_catalog.types.create_portfolio_output.CreatePortfolioOutput:
+    out: aws_sdk_service_catalog.types.create_portfolio_output.CreatePortfolioOutput = (
+        aws_sdk_service_catalog.types.create_portfolio_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -130,8 +137,7 @@ def create_portfolio(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -149,8 +155,7 @@ async def async_create_portfolio(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

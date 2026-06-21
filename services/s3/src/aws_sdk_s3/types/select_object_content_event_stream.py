@@ -2,8 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError, SerializationError
+from aws_sdk_s3._iter import AnyIterator
+from aws_sdk_s3._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_s3.types.continuation_event
@@ -33,66 +33,82 @@ class _SelectObjectContentEventStream_End(TypedDict):
     End: "aws_sdk_s3.types.end_event.EndEvent"
 
 
-SelectObjectContentEventStream: TypeAlias = (
+_SelectObjectContentEventStream: TypeAlias = (
     _SelectObjectContentEventStream_Records
     | _SelectObjectContentEventStream_Stats
     | _SelectObjectContentEventStream_Progress
     | _SelectObjectContentEventStream_Cont
     | _SelectObjectContentEventStream_End
 )
+SelectObjectContentEventStream: TypeAlias = AnyIterator[_SelectObjectContentEventStream]
 
 
-# --- restXml ser/de ---
-def serialize_xml(
-    value: SelectObjectContentEventStream, parent: Element, tag: str
-) -> None:
-    el = SubElement(parent, tag)
-    if "Records" in value:
-        import aws_sdk_s3.types.records_event
-
-        aws_sdk_s3.types.records_event.serialize_xml(value["Records"], el, "Records")
-    elif "Stats" in value:
-        import aws_sdk_s3.types.stats_event
-
-        aws_sdk_s3.types.stats_event.serialize_xml(value["Stats"], el, "Stats")
-    elif "Progress" in value:
-        import aws_sdk_s3.types.progress_event
-
-        aws_sdk_s3.types.progress_event.serialize_xml(value["Progress"], el, "Progress")
-    elif "Cont" in value:
-        import aws_sdk_s3.types.continuation_event
-
-        aws_sdk_s3.types.continuation_event.serialize_xml(value["Cont"], el, "Cont")
-    elif "End" in value:
-        import aws_sdk_s3.types.end_event
-
-        aws_sdk_s3.types.end_event.serialize_xml(value["End"], el, "End")
-    else:
-        raise SerializationError("SelectObjectContentEventStream: no variant present")
-
-
-def deserialize_xml(el: Element) -> SelectObjectContentEventStream:
-    for child in el:
-        if child.tag == "Records":
+def serialize_event_xml(value: _SelectObjectContentEventStream) -> bytes:
+    match value:
+        case {"Records": payload}:
             import aws_sdk_s3.types.records_event
 
-            return {"Records": aws_sdk_s3.types.records_event.deserialize_xml(child)}
-        elif child.tag == "Stats":
+            return aws_sdk_s3.types.records_event.serialize_event_xml(payload)
+        case {"Stats": payload}:
             import aws_sdk_s3.types.stats_event
 
-            return {"Stats": aws_sdk_s3.types.stats_event.deserialize_xml(child)}
-        elif child.tag == "Progress":
+            return aws_sdk_s3.types.stats_event.serialize_event_xml(payload)
+        case {"Progress": payload}:
             import aws_sdk_s3.types.progress_event
 
-            return {"Progress": aws_sdk_s3.types.progress_event.deserialize_xml(child)}
-        elif child.tag == "Cont":
+            return aws_sdk_s3.types.progress_event.serialize_event_xml(payload)
+        case {"Cont": payload}:
             import aws_sdk_s3.types.continuation_event
 
-            return {"Cont": aws_sdk_s3.types.continuation_event.deserialize_xml(child)}
-        elif child.tag == "End":
+            return aws_sdk_s3.types.continuation_event.serialize_event_xml(payload)
+        case {"End": payload}:
             import aws_sdk_s3.types.end_event
 
-            return {"End": aws_sdk_s3.types.end_event.deserialize_xml(child)}
-    raise DeserializationError(
-        "SelectObjectContentEventStream: no recognized variant element"
-    )
+            return aws_sdk_s3.types.end_event.serialize_event_xml(payload)
+        case _:
+            raise ValueError(
+                f"SelectObjectContentEventStream: unrecognized variant {value!r}"
+            )
+
+
+def deserialize_event_xml(message: Message) -> _SelectObjectContentEventStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "Records":
+            import aws_sdk_s3.types.records_event
+
+            return {
+                "Records": aws_sdk_s3.types.records_event.deserialize_event_xml(message)
+            }
+        case "Stats":
+            import aws_sdk_s3.types.stats_event
+
+            return {
+                "Stats": aws_sdk_s3.types.stats_event.deserialize_event_xml(message)
+            }
+        case "Progress":
+            import aws_sdk_s3.types.progress_event
+
+            return {
+                "Progress": aws_sdk_s3.types.progress_event.deserialize_event_xml(
+                    message
+                )
+            }
+        case "Cont":
+            import aws_sdk_s3.types.continuation_event
+
+            return {
+                "Cont": aws_sdk_s3.types.continuation_event.deserialize_event_xml(
+                    message
+                )
+            }
+        case "End":
+            import aws_sdk_s3.types.end_event
+
+            return {"End": aws_sdk_s3.types.end_event.deserialize_event_xml(message)}
+        case _:
+            raise ValueError(
+                f"SelectObjectContentEventStream: unrecognized event-type {event_type!r}"
+            )

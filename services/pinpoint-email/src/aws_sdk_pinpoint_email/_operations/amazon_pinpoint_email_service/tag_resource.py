@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_pinpoint_email._auth._signers
 import aws_sdk_pinpoint_email._auth._sigv4
+import aws_sdk_pinpoint_email.errors.bad_request_exception
+import aws_sdk_pinpoint_email.errors.concurrent_modification_exception
+import aws_sdk_pinpoint_email.errors.not_found_exception
+import aws_sdk_pinpoint_email.errors.too_many_requests_exception
+import aws_sdk_pinpoint_email.types.tag_list
+import aws_sdk_pinpoint_email.types.tag_resource_request
+import aws_sdk_pinpoint_email.types.tag_resource_response
 from aws_sdk_pinpoint_email._protocol.errors import parse_error_metadata_json
 from aws_sdk_pinpoint_email._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,36 +28,24 @@ from aws_sdk_pinpoint_email._services._pipeline import (
 )
 from aws_sdk_pinpoint_email.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_pinpoint_email.types.tag_resource_request
-    import aws_sdk_pinpoint_email.types.tag_resource_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_pinpoint_email.errors.bad_request_exception
-
             raise aws_sdk_pinpoint_email.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConcurrentModificationException":
-            import aws_sdk_pinpoint_email.errors.concurrent_modification_exception
-
             raise aws_sdk_pinpoint_email.errors.concurrent_modification_exception.ConcurrentModificationException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_pinpoint_email.errors.not_found_exception
-
             raise aws_sdk_pinpoint_email.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_pinpoint_email.errors.too_many_requests_exception
-
             raise aws_sdk_pinpoint_email.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -59,7 +54,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_pinpoint_email.types.tag_resource_response.TagResourceResponse:
+    out: aws_sdk_pinpoint_email.types.tag_resource_response.TagResourceResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_pinpoint_email.types.tag_resource_response.TagResourceResponse:
     out: aws_sdk_pinpoint_email.types.tag_resource_response.TagResourceResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -127,8 +129,7 @@ def tag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -146,8 +147,7 @@ async def async_tag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ResponseStream``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_bedrock_agentcore._iter import AnyIterator
 
 ResponseStream: TypeAlias = AnyIterator[bytes] | bytes

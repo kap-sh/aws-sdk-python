@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.event_id
     import aws_sdk_lex_runtime_v2.types.playback_interruption_reason
@@ -52,4 +54,17 @@ def deserialize_json(data: dict) -> PlaybackInterruptionEvent:
         out["caused_by_event_id"] = data["causedByEventId"]
     if "eventId" in data:
         out["event_id"] = data["eventId"]
+    return out
+
+
+def serialize_event_json(value: PlaybackInterruptionEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "PlaybackInterruptionEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> PlaybackInterruptionEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: PlaybackInterruptionEvent = {}  # type: ignore[typeddict-item]
     return out

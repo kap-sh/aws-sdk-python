@@ -3,13 +3,32 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_workspaces._auth._signers
 import aws_sdk_workspaces._auth._sigv4
+import aws_sdk_workspaces.errors.access_denied_exception
+import aws_sdk_workspaces.errors.invalid_parameter_values_exception
+import aws_sdk_workspaces.errors.invalid_resource_state_exception
+import aws_sdk_workspaces.errors.operation_not_supported_exception
+import aws_sdk_workspaces.errors.resource_already_exists_exception
+import aws_sdk_workspaces.errors.resource_limit_exceeded_exception
+import aws_sdk_workspaces.errors.resource_not_found_exception
+import aws_sdk_workspaces.errors.unsupported_network_configuration_exception
+import aws_sdk_workspaces.errors.workspaces_default_role_not_found_exception
+import aws_sdk_workspaces.types.active_directory_config
+import aws_sdk_workspaces.types.microsoft_entra_config
+import aws_sdk_workspaces.types.register_workspace_directory_request
+import aws_sdk_workspaces.types.register_workspace_directory_result
+import aws_sdk_workspaces.types.subnet_ids
+import aws_sdk_workspaces.types.tag_list
+import aws_sdk_workspaces.types.tenancy
+import aws_sdk_workspaces.types.user_identity_type
+import aws_sdk_workspaces.types.workspace_directory_state
+import aws_sdk_workspaces.types.workspace_type
 from aws_sdk_workspaces._protocol.errors import parse_error_metadata_json
 from aws_sdk_workspaces._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_workspaces._services._pipeline import (
@@ -18,66 +37,44 @@ from aws_sdk_workspaces._services._pipeline import (
 )
 from aws_sdk_workspaces.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_workspaces.types.register_workspace_directory_request
-    import aws_sdk_workspaces.types.register_workspace_directory_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_workspaces.errors.access_denied_exception
-
             raise aws_sdk_workspaces.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValuesException":
-            import aws_sdk_workspaces.errors.invalid_parameter_values_exception
-
             raise aws_sdk_workspaces.errors.invalid_parameter_values_exception.InvalidParameterValuesException.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceStateException":
-            import aws_sdk_workspaces.errors.invalid_resource_state_exception
-
             raise aws_sdk_workspaces.errors.invalid_resource_state_exception.InvalidResourceStateException.from_aws_json_1_1(
                 data
             )
         case "OperationNotSupportedException":
-            import aws_sdk_workspaces.errors.operation_not_supported_exception
-
             raise aws_sdk_workspaces.errors.operation_not_supported_exception.OperationNotSupportedException.from_aws_json_1_1(
                 data
             )
         case "ResourceAlreadyExistsException":
-            import aws_sdk_workspaces.errors.resource_already_exists_exception
-
             raise aws_sdk_workspaces.errors.resource_already_exists_exception.ResourceAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "ResourceLimitExceededException":
-            import aws_sdk_workspaces.errors.resource_limit_exceeded_exception
-
             raise aws_sdk_workspaces.errors.resource_limit_exceeded_exception.ResourceLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_workspaces.errors.resource_not_found_exception
-
             raise aws_sdk_workspaces.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedNetworkConfigurationException":
-            import aws_sdk_workspaces.errors.unsupported_network_configuration_exception
-
             raise aws_sdk_workspaces.errors.unsupported_network_configuration_exception.UnsupportedNetworkConfigurationException.from_aws_json_1_1(
                 data
             )
         case "WorkspacesDefaultRoleNotFoundException":
-            import aws_sdk_workspaces.errors.workspaces_default_role_not_found_exception
-
             raise aws_sdk_workspaces.errors.workspaces_default_role_not_found_exception.WorkspacesDefaultRoleNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -86,12 +83,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult:
-    import aws_sdk_workspaces.types.register_workspace_directory_result
-
     out: aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult = aws_sdk_workspaces.types.register_workspace_directory_result.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult:
+    out: aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult = aws_sdk_workspaces.types.register_workspace_directory_result.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -161,8 +165,7 @@ def register_workspace_directory(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -180,8 +183,7 @@ async def async_register_workspace_directory(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

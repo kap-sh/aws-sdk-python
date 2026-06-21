@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,17 @@ from typing_extensions import Never
 
 import aws_sdk_s3tables._auth._signers
 import aws_sdk_s3tables._auth._sigv4
+import aws_sdk_s3tables.errors.bad_request_exception
+import aws_sdk_s3tables.errors.conflict_exception
+import aws_sdk_s3tables.errors.forbidden_exception
+import aws_sdk_s3tables.errors.internal_server_error_exception
+import aws_sdk_s3tables.errors.not_found_exception
+import aws_sdk_s3tables.errors.too_many_requests_exception
+import aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request
 from aws_sdk_s3tables._protocol.errors import parse_error_metadata_json
 from aws_sdk_s3tables._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_s3tables._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3tables.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +29,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_s3tables.errors.bad_request_exception
-
             raise aws_sdk_s3tables.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_s3tables.errors.conflict_exception
-
             raise aws_sdk_s3tables.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_s3tables.errors.forbidden_exception
-
             raise aws_sdk_s3tables.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_s3tables.errors.internal_server_error_exception
-
             raise aws_sdk_s3tables.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_s3tables.errors.not_found_exception
-
             raise aws_sdk_s3tables.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_s3tables.errors.too_many_requests_exception
-
             raise aws_sdk_s3tables.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -121,7 +113,6 @@ def put_table_bucket_metrics_configuration(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -137,7 +128,6 @@ async def async_put_table_bucket_metrics_configuration(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

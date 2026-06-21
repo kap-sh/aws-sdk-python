@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.audio_chunk
 
@@ -18,25 +20,25 @@ class AudioEvent(TypedDict):
 # --- restJson1 ser/de ---
 def serialize_json(value: AudioEvent) -> dict:
     out: dict = {}
-    if "audio_chunk" in value:
-        import aws_sdk_transcribe_streaming.types.audio_chunk
-
-        out["AudioChunk"] = (
-            aws_sdk_transcribe_streaming.types.audio_chunk.serialize_json(
-                value["audio_chunk"]
-            )
-        )
     return out
 
 
 def deserialize_json(data: dict) -> AudioEvent:
     out: AudioEvent = {}  # type: ignore[typeddict-item]
-    if "AudioChunk" in data:
-        import aws_sdk_transcribe_streaming.types.audio_chunk
+    return out
 
-        out["audio_chunk"] = (
-            aws_sdk_transcribe_streaming.types.audio_chunk.deserialize_json(
-                data["AudioChunk"]
-            )
-        )
+
+def serialize_event_json(value: AudioEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "AudioEvent"}
+    payload = b""
+    payload = value["audio_chunk"]
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> AudioEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: AudioEvent = {}  # type: ignore[typeddict-item]
+    if payload:
+        out["audio_chunk"] = payload
     return out

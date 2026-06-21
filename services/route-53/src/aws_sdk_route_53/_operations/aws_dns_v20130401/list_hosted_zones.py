@@ -2,22 +2,25 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4
+import aws_sdk_route_53.errors.delegation_set_not_reusable
+import aws_sdk_route_53.errors.invalid_input
+import aws_sdk_route_53.errors.no_such_delegation_set
+import aws_sdk_route_53.types.hosted_zone_type
+import aws_sdk_route_53.types.hosted_zones
+import aws_sdk_route_53.types.list_hosted_zones_request
+import aws_sdk_route_53.types.list_hosted_zones_response
 from aws_sdk_route_53._protocol.errors import parse_error_metadata
 from aws_sdk_route_53._protocol.xml import fromstring
 from aws_sdk_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_route_53.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_route_53.types.list_hosted_zones_request
-    import aws_sdk_route_53.types.list_hosted_zones_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,18 +28,12 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DelegationSetNotReusable":
-            import aws_sdk_route_53.errors.delegation_set_not_reusable
-
             raise aws_sdk_route_53.errors.delegation_set_not_reusable.DelegationSetNotReusable.from_xml(
                 root
             )
         case "InvalidInput":
-            import aws_sdk_route_53.errors.invalid_input
-
             raise aws_sdk_route_53.errors.invalid_input.InvalidInput.from_xml(root)
         case "NoSuchDelegationSet":
-            import aws_sdk_route_53.errors.no_such_delegation_set
-
             raise aws_sdk_route_53.errors.no_such_delegation_set.NoSuchDelegationSet.from_xml(
                 root
             )
@@ -45,13 +42,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route_53.types.list_hosted_zones_response.ListHostedZonesResponse:
-    import aws_sdk_route_53.types.list_hosted_zones_response
-
     out: aws_sdk_route_53.types.list_hosted_zones_response.ListHostedZonesResponse = (
         aws_sdk_route_53.types.list_hosted_zones_response.deserialize_xml(
             fromstring(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route_53.types.list_hosted_zones_response.ListHostedZonesResponse:
+    out: aws_sdk_route_53.types.list_hosted_zones_response.ListHostedZonesResponse = (
+        aws_sdk_route_53.types.list_hosted_zones_response.deserialize_xml(
+            fromstring(await response.aread())
         )
     )
     return out
@@ -122,8 +128,7 @@ def list_hosted_zones(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +146,7 @@ async def async_list_hosted_zones(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

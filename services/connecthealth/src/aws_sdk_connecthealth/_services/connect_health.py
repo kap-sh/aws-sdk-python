@@ -1,7 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ConnectHealth``."""
 
 import warnings
-from collections.abc import Iterator
+from collections.abc import Generator, Iterator
+from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -717,6 +718,7 @@ class ConnectHealthClient:
         )
         return response.output
 
+    @contextmanager
     def start_medical_scribe_listening_session(
         self,
         session_id: "aws_sdk_connecthealth.types.scribe_session_id.ScribeSessionId",
@@ -728,7 +730,7 @@ class ConnectHealthClient:
         *,
         config_overrides: Optional[ConnectHealthClientConfig] = None,
         input_stream: Optional[Iterator[bytes] | bytes] = None,
-    ) -> "aws_sdk_connecthealth.types.start_medical_scribe_listening_session_output.StartMedicalScribeListeningSessionOutput":
+    ) -> "Generator[aws_sdk_connecthealth.types.start_medical_scribe_listening_session_output.StartMedicalScribeListeningSessionOutput]":
         """<p>Starts a new Medical Scribe listening session for real-time audio transcription</p>
 
         Args:
@@ -771,7 +773,7 @@ class ConnectHealthClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def start_patient_insights_job(
         self,

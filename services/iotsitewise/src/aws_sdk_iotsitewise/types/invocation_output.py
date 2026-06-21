@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.citations
     import aws_sdk_iotsitewise.types.string
@@ -40,4 +42,17 @@ def deserialize_json(data: dict) -> InvocationOutput:
         out["citations"] = aws_sdk_iotsitewise.types.citations.deserialize_json(
             data["citations"]
         )
+    return out
+
+
+def serialize_event_json(value: InvocationOutput) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "output"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> InvocationOutput:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: InvocationOutput = {}  # type: ignore[typeddict-item]
     return out

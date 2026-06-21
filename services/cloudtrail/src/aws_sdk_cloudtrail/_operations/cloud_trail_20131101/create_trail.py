@@ -3,13 +3,49 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudtrail._auth._signers
 import aws_sdk_cloudtrail._auth._sigv4
+import aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception
+import aws_sdk_cloudtrail.errors.cloud_trail_invalid_client_token_id_exception
+import aws_sdk_cloudtrail.errors.cloud_watch_logs_delivery_unavailable_exception
+import aws_sdk_cloudtrail.errors.conflict_exception
+import aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception
+import aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception
+import aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception
+import aws_sdk_cloudtrail.errors.insufficient_sns_topic_policy_exception
+import aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_log_group_arn_exception
+import aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_role_arn_exception
+import aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception
+import aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception
+import aws_sdk_cloudtrail.errors.invalid_parameter_exception
+import aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception
+import aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception
+import aws_sdk_cloudtrail.errors.invalid_sns_topic_name_exception
+import aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception
+import aws_sdk_cloudtrail.errors.invalid_trail_name_exception
+import aws_sdk_cloudtrail.errors.kms_exception
+import aws_sdk_cloudtrail.errors.kms_key_disabled_exception
+import aws_sdk_cloudtrail.errors.kms_key_not_found_exception
+import aws_sdk_cloudtrail.errors.maximum_number_of_trails_exceeded_exception
+import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
+import aws_sdk_cloudtrail.errors.not_organization_master_account_exception
+import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
+import aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception
+import aws_sdk_cloudtrail.errors.organizations_not_in_use_exception
+import aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception
+import aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception
+import aws_sdk_cloudtrail.errors.throttling_exception
+import aws_sdk_cloudtrail.errors.trail_already_exists_exception
+import aws_sdk_cloudtrail.errors.trail_not_provided_exception
+import aws_sdk_cloudtrail.errors.unsupported_operation_exception
+import aws_sdk_cloudtrail.types.create_trail_request
+import aws_sdk_cloudtrail.types.create_trail_response
+import aws_sdk_cloudtrail.types.tags_list
 from aws_sdk_cloudtrail._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudtrail._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudtrail._services._pipeline import (
@@ -18,210 +54,140 @@ from aws_sdk_cloudtrail._services._pipeline import (
 )
 from aws_sdk_cloudtrail.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudtrail.types.create_trail_request
-    import aws_sdk_cloudtrail.types.create_trail_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CloudTrailAccessNotEnabledException":
-            import aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception
-
             raise aws_sdk_cloudtrail.errors.cloud_trail_access_not_enabled_exception.CloudTrailAccessNotEnabledException.from_aws_json_1_1(
                 data
             )
         case "CloudTrailInvalidClientTokenIdException":
-            import aws_sdk_cloudtrail.errors.cloud_trail_invalid_client_token_id_exception
-
             raise aws_sdk_cloudtrail.errors.cloud_trail_invalid_client_token_id_exception.CloudTrailInvalidClientTokenIdException.from_aws_json_1_1(
                 data
             )
         case "CloudWatchLogsDeliveryUnavailableException":
-            import aws_sdk_cloudtrail.errors.cloud_watch_logs_delivery_unavailable_exception
-
             raise aws_sdk_cloudtrail.errors.cloud_watch_logs_delivery_unavailable_exception.CloudWatchLogsDeliveryUnavailableException.from_aws_json_1_1(
                 data
             )
         case "ConflictException":
-            import aws_sdk_cloudtrail.errors.conflict_exception
-
             raise aws_sdk_cloudtrail.errors.conflict_exception.ConflictException.from_aws_json_1_1(
                 data
             )
         case "InsufficientDependencyServiceAccessPermissionException":
-            import aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception
-
             raise aws_sdk_cloudtrail.errors.insufficient_dependency_service_access_permission_exception.InsufficientDependencyServiceAccessPermissionException.from_aws_json_1_1(
                 data
             )
         case "InsufficientEncryptionPolicyException":
-            import aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception
-
             raise aws_sdk_cloudtrail.errors.insufficient_encryption_policy_exception.InsufficientEncryptionPolicyException.from_aws_json_1_1(
                 data
             )
         case "InsufficientS3BucketPolicyException":
-            import aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception
-
             raise aws_sdk_cloudtrail.errors.insufficient_s3_bucket_policy_exception.InsufficientS3BucketPolicyException.from_aws_json_1_1(
                 data
             )
         case "InsufficientSnsTopicPolicyException":
-            import aws_sdk_cloudtrail.errors.insufficient_sns_topic_policy_exception
-
             raise aws_sdk_cloudtrail.errors.insufficient_sns_topic_policy_exception.InsufficientSnsTopicPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidCloudWatchLogsLogGroupArnException":
-            import aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_log_group_arn_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_log_group_arn_exception.InvalidCloudWatchLogsLogGroupArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidCloudWatchLogsRoleArnException":
-            import aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_role_arn_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_cloud_watch_logs_role_arn_exception.InvalidCloudWatchLogsRoleArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidKmsKeyIdException":
-            import aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_kms_key_id_exception.InvalidKmsKeyIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_cloudtrail.errors.invalid_parameter_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3BucketNameException":
-            import aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_s3_bucket_name_exception.InvalidS3BucketNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3PrefixException":
-            import aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_s3_prefix_exception.InvalidS3PrefixException.from_aws_json_1_1(
                 data
             )
         case "InvalidSnsTopicNameException":
-            import aws_sdk_cloudtrail.errors.invalid_sns_topic_name_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_sns_topic_name_exception.InvalidSnsTopicNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidTagParameterException":
-            import aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_tag_parameter_exception.InvalidTagParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidTrailNameException":
-            import aws_sdk_cloudtrail.errors.invalid_trail_name_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException.from_aws_json_1_1(
                 data
             )
         case "KmsException":
-            import aws_sdk_cloudtrail.errors.kms_exception
-
             raise aws_sdk_cloudtrail.errors.kms_exception.KmsException.from_aws_json_1_1(
                 data
             )
         case "KmsKeyDisabledException":
-            import aws_sdk_cloudtrail.errors.kms_key_disabled_exception
-
             raise aws_sdk_cloudtrail.errors.kms_key_disabled_exception.KmsKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "KmsKeyNotFoundException":
-            import aws_sdk_cloudtrail.errors.kms_key_not_found_exception
-
             raise aws_sdk_cloudtrail.errors.kms_key_not_found_exception.KmsKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "MaximumNumberOfTrailsExceededException":
-            import aws_sdk_cloudtrail.errors.maximum_number_of_trails_exceeded_exception
-
             raise aws_sdk_cloudtrail.errors.maximum_number_of_trails_exceeded_exception.MaximumNumberOfTrailsExceededException.from_aws_json_1_1(
                 data
             )
         case "NoManagementAccountSLRExistsException":
-            import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
-
             raise aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException.from_aws_json_1_1(
                 data
             )
         case "NotOrganizationMasterAccountException":
-            import aws_sdk_cloudtrail.errors.not_organization_master_account_exception
-
             raise aws_sdk_cloudtrail.errors.not_organization_master_account_exception.NotOrganizationMasterAccountException.from_aws_json_1_1(
                 data
             )
         case "OperationNotPermittedException":
-            import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
-
             raise aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException.from_aws_json_1_1(
                 data
             )
         case "OrganizationNotInAllFeaturesModeException":
-            import aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception
-
             raise aws_sdk_cloudtrail.errors.organization_not_in_all_features_mode_exception.OrganizationNotInAllFeaturesModeException.from_aws_json_1_1(
                 data
             )
         case "OrganizationsNotInUseException":
-            import aws_sdk_cloudtrail.errors.organizations_not_in_use_exception
-
             raise aws_sdk_cloudtrail.errors.organizations_not_in_use_exception.OrganizationsNotInUseException.from_aws_json_1_1(
                 data
             )
         case "S3BucketDoesNotExistException":
-            import aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception
-
             raise aws_sdk_cloudtrail.errors.s3_bucket_does_not_exist_exception.S3BucketDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "TagsLimitExceededException":
-            import aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception
-
             raise aws_sdk_cloudtrail.errors.tags_limit_exceeded_exception.TagsLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_cloudtrail.errors.throttling_exception
-
             raise aws_sdk_cloudtrail.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
         case "TrailAlreadyExistsException":
-            import aws_sdk_cloudtrail.errors.trail_already_exists_exception
-
             raise aws_sdk_cloudtrail.errors.trail_already_exists_exception.TrailAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "TrailNotProvidedException":
-            import aws_sdk_cloudtrail.errors.trail_not_provided_exception
-
             raise aws_sdk_cloudtrail.errors.trail_not_provided_exception.TrailNotProvidedException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_cloudtrail.errors.unsupported_operation_exception
-
             raise aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -230,13 +196,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudtrail.types.create_trail_response.CreateTrailResponse:
-    import aws_sdk_cloudtrail.types.create_trail_response
-
     out: aws_sdk_cloudtrail.types.create_trail_response.CreateTrailResponse = (
         aws_sdk_cloudtrail.types.create_trail_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudtrail.types.create_trail_response.CreateTrailResponse:
+    out: aws_sdk_cloudtrail.types.create_trail_response.CreateTrailResponse = (
+        aws_sdk_cloudtrail.types.create_trail_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -304,8 +279,7 @@ def create_trail(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -322,8 +296,7 @@ async def async_create_trail(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

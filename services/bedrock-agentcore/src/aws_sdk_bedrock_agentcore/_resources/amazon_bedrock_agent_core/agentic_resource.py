@@ -190,6 +190,7 @@ class AgenticResource:
         )
         yield response.output
 
+    @contextmanager
     def invoke_agent_runtime_command(
         self,
         agent_runtime_arn: str,
@@ -209,7 +210,7 @@ class AgenticResource:
         baggage: Optional[str] = None,
         qualifier: Optional[str] = None,
         account_id: Optional[str] = None,
-    ) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
+    ) -> "Generator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse]":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
 
         Args:
@@ -268,7 +269,7 @@ class AgenticResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def stop_runtime_session(
         self,
@@ -473,6 +474,7 @@ class AsyncAgenticResource:
         )
         yield response.output
 
+    @asynccontextmanager
     async def invoke_agent_runtime_command(
         self,
         agent_runtime_arn: str,
@@ -492,7 +494,7 @@ class AsyncAgenticResource:
         baggage: Optional[str] = None,
         qualifier: Optional[str] = None,
         account_id: Optional[str] = None,
-    ) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse]":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
 
         Args:
@@ -552,7 +554,7 @@ class AsyncAgenticResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def stop_runtime_session(
         self,

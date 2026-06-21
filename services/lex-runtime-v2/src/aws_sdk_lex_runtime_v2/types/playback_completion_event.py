@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.epoch_millis
     import aws_sdk_lex_runtime_v2.types.event_id
@@ -33,4 +35,17 @@ def deserialize_json(data: dict) -> PlaybackCompletionEvent:
         out["client_timestamp_millis"] = data["clientTimestampMillis"]
     else:
         out["client_timestamp_millis"] = 0
+    return out
+
+
+def serialize_event_json(value: PlaybackCompletionEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "PlaybackCompletionEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> PlaybackCompletionEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: PlaybackCompletionEvent = {}  # type: ignore[typeddict-item]
     return out

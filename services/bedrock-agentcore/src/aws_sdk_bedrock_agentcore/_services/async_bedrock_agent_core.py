@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#AmazonBedrockAgentCore``."""
 
 import warnings
+from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -541,6 +543,7 @@ class AsyncBedrockAgentCoreClient:
         )
         return response.output
 
+    @asynccontextmanager
     async def invoke_code_interpreter(
         self,
         code_interpreter_identifier: str,
@@ -555,7 +558,7 @@ class AsyncBedrockAgentCoreClient:
         arguments: Optional[
             "aws_sdk_bedrock_agentcore.types.tool_arguments.ToolArguments"
         ] = None,
-    ) -> "aws_sdk_bedrock_agentcore.types.invoke_code_interpreter_response.InvokeCodeInterpreterResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_code_interpreter_response.InvokeCodeInterpreterResponse]":
         r"""<p>Executes code within an active code interpreter session in Amazon Bedrock AgentCore. This operation processes the provided code, runs it in a secure environment, and returns the execution results including output, errors, and generated visualizations.</p> <p>To execute code, you must specify the code interpreter identifier, session ID, and the code to run in the arguments parameter. The operation returns a stream containing the execution results, which can include text output, error messages, and data visualizations.</p> <p>This operation is subject to request rate limiting based on your account's service quotas.</p> <p>The following operations are related to <code>InvokeCodeInterpreter</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
 
         Args:
@@ -600,8 +603,9 @@ class AsyncBedrockAgentCoreClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
+    @asynccontextmanager
     async def invoke_harness(
         self,
         harness_arn: "aws_sdk_bedrock_agentcore.types.harness_arn.HarnessArn",
@@ -629,9 +633,7 @@ class AsyncBedrockAgentCoreClient:
         max_tokens: Optional[int] = None,
         timeout_seconds: Optional[int] = None,
         actor_id: Optional[str] = None,
-    ) -> (
-        "aws_sdk_bedrock_agentcore.types.invoke_harness_response.InvokeHarnessResponse"
-    ):
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_harness_response.InvokeHarnessResponse]":
         """<p>Operation to invoke a Harness.</p>
 
         Args:
@@ -696,7 +698,7 @@ class AsyncBedrockAgentCoreClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def __aenter__(self) -> Self:
         return self

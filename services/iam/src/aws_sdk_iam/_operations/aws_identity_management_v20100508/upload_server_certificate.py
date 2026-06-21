@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,22 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.concurrent_modification_exception
+import aws_sdk_iam.errors.entity_already_exists_exception
+import aws_sdk_iam.errors.invalid_input_exception
+import aws_sdk_iam.errors.key_pair_mismatch_exception
+import aws_sdk_iam.errors.limit_exceeded_exception
+import aws_sdk_iam.errors.malformed_certificate_exception
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.types.server_certificate_metadata
+import aws_sdk_iam.types.tag_list_type
+import aws_sdk_iam.types.upload_server_certificate_request
+import aws_sdk_iam.types.upload_server_certificate_response
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.upload_server_certificate_request
-    import aws_sdk_iam.types.upload_server_certificate_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,44 +33,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ConcurrentModificationException":
-            import aws_sdk_iam.errors.concurrent_modification_exception
-
             raise aws_sdk_iam.errors.concurrent_modification_exception.ConcurrentModificationException.from_query(
                 root
             )
         case "EntityAlreadyExistsException":
-            import aws_sdk_iam.errors.entity_already_exists_exception
-
             raise aws_sdk_iam.errors.entity_already_exists_exception.EntityAlreadyExistsException.from_query(
                 root
             )
         case "InvalidInputException":
-            import aws_sdk_iam.errors.invalid_input_exception
-
             raise aws_sdk_iam.errors.invalid_input_exception.InvalidInputException.from_query(
                 root
             )
         case "KeyPairMismatchException":
-            import aws_sdk_iam.errors.key_pair_mismatch_exception
-
             raise aws_sdk_iam.errors.key_pair_mismatch_exception.KeyPairMismatchException.from_query(
                 root
             )
         case "LimitExceededException":
-            import aws_sdk_iam.errors.limit_exceeded_exception
-
             raise aws_sdk_iam.errors.limit_exceeded_exception.LimitExceededException.from_query(
                 root
             )
         case "MalformedCertificateException":
-            import aws_sdk_iam.errors.malformed_certificate_exception
-
             raise aws_sdk_iam.errors.malformed_certificate_exception.MalformedCertificateException.from_query(
                 root
             )
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
@@ -72,13 +65,24 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_iam.types.upload_server_certificate_response.UploadServerCertificateResponse
 ):
-    import aws_sdk_iam.types.upload_server_certificate_response
-
     root = fromstring(response.read())
+    result = root.find("UploadServerCertificateResult")
+    out: aws_sdk_iam.types.upload_server_certificate_response.UploadServerCertificateResponse = aws_sdk_iam.types.upload_server_certificate_response.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_iam.types.upload_server_certificate_response.UploadServerCertificateResponse
+):
+    root = fromstring(await response.aread())
     result = root.find("UploadServerCertificateResult")
     out: aws_sdk_iam.types.upload_server_certificate_response.UploadServerCertificateResponse = aws_sdk_iam.types.upload_server_certificate_response.deserialize_query(
         result if result is not None else root
@@ -150,8 +154,7 @@ def upload_server_certificate(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -169,8 +172,7 @@ async def async_upload_server_certificate(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

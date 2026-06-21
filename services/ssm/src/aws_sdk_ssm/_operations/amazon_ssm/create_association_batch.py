@@ -3,21 +3,34 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.association_limit_exceeded
+import aws_sdk_ssm.errors.duplicate_instance_id
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.invalid_document
+import aws_sdk_ssm.errors.invalid_document_version
+import aws_sdk_ssm.errors.invalid_instance_id
+import aws_sdk_ssm.errors.invalid_output_location
+import aws_sdk_ssm.errors.invalid_parameters
+import aws_sdk_ssm.errors.invalid_schedule
+import aws_sdk_ssm.errors.invalid_target
+import aws_sdk_ssm.errors.invalid_target_maps
+import aws_sdk_ssm.errors.unsupported_platform_type
+import aws_sdk_ssm.types.association_description_list
+import aws_sdk_ssm.types.create_association_batch_request
+import aws_sdk_ssm.types.create_association_batch_request_entries
+import aws_sdk_ssm.types.create_association_batch_result
+import aws_sdk_ssm.types.failed_create_association_list
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.create_association_batch_request
-    import aws_sdk_ssm.types.create_association_batch_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,74 +38,50 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AssociationLimitExceeded":
-            import aws_sdk_ssm.errors.association_limit_exceeded
-
             raise aws_sdk_ssm.errors.association_limit_exceeded.AssociationLimitExceeded.from_aws_json_1_1(
                 data
             )
         case "DuplicateInstanceId":
-            import aws_sdk_ssm.errors.duplicate_instance_id
-
             raise aws_sdk_ssm.errors.duplicate_instance_id.DuplicateInstanceId.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidDocument":
-            import aws_sdk_ssm.errors.invalid_document
-
             raise aws_sdk_ssm.errors.invalid_document.InvalidDocument.from_aws_json_1_1(
                 data
             )
         case "InvalidDocumentVersion":
-            import aws_sdk_ssm.errors.invalid_document_version
-
             raise aws_sdk_ssm.errors.invalid_document_version.InvalidDocumentVersion.from_aws_json_1_1(
                 data
             )
         case "InvalidInstanceId":
-            import aws_sdk_ssm.errors.invalid_instance_id
-
             raise aws_sdk_ssm.errors.invalid_instance_id.InvalidInstanceId.from_aws_json_1_1(
                 data
             )
         case "InvalidOutputLocation":
-            import aws_sdk_ssm.errors.invalid_output_location
-
             raise aws_sdk_ssm.errors.invalid_output_location.InvalidOutputLocation.from_aws_json_1_1(
                 data
             )
         case "InvalidParameters":
-            import aws_sdk_ssm.errors.invalid_parameters
-
             raise aws_sdk_ssm.errors.invalid_parameters.InvalidParameters.from_aws_json_1_1(
                 data
             )
         case "InvalidSchedule":
-            import aws_sdk_ssm.errors.invalid_schedule
-
             raise aws_sdk_ssm.errors.invalid_schedule.InvalidSchedule.from_aws_json_1_1(
                 data
             )
         case "InvalidTarget":
-            import aws_sdk_ssm.errors.invalid_target
-
             raise aws_sdk_ssm.errors.invalid_target.InvalidTarget.from_aws_json_1_1(
                 data
             )
         case "InvalidTargetMaps":
-            import aws_sdk_ssm.errors.invalid_target_maps
-
             raise aws_sdk_ssm.errors.invalid_target_maps.InvalidTargetMaps.from_aws_json_1_1(
                 data
             )
         case "UnsupportedPlatformType":
-            import aws_sdk_ssm.errors.unsupported_platform_type
-
             raise aws_sdk_ssm.errors.unsupported_platform_type.UnsupportedPlatformType.from_aws_json_1_1(
                 data
             )
@@ -101,12 +90,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.create_association_batch_result.CreateAssociationBatchResult:
-    import aws_sdk_ssm.types.create_association_batch_result
-
     out: aws_sdk_ssm.types.create_association_batch_result.CreateAssociationBatchResult = aws_sdk_ssm.types.create_association_batch_result.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.create_association_batch_result.CreateAssociationBatchResult:
+    out: aws_sdk_ssm.types.create_association_batch_result.CreateAssociationBatchResult = aws_sdk_ssm.types.create_association_batch_result.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -174,8 +170,7 @@ def create_association_batch(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -193,8 +188,7 @@ async def async_create_association_batch(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
+from aws_sdk_qbusiness._iter import AnyIterator
+from aws_sdk_qbusiness._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_execution_event
@@ -41,7 +42,7 @@ class _ChatInputStream_authChallengeResponseEvent(TypedDict):
     authChallengeResponseEvent: "aws_sdk_qbusiness.types.auth_challenge_response_event.AuthChallengeResponseEvent"
 
 
-ChatInputStream: TypeAlias = (
+_ChatInputStream: TypeAlias = (
     _ChatInputStream_configurationEvent
     | _ChatInputStream_textEvent
     | _ChatInputStream_attachmentEvent
@@ -49,110 +50,103 @@ ChatInputStream: TypeAlias = (
     | _ChatInputStream_endOfInputEvent
     | _ChatInputStream_authChallengeResponseEvent
 )
+ChatInputStream: TypeAlias = AnyIterator[_ChatInputStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: ChatInputStream) -> dict:
-    if "configurationEvent" in value:
-        import aws_sdk_qbusiness.types.configuration_event
+def serialize_event_json(value: _ChatInputStream) -> bytes:
+    match value:
+        case {"configurationEvent": payload}:
+            import aws_sdk_qbusiness.types.configuration_event
 
-        return {
-            "configurationEvent": aws_sdk_qbusiness.types.configuration_event.serialize_json(
-                value["configurationEvent"]
+            return aws_sdk_qbusiness.types.configuration_event.serialize_event_json(
+                payload
             )
-        }
-    elif "textEvent" in value:
-        import aws_sdk_qbusiness.types.text_input_event
+        case {"textEvent": payload}:
+            import aws_sdk_qbusiness.types.text_input_event
 
-        return {
-            "textEvent": aws_sdk_qbusiness.types.text_input_event.serialize_json(
-                value["textEvent"]
+            return aws_sdk_qbusiness.types.text_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "attachmentEvent" in value:
-        import aws_sdk_qbusiness.types.attachment_input_event
+        case {"attachmentEvent": payload}:
+            import aws_sdk_qbusiness.types.attachment_input_event
 
-        return {
-            "attachmentEvent": aws_sdk_qbusiness.types.attachment_input_event.serialize_json(
-                value["attachmentEvent"]
+            return aws_sdk_qbusiness.types.attachment_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "actionExecutionEvent" in value:
-        import aws_sdk_qbusiness.types.action_execution_event
+        case {"actionExecutionEvent": payload}:
+            import aws_sdk_qbusiness.types.action_execution_event
 
-        return {
-            "actionExecutionEvent": aws_sdk_qbusiness.types.action_execution_event.serialize_json(
-                value["actionExecutionEvent"]
+            return aws_sdk_qbusiness.types.action_execution_event.serialize_event_json(
+                payload
             )
-        }
-    elif "endOfInputEvent" in value:
-        import aws_sdk_qbusiness.types.end_of_input_event
+        case {"endOfInputEvent": payload}:
+            import aws_sdk_qbusiness.types.end_of_input_event
 
-        return {
-            "endOfInputEvent": aws_sdk_qbusiness.types.end_of_input_event.serialize_json(
-                value["endOfInputEvent"]
+            return aws_sdk_qbusiness.types.end_of_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "authChallengeResponseEvent" in value:
-        import aws_sdk_qbusiness.types.auth_challenge_response_event
+        case {"authChallengeResponseEvent": payload}:
+            import aws_sdk_qbusiness.types.auth_challenge_response_event
 
-        return {
-            "authChallengeResponseEvent": aws_sdk_qbusiness.types.auth_challenge_response_event.serialize_json(
-                value["authChallengeResponseEvent"]
+            return aws_sdk_qbusiness.types.auth_challenge_response_event.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("ChatInputStream: no variant present")
+        case _:
+            raise ValueError(f"ChatInputStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> ChatInputStream:
-    if "configurationEvent" in data:
-        import aws_sdk_qbusiness.types.configuration_event
+def deserialize_event_json(message: Message) -> _ChatInputStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "configurationEvent":
+            import aws_sdk_qbusiness.types.configuration_event
 
-        return {
-            "configurationEvent": aws_sdk_qbusiness.types.configuration_event.deserialize_json(
-                data["configurationEvent"]
-            )
-        }
-    elif "textEvent" in data:
-        import aws_sdk_qbusiness.types.text_input_event
+            return {
+                "configurationEvent": aws_sdk_qbusiness.types.configuration_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "textEvent":
+            import aws_sdk_qbusiness.types.text_input_event
 
-        return {
-            "textEvent": aws_sdk_qbusiness.types.text_input_event.deserialize_json(
-                data["textEvent"]
-            )
-        }
-    elif "attachmentEvent" in data:
-        import aws_sdk_qbusiness.types.attachment_input_event
+            return {
+                "textEvent": aws_sdk_qbusiness.types.text_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "attachmentEvent":
+            import aws_sdk_qbusiness.types.attachment_input_event
 
-        return {
-            "attachmentEvent": aws_sdk_qbusiness.types.attachment_input_event.deserialize_json(
-                data["attachmentEvent"]
-            )
-        }
-    elif "actionExecutionEvent" in data:
-        import aws_sdk_qbusiness.types.action_execution_event
+            return {
+                "attachmentEvent": aws_sdk_qbusiness.types.attachment_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "actionExecutionEvent":
+            import aws_sdk_qbusiness.types.action_execution_event
 
-        return {
-            "actionExecutionEvent": aws_sdk_qbusiness.types.action_execution_event.deserialize_json(
-                data["actionExecutionEvent"]
-            )
-        }
-    elif "endOfInputEvent" in data:
-        import aws_sdk_qbusiness.types.end_of_input_event
+            return {
+                "actionExecutionEvent": aws_sdk_qbusiness.types.action_execution_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "endOfInputEvent":
+            import aws_sdk_qbusiness.types.end_of_input_event
 
-        return {
-            "endOfInputEvent": aws_sdk_qbusiness.types.end_of_input_event.deserialize_json(
-                data["endOfInputEvent"]
-            )
-        }
-    elif "authChallengeResponseEvent" in data:
-        import aws_sdk_qbusiness.types.auth_challenge_response_event
+            return {
+                "endOfInputEvent": aws_sdk_qbusiness.types.end_of_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "authChallengeResponseEvent":
+            import aws_sdk_qbusiness.types.auth_challenge_response_event
 
-        return {
-            "authChallengeResponseEvent": aws_sdk_qbusiness.types.auth_challenge_response_event.deserialize_json(
-                data["authChallengeResponseEvent"]
-            )
-        }
-    else:
-        raise DeserializationError("ChatInputStream: no recognized variant key")
+            return {
+                "authChallengeResponseEvent": aws_sdk_qbusiness.types.auth_challenge_response_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(f"ChatInputStream: unrecognized event-type {event_type!r}")

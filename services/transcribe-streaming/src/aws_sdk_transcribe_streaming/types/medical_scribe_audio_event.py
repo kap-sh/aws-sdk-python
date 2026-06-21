@@ -2,7 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.audio_chunk
@@ -16,24 +16,24 @@ class MedicalScribeAudioEvent(TypedDict):
 # --- restJson1 ser/de ---
 def serialize_json(value: MedicalScribeAudioEvent) -> dict:
     out: dict = {}
-    import aws_sdk_transcribe_streaming.types.audio_chunk
-
-    out["AudioChunk"] = aws_sdk_transcribe_streaming.types.audio_chunk.serialize_json(
-        value["audio_chunk"]
-    )
     return out
 
 
 def deserialize_json(data: dict) -> MedicalScribeAudioEvent:
     out: MedicalScribeAudioEvent = {}  # type: ignore[typeddict-item]
-    if "AudioChunk" in data:
-        import aws_sdk_transcribe_streaming.types.audio_chunk
+    return out
 
-        out["audio_chunk"] = (
-            aws_sdk_transcribe_streaming.types.audio_chunk.deserialize_json(
-                data["AudioChunk"]
-            )
-        )
-    else:
-        raise DeserializationError("MedicalScribeAudioEvent.audio_chunk required")
+
+def serialize_event_json(value: MedicalScribeAudioEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "AudioEvent"}
+    payload = b""
+    payload = value["audio_chunk"]
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> MedicalScribeAudioEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: MedicalScribeAudioEvent = {}  # type: ignore[typeddict-item]
+    out["audio_chunk"] = payload
     return out

@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codedeploy._auth._signers
 import aws_sdk_codedeploy._auth._sigv4
+import aws_sdk_codedeploy.errors.application_does_not_exist_exception
+import aws_sdk_codedeploy.errors.application_name_required_exception
+import aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception
+import aws_sdk_codedeploy.errors.deployment_group_name_required_exception
+import aws_sdk_codedeploy.errors.invalid_application_name_exception
+import aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception
+import aws_sdk_codedeploy.errors.invalid_deployment_status_exception
+import aws_sdk_codedeploy.errors.invalid_external_id_exception
+import aws_sdk_codedeploy.errors.invalid_input_exception
+import aws_sdk_codedeploy.errors.invalid_next_token_exception
+import aws_sdk_codedeploy.errors.invalid_time_range_exception
+import aws_sdk_codedeploy.types.deployment_status_list
+import aws_sdk_codedeploy.types.deployments_list
+import aws_sdk_codedeploy.types.list_deployments_input
+import aws_sdk_codedeploy.types.list_deployments_output
+import aws_sdk_codedeploy.types.time_range
 from aws_sdk_codedeploy._protocol.errors import parse_error_metadata_json
 from aws_sdk_codedeploy._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codedeploy._services._pipeline import (
@@ -18,78 +34,52 @@ from aws_sdk_codedeploy._services._pipeline import (
 )
 from aws_sdk_codedeploy.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codedeploy.types.list_deployments_input
-    import aws_sdk_codedeploy.types.list_deployments_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ApplicationDoesNotExistException":
-            import aws_sdk_codedeploy.errors.application_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ApplicationNameRequiredException":
-            import aws_sdk_codedeploy.errors.application_name_required_exception
-
             raise aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "DeploymentGroupDoesNotExistException":
-            import aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "DeploymentGroupNameRequiredException":
-            import aws_sdk_codedeploy.errors.deployment_group_name_required_exception
-
             raise aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "InvalidApplicationNameException":
-            import aws_sdk_codedeploy.errors.invalid_application_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeploymentGroupNameException":
-            import aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeploymentStatusException":
-            import aws_sdk_codedeploy.errors.invalid_deployment_status_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployment_status_exception.InvalidDeploymentStatusException.from_aws_json_1_1(
                 data
             )
         case "InvalidExternalIdException":
-            import aws_sdk_codedeploy.errors.invalid_external_id_exception
-
             raise aws_sdk_codedeploy.errors.invalid_external_id_exception.InvalidExternalIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_codedeploy.errors.invalid_input_exception
-
             raise aws_sdk_codedeploy.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "InvalidNextTokenException":
-            import aws_sdk_codedeploy.errors.invalid_next_token_exception
-
             raise aws_sdk_codedeploy.errors.invalid_next_token_exception.InvalidNextTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidTimeRangeException":
-            import aws_sdk_codedeploy.errors.invalid_time_range_exception
-
             raise aws_sdk_codedeploy.errors.invalid_time_range_exception.InvalidTimeRangeException.from_aws_json_1_1(
                 data
             )
@@ -98,13 +88,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codedeploy.types.list_deployments_output.ListDeploymentsOutput:
-    import aws_sdk_codedeploy.types.list_deployments_output
-
     out: aws_sdk_codedeploy.types.list_deployments_output.ListDeploymentsOutput = (
         aws_sdk_codedeploy.types.list_deployments_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codedeploy.types.list_deployments_output.ListDeploymentsOutput:
+    out: aws_sdk_codedeploy.types.list_deployments_output.ListDeploymentsOutput = (
+        aws_sdk_codedeploy.types.list_deployments_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -173,8 +172,7 @@ def list_deployments(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -192,8 +190,7 @@ async def async_list_deployments(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

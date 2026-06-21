@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,14 @@ from typing_extensions import Never
 
 import aws_sdk_managedblockchain._auth._signers
 import aws_sdk_managedblockchain._auth._sigv4
+import aws_sdk_managedblockchain.errors.internal_service_error_exception
+import aws_sdk_managedblockchain.errors.invalid_request_exception
+import aws_sdk_managedblockchain.errors.resource_not_found_exception
+import aws_sdk_managedblockchain.errors.resource_not_ready_exception
+import aws_sdk_managedblockchain.errors.too_many_tags_exception
+import aws_sdk_managedblockchain.types.input_tag_map
+import aws_sdk_managedblockchain.types.tag_resource_request
+import aws_sdk_managedblockchain.types.tag_resource_response
 from aws_sdk_managedblockchain._protocol.errors import parse_error_metadata_json
 from aws_sdk_managedblockchain._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,42 +30,28 @@ from aws_sdk_managedblockchain._services._pipeline import (
 )
 from aws_sdk_managedblockchain.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_managedblockchain.types.tag_resource_request
-    import aws_sdk_managedblockchain.types.tag_resource_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceErrorException":
-            import aws_sdk_managedblockchain.errors.internal_service_error_exception
-
             raise aws_sdk_managedblockchain.errors.internal_service_error_exception.InternalServiceErrorException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_managedblockchain.errors.invalid_request_exception
-
             raise aws_sdk_managedblockchain.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_managedblockchain.errors.resource_not_found_exception
-
             raise aws_sdk_managedblockchain.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ResourceNotReadyException":
-            import aws_sdk_managedblockchain.errors.resource_not_ready_exception
-
             raise aws_sdk_managedblockchain.errors.resource_not_ready_exception.ResourceNotReadyException.from_json(
                 data
             )
         case "TooManyTagsException":
-            import aws_sdk_managedblockchain.errors.too_many_tags_exception
-
             raise aws_sdk_managedblockchain.errors.too_many_tags_exception.TooManyTagsException.from_json(
                 data
             )
@@ -66,7 +60,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_managedblockchain.types.tag_resource_response.TagResourceResponse:
+    out: aws_sdk_managedblockchain.types.tag_resource_response.TagResourceResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_managedblockchain.types.tag_resource_response.TagResourceResponse:
     out: aws_sdk_managedblockchain.types.tag_resource_response.TagResourceResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -135,8 +136,7 @@ def tag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -154,8 +154,7 @@ async def async_tag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,13 @@ from typing_extensions import Never
 
 import aws_sdk_backup._auth._signers
 import aws_sdk_backup._auth._sigv4
+import aws_sdk_backup.errors.resource_not_found_exception
+import aws_sdk_backup.errors.service_unavailable_exception
+import aws_sdk_backup.types.delete_restore_testing_selection_input
 from aws_sdk_backup._protocol.errors import parse_error_metadata_json
 from aws_sdk_backup._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_backup._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_backup.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_backup.types.delete_restore_testing_selection_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +25,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ResourceNotFoundException":
-            import aws_sdk_backup.errors.resource_not_found_exception
-
             raise aws_sdk_backup.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_backup.errors.service_unavailable_exception
-
             raise aws_sdk_backup.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
@@ -105,7 +101,6 @@ def delete_restore_testing_selection(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -121,7 +116,6 @@ async def async_delete_restore_testing_selection(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

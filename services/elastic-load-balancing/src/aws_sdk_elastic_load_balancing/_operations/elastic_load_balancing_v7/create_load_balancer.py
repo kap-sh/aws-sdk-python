@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,25 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_load_balancing._auth._signers
 import aws_sdk_elastic_load_balancing._auth._sigv4
+import aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception
+import aws_sdk_elastic_load_balancing.errors.duplicate_access_point_name_exception
+import aws_sdk_elastic_load_balancing.errors.duplicate_tag_keys_exception
+import aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception
+import aws_sdk_elastic_load_balancing.errors.invalid_scheme_exception
+import aws_sdk_elastic_load_balancing.errors.invalid_security_group_exception
+import aws_sdk_elastic_load_balancing.errors.invalid_subnet_exception
+import aws_sdk_elastic_load_balancing.errors.operation_not_permitted_exception
+import aws_sdk_elastic_load_balancing.errors.subnet_not_found_exception
+import aws_sdk_elastic_load_balancing.errors.too_many_access_points_exception
+import aws_sdk_elastic_load_balancing.errors.too_many_tags_exception
+import aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception
+import aws_sdk_elastic_load_balancing.types.availability_zones
+import aws_sdk_elastic_load_balancing.types.create_access_point_input
+import aws_sdk_elastic_load_balancing.types.create_access_point_output
+import aws_sdk_elastic_load_balancing.types.listeners
+import aws_sdk_elastic_load_balancing.types.security_groups
+import aws_sdk_elastic_load_balancing.types.subnets
+import aws_sdk_elastic_load_balancing.types.tag_list
 from aws_sdk_elastic_load_balancing._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_load_balancing._protocol.xml import (
     fromstring,
@@ -24,84 +43,56 @@ from aws_sdk_elastic_load_balancing._services._pipeline import (
 )
 from aws_sdk_elastic_load_balancing.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_load_balancing.types.create_access_point_input
-    import aws_sdk_elastic_load_balancing.types.create_access_point_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "CertificateNotFoundException":
-            import aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception
-
             raise aws_sdk_elastic_load_balancing.errors.certificate_not_found_exception.CertificateNotFoundException.from_query(
                 root
             )
         case "DuplicateAccessPointNameException":
-            import aws_sdk_elastic_load_balancing.errors.duplicate_access_point_name_exception
-
             raise aws_sdk_elastic_load_balancing.errors.duplicate_access_point_name_exception.DuplicateAccessPointNameException.from_query(
                 root
             )
         case "DuplicateTagKeysException":
-            import aws_sdk_elastic_load_balancing.errors.duplicate_tag_keys_exception
-
             raise aws_sdk_elastic_load_balancing.errors.duplicate_tag_keys_exception.DuplicateTagKeysException.from_query(
                 root
             )
         case "InvalidConfigurationRequestException":
-            import aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception
-
             raise aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException.from_query(
                 root
             )
         case "InvalidSchemeException":
-            import aws_sdk_elastic_load_balancing.errors.invalid_scheme_exception
-
             raise aws_sdk_elastic_load_balancing.errors.invalid_scheme_exception.InvalidSchemeException.from_query(
                 root
             )
         case "InvalidSecurityGroupException":
-            import aws_sdk_elastic_load_balancing.errors.invalid_security_group_exception
-
             raise aws_sdk_elastic_load_balancing.errors.invalid_security_group_exception.InvalidSecurityGroupException.from_query(
                 root
             )
         case "InvalidSubnetException":
-            import aws_sdk_elastic_load_balancing.errors.invalid_subnet_exception
-
             raise aws_sdk_elastic_load_balancing.errors.invalid_subnet_exception.InvalidSubnetException.from_query(
                 root
             )
         case "OperationNotPermittedException":
-            import aws_sdk_elastic_load_balancing.errors.operation_not_permitted_exception
-
             raise aws_sdk_elastic_load_balancing.errors.operation_not_permitted_exception.OperationNotPermittedException.from_query(
                 root
             )
         case "SubnetNotFoundException":
-            import aws_sdk_elastic_load_balancing.errors.subnet_not_found_exception
-
             raise aws_sdk_elastic_load_balancing.errors.subnet_not_found_exception.SubnetNotFoundException.from_query(
                 root
             )
         case "TooManyAccessPointsException":
-            import aws_sdk_elastic_load_balancing.errors.too_many_access_points_exception
-
             raise aws_sdk_elastic_load_balancing.errors.too_many_access_points_exception.TooManyAccessPointsException.from_query(
                 root
             )
         case "TooManyTagsException":
-            import aws_sdk_elastic_load_balancing.errors.too_many_tags_exception
-
             raise aws_sdk_elastic_load_balancing.errors.too_many_tags_exception.TooManyTagsException.from_query(
                 root
             )
         case "UnsupportedProtocolException":
-            import aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception
-
             raise aws_sdk_elastic_load_balancing.errors.unsupported_protocol_exception.UnsupportedProtocolException.from_query(
                 root
             )
@@ -110,11 +101,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_load_balancing.types.create_access_point_output.CreateAccessPointOutput:
-    import aws_sdk_elastic_load_balancing.types.create_access_point_output
-
     root = fromstring(response.read())
+    result = root.find("CreateLoadBalancerResult")
+    out: aws_sdk_elastic_load_balancing.types.create_access_point_output.CreateAccessPointOutput = aws_sdk_elastic_load_balancing.types.create_access_point_output.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_load_balancing.types.create_access_point_output.CreateAccessPointOutput:
+    root = fromstring(await response.aread())
     result = root.find("CreateLoadBalancerResult")
     out: aws_sdk_elastic_load_balancing.types.create_access_point_output.CreateAccessPointOutput = aws_sdk_elastic_load_balancing.types.create_access_point_output.deserialize_query(
         result if result is not None else root
@@ -188,8 +188,7 @@ def create_load_balancer(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -207,8 +206,7 @@ async def async_create_load_balancer(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

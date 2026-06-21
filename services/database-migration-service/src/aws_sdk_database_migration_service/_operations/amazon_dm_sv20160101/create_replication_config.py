@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_database_migration_service._auth._signers
 import aws_sdk_database_migration_service._auth._sigv4
+import aws_sdk_database_migration_service.errors.access_denied_fault
+import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
+import aws_sdk_database_migration_service.errors.invalid_subnet
+import aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault
+import aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs
+import aws_sdk_database_migration_service.errors.resource_already_exists_fault
+import aws_sdk_database_migration_service.errors.resource_not_found_fault
+import aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault
+import aws_sdk_database_migration_service.types.compute_config
+import aws_sdk_database_migration_service.types.create_replication_config_message
+import aws_sdk_database_migration_service.types.create_replication_config_response
+import aws_sdk_database_migration_service.types.migration_type_value
+import aws_sdk_database_migration_service.types.replication_config
+import aws_sdk_database_migration_service.types.tag_list
 from aws_sdk_database_migration_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -23,60 +37,40 @@ from aws_sdk_database_migration_service._services._pipeline import (
 )
 from aws_sdk_database_migration_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_database_migration_service.types.create_replication_config_message
-    import aws_sdk_database_migration_service.types.create_replication_config_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedFault":
-            import aws_sdk_database_migration_service.errors.access_denied_fault
-
             raise aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceStateFault":
-            import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
-
             raise aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault.from_aws_json_1_1(
                 data
             )
         case "InvalidSubnet":
-            import aws_sdk_database_migration_service.errors.invalid_subnet
-
             raise aws_sdk_database_migration_service.errors.invalid_subnet.InvalidSubnet.from_aws_json_1_1(
                 data
             )
         case "KMSKeyNotAccessibleFault":
-            import aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault
-
             raise aws_sdk_database_migration_service.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_aws_json_1_1(
                 data
             )
         case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-            import aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs
-
             raise aws_sdk_database_migration_service.errors.replication_subnet_group_does_not_cover_enough_a_zs.ReplicationSubnetGroupDoesNotCoverEnoughAZs.from_aws_json_1_1(
                 data
             )
         case "ResourceAlreadyExistsFault":
-            import aws_sdk_database_migration_service.errors.resource_already_exists_fault
-
             raise aws_sdk_database_migration_service.errors.resource_already_exists_fault.ResourceAlreadyExistsFault.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundFault":
-            import aws_sdk_database_migration_service.errors.resource_not_found_fault
-
             raise aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "ResourceQuotaExceededFault":
-            import aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault
-
             raise aws_sdk_database_migration_service.errors.resource_quota_exceeded_fault.ResourceQuotaExceededFault.from_aws_json_1_1(
                 data
             )
@@ -85,12 +79,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_database_migration_service.types.create_replication_config_response.CreateReplicationConfigResponse:
-    import aws_sdk_database_migration_service.types.create_replication_config_response
-
     out: aws_sdk_database_migration_service.types.create_replication_config_response.CreateReplicationConfigResponse = aws_sdk_database_migration_service.types.create_replication_config_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_database_migration_service.types.create_replication_config_response.CreateReplicationConfigResponse:
+    out: aws_sdk_database_migration_service.types.create_replication_config_response.CreateReplicationConfigResponse = aws_sdk_database_migration_service.types.create_replication_config_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -160,8 +161,7 @@ def create_replication_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -179,8 +179,7 @@ async def async_create_replication_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

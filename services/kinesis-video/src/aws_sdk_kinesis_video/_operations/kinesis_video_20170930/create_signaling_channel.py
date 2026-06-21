@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis_video._auth._signers
 import aws_sdk_kinesis_video._auth._sigv4
+import aws_sdk_kinesis_video.errors.access_denied_exception
+import aws_sdk_kinesis_video.errors.account_channel_limit_exceeded_exception
+import aws_sdk_kinesis_video.errors.client_limit_exceeded_exception
+import aws_sdk_kinesis_video.errors.invalid_argument_exception
+import aws_sdk_kinesis_video.errors.resource_in_use_exception
+import aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception
+import aws_sdk_kinesis_video.types.channel_type
+import aws_sdk_kinesis_video.types.create_signaling_channel_input
+import aws_sdk_kinesis_video.types.create_signaling_channel_output
+import aws_sdk_kinesis_video.types.single_master_configuration
+import aws_sdk_kinesis_video.types.tag_on_create_list
 from aws_sdk_kinesis_video._protocol.errors import parse_error_metadata_json
 from aws_sdk_kinesis_video._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +32,32 @@ from aws_sdk_kinesis_video._services._pipeline import (
 )
 from aws_sdk_kinesis_video.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_kinesis_video.types.create_signaling_channel_input
-    import aws_sdk_kinesis_video.types.create_signaling_channel_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_kinesis_video.errors.access_denied_exception
-
             raise aws_sdk_kinesis_video.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "AccountChannelLimitExceededException":
-            import aws_sdk_kinesis_video.errors.account_channel_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video.errors.account_channel_limit_exceeded_exception.AccountChannelLimitExceededException.from_json(
                 data
             )
         case "ClientLimitExceededException":
-            import aws_sdk_kinesis_video.errors.client_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video.errors.client_limit_exceeded_exception.ClientLimitExceededException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_kinesis_video.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis_video.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_kinesis_video.errors.resource_in_use_exception
-
             raise aws_sdk_kinesis_video.errors.resource_in_use_exception.ResourceInUseException.from_json(
                 data
             )
         case "TagsPerResourceExceededLimitException":
-            import aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception
-
             raise aws_sdk_kinesis_video.errors.tags_per_resource_exceeded_limit_exception.TagsPerResourceExceededLimitException.from_json(
                 data
             )
@@ -71,12 +66,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kinesis_video.types.create_signaling_channel_output.CreateSignalingChannelOutput:
-    import aws_sdk_kinesis_video.types.create_signaling_channel_output
-
     out: aws_sdk_kinesis_video.types.create_signaling_channel_output.CreateSignalingChannelOutput = aws_sdk_kinesis_video.types.create_signaling_channel_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kinesis_video.types.create_signaling_channel_output.CreateSignalingChannelOutput:
+    out: aws_sdk_kinesis_video.types.create_signaling_channel_output.CreateSignalingChannelOutput = aws_sdk_kinesis_video.types.create_signaling_channel_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -145,8 +147,7 @@ def create_signaling_channel(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -164,8 +165,7 @@ async def async_create_signaling_channel(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

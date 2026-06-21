@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.polly#AudioStream``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_polly._iter import AnyIterator
 
 AudioStream: TypeAlias = AnyIterator[bytes] | bytes

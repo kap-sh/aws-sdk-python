@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#Payload``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_kinesis_video_archived_media._iter import AnyIterator
 
 Payload: TypeAlias = AnyIterator[bytes] | bytes

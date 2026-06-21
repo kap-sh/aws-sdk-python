@@ -2,13 +2,24 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_s3_control._auth._signers
 import aws_sdk_s3_control._auth._sigv4
+import aws_sdk_s3_control.errors.bad_request_exception
+import aws_sdk_s3_control.errors.idempotency_exception
+import aws_sdk_s3_control.errors.internal_service_exception
+import aws_sdk_s3_control.errors.too_many_requests_exception
+import aws_sdk_s3_control.types.create_job_request
+import aws_sdk_s3_control.types.create_job_result
+import aws_sdk_s3_control.types.job_manifest
+import aws_sdk_s3_control.types.job_manifest_generator
+import aws_sdk_s3_control.types.job_operation
+import aws_sdk_s3_control.types.job_report
+import aws_sdk_s3_control.types.s3_tag_set
 from aws_sdk_s3_control._protocol.errors import parse_error_metadata
 from aws_sdk_s3_control._protocol.xml import Element, SubElement, fromstring, tostring
 from aws_sdk_s3_control._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,36 +29,24 @@ from aws_sdk_s3_control._services._pipeline import (
 )
 from aws_sdk_s3_control.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_s3_control.types.create_job_request
-    import aws_sdk_s3_control.types.create_job_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "BadRequestException":
-            import aws_sdk_s3_control.errors.bad_request_exception
-
             raise aws_sdk_s3_control.errors.bad_request_exception.BadRequestException.from_xml(
                 root
             )
         case "IdempotencyException":
-            import aws_sdk_s3_control.errors.idempotency_exception
-
             raise aws_sdk_s3_control.errors.idempotency_exception.IdempotencyException.from_xml(
                 root
             )
         case "InternalServiceException":
-            import aws_sdk_s3_control.errors.internal_service_exception
-
             raise aws_sdk_s3_control.errors.internal_service_exception.InternalServiceException.from_xml(
                 root
             )
         case "TooManyRequestsException":
-            import aws_sdk_s3_control.errors.too_many_requests_exception
-
             raise aws_sdk_s3_control.errors.too_many_requests_exception.TooManyRequestsException.from_xml(
                 root
             )
@@ -56,13 +55,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3_control.types.create_job_result.CreateJobResult:
-    import aws_sdk_s3_control.types.create_job_result
-
     out: aws_sdk_s3_control.types.create_job_result.CreateJobResult = (
         aws_sdk_s3_control.types.create_job_result.deserialize_xml(
             fromstring(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3_control.types.create_job_result.CreateJobResult:
+    out: aws_sdk_s3_control.types.create_job_result.CreateJobResult = (
+        aws_sdk_s3_control.types.create_job_result.deserialize_xml(
+            fromstring(await response.aread())
         )
     )
     return out
@@ -176,8 +184,7 @@ def create_job(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -192,8 +199,7 @@ async def async_create_job(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

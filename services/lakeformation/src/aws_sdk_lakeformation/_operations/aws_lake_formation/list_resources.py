@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_lakeformation._auth._signers
 import aws_sdk_lakeformation._auth._sigv4
+import aws_sdk_lakeformation.errors.internal_service_exception
+import aws_sdk_lakeformation.errors.invalid_input_exception
+import aws_sdk_lakeformation.errors.operation_timeout_exception
+import aws_sdk_lakeformation.types.filter_condition_list
+import aws_sdk_lakeformation.types.list_resources_request
+import aws_sdk_lakeformation.types.list_resources_response
+import aws_sdk_lakeformation.types.resource_info_list
 from aws_sdk_lakeformation._protocol.errors import parse_error_metadata_json
 from aws_sdk_lakeformation._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,30 +28,20 @@ from aws_sdk_lakeformation._services._pipeline import (
 )
 from aws_sdk_lakeformation.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_lakeformation.types.list_resources_request
-    import aws_sdk_lakeformation.types.list_resources_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceException":
-            import aws_sdk_lakeformation.errors.internal_service_exception
-
             raise aws_sdk_lakeformation.errors.internal_service_exception.InternalServiceException.from_json(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_lakeformation.errors.invalid_input_exception
-
             raise aws_sdk_lakeformation.errors.invalid_input_exception.InvalidInputException.from_json(
                 data
             )
         case "OperationTimeoutException":
-            import aws_sdk_lakeformation.errors.operation_timeout_exception
-
             raise aws_sdk_lakeformation.errors.operation_timeout_exception.OperationTimeoutException.from_json(
                 data
             )
@@ -53,13 +50,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_lakeformation.types.list_resources_response.ListResourcesResponse:
-    import aws_sdk_lakeformation.types.list_resources_response
-
     out: aws_sdk_lakeformation.types.list_resources_response.ListResourcesResponse = (
         aws_sdk_lakeformation.types.list_resources_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_lakeformation.types.list_resources_response.ListResourcesResponse:
+    out: aws_sdk_lakeformation.types.list_resources_response.ListResourcesResponse = (
+        aws_sdk_lakeformation.types.list_resources_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -127,8 +133,7 @@ def list_resources(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -146,8 +151,7 @@ async def async_list_resources(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

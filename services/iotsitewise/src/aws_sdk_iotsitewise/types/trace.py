@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.string
 
@@ -25,4 +27,17 @@ def deserialize_json(data: dict) -> Trace:
     out: Trace = {}  # type: ignore[typeddict-item]
     if "text" in data:
         out["text"] = data["text"]
+    return out
+
+
+def serialize_event_json(value: Trace) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "trace"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> Trace:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: Trace = {}  # type: ignore[typeddict-item]
     return out

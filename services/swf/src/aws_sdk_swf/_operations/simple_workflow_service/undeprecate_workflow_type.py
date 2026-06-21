@@ -3,20 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_swf._auth._signers
 import aws_sdk_swf._auth._sigv4
+import aws_sdk_swf.errors.operation_not_permitted_fault
+import aws_sdk_swf.errors.type_already_exists_fault
+import aws_sdk_swf.errors.unknown_resource_fault
+import aws_sdk_swf.types.undeprecate_workflow_type_input
+import aws_sdk_swf.types.workflow_type
 from aws_sdk_swf._protocol.errors import parse_error_metadata_json
 from aws_sdk_swf._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_swf._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_swf.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_swf.types.undeprecate_workflow_type_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,20 +26,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "OperationNotPermittedFault":
-            import aws_sdk_swf.errors.operation_not_permitted_fault
-
             raise aws_sdk_swf.errors.operation_not_permitted_fault.OperationNotPermittedFault.from_aws_json_1_0(
                 data
             )
         case "TypeAlreadyExistsFault":
-            import aws_sdk_swf.errors.type_already_exists_fault
-
             raise aws_sdk_swf.errors.type_already_exists_fault.TypeAlreadyExistsFault.from_aws_json_1_0(
                 data
             )
         case "UnknownResourceFault":
-            import aws_sdk_swf.errors.unknown_resource_fault
-
             raise aws_sdk_swf.errors.unknown_resource_fault.UnknownResourceFault.from_aws_json_1_0(
                 data
             )
@@ -103,7 +99,6 @@ def undeprecate_workflow_type(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -119,7 +114,6 @@ async def async_undeprecate_workflow_type(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

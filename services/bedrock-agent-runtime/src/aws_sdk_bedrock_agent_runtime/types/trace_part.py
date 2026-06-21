@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_id
     import aws_sdk_bedrock_agent_runtime.types.agent_id
@@ -114,4 +116,17 @@ def deserialize_json(data: dict) -> TracePart:
         out["agent_alias_id"] = data["agentAliasId"]
     if "agentVersion" in data:
         out["agent_version"] = data["agentVersion"]
+    return out
+
+
+def serialize_event_json(value: TracePart) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "trace"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> TracePart:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: TracePart = {}  # type: ignore[typeddict-item]
     return out

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,14 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.types.global_endpoint_token_version
+import aws_sdk_iam.types.set_security_token_service_preferences_request
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.set_security_token_service_preferences_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,8 +25,6 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
@@ -95,7 +93,6 @@ def set_security_token_service_preferences(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -111,7 +108,6 @@ async def async_set_security_token_service_preferences(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

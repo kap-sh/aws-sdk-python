@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_glue._auth._signers
 import aws_sdk_glue._auth._sigv4
+import aws_sdk_glue.errors.access_denied_exception
+import aws_sdk_glue.errors.conflict_exception
+import aws_sdk_glue.errors.entity_not_found_exception
+import aws_sdk_glue.errors.federation_source_exception
+import aws_sdk_glue.errors.glue_encryption_exception
+import aws_sdk_glue.errors.internal_service_exception
+import aws_sdk_glue.errors.invalid_input_exception
+import aws_sdk_glue.errors.operation_timeout_exception
+import aws_sdk_glue.errors.resource_number_limit_exceeded_exception
+import aws_sdk_glue.types.test_connection_input
+import aws_sdk_glue.types.test_connection_request
+import aws_sdk_glue.types.test_connection_response
 from aws_sdk_glue._protocol.errors import parse_error_metadata_json
 from aws_sdk_glue._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_glue._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_glue.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_glue.types.test_connection_request
-    import aws_sdk_glue.types.test_connection_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,56 +33,38 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_glue.errors.access_denied_exception
-
             raise aws_sdk_glue.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "ConflictException":
-            import aws_sdk_glue.errors.conflict_exception
-
             raise aws_sdk_glue.errors.conflict_exception.ConflictException.from_aws_json_1_1(
                 data
             )
         case "EntityNotFoundException":
-            import aws_sdk_glue.errors.entity_not_found_exception
-
             raise aws_sdk_glue.errors.entity_not_found_exception.EntityNotFoundException.from_aws_json_1_1(
                 data
             )
         case "FederationSourceException":
-            import aws_sdk_glue.errors.federation_source_exception
-
             raise aws_sdk_glue.errors.federation_source_exception.FederationSourceException.from_aws_json_1_1(
                 data
             )
         case "GlueEncryptionException":
-            import aws_sdk_glue.errors.glue_encryption_exception
-
             raise aws_sdk_glue.errors.glue_encryption_exception.GlueEncryptionException.from_aws_json_1_1(
                 data
             )
         case "InternalServiceException":
-            import aws_sdk_glue.errors.internal_service_exception
-
             raise aws_sdk_glue.errors.internal_service_exception.InternalServiceException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_glue.errors.invalid_input_exception
-
             raise aws_sdk_glue.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "OperationTimeoutException":
-            import aws_sdk_glue.errors.operation_timeout_exception
-
             raise aws_sdk_glue.errors.operation_timeout_exception.OperationTimeoutException.from_aws_json_1_1(
                 data
             )
         case "ResourceNumberLimitExceededException":
-            import aws_sdk_glue.errors.resource_number_limit_exceeded_exception
-
             raise aws_sdk_glue.errors.resource_number_limit_exceeded_exception.ResourceNumberLimitExceededException.from_aws_json_1_1(
                 data
             )
@@ -83,7 +73,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_glue.types.test_connection_response.TestConnectionResponse:
+    out: aws_sdk_glue.types.test_connection_response.TestConnectionResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_glue.types.test_connection_response.TestConnectionResponse:
     out: aws_sdk_glue.types.test_connection_response.TestConnectionResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -149,8 +146,7 @@ def test_connection(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +163,7 @@ async def async_test_connection(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

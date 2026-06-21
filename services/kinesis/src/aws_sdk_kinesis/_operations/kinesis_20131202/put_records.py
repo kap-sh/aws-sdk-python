@@ -3,21 +3,33 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis._auth._signers
 import aws_sdk_kinesis._auth._sigv4
+import aws_sdk_kinesis.errors.access_denied_exception
+import aws_sdk_kinesis.errors.internal_failure_exception
+import aws_sdk_kinesis.errors.invalid_argument_exception
+import aws_sdk_kinesis.errors.kms_access_denied_exception
+import aws_sdk_kinesis.errors.kms_disabled_exception
+import aws_sdk_kinesis.errors.kms_invalid_state_exception
+import aws_sdk_kinesis.errors.kms_not_found_exception
+import aws_sdk_kinesis.errors.kms_opt_in_required
+import aws_sdk_kinesis.errors.kms_throttling_exception
+import aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_kinesis.errors.resource_not_found_exception
+import aws_sdk_kinesis.types.encryption_type
+import aws_sdk_kinesis.types.put_records_input
+import aws_sdk_kinesis.types.put_records_output
+import aws_sdk_kinesis.types.put_records_request_entry_list
+import aws_sdk_kinesis.types.put_records_result_entry_list
 from aws_sdk_kinesis._protocol.errors import parse_error_metadata_json
 from aws_sdk_kinesis._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kinesis._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kinesis.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kinesis.types.put_records_input
-    import aws_sdk_kinesis.types.put_records_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,68 +37,46 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_kinesis.errors.access_denied_exception
-
             raise aws_sdk_kinesis.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "InternalFailureException":
-            import aws_sdk_kinesis.errors.internal_failure_exception
-
             raise aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException.from_aws_json_1_1(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_kinesis.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis.errors.invalid_argument_exception.InvalidArgumentException.from_aws_json_1_1(
                 data
             )
         case "KMSAccessDeniedException":
-            import aws_sdk_kinesis.errors.kms_access_denied_exception
-
             raise aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "KMSDisabledException":
-            import aws_sdk_kinesis.errors.kms_disabled_exception
-
             raise aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException.from_aws_json_1_1(
                 data
             )
         case "KMSInvalidStateException":
-            import aws_sdk_kinesis.errors.kms_invalid_state_exception
-
             raise aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "KMSNotFoundException":
-            import aws_sdk_kinesis.errors.kms_not_found_exception
-
             raise aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException.from_aws_json_1_1(
                 data
             )
         case "KMSOptInRequired":
-            import aws_sdk_kinesis.errors.kms_opt_in_required
-
             raise aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired.from_aws_json_1_1(
                 data
             )
         case "KMSThrottlingException":
-            import aws_sdk_kinesis.errors.kms_throttling_exception
-
             raise aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException.from_aws_json_1_1(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_kinesis.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_kinesis.errors.resource_not_found_exception
-
             raise aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -95,13 +85,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kinesis.types.put_records_output.PutRecordsOutput:
-    import aws_sdk_kinesis.types.put_records_output
-
     out: aws_sdk_kinesis.types.put_records_output.PutRecordsOutput = (
         aws_sdk_kinesis.types.put_records_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kinesis.types.put_records_output.PutRecordsOutput:
+    out: aws_sdk_kinesis.types.put_records_output.PutRecordsOutput = (
+        aws_sdk_kinesis.types.put_records_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -172,8 +171,7 @@ def put_records(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -188,8 +186,7 @@ async def async_put_records(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

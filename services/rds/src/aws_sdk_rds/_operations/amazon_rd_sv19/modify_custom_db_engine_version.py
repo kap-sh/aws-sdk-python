@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,29 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.custom_db_engine_version_not_found_fault
+import aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault
+import aws_sdk_rds.types.ca_certificate_identifiers_list
+import aws_sdk_rds.types.character_set
+import aws_sdk_rds.types.custom_db_engine_version_ami
+import aws_sdk_rds.types.custom_engine_version_status
+import aws_sdk_rds.types.db_engine_version
+import aws_sdk_rds.types.engine_mode_list
+import aws_sdk_rds.types.feature_name_list
+import aws_sdk_rds.types.log_type_list
+import aws_sdk_rds.types.modify_custom_db_engine_version_message
+import aws_sdk_rds.types.serverless_v2_features_support
+import aws_sdk_rds.types.string_list
+import aws_sdk_rds.types.supported_character_sets_list
+import aws_sdk_rds.types.supported_timezones_list
+import aws_sdk_rds.types.t_stamp
+import aws_sdk_rds.types.tag_list
+import aws_sdk_rds.types.valid_upgrade_target_list
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.db_engine_version
-    import aws_sdk_rds.types.modify_custom_db_engine_version_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,14 +40,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "CustomDBEngineVersionNotFoundFault":
-            import aws_sdk_rds.errors.custom_db_engine_version_not_found_fault
-
             raise aws_sdk_rds.errors.custom_db_engine_version_not_found_fault.CustomDBEngineVersionNotFoundFault.from_query(
                 root
             )
         case "InvalidCustomDBEngineVersionStateFault":
-            import aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault
-
             raise aws_sdk_rds.errors.invalid_custom_db_engine_version_state_fault.InvalidCustomDBEngineVersionStateFault.from_query(
                 root
             )
@@ -42,11 +52,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.db_engine_version.DBEngineVersion:
-    import aws_sdk_rds.types.db_engine_version
-
     root = fromstring(response.read())
+    result = root.find("ModifyCustomDBEngineVersionResult")
+    out: aws_sdk_rds.types.db_engine_version.DBEngineVersion = (
+        aws_sdk_rds.types.db_engine_version.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.db_engine_version.DBEngineVersion:
+    root = fromstring(await response.aread())
     result = root.find("ModifyCustomDBEngineVersionResult")
     out: aws_sdk_rds.types.db_engine_version.DBEngineVersion = (
         aws_sdk_rds.types.db_engine_version.deserialize_query(
@@ -117,8 +138,7 @@ def modify_custom_db_engine_version(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -133,8 +153,7 @@ async def async_modify_custom_db_engine_version(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

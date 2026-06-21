@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,11 @@ from typing_extensions import Never
 
 import aws_sdk_cloudformation._auth._signers
 import aws_sdk_cloudformation._auth._sigv4
+import aws_sdk_cloudformation.errors.cfn_registry_exception
+import aws_sdk_cloudformation.errors.type_not_found_exception
+import aws_sdk_cloudformation.types.deregister_type_input
+import aws_sdk_cloudformation.types.deregister_type_output
+import aws_sdk_cloudformation.types.registry_type
 from aws_sdk_cloudformation._protocol.errors import parse_error_metadata
 from aws_sdk_cloudformation._protocol.xml import (
     fromstring,
@@ -24,24 +29,16 @@ from aws_sdk_cloudformation._services._pipeline import (
 )
 from aws_sdk_cloudformation.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudformation.types.deregister_type_input
-    import aws_sdk_cloudformation.types.deregister_type_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "CFNRegistryException":
-            import aws_sdk_cloudformation.errors.cfn_registry_exception
-
             raise aws_sdk_cloudformation.errors.cfn_registry_exception.CFNRegistryException.from_query(
                 root
             )
         case "TypeNotFoundException":
-            import aws_sdk_cloudformation.errors.type_not_found_exception
-
             raise aws_sdk_cloudformation.errors.type_not_found_exception.TypeNotFoundException.from_query(
                 root
             )
@@ -50,11 +47,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudformation.types.deregister_type_output.DeregisterTypeOutput:
-    import aws_sdk_cloudformation.types.deregister_type_output
-
     root = fromstring(response.read())
+    result = root.find("DeregisterTypeResult")
+    out: aws_sdk_cloudformation.types.deregister_type_output.DeregisterTypeOutput = (
+        aws_sdk_cloudformation.types.deregister_type_output.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudformation.types.deregister_type_output.DeregisterTypeOutput:
+    root = fromstring(await response.aread())
     result = root.find("DeregisterTypeResult")
     out: aws_sdk_cloudformation.types.deregister_type_output.DeregisterTypeOutput = (
         aws_sdk_cloudformation.types.deregister_type_output.deserialize_query(
@@ -130,8 +138,7 @@ def deregister_type(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -149,8 +156,7 @@ async def async_deregister_type(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

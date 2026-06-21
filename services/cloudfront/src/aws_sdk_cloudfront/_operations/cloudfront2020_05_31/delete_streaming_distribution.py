@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,12 @@ from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.invalid_if_match_version
+import aws_sdk_cloudfront.errors.no_such_streaming_distribution
+import aws_sdk_cloudfront.errors.precondition_failed
+import aws_sdk_cloudfront.errors.streaming_distribution_not_disabled
+import aws_sdk_cloudfront.types.delete_streaming_distribution_request
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import fromstring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,39 +25,26 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.delete_streaming_distribution_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "InvalidIfMatchVersion":
-            import aws_sdk_cloudfront.errors.invalid_if_match_version
-
             raise aws_sdk_cloudfront.errors.invalid_if_match_version.InvalidIfMatchVersion.from_xml(
                 root
             )
         case "NoSuchStreamingDistribution":
-            import aws_sdk_cloudfront.errors.no_such_streaming_distribution
-
             raise aws_sdk_cloudfront.errors.no_such_streaming_distribution.NoSuchStreamingDistribution.from_xml(
                 root
             )
         case "PreconditionFailed":
-            import aws_sdk_cloudfront.errors.precondition_failed
-
             raise aws_sdk_cloudfront.errors.precondition_failed.PreconditionFailed.from_xml(
                 root
             )
         case "StreamingDistributionNotDisabled":
-            import aws_sdk_cloudfront.errors.streaming_distribution_not_disabled
-
             raise aws_sdk_cloudfront.errors.streaming_distribution_not_disabled.StreamingDistributionNotDisabled.from_xml(
                 root
             )
@@ -116,7 +109,6 @@ def delete_streaming_distribution(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -132,7 +124,6 @@ async def async_delete_streaming_distribution(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

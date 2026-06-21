@@ -3,13 +3,26 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_servicediscovery._auth._signers
 import aws_sdk_servicediscovery._auth._sigv4
+import aws_sdk_servicediscovery.errors.invalid_input
+import aws_sdk_servicediscovery.errors.namespace_not_found
+import aws_sdk_servicediscovery.errors.resource_limit_exceeded
+import aws_sdk_servicediscovery.errors.service_already_exists
+import aws_sdk_servicediscovery.errors.too_many_tags_exception
+import aws_sdk_servicediscovery.types.create_service_request
+import aws_sdk_servicediscovery.types.create_service_response
+import aws_sdk_servicediscovery.types.dns_config
+import aws_sdk_servicediscovery.types.health_check_config
+import aws_sdk_servicediscovery.types.health_check_custom_config
+import aws_sdk_servicediscovery.types.service
+import aws_sdk_servicediscovery.types.service_type_option
+import aws_sdk_servicediscovery.types.tag_list
 from aws_sdk_servicediscovery._protocol.errors import parse_error_metadata_json
 from aws_sdk_servicediscovery._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,42 +34,28 @@ from aws_sdk_servicediscovery._services._pipeline import (
 )
 from aws_sdk_servicediscovery.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_servicediscovery.types.create_service_request
-    import aws_sdk_servicediscovery.types.create_service_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidInput":
-            import aws_sdk_servicediscovery.errors.invalid_input
-
             raise aws_sdk_servicediscovery.errors.invalid_input.InvalidInput.from_aws_json_1_1(
                 data
             )
         case "NamespaceNotFound":
-            import aws_sdk_servicediscovery.errors.namespace_not_found
-
             raise aws_sdk_servicediscovery.errors.namespace_not_found.NamespaceNotFound.from_aws_json_1_1(
                 data
             )
         case "ResourceLimitExceeded":
-            import aws_sdk_servicediscovery.errors.resource_limit_exceeded
-
             raise aws_sdk_servicediscovery.errors.resource_limit_exceeded.ResourceLimitExceeded.from_aws_json_1_1(
                 data
             )
         case "ServiceAlreadyExists":
-            import aws_sdk_servicediscovery.errors.service_already_exists
-
             raise aws_sdk_servicediscovery.errors.service_already_exists.ServiceAlreadyExists.from_aws_json_1_1(
                 data
             )
         case "TooManyTagsException":
-            import aws_sdk_servicediscovery.errors.too_many_tags_exception
-
             raise aws_sdk_servicediscovery.errors.too_many_tags_exception.TooManyTagsException.from_aws_json_1_1(
                 data
             )
@@ -65,12 +64,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_servicediscovery.types.create_service_response.CreateServiceResponse:
-    import aws_sdk_servicediscovery.types.create_service_response
-
     out: aws_sdk_servicediscovery.types.create_service_response.CreateServiceResponse = aws_sdk_servicediscovery.types.create_service_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_servicediscovery.types.create_service_response.CreateServiceResponse:
+    out: aws_sdk_servicediscovery.types.create_service_response.CreateServiceResponse = aws_sdk_servicediscovery.types.create_service_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -140,8 +146,7 @@ def create_service(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -159,8 +164,7 @@ async def async_create_service(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

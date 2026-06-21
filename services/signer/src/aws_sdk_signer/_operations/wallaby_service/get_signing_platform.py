@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,14 +11,19 @@ from typing_extensions import Never
 
 import aws_sdk_signer._auth._signers
 import aws_sdk_signer._auth._sigv4
+import aws_sdk_signer.errors.access_denied_exception
+import aws_sdk_signer.errors.internal_service_error_exception
+import aws_sdk_signer.errors.resource_not_found_exception
+import aws_sdk_signer.errors.too_many_requests_exception
+import aws_sdk_signer.types.category
+import aws_sdk_signer.types.get_signing_platform_request
+import aws_sdk_signer.types.get_signing_platform_response
+import aws_sdk_signer.types.signing_configuration
+import aws_sdk_signer.types.signing_image_format
 from aws_sdk_signer._protocol.errors import parse_error_metadata_json
 from aws_sdk_signer._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_signer._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_signer.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_signer.types.get_signing_platform_request
-    import aws_sdk_signer.types.get_signing_platform_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,26 +31,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_signer.errors.access_denied_exception
-
             raise aws_sdk_signer.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServiceErrorException":
-            import aws_sdk_signer.errors.internal_service_error_exception
-
             raise aws_sdk_signer.errors.internal_service_error_exception.InternalServiceErrorException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_signer.errors.resource_not_found_exception
-
             raise aws_sdk_signer.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_signer.errors.too_many_requests_exception
-
             raise aws_sdk_signer.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -54,12 +51,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_signer.types.get_signing_platform_response.GetSigningPlatformResponse:
-    import aws_sdk_signer.types.get_signing_platform_response
-
     out: aws_sdk_signer.types.get_signing_platform_response.GetSigningPlatformResponse = aws_sdk_signer.types.get_signing_platform_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_signer.types.get_signing_platform_response.GetSigningPlatformResponse:
+    out: aws_sdk_signer.types.get_signing_platform_response.GetSigningPlatformResponse = aws_sdk_signer.types.get_signing_platform_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -122,8 +126,7 @@ def get_signing_platform(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +144,7 @@ async def async_get_signing_platform(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

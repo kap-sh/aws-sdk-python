@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_polly.errors import DeserializationError, SerializationError
+from aws_sdk_polly._iter import AnyIterator
+from aws_sdk_polly._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_polly.errors.service_failure_exception
@@ -43,7 +44,7 @@ class _StartSpeechSynthesisStreamEventStream_ThrottlingException(TypedDict):
     )
 
 
-StartSpeechSynthesisStreamEventStream: TypeAlias = (
+_StartSpeechSynthesisStreamEventStream: TypeAlias = (
     _StartSpeechSynthesisStreamEventStream_AudioEvent
     | _StartSpeechSynthesisStreamEventStream_StreamClosedEvent
     | _StartSpeechSynthesisStreamEventStream_ValidationException
@@ -51,114 +52,111 @@ StartSpeechSynthesisStreamEventStream: TypeAlias = (
     | _StartSpeechSynthesisStreamEventStream_ServiceFailureException
     | _StartSpeechSynthesisStreamEventStream_ThrottlingException
 )
+StartSpeechSynthesisStreamEventStream: TypeAlias = AnyIterator[
+    _StartSpeechSynthesisStreamEventStream
+]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: StartSpeechSynthesisStreamEventStream) -> dict:
-    if "AudioEvent" in value:
-        import aws_sdk_polly.types.audio_event
+def serialize_event_json(value: _StartSpeechSynthesisStreamEventStream) -> bytes:
+    match value:
+        case {"AudioEvent": payload}:
+            import aws_sdk_polly.types.audio_event
 
-        return {
-            "AudioEvent": aws_sdk_polly.types.audio_event.serialize_json(
-                value["AudioEvent"]
+            return aws_sdk_polly.types.audio_event.serialize_event_json(payload)
+        case {"StreamClosedEvent": payload}:
+            import aws_sdk_polly.types.stream_closed_event
+
+            return aws_sdk_polly.types.stream_closed_event.serialize_event_json(payload)
+        case {"ValidationException": payload}:
+            import aws_sdk_polly.errors.validation_exception
+
+            return aws_sdk_polly.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "StreamClosedEvent" in value:
-        import aws_sdk_polly.types.stream_closed_event
+        case {"ServiceQuotaExceededException": payload}:
+            import aws_sdk_polly.errors.service_quota_exceeded_exception
 
-        return {
-            "StreamClosedEvent": aws_sdk_polly.types.stream_closed_event.serialize_json(
-                value["StreamClosedEvent"]
+            return aws_sdk_polly.errors.service_quota_exceeded_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ValidationException" in value:
-        import aws_sdk_polly.errors.validation_exception
+        case {"ServiceFailureException": payload}:
+            import aws_sdk_polly.errors.service_failure_exception
 
-        return {
-            "ValidationException": aws_sdk_polly.errors.validation_exception.serialize_json(
-                value["ValidationException"]
+            return aws_sdk_polly.errors.service_failure_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ServiceQuotaExceededException" in value:
-        import aws_sdk_polly.errors.service_quota_exceeded_exception
+        case {"ThrottlingException": payload}:
+            import aws_sdk_polly.errors.throttling_exception
 
-        return {
-            "ServiceQuotaExceededException": aws_sdk_polly.errors.service_quota_exceeded_exception.serialize_json(
-                value["ServiceQuotaExceededException"]
+            return aws_sdk_polly.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "ServiceFailureException" in value:
-        import aws_sdk_polly.errors.service_failure_exception
+        case _:
+            raise ValueError(
+                f"StartSpeechSynthesisStreamEventStream: unrecognized variant {value!r}"
+            )
 
-        return {
-            "ServiceFailureException": aws_sdk_polly.errors.service_failure_exception.serialize_json(
-                value["ServiceFailureException"]
-            )
-        }
-    elif "ThrottlingException" in value:
-        import aws_sdk_polly.errors.throttling_exception
 
-        return {
-            "ThrottlingException": aws_sdk_polly.errors.throttling_exception.serialize_json(
-                value["ThrottlingException"]
-            )
-        }
-    else:
-        raise SerializationError(
-            "StartSpeechSynthesisStreamEventStream: no variant present"
+def deserialize_event_json(message: Message) -> _StartSpeechSynthesisStreamEventStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "ValidationException":
+                import aws_sdk_polly.errors.validation_exception
+
+                raise aws_sdk_polly.errors.validation_exception.ValidationException(
+                    aws_sdk_polly.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ServiceQuotaExceededException":
+                import aws_sdk_polly.errors.service_quota_exceeded_exception
+
+                raise aws_sdk_polly.errors.service_quota_exceeded_exception.ServiceQuotaExceededException(
+                    aws_sdk_polly.errors.service_quota_exceeded_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ServiceFailureException":
+                import aws_sdk_polly.errors.service_failure_exception
+
+                raise aws_sdk_polly.errors.service_failure_exception.ServiceFailureException(
+                    aws_sdk_polly.errors.service_failure_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "ThrottlingException":
+                import aws_sdk_polly.errors.throttling_exception
+
+                raise aws_sdk_polly.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_polly.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"StartSpeechSynthesisStreamEventStream: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "AudioEvent":
+            import aws_sdk_polly.types.audio_event
 
+            return {
+                "AudioEvent": aws_sdk_polly.types.audio_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "StreamClosedEvent":
+            import aws_sdk_polly.types.stream_closed_event
 
-def deserialize_json(data: dict) -> StartSpeechSynthesisStreamEventStream:
-    if "AudioEvent" in data:
-        import aws_sdk_polly.types.audio_event
-
-        return {
-            "AudioEvent": aws_sdk_polly.types.audio_event.deserialize_json(
-                data["AudioEvent"]
+            return {
+                "StreamClosedEvent": aws_sdk_polly.types.stream_closed_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"StartSpeechSynthesisStreamEventStream: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "StreamClosedEvent" in data:
-        import aws_sdk_polly.types.stream_closed_event
-
-        return {
-            "StreamClosedEvent": aws_sdk_polly.types.stream_closed_event.deserialize_json(
-                data["StreamClosedEvent"]
-            )
-        }
-    elif "ValidationException" in data:
-        import aws_sdk_polly.errors.validation_exception
-
-        return {
-            "ValidationException": aws_sdk_polly.errors.validation_exception.deserialize_json(
-                data["ValidationException"]
-            )
-        }
-    elif "ServiceQuotaExceededException" in data:
-        import aws_sdk_polly.errors.service_quota_exceeded_exception
-
-        return {
-            "ServiceQuotaExceededException": aws_sdk_polly.errors.service_quota_exceeded_exception.deserialize_json(
-                data["ServiceQuotaExceededException"]
-            )
-        }
-    elif "ServiceFailureException" in data:
-        import aws_sdk_polly.errors.service_failure_exception
-
-        return {
-            "ServiceFailureException": aws_sdk_polly.errors.service_failure_exception.deserialize_json(
-                data["ServiceFailureException"]
-            )
-        }
-    elif "ThrottlingException" in data:
-        import aws_sdk_polly.errors.throttling_exception
-
-        return {
-            "ThrottlingException": aws_sdk_polly.errors.throttling_exception.deserialize_json(
-                data["ThrottlingException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "StartSpeechSynthesisStreamEventStream: no recognized variant key"
-        )

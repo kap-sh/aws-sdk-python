@@ -2,23 +2,29 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.types.common_prefix_list
+import aws_sdk_s3.types.delete_markers
+import aws_sdk_s3.types.encoding_type
+import aws_sdk_s3.types.list_object_versions_output
+import aws_sdk_s3.types.list_object_versions_request
+import aws_sdk_s3.types.object_version_list
+import aws_sdk_s3.types.optional_object_attributes_list
+import aws_sdk_s3.types.request_charged
+import aws_sdk_s3.types.request_payer
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.list_object_versions_output
-    import aws_sdk_s3.types.list_object_versions_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -30,18 +36,29 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.list_object_versions_output.ListObjectVersionsOutput:
-    import aws_sdk_s3.types.list_object_versions_output
-
     out: aws_sdk_s3.types.list_object_versions_output.ListObjectVersionsOutput = (
         aws_sdk_s3.types.list_object_versions_output.deserialize_xml(
             fromstring(response.read())
         )
     )
     if "x-amz-request-charged" in response.headers:
-        import aws_sdk_s3.types.request_charged
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.list_object_versions_output.ListObjectVersionsOutput:
+    out: aws_sdk_s3.types.list_object_versions_output.ListObjectVersionsOutput = (
+        aws_sdk_s3.types.list_object_versions_output.deserialize_xml(
+            fromstring(await response.aread())
+        )
+    )
+    if "x-amz-request-charged" in response.headers:
         out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
         )
@@ -137,8 +154,7 @@ def list_object_versions(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +172,7 @@ async def async_list_object_versions(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

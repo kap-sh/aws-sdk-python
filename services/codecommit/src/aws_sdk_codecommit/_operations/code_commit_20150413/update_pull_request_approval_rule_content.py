@@ -3,13 +3,32 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.approval_rule_content_required_exception
+import aws_sdk_codecommit.errors.approval_rule_does_not_exist_exception
+import aws_sdk_codecommit.errors.approval_rule_name_required_exception
+import aws_sdk_codecommit.errors.cannot_modify_approval_rule_from_template_exception
+import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
+import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
+import aws_sdk_codecommit.errors.encryption_key_disabled_exception
+import aws_sdk_codecommit.errors.encryption_key_not_found_exception
+import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_content_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_name_exception
+import aws_sdk_codecommit.errors.invalid_pull_request_id_exception
+import aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception
+import aws_sdk_codecommit.errors.pull_request_already_closed_exception
+import aws_sdk_codecommit.errors.pull_request_does_not_exist_exception
+import aws_sdk_codecommit.errors.pull_request_id_required_exception
+import aws_sdk_codecommit.types.approval_rule
+import aws_sdk_codecommit.types.update_pull_request_approval_rule_content_input
+import aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,108 +37,72 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.update_pull_request_approval_rule_content_input
-    import aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ApprovalRuleContentRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_content_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_content_required_exception.ApprovalRuleContentRequiredException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleDoesNotExistException":
-            import aws_sdk_codecommit.errors.approval_rule_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_does_not_exist_exception.ApprovalRuleDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleNameRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_name_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_name_required_exception.ApprovalRuleNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "CannotModifyApprovalRuleFromTemplateException":
-            import aws_sdk_codecommit.errors.cannot_modify_approval_rule_from_template_exception
-
             raise aws_sdk_codecommit.errors.cannot_modify_approval_rule_from_template_exception.CannotModifyApprovalRuleFromTemplateException.from_aws_json_1_1(
                 data
             )
         case "EncryptionIntegrityChecksFailedException":
-            import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
-
             raise aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyAccessDeniedException":
-            import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyDisabledException":
-            import aws_sdk_codecommit.errors.encryption_key_disabled_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyNotFoundException":
-            import aws_sdk_codecommit.errors.encryption_key_not_found_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyUnavailableException":
-            import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleContentException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_content_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_content_exception.InvalidApprovalRuleContentException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleNameException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_name_exception.InvalidApprovalRuleNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidPullRequestIdException":
-            import aws_sdk_codecommit.errors.invalid_pull_request_id_exception
-
             raise aws_sdk_codecommit.errors.invalid_pull_request_id_exception.InvalidPullRequestIdException.from_aws_json_1_1(
                 data
             )
         case "InvalidRuleContentSha256Exception":
-            import aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception
-
             raise aws_sdk_codecommit.errors.invalid_rule_content_sha256_exception.InvalidRuleContentSha256Exception.from_aws_json_1_1(
                 data
             )
         case "PullRequestAlreadyClosedException":
-            import aws_sdk_codecommit.errors.pull_request_already_closed_exception
-
             raise aws_sdk_codecommit.errors.pull_request_already_closed_exception.PullRequestAlreadyClosedException.from_aws_json_1_1(
                 data
             )
         case "PullRequestDoesNotExistException":
-            import aws_sdk_codecommit.errors.pull_request_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.pull_request_does_not_exist_exception.PullRequestDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "PullRequestIdRequiredException":
-            import aws_sdk_codecommit.errors.pull_request_id_required_exception
-
             raise aws_sdk_codecommit.errors.pull_request_id_required_exception.PullRequestIdRequiredException.from_aws_json_1_1(
                 data
             )
@@ -128,12 +111,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.UpdatePullRequestApprovalRuleContentOutput:
-    import aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output
-
     out: aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.UpdatePullRequestApprovalRuleContentOutput = aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.UpdatePullRequestApprovalRuleContentOutput:
+    out: aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.UpdatePullRequestApprovalRuleContentOutput = aws_sdk_codecommit.types.update_pull_request_approval_rule_content_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -203,8 +193,7 @@ def update_pull_request_approval_rule_content(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -222,8 +211,7 @@ async def async_update_pull_request_approval_rule_content(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

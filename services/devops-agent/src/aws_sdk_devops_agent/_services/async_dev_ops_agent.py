@@ -2,7 +2,8 @@
 
 import datetime
 import warnings
-from collections.abc import AsyncIterator
+from collections.abc import AsyncGenerator, AsyncIterator
+from contextlib import asynccontextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -1631,6 +1632,7 @@ class AsyncDevOpsAgentClient:
         )
         return response.output
 
+    @asynccontextmanager
     async def send_message(
         self,
         agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId",
@@ -1645,7 +1647,7 @@ class AsyncDevOpsAgentClient:
         asset_ids: Optional[
             "aws_sdk_devops_agent.types.asset_id_list.AssetIdList"
         ] = None,
-    ) -> "aws_sdk_devops_agent.types.send_message_response.SendMessageResponse":
+    ) -> "AsyncGenerator[aws_sdk_devops_agent.types.send_message_response.SendMessageResponse]":
         """<p>Sends a chat message and streams the response for the specified agent space execution</p>
 
         Args:
@@ -1689,7 +1691,7 @@ class AsyncDevOpsAgentClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def tag_resource(
         self,

@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_lookoutequipment._auth._signers
 import aws_sdk_lookoutequipment._auth._sigv4
+import aws_sdk_lookoutequipment.errors.access_denied_exception
+import aws_sdk_lookoutequipment.errors.conflict_exception
+import aws_sdk_lookoutequipment.errors.internal_server_exception
+import aws_sdk_lookoutequipment.errors.resource_not_found_exception
+import aws_sdk_lookoutequipment.errors.throttling_exception
+import aws_sdk_lookoutequipment.errors.validation_exception
+import aws_sdk_lookoutequipment.types.delete_label_group_request
 from aws_sdk_lookoutequipment._protocol.errors import parse_error_metadata_json
 from aws_sdk_lookoutequipment._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,47 +28,32 @@ from aws_sdk_lookoutequipment._services._pipeline import (
 )
 from aws_sdk_lookoutequipment.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_lookoutequipment.types.delete_label_group_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_lookoutequipment.errors.access_denied_exception
-
             raise aws_sdk_lookoutequipment.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_0(
                 data
             )
         case "ConflictException":
-            import aws_sdk_lookoutequipment.errors.conflict_exception
-
             raise aws_sdk_lookoutequipment.errors.conflict_exception.ConflictException.from_aws_json_1_0(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_lookoutequipment.errors.internal_server_exception
-
             raise aws_sdk_lookoutequipment.errors.internal_server_exception.InternalServerException.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_lookoutequipment.errors.resource_not_found_exception
-
             raise aws_sdk_lookoutequipment.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_lookoutequipment.errors.throttling_exception
-
             raise aws_sdk_lookoutequipment.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
         case "ValidationException":
-            import aws_sdk_lookoutequipment.errors.validation_exception
-
             raise aws_sdk_lookoutequipment.errors.validation_exception.ValidationException.from_aws_json_1_0(
                 data
             )
@@ -131,7 +123,6 @@ def delete_label_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -147,7 +138,6 @@ async def async_delete_label_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

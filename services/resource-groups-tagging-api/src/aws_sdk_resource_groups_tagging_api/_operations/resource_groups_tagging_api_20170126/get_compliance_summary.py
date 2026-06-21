@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_resource_groups_tagging_api._auth._signers
 import aws_sdk_resource_groups_tagging_api._auth._sigv4
+import aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception
+import aws_sdk_resource_groups_tagging_api.errors.internal_service_exception
+import aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception
+import aws_sdk_resource_groups_tagging_api.errors.throttled_exception
+import aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_input
+import aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output
+import aws_sdk_resource_groups_tagging_api.types.group_by
+import aws_sdk_resource_groups_tagging_api.types.region_filter_list
+import aws_sdk_resource_groups_tagging_api.types.resource_type_filter_list
+import aws_sdk_resource_groups_tagging_api.types.summary_list
+import aws_sdk_resource_groups_tagging_api.types.tag_key_filter_list
+import aws_sdk_resource_groups_tagging_api.types.target_id_filter_list
 from aws_sdk_resource_groups_tagging_api._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -23,36 +35,24 @@ from aws_sdk_resource_groups_tagging_api._services._pipeline import (
 )
 from aws_sdk_resource_groups_tagging_api.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_input
-    import aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConstraintViolationException":
-            import aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception
-
             raise aws_sdk_resource_groups_tagging_api.errors.constraint_violation_exception.ConstraintViolationException.from_aws_json_1_1(
                 data
             )
         case "InternalServiceException":
-            import aws_sdk_resource_groups_tagging_api.errors.internal_service_exception
-
             raise aws_sdk_resource_groups_tagging_api.errors.internal_service_exception.InternalServiceException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception
-
             raise aws_sdk_resource_groups_tagging_api.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "ThrottledException":
-            import aws_sdk_resource_groups_tagging_api.errors.throttled_exception
-
             raise aws_sdk_resource_groups_tagging_api.errors.throttled_exception.ThrottledException.from_aws_json_1_1(
                 data
             )
@@ -61,12 +61,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.GetComplianceSummaryOutput:
-    import aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output
-
     out: aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.GetComplianceSummaryOutput = aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.GetComplianceSummaryOutput:
+    out: aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.GetComplianceSummaryOutput = aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -136,8 +143,7 @@ def get_compliance_summary(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -155,8 +161,7 @@ async def async_get_compliance_summary(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

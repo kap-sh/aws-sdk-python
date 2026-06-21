@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.approval_rule_template_content_required_exception
+import aws_sdk_codecommit.errors.approval_rule_template_name_already_exists_exception
+import aws_sdk_codecommit.errors.approval_rule_template_name_required_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_template_description_exception
+import aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception
+import aws_sdk_codecommit.errors.number_of_rule_templates_exceeded_exception
+import aws_sdk_codecommit.types.approval_rule_template
+import aws_sdk_codecommit.types.create_approval_rule_template_input
+import aws_sdk_codecommit.types.create_approval_rule_template_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,54 +28,36 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.create_approval_rule_template_input
-    import aws_sdk_codecommit.types.create_approval_rule_template_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ApprovalRuleTemplateContentRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_template_content_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_content_required_exception.ApprovalRuleTemplateContentRequiredException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleTemplateNameAlreadyExistsException":
-            import aws_sdk_codecommit.errors.approval_rule_template_name_already_exists_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_name_already_exists_exception.ApprovalRuleTemplateNameAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "ApprovalRuleTemplateNameRequiredException":
-            import aws_sdk_codecommit.errors.approval_rule_template_name_required_exception
-
             raise aws_sdk_codecommit.errors.approval_rule_template_name_required_exception.ApprovalRuleTemplateNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleTemplateContentException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_template_content_exception.InvalidApprovalRuleTemplateContentException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleTemplateDescriptionException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_template_description_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_template_description_exception.InvalidApprovalRuleTemplateDescriptionException.from_aws_json_1_1(
                 data
             )
         case "InvalidApprovalRuleTemplateNameException":
-            import aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_approval_rule_template_name_exception.InvalidApprovalRuleTemplateNameException.from_aws_json_1_1(
                 data
             )
         case "NumberOfRuleTemplatesExceededException":
-            import aws_sdk_codecommit.errors.number_of_rule_templates_exceeded_exception
-
             raise aws_sdk_codecommit.errors.number_of_rule_templates_exceeded_exception.NumberOfRuleTemplatesExceededException.from_aws_json_1_1(
                 data
             )
@@ -74,12 +66,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.create_approval_rule_template_output.CreateApprovalRuleTemplateOutput:
-    import aws_sdk_codecommit.types.create_approval_rule_template_output
-
     out: aws_sdk_codecommit.types.create_approval_rule_template_output.CreateApprovalRuleTemplateOutput = aws_sdk_codecommit.types.create_approval_rule_template_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.create_approval_rule_template_output.CreateApprovalRuleTemplateOutput:
+    out: aws_sdk_codecommit.types.create_approval_rule_template_output.CreateApprovalRuleTemplateOutput = aws_sdk_codecommit.types.create_approval_rule_template_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -149,8 +148,7 @@ def create_approval_rule_template(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -168,8 +166,7 @@ async def async_create_approval_rule_template(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

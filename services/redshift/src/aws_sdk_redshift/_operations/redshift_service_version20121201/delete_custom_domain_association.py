@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,16 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.cluster_not_found_fault
+import aws_sdk_redshift.errors.custom_cname_association_fault
+import aws_sdk_redshift.errors.custom_domain_association_not_found_fault
+import aws_sdk_redshift.errors.unsupported_operation_fault
+import aws_sdk_redshift.types.delete_custom_domain_association_message
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.delete_custom_domain_association_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +27,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "ClusterNotFoundFault":
-            import aws_sdk_redshift.errors.cluster_not_found_fault
-
             raise aws_sdk_redshift.errors.cluster_not_found_fault.ClusterNotFoundFault.from_query(
                 root
             )
         case "CustomCnameAssociationFault":
-            import aws_sdk_redshift.errors.custom_cname_association_fault
-
             raise aws_sdk_redshift.errors.custom_cname_association_fault.CustomCnameAssociationFault.from_query(
                 root
             )
         case "CustomDomainAssociationNotFoundFault":
-            import aws_sdk_redshift.errors.custom_domain_association_not_found_fault
-
             raise aws_sdk_redshift.errors.custom_domain_association_not_found_fault.CustomDomainAssociationNotFoundFault.from_query(
                 root
             )
         case "UnsupportedOperationFault":
-            import aws_sdk_redshift.errors.unsupported_operation_fault
-
             raise aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault.from_query(
                 root
             )
@@ -115,7 +109,6 @@ def delete_custom_domain_association(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -131,7 +124,6 @@ async def async_delete_custom_domain_association(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

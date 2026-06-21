@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,16 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.db_instance_not_found_fault
+import aws_sdk_rds.errors.db_instance_not_ready_fault
+import aws_sdk_rds.errors.db_log_file_not_found_fault
+import aws_sdk_rds.types.download_db_log_file_portion_details
+import aws_sdk_rds.types.download_db_log_file_portion_message
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.download_db_log_file_portion_details
-    import aws_sdk_rds.types.download_db_log_file_portion_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,20 +27,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBInstanceNotFoundFault":
-            import aws_sdk_rds.errors.db_instance_not_found_fault
-
             raise aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "DBInstanceNotReadyFault":
-            import aws_sdk_rds.errors.db_instance_not_ready_fault
-
             raise aws_sdk_rds.errors.db_instance_not_ready_fault.DBInstanceNotReadyFault.from_query(
                 root
             )
         case "DBLogFileNotFoundFault":
-            import aws_sdk_rds.errors.db_log_file_not_found_fault
-
             raise aws_sdk_rds.errors.db_log_file_not_found_fault.DBLogFileNotFoundFault.from_query(
                 root
             )
@@ -48,11 +43,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails:
-    import aws_sdk_rds.types.download_db_log_file_portion_details
-
     root = fromstring(response.read())
+    result = root.find("DownloadDBLogFilePortionResult")
+    out: aws_sdk_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails = aws_sdk_rds.types.download_db_log_file_portion_details.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails:
+    root = fromstring(await response.aread())
     result = root.find("DownloadDBLogFilePortionResult")
     out: aws_sdk_rds.types.download_db_log_file_portion_details.DownloadDBLogFilePortionDetails = aws_sdk_rds.types.download_db_log_file_portion_details.deserialize_query(
         result if result is not None else root
@@ -124,8 +128,7 @@ def download_db_log_file_portion(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -143,8 +146,7 @@ async def async_download_db_log_file_portion(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,28 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_neptunedata._auth._signers
 import aws_sdk_neptunedata._auth._sigv4
+import aws_sdk_neptunedata.errors.bad_request_exception
+import aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception
+import aws_sdk_neptunedata.errors.client_timeout_exception
+import aws_sdk_neptunedata.errors.constraint_violation_exception
+import aws_sdk_neptunedata.errors.illegal_argument_exception
+import aws_sdk_neptunedata.errors.internal_failure_exception
+import aws_sdk_neptunedata.errors.invalid_argument_exception
+import aws_sdk_neptunedata.errors.invalid_parameter_exception
+import aws_sdk_neptunedata.errors.load_url_access_denied_exception
+import aws_sdk_neptunedata.errors.preconditions_failed_exception
+import aws_sdk_neptunedata.errors.too_many_requests_exception
+import aws_sdk_neptunedata.errors.unsupported_operation_exception
+import aws_sdk_neptunedata.types.list_loader_jobs_input
+import aws_sdk_neptunedata.types.list_loader_jobs_output
+import aws_sdk_neptunedata.types.loader_id_result
 from aws_sdk_neptunedata._protocol.errors import parse_error_metadata_json
 from aws_sdk_neptunedata._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_neptunedata._services._pipeline import (
@@ -18,84 +33,56 @@ from aws_sdk_neptunedata._services._pipeline import (
 )
 from aws_sdk_neptunedata.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_neptunedata.types.list_loader_jobs_input
-    import aws_sdk_neptunedata.types.list_loader_jobs_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_neptunedata.errors.bad_request_exception
-
             raise aws_sdk_neptunedata.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "BulkLoadIdNotFoundException":
-            import aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception
-
             raise aws_sdk_neptunedata.errors.bulk_load_id_not_found_exception.BulkLoadIdNotFoundException.from_json(
                 data
             )
         case "ClientTimeoutException":
-            import aws_sdk_neptunedata.errors.client_timeout_exception
-
             raise aws_sdk_neptunedata.errors.client_timeout_exception.ClientTimeoutException.from_json(
                 data
             )
         case "ConstraintViolationException":
-            import aws_sdk_neptunedata.errors.constraint_violation_exception
-
             raise aws_sdk_neptunedata.errors.constraint_violation_exception.ConstraintViolationException.from_json(
                 data
             )
         case "IllegalArgumentException":
-            import aws_sdk_neptunedata.errors.illegal_argument_exception
-
             raise aws_sdk_neptunedata.errors.illegal_argument_exception.IllegalArgumentException.from_json(
                 data
             )
         case "InternalFailureException":
-            import aws_sdk_neptunedata.errors.internal_failure_exception
-
             raise aws_sdk_neptunedata.errors.internal_failure_exception.InternalFailureException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_neptunedata.errors.invalid_argument_exception
-
             raise aws_sdk_neptunedata.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_neptunedata.errors.invalid_parameter_exception
-
             raise aws_sdk_neptunedata.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "LoadUrlAccessDeniedException":
-            import aws_sdk_neptunedata.errors.load_url_access_denied_exception
-
             raise aws_sdk_neptunedata.errors.load_url_access_denied_exception.LoadUrlAccessDeniedException.from_json(
                 data
             )
         case "PreconditionsFailedException":
-            import aws_sdk_neptunedata.errors.preconditions_failed_exception
-
             raise aws_sdk_neptunedata.errors.preconditions_failed_exception.PreconditionsFailedException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_neptunedata.errors.too_many_requests_exception
-
             raise aws_sdk_neptunedata.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_neptunedata.errors.unsupported_operation_exception
-
             raise aws_sdk_neptunedata.errors.unsupported_operation_exception.UnsupportedOperationException.from_json(
                 data
             )
@@ -104,13 +91,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput:
-    import aws_sdk_neptunedata.types.list_loader_jobs_output
-
     out: aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput = (
         aws_sdk_neptunedata.types.list_loader_jobs_output.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput:
+    out: aws_sdk_neptunedata.types.list_loader_jobs_output.ListLoaderJobsOutput = (
+        aws_sdk_neptunedata.types.list_loader_jobs_output.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -177,8 +173,7 @@ def list_loader_jobs(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -196,8 +191,7 @@ async def async_list_loader_jobs(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

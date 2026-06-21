@@ -3,13 +3,48 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cognito_identity_provider._auth._signers
 import aws_sdk_cognito_identity_provider._auth._sigv4
+import aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception
+import aws_sdk_cognito_identity_provider.errors.internal_error_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception
+import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception
+import aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception
+import aws_sdk_cognito_identity_provider.errors.not_authorized_exception
+import aws_sdk_cognito_identity_provider.errors.tier_change_not_allowed_exception
+import aws_sdk_cognito_identity_provider.errors.too_many_requests_exception
+import aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception
+import aws_sdk_cognito_identity_provider.types.account_recovery_setting_type
+import aws_sdk_cognito_identity_provider.types.admin_create_user_config_type
+import aws_sdk_cognito_identity_provider.types.alias_attributes_list_type
+import aws_sdk_cognito_identity_provider.types.create_user_pool_request
+import aws_sdk_cognito_identity_provider.types.create_user_pool_response
+import aws_sdk_cognito_identity_provider.types.deletion_protection_type
+import aws_sdk_cognito_identity_provider.types.device_configuration_type
+import aws_sdk_cognito_identity_provider.types.email_configuration_type
+import aws_sdk_cognito_identity_provider.types.issuer_configuration_type
+import aws_sdk_cognito_identity_provider.types.key_configuration_type
+import aws_sdk_cognito_identity_provider.types.lambda_config_type
+import aws_sdk_cognito_identity_provider.types.schema_attributes_list_type
+import aws_sdk_cognito_identity_provider.types.sms_configuration_type
+import aws_sdk_cognito_identity_provider.types.user_attribute_update_settings_type
+import aws_sdk_cognito_identity_provider.types.user_pool_add_ons_type
+import aws_sdk_cognito_identity_provider.types.user_pool_mfa_type
+import aws_sdk_cognito_identity_provider.types.user_pool_policy_type
+import aws_sdk_cognito_identity_provider.types.user_pool_tags_type
+import aws_sdk_cognito_identity_provider.types.user_pool_tier_type
+import aws_sdk_cognito_identity_provider.types.user_pool_type
+import aws_sdk_cognito_identity_provider.types.username_attributes_list_type
+import aws_sdk_cognito_identity_provider.types.username_configuration_type
+import aws_sdk_cognito_identity_provider.types.verification_message_template_type
+import aws_sdk_cognito_identity_provider.types.verified_attributes_list_type
 from aws_sdk_cognito_identity_provider._protocol.errors import parse_error_metadata_json
 from aws_sdk_cognito_identity_provider._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,78 +56,52 @@ from aws_sdk_cognito_identity_provider._services._pipeline import (
 )
 from aws_sdk_cognito_identity_provider.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cognito_identity_provider.types.create_user_pool_request
-    import aws_sdk_cognito_identity_provider.types.create_user_pool_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "FeatureUnavailableInTierException":
-            import aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception
-
             raise aws_sdk_cognito_identity_provider.errors.feature_unavailable_in_tier_exception.FeatureUnavailableInTierException.from_aws_json_1_1(
                 data
             )
         case "InternalErrorException":
-            import aws_sdk_cognito_identity_provider.errors.internal_error_exception
-
             raise aws_sdk_cognito_identity_provider.errors.internal_error_exception.InternalErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidEmailRoleAccessPolicyException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_email_role_access_policy_exception.InvalidEmailRoleAccessPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidSmsRoleAccessPolicyException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_sms_role_access_policy_exception.InvalidSmsRoleAccessPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidSmsRoleTrustRelationshipException":
-            import aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception
-
             raise aws_sdk_cognito_identity_provider.errors.invalid_sms_role_trust_relationship_exception.InvalidSmsRoleTrustRelationshipException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception
-
             raise aws_sdk_cognito_identity_provider.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "NotAuthorizedException":
-            import aws_sdk_cognito_identity_provider.errors.not_authorized_exception
-
             raise aws_sdk_cognito_identity_provider.errors.not_authorized_exception.NotAuthorizedException.from_aws_json_1_1(
                 data
             )
         case "TierChangeNotAllowedException":
-            import aws_sdk_cognito_identity_provider.errors.tier_change_not_allowed_exception
-
             raise aws_sdk_cognito_identity_provider.errors.tier_change_not_allowed_exception.TierChangeNotAllowedException.from_aws_json_1_1(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_cognito_identity_provider.errors.too_many_requests_exception
-
             raise aws_sdk_cognito_identity_provider.errors.too_many_requests_exception.TooManyRequestsException.from_aws_json_1_1(
                 data
             )
         case "UserPoolTaggingException":
-            import aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception
-
             raise aws_sdk_cognito_identity_provider.errors.user_pool_tagging_exception.UserPoolTaggingException.from_aws_json_1_1(
                 data
             )
@@ -101,12 +110,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse:
-    import aws_sdk_cognito_identity_provider.types.create_user_pool_response
-
     out: aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse = aws_sdk_cognito_identity_provider.types.create_user_pool_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse:
+    out: aws_sdk_cognito_identity_provider.types.create_user_pool_response.CreateUserPoolResponse = aws_sdk_cognito_identity_provider.types.create_user_pool_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -176,8 +192,7 @@ def create_user_pool(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -195,8 +210,7 @@ async def async_create_user_pool(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

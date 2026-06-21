@@ -440,6 +440,7 @@ class LexRuntimeV2Client:
         )
         yield response.output
 
+    @contextmanager
     def start_conversation(
         self,
         bot_id: "aws_sdk_lex_runtime_v2.types.bot_identifier.BotIdentifier",
@@ -452,7 +453,7 @@ class LexRuntimeV2Client:
         conversation_mode: Optional[
             "aws_sdk_lex_runtime_v2.types.conversation_mode.ConversationMode"
         ] = None,
-    ) -> "aws_sdk_lex_runtime_v2.types.start_conversation_response.StartConversationResponse":
+    ) -> "Generator[aws_sdk_lex_runtime_v2.types.start_conversation_response.StartConversationResponse]":
         r"""<p>Starts an HTTP/2 bidirectional event stream that enables you to send audio, text, or DTMF input in real time. After your application starts a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2 processes the incoming events and responds with streaming text or audio events. </p> <p>Audio input must be in the following format: <code>audio/lpcm sample-rate=8000 sample-size-bits=16 channel-count=1; is-big-endian=false</code>.</p> <p>If the optional post-fulfillment response is specified, the messages are returned as follows. For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html\">PostFulfillmentStatusSpecification</a>.</p> <ul> <li> <p> <b>Success message</b> - Returned if the Lambda function completes successfully and the intent state is fulfilled or ready fulfillment if the message is present.</p> </li> <li> <p> <b>Failed message</b> - The failed message is returned if the Lambda function throws an exception or if the Lambda function returns a failed intent state without a message.</p> </li> <li> <p> <b>Timeout message</b> - If you don't configure a timeout message and a timeout, and the Lambda function doesn't return within 30 seconds, the timeout message is returned. If you configure a timeout, the timeout message is returned when the period times out. </p> </li> </ul> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html\">Completion message</a>.</p> <p>If the optional update message is configured, it is played at the specified frequency while the Lambda function is running and the update message state is active. If the fulfillment update message is not active, the Lambda function runs with a 30 second timeout. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html\">Update message </a> </p> <p>The <code>StartConversation</code> operation is supported only in the following SDKs: </p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/StartConversation\">AWS SDK for C++</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/StartConversation\">AWS SDK for Java V2</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation\">AWS SDK for Ruby V3</a> </p> </li> </ul>
 
         Args:
@@ -493,7 +494,7 @@ class LexRuntimeV2Client:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def __enter__(self) -> Self:
         return self

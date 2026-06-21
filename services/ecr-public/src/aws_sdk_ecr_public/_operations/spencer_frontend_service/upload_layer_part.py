@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ecr_public._auth._signers
 import aws_sdk_ecr_public._auth._sigv4
+import aws_sdk_ecr_public.errors.invalid_layer_part_exception
+import aws_sdk_ecr_public.errors.invalid_parameter_exception
+import aws_sdk_ecr_public.errors.limit_exceeded_exception
+import aws_sdk_ecr_public.errors.registry_not_found_exception
+import aws_sdk_ecr_public.errors.repository_not_found_exception
+import aws_sdk_ecr_public.errors.server_exception
+import aws_sdk_ecr_public.errors.unsupported_command_exception
+import aws_sdk_ecr_public.errors.upload_not_found_exception
+import aws_sdk_ecr_public.types.layer_part_blob
+import aws_sdk_ecr_public.types.upload_layer_part_request
+import aws_sdk_ecr_public.types.upload_layer_part_response
 from aws_sdk_ecr_public._protocol.errors import parse_error_metadata_json
 from aws_sdk_ecr_public._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ecr_public._services._pipeline import (
@@ -18,60 +29,40 @@ from aws_sdk_ecr_public._services._pipeline import (
 )
 from aws_sdk_ecr_public.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_ecr_public.types.upload_layer_part_request
-    import aws_sdk_ecr_public.types.upload_layer_part_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidLayerPartException":
-            import aws_sdk_ecr_public.errors.invalid_layer_part_exception
-
             raise aws_sdk_ecr_public.errors.invalid_layer_part_exception.InvalidLayerPartException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_ecr_public.errors.invalid_parameter_exception
-
             raise aws_sdk_ecr_public.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_ecr_public.errors.limit_exceeded_exception
-
             raise aws_sdk_ecr_public.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "RegistryNotFoundException":
-            import aws_sdk_ecr_public.errors.registry_not_found_exception
-
             raise aws_sdk_ecr_public.errors.registry_not_found_exception.RegistryNotFoundException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNotFoundException":
-            import aws_sdk_ecr_public.errors.repository_not_found_exception
-
             raise aws_sdk_ecr_public.errors.repository_not_found_exception.RepositoryNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ServerException":
-            import aws_sdk_ecr_public.errors.server_exception
-
             raise aws_sdk_ecr_public.errors.server_exception.ServerException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedCommandException":
-            import aws_sdk_ecr_public.errors.unsupported_command_exception
-
             raise aws_sdk_ecr_public.errors.unsupported_command_exception.UnsupportedCommandException.from_aws_json_1_1(
                 data
             )
         case "UploadNotFoundException":
-            import aws_sdk_ecr_public.errors.upload_not_found_exception
-
             raise aws_sdk_ecr_public.errors.upload_not_found_exception.UploadNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -80,13 +71,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ecr_public.types.upload_layer_part_response.UploadLayerPartResponse:
-    import aws_sdk_ecr_public.types.upload_layer_part_response
-
     out: aws_sdk_ecr_public.types.upload_layer_part_response.UploadLayerPartResponse = (
         aws_sdk_ecr_public.types.upload_layer_part_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ecr_public.types.upload_layer_part_response.UploadLayerPartResponse:
+    out: aws_sdk_ecr_public.types.upload_layer_part_response.UploadLayerPartResponse = (
+        aws_sdk_ecr_public.types.upload_layer_part_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -157,8 +157,7 @@ def upload_layer_part(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -176,8 +175,7 @@ async def async_upload_layer_part(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

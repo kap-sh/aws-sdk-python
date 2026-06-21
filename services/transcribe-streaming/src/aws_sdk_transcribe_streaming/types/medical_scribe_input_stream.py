@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError, SerializationError
+from aws_sdk_transcribe_streaming._iter import AnyIterator
+from aws_sdk_transcribe_streaming._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_audio_event
@@ -22,69 +23,70 @@ class _MedicalScribeInputStream_ConfigurationEvent(TypedDict):
     ConfigurationEvent: "aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.MedicalScribeConfigurationEvent"
 
 
-MedicalScribeInputStream: TypeAlias = (
+_MedicalScribeInputStream: TypeAlias = (
     _MedicalScribeInputStream_AudioEvent
     | _MedicalScribeInputStream_SessionControlEvent
     | _MedicalScribeInputStream_ConfigurationEvent
 )
+MedicalScribeInputStream: TypeAlias = AnyIterator[_MedicalScribeInputStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: MedicalScribeInputStream) -> dict:
-    if "AudioEvent" in value:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_audio_event
+def serialize_event_json(value: _MedicalScribeInputStream) -> bytes:
+    match value:
+        case {"AudioEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.medical_scribe_audio_event
 
-        return {
-            "AudioEvent": aws_sdk_transcribe_streaming.types.medical_scribe_audio_event.serialize_json(
-                value["AudioEvent"]
+            return aws_sdk_transcribe_streaming.types.medical_scribe_audio_event.serialize_event_json(
+                payload
             )
-        }
-    elif "SessionControlEvent" in value:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event
+        case {"SessionControlEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event
 
-        return {
-            "SessionControlEvent": aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event.serialize_json(
-                value["SessionControlEvent"]
+            return aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event.serialize_event_json(
+                payload
             )
-        }
-    elif "ConfigurationEvent" in value:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event
+        case {"ConfigurationEvent": payload}:
+            import aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event
 
-        return {
-            "ConfigurationEvent": aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.serialize_json(
-                value["ConfigurationEvent"]
+            return aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("MedicalScribeInputStream: no variant present")
-
-
-def deserialize_json(data: dict) -> MedicalScribeInputStream:
-    if "AudioEvent" in data:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_audio_event
-
-        return {
-            "AudioEvent": aws_sdk_transcribe_streaming.types.medical_scribe_audio_event.deserialize_json(
-                data["AudioEvent"]
+        case _:
+            raise ValueError(
+                f"MedicalScribeInputStream: unrecognized variant {value!r}"
             )
-        }
-    elif "SessionControlEvent" in data:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event
 
-        return {
-            "SessionControlEvent": aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event.deserialize_json(
-                data["SessionControlEvent"]
-            )
-        }
-    elif "ConfigurationEvent" in data:
-        import aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event
 
-        return {
-            "ConfigurationEvent": aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.deserialize_json(
-                data["ConfigurationEvent"]
+def deserialize_event_json(message: Message) -> _MedicalScribeInputStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "AudioEvent":
+            import aws_sdk_transcribe_streaming.types.medical_scribe_audio_event
+
+            return {
+                "AudioEvent": aws_sdk_transcribe_streaming.types.medical_scribe_audio_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "SessionControlEvent":
+            import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event
+
+            return {
+                "SessionControlEvent": aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "ConfigurationEvent":
+            import aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event
+
+            return {
+                "ConfigurationEvent": aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"MedicalScribeInputStream: unrecognized event-type {event_type!r}"
             )
-        }
-    else:
-        raise DeserializationError(
-            "MedicalScribeInputStream: no recognized variant key"
-        )

@@ -2,10 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_agent_runtime.errors import (
-    DeserializationError,
-    SerializationError,
-)
+from aws_sdk_bedrock_agent_runtime._iter import AnyIterator
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
@@ -56,7 +54,7 @@ class _OptimizedPromptStream_badGatewayException(TypedDict):
     badGatewayException: "aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException_"
 
 
-OptimizedPromptStream: TypeAlias = (
+_OptimizedPromptStream: TypeAlias = (
     _OptimizedPromptStream_optimizedPromptEvent
     | _OptimizedPromptStream_analyzePromptEvent
     | _OptimizedPromptStream_internalServerException
@@ -66,142 +64,139 @@ OptimizedPromptStream: TypeAlias = (
     | _OptimizedPromptStream_accessDeniedException
     | _OptimizedPromptStream_badGatewayException
 )
+OptimizedPromptStream: TypeAlias = AnyIterator[_OptimizedPromptStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: OptimizedPromptStream) -> dict:
-    if "optimizedPromptEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event
+def serialize_event_json(value: _OptimizedPromptStream) -> bytes:
+    match value:
+        case {"optimizedPromptEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event
 
-        return {
-            "optimizedPromptEvent": aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event.serialize_json(
-                value["optimizedPromptEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event.serialize_event_json(
+                payload
             )
-        }
-    elif "analyzePromptEvent" in value:
-        import aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event
+        case {"analyzePromptEvent": payload}:
+            import aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event
 
-        return {
-            "analyzePromptEvent": aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event.serialize_json(
-                value["analyzePromptEvent"]
+            return aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event.serialize_event_json(
+                payload
             )
-        }
-    elif "internalServerException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
+        case {"internalServerException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.serialize_json(
-                value["internalServerException"]
+            return aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "throttlingException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
+        case {"throttlingException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
 
-        return {
-            "throttlingException": aws_sdk_bedrock_agent_runtime.errors.throttling_exception.serialize_json(
-                value["throttlingException"]
+            return aws_sdk_bedrock_agent_runtime.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "validationException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.validation_exception
+        case {"validationException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.validation_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_agent_runtime.errors.validation_exception.serialize_json(
-                value["validationException"]
+            return aws_sdk_bedrock_agent_runtime.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "dependencyFailedException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
+        case {"dependencyFailedException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
 
-        return {
-            "dependencyFailedException": aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.serialize_json(
-                value["dependencyFailedException"]
+            return aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "accessDeniedException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
+        case {"accessDeniedException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
 
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.serialize_json(
-                value["accessDeniedException"]
+            return aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "badGatewayException" in value:
-        import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
+        case {"badGatewayException": payload}:
+            import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
 
-        return {
-            "badGatewayException": aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.serialize_json(
-                value["badGatewayException"]
+            return aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("OptimizedPromptStream: no variant present")
+        case _:
+            raise ValueError(f"OptimizedPromptStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> OptimizedPromptStream:
-    if "optimizedPromptEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event
+def deserialize_event_json(message: Message) -> _OptimizedPromptStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "internalServerException":
+                import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
 
-        return {
-            "optimizedPromptEvent": aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event.deserialize_json(
-                data["optimizedPromptEvent"]
+                raise aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_bedrock_agent_runtime.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import aws_sdk_bedrock_agent_runtime.errors.validation_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException(
+                    aws_sdk_bedrock_agent_runtime.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "dependencyFailedException":
+                import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException(
+                    aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "accessDeniedException":
+                import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException(
+                    aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "badGatewayException":
+                import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
+
+                raise aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException(
+                    aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"OptimizedPromptStream: unrecognized error-type {error_type!r}"
+        )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "optimizedPromptEvent":
+            import aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event
+
+            return {
+                "optimizedPromptEvent": aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "analyzePromptEvent":
+            import aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event
+
+            return {
+                "analyzePromptEvent": aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"OptimizedPromptStream: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "analyzePromptEvent" in data:
-        import aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event
-
-        return {
-            "analyzePromptEvent": aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event.deserialize_json(
-                data["analyzePromptEvent"]
-            )
-        }
-    elif "internalServerException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.internal_server_exception
-
-        return {
-            "internalServerException": aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.deserialize_json(
-                data["internalServerException"]
-            )
-        }
-    elif "throttlingException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.throttling_exception
-
-        return {
-            "throttlingException": aws_sdk_bedrock_agent_runtime.errors.throttling_exception.deserialize_json(
-                data["throttlingException"]
-            )
-        }
-    elif "validationException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.validation_exception
-
-        return {
-            "validationException": aws_sdk_bedrock_agent_runtime.errors.validation_exception.deserialize_json(
-                data["validationException"]
-            )
-        }
-    elif "dependencyFailedException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception
-
-        return {
-            "dependencyFailedException": aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.deserialize_json(
-                data["dependencyFailedException"]
-            )
-        }
-    elif "accessDeniedException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.access_denied_exception
-
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.deserialize_json(
-                data["accessDeniedException"]
-            )
-        }
-    elif "badGatewayException" in data:
-        import aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception
-
-        return {
-            "badGatewayException": aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.deserialize_json(
-                data["badGatewayException"]
-            )
-        }
-    else:
-        raise DeserializationError("OptimizedPromptStream: no recognized variant key")

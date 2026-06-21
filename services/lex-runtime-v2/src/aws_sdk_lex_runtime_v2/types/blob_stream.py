@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#BlobStream``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_lex_runtime_v2._iter import AnyIterator
 
 BlobStream: TypeAlias = AnyIterator[bytes] | bytes

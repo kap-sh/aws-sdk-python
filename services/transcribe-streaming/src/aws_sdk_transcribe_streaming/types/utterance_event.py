@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.boolean
     import aws_sdk_transcribe_streaming.types.call_analytics_entity_list
@@ -195,4 +197,17 @@ def deserialize_json(data: dict) -> UtteranceEvent:
                 data["LanguageIdentification"]
             )
         )
+    return out
+
+
+def serialize_event_json(value: UtteranceEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "UtteranceEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> UtteranceEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: UtteranceEvent = {}  # type: ignore[typeddict-item]
     return out

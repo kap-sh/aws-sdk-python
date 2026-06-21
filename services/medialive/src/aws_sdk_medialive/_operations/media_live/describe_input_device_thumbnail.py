@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from email.utils import parsedate_to_datetime as _parse_http_date
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 from urllib.parse import quote
 
 import zapros
@@ -12,6 +12,19 @@ from typing_extensions import Never
 
 import aws_sdk_medialive._auth._signers
 import aws_sdk_medialive._auth._sigv4
+import aws_sdk_medialive.errors.bad_gateway_exception
+import aws_sdk_medialive.errors.bad_request_exception
+import aws_sdk_medialive.errors.forbidden_exception
+import aws_sdk_medialive.errors.gateway_timeout_exception
+import aws_sdk_medialive.errors.internal_server_error_exception
+import aws_sdk_medialive.errors.not_found_exception
+import aws_sdk_medialive.errors.too_many_requests_exception
+import aws_sdk_medialive.types.__timestamp
+import aws_sdk_medialive.types.accept_header
+import aws_sdk_medialive.types.content_type
+import aws_sdk_medialive.types.describe_input_device_thumbnail_request
+import aws_sdk_medialive.types.describe_input_device_thumbnail_response
+import aws_sdk_medialive.types.input_device_thumbnail
 from aws_sdk_medialive._protocol.errors import parse_error_metadata_json
 from aws_sdk_medialive._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_medialive._services._pipeline import (
@@ -20,54 +33,36 @@ from aws_sdk_medialive._services._pipeline import (
 )
 from aws_sdk_medialive.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_medialive.types.describe_input_device_thumbnail_request
-    import aws_sdk_medialive.types.describe_input_device_thumbnail_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadGatewayException":
-            import aws_sdk_medialive.errors.bad_gateway_exception
-
             raise aws_sdk_medialive.errors.bad_gateway_exception.BadGatewayException.from_json(
                 data
             )
         case "BadRequestException":
-            import aws_sdk_medialive.errors.bad_request_exception
-
             raise aws_sdk_medialive.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_medialive.errors.forbidden_exception
-
             raise aws_sdk_medialive.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "GatewayTimeoutException":
-            import aws_sdk_medialive.errors.gateway_timeout_exception
-
             raise aws_sdk_medialive.errors.gateway_timeout_exception.GatewayTimeoutException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_medialive.errors.internal_server_error_exception
-
             raise aws_sdk_medialive.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_medialive.errors.not_found_exception
-
             raise aws_sdk_medialive.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_medialive.errors.too_many_requests_exception
-
             raise aws_sdk_medialive.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -76,17 +71,13 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_medialive.types.describe_input_device_thumbnail_response.DescribeInputDeviceThumbnailResponse:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
     out: aws_sdk_medialive.types.describe_input_device_thumbnail_response.DescribeInputDeviceThumbnailResponse = {
         "body": _iter
     }  # type: ignore[reportAssignmentType]
     if "Content-Type" in response.headers:
-        import aws_sdk_medialive.types.content_type
-
         out["content_type"] = aws_sdk_medialive.types.content_type.deserialize_json(
             response.headers["Content-Type"]
         )
@@ -95,8 +86,26 @@ def handle_response(
     if "ETag" in response.headers:
         out["e_tag"] = str(response.headers["ETag"])
     if "Last-Modified" in response.headers:
-        import aws_sdk_medialive.types.__timestamp
+        out["last_modified"] = _parse_http_date(response.headers["Last-Modified"])
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_medialive.types.describe_input_device_thumbnail_response.DescribeInputDeviceThumbnailResponse:
+    _iter = cast(Any, response.async_iter_bytes())
+    out: aws_sdk_medialive.types.describe_input_device_thumbnail_response.DescribeInputDeviceThumbnailResponse = {
+        "body": _iter
+    }  # type: ignore[reportAssignmentType]
+    if "Content-Type" in response.headers:
+        out["content_type"] = aws_sdk_medialive.types.content_type.deserialize_json(
+            response.headers["Content-Type"]
+        )
+    if "Content-Length" in response.headers:
+        out["content_length"] = int(response.headers["Content-Length"])
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    if "Last-Modified" in response.headers:
         out["last_modified"] = _parse_http_date(response.headers["Last-Modified"])
     return out
 
@@ -161,8 +170,7 @@ def describe_input_device_thumbnail(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -180,8 +188,7 @@ async def async_describe_input_device_thumbnail(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

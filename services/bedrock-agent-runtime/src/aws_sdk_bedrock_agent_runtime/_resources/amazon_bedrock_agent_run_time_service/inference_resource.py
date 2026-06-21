@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -40,6 +42,7 @@ class InferenceResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @contextmanager
     def invoke_agent(
         self,
         agent_id: "aws_sdk_bedrock_agent_runtime.types.agent_id.AgentId",
@@ -70,9 +73,7 @@ class InferenceResource:
         source_arn: Optional[
             "aws_sdk_bedrock_agent_runtime.types.aws_resource_arn.AWSResourceARN"
         ] = None,
-    ) -> (
-        "aws_sdk_bedrock_agent_runtime.types.invoke_agent_response.InvokeAgentResponse"
-    ):
+    ) -> "Generator[aws_sdk_bedrock_agent_runtime.types.invoke_agent_response.InvokeAgentResponse]":
         r"""<note> </note> <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p> <ul> <li> <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p> </li> <li> <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events\">Trace enablement</a>.</p> </li> <li> <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p> </li> <li> <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p> </li> </ul> <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p> <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p> <ul> <li> <p>The <code>attribution</code> object contains citations for parts of the response.</p> </li> <li> <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p> </li> <li> <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p> </li> <li> <p>Errors are also surfaced in the response.</p> </li> </ul>
 
         Args:
@@ -133,13 +134,14 @@ class InferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
 
 class AsyncInferenceResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @asynccontextmanager
     async def invoke_agent(
         self,
         agent_id: "aws_sdk_bedrock_agent_runtime.types.agent_id.AgentId",
@@ -170,9 +172,7 @@ class AsyncInferenceResource:
         source_arn: Optional[
             "aws_sdk_bedrock_agent_runtime.types.aws_resource_arn.AWSResourceARN"
         ] = None,
-    ) -> (
-        "aws_sdk_bedrock_agent_runtime.types.invoke_agent_response.InvokeAgentResponse"
-    ):
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agent_runtime.types.invoke_agent_response.InvokeAgentResponse]":
         r"""<note> </note> <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p> <ul> <li> <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p> </li> <li> <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events\">Trace enablement</a>.</p> </li> <li> <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p> </li> <li> <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p> </li> </ul> <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p> <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p> <ul> <li> <p>The <code>attribution</code> object contains citations for parts of the response.</p> </li> <li> <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p> </li> <li> <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p> </li> <li> <p>Errors are also surfaced in the response.</p> </li> </ul>
 
         Args:
@@ -234,4 +234,4 @@ class AsyncInferenceResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output

@@ -4,6 +4,7 @@ from typing import TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_connecthealth._protocol.eventstream import HeaderValue, Message
 from aws_sdk_connecthealth.errors import ServiceError
 
 
@@ -43,3 +44,16 @@ class ValidationException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ValidationException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ValidationException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "validationException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ValidationException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ValidationException_ = {}  # type: ignore[typeddict-item]
+    return out

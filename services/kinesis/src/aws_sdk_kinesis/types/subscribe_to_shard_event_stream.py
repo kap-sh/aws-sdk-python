@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_kinesis.errors import DeserializationError, SerializationError
+from aws_sdk_kinesis._iter import AnyIterator
+from aws_sdk_kinesis._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.errors.internal_failure_exception
@@ -75,7 +76,7 @@ class _SubscribeToShardEventStream_InternalFailureException(TypedDict):
     )
 
 
-SubscribeToShardEventStream: TypeAlias = (
+_SubscribeToShardEventStream: TypeAlias = (
     _SubscribeToShardEventStream_SubscribeToShardEvent
     | _SubscribeToShardEventStream_ResourceNotFoundException
     | _SubscribeToShardEventStream_ResourceInUseException
@@ -87,176 +88,171 @@ SubscribeToShardEventStream: TypeAlias = (
     | _SubscribeToShardEventStream_KMSThrottlingException
     | _SubscribeToShardEventStream_InternalFailureException
 )
+SubscribeToShardEventStream: TypeAlias = AnyIterator[_SubscribeToShardEventStream]
 
 
-# --- awsJson1_1 ser/de ---
-def serialize_aws_json_1_1(value: SubscribeToShardEventStream) -> dict:
-    if "SubscribeToShardEvent" in value:
-        import aws_sdk_kinesis.types.subscribe_to_shard_event
+def serialize_event_aws_json_1_1(value: _SubscribeToShardEventStream) -> bytes:
+    match value:
+        case {"SubscribeToShardEvent": payload}:
+            import aws_sdk_kinesis.types.subscribe_to_shard_event
 
-        return {
-            "SubscribeToShardEvent": aws_sdk_kinesis.types.subscribe_to_shard_event.serialize_aws_json_1_1(
-                value["SubscribeToShardEvent"]
+            return aws_sdk_kinesis.types.subscribe_to_shard_event.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "ResourceNotFoundException" in value:
-        import aws_sdk_kinesis.errors.resource_not_found_exception
+        case {"ResourceNotFoundException": payload}:
+            import aws_sdk_kinesis.errors.resource_not_found_exception
 
-        return {
-            "ResourceNotFoundException": aws_sdk_kinesis.errors.resource_not_found_exception.serialize_aws_json_1_1(
-                value["ResourceNotFoundException"]
+            return aws_sdk_kinesis.errors.resource_not_found_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "ResourceInUseException" in value:
-        import aws_sdk_kinesis.errors.resource_in_use_exception
+        case {"ResourceInUseException": payload}:
+            import aws_sdk_kinesis.errors.resource_in_use_exception
 
-        return {
-            "ResourceInUseException": aws_sdk_kinesis.errors.resource_in_use_exception.serialize_aws_json_1_1(
-                value["ResourceInUseException"]
+            return aws_sdk_kinesis.errors.resource_in_use_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "KMSDisabledException" in value:
-        import aws_sdk_kinesis.errors.kms_disabled_exception
+        case {"KMSDisabledException": payload}:
+            import aws_sdk_kinesis.errors.kms_disabled_exception
 
-        return {
-            "KMSDisabledException": aws_sdk_kinesis.errors.kms_disabled_exception.serialize_aws_json_1_1(
-                value["KMSDisabledException"]
+            return aws_sdk_kinesis.errors.kms_disabled_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "KMSInvalidStateException" in value:
-        import aws_sdk_kinesis.errors.kms_invalid_state_exception
+        case {"KMSInvalidStateException": payload}:
+            import aws_sdk_kinesis.errors.kms_invalid_state_exception
 
-        return {
-            "KMSInvalidStateException": aws_sdk_kinesis.errors.kms_invalid_state_exception.serialize_aws_json_1_1(
-                value["KMSInvalidStateException"]
+            return aws_sdk_kinesis.errors.kms_invalid_state_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "KMSAccessDeniedException" in value:
-        import aws_sdk_kinesis.errors.kms_access_denied_exception
+        case {"KMSAccessDeniedException": payload}:
+            import aws_sdk_kinesis.errors.kms_access_denied_exception
 
-        return {
-            "KMSAccessDeniedException": aws_sdk_kinesis.errors.kms_access_denied_exception.serialize_aws_json_1_1(
-                value["KMSAccessDeniedException"]
+            return aws_sdk_kinesis.errors.kms_access_denied_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "KMSNotFoundException" in value:
-        import aws_sdk_kinesis.errors.kms_not_found_exception
+        case {"KMSNotFoundException": payload}:
+            import aws_sdk_kinesis.errors.kms_not_found_exception
 
-        return {
-            "KMSNotFoundException": aws_sdk_kinesis.errors.kms_not_found_exception.serialize_aws_json_1_1(
-                value["KMSNotFoundException"]
+            return aws_sdk_kinesis.errors.kms_not_found_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "KMSOptInRequired" in value:
-        import aws_sdk_kinesis.errors.kms_opt_in_required
+        case {"KMSOptInRequired": payload}:
+            import aws_sdk_kinesis.errors.kms_opt_in_required
 
-        return {
-            "KMSOptInRequired": aws_sdk_kinesis.errors.kms_opt_in_required.serialize_aws_json_1_1(
-                value["KMSOptInRequired"]
+            return (
+                aws_sdk_kinesis.errors.kms_opt_in_required.serialize_event_aws_json_1_1(
+                    payload
+                )
             )
-        }
-    elif "KMSThrottlingException" in value:
-        import aws_sdk_kinesis.errors.kms_throttling_exception
+        case {"KMSThrottlingException": payload}:
+            import aws_sdk_kinesis.errors.kms_throttling_exception
 
-        return {
-            "KMSThrottlingException": aws_sdk_kinesis.errors.kms_throttling_exception.serialize_aws_json_1_1(
-                value["KMSThrottlingException"]
+            return aws_sdk_kinesis.errors.kms_throttling_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    elif "InternalFailureException" in value:
-        import aws_sdk_kinesis.errors.internal_failure_exception
+        case {"InternalFailureException": payload}:
+            import aws_sdk_kinesis.errors.internal_failure_exception
 
-        return {
-            "InternalFailureException": aws_sdk_kinesis.errors.internal_failure_exception.serialize_aws_json_1_1(
-                value["InternalFailureException"]
+            return aws_sdk_kinesis.errors.internal_failure_exception.serialize_event_aws_json_1_1(
+                payload
             )
-        }
-    else:
-        raise SerializationError("SubscribeToShardEventStream: no variant present")
-
-
-def deserialize_aws_json_1_1(data: dict) -> SubscribeToShardEventStream:
-    if "SubscribeToShardEvent" in data:
-        import aws_sdk_kinesis.types.subscribe_to_shard_event
-
-        return {
-            "SubscribeToShardEvent": aws_sdk_kinesis.types.subscribe_to_shard_event.deserialize_aws_json_1_1(
-                data["SubscribeToShardEvent"]
+        case _:
+            raise ValueError(
+                f"SubscribeToShardEventStream: unrecognized variant {value!r}"
             )
-        }
-    elif "ResourceNotFoundException" in data:
-        import aws_sdk_kinesis.errors.resource_not_found_exception
 
-        return {
-            "ResourceNotFoundException": aws_sdk_kinesis.errors.resource_not_found_exception.deserialize_aws_json_1_1(
-                data["ResourceNotFoundException"]
-            )
-        }
-    elif "ResourceInUseException" in data:
-        import aws_sdk_kinesis.errors.resource_in_use_exception
 
-        return {
-            "ResourceInUseException": aws_sdk_kinesis.errors.resource_in_use_exception.deserialize_aws_json_1_1(
-                data["ResourceInUseException"]
-            )
-        }
-    elif "KMSDisabledException" in data:
-        import aws_sdk_kinesis.errors.kms_disabled_exception
+def deserialize_event_aws_json_1_1(message: Message) -> _SubscribeToShardEventStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "ResourceNotFoundException":
+                import aws_sdk_kinesis.errors.resource_not_found_exception
 
-        return {
-            "KMSDisabledException": aws_sdk_kinesis.errors.kms_disabled_exception.deserialize_aws_json_1_1(
-                data["KMSDisabledException"]
-            )
-        }
-    elif "KMSInvalidStateException" in data:
-        import aws_sdk_kinesis.errors.kms_invalid_state_exception
+                raise aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException(
+                    aws_sdk_kinesis.errors.resource_not_found_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "ResourceInUseException":
+                import aws_sdk_kinesis.errors.resource_in_use_exception
 
-        return {
-            "KMSInvalidStateException": aws_sdk_kinesis.errors.kms_invalid_state_exception.deserialize_aws_json_1_1(
-                data["KMSInvalidStateException"]
-            )
-        }
-    elif "KMSAccessDeniedException" in data:
-        import aws_sdk_kinesis.errors.kms_access_denied_exception
+                raise aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException(
+                    aws_sdk_kinesis.errors.resource_in_use_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSDisabledException":
+                import aws_sdk_kinesis.errors.kms_disabled_exception
 
-        return {
-            "KMSAccessDeniedException": aws_sdk_kinesis.errors.kms_access_denied_exception.deserialize_aws_json_1_1(
-                data["KMSAccessDeniedException"]
-            )
-        }
-    elif "KMSNotFoundException" in data:
-        import aws_sdk_kinesis.errors.kms_not_found_exception
+                raise aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException(
+                    aws_sdk_kinesis.errors.kms_disabled_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSInvalidStateException":
+                import aws_sdk_kinesis.errors.kms_invalid_state_exception
 
-        return {
-            "KMSNotFoundException": aws_sdk_kinesis.errors.kms_not_found_exception.deserialize_aws_json_1_1(
-                data["KMSNotFoundException"]
-            )
-        }
-    elif "KMSOptInRequired" in data:
-        import aws_sdk_kinesis.errors.kms_opt_in_required
+                raise aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException(
+                    aws_sdk_kinesis.errors.kms_invalid_state_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSAccessDeniedException":
+                import aws_sdk_kinesis.errors.kms_access_denied_exception
 
-        return {
-            "KMSOptInRequired": aws_sdk_kinesis.errors.kms_opt_in_required.deserialize_aws_json_1_1(
-                data["KMSOptInRequired"]
-            )
-        }
-    elif "KMSThrottlingException" in data:
-        import aws_sdk_kinesis.errors.kms_throttling_exception
+                raise aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException(
+                    aws_sdk_kinesis.errors.kms_access_denied_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSNotFoundException":
+                import aws_sdk_kinesis.errors.kms_not_found_exception
 
-        return {
-            "KMSThrottlingException": aws_sdk_kinesis.errors.kms_throttling_exception.deserialize_aws_json_1_1(
-                data["KMSThrottlingException"]
-            )
-        }
-    elif "InternalFailureException" in data:
-        import aws_sdk_kinesis.errors.internal_failure_exception
+                raise aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException(
+                    aws_sdk_kinesis.errors.kms_not_found_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSOptInRequired":
+                import aws_sdk_kinesis.errors.kms_opt_in_required
 
-        return {
-            "InternalFailureException": aws_sdk_kinesis.errors.internal_failure_exception.deserialize_aws_json_1_1(
-                data["InternalFailureException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "SubscribeToShardEventStream: no recognized variant key"
+                raise aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired(
+                    aws_sdk_kinesis.errors.kms_opt_in_required.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "KMSThrottlingException":
+                import aws_sdk_kinesis.errors.kms_throttling_exception
+
+                raise aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException(
+                    aws_sdk_kinesis.errors.kms_throttling_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+            case "InternalFailureException":
+                import aws_sdk_kinesis.errors.internal_failure_exception
+
+                raise aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException(
+                    aws_sdk_kinesis.errors.internal_failure_exception.deserialize_event_aws_json_1_1(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"SubscribeToShardEventStream: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "SubscribeToShardEvent":
+            import aws_sdk_kinesis.types.subscribe_to_shard_event
+
+            return {
+                "SubscribeToShardEvent": aws_sdk_kinesis.types.subscribe_to_shard_event.deserialize_event_aws_json_1_1(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"SubscribeToShardEventStream: unrecognized event-type {event_type!r}"
+            )

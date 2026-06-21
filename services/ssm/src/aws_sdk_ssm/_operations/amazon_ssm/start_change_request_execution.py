@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ssm._auth._signers
 import aws_sdk_ssm._auth._sigv4
+import aws_sdk_ssm.errors.automation_definition_not_approved_exception
+import aws_sdk_ssm.errors.automation_definition_not_found_exception
+import aws_sdk_ssm.errors.automation_definition_version_not_found_exception
+import aws_sdk_ssm.errors.automation_execution_limit_exceeded_exception
+import aws_sdk_ssm.errors.idempotent_parameter_mismatch
+import aws_sdk_ssm.errors.internal_server_error
+import aws_sdk_ssm.errors.invalid_automation_execution_parameters_exception
+import aws_sdk_ssm.errors.no_longer_supported_exception
+import aws_sdk_ssm.types.automation_parameter_map
+import aws_sdk_ssm.types.date_time
+import aws_sdk_ssm.types.runbooks
+import aws_sdk_ssm.types.start_change_request_execution_request
+import aws_sdk_ssm.types.start_change_request_execution_result
+import aws_sdk_ssm.types.tag_list
 from aws_sdk_ssm._protocol.errors import parse_error_metadata_json
 from aws_sdk_ssm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ssm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ssm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ssm.types.start_change_request_execution_request
-    import aws_sdk_ssm.types.start_change_request_execution_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +35,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AutomationDefinitionNotApprovedException":
-            import aws_sdk_ssm.errors.automation_definition_not_approved_exception
-
             raise aws_sdk_ssm.errors.automation_definition_not_approved_exception.AutomationDefinitionNotApprovedException.from_aws_json_1_1(
                 data
             )
         case "AutomationDefinitionNotFoundException":
-            import aws_sdk_ssm.errors.automation_definition_not_found_exception
-
             raise aws_sdk_ssm.errors.automation_definition_not_found_exception.AutomationDefinitionNotFoundException.from_aws_json_1_1(
                 data
             )
         case "AutomationDefinitionVersionNotFoundException":
-            import aws_sdk_ssm.errors.automation_definition_version_not_found_exception
-
             raise aws_sdk_ssm.errors.automation_definition_version_not_found_exception.AutomationDefinitionVersionNotFoundException.from_aws_json_1_1(
                 data
             )
         case "AutomationExecutionLimitExceededException":
-            import aws_sdk_ssm.errors.automation_execution_limit_exceeded_exception
-
             raise aws_sdk_ssm.errors.automation_execution_limit_exceeded_exception.AutomationExecutionLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "IdempotentParameterMismatch":
-            import aws_sdk_ssm.errors.idempotent_parameter_mismatch
-
             raise aws_sdk_ssm.errors.idempotent_parameter_mismatch.IdempotentParameterMismatch.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_ssm.errors.internal_server_error
-
             raise aws_sdk_ssm.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidAutomationExecutionParametersException":
-            import aws_sdk_ssm.errors.invalid_automation_execution_parameters_exception
-
             raise aws_sdk_ssm.errors.invalid_automation_execution_parameters_exception.InvalidAutomationExecutionParametersException.from_aws_json_1_1(
                 data
             )
         case "NoLongerSupportedException":
-            import aws_sdk_ssm.errors.no_longer_supported_exception
-
             raise aws_sdk_ssm.errors.no_longer_supported_exception.NoLongerSupportedException.from_aws_json_1_1(
                 data
             )
@@ -77,12 +71,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ssm.types.start_change_request_execution_result.StartChangeRequestExecutionResult:
-    import aws_sdk_ssm.types.start_change_request_execution_result
-
     out: aws_sdk_ssm.types.start_change_request_execution_result.StartChangeRequestExecutionResult = aws_sdk_ssm.types.start_change_request_execution_result.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ssm.types.start_change_request_execution_result.StartChangeRequestExecutionResult:
+    out: aws_sdk_ssm.types.start_change_request_execution_result.StartChangeRequestExecutionResult = aws_sdk_ssm.types.start_change_request_execution_result.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -150,8 +151,7 @@ def start_change_request_execution(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -169,8 +169,7 @@ async def async_start_change_request_execution(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

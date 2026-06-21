@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,16 @@ from typing_extensions import Never
 
 import aws_sdk_auto_scaling._auth._signers
 import aws_sdk_auto_scaling._auth._sigv4
+import aws_sdk_auto_scaling.errors.idempotent_parameter_mismatch_error
+import aws_sdk_auto_scaling.errors.resource_contention_fault
+import aws_sdk_auto_scaling.types.availability_zone_ids_limit1
+import aws_sdk_auto_scaling.types.availability_zones_limit1
+import aws_sdk_auto_scaling.types.instance_collections
+import aws_sdk_auto_scaling.types.launch_instances_errors
+import aws_sdk_auto_scaling.types.launch_instances_request
+import aws_sdk_auto_scaling.types.launch_instances_result
+import aws_sdk_auto_scaling.types.retry_strategy
+import aws_sdk_auto_scaling.types.subnet_ids_limit1
 from aws_sdk_auto_scaling._protocol.errors import parse_error_metadata
 from aws_sdk_auto_scaling._protocol.xml import fromstring
 from aws_sdk_auto_scaling._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,24 +29,16 @@ from aws_sdk_auto_scaling._services._pipeline import (
 )
 from aws_sdk_auto_scaling.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_auto_scaling.types.launch_instances_request
-    import aws_sdk_auto_scaling.types.launch_instances_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "IdempotentParameterMismatchError":
-            import aws_sdk_auto_scaling.errors.idempotent_parameter_mismatch_error
-
             raise aws_sdk_auto_scaling.errors.idempotent_parameter_mismatch_error.IdempotentParameterMismatchError.from_query(
                 root
             )
         case "ResourceContentionFault":
-            import aws_sdk_auto_scaling.errors.resource_contention_fault
-
             raise aws_sdk_auto_scaling.errors.resource_contention_fault.ResourceContentionFault.from_query(
                 root
             )
@@ -45,11 +47,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_auto_scaling.types.launch_instances_result.LaunchInstancesResult:
-    import aws_sdk_auto_scaling.types.launch_instances_result
-
     root = fromstring(response.read())
+    result = root.find("LaunchInstancesResult")
+    out: aws_sdk_auto_scaling.types.launch_instances_result.LaunchInstancesResult = (
+        aws_sdk_auto_scaling.types.launch_instances_result.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_auto_scaling.types.launch_instances_result.LaunchInstancesResult:
+    root = fromstring(await response.aread())
     result = root.find("LaunchInstancesResult")
     out: aws_sdk_auto_scaling.types.launch_instances_result.LaunchInstancesResult = (
         aws_sdk_auto_scaling.types.launch_instances_result.deserialize_query(
@@ -125,8 +138,7 @@ def launch_instances(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +156,7 @@ async def async_launch_instances(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

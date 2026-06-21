@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_config_service._auth._signers
 import aws_sdk_config_service._auth._sigv4
+import aws_sdk_config_service.errors.insufficient_permissions_exception
+import aws_sdk_config_service.errors.invalid_parameter_value_exception
+import aws_sdk_config_service.errors.max_number_of_config_rules_exceeded_exception
+import aws_sdk_config_service.errors.no_available_configuration_recorder_exception
+import aws_sdk_config_service.errors.resource_in_use_exception
+import aws_sdk_config_service.types.config_rule
+import aws_sdk_config_service.types.put_config_rule_request
+import aws_sdk_config_service.types.tags_list
 from aws_sdk_config_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_config_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,41 +29,28 @@ from aws_sdk_config_service._services._pipeline import (
 )
 from aws_sdk_config_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_config_service.types.put_config_rule_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InsufficientPermissionsException":
-            import aws_sdk_config_service.errors.insufficient_permissions_exception
-
             raise aws_sdk_config_service.errors.insufficient_permissions_exception.InsufficientPermissionsException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_config_service.errors.invalid_parameter_value_exception
-
             raise aws_sdk_config_service.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_1(
                 data
             )
         case "MaxNumberOfConfigRulesExceededException":
-            import aws_sdk_config_service.errors.max_number_of_config_rules_exceeded_exception
-
             raise aws_sdk_config_service.errors.max_number_of_config_rules_exceeded_exception.MaxNumberOfConfigRulesExceededException.from_aws_json_1_1(
                 data
             )
         case "NoAvailableConfigurationRecorderException":
-            import aws_sdk_config_service.errors.no_available_configuration_recorder_exception
-
             raise aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException.from_aws_json_1_1(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_config_service.errors.resource_in_use_exception
-
             raise aws_sdk_config_service.errors.resource_in_use_exception.ResourceInUseException.from_aws_json_1_1(
                 data
             )
@@ -125,7 +120,6 @@ def put_config_rule(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -141,7 +135,6 @@ async def async_put_config_rule(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

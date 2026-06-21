@@ -3,13 +3,17 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_securityagent._auth._signers
 import aws_sdk_securityagent._auth._sigv4
+import aws_sdk_securityagent.types.batch_get_code_review_job_tasks_input
+import aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output
+import aws_sdk_securityagent.types.code_review_job_task_list
+import aws_sdk_securityagent.types.task_id_list
 from aws_sdk_securityagent._protocol.errors import parse_error_metadata_json
 from aws_sdk_securityagent._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,10 +25,6 @@ from aws_sdk_securityagent._services._pipeline import (
 )
 from aws_sdk_securityagent.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_securityagent.types.batch_get_code_review_job_tasks_input
-    import aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
@@ -35,12 +35,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.BatchGetCodeReviewJobTasksOutput:
-    import aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output
-
     out: aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.BatchGetCodeReviewJobTasksOutput = aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.BatchGetCodeReviewJobTasksOutput:
+    out: aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.BatchGetCodeReviewJobTasksOutput = aws_sdk_securityagent.types.batch_get_code_review_job_tasks_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -106,8 +113,7 @@ def batch_get_code_review_job_tasks(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -125,8 +131,7 @@ async def async_batch_get_code_review_job_tasks(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

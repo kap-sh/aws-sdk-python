@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -11,6 +11,16 @@ from typing_extensions import Never
 
 import aws_sdk_cloudwatch._auth._signers
 import aws_sdk_cloudwatch._auth._sigv4
+import aws_sdk_cloudwatch.errors.internal_service_fault
+import aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception
+import aws_sdk_cloudwatch.errors.invalid_parameter_value_exception
+import aws_sdk_cloudwatch.errors.missing_required_parameter_exception
+import aws_sdk_cloudwatch.errors.resource_not_found_exception
+import aws_sdk_cloudwatch.types.delete_anomaly_detector_input
+import aws_sdk_cloudwatch.types.delete_anomaly_detector_output
+import aws_sdk_cloudwatch.types.dimensions
+import aws_sdk_cloudwatch.types.metric_math_anomaly_detector
+import aws_sdk_cloudwatch.types.single_metric_anomaly_detector
 from aws_sdk_cloudwatch._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudwatch._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudwatch._services._pipeline import (
@@ -19,42 +29,28 @@ from aws_sdk_cloudwatch._services._pipeline import (
 )
 from aws_sdk_cloudwatch.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudwatch.types.delete_anomaly_detector_input
-    import aws_sdk_cloudwatch.types.delete_anomaly_detector_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServiceFault":
-            import aws_sdk_cloudwatch.errors.internal_service_fault
-
             raise aws_sdk_cloudwatch.errors.internal_service_fault.InternalServiceFault.from_aws_json_1_0(
                 data
             )
         case "InvalidParameterCombinationException":
-            import aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception
-
             raise aws_sdk_cloudwatch.errors.invalid_parameter_combination_exception.InvalidParameterCombinationException.from_aws_json_1_0(
                 data
             )
         case "InvalidParameterValueException":
-            import aws_sdk_cloudwatch.errors.invalid_parameter_value_exception
-
             raise aws_sdk_cloudwatch.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_aws_json_1_0(
                 data
             )
         case "MissingRequiredParameterException":
-            import aws_sdk_cloudwatch.errors.missing_required_parameter_exception
-
             raise aws_sdk_cloudwatch.errors.missing_required_parameter_exception.MissingRequiredParameterException.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_cloudwatch.errors.resource_not_found_exception
-
             raise aws_sdk_cloudwatch.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
@@ -63,7 +59,16 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> (
+    aws_sdk_cloudwatch.types.delete_anomaly_detector_output.DeleteAnomalyDetectorOutput
+):
+    out: aws_sdk_cloudwatch.types.delete_anomaly_detector_output.DeleteAnomalyDetectorOutput = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> (
     aws_sdk_cloudwatch.types.delete_anomaly_detector_output.DeleteAnomalyDetectorOutput
 ):
@@ -138,8 +143,7 @@ def delete_anomaly_detector(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -157,8 +161,7 @@ async def async_delete_anomaly_detector(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_machine_learning._auth._signers
 import aws_sdk_machine_learning._auth._sigv4
+import aws_sdk_machine_learning.errors.internal_server_exception
+import aws_sdk_machine_learning.errors.invalid_input_exception
+import aws_sdk_machine_learning.types.describe_ml_models_input
+import aws_sdk_machine_learning.types.describe_ml_models_output
+import aws_sdk_machine_learning.types.ml_model_filter_variable
+import aws_sdk_machine_learning.types.ml_models
+import aws_sdk_machine_learning.types.sort_order
 from aws_sdk_machine_learning._protocol.errors import parse_error_metadata_json
 from aws_sdk_machine_learning._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,24 +28,16 @@ from aws_sdk_machine_learning._services._pipeline import (
 )
 from aws_sdk_machine_learning.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_machine_learning.types.describe_ml_models_input
-    import aws_sdk_machine_learning.types.describe_ml_models_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalServerException":
-            import aws_sdk_machine_learning.errors.internal_server_exception
-
             raise aws_sdk_machine_learning.errors.internal_server_exception.InternalServerException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_machine_learning.errors.invalid_input_exception
-
             raise aws_sdk_machine_learning.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
@@ -47,12 +46,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_machine_learning.types.describe_ml_models_output.DescribeMLModelsOutput:
-    import aws_sdk_machine_learning.types.describe_ml_models_output
-
     out: aws_sdk_machine_learning.types.describe_ml_models_output.DescribeMLModelsOutput = aws_sdk_machine_learning.types.describe_ml_models_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_machine_learning.types.describe_ml_models_output.DescribeMLModelsOutput:
+    out: aws_sdk_machine_learning.types.describe_ml_models_output.DescribeMLModelsOutput = aws_sdk_machine_learning.types.describe_ml_models_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -122,8 +128,7 @@ def describe_ml_models(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +146,7 @@ async def async_describe_ml_models(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_config_service._auth._signers
 import aws_sdk_config_service._auth._sigv4
+import aws_sdk_config_service.errors.invalid_configuration_recorder_name_exception
+import aws_sdk_config_service.errors.invalid_recording_group_exception
+import aws_sdk_config_service.errors.invalid_role_exception
+import aws_sdk_config_service.errors.max_number_of_configuration_recorders_exceeded_exception
+import aws_sdk_config_service.errors.unmodifiable_entity_exception
+import aws_sdk_config_service.errors.validation_exception
+import aws_sdk_config_service.types.configuration_recorder
+import aws_sdk_config_service.types.put_configuration_recorder_request
+import aws_sdk_config_service.types.tags_list
 from aws_sdk_config_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_config_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,47 +30,32 @@ from aws_sdk_config_service._services._pipeline import (
 )
 from aws_sdk_config_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_config_service.types.put_configuration_recorder_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidConfigurationRecorderNameException":
-            import aws_sdk_config_service.errors.invalid_configuration_recorder_name_exception
-
             raise aws_sdk_config_service.errors.invalid_configuration_recorder_name_exception.InvalidConfigurationRecorderNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidRecordingGroupException":
-            import aws_sdk_config_service.errors.invalid_recording_group_exception
-
             raise aws_sdk_config_service.errors.invalid_recording_group_exception.InvalidRecordingGroupException.from_aws_json_1_1(
                 data
             )
         case "InvalidRoleException":
-            import aws_sdk_config_service.errors.invalid_role_exception
-
             raise aws_sdk_config_service.errors.invalid_role_exception.InvalidRoleException.from_aws_json_1_1(
                 data
             )
         case "MaxNumberOfConfigurationRecordersExceededException":
-            import aws_sdk_config_service.errors.max_number_of_configuration_recorders_exceeded_exception
-
             raise aws_sdk_config_service.errors.max_number_of_configuration_recorders_exceeded_exception.MaxNumberOfConfigurationRecordersExceededException.from_aws_json_1_1(
                 data
             )
         case "UnmodifiableEntityException":
-            import aws_sdk_config_service.errors.unmodifiable_entity_exception
-
             raise aws_sdk_config_service.errors.unmodifiable_entity_exception.UnmodifiableEntityException.from_aws_json_1_1(
                 data
             )
         case "ValidationException":
-            import aws_sdk_config_service.errors.validation_exception
-
             raise aws_sdk_config_service.errors.validation_exception.ValidationException.from_aws_json_1_1(
                 data
             )
@@ -131,7 +125,6 @@ def put_configuration_recorder(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -147,7 +140,6 @@ async def async_put_configuration_recorder(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

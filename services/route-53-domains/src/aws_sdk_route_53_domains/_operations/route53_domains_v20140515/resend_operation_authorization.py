@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53_domains._auth._signers
 import aws_sdk_route_53_domains._auth._sigv4
+import aws_sdk_route_53_domains.errors.invalid_input
+import aws_sdk_route_53_domains.errors.tld_in_maintenance
+import aws_sdk_route_53_domains.types.resend_operation_authorization_request
 from aws_sdk_route_53_domains._protocol.errors import parse_error_metadata_json
 from aws_sdk_route_53_domains._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,23 +24,16 @@ from aws_sdk_route_53_domains._services._pipeline import (
 )
 from aws_sdk_route_53_domains.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_route_53_domains.types.resend_operation_authorization_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidInput":
-            import aws_sdk_route_53_domains.errors.invalid_input
-
             raise aws_sdk_route_53_domains.errors.invalid_input.InvalidInput.from_aws_json_1_1(
                 data
             )
         case "TLDInMaintenance":
-            import aws_sdk_route_53_domains.errors.tld_in_maintenance
-
             raise aws_sdk_route_53_domains.errors.tld_in_maintenance.TLDInMaintenance.from_aws_json_1_1(
                 data
             )
@@ -107,7 +103,6 @@ def resend_operation_authorization(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -123,7 +118,6 @@ async def async_resend_operation_authorization(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

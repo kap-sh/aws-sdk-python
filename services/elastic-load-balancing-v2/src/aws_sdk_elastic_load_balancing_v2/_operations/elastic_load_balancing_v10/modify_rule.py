@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,23 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_load_balancing_v2._auth._signers
 import aws_sdk_elastic_load_balancing_v2._auth._sigv4
+import aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception
+import aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception
+import aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception
+import aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception
+import aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception
+import aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception
+import aws_sdk_elastic_load_balancing_v2.types.actions
+import aws_sdk_elastic_load_balancing_v2.types.modify_rule_input
+import aws_sdk_elastic_load_balancing_v2.types.modify_rule_output
+import aws_sdk_elastic_load_balancing_v2.types.rule_condition_list
+import aws_sdk_elastic_load_balancing_v2.types.rule_transform_list
+import aws_sdk_elastic_load_balancing_v2.types.rules
 from aws_sdk_elastic_load_balancing_v2._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import (
     fromstring,
@@ -24,78 +41,52 @@ from aws_sdk_elastic_load_balancing_v2._services._pipeline import (
 )
 from aws_sdk_elastic_load_balancing_v2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_load_balancing_v2.types.modify_rule_input
-    import aws_sdk_elastic_load_balancing_v2.types.modify_rule_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "IncompatibleProtocolsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.incompatible_protocols_exception.IncompatibleProtocolsException.from_query(
                 root
             )
         case "InvalidLoadBalancerActionException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_load_balancer_action_exception.InvalidLoadBalancerActionException.from_query(
                 root
             )
         case "OperationNotPermittedException":
-            import aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.operation_not_permitted_exception.OperationNotPermittedException.from_query(
                 root
             )
         case "RuleNotFoundException":
-            import aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.rule_not_found_exception.RuleNotFoundException.from_query(
                 root
             )
         case "TargetGroupAssociationLimitException":
-            import aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.target_group_association_limit_exception.TargetGroupAssociationLimitException.from_query(
                 root
             )
         case "TargetGroupNotFoundException":
-            import aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.target_group_not_found_exception.TargetGroupNotFoundException.from_query(
                 root
             )
         case "TooManyActionsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_actions_exception.TooManyActionsException.from_query(
                 root
             )
         case "TooManyRegistrationsForTargetIdException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_registrations_for_target_id_exception.TooManyRegistrationsForTargetIdException.from_query(
                 root
             )
         case "TooManyTargetsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_targets_exception.TooManyTargetsException.from_query(
                 root
             )
         case "TooManyUniqueTargetGroupsPerLoadBalancerException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_unique_target_groups_per_load_balancer_exception.TooManyUniqueTargetGroupsPerLoadBalancerException.from_query(
                 root
             )
         case "UnsupportedProtocolException":
-            import aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.unsupported_protocol_exception.UnsupportedProtocolException.from_query(
                 root
             )
@@ -104,11 +95,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.ModifyRuleOutput:
-    import aws_sdk_elastic_load_balancing_v2.types.modify_rule_output
-
     root = fromstring(response.read())
+    result = root.find("ModifyRuleResult")
+    out: aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.ModifyRuleOutput = (
+        aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.ModifyRuleOutput:
+    root = fromstring(await response.aread())
     result = root.find("ModifyRuleResult")
     out: aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.ModifyRuleOutput = (
         aws_sdk_elastic_load_balancing_v2.types.modify_rule_output.deserialize_query(
@@ -184,8 +186,7 @@ def modify_rule(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -203,8 +204,7 @@ async def async_modify_rule(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

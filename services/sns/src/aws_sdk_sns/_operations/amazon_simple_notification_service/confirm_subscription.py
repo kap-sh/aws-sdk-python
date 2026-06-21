@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_sns._auth._signers
 import aws_sdk_sns._auth._sigv4
+import aws_sdk_sns.errors.authorization_error_exception
+import aws_sdk_sns.errors.filter_policy_limit_exceeded_exception
+import aws_sdk_sns.errors.internal_error_exception
+import aws_sdk_sns.errors.invalid_parameter_exception
+import aws_sdk_sns.errors.not_found_exception
+import aws_sdk_sns.errors.replay_limit_exceeded_exception
+import aws_sdk_sns.errors.subscription_limit_exceeded_exception
+import aws_sdk_sns.types.confirm_subscription_input
+import aws_sdk_sns.types.confirm_subscription_response
 from aws_sdk_sns._protocol.errors import parse_error_metadata
 from aws_sdk_sns._protocol.xml import fromstring
 from aws_sdk_sns._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sns._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sns.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sns.types.confirm_subscription_input
-    import aws_sdk_sns.types.confirm_subscription_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,44 +31,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AuthorizationErrorException":
-            import aws_sdk_sns.errors.authorization_error_exception
-
             raise aws_sdk_sns.errors.authorization_error_exception.AuthorizationErrorException.from_query(
                 root
             )
         case "FilterPolicyLimitExceededException":
-            import aws_sdk_sns.errors.filter_policy_limit_exceeded_exception
-
             raise aws_sdk_sns.errors.filter_policy_limit_exceeded_exception.FilterPolicyLimitExceededException.from_query(
                 root
             )
         case "InternalErrorException":
-            import aws_sdk_sns.errors.internal_error_exception
-
             raise aws_sdk_sns.errors.internal_error_exception.InternalErrorException.from_query(
                 root
             )
         case "InvalidParameterException":
-            import aws_sdk_sns.errors.invalid_parameter_exception
-
             raise aws_sdk_sns.errors.invalid_parameter_exception.InvalidParameterException.from_query(
                 root
             )
         case "NotFoundException":
-            import aws_sdk_sns.errors.not_found_exception
-
             raise aws_sdk_sns.errors.not_found_exception.NotFoundException.from_query(
                 root
             )
         case "ReplayLimitExceededException":
-            import aws_sdk_sns.errors.replay_limit_exceeded_exception
-
             raise aws_sdk_sns.errors.replay_limit_exceeded_exception.ReplayLimitExceededException.from_query(
                 root
             )
         case "SubscriptionLimitExceededException":
-            import aws_sdk_sns.errors.subscription_limit_exceeded_exception
-
             raise aws_sdk_sns.errors.subscription_limit_exceeded_exception.SubscriptionLimitExceededException.from_query(
                 root
             )
@@ -72,11 +63,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sns.types.confirm_subscription_response.ConfirmSubscriptionResponse:
-    import aws_sdk_sns.types.confirm_subscription_response
-
     root = fromstring(response.read())
+    result = root.find("ConfirmSubscriptionResult")
+    out: aws_sdk_sns.types.confirm_subscription_response.ConfirmSubscriptionResponse = (
+        aws_sdk_sns.types.confirm_subscription_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sns.types.confirm_subscription_response.ConfirmSubscriptionResponse:
+    root = fromstring(await response.aread())
     result = root.find("ConfirmSubscriptionResult")
     out: aws_sdk_sns.types.confirm_subscription_response.ConfirmSubscriptionResponse = (
         aws_sdk_sns.types.confirm_subscription_response.deserialize_query(
@@ -148,8 +150,7 @@ def confirm_subscription(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +168,7 @@ async def async_confirm_subscription(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,21 +3,39 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sqs._auth._signers
 import aws_sdk_sqs._auth._sigv4
+import aws_sdk_sqs.errors.batch_entry_ids_not_distinct
+import aws_sdk_sqs.errors.batch_request_too_long
+import aws_sdk_sqs.errors.empty_batch_request
+import aws_sdk_sqs.errors.invalid_address
+import aws_sdk_sqs.errors.invalid_batch_entry_id
+import aws_sdk_sqs.errors.invalid_security
+import aws_sdk_sqs.errors.kms_access_denied
+import aws_sdk_sqs.errors.kms_disabled
+import aws_sdk_sqs.errors.kms_invalid_key_usage
+import aws_sdk_sqs.errors.kms_invalid_state
+import aws_sdk_sqs.errors.kms_not_found
+import aws_sdk_sqs.errors.kms_opt_in_required
+import aws_sdk_sqs.errors.kms_throttled
+import aws_sdk_sqs.errors.queue_does_not_exist
+import aws_sdk_sqs.errors.request_throttled
+import aws_sdk_sqs.errors.too_many_entries_in_batch_request
+import aws_sdk_sqs.errors.unsupported_operation
+import aws_sdk_sqs.types.batch_result_error_entry_list
+import aws_sdk_sqs.types.send_message_batch_request
+import aws_sdk_sqs.types.send_message_batch_request_entry_list
+import aws_sdk_sqs.types.send_message_batch_result
+import aws_sdk_sqs.types.send_message_batch_result_entry_list
 from aws_sdk_sqs._protocol.errors import parse_error_metadata_json
 from aws_sdk_sqs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sqs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sqs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sqs.types.send_message_batch_request
-    import aws_sdk_sqs.types.send_message_batch_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,98 +43,64 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BatchEntryIdsNotDistinct":
-            import aws_sdk_sqs.errors.batch_entry_ids_not_distinct
-
             raise aws_sdk_sqs.errors.batch_entry_ids_not_distinct.BatchEntryIdsNotDistinct.from_aws_json_1_0(
                 data
             )
         case "BatchRequestTooLong":
-            import aws_sdk_sqs.errors.batch_request_too_long
-
             raise aws_sdk_sqs.errors.batch_request_too_long.BatchRequestTooLong.from_aws_json_1_0(
                 data
             )
         case "EmptyBatchRequest":
-            import aws_sdk_sqs.errors.empty_batch_request
-
             raise aws_sdk_sqs.errors.empty_batch_request.EmptyBatchRequest.from_aws_json_1_0(
                 data
             )
         case "InvalidAddress":
-            import aws_sdk_sqs.errors.invalid_address
-
             raise aws_sdk_sqs.errors.invalid_address.InvalidAddress.from_aws_json_1_0(
                 data
             )
         case "InvalidBatchEntryId":
-            import aws_sdk_sqs.errors.invalid_batch_entry_id
-
             raise aws_sdk_sqs.errors.invalid_batch_entry_id.InvalidBatchEntryId.from_aws_json_1_0(
                 data
             )
         case "InvalidSecurity":
-            import aws_sdk_sqs.errors.invalid_security
-
             raise aws_sdk_sqs.errors.invalid_security.InvalidSecurity.from_aws_json_1_0(
                 data
             )
         case "KmsAccessDenied":
-            import aws_sdk_sqs.errors.kms_access_denied
-
             raise aws_sdk_sqs.errors.kms_access_denied.KmsAccessDenied.from_aws_json_1_0(
                 data
             )
         case "KmsDisabled":
-            import aws_sdk_sqs.errors.kms_disabled
-
             raise aws_sdk_sqs.errors.kms_disabled.KmsDisabled.from_aws_json_1_0(data)
         case "KmsInvalidKeyUsage":
-            import aws_sdk_sqs.errors.kms_invalid_key_usage
-
             raise aws_sdk_sqs.errors.kms_invalid_key_usage.KmsInvalidKeyUsage.from_aws_json_1_0(
                 data
             )
         case "KmsInvalidState":
-            import aws_sdk_sqs.errors.kms_invalid_state
-
             raise aws_sdk_sqs.errors.kms_invalid_state.KmsInvalidState.from_aws_json_1_0(
                 data
             )
         case "KmsNotFound":
-            import aws_sdk_sqs.errors.kms_not_found
-
             raise aws_sdk_sqs.errors.kms_not_found.KmsNotFound.from_aws_json_1_0(data)
         case "KmsOptInRequired":
-            import aws_sdk_sqs.errors.kms_opt_in_required
-
             raise aws_sdk_sqs.errors.kms_opt_in_required.KmsOptInRequired.from_aws_json_1_0(
                 data
             )
         case "KmsThrottled":
-            import aws_sdk_sqs.errors.kms_throttled
-
             raise aws_sdk_sqs.errors.kms_throttled.KmsThrottled.from_aws_json_1_0(data)
         case "QueueDoesNotExist":
-            import aws_sdk_sqs.errors.queue_does_not_exist
-
             raise aws_sdk_sqs.errors.queue_does_not_exist.QueueDoesNotExist.from_aws_json_1_0(
                 data
             )
         case "RequestThrottled":
-            import aws_sdk_sqs.errors.request_throttled
-
             raise aws_sdk_sqs.errors.request_throttled.RequestThrottled.from_aws_json_1_0(
                 data
             )
         case "TooManyEntriesInBatchRequest":
-            import aws_sdk_sqs.errors.too_many_entries_in_batch_request
-
             raise aws_sdk_sqs.errors.too_many_entries_in_batch_request.TooManyEntriesInBatchRequest.from_aws_json_1_0(
                 data
             )
         case "UnsupportedOperation":
-            import aws_sdk_sqs.errors.unsupported_operation
-
             raise aws_sdk_sqs.errors.unsupported_operation.UnsupportedOperation.from_aws_json_1_0(
                 data
             )
@@ -125,13 +109,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sqs.types.send_message_batch_result.SendMessageBatchResult:
-    import aws_sdk_sqs.types.send_message_batch_result
-
     out: aws_sdk_sqs.types.send_message_batch_result.SendMessageBatchResult = (
         aws_sdk_sqs.types.send_message_batch_result.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sqs.types.send_message_batch_result.SendMessageBatchResult:
+    out: aws_sdk_sqs.types.send_message_batch_result.SendMessageBatchResult = (
+        aws_sdk_sqs.types.send_message_batch_result.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -197,8 +190,7 @@ def send_message_batch(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -215,8 +207,7 @@ async def async_send_message_batch(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

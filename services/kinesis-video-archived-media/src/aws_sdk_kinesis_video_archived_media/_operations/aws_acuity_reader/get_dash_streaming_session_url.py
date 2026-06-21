@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis_video_archived_media._auth._signers
 import aws_sdk_kinesis_video_archived_media._auth._sigv4
+import aws_sdk_kinesis_video_archived_media.errors.client_limit_exceeded_exception
+import aws_sdk_kinesis_video_archived_media.errors.invalid_argument_exception
+import aws_sdk_kinesis_video_archived_media.errors.invalid_codec_private_data_exception
+import aws_sdk_kinesis_video_archived_media.errors.missing_codec_private_data_exception
+import aws_sdk_kinesis_video_archived_media.errors.no_data_retention_exception
+import aws_sdk_kinesis_video_archived_media.errors.not_authorized_exception
+import aws_sdk_kinesis_video_archived_media.errors.resource_not_found_exception
+import aws_sdk_kinesis_video_archived_media.errors.unsupported_stream_media_type_exception
+import aws_sdk_kinesis_video_archived_media.types.dash_display_fragment_number
+import aws_sdk_kinesis_video_archived_media.types.dash_display_fragment_timestamp
+import aws_sdk_kinesis_video_archived_media.types.dash_fragment_selector
+import aws_sdk_kinesis_video_archived_media.types.dash_playback_mode
+import aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_input
+import aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output
 from aws_sdk_kinesis_video_archived_media._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -25,60 +39,40 @@ from aws_sdk_kinesis_video_archived_media.errors import (
     UnknownServiceError,
 )
 
-if TYPE_CHECKING:
-    import aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_input
-    import aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientLimitExceededException":
-            import aws_sdk_kinesis_video_archived_media.errors.client_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.client_limit_exceeded_exception.ClientLimitExceededException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_kinesis_video_archived_media.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "InvalidCodecPrivateDataException":
-            import aws_sdk_kinesis_video_archived_media.errors.invalid_codec_private_data_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.invalid_codec_private_data_exception.InvalidCodecPrivateDataException.from_json(
                 data
             )
         case "MissingCodecPrivateDataException":
-            import aws_sdk_kinesis_video_archived_media.errors.missing_codec_private_data_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.missing_codec_private_data_exception.MissingCodecPrivateDataException.from_json(
                 data
             )
         case "NoDataRetentionException":
-            import aws_sdk_kinesis_video_archived_media.errors.no_data_retention_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.no_data_retention_exception.NoDataRetentionException.from_json(
                 data
             )
         case "NotAuthorizedException":
-            import aws_sdk_kinesis_video_archived_media.errors.not_authorized_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.not_authorized_exception.NotAuthorizedException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_kinesis_video_archived_media.errors.resource_not_found_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "UnsupportedStreamMediaTypeException":
-            import aws_sdk_kinesis_video_archived_media.errors.unsupported_stream_media_type_exception
-
             raise aws_sdk_kinesis_video_archived_media.errors.unsupported_stream_media_type_exception.UnsupportedStreamMediaTypeException.from_json(
                 data
             )
@@ -87,12 +81,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.GetDASHStreamingSessionURLOutput:
-    import aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output
-
     out: aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.GetDASHStreamingSessionURLOutput = aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.GetDASHStreamingSessionURLOutput:
+    out: aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.GetDASHStreamingSessionURLOutput = aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -161,8 +162,7 @@ def get_dash_streaming_session_url(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -180,8 +180,7 @@ async def async_get_dash_streaming_session_url(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

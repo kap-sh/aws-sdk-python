@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,34 @@ from typing_extensions import Never
 
 import aws_sdk_docdb._auth._signers
 import aws_sdk_docdb._auth._sigv4
+import aws_sdk_docdb.errors.db_cluster_already_exists_fault
+import aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault
+import aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault
+import aws_sdk_docdb.errors.db_snapshot_not_found_fault
+import aws_sdk_docdb.errors.db_subnet_group_not_found_fault
+import aws_sdk_docdb.errors.insufficient_db_cluster_capacity_fault
+import aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault
+import aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault
+import aws_sdk_docdb.errors.invalid_db_snapshot_state_fault
+import aws_sdk_docdb.errors.invalid_restore_fault
+import aws_sdk_docdb.errors.invalid_subnet
+import aws_sdk_docdb.errors.invalid_vpc_network_state_fault
+import aws_sdk_docdb.errors.kms_key_not_accessible_fault
+import aws_sdk_docdb.errors.network_type_not_supported
+import aws_sdk_docdb.errors.storage_quota_exceeded_fault
+import aws_sdk_docdb.types.availability_zones
+import aws_sdk_docdb.types.db_cluster
+import aws_sdk_docdb.types.log_type_list
+import aws_sdk_docdb.types.restore_db_cluster_from_snapshot_message
+import aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result
+import aws_sdk_docdb.types.serverless_v2_scaling_configuration
+import aws_sdk_docdb.types.tag_list
+import aws_sdk_docdb.types.vpc_security_group_id_list
 from aws_sdk_docdb._protocol.errors import parse_error_metadata
 from aws_sdk_docdb._protocol.xml import fromstring
 from aws_sdk_docdb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_docdb._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_docdb.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_docdb.types.restore_db_cluster_from_snapshot_message
-    import aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,90 +45,60 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DBClusterAlreadyExistsFault":
-            import aws_sdk_docdb.errors.db_cluster_already_exists_fault
-
             raise aws_sdk_docdb.errors.db_cluster_already_exists_fault.DBClusterAlreadyExistsFault.from_query(
                 root
             )
         case "DBClusterQuotaExceededFault":
-            import aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault
-
             raise aws_sdk_docdb.errors.db_cluster_quota_exceeded_fault.DBClusterQuotaExceededFault.from_query(
                 root
             )
         case "DBClusterSnapshotNotFoundFault":
-            import aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault
-
             raise aws_sdk_docdb.errors.db_cluster_snapshot_not_found_fault.DBClusterSnapshotNotFoundFault.from_query(
                 root
             )
         case "DBSnapshotNotFoundFault":
-            import aws_sdk_docdb.errors.db_snapshot_not_found_fault
-
             raise aws_sdk_docdb.errors.db_snapshot_not_found_fault.DBSnapshotNotFoundFault.from_query(
                 root
             )
         case "DBSubnetGroupNotFoundFault":
-            import aws_sdk_docdb.errors.db_subnet_group_not_found_fault
-
             raise aws_sdk_docdb.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
                 root
             )
         case "InsufficientDBClusterCapacityFault":
-            import aws_sdk_docdb.errors.insufficient_db_cluster_capacity_fault
-
             raise aws_sdk_docdb.errors.insufficient_db_cluster_capacity_fault.InsufficientDBClusterCapacityFault.from_query(
                 root
             )
         case "InsufficientStorageClusterCapacityFault":
-            import aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault
-
             raise aws_sdk_docdb.errors.insufficient_storage_cluster_capacity_fault.InsufficientStorageClusterCapacityFault.from_query(
                 root
             )
         case "InvalidDBClusterSnapshotStateFault":
-            import aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_cluster_snapshot_state_fault.InvalidDBClusterSnapshotStateFault.from_query(
                 root
             )
         case "InvalidDBSnapshotStateFault":
-            import aws_sdk_docdb.errors.invalid_db_snapshot_state_fault
-
             raise aws_sdk_docdb.errors.invalid_db_snapshot_state_fault.InvalidDBSnapshotStateFault.from_query(
                 root
             )
         case "InvalidRestoreFault":
-            import aws_sdk_docdb.errors.invalid_restore_fault
-
             raise aws_sdk_docdb.errors.invalid_restore_fault.InvalidRestoreFault.from_query(
                 root
             )
         case "InvalidSubnet":
-            import aws_sdk_docdb.errors.invalid_subnet
-
             raise aws_sdk_docdb.errors.invalid_subnet.InvalidSubnet.from_query(root)
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_docdb.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_docdb.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "KMSKeyNotAccessibleFault":
-            import aws_sdk_docdb.errors.kms_key_not_accessible_fault
-
             raise aws_sdk_docdb.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
                 root
             )
         case "NetworkTypeNotSupported":
-            import aws_sdk_docdb.errors.network_type_not_supported
-
             raise aws_sdk_docdb.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_docdb.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_docdb.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
@@ -118,11 +107,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult:
-    import aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result
-
     root = fromstring(response.read())
+    result = root.find("RestoreDBClusterFromSnapshotResult")
+    out: aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult = aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult:
+    root = fromstring(await response.aread())
     result = root.find("RestoreDBClusterFromSnapshotResult")
     out: aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.RestoreDBClusterFromSnapshotResult = aws_sdk_docdb.types.restore_db_cluster_from_snapshot_result.deserialize_query(
         result if result is not None else root
@@ -194,8 +192,7 @@ def restore_db_cluster_from_snapshot(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -213,8 +210,7 @@ async def async_restore_db_cluster_from_snapshot(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

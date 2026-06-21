@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_chime_sdk_media_pipelines._auth._signers
 import aws_sdk_chime_sdk_media_pipelines._auth._sigv4
+import aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception
+import aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception
+import aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_pool_summary_list
+import aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_request
+import aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response
 from aws_sdk_chime_sdk_media_pipelines._protocol.errors import parse_error_metadata_json
 from aws_sdk_chime_sdk_media_pipelines._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,54 +31,36 @@ from aws_sdk_chime_sdk_media_pipelines._services._pipeline import (
 )
 from aws_sdk_chime_sdk_media_pipelines.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_request
-    import aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "ResourceLimitExceededException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.resource_limit_exceeded_exception.ResourceLimitExceededException.from_json(
                 data
             )
         case "ServiceFailureException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.service_failure_exception.ServiceFailureException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "ThrottledClientException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.throttled_client_exception.ThrottledClientException.from_json(
                 data
             )
         case "UnauthorizedClientException":
-            import aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception
-
             raise aws_sdk_chime_sdk_media_pipelines.errors.unauthorized_client_exception.UnauthorizedClientException.from_json(
                 data
             )
@@ -77,12 +69,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.ListMediaPipelineKinesisVideoStreamPoolsResponse:
-    import aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response
-
     out: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.ListMediaPipelineKinesisVideoStreamPoolsResponse = aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.ListMediaPipelineKinesisVideoStreamPoolsResponse:
+    out: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.ListMediaPipelineKinesisVideoStreamPoolsResponse = aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -148,8 +147,7 @@ def list_media_pipeline_kinesis_video_stream_pools(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +165,7 @@ async def async_list_media_pipeline_kinesis_video_stream_pools(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,12 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_load_balancing._auth._signers
 import aws_sdk_elastic_load_balancing._auth._sigv4
+import aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception
+import aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception
+import aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception
+import aws_sdk_elastic_load_balancing.errors.too_many_policies_exception
+import aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input
+import aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output
 from aws_sdk_elastic_load_balancing._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_load_balancing._protocol.xml import (
     fromstring,
@@ -24,36 +30,24 @@ from aws_sdk_elastic_load_balancing._services._pipeline import (
 )
 from aws_sdk_elastic_load_balancing.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input
-    import aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessPointNotFoundException":
-            import aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception
-
             raise aws_sdk_elastic_load_balancing.errors.access_point_not_found_exception.AccessPointNotFoundException.from_query(
                 root
             )
         case "DuplicatePolicyNameException":
-            import aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception
-
             raise aws_sdk_elastic_load_balancing.errors.duplicate_policy_name_exception.DuplicatePolicyNameException.from_query(
                 root
             )
         case "InvalidConfigurationRequestException":
-            import aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception
-
             raise aws_sdk_elastic_load_balancing.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException.from_query(
                 root
             )
         case "TooManyPoliciesException":
-            import aws_sdk_elastic_load_balancing.errors.too_many_policies_exception
-
             raise aws_sdk_elastic_load_balancing.errors.too_many_policies_exception.TooManyPoliciesException.from_query(
                 root
             )
@@ -62,11 +56,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.CreateAppCookieStickinessPolicyOutput:
-    import aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output
-
     root = fromstring(response.read())
+    result = root.find("CreateAppCookieStickinessPolicyResult")
+    out: aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.CreateAppCookieStickinessPolicyOutput = aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.CreateAppCookieStickinessPolicyOutput:
+    root = fromstring(await response.aread())
     result = root.find("CreateAppCookieStickinessPolicyResult")
     out: aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.CreateAppCookieStickinessPolicyOutput = aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_output.deserialize_query(
         result if result is not None else root
@@ -140,8 +143,7 @@ def create_app_cookie_stickiness_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -159,8 +161,7 @@ async def async_create_app_cookie_stickiness_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

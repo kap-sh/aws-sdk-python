@@ -2,13 +2,22 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.errors.bucket_already_exists
+import aws_sdk_s3.errors.bucket_already_owned_by_you
+import aws_sdk_s3.types.bucket_canned_acl
+import aws_sdk_s3.types.bucket_namespace
+import aws_sdk_s3.types.create_bucket_configuration
+import aws_sdk_s3.types.create_bucket_output
+import aws_sdk_s3.types.create_bucket_request
+import aws_sdk_s3.types.object_ownership
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import Element, fromstring, tostring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -16,24 +25,16 @@ from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.create_bucket_output
-    import aws_sdk_s3.types.create_bucket_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "BucketAlreadyExists":
-            import aws_sdk_s3.errors.bucket_already_exists
-
             raise aws_sdk_s3.errors.bucket_already_exists.BucketAlreadyExists.from_xml(
                 root
             )
         case "BucketAlreadyOwnedByYou":
-            import aws_sdk_s3.errors.bucket_already_owned_by_you
-
             raise aws_sdk_s3.errors.bucket_already_owned_by_you.BucketAlreadyOwnedByYou.from_xml(
                 root
             )
@@ -42,7 +43,18 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_s3.types.create_bucket_output.CreateBucketOutput:
+    out: aws_sdk_s3.types.create_bucket_output.CreateBucketOutput = {}  # type: ignore[typeddict-item]
+    if "Location" in response.headers:
+        out["location"] = str(response.headers["Location"])
+    if "x-amz-bucket-arn" in response.headers:
+        out["bucket_arn"] = str(response.headers["x-amz-bucket-arn"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.create_bucket_output.CreateBucketOutput:
     out: aws_sdk_s3.types.create_bucket_output.CreateBucketOutput = {}  # type: ignore[typeddict-item]
     if "Location" in response.headers:
@@ -150,8 +162,7 @@ def create_bucket(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -166,8 +177,7 @@ async def async_create_bucket(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

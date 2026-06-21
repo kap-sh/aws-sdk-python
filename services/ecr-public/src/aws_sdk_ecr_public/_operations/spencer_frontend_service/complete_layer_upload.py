@@ -3,13 +3,26 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ecr_public._auth._signers
 import aws_sdk_ecr_public._auth._sigv4
+import aws_sdk_ecr_public.errors.empty_upload_exception
+import aws_sdk_ecr_public.errors.invalid_layer_exception
+import aws_sdk_ecr_public.errors.invalid_parameter_exception
+import aws_sdk_ecr_public.errors.layer_already_exists_exception
+import aws_sdk_ecr_public.errors.layer_part_too_small_exception
+import aws_sdk_ecr_public.errors.registry_not_found_exception
+import aws_sdk_ecr_public.errors.repository_not_found_exception
+import aws_sdk_ecr_public.errors.server_exception
+import aws_sdk_ecr_public.errors.unsupported_command_exception
+import aws_sdk_ecr_public.errors.upload_not_found_exception
+import aws_sdk_ecr_public.types.complete_layer_upload_request
+import aws_sdk_ecr_public.types.complete_layer_upload_response
+import aws_sdk_ecr_public.types.layer_digest_list
 from aws_sdk_ecr_public._protocol.errors import parse_error_metadata_json
 from aws_sdk_ecr_public._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ecr_public._services._pipeline import (
@@ -18,72 +31,48 @@ from aws_sdk_ecr_public._services._pipeline import (
 )
 from aws_sdk_ecr_public.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_ecr_public.types.complete_layer_upload_request
-    import aws_sdk_ecr_public.types.complete_layer_upload_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "EmptyUploadException":
-            import aws_sdk_ecr_public.errors.empty_upload_exception
-
             raise aws_sdk_ecr_public.errors.empty_upload_exception.EmptyUploadException.from_aws_json_1_1(
                 data
             )
         case "InvalidLayerException":
-            import aws_sdk_ecr_public.errors.invalid_layer_exception
-
             raise aws_sdk_ecr_public.errors.invalid_layer_exception.InvalidLayerException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_ecr_public.errors.invalid_parameter_exception
-
             raise aws_sdk_ecr_public.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "LayerAlreadyExistsException":
-            import aws_sdk_ecr_public.errors.layer_already_exists_exception
-
             raise aws_sdk_ecr_public.errors.layer_already_exists_exception.LayerAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "LayerPartTooSmallException":
-            import aws_sdk_ecr_public.errors.layer_part_too_small_exception
-
             raise aws_sdk_ecr_public.errors.layer_part_too_small_exception.LayerPartTooSmallException.from_aws_json_1_1(
                 data
             )
         case "RegistryNotFoundException":
-            import aws_sdk_ecr_public.errors.registry_not_found_exception
-
             raise aws_sdk_ecr_public.errors.registry_not_found_exception.RegistryNotFoundException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNotFoundException":
-            import aws_sdk_ecr_public.errors.repository_not_found_exception
-
             raise aws_sdk_ecr_public.errors.repository_not_found_exception.RepositoryNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ServerException":
-            import aws_sdk_ecr_public.errors.server_exception
-
             raise aws_sdk_ecr_public.errors.server_exception.ServerException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedCommandException":
-            import aws_sdk_ecr_public.errors.unsupported_command_exception
-
             raise aws_sdk_ecr_public.errors.unsupported_command_exception.UnsupportedCommandException.from_aws_json_1_1(
                 data
             )
         case "UploadNotFoundException":
-            import aws_sdk_ecr_public.errors.upload_not_found_exception
-
             raise aws_sdk_ecr_public.errors.upload_not_found_exception.UploadNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -92,14 +81,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_ecr_public.types.complete_layer_upload_response.CompleteLayerUploadResponse
 ):
-    import aws_sdk_ecr_public.types.complete_layer_upload_response
-
     out: aws_sdk_ecr_public.types.complete_layer_upload_response.CompleteLayerUploadResponse = aws_sdk_ecr_public.types.complete_layer_upload_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_ecr_public.types.complete_layer_upload_response.CompleteLayerUploadResponse
+):
+    out: aws_sdk_ecr_public.types.complete_layer_upload_response.CompleteLayerUploadResponse = aws_sdk_ecr_public.types.complete_layer_upload_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -169,8 +167,7 @@ def complete_layer_upload(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -188,8 +185,7 @@ async def async_complete_layer_upload(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,21 +3,28 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_location._auth._signers
 import aws_sdk_location._auth._sigv4
+import aws_sdk_location.errors.access_denied_exception
+import aws_sdk_location.errors.internal_server_exception
+import aws_sdk_location.errors.throttling_exception
+import aws_sdk_location.errors.validation_exception
+import aws_sdk_location.types.job_action_options
+import aws_sdk_location.types.job_input_options
+import aws_sdk_location.types.job_output_options
+import aws_sdk_location.types.start_job_request
+import aws_sdk_location.types.start_job_response
+import aws_sdk_location.types.tag_map
+import aws_sdk_location.types.timestamp
 from aws_sdk_location._protocol.errors import parse_error_metadata_json
 from aws_sdk_location._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_location._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_location.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_location.types.start_job_request
-    import aws_sdk_location.types.start_job_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +32,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_location.errors.access_denied_exception
-
             raise aws_sdk_location.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_location.errors.internal_server_exception
-
             raise aws_sdk_location.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_location.errors.throttling_exception
-
             raise aws_sdk_location.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_location.errors.validation_exception
-
             raise aws_sdk_location.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -53,13 +52,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_location.types.start_job_response.StartJobResponse:
-    import aws_sdk_location.types.start_job_response
-
     out: aws_sdk_location.types.start_job_response.StartJobResponse = (
         aws_sdk_location.types.start_job_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_location.types.start_job_response.StartJobResponse:
+    out: aws_sdk_location.types.start_job_response.StartJobResponse = (
+        aws_sdk_location.types.start_job_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -124,8 +132,7 @@ def start_job(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -140,8 +147,7 @@ async def async_start_job(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_chime_sdk_identity._auth._signers
 import aws_sdk_chime_sdk_identity._auth._sigv4
+import aws_sdk_chime_sdk_identity.errors.bad_request_exception
+import aws_sdk_chime_sdk_identity.errors.conflict_exception
+import aws_sdk_chime_sdk_identity.errors.forbidden_exception
+import aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception
+import aws_sdk_chime_sdk_identity.errors.service_failure_exception
+import aws_sdk_chime_sdk_identity.errors.service_unavailable_exception
+import aws_sdk_chime_sdk_identity.errors.throttled_client_exception
+import aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception
+import aws_sdk_chime_sdk_identity.types.create_app_instance_user_request
+import aws_sdk_chime_sdk_identity.types.create_app_instance_user_response
+import aws_sdk_chime_sdk_identity.types.expiration_settings
+import aws_sdk_chime_sdk_identity.types.tag_list
 from aws_sdk_chime_sdk_identity._protocol.errors import parse_error_metadata_json
 from aws_sdk_chime_sdk_identity._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,60 +33,40 @@ from aws_sdk_chime_sdk_identity._services._pipeline import (
 )
 from aws_sdk_chime_sdk_identity.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_chime_sdk_identity.types.create_app_instance_user_request
-    import aws_sdk_chime_sdk_identity.types.create_app_instance_user_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_chime_sdk_identity.errors.bad_request_exception
-
             raise aws_sdk_chime_sdk_identity.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_chime_sdk_identity.errors.conflict_exception
-
             raise aws_sdk_chime_sdk_identity.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_chime_sdk_identity.errors.forbidden_exception
-
             raise aws_sdk_chime_sdk_identity.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "ResourceLimitExceededException":
-            import aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception
-
             raise aws_sdk_chime_sdk_identity.errors.resource_limit_exceeded_exception.ResourceLimitExceededException.from_json(
                 data
             )
         case "ServiceFailureException":
-            import aws_sdk_chime_sdk_identity.errors.service_failure_exception
-
             raise aws_sdk_chime_sdk_identity.errors.service_failure_exception.ServiceFailureException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_chime_sdk_identity.errors.service_unavailable_exception
-
             raise aws_sdk_chime_sdk_identity.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "ThrottledClientException":
-            import aws_sdk_chime_sdk_identity.errors.throttled_client_exception
-
             raise aws_sdk_chime_sdk_identity.errors.throttled_client_exception.ThrottledClientException.from_json(
                 data
             )
         case "UnauthorizedClientException":
-            import aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception
-
             raise aws_sdk_chime_sdk_identity.errors.unauthorized_client_exception.UnauthorizedClientException.from_json(
                 data
             )
@@ -83,12 +75,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.CreateAppInstanceUserResponse:
-    import aws_sdk_chime_sdk_identity.types.create_app_instance_user_response
-
     out: aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.CreateAppInstanceUserResponse = aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.CreateAppInstanceUserResponse:
+    out: aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.CreateAppInstanceUserResponse = aws_sdk_chime_sdk_identity.types.create_app_instance_user_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -157,8 +156,7 @@ def create_app_instance_user(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -176,8 +174,7 @@ async def async_create_app_instance_user(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,16 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_s3._auth._signers
 import aws_sdk_s3._auth._sigv4
+import aws_sdk_s3._protocol.eventstream
+import aws_sdk_s3.types.checksum_algorithm
+import aws_sdk_s3.types.request_charged
+import aws_sdk_s3.types.request_payer
+import aws_sdk_s3.types.server_side_encryption
+import aws_sdk_s3.types.streaming_blob
+import aws_sdk_s3.types.upload_part_output
+import aws_sdk_s3.types.upload_part_request
 from aws_sdk_s3._protocol.errors import parse_error_metadata
 from aws_sdk_s3._protocol.xml import fromstring
 from aws_sdk_s3._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_s3._rule_engine._endpoint_runtime import apply_label
 from aws_sdk_s3._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_s3.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3.types.upload_part_output
-    import aws_sdk_s3.types.upload_part_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -31,12 +35,10 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_s3.types.upload_part_output.UploadPartOutput:
     out: aws_sdk_s3.types.upload_part_output.UploadPartOutput = {}  # type: ignore[typeddict-item]
     if "x-amz-server-side-encryption" in response.headers:
-        import aws_sdk_s3.types.server_side_encryption
-
         out["server_side_encryption"] = (
             aws_sdk_s3.types.server_side_encryption.from_xml_text(
                 response.headers["x-amz-server-side-encryption"]
@@ -82,8 +84,62 @@ def handle_response(
             == "true"
         )
     if "x-amz-request-charged" in response.headers:
-        import aws_sdk_s3.types.request_charged
+        out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
+            response.headers["x-amz-request-charged"]
+        )
+    return out
 
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_s3.types.upload_part_output.UploadPartOutput:
+    out: aws_sdk_s3.types.upload_part_output.UploadPartOutput = {}  # type: ignore[typeddict-item]
+    if "x-amz-server-side-encryption" in response.headers:
+        out["server_side_encryption"] = (
+            aws_sdk_s3.types.server_side_encryption.from_xml_text(
+                response.headers["x-amz-server-side-encryption"]
+            )
+        )
+    if "ETag" in response.headers:
+        out["e_tag"] = str(response.headers["ETag"])
+    if "x-amz-checksum-crc32" in response.headers:
+        out["checksum_crc32"] = str(response.headers["x-amz-checksum-crc32"])
+    if "x-amz-checksum-crc32c" in response.headers:
+        out["checksum_crc32_c"] = str(response.headers["x-amz-checksum-crc32c"])
+    if "x-amz-checksum-crc64nvme" in response.headers:
+        out["checksum_crc64_nvme"] = str(response.headers["x-amz-checksum-crc64nvme"])
+    if "x-amz-checksum-sha1" in response.headers:
+        out["checksum_sha1"] = str(response.headers["x-amz-checksum-sha1"])
+    if "x-amz-checksum-sha256" in response.headers:
+        out["checksum_sha256"] = str(response.headers["x-amz-checksum-sha256"])
+    if "x-amz-checksum-sha512" in response.headers:
+        out["checksum_sha512"] = str(response.headers["x-amz-checksum-sha512"])
+    if "x-amz-checksum-md5" in response.headers:
+        out["checksum_md5"] = str(response.headers["x-amz-checksum-md5"])
+    if "x-amz-checksum-xxhash64" in response.headers:
+        out["checksum_xxhash64"] = str(response.headers["x-amz-checksum-xxhash64"])
+    if "x-amz-checksum-xxhash3" in response.headers:
+        out["checksum_xxhash3"] = str(response.headers["x-amz-checksum-xxhash3"])
+    if "x-amz-checksum-xxhash128" in response.headers:
+        out["checksum_xxhash128"] = str(response.headers["x-amz-checksum-xxhash128"])
+    if "x-amz-server-side-encryption-customer-algorithm" in response.headers:
+        out["sse_customer_algorithm"] = str(
+            response.headers["x-amz-server-side-encryption-customer-algorithm"]
+        )
+    if "x-amz-server-side-encryption-customer-key-MD5" in response.headers:
+        out["sse_customer_key_md5"] = str(
+            response.headers["x-amz-server-side-encryption-customer-key-MD5"]
+        )
+    if "x-amz-server-side-encryption-aws-kms-key-id" in response.headers:
+        out["ssekms_key_id"] = str(
+            response.headers["x-amz-server-side-encryption-aws-kms-key-id"]
+        )
+    if "x-amz-server-side-encryption-bucket-key-enabled" in response.headers:
+        out["bucket_key_enabled"] = (
+            response.headers["x-amz-server-side-encryption-bucket-key-enabled"].lower()
+            == "true"
+        )
+    if "x-amz-request-charged" in response.headers:
         out["request_charged"] = aws_sdk_s3.types.request_charged.from_xml_text(
             response.headers["x-amz-request-charged"]
         )
@@ -207,8 +263,7 @@ def upload_part(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -223,8 +278,7 @@ async def async_upload_part(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

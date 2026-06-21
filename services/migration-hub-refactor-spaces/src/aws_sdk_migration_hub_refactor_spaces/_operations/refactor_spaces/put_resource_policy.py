@@ -3,13 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_migration_hub_refactor_spaces._auth._signers
 import aws_sdk_migration_hub_refactor_spaces._auth._sigv4
+import aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception
+import aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception
+import aws_sdk_migration_hub_refactor_spaces.errors.invalid_resource_policy_exception
+import aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception
+import aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception
+import aws_sdk_migration_hub_refactor_spaces.errors.validation_exception
+import aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_request
+import aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response
 from aws_sdk_migration_hub_refactor_spaces._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -25,48 +33,32 @@ from aws_sdk_migration_hub_refactor_spaces.errors import (
     UnknownServiceError,
 )
 
-if TYPE_CHECKING:
-    import aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_request
-    import aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "InvalidResourcePolicyException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.invalid_resource_policy_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.invalid_resource_policy_exception.InvalidResourcePolicyException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_migration_hub_refactor_spaces.errors.validation_exception
-
             raise aws_sdk_migration_hub_refactor_spaces.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -75,7 +67,14 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response.PutResourcePolicyResponse:
+    out: aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response.PutResourcePolicyResponse = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response.PutResourcePolicyResponse:
     out: aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_response.PutResourcePolicyResponse = {}  # type: ignore[typeddict-item]
     return out
@@ -145,8 +144,7 @@ def put_resource_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -164,8 +162,7 @@ async def async_put_resource_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

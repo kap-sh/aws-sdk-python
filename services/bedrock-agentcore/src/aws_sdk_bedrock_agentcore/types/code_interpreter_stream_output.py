@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+from aws_sdk_bedrock_agentcore._iter import AnyIterator
+from aws_sdk_bedrock_agentcore._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.errors.access_denied_exception
@@ -55,7 +56,7 @@ class _CodeInterpreterStreamOutput_validationException(TypedDict):
     )
 
 
-CodeInterpreterStreamOutput: TypeAlias = (
+_CodeInterpreterStreamOutput: TypeAlias = (
     _CodeInterpreterStreamOutput_result
     | _CodeInterpreterStreamOutput_accessDeniedException
     | _CodeInterpreterStreamOutput_conflictException
@@ -65,144 +66,141 @@ CodeInterpreterStreamOutput: TypeAlias = (
     | _CodeInterpreterStreamOutput_throttlingException
     | _CodeInterpreterStreamOutput_validationException
 )
+CodeInterpreterStreamOutput: TypeAlias = AnyIterator[_CodeInterpreterStreamOutput]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: CodeInterpreterStreamOutput) -> dict:
-    if "result" in value:
-        import aws_sdk_bedrock_agentcore.types.code_interpreter_result
+def serialize_event_json(value: _CodeInterpreterStreamOutput) -> bytes:
+    match value:
+        case {"result": payload}:
+            import aws_sdk_bedrock_agentcore.types.code_interpreter_result
 
-        return {
-            "result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.serialize_json(
-                value["result"]
+            return aws_sdk_bedrock_agentcore.types.code_interpreter_result.serialize_event_json(
+                payload
             )
-        }
-    elif "accessDeniedException" in value:
-        import aws_sdk_bedrock_agentcore.errors.access_denied_exception
+        case {"accessDeniedException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.access_denied_exception
 
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.serialize_json(
-                value["accessDeniedException"]
+            return aws_sdk_bedrock_agentcore.errors.access_denied_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "conflictException" in value:
-        import aws_sdk_bedrock_agentcore.errors.conflict_exception
+        case {"conflictException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.conflict_exception
 
-        return {
-            "conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.serialize_json(
-                value["conflictException"]
+            return aws_sdk_bedrock_agentcore.errors.conflict_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "internalServerException" in value:
-        import aws_sdk_bedrock_agentcore.errors.internal_server_exception
+        case {"internalServerException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.internal_server_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_json(
-                value["internalServerException"]
+            return aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "resourceNotFoundException" in value:
-        import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
+        case {"resourceNotFoundException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
 
-        return {
-            "resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.serialize_json(
-                value["resourceNotFoundException"]
+            return aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "serviceQuotaExceededException" in value:
-        import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
+        case {"serviceQuotaExceededException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
 
-        return {
-            "serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.serialize_json(
-                value["serviceQuotaExceededException"]
+            return aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "throttlingException" in value:
-        import aws_sdk_bedrock_agentcore.errors.throttling_exception
+        case {"throttlingException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.throttling_exception
 
-        return {
-            "throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.serialize_json(
-                value["throttlingException"]
+            return aws_sdk_bedrock_agentcore.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "validationException" in value:
-        import aws_sdk_bedrock_agentcore.errors.validation_exception
+        case {"validationException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.validation_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_json(
-                value["validationException"]
+            return aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("CodeInterpreterStreamOutput: no variant present")
-
-
-def deserialize_json(data: dict) -> CodeInterpreterStreamOutput:
-    if "result" in data:
-        import aws_sdk_bedrock_agentcore.types.code_interpreter_result
-
-        return {
-            "result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.deserialize_json(
-                data["result"]
+        case _:
+            raise ValueError(
+                f"CodeInterpreterStreamOutput: unrecognized variant {value!r}"
             )
-        }
-    elif "accessDeniedException" in data:
-        import aws_sdk_bedrock_agentcore.errors.access_denied_exception
 
-        return {
-            "accessDeniedException": aws_sdk_bedrock_agentcore.errors.access_denied_exception.deserialize_json(
-                data["accessDeniedException"]
-            )
-        }
-    elif "conflictException" in data:
-        import aws_sdk_bedrock_agentcore.errors.conflict_exception
 
-        return {
-            "conflictException": aws_sdk_bedrock_agentcore.errors.conflict_exception.deserialize_json(
-                data["conflictException"]
-            )
-        }
-    elif "internalServerException" in data:
-        import aws_sdk_bedrock_agentcore.errors.internal_server_exception
+def deserialize_event_json(message: Message) -> _CodeInterpreterStreamOutput:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "accessDeniedException":
+                import aws_sdk_bedrock_agentcore.errors.access_denied_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_json(
-                data["internalServerException"]
-            )
-        }
-    elif "resourceNotFoundException" in data:
-        import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
+                raise aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException(
+                    aws_sdk_bedrock_agentcore.errors.access_denied_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "conflictException":
+                import aws_sdk_bedrock_agentcore.errors.conflict_exception
 
-        return {
-            "resourceNotFoundException": aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.deserialize_json(
-                data["resourceNotFoundException"]
-            )
-        }
-    elif "serviceQuotaExceededException" in data:
-        import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
+                raise aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException(
+                    aws_sdk_bedrock_agentcore.errors.conflict_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "internalServerException":
+                import aws_sdk_bedrock_agentcore.errors.internal_server_exception
 
-        return {
-            "serviceQuotaExceededException": aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.deserialize_json(
-                data["serviceQuotaExceededException"]
-            )
-        }
-    elif "throttlingException" in data:
-        import aws_sdk_bedrock_agentcore.errors.throttling_exception
+                raise aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "resourceNotFoundException":
+                import aws_sdk_bedrock_agentcore.errors.resource_not_found_exception
 
-        return {
-            "throttlingException": aws_sdk_bedrock_agentcore.errors.throttling_exception.deserialize_json(
-                data["throttlingException"]
-            )
-        }
-    elif "validationException" in data:
-        import aws_sdk_bedrock_agentcore.errors.validation_exception
+                raise aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException(
+                    aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "serviceQuotaExceededException":
+                import aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_json(
-                data["validationException"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "CodeInterpreterStreamOutput: no recognized variant key"
+                raise aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException(
+                    aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import aws_sdk_bedrock_agentcore.errors.throttling_exception
+
+                raise aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_bedrock_agentcore.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import aws_sdk_bedrock_agentcore.errors.validation_exception
+
+                raise aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException(
+                    aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"CodeInterpreterStreamOutput: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "result":
+            import aws_sdk_bedrock_agentcore.types.code_interpreter_result
+
+            return {
+                "result": aws_sdk_bedrock_agentcore.types.code_interpreter_result.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"CodeInterpreterStreamOutput: unrecognized event-type {event_type!r}"
+            )

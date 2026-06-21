@@ -3,21 +3,40 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_eks._auth._signers
 import aws_sdk_eks._auth._sigv4
+import aws_sdk_eks.errors.client_exception
+import aws_sdk_eks.errors.invalid_parameter_exception
+import aws_sdk_eks.errors.resource_in_use_exception
+import aws_sdk_eks.errors.resource_limit_exceeded_exception
+import aws_sdk_eks.errors.server_exception
+import aws_sdk_eks.errors.service_unavailable_exception
+import aws_sdk_eks.errors.unsupported_availability_zone_exception
+import aws_sdk_eks.types.cluster
+import aws_sdk_eks.types.compute_config_request
+import aws_sdk_eks.types.control_plane_scaling_config
+import aws_sdk_eks.types.create_access_config_request
+import aws_sdk_eks.types.create_cluster_request
+import aws_sdk_eks.types.create_cluster_response
+import aws_sdk_eks.types.encryption_config_list
+import aws_sdk_eks.types.kubernetes_network_config_request
+import aws_sdk_eks.types.logging
+import aws_sdk_eks.types.outpost_config_request
+import aws_sdk_eks.types.remote_network_config_request
+import aws_sdk_eks.types.storage_config_request
+import aws_sdk_eks.types.tag_map
+import aws_sdk_eks.types.upgrade_policy_request
+import aws_sdk_eks.types.vpc_config_request
+import aws_sdk_eks.types.zonal_shift_config_request
 from aws_sdk_eks._protocol.errors import parse_error_metadata_json
 from aws_sdk_eks._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_eks._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_eks.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_eks.types.create_cluster_request
-    import aws_sdk_eks.types.create_cluster_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,40 +44,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientException":
-            import aws_sdk_eks.errors.client_exception
-
             raise aws_sdk_eks.errors.client_exception.ClientException.from_json(data)
         case "InvalidParameterException":
-            import aws_sdk_eks.errors.invalid_parameter_exception
-
             raise aws_sdk_eks.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_eks.errors.resource_in_use_exception
-
             raise aws_sdk_eks.errors.resource_in_use_exception.ResourceInUseException.from_json(
                 data
             )
         case "ResourceLimitExceededException":
-            import aws_sdk_eks.errors.resource_limit_exceeded_exception
-
             raise aws_sdk_eks.errors.resource_limit_exceeded_exception.ResourceLimitExceededException.from_json(
                 data
             )
         case "ServerException":
-            import aws_sdk_eks.errors.server_exception
-
             raise aws_sdk_eks.errors.server_exception.ServerException.from_json(data)
         case "ServiceUnavailableException":
-            import aws_sdk_eks.errors.service_unavailable_exception
-
             raise aws_sdk_eks.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "UnsupportedAvailabilityZoneException":
-            import aws_sdk_eks.errors.unsupported_availability_zone_exception
-
             raise aws_sdk_eks.errors.unsupported_availability_zone_exception.UnsupportedAvailabilityZoneException.from_json(
                 data
             )
@@ -67,13 +72,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_eks.types.create_cluster_response.CreateClusterResponse:
-    import aws_sdk_eks.types.create_cluster_response
-
     out: aws_sdk_eks.types.create_cluster_response.CreateClusterResponse = (
         aws_sdk_eks.types.create_cluster_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_eks.types.create_cluster_response.CreateClusterResponse:
+    out: aws_sdk_eks.types.create_cluster_response.CreateClusterResponse = (
+        aws_sdk_eks.types.create_cluster_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -138,8 +152,7 @@ def create_cluster(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +169,7 @@ async def async_create_cluster(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

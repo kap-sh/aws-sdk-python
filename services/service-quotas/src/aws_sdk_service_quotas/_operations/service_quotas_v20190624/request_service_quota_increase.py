@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_service_quotas._auth._signers
 import aws_sdk_service_quotas._auth._sigv4
+import aws_sdk_service_quotas.errors.access_denied_exception
+import aws_sdk_service_quotas.errors.dependency_access_denied_exception
+import aws_sdk_service_quotas.errors.illegal_argument_exception
+import aws_sdk_service_quotas.errors.invalid_resource_state_exception
+import aws_sdk_service_quotas.errors.no_such_resource_exception
+import aws_sdk_service_quotas.errors.quota_exceeded_exception
+import aws_sdk_service_quotas.errors.resource_already_exists_exception
+import aws_sdk_service_quotas.errors.service_exception
+import aws_sdk_service_quotas.errors.too_many_requests_exception
+import aws_sdk_service_quotas.types.request_service_quota_increase_request
+import aws_sdk_service_quotas.types.request_service_quota_increase_response
+import aws_sdk_service_quotas.types.requested_service_quota_change
 from aws_sdk_service_quotas._protocol.errors import parse_error_metadata_json
 from aws_sdk_service_quotas._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,66 +33,44 @@ from aws_sdk_service_quotas._services._pipeline import (
 )
 from aws_sdk_service_quotas.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_service_quotas.types.request_service_quota_increase_request
-    import aws_sdk_service_quotas.types.request_service_quota_increase_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_service_quotas.errors.access_denied_exception
-
             raise aws_sdk_service_quotas.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "DependencyAccessDeniedException":
-            import aws_sdk_service_quotas.errors.dependency_access_denied_exception
-
             raise aws_sdk_service_quotas.errors.dependency_access_denied_exception.DependencyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "IllegalArgumentException":
-            import aws_sdk_service_quotas.errors.illegal_argument_exception
-
             raise aws_sdk_service_quotas.errors.illegal_argument_exception.IllegalArgumentException.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceStateException":
-            import aws_sdk_service_quotas.errors.invalid_resource_state_exception
-
             raise aws_sdk_service_quotas.errors.invalid_resource_state_exception.InvalidResourceStateException.from_aws_json_1_1(
                 data
             )
         case "NoSuchResourceException":
-            import aws_sdk_service_quotas.errors.no_such_resource_exception
-
             raise aws_sdk_service_quotas.errors.no_such_resource_exception.NoSuchResourceException.from_aws_json_1_1(
                 data
             )
         case "QuotaExceededException":
-            import aws_sdk_service_quotas.errors.quota_exceeded_exception
-
             raise aws_sdk_service_quotas.errors.quota_exceeded_exception.QuotaExceededException.from_aws_json_1_1(
                 data
             )
         case "ResourceAlreadyExistsException":
-            import aws_sdk_service_quotas.errors.resource_already_exists_exception
-
             raise aws_sdk_service_quotas.errors.resource_already_exists_exception.ResourceAlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "ServiceException":
-            import aws_sdk_service_quotas.errors.service_exception
-
             raise aws_sdk_service_quotas.errors.service_exception.ServiceException.from_aws_json_1_1(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_service_quotas.errors.too_many_requests_exception
-
             raise aws_sdk_service_quotas.errors.too_many_requests_exception.TooManyRequestsException.from_aws_json_1_1(
                 data
             )
@@ -89,12 +79,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_service_quotas.types.request_service_quota_increase_response.RequestServiceQuotaIncreaseResponse:
-    import aws_sdk_service_quotas.types.request_service_quota_increase_response
-
     out: aws_sdk_service_quotas.types.request_service_quota_increase_response.RequestServiceQuotaIncreaseResponse = aws_sdk_service_quotas.types.request_service_quota_increase_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_service_quotas.types.request_service_quota_increase_response.RequestServiceQuotaIncreaseResponse:
+    out: aws_sdk_service_quotas.types.request_service_quota_increase_response.RequestServiceQuotaIncreaseResponse = aws_sdk_service_quotas.types.request_service_quota_increase_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -164,8 +161,7 @@ def request_service_quota_increase(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -183,8 +179,7 @@ async def async_request_service_quota_increase(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_rekognition._auth._signers
 import aws_sdk_rekognition._auth._sigv4
+import aws_sdk_rekognition.errors.access_denied_exception
+import aws_sdk_rekognition.errors.image_too_large_exception
+import aws_sdk_rekognition.errors.internal_server_error
+import aws_sdk_rekognition.errors.invalid_image_format_exception
+import aws_sdk_rekognition.errors.invalid_parameter_exception
+import aws_sdk_rekognition.errors.invalid_s3_object_exception
+import aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_rekognition.errors.throttling_exception
+import aws_sdk_rekognition.types.compare_faces_match_list
+import aws_sdk_rekognition.types.compare_faces_request
+import aws_sdk_rekognition.types.compare_faces_response
+import aws_sdk_rekognition.types.compare_faces_unmatch_list
+import aws_sdk_rekognition.types.compared_source_image_face
+import aws_sdk_rekognition.types.image
+import aws_sdk_rekognition.types.orientation_correction
+import aws_sdk_rekognition.types.quality_filter
 from aws_sdk_rekognition._protocol.errors import parse_error_metadata_json
 from aws_sdk_rekognition._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rekognition._services._pipeline import (
@@ -18,60 +34,40 @@ from aws_sdk_rekognition._services._pipeline import (
 )
 from aws_sdk_rekognition.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_rekognition.types.compare_faces_request
-    import aws_sdk_rekognition.types.compare_faces_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_rekognition.errors.access_denied_exception
-
             raise aws_sdk_rekognition.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "ImageTooLargeException":
-            import aws_sdk_rekognition.errors.image_too_large_exception
-
             raise aws_sdk_rekognition.errors.image_too_large_exception.ImageTooLargeException.from_aws_json_1_1(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_rekognition.errors.internal_server_error
-
             raise aws_sdk_rekognition.errors.internal_server_error.InternalServerError.from_aws_json_1_1(
                 data
             )
         case "InvalidImageFormatException":
-            import aws_sdk_rekognition.errors.invalid_image_format_exception
-
             raise aws_sdk_rekognition.errors.invalid_image_format_exception.InvalidImageFormatException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_rekognition.errors.invalid_parameter_exception
-
             raise aws_sdk_rekognition.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3ObjectException":
-            import aws_sdk_rekognition.errors.invalid_s3_object_exception
-
             raise aws_sdk_rekognition.errors.invalid_s3_object_exception.InvalidS3ObjectException.from_aws_json_1_1(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_rekognition.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_rekognition.errors.throttling_exception
-
             raise aws_sdk_rekognition.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
@@ -80,13 +76,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rekognition.types.compare_faces_response.CompareFacesResponse:
-    import aws_sdk_rekognition.types.compare_faces_response
-
     out: aws_sdk_rekognition.types.compare_faces_response.CompareFacesResponse = (
         aws_sdk_rekognition.types.compare_faces_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rekognition.types.compare_faces_response.CompareFacesResponse:
+    out: aws_sdk_rekognition.types.compare_faces_response.CompareFacesResponse = (
+        aws_sdk_rekognition.types.compare_faces_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -155,8 +160,7 @@ def compare_faces(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -174,8 +178,7 @@ async def async_compare_faces(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

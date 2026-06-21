@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,23 @@ from typing_extensions import Never
 
 import aws_sdk_ec2._auth._signers
 import aws_sdk_ec2._auth._sigv4
+import aws_sdk_ec2.types.connection_tracking_specification_request
+import aws_sdk_ec2.types.create_network_interface_request
+import aws_sdk_ec2.types.create_network_interface_result
+import aws_sdk_ec2.types.instance_ipv6_address_list
+import aws_sdk_ec2.types.ipv4_prefix_list
+import aws_sdk_ec2.types.ipv6_prefix_list
+import aws_sdk_ec2.types.network_interface
+import aws_sdk_ec2.types.network_interface_creation_type
+import aws_sdk_ec2.types.operator_request
+import aws_sdk_ec2.types.private_ip_address_specification_list
+import aws_sdk_ec2.types.security_group_id_string_list
+import aws_sdk_ec2.types.tag_specification_list
 from aws_sdk_ec2._protocol.errors import parse_error_metadata
 from aws_sdk_ec2._protocol.xml import fromstring
 from aws_sdk_ec2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ec2._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ec2.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ec2.types.create_network_interface_request
-    import aws_sdk_ec2.types.create_network_interface_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -30,12 +38,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ec2.types.create_network_interface_result.CreateNetworkInterfaceResult:
-    import aws_sdk_ec2.types.create_network_interface_result
-
     out: aws_sdk_ec2.types.create_network_interface_result.CreateNetworkInterfaceResult = aws_sdk_ec2.types.create_network_interface_result.deserialize_ec2_query(
         fromstring(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ec2.types.create_network_interface_result.CreateNetworkInterfaceResult:
+    out: aws_sdk_ec2.types.create_network_interface_result.CreateNetworkInterfaceResult = aws_sdk_ec2.types.create_network_interface_result.deserialize_ec2_query(
+        fromstring(await response.aread())
     )
     return out
 
@@ -104,8 +119,7 @@ def create_network_interface(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -123,8 +137,7 @@ async def async_create_network_interface(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,20 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_fms._auth._signers
 import aws_sdk_fms._auth._sigv4
+import aws_sdk_fms.errors.internal_error_exception
+import aws_sdk_fms.errors.invalid_input_exception
+import aws_sdk_fms.errors.invalid_operation_exception
+import aws_sdk_fms.errors.limit_exceeded_exception
+import aws_sdk_fms.types.admin_scope
+import aws_sdk_fms.types.put_admin_account_request
 from aws_sdk_fms._protocol.errors import parse_error_metadata_json
 from aws_sdk_fms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_fms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_fms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_fms.types.put_admin_account_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,26 +27,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalErrorException":
-            import aws_sdk_fms.errors.internal_error_exception
-
             raise aws_sdk_fms.errors.internal_error_exception.InternalErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_fms.errors.invalid_input_exception
-
             raise aws_sdk_fms.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "InvalidOperationException":
-            import aws_sdk_fms.errors.invalid_operation_exception
-
             raise aws_sdk_fms.errors.invalid_operation_exception.InvalidOperationException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_fms.errors.limit_exceeded_exception
-
             raise aws_sdk_fms.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
@@ -109,7 +104,6 @@ def put_admin_account(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -125,7 +119,6 @@ async def async_put_admin_account(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

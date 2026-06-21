@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_kinesis._protocol.eventstream import HeaderValue, Message
 from aws_sdk_kinesis.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -47,3 +48,16 @@ class KMSThrottlingException(ServiceError):
     @classmethod
     def from_aws_json_1_1(cls, data: dict) -> "KMSThrottlingException":
         return cls(deserialize_aws_json_1_1(data))
+
+
+def serialize_event_aws_json_1_1(value: KMSThrottlingException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "KMSThrottlingException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> KMSThrottlingException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: KMSThrottlingException_ = {}  # type: ignore[typeddict-item]
+    return out

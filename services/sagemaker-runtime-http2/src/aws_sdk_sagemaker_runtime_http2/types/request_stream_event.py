@@ -2,10 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_sagemaker_runtime_http2.errors import (
-    DeserializationError,
-    SerializationError,
-)
+from aws_sdk_sagemaker_runtime_http2._iter import AnyIterator
+from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.request_payload_part
@@ -17,31 +15,36 @@ class _RequestStreamEvent_PayloadPart(TypedDict):
     )
 
 
-RequestStreamEvent: TypeAlias = _RequestStreamEvent_PayloadPart
+_RequestStreamEvent: TypeAlias = _RequestStreamEvent_PayloadPart
+RequestStreamEvent: TypeAlias = AnyIterator[_RequestStreamEvent]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: RequestStreamEvent) -> dict:
-    if "PayloadPart" in value:
-        import aws_sdk_sagemaker_runtime_http2.types.request_payload_part
+def serialize_event_json(value: _RequestStreamEvent) -> bytes:
+    match value:
+        case {"PayloadPart": payload}:
+            import aws_sdk_sagemaker_runtime_http2.types.request_payload_part
 
-        return {
-            "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.request_payload_part.serialize_json(
-                value["PayloadPart"]
+            return aws_sdk_sagemaker_runtime_http2.types.request_payload_part.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("RequestStreamEvent: no variant present")
+        case _:
+            raise ValueError(f"RequestStreamEvent: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> RequestStreamEvent:
-    if "PayloadPart" in data:
-        import aws_sdk_sagemaker_runtime_http2.types.request_payload_part
+def deserialize_event_json(message: Message) -> _RequestStreamEvent:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "PayloadPart":
+            import aws_sdk_sagemaker_runtime_http2.types.request_payload_part
 
-        return {
-            "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.request_payload_part.deserialize_json(
-                data["PayloadPart"]
+            return {
+                "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.request_payload_part.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"RequestStreamEvent: unrecognized event-type {event_type!r}"
             )
-        }
-    else:
-        raise DeserializationError("RequestStreamEvent: no recognized variant key")

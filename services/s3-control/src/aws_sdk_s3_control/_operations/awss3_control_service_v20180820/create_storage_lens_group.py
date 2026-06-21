@@ -2,13 +2,16 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_s3_control._auth._signers
 import aws_sdk_s3_control._auth._sigv4
+import aws_sdk_s3_control.types.create_storage_lens_group_request
+import aws_sdk_s3_control.types.storage_lens_group
+import aws_sdk_s3_control.types.tag_list
 from aws_sdk_s3_control._protocol.errors import parse_error_metadata
 from aws_sdk_s3_control._protocol.xml import Element, fromstring, tostring
 from aws_sdk_s3_control._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -17,9 +20,6 @@ from aws_sdk_s3_control._services._pipeline import (
     OperationOptions,
 )
 from aws_sdk_s3_control.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_s3_control.types.create_storage_lens_group_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -106,7 +106,6 @@ def create_storage_lens_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -122,7 +121,6 @@ async def async_create_storage_lens_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

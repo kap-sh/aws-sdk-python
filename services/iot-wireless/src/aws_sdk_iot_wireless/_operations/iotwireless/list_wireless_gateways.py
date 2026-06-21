@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_iot_wireless._auth._signers
 import aws_sdk_iot_wireless._auth._sigv4
+import aws_sdk_iot_wireless.errors.access_denied_exception
+import aws_sdk_iot_wireless.errors.internal_server_exception
+import aws_sdk_iot_wireless.errors.throttling_exception
+import aws_sdk_iot_wireless.errors.validation_exception
+import aws_sdk_iot_wireless.types.list_wireless_gateways_request
+import aws_sdk_iot_wireless.types.list_wireless_gateways_response
+import aws_sdk_iot_wireless.types.wireless_gateway_statistics_list
 from aws_sdk_iot_wireless._protocol.errors import parse_error_metadata_json
 from aws_sdk_iot_wireless._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iot_wireless._services._pipeline import (
@@ -18,36 +25,24 @@ from aws_sdk_iot_wireless._services._pipeline import (
 )
 from aws_sdk_iot_wireless.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_iot_wireless.types.list_wireless_gateways_request
-    import aws_sdk_iot_wireless.types.list_wireless_gateways_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_iot_wireless.errors.access_denied_exception
-
             raise aws_sdk_iot_wireless.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_iot_wireless.errors.internal_server_exception
-
             raise aws_sdk_iot_wireless.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_iot_wireless.errors.throttling_exception
-
             raise aws_sdk_iot_wireless.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_iot_wireless.errors.validation_exception
-
             raise aws_sdk_iot_wireless.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -56,12 +51,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_iot_wireless.types.list_wireless_gateways_response.ListWirelessGatewaysResponse:
-    import aws_sdk_iot_wireless.types.list_wireless_gateways_response
-
     out: aws_sdk_iot_wireless.types.list_wireless_gateways_response.ListWirelessGatewaysResponse = aws_sdk_iot_wireless.types.list_wireless_gateways_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_iot_wireless.types.list_wireless_gateways_response.ListWirelessGatewaysResponse:
+    out: aws_sdk_iot_wireless.types.list_wireless_gateways_response.ListWirelessGatewaysResponse = aws_sdk_iot_wireless.types.list_wireless_gateways_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -126,8 +128,7 @@ def list_wireless_gateways(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -145,8 +146,7 @@ async def async_list_wireless_gateways(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

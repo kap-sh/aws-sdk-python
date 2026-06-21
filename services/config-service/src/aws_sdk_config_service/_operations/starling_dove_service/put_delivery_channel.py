@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_config_service._auth._signers
 import aws_sdk_config_service._auth._sigv4
+import aws_sdk_config_service.errors.insufficient_delivery_policy_exception
+import aws_sdk_config_service.errors.invalid_delivery_channel_name_exception
+import aws_sdk_config_service.errors.invalid_s3_key_prefix_exception
+import aws_sdk_config_service.errors.invalid_s3_kms_key_arn_exception
+import aws_sdk_config_service.errors.invalid_sns_topic_arn_exception
+import aws_sdk_config_service.errors.max_number_of_delivery_channels_exceeded_exception
+import aws_sdk_config_service.errors.no_available_configuration_recorder_exception
+import aws_sdk_config_service.errors.no_such_bucket_exception
+import aws_sdk_config_service.types.delivery_channel
+import aws_sdk_config_service.types.put_delivery_channel_request
 from aws_sdk_config_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_config_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,59 +31,40 @@ from aws_sdk_config_service._services._pipeline import (
 )
 from aws_sdk_config_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_config_service.types.put_delivery_channel_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InsufficientDeliveryPolicyException":
-            import aws_sdk_config_service.errors.insufficient_delivery_policy_exception
-
             raise aws_sdk_config_service.errors.insufficient_delivery_policy_exception.InsufficientDeliveryPolicyException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeliveryChannelNameException":
-            import aws_sdk_config_service.errors.invalid_delivery_channel_name_exception
-
             raise aws_sdk_config_service.errors.invalid_delivery_channel_name_exception.InvalidDeliveryChannelNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3KeyPrefixException":
-            import aws_sdk_config_service.errors.invalid_s3_key_prefix_exception
-
             raise aws_sdk_config_service.errors.invalid_s3_key_prefix_exception.InvalidS3KeyPrefixException.from_aws_json_1_1(
                 data
             )
         case "InvalidS3KmsKeyArnException":
-            import aws_sdk_config_service.errors.invalid_s3_kms_key_arn_exception
-
             raise aws_sdk_config_service.errors.invalid_s3_kms_key_arn_exception.InvalidS3KmsKeyArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidSNSTopicARNException":
-            import aws_sdk_config_service.errors.invalid_sns_topic_arn_exception
-
             raise aws_sdk_config_service.errors.invalid_sns_topic_arn_exception.InvalidSNSTopicARNException.from_aws_json_1_1(
                 data
             )
         case "MaxNumberOfDeliveryChannelsExceededException":
-            import aws_sdk_config_service.errors.max_number_of_delivery_channels_exceeded_exception
-
             raise aws_sdk_config_service.errors.max_number_of_delivery_channels_exceeded_exception.MaxNumberOfDeliveryChannelsExceededException.from_aws_json_1_1(
                 data
             )
         case "NoAvailableConfigurationRecorderException":
-            import aws_sdk_config_service.errors.no_available_configuration_recorder_exception
-
             raise aws_sdk_config_service.errors.no_available_configuration_recorder_exception.NoAvailableConfigurationRecorderException.from_aws_json_1_1(
                 data
             )
         case "NoSuchBucketException":
-            import aws_sdk_config_service.errors.no_such_bucket_exception
-
             raise aws_sdk_config_service.errors.no_such_bucket_exception.NoSuchBucketException.from_aws_json_1_1(
                 data
             )
@@ -143,7 +134,6 @@ def put_delivery_channel(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -159,7 +149,6 @@ async def async_put_delivery_channel(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

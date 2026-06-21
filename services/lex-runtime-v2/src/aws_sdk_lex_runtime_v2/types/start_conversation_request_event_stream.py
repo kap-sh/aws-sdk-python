@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_lex_runtime_v2.errors import DeserializationError, SerializationError
+from aws_sdk_lex_runtime_v2._iter import AnyIterator
+from aws_sdk_lex_runtime_v2._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.audio_input_event
@@ -43,7 +44,7 @@ class _StartConversationRequestEventStream_DisconnectionEvent(TypedDict):
     )
 
 
-StartConversationRequestEventStream: TypeAlias = (
+_StartConversationRequestEventStream: TypeAlias = (
     _StartConversationRequestEventStream_ConfigurationEvent
     | _StartConversationRequestEventStream_AudioInputEvent
     | _StartConversationRequestEventStream_DTMFInputEvent
@@ -51,114 +52,113 @@ StartConversationRequestEventStream: TypeAlias = (
     | _StartConversationRequestEventStream_PlaybackCompletionEvent
     | _StartConversationRequestEventStream_DisconnectionEvent
 )
+StartConversationRequestEventStream: TypeAlias = AnyIterator[
+    _StartConversationRequestEventStream
+]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: StartConversationRequestEventStream) -> dict:
-    if "ConfigurationEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.configuration_event
+def serialize_event_json(value: _StartConversationRequestEventStream) -> bytes:
+    match value:
+        case {"ConfigurationEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.configuration_event
 
-        return {
-            "ConfigurationEvent": aws_sdk_lex_runtime_v2.types.configuration_event.serialize_json(
-                value["ConfigurationEvent"]
+            return (
+                aws_sdk_lex_runtime_v2.types.configuration_event.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "AudioInputEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.audio_input_event
+        case {"AudioInputEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.audio_input_event
 
-        return {
-            "AudioInputEvent": aws_sdk_lex_runtime_v2.types.audio_input_event.serialize_json(
-                value["AudioInputEvent"]
+            return aws_sdk_lex_runtime_v2.types.audio_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "DTMFInputEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.dtmf_input_event
+        case {"DTMFInputEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.dtmf_input_event
 
-        return {
-            "DTMFInputEvent": aws_sdk_lex_runtime_v2.types.dtmf_input_event.serialize_json(
-                value["DTMFInputEvent"]
+            return aws_sdk_lex_runtime_v2.types.dtmf_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "TextInputEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.text_input_event
+        case {"TextInputEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.text_input_event
 
-        return {
-            "TextInputEvent": aws_sdk_lex_runtime_v2.types.text_input_event.serialize_json(
-                value["TextInputEvent"]
+            return aws_sdk_lex_runtime_v2.types.text_input_event.serialize_event_json(
+                payload
             )
-        }
-    elif "PlaybackCompletionEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.playback_completion_event
+        case {"PlaybackCompletionEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.playback_completion_event
 
-        return {
-            "PlaybackCompletionEvent": aws_sdk_lex_runtime_v2.types.playback_completion_event.serialize_json(
-                value["PlaybackCompletionEvent"]
+            return aws_sdk_lex_runtime_v2.types.playback_completion_event.serialize_event_json(
+                payload
             )
-        }
-    elif "DisconnectionEvent" in value:
-        import aws_sdk_lex_runtime_v2.types.disconnection_event
+        case {"DisconnectionEvent": payload}:
+            import aws_sdk_lex_runtime_v2.types.disconnection_event
 
-        return {
-            "DisconnectionEvent": aws_sdk_lex_runtime_v2.types.disconnection_event.serialize_json(
-                value["DisconnectionEvent"]
+            return (
+                aws_sdk_lex_runtime_v2.types.disconnection_event.serialize_event_json(
+                    payload
+                )
             )
-        }
-    else:
-        raise SerializationError(
-            "StartConversationRequestEventStream: no variant present"
-        )
-
-
-def deserialize_json(data: dict) -> StartConversationRequestEventStream:
-    if "ConfigurationEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.configuration_event
-
-        return {
-            "ConfigurationEvent": aws_sdk_lex_runtime_v2.types.configuration_event.deserialize_json(
-                data["ConfigurationEvent"]
+        case _:
+            raise ValueError(
+                f"StartConversationRequestEventStream: unrecognized variant {value!r}"
             )
-        }
-    elif "AudioInputEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.audio_input_event
 
-        return {
-            "AudioInputEvent": aws_sdk_lex_runtime_v2.types.audio_input_event.deserialize_json(
-                data["AudioInputEvent"]
-            )
-        }
-    elif "DTMFInputEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.dtmf_input_event
 
-        return {
-            "DTMFInputEvent": aws_sdk_lex_runtime_v2.types.dtmf_input_event.deserialize_json(
-                data["DTMFInputEvent"]
-            )
-        }
-    elif "TextInputEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.text_input_event
+def deserialize_event_json(message: Message) -> _StartConversationRequestEventStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "ConfigurationEvent":
+            import aws_sdk_lex_runtime_v2.types.configuration_event
 
-        return {
-            "TextInputEvent": aws_sdk_lex_runtime_v2.types.text_input_event.deserialize_json(
-                data["TextInputEvent"]
-            )
-        }
-    elif "PlaybackCompletionEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.playback_completion_event
+            return {
+                "ConfigurationEvent": aws_sdk_lex_runtime_v2.types.configuration_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "AudioInputEvent":
+            import aws_sdk_lex_runtime_v2.types.audio_input_event
 
-        return {
-            "PlaybackCompletionEvent": aws_sdk_lex_runtime_v2.types.playback_completion_event.deserialize_json(
-                data["PlaybackCompletionEvent"]
-            )
-        }
-    elif "DisconnectionEvent" in data:
-        import aws_sdk_lex_runtime_v2.types.disconnection_event
+            return {
+                "AudioInputEvent": aws_sdk_lex_runtime_v2.types.audio_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "DTMFInputEvent":
+            import aws_sdk_lex_runtime_v2.types.dtmf_input_event
 
-        return {
-            "DisconnectionEvent": aws_sdk_lex_runtime_v2.types.disconnection_event.deserialize_json(
-                data["DisconnectionEvent"]
+            return {
+                "DTMFInputEvent": aws_sdk_lex_runtime_v2.types.dtmf_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "TextInputEvent":
+            import aws_sdk_lex_runtime_v2.types.text_input_event
+
+            return {
+                "TextInputEvent": aws_sdk_lex_runtime_v2.types.text_input_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "PlaybackCompletionEvent":
+            import aws_sdk_lex_runtime_v2.types.playback_completion_event
+
+            return {
+                "PlaybackCompletionEvent": aws_sdk_lex_runtime_v2.types.playback_completion_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "DisconnectionEvent":
+            import aws_sdk_lex_runtime_v2.types.disconnection_event
+
+            return {
+                "DisconnectionEvent": aws_sdk_lex_runtime_v2.types.disconnection_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"StartConversationRequestEventStream: unrecognized event-type {event_type!r}"
             )
-        }
-    else:
-        raise DeserializationError(
-            "StartConversationRequestEventStream: no recognized variant key"
-        )

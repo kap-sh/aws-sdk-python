@@ -3,21 +3,36 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_rds_data._auth._signers
 import aws_sdk_rds_data._auth._sigv4
+import aws_sdk_rds_data.errors.access_denied_exception
+import aws_sdk_rds_data.errors.bad_request_exception
+import aws_sdk_rds_data.errors.database_error_exception
+import aws_sdk_rds_data.errors.database_not_found_exception
+import aws_sdk_rds_data.errors.database_resuming_exception
+import aws_sdk_rds_data.errors.database_unavailable_exception
+import aws_sdk_rds_data.errors.forbidden_exception
+import aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception
+import aws_sdk_rds_data.errors.internal_server_error_exception
+import aws_sdk_rds_data.errors.invalid_resource_state_exception
+import aws_sdk_rds_data.errors.invalid_secret_exception
+import aws_sdk_rds_data.errors.secrets_error_exception
+import aws_sdk_rds_data.errors.service_unavailable_error
+import aws_sdk_rds_data.errors.statement_timeout_exception
+import aws_sdk_rds_data.errors.transaction_not_found_exception
+import aws_sdk_rds_data.types.batch_execute_statement_request
+import aws_sdk_rds_data.types.batch_execute_statement_response
+import aws_sdk_rds_data.types.sql_parameter_sets
+import aws_sdk_rds_data.types.update_results
 from aws_sdk_rds_data._protocol.errors import parse_error_metadata_json
 from aws_sdk_rds_data._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds_data._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds_data.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds_data.types.batch_execute_statement_request
-    import aws_sdk_rds_data.types.batch_execute_statement_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,92 +40,62 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_rds_data.errors.access_denied_exception
-
             raise aws_sdk_rds_data.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "BadRequestException":
-            import aws_sdk_rds_data.errors.bad_request_exception
-
             raise aws_sdk_rds_data.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "DatabaseErrorException":
-            import aws_sdk_rds_data.errors.database_error_exception
-
             raise aws_sdk_rds_data.errors.database_error_exception.DatabaseErrorException.from_json(
                 data
             )
         case "DatabaseNotFoundException":
-            import aws_sdk_rds_data.errors.database_not_found_exception
-
             raise aws_sdk_rds_data.errors.database_not_found_exception.DatabaseNotFoundException.from_json(
                 data
             )
         case "DatabaseResumingException":
-            import aws_sdk_rds_data.errors.database_resuming_exception
-
             raise aws_sdk_rds_data.errors.database_resuming_exception.DatabaseResumingException.from_json(
                 data
             )
         case "DatabaseUnavailableException":
-            import aws_sdk_rds_data.errors.database_unavailable_exception
-
             raise aws_sdk_rds_data.errors.database_unavailable_exception.DatabaseUnavailableException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_rds_data.errors.forbidden_exception
-
             raise aws_sdk_rds_data.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "HttpEndpointNotEnabledException":
-            import aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception
-
             raise aws_sdk_rds_data.errors.http_endpoint_not_enabled_exception.HttpEndpointNotEnabledException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_rds_data.errors.internal_server_error_exception
-
             raise aws_sdk_rds_data.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "InvalidResourceStateException":
-            import aws_sdk_rds_data.errors.invalid_resource_state_exception
-
             raise aws_sdk_rds_data.errors.invalid_resource_state_exception.InvalidResourceStateException.from_json(
                 data
             )
         case "InvalidSecretException":
-            import aws_sdk_rds_data.errors.invalid_secret_exception
-
             raise aws_sdk_rds_data.errors.invalid_secret_exception.InvalidSecretException.from_json(
                 data
             )
         case "SecretsErrorException":
-            import aws_sdk_rds_data.errors.secrets_error_exception
-
             raise aws_sdk_rds_data.errors.secrets_error_exception.SecretsErrorException.from_json(
                 data
             )
         case "ServiceUnavailableError":
-            import aws_sdk_rds_data.errors.service_unavailable_error
-
             raise aws_sdk_rds_data.errors.service_unavailable_error.ServiceUnavailableError.from_json(
                 data
             )
         case "StatementTimeoutException":
-            import aws_sdk_rds_data.errors.statement_timeout_exception
-
             raise aws_sdk_rds_data.errors.statement_timeout_exception.StatementTimeoutException.from_json(
                 data
             )
         case "TransactionNotFoundException":
-            import aws_sdk_rds_data.errors.transaction_not_found_exception
-
             raise aws_sdk_rds_data.errors.transaction_not_found_exception.TransactionNotFoundException.from_json(
                 data
             )
@@ -119,12 +104,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds_data.types.batch_execute_statement_response.BatchExecuteStatementResponse:
-    import aws_sdk_rds_data.types.batch_execute_statement_response
-
     out: aws_sdk_rds_data.types.batch_execute_statement_response.BatchExecuteStatementResponse = aws_sdk_rds_data.types.batch_execute_statement_response.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds_data.types.batch_execute_statement_response.BatchExecuteStatementResponse:
+    out: aws_sdk_rds_data.types.batch_execute_statement_response.BatchExecuteStatementResponse = aws_sdk_rds_data.types.batch_execute_statement_response.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -191,8 +183,7 @@ def batch_execute_statement(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -210,8 +201,7 @@ async def async_batch_execute_statement(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -3,13 +3,35 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudcontrol._auth._signers
 import aws_sdk_cloudcontrol._auth._sigv4
+import aws_sdk_cloudcontrol.errors.already_exists_exception
+import aws_sdk_cloudcontrol.errors.client_token_conflict_exception
+import aws_sdk_cloudcontrol.errors.concurrent_operation_exception
+import aws_sdk_cloudcontrol.errors.general_service_exception
+import aws_sdk_cloudcontrol.errors.handler_failure_exception
+import aws_sdk_cloudcontrol.errors.handler_internal_failure_exception
+import aws_sdk_cloudcontrol.errors.invalid_credentials_exception
+import aws_sdk_cloudcontrol.errors.invalid_request_exception
+import aws_sdk_cloudcontrol.errors.network_failure_exception
+import aws_sdk_cloudcontrol.errors.not_stabilized_exception
+import aws_sdk_cloudcontrol.errors.not_updatable_exception
+import aws_sdk_cloudcontrol.errors.private_type_exception
+import aws_sdk_cloudcontrol.errors.resource_conflict_exception
+import aws_sdk_cloudcontrol.errors.resource_not_found_exception
+import aws_sdk_cloudcontrol.errors.service_internal_error_exception
+import aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception
+import aws_sdk_cloudcontrol.errors.throttling_exception
+import aws_sdk_cloudcontrol.errors.type_not_found_exception
+import aws_sdk_cloudcontrol.errors.unsupported_action_exception
+import aws_sdk_cloudcontrol.types.create_resource_input
+import aws_sdk_cloudcontrol.types.create_resource_output
+import aws_sdk_cloudcontrol.types.progress_event
 from aws_sdk_cloudcontrol._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudcontrol._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudcontrol._services._pipeline import (
@@ -18,126 +40,84 @@ from aws_sdk_cloudcontrol._services._pipeline import (
 )
 from aws_sdk_cloudcontrol.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudcontrol.types.create_resource_input
-    import aws_sdk_cloudcontrol.types.create_resource_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AlreadyExistsException":
-            import aws_sdk_cloudcontrol.errors.already_exists_exception
-
             raise aws_sdk_cloudcontrol.errors.already_exists_exception.AlreadyExistsException.from_aws_json_1_0(
                 data
             )
         case "ClientTokenConflictException":
-            import aws_sdk_cloudcontrol.errors.client_token_conflict_exception
-
             raise aws_sdk_cloudcontrol.errors.client_token_conflict_exception.ClientTokenConflictException.from_aws_json_1_0(
                 data
             )
         case "ConcurrentOperationException":
-            import aws_sdk_cloudcontrol.errors.concurrent_operation_exception
-
             raise aws_sdk_cloudcontrol.errors.concurrent_operation_exception.ConcurrentOperationException.from_aws_json_1_0(
                 data
             )
         case "GeneralServiceException":
-            import aws_sdk_cloudcontrol.errors.general_service_exception
-
             raise aws_sdk_cloudcontrol.errors.general_service_exception.GeneralServiceException.from_aws_json_1_0(
                 data
             )
         case "HandlerFailureException":
-            import aws_sdk_cloudcontrol.errors.handler_failure_exception
-
             raise aws_sdk_cloudcontrol.errors.handler_failure_exception.HandlerFailureException.from_aws_json_1_0(
                 data
             )
         case "HandlerInternalFailureException":
-            import aws_sdk_cloudcontrol.errors.handler_internal_failure_exception
-
             raise aws_sdk_cloudcontrol.errors.handler_internal_failure_exception.HandlerInternalFailureException.from_aws_json_1_0(
                 data
             )
         case "InvalidCredentialsException":
-            import aws_sdk_cloudcontrol.errors.invalid_credentials_exception
-
             raise aws_sdk_cloudcontrol.errors.invalid_credentials_exception.InvalidCredentialsException.from_aws_json_1_0(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_cloudcontrol.errors.invalid_request_exception
-
             raise aws_sdk_cloudcontrol.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_0(
                 data
             )
         case "NetworkFailureException":
-            import aws_sdk_cloudcontrol.errors.network_failure_exception
-
             raise aws_sdk_cloudcontrol.errors.network_failure_exception.NetworkFailureException.from_aws_json_1_0(
                 data
             )
         case "NotStabilizedException":
-            import aws_sdk_cloudcontrol.errors.not_stabilized_exception
-
             raise aws_sdk_cloudcontrol.errors.not_stabilized_exception.NotStabilizedException.from_aws_json_1_0(
                 data
             )
         case "NotUpdatableException":
-            import aws_sdk_cloudcontrol.errors.not_updatable_exception
-
             raise aws_sdk_cloudcontrol.errors.not_updatable_exception.NotUpdatableException.from_aws_json_1_0(
                 data
             )
         case "PrivateTypeException":
-            import aws_sdk_cloudcontrol.errors.private_type_exception
-
             raise aws_sdk_cloudcontrol.errors.private_type_exception.PrivateTypeException.from_aws_json_1_0(
                 data
             )
         case "ResourceConflictException":
-            import aws_sdk_cloudcontrol.errors.resource_conflict_exception
-
             raise aws_sdk_cloudcontrol.errors.resource_conflict_exception.ResourceConflictException.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_cloudcontrol.errors.resource_not_found_exception
-
             raise aws_sdk_cloudcontrol.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ServiceInternalErrorException":
-            import aws_sdk_cloudcontrol.errors.service_internal_error_exception
-
             raise aws_sdk_cloudcontrol.errors.service_internal_error_exception.ServiceInternalErrorException.from_aws_json_1_0(
                 data
             )
         case "ServiceLimitExceededException":
-            import aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception
-
             raise aws_sdk_cloudcontrol.errors.service_limit_exceeded_exception.ServiceLimitExceededException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_cloudcontrol.errors.throttling_exception
-
             raise aws_sdk_cloudcontrol.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
         case "TypeNotFoundException":
-            import aws_sdk_cloudcontrol.errors.type_not_found_exception
-
             raise aws_sdk_cloudcontrol.errors.type_not_found_exception.TypeNotFoundException.from_aws_json_1_0(
                 data
             )
         case "UnsupportedActionException":
-            import aws_sdk_cloudcontrol.errors.unsupported_action_exception
-
             raise aws_sdk_cloudcontrol.errors.unsupported_action_exception.UnsupportedActionException.from_aws_json_1_0(
                 data
             )
@@ -146,13 +126,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudcontrol.types.create_resource_output.CreateResourceOutput:
-    import aws_sdk_cloudcontrol.types.create_resource_output
-
     out: aws_sdk_cloudcontrol.types.create_resource_output.CreateResourceOutput = (
         aws_sdk_cloudcontrol.types.create_resource_output.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudcontrol.types.create_resource_output.CreateResourceOutput:
+    out: aws_sdk_cloudcontrol.types.create_resource_output.CreateResourceOutput = (
+        aws_sdk_cloudcontrol.types.create_resource_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -221,8 +210,7 @@ def create_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -240,8 +228,7 @@ async def async_create_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

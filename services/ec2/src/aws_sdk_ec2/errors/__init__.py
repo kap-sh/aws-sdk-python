@@ -1,5 +1,3 @@
-"""Error types raised by generated service clients."""
-
 from __future__ import annotations
 
 from ._base import (
@@ -20,12 +18,3 @@ from ._base import (
 from ._base import (
     WaiterTimeoutError as WaiterTimeoutError,
 )
-
-__all__ = [
-    "DeserializationError",
-    "SerializationError",
-    "ServiceError",
-    "UnknownServiceError",
-    "WaiterFailedError",
-    "WaiterTimeoutError",
-]

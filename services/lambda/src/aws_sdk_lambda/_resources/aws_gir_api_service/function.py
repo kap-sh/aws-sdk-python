@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import AsyncIterator, Iterator
+from collections.abc import AsyncGenerator, AsyncIterator, Generator, Iterator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
@@ -1483,6 +1484,7 @@ class Function:
         )
         return response.output
 
+    @contextmanager
     def invoke_with_response_stream(
         self,
         function_name: "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName",
@@ -1498,7 +1500,7 @@ class Function:
         ] = None,
         payload: Optional["aws_sdk_lambda.types.blob.Blob"] = None,
         tenant_id: Optional["aws_sdk_lambda.types.tenant_id.TenantId"] = None,
-    ) -> "aws_sdk_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse":
+    ) -> "Generator[aws_sdk_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse]":
         r"""<p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html\">Configuring a Lambda function to stream responses</a>.</p> <p>This operation requires permission for the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\">Granting function access to other accounts</a>.</p>
 
         Args:
@@ -1546,7 +1548,7 @@ class Function:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def put_function_code_signing_config(
         self,
@@ -3104,6 +3106,7 @@ class AsyncFunction:
         )
         return response.output
 
+    @asynccontextmanager
     async def invoke_with_response_stream(
         self,
         function_name: "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName",
@@ -3119,7 +3122,7 @@ class AsyncFunction:
         ] = None,
         payload: Optional["aws_sdk_lambda.types.blob.Blob"] = None,
         tenant_id: Optional["aws_sdk_lambda.types.tenant_id.TenantId"] = None,
-    ) -> "aws_sdk_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse":
+    ) -> "AsyncGenerator[aws_sdk_lambda.types.invoke_with_response_stream_response.InvokeWithResponseStreamResponse]":
         r"""<p>Configure your Lambda functions to stream response payloads back to clients. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html\">Configuring a Lambda function to stream responses</a>.</p> <p>This operation requires permission for the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\">lambda:InvokeFunction</a> action. For details on how to set up permissions for cross-account invocations, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke\">Granting function access to other accounts</a>.</p>
 
         Args:
@@ -3168,7 +3171,7 @@ class AsyncFunction:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def put_function_code_signing_config(
         self,

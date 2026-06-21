@@ -1,12 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputDeviceThumbnail``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_medialive._iter import AnyIterator
 
 """The binary data for the thumbnail that the Link device has most recently sent to MediaLive."""
 InputDeviceThumbnail: TypeAlias = AnyIterator[bytes] | bytes

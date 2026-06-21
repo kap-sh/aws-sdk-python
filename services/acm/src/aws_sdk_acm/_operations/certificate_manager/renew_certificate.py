@@ -3,20 +3,21 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_acm._auth._signers
 import aws_sdk_acm._auth._sigv4
+import aws_sdk_acm.errors.invalid_arn_exception
+import aws_sdk_acm.errors.request_in_progress_exception
+import aws_sdk_acm.errors.resource_not_found_exception
+import aws_sdk_acm.types.renew_certificate_request
 from aws_sdk_acm._protocol.errors import parse_error_metadata_json
 from aws_sdk_acm._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_acm._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_acm.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_acm.types.renew_certificate_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,20 +25,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidArnException":
-            import aws_sdk_acm.errors.invalid_arn_exception
-
             raise aws_sdk_acm.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "RequestInProgressException":
-            import aws_sdk_acm.errors.request_in_progress_exception
-
             raise aws_sdk_acm.errors.request_in_progress_exception.RequestInProgressException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_acm.errors.resource_not_found_exception
-
             raise aws_sdk_acm.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
@@ -103,7 +98,6 @@ def renew_certificate(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -119,7 +113,6 @@ async def async_renew_certificate(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

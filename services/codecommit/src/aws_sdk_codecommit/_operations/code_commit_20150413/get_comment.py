@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.comment_deleted_exception
+import aws_sdk_codecommit.errors.comment_does_not_exist_exception
+import aws_sdk_codecommit.errors.comment_id_required_exception
+import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
+import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
+import aws_sdk_codecommit.errors.encryption_key_disabled_exception
+import aws_sdk_codecommit.errors.encryption_key_not_found_exception
+import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
+import aws_sdk_codecommit.errors.invalid_comment_id_exception
+import aws_sdk_codecommit.types.comment
+import aws_sdk_codecommit.types.get_comment_input
+import aws_sdk_codecommit.types.get_comment_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,66 +30,44 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.get_comment_input
-    import aws_sdk_codecommit.types.get_comment_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CommentDeletedException":
-            import aws_sdk_codecommit.errors.comment_deleted_exception
-
             raise aws_sdk_codecommit.errors.comment_deleted_exception.CommentDeletedException.from_aws_json_1_1(
                 data
             )
         case "CommentDoesNotExistException":
-            import aws_sdk_codecommit.errors.comment_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.comment_does_not_exist_exception.CommentDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "CommentIdRequiredException":
-            import aws_sdk_codecommit.errors.comment_id_required_exception
-
             raise aws_sdk_codecommit.errors.comment_id_required_exception.CommentIdRequiredException.from_aws_json_1_1(
                 data
             )
         case "EncryptionIntegrityChecksFailedException":
-            import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
-
             raise aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyAccessDeniedException":
-            import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyDisabledException":
-            import aws_sdk_codecommit.errors.encryption_key_disabled_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyNotFoundException":
-            import aws_sdk_codecommit.errors.encryption_key_not_found_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyUnavailableException":
-            import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "InvalidCommentIdException":
-            import aws_sdk_codecommit.errors.invalid_comment_id_exception
-
             raise aws_sdk_codecommit.errors.invalid_comment_id_exception.InvalidCommentIdException.from_aws_json_1_1(
                 data
             )
@@ -86,13 +76,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.get_comment_output.GetCommentOutput:
-    import aws_sdk_codecommit.types.get_comment_output
-
     out: aws_sdk_codecommit.types.get_comment_output.GetCommentOutput = (
         aws_sdk_codecommit.types.get_comment_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.get_comment_output.GetCommentOutput:
+    out: aws_sdk_codecommit.types.get_comment_output.GetCommentOutput = (
+        aws_sdk_codecommit.types.get_comment_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -160,8 +159,7 @@ def get_comment(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -178,8 +176,7 @@ async def async_get_comment(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

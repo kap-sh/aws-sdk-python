@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
+from aws_sdk_bedrock_runtime._iter import AnyIterator
+from aws_sdk_bedrock_runtime._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
@@ -12,37 +13,44 @@ class _InvokeModelWithBidirectionalStreamInput_chunk(TypedDict):
     chunk: "aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.BidirectionalInputPayloadPart"
 
 
-InvokeModelWithBidirectionalStreamInput: TypeAlias = (
+_InvokeModelWithBidirectionalStreamInput: TypeAlias = (
     _InvokeModelWithBidirectionalStreamInput_chunk
 )
+InvokeModelWithBidirectionalStreamInput: TypeAlias = AnyIterator[
+    _InvokeModelWithBidirectionalStreamInput
+]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: InvokeModelWithBidirectionalStreamInput) -> dict:
-    if "chunk" in value:
-        import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
+def serialize_event_json(value: _InvokeModelWithBidirectionalStreamInput) -> bytes:
+    match value:
+        case {"chunk": payload}:
+            import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
 
-        return {
-            "chunk": aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.serialize_json(
-                value["chunk"]
+            return aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError(
-            "InvokeModelWithBidirectionalStreamInput: no variant present"
-        )
-
-
-def deserialize_json(data: dict) -> InvokeModelWithBidirectionalStreamInput:
-    if "chunk" in data:
-        import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
-
-        return {
-            "chunk": aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.deserialize_json(
-                data["chunk"]
+        case _:
+            raise ValueError(
+                f"InvokeModelWithBidirectionalStreamInput: unrecognized variant {value!r}"
             )
-        }
-    else:
-        raise DeserializationError(
-            "InvokeModelWithBidirectionalStreamInput: no recognized variant key"
-        )
+
+
+def deserialize_event_json(
+    message: Message,
+) -> _InvokeModelWithBidirectionalStreamInput:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "chunk":
+            import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
+
+            return {
+                "chunk": aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"InvokeModelWithBidirectionalStreamInput: unrecognized event-type {event_type!r}"
+            )

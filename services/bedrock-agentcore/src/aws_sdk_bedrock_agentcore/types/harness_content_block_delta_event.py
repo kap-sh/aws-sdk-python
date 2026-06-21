@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 if TYPE_CHECKING:
@@ -47,4 +48,17 @@ def deserialize_json(data: dict) -> HarnessContentBlockDeltaEvent:
         )
     else:
         raise DeserializationError("HarnessContentBlockDeltaEvent.delta required")
+    return out
+
+
+def serialize_event_json(value: HarnessContentBlockDeltaEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "contentBlockDelta"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> HarnessContentBlockDeltaEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: HarnessContentBlockDeltaEvent = {}  # type: ignore[typeddict-item]
     return out

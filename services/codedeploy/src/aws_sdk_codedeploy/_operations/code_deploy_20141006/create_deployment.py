@@ -3,13 +3,46 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codedeploy._auth._signers
 import aws_sdk_codedeploy._auth._sigv4
+import aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception
+import aws_sdk_codedeploy.errors.application_does_not_exist_exception
+import aws_sdk_codedeploy.errors.application_name_required_exception
+import aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception
+import aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception
+import aws_sdk_codedeploy.errors.deployment_group_name_required_exception
+import aws_sdk_codedeploy.errors.deployment_limit_exceeded_exception
+import aws_sdk_codedeploy.errors.description_too_long_exception
+import aws_sdk_codedeploy.errors.invalid_alarm_config_exception
+import aws_sdk_codedeploy.errors.invalid_application_name_exception
+import aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception
+import aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception
+import aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception
+import aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception
+import aws_sdk_codedeploy.errors.invalid_file_exists_behavior_exception
+import aws_sdk_codedeploy.errors.invalid_git_hub_account_token_exception
+import aws_sdk_codedeploy.errors.invalid_ignore_application_stop_failures_value_exception
+import aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception
+import aws_sdk_codedeploy.errors.invalid_revision_exception
+import aws_sdk_codedeploy.errors.invalid_role_exception
+import aws_sdk_codedeploy.errors.invalid_target_instances_exception
+import aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception
+import aws_sdk_codedeploy.errors.invalid_update_outdated_instances_only_value_exception
+import aws_sdk_codedeploy.errors.revision_does_not_exist_exception
+import aws_sdk_codedeploy.errors.revision_required_exception
+import aws_sdk_codedeploy.errors.throttling_exception
+import aws_sdk_codedeploy.types.alarm_configuration
+import aws_sdk_codedeploy.types.auto_rollback_configuration
+import aws_sdk_codedeploy.types.create_deployment_input
+import aws_sdk_codedeploy.types.create_deployment_output
+import aws_sdk_codedeploy.types.file_exists_behavior
+import aws_sdk_codedeploy.types.revision_location
+import aws_sdk_codedeploy.types.target_instances
 from aws_sdk_codedeploy._protocol.errors import parse_error_metadata_json
 from aws_sdk_codedeploy._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codedeploy._services._pipeline import (
@@ -18,168 +51,112 @@ from aws_sdk_codedeploy._services._pipeline import (
 )
 from aws_sdk_codedeploy.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codedeploy.types.create_deployment_input
-    import aws_sdk_codedeploy.types.create_deployment_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AlarmsLimitExceededException":
-            import aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception
-
             raise aws_sdk_codedeploy.errors.alarms_limit_exceeded_exception.AlarmsLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "ApplicationDoesNotExistException":
-            import aws_sdk_codedeploy.errors.application_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.application_does_not_exist_exception.ApplicationDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ApplicationNameRequiredException":
-            import aws_sdk_codedeploy.errors.application_name_required_exception
-
             raise aws_sdk_codedeploy.errors.application_name_required_exception.ApplicationNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "DeploymentConfigDoesNotExistException":
-            import aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.deployment_config_does_not_exist_exception.DeploymentConfigDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "DeploymentGroupDoesNotExistException":
-            import aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.deployment_group_does_not_exist_exception.DeploymentGroupDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "DeploymentGroupNameRequiredException":
-            import aws_sdk_codedeploy.errors.deployment_group_name_required_exception
-
             raise aws_sdk_codedeploy.errors.deployment_group_name_required_exception.DeploymentGroupNameRequiredException.from_aws_json_1_1(
                 data
             )
         case "DeploymentLimitExceededException":
-            import aws_sdk_codedeploy.errors.deployment_limit_exceeded_exception
-
             raise aws_sdk_codedeploy.errors.deployment_limit_exceeded_exception.DeploymentLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "DescriptionTooLongException":
-            import aws_sdk_codedeploy.errors.description_too_long_exception
-
             raise aws_sdk_codedeploy.errors.description_too_long_exception.DescriptionTooLongException.from_aws_json_1_1(
                 data
             )
         case "InvalidAlarmConfigException":
-            import aws_sdk_codedeploy.errors.invalid_alarm_config_exception
-
             raise aws_sdk_codedeploy.errors.invalid_alarm_config_exception.InvalidAlarmConfigException.from_aws_json_1_1(
                 data
             )
         case "InvalidApplicationNameException":
-            import aws_sdk_codedeploy.errors.invalid_application_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_application_name_exception.InvalidApplicationNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidAutoRollbackConfigException":
-            import aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception
-
             raise aws_sdk_codedeploy.errors.invalid_auto_rollback_config_exception.InvalidAutoRollbackConfigException.from_aws_json_1_1(
                 data
             )
         case "InvalidAutoScalingGroupException":
-            import aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception
-
             raise aws_sdk_codedeploy.errors.invalid_auto_scaling_group_exception.InvalidAutoScalingGroupException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeploymentConfigNameException":
-            import aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployment_config_name_exception.InvalidDeploymentConfigNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidDeploymentGroupNameException":
-            import aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception
-
             raise aws_sdk_codedeploy.errors.invalid_deployment_group_name_exception.InvalidDeploymentGroupNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidFileExistsBehaviorException":
-            import aws_sdk_codedeploy.errors.invalid_file_exists_behavior_exception
-
             raise aws_sdk_codedeploy.errors.invalid_file_exists_behavior_exception.InvalidFileExistsBehaviorException.from_aws_json_1_1(
                 data
             )
         case "InvalidGitHubAccountTokenException":
-            import aws_sdk_codedeploy.errors.invalid_git_hub_account_token_exception
-
             raise aws_sdk_codedeploy.errors.invalid_git_hub_account_token_exception.InvalidGitHubAccountTokenException.from_aws_json_1_1(
                 data
             )
         case "InvalidIgnoreApplicationStopFailuresValueException":
-            import aws_sdk_codedeploy.errors.invalid_ignore_application_stop_failures_value_exception
-
             raise aws_sdk_codedeploy.errors.invalid_ignore_application_stop_failures_value_exception.InvalidIgnoreApplicationStopFailuresValueException.from_aws_json_1_1(
                 data
             )
         case "InvalidLoadBalancerInfoException":
-            import aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception
-
             raise aws_sdk_codedeploy.errors.invalid_load_balancer_info_exception.InvalidLoadBalancerInfoException.from_aws_json_1_1(
                 data
             )
         case "InvalidRevisionException":
-            import aws_sdk_codedeploy.errors.invalid_revision_exception
-
             raise aws_sdk_codedeploy.errors.invalid_revision_exception.InvalidRevisionException.from_aws_json_1_1(
                 data
             )
         case "InvalidRoleException":
-            import aws_sdk_codedeploy.errors.invalid_role_exception
-
             raise aws_sdk_codedeploy.errors.invalid_role_exception.InvalidRoleException.from_aws_json_1_1(
                 data
             )
         case "InvalidTargetInstancesException":
-            import aws_sdk_codedeploy.errors.invalid_target_instances_exception
-
             raise aws_sdk_codedeploy.errors.invalid_target_instances_exception.InvalidTargetInstancesException.from_aws_json_1_1(
                 data
             )
         case "InvalidTrafficRoutingConfigurationException":
-            import aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception
-
             raise aws_sdk_codedeploy.errors.invalid_traffic_routing_configuration_exception.InvalidTrafficRoutingConfigurationException.from_aws_json_1_1(
                 data
             )
         case "InvalidUpdateOutdatedInstancesOnlyValueException":
-            import aws_sdk_codedeploy.errors.invalid_update_outdated_instances_only_value_exception
-
             raise aws_sdk_codedeploy.errors.invalid_update_outdated_instances_only_value_exception.InvalidUpdateOutdatedInstancesOnlyValueException.from_aws_json_1_1(
                 data
             )
         case "RevisionDoesNotExistException":
-            import aws_sdk_codedeploy.errors.revision_does_not_exist_exception
-
             raise aws_sdk_codedeploy.errors.revision_does_not_exist_exception.RevisionDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "RevisionRequiredException":
-            import aws_sdk_codedeploy.errors.revision_required_exception
-
             raise aws_sdk_codedeploy.errors.revision_required_exception.RevisionRequiredException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_codedeploy.errors.throttling_exception
-
             raise aws_sdk_codedeploy.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
@@ -188,13 +165,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codedeploy.types.create_deployment_output.CreateDeploymentOutput:
-    import aws_sdk_codedeploy.types.create_deployment_output
-
     out: aws_sdk_codedeploy.types.create_deployment_output.CreateDeploymentOutput = (
         aws_sdk_codedeploy.types.create_deployment_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codedeploy.types.create_deployment_output.CreateDeploymentOutput:
+    out: aws_sdk_codedeploy.types.create_deployment_output.CreateDeploymentOutput = (
+        aws_sdk_codedeploy.types.create_deployment_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -263,8 +249,7 @@ def create_deployment(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -282,8 +267,7 @@ async def async_create_deployment(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

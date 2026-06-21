@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_iotsitewise.errors import DeserializationError, SerializationError
+from aws_sdk_iotsitewise._iter import AnyIterator
+from aws_sdk_iotsitewise._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.errors.access_denied_exception
@@ -60,7 +61,7 @@ class _ResponseStream_throttlingException(TypedDict):
     )
 
 
-ResponseStream: TypeAlias = (
+_ResponseStream: TypeAlias = (
     _ResponseStream_trace
     | _ResponseStream_output
     | _ResponseStream_accessDeniedException
@@ -71,152 +72,147 @@ ResponseStream: TypeAlias = (
     | _ResponseStream_resourceNotFoundException
     | _ResponseStream_throttlingException
 )
+ResponseStream: TypeAlias = AnyIterator[_ResponseStream]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: ResponseStream) -> dict:
-    if "trace" in value:
-        import aws_sdk_iotsitewise.types.trace
+def serialize_event_json(value: _ResponseStream) -> bytes:
+    match value:
+        case {"trace": payload}:
+            import aws_sdk_iotsitewise.types.trace
 
-        return {"trace": aws_sdk_iotsitewise.types.trace.serialize_json(value["trace"])}
-    elif "output" in value:
-        import aws_sdk_iotsitewise.types.invocation_output
+            return aws_sdk_iotsitewise.types.trace.serialize_event_json(payload)
+        case {"output": payload}:
+            import aws_sdk_iotsitewise.types.invocation_output
 
-        return {
-            "output": aws_sdk_iotsitewise.types.invocation_output.serialize_json(
-                value["output"]
+            return aws_sdk_iotsitewise.types.invocation_output.serialize_event_json(
+                payload
             )
-        }
-    elif "accessDeniedException" in value:
-        import aws_sdk_iotsitewise.errors.access_denied_exception
+        case {"accessDeniedException": payload}:
+            import aws_sdk_iotsitewise.errors.access_denied_exception
 
-        return {
-            "accessDeniedException": aws_sdk_iotsitewise.errors.access_denied_exception.serialize_json(
-                value["accessDeniedException"]
+            return (
+                aws_sdk_iotsitewise.errors.access_denied_exception.serialize_event_json(
+                    payload
+                )
             )
-        }
-    elif "conflictingOperationException" in value:
-        import aws_sdk_iotsitewise.errors.conflicting_operation_exception
+        case {"conflictingOperationException": payload}:
+            import aws_sdk_iotsitewise.errors.conflicting_operation_exception
 
-        return {
-            "conflictingOperationException": aws_sdk_iotsitewise.errors.conflicting_operation_exception.serialize_json(
-                value["conflictingOperationException"]
+            return aws_sdk_iotsitewise.errors.conflicting_operation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "internalFailureException" in value:
-        import aws_sdk_iotsitewise.errors.internal_failure_exception
+        case {"internalFailureException": payload}:
+            import aws_sdk_iotsitewise.errors.internal_failure_exception
 
-        return {
-            "internalFailureException": aws_sdk_iotsitewise.errors.internal_failure_exception.serialize_json(
-                value["internalFailureException"]
+            return aws_sdk_iotsitewise.errors.internal_failure_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "invalidRequestException" in value:
-        import aws_sdk_iotsitewise.errors.invalid_request_exception
+        case {"invalidRequestException": payload}:
+            import aws_sdk_iotsitewise.errors.invalid_request_exception
 
-        return {
-            "invalidRequestException": aws_sdk_iotsitewise.errors.invalid_request_exception.serialize_json(
-                value["invalidRequestException"]
+            return aws_sdk_iotsitewise.errors.invalid_request_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "limitExceededException" in value:
-        import aws_sdk_iotsitewise.errors.limit_exceeded_exception
+        case {"limitExceededException": payload}:
+            import aws_sdk_iotsitewise.errors.limit_exceeded_exception
 
-        return {
-            "limitExceededException": aws_sdk_iotsitewise.errors.limit_exceeded_exception.serialize_json(
-                value["limitExceededException"]
+            return aws_sdk_iotsitewise.errors.limit_exceeded_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "resourceNotFoundException" in value:
-        import aws_sdk_iotsitewise.errors.resource_not_found_exception
+        case {"resourceNotFoundException": payload}:
+            import aws_sdk_iotsitewise.errors.resource_not_found_exception
 
-        return {
-            "resourceNotFoundException": aws_sdk_iotsitewise.errors.resource_not_found_exception.serialize_json(
-                value["resourceNotFoundException"]
+            return aws_sdk_iotsitewise.errors.resource_not_found_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "throttlingException" in value:
-        import aws_sdk_iotsitewise.errors.throttling_exception
+        case {"throttlingException": payload}:
+            import aws_sdk_iotsitewise.errors.throttling_exception
 
-        return {
-            "throttlingException": aws_sdk_iotsitewise.errors.throttling_exception.serialize_json(
-                value["throttlingException"]
+            return aws_sdk_iotsitewise.errors.throttling_exception.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("ResponseStream: no variant present")
+        case _:
+            raise ValueError(f"ResponseStream: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> ResponseStream:
-    if "trace" in data:
-        import aws_sdk_iotsitewise.types.trace
+def deserialize_event_json(message: Message) -> _ResponseStream:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "accessDeniedException":
+                import aws_sdk_iotsitewise.errors.access_denied_exception
 
-        return {
-            "trace": aws_sdk_iotsitewise.types.trace.deserialize_json(data["trace"])
-        }
-    elif "output" in data:
-        import aws_sdk_iotsitewise.types.invocation_output
+                raise aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException(
+                    aws_sdk_iotsitewise.errors.access_denied_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "conflictingOperationException":
+                import aws_sdk_iotsitewise.errors.conflicting_operation_exception
 
-        return {
-            "output": aws_sdk_iotsitewise.types.invocation_output.deserialize_json(
-                data["output"]
-            )
-        }
-    elif "accessDeniedException" in data:
-        import aws_sdk_iotsitewise.errors.access_denied_exception
+                raise aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException(
+                    aws_sdk_iotsitewise.errors.conflicting_operation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "internalFailureException":
+                import aws_sdk_iotsitewise.errors.internal_failure_exception
 
-        return {
-            "accessDeniedException": aws_sdk_iotsitewise.errors.access_denied_exception.deserialize_json(
-                data["accessDeniedException"]
-            )
-        }
-    elif "conflictingOperationException" in data:
-        import aws_sdk_iotsitewise.errors.conflicting_operation_exception
+                raise aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException(
+                    aws_sdk_iotsitewise.errors.internal_failure_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "invalidRequestException":
+                import aws_sdk_iotsitewise.errors.invalid_request_exception
 
-        return {
-            "conflictingOperationException": aws_sdk_iotsitewise.errors.conflicting_operation_exception.deserialize_json(
-                data["conflictingOperationException"]
-            )
-        }
-    elif "internalFailureException" in data:
-        import aws_sdk_iotsitewise.errors.internal_failure_exception
+                raise aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException(
+                    aws_sdk_iotsitewise.errors.invalid_request_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "limitExceededException":
+                import aws_sdk_iotsitewise.errors.limit_exceeded_exception
 
-        return {
-            "internalFailureException": aws_sdk_iotsitewise.errors.internal_failure_exception.deserialize_json(
-                data["internalFailureException"]
-            )
-        }
-    elif "invalidRequestException" in data:
-        import aws_sdk_iotsitewise.errors.invalid_request_exception
+                raise aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException(
+                    aws_sdk_iotsitewise.errors.limit_exceeded_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "resourceNotFoundException":
+                import aws_sdk_iotsitewise.errors.resource_not_found_exception
 
-        return {
-            "invalidRequestException": aws_sdk_iotsitewise.errors.invalid_request_exception.deserialize_json(
-                data["invalidRequestException"]
-            )
-        }
-    elif "limitExceededException" in data:
-        import aws_sdk_iotsitewise.errors.limit_exceeded_exception
+                raise aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException(
+                    aws_sdk_iotsitewise.errors.resource_not_found_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "throttlingException":
+                import aws_sdk_iotsitewise.errors.throttling_exception
 
-        return {
-            "limitExceededException": aws_sdk_iotsitewise.errors.limit_exceeded_exception.deserialize_json(
-                data["limitExceededException"]
-            )
-        }
-    elif "resourceNotFoundException" in data:
-        import aws_sdk_iotsitewise.errors.resource_not_found_exception
+                raise aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException(
+                    aws_sdk_iotsitewise.errors.throttling_exception.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(f"ResponseStream: unrecognized error-type {error_type!r}")
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "trace":
+            import aws_sdk_iotsitewise.types.trace
 
-        return {
-            "resourceNotFoundException": aws_sdk_iotsitewise.errors.resource_not_found_exception.deserialize_json(
-                data["resourceNotFoundException"]
-            )
-        }
-    elif "throttlingException" in data:
-        import aws_sdk_iotsitewise.errors.throttling_exception
+            return {
+                "trace": aws_sdk_iotsitewise.types.trace.deserialize_event_json(message)
+            }
+        case "output":
+            import aws_sdk_iotsitewise.types.invocation_output
 
-        return {
-            "throttlingException": aws_sdk_iotsitewise.errors.throttling_exception.deserialize_json(
-                data["throttlingException"]
-            )
-        }
-    else:
-        raise DeserializationError("ResponseStream: no recognized variant key")
+            return {
+                "output": aws_sdk_iotsitewise.types.invocation_output.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(f"ResponseStream: unrecognized event-type {event_type!r}")

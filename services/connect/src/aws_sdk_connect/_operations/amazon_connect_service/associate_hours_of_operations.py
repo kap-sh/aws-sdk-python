@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,19 @@ from typing_extensions import Never
 
 import aws_sdk_connect._auth._signers
 import aws_sdk_connect._auth._sigv4
+import aws_sdk_connect.errors.conditional_operation_failed_exception
+import aws_sdk_connect.errors.internal_service_exception
+import aws_sdk_connect.errors.invalid_parameter_exception
+import aws_sdk_connect.errors.invalid_request_exception
+import aws_sdk_connect.errors.resource_not_found_exception
+import aws_sdk_connect.errors.service_quota_exceeded_exception
+import aws_sdk_connect.errors.throttling_exception
+import aws_sdk_connect.types.associate_hours_of_operations_request
+import aws_sdk_connect.types.parent_hours_of_operation_config_list
 from aws_sdk_connect._protocol.errors import parse_error_metadata_json
 from aws_sdk_connect._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_connect._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_connect.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_connect.types.associate_hours_of_operations_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,44 +31,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ConditionalOperationFailedException":
-            import aws_sdk_connect.errors.conditional_operation_failed_exception
-
             raise aws_sdk_connect.errors.conditional_operation_failed_exception.ConditionalOperationFailedException.from_json(
                 data
             )
         case "InternalServiceException":
-            import aws_sdk_connect.errors.internal_service_exception
-
             raise aws_sdk_connect.errors.internal_service_exception.InternalServiceException.from_json(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_connect.errors.invalid_parameter_exception
-
             raise aws_sdk_connect.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_connect.errors.invalid_request_exception
-
             raise aws_sdk_connect.errors.invalid_request_exception.InvalidRequestException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_connect.errors.resource_not_found_exception
-
             raise aws_sdk_connect.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceQuotaExceededException":
-            import aws_sdk_connect.errors.service_quota_exceeded_exception
-
             raise aws_sdk_connect.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_connect.errors.throttling_exception
-
             raise aws_sdk_connect.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
@@ -138,7 +130,6 @@ def associate_hours_of_operations(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -154,7 +145,6 @@ async def async_associate_hours_of_operations(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

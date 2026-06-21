@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.content_delta_event
     import aws_sdk_bedrock_agentcore.types.content_start_event
@@ -81,4 +83,17 @@ def deserialize_json(data: dict) -> ResponseChunk:
                 data["contentStop"]
             )
         )
+    return out
+
+
+def serialize_event_json(value: ResponseChunk) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "chunk"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ResponseChunk:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ResponseChunk = {}  # type: ignore[typeddict-item]
     return out

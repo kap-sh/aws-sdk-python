@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,12 @@ from typing_extensions import Never
 
 import aws_sdk_pinpoint._auth._signers
 import aws_sdk_pinpoint._auth._sigv4
+import aws_sdk_pinpoint.types.tag_resource_request
+import aws_sdk_pinpoint.types.tags_model
 from aws_sdk_pinpoint._protocol.errors import parse_error_metadata_json
 from aws_sdk_pinpoint._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_pinpoint._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_pinpoint.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_pinpoint.types.tag_resource_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -91,7 +90,6 @@ def tag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -107,7 +105,6 @@ async def async_tag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

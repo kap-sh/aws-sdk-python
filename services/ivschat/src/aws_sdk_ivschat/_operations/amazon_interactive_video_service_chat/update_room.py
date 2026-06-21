@@ -3,21 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ivschat._auth._signers
 import aws_sdk_ivschat._auth._sigv4
+import aws_sdk_ivschat.errors.access_denied_exception
+import aws_sdk_ivschat.errors.pending_verification
+import aws_sdk_ivschat.errors.resource_not_found_exception
+import aws_sdk_ivschat.errors.validation_exception
+import aws_sdk_ivschat.types.logging_configuration_identifier_list
+import aws_sdk_ivschat.types.message_review_handler
+import aws_sdk_ivschat.types.tags
+import aws_sdk_ivschat.types.time
+import aws_sdk_ivschat.types.update_room_request
+import aws_sdk_ivschat.types.update_room_response
 from aws_sdk_ivschat._protocol.errors import parse_error_metadata_json
 from aws_sdk_ivschat._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ivschat._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ivschat.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ivschat.types.update_room_request
-    import aws_sdk_ivschat.types.update_room_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +31,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_ivschat.errors.access_denied_exception
-
             raise aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "PendingVerification":
-            import aws_sdk_ivschat.errors.pending_verification
-
             raise aws_sdk_ivschat.errors.pending_verification.PendingVerification.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_ivschat.errors.resource_not_found_exception
-
             raise aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_ivschat.errors.validation_exception
-
             raise aws_sdk_ivschat.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -53,13 +51,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ivschat.types.update_room_response.UpdateRoomResponse:
-    import aws_sdk_ivschat.types.update_room_response
-
     out: aws_sdk_ivschat.types.update_room_response.UpdateRoomResponse = (
         aws_sdk_ivschat.types.update_room_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ivschat.types.update_room_response.UpdateRoomResponse:
+    out: aws_sdk_ivschat.types.update_room_response.UpdateRoomResponse = (
+        aws_sdk_ivschat.types.update_room_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -126,8 +133,7 @@ def update_room(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -144,8 +150,7 @@ async def async_update_room(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -486,6 +486,7 @@ class AsyncPollyClient:
         )
         return response.output
 
+    @asynccontextmanager
     async def start_speech_synthesis_stream(
         self,
         engine: "aws_sdk_polly.types.engine.Engine",
@@ -501,7 +502,7 @@ class AsyncPollyClient:
         ] = None,
         sample_rate: Optional["aws_sdk_polly.types.sample_rate.SampleRate"] = None,
         action_stream: Optional[AsyncIterator[bytes] | bytes] = None,
-    ) -> "aws_sdk_polly.types.start_speech_synthesis_stream_output.StartSpeechSynthesisStreamOutput":
+    ) -> "AsyncGenerator[aws_sdk_polly.types.start_speech_synthesis_stream_output.StartSpeechSynthesisStreamOutput]":
         r"""<p>Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection. Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream, and receive synthesized audio as it becomes available.</p> <p>This operation serves as a bidirectional counterpart to <code>SynthesizeSpeech</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html\">SynthesizeSpeech</a> </p> </li> </ul>
 
         Args:
@@ -548,7 +549,7 @@ class AsyncPollyClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     async def start_speech_synthesis_task(
         self,

@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_cloudwatch_logs._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.filter_pattern
     import aws_sdk_cloudwatch_logs.types.input_log_stream_names
@@ -103,4 +105,17 @@ def deserialize_aws_json_1_1(data: dict) -> LiveTailSessionStart:
         )
     if "logEventFilterPattern" in data:
         out["log_event_filter_pattern"] = data["logEventFilterPattern"]
+    return out
+
+
+def serialize_event_aws_json_1_1(value: LiveTailSessionStart) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "sessionStart"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_aws_json_1_1(message: Message) -> LiveTailSessionStart:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: LiveTailSessionStart = {}  # type: ignore[typeddict-item]
     return out

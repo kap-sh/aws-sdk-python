@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,21 @@ from typing_extensions import Never
 
 import aws_sdk_ses._auth._signers
 import aws_sdk_ses._auth._sigv4
+import aws_sdk_ses.errors.already_exists_exception
+import aws_sdk_ses.errors.invalid_lambda_function_exception
+import aws_sdk_ses.errors.invalid_s3_configuration_exception
+import aws_sdk_ses.errors.invalid_sns_topic_exception
+import aws_sdk_ses.errors.limit_exceeded_exception
+import aws_sdk_ses.errors.rule_does_not_exist_exception
+import aws_sdk_ses.errors.rule_set_does_not_exist_exception
+import aws_sdk_ses.types.create_receipt_rule_request
+import aws_sdk_ses.types.create_receipt_rule_response
+import aws_sdk_ses.types.receipt_rule
 from aws_sdk_ses._protocol.errors import parse_error_metadata
 from aws_sdk_ses._protocol.xml import fromstring
 from aws_sdk_ses._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ses._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ses.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ses.types.create_receipt_rule_request
-    import aws_sdk_ses.types.create_receipt_rule_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,44 +32,30 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "AlreadyExistsException":
-            import aws_sdk_ses.errors.already_exists_exception
-
             raise aws_sdk_ses.errors.already_exists_exception.AlreadyExistsException.from_query(
                 root
             )
         case "InvalidLambdaFunctionException":
-            import aws_sdk_ses.errors.invalid_lambda_function_exception
-
             raise aws_sdk_ses.errors.invalid_lambda_function_exception.InvalidLambdaFunctionException.from_query(
                 root
             )
         case "InvalidS3ConfigurationException":
-            import aws_sdk_ses.errors.invalid_s3_configuration_exception
-
             raise aws_sdk_ses.errors.invalid_s3_configuration_exception.InvalidS3ConfigurationException.from_query(
                 root
             )
         case "InvalidSnsTopicException":
-            import aws_sdk_ses.errors.invalid_sns_topic_exception
-
             raise aws_sdk_ses.errors.invalid_sns_topic_exception.InvalidSnsTopicException.from_query(
                 root
             )
         case "LimitExceededException":
-            import aws_sdk_ses.errors.limit_exceeded_exception
-
             raise aws_sdk_ses.errors.limit_exceeded_exception.LimitExceededException.from_query(
                 root
             )
         case "RuleDoesNotExistException":
-            import aws_sdk_ses.errors.rule_does_not_exist_exception
-
             raise aws_sdk_ses.errors.rule_does_not_exist_exception.RuleDoesNotExistException.from_query(
                 root
             )
         case "RuleSetDoesNotExistException":
-            import aws_sdk_ses.errors.rule_set_does_not_exist_exception
-
             raise aws_sdk_ses.errors.rule_set_does_not_exist_exception.RuleSetDoesNotExistException.from_query(
                 root
             )
@@ -72,11 +64,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ses.types.create_receipt_rule_response.CreateReceiptRuleResponse:
-    import aws_sdk_ses.types.create_receipt_rule_response
-
     root = fromstring(response.read())
+    result = root.find("CreateReceiptRuleResult")
+    out: aws_sdk_ses.types.create_receipt_rule_response.CreateReceiptRuleResponse = (
+        aws_sdk_ses.types.create_receipt_rule_response.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ses.types.create_receipt_rule_response.CreateReceiptRuleResponse:
+    root = fromstring(await response.aread())
     result = root.find("CreateReceiptRuleResult")
     out: aws_sdk_ses.types.create_receipt_rule_response.CreateReceiptRuleResponse = (
         aws_sdk_ses.types.create_receipt_rule_response.deserialize_query(
@@ -148,8 +151,7 @@ def create_receipt_rule(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -167,8 +169,7 @@ async def async_create_receipt_rule(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

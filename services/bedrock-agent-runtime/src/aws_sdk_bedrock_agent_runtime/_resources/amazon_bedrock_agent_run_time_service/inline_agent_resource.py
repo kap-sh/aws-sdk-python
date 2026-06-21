@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator, Generator
+from contextlib import asynccontextmanager, contextmanager
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_bedrock_agent_runtime._auth._signers
@@ -50,6 +52,7 @@ class InlineAgentResource:
     def __init__(self, service: BedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @contextmanager
     def invoke_inline_agent(
         self,
         foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier",
@@ -108,7 +111,7 @@ class InlineAgentResource:
         custom_orchestration: Optional[
             "aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
+    ) -> "Generator[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse]":
         r"""<p> Invokes an inline Amazon Bedrock agent using the configurations you provide with the request. </p> <ul> <li> <p>Specify the following fields for security purposes.</p> <ul> <li> <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p> </li> <li> <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p> </li> </ul> </li> <li> <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p> </li> <li> <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p> </li> </ul> <note> </note>
 
         Args:
@@ -199,13 +202,14 @@ class InlineAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
 
 class AsyncInlineAgentResource:
     def __init__(self, service: AsyncBedrockAgentRuntimeClient) -> None:
         self._service = service
 
+    @asynccontextmanager
     async def invoke_inline_agent(
         self,
         foundation_model: "aws_sdk_bedrock_agent_runtime.types.model_identifier.ModelIdentifier",
@@ -264,7 +268,7 @@ class AsyncInlineAgentResource:
         custom_orchestration: Optional[
             "aws_sdk_bedrock_agent_runtime.types.custom_orchestration.CustomOrchestration"
         ] = None,
-    ) -> "aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse":
+    ) -> "AsyncGenerator[aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_response.InvokeInlineAgentResponse]":
         r"""<p> Invokes an inline Amazon Bedrock agent using the configurations you provide with the request. </p> <ul> <li> <p>Specify the following fields for security purposes.</p> <ul> <li> <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p> </li> <li> <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p> </li> </ul> </li> <li> <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html\">Advanced prompts</a>.</p> </li> <li> <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p> </li> </ul> <note> </note>
 
         Args:
@@ -356,4 +360,4 @@ class AsyncInlineAgentResource:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output

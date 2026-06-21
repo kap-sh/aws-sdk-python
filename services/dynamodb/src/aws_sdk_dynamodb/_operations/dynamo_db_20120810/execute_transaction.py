@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_dynamodb._auth._signers
 import aws_sdk_dynamodb._auth._sigv4
+import aws_sdk_dynamodb.errors.idempotent_parameter_mismatch_exception
+import aws_sdk_dynamodb.errors.internal_server_error
+import aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception
+import aws_sdk_dynamodb.errors.request_limit_exceeded
+import aws_sdk_dynamodb.errors.resource_not_found_exception
+import aws_sdk_dynamodb.errors.throttling_exception
+import aws_sdk_dynamodb.errors.transaction_canceled_exception
+import aws_sdk_dynamodb.errors.transaction_in_progress_exception
+import aws_sdk_dynamodb.types.consumed_capacity_multiple
+import aws_sdk_dynamodb.types.execute_transaction_input
+import aws_sdk_dynamodb.types.execute_transaction_output
+import aws_sdk_dynamodb.types.item_response_list
+import aws_sdk_dynamodb.types.parameterized_statements
+import aws_sdk_dynamodb.types.return_consumed_capacity
 from aws_sdk_dynamodb._protocol.errors import parse_error_metadata_json
 from aws_sdk_dynamodb._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_dynamodb._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_dynamodb.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_dynamodb.types.execute_transaction_input
-    import aws_sdk_dynamodb.types.execute_transaction_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,50 +35,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "IdempotentParameterMismatchException":
-            import aws_sdk_dynamodb.errors.idempotent_parameter_mismatch_exception
-
             raise aws_sdk_dynamodb.errors.idempotent_parameter_mismatch_exception.IdempotentParameterMismatchException.from_aws_json_1_0(
                 data
             )
         case "InternalServerError":
-            import aws_sdk_dynamodb.errors.internal_server_error
-
             raise aws_sdk_dynamodb.errors.internal_server_error.InternalServerError.from_aws_json_1_0(
                 data
             )
         case "ProvisionedThroughputExceededException":
-            import aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception
-
             raise aws_sdk_dynamodb.errors.provisioned_throughput_exceeded_exception.ProvisionedThroughputExceededException.from_aws_json_1_0(
                 data
             )
         case "RequestLimitExceeded":
-            import aws_sdk_dynamodb.errors.request_limit_exceeded
-
             raise aws_sdk_dynamodb.errors.request_limit_exceeded.RequestLimitExceeded.from_aws_json_1_0(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_dynamodb.errors.resource_not_found_exception
-
             raise aws_sdk_dynamodb.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_0(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_dynamodb.errors.throttling_exception
-
             raise aws_sdk_dynamodb.errors.throttling_exception.ThrottlingException.from_aws_json_1_0(
                 data
             )
         case "TransactionCanceledException":
-            import aws_sdk_dynamodb.errors.transaction_canceled_exception
-
             raise aws_sdk_dynamodb.errors.transaction_canceled_exception.TransactionCanceledException.from_aws_json_1_0(
                 data
             )
         case "TransactionInProgressException":
-            import aws_sdk_dynamodb.errors.transaction_in_progress_exception
-
             raise aws_sdk_dynamodb.errors.transaction_in_progress_exception.TransactionInProgressException.from_aws_json_1_0(
                 data
             )
@@ -77,13 +71,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_dynamodb.types.execute_transaction_output.ExecuteTransactionOutput:
-    import aws_sdk_dynamodb.types.execute_transaction_output
-
     out: aws_sdk_dynamodb.types.execute_transaction_output.ExecuteTransactionOutput = (
         aws_sdk_dynamodb.types.execute_transaction_output.deserialize_aws_json_1_0(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_dynamodb.types.execute_transaction_output.ExecuteTransactionOutput:
+    out: aws_sdk_dynamodb.types.execute_transaction_output.ExecuteTransactionOutput = (
+        aws_sdk_dynamodb.types.execute_transaction_output.deserialize_aws_json_1_0(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -156,8 +159,7 @@ def execute_transaction(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -175,8 +177,7 @@ async def async_execute_transaction(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

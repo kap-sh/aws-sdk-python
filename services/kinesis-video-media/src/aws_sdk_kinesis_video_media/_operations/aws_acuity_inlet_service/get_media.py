@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis_video_media._auth._signers
 import aws_sdk_kinesis_video_media._auth._sigv4
+import aws_sdk_kinesis_video_media.errors.client_limit_exceeded_exception
+import aws_sdk_kinesis_video_media.errors.connection_limit_exceeded_exception
+import aws_sdk_kinesis_video_media.errors.invalid_argument_exception
+import aws_sdk_kinesis_video_media.errors.invalid_endpoint_exception
+import aws_sdk_kinesis_video_media.errors.not_authorized_exception
+import aws_sdk_kinesis_video_media.errors.resource_not_found_exception
+import aws_sdk_kinesis_video_media.types.get_media_input
+import aws_sdk_kinesis_video_media.types.get_media_output
+import aws_sdk_kinesis_video_media.types.payload
+import aws_sdk_kinesis_video_media.types.start_selector
 from aws_sdk_kinesis_video_media._protocol.errors import parse_error_metadata_json
 from aws_sdk_kinesis_video_media._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +31,32 @@ from aws_sdk_kinesis_video_media._services._pipeline import (
 )
 from aws_sdk_kinesis_video_media.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_kinesis_video_media.types.get_media_input
-    import aws_sdk_kinesis_video_media.types.get_media_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ClientLimitExceededException":
-            import aws_sdk_kinesis_video_media.errors.client_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video_media.errors.client_limit_exceeded_exception.ClientLimitExceededException.from_json(
                 data
             )
         case "ConnectionLimitExceededException":
-            import aws_sdk_kinesis_video_media.errors.connection_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video_media.errors.connection_limit_exceeded_exception.ConnectionLimitExceededException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_kinesis_video_media.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis_video_media.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "InvalidEndpointException":
-            import aws_sdk_kinesis_video_media.errors.invalid_endpoint_exception
-
             raise aws_sdk_kinesis_video_media.errors.invalid_endpoint_exception.InvalidEndpointException.from_json(
                 data
             )
         case "NotAuthorizedException":
-            import aws_sdk_kinesis_video_media.errors.not_authorized_exception
-
             raise aws_sdk_kinesis_video_media.errors.not_authorized_exception.NotAuthorizedException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_kinesis_video_media.errors.resource_not_found_exception
-
             raise aws_sdk_kinesis_video_media.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
@@ -71,11 +65,21 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kinesis_video_media.types.get_media_output.GetMediaOutput:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
+    out: aws_sdk_kinesis_video_media.types.get_media_output.GetMediaOutput = {
+        "payload": _iter
+    }  # type: ignore[reportAssignmentType]
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kinesis_video_media.types.get_media_output.GetMediaOutput:
+    _iter = cast(Any, response.async_iter_bytes())
     out: aws_sdk_kinesis_video_media.types.get_media_output.GetMediaOutput = {
         "payload": _iter
     }  # type: ignore[reportAssignmentType]
@@ -145,8 +149,7 @@ def get_media(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -163,8 +166,7 @@ async def async_get_media(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

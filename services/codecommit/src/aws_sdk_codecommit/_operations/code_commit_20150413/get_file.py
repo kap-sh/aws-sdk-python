@@ -3,13 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.commit_does_not_exist_exception
+import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
+import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
+import aws_sdk_codecommit.errors.encryption_key_disabled_exception
+import aws_sdk_codecommit.errors.encryption_key_not_found_exception
+import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
+import aws_sdk_codecommit.errors.file_does_not_exist_exception
+import aws_sdk_codecommit.errors.file_too_large_exception
+import aws_sdk_codecommit.errors.invalid_commit_exception
+import aws_sdk_codecommit.errors.invalid_path_exception
+import aws_sdk_codecommit.errors.invalid_repository_name_exception
+import aws_sdk_codecommit.errors.path_required_exception
+import aws_sdk_codecommit.errors.repository_does_not_exist_exception
+import aws_sdk_codecommit.errors.repository_name_required_exception
+import aws_sdk_codecommit.types.file_content
+import aws_sdk_codecommit.types.file_mode_type_enum
+import aws_sdk_codecommit.types.get_file_input
+import aws_sdk_codecommit.types.get_file_output
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,96 +36,64 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.get_file_input
-    import aws_sdk_codecommit.types.get_file_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CommitDoesNotExistException":
-            import aws_sdk_codecommit.errors.commit_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.commit_does_not_exist_exception.CommitDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "EncryptionIntegrityChecksFailedException":
-            import aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception
-
             raise aws_sdk_codecommit.errors.encryption_integrity_checks_failed_exception.EncryptionIntegrityChecksFailedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyAccessDeniedException":
-            import aws_sdk_codecommit.errors.encryption_key_access_denied_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_access_denied_exception.EncryptionKeyAccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyDisabledException":
-            import aws_sdk_codecommit.errors.encryption_key_disabled_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_disabled_exception.EncryptionKeyDisabledException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyNotFoundException":
-            import aws_sdk_codecommit.errors.encryption_key_not_found_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_not_found_exception.EncryptionKeyNotFoundException.from_aws_json_1_1(
                 data
             )
         case "EncryptionKeyUnavailableException":
-            import aws_sdk_codecommit.errors.encryption_key_unavailable_exception
-
             raise aws_sdk_codecommit.errors.encryption_key_unavailable_exception.EncryptionKeyUnavailableException.from_aws_json_1_1(
                 data
             )
         case "FileDoesNotExistException":
-            import aws_sdk_codecommit.errors.file_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.file_does_not_exist_exception.FileDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "FileTooLargeException":
-            import aws_sdk_codecommit.errors.file_too_large_exception
-
             raise aws_sdk_codecommit.errors.file_too_large_exception.FileTooLargeException.from_aws_json_1_1(
                 data
             )
         case "InvalidCommitException":
-            import aws_sdk_codecommit.errors.invalid_commit_exception
-
             raise aws_sdk_codecommit.errors.invalid_commit_exception.InvalidCommitException.from_aws_json_1_1(
                 data
             )
         case "InvalidPathException":
-            import aws_sdk_codecommit.errors.invalid_path_exception
-
             raise aws_sdk_codecommit.errors.invalid_path_exception.InvalidPathException.from_aws_json_1_1(
                 data
             )
         case "InvalidRepositoryNameException":
-            import aws_sdk_codecommit.errors.invalid_repository_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException.from_aws_json_1_1(
                 data
             )
         case "PathRequiredException":
-            import aws_sdk_codecommit.errors.path_required_exception
-
             raise aws_sdk_codecommit.errors.path_required_exception.PathRequiredException.from_aws_json_1_1(
                 data
             )
         case "RepositoryDoesNotExistException":
-            import aws_sdk_codecommit.errors.repository_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNameRequiredException":
-            import aws_sdk_codecommit.errors.repository_name_required_exception
-
             raise aws_sdk_codecommit.errors.repository_name_required_exception.RepositoryNameRequiredException.from_aws_json_1_1(
                 data
             )
@@ -116,13 +102,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_codecommit.types.get_file_output.GetFileOutput:
-    import aws_sdk_codecommit.types.get_file_output
-
     out: aws_sdk_codecommit.types.get_file_output.GetFileOutput = (
         aws_sdk_codecommit.types.get_file_output.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_codecommit.types.get_file_output.GetFileOutput:
+    out: aws_sdk_codecommit.types.get_file_output.GetFileOutput = (
+        aws_sdk_codecommit.types.get_file_output.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -188,8 +183,7 @@ def get_file(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -204,8 +198,7 @@ async def async_get_file(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

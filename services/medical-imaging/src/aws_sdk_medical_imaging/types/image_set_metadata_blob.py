@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ImageSetMetadataBlob``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_medical_imaging._iter import AnyIterator
 
 ImageSetMetadataBlob: TypeAlias = AnyIterator[bytes] | bytes

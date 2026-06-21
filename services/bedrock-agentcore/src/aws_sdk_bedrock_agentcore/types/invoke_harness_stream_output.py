@@ -2,7 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
+from aws_sdk_bedrock_agentcore._iter import AnyIterator
+from aws_sdk_bedrock_agentcore._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.errors.internal_server_exception
@@ -58,7 +59,7 @@ class _InvokeHarnessStreamOutput_runtimeClientError(TypedDict):
     )
 
 
-InvokeHarnessStreamOutput: TypeAlias = (
+_InvokeHarnessStreamOutput: TypeAlias = (
     _InvokeHarnessStreamOutput_messageStart
     | _InvokeHarnessStreamOutput_contentBlockStart
     | _InvokeHarnessStreamOutput_contentBlockDelta
@@ -69,160 +70,155 @@ InvokeHarnessStreamOutput: TypeAlias = (
     | _InvokeHarnessStreamOutput_validationException
     | _InvokeHarnessStreamOutput_runtimeClientError
 )
+InvokeHarnessStreamOutput: TypeAlias = AnyIterator[_InvokeHarnessStreamOutput]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: InvokeHarnessStreamOutput) -> dict:
-    if "messageStart" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_message_start_event
+def serialize_event_json(value: _InvokeHarnessStreamOutput) -> bytes:
+    match value:
+        case {"messageStart": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_message_start_event
 
-        return {
-            "messageStart": aws_sdk_bedrock_agentcore.types.harness_message_start_event.serialize_json(
-                value["messageStart"]
+            return aws_sdk_bedrock_agentcore.types.harness_message_start_event.serialize_event_json(
+                payload
             )
-        }
-    elif "contentBlockStart" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_start_event
+        case {"contentBlockStart": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_start_event
 
-        return {
-            "contentBlockStart": aws_sdk_bedrock_agentcore.types.harness_content_block_start_event.serialize_json(
-                value["contentBlockStart"]
+            return aws_sdk_bedrock_agentcore.types.harness_content_block_start_event.serialize_event_json(
+                payload
             )
-        }
-    elif "contentBlockDelta" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event
+        case {"contentBlockDelta": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event
 
-        return {
-            "contentBlockDelta": aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event.serialize_json(
-                value["contentBlockDelta"]
+            return aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event.serialize_event_json(
+                payload
             )
-        }
-    elif "contentBlockStop" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event
+        case {"contentBlockStop": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event
 
-        return {
-            "contentBlockStop": aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event.serialize_json(
-                value["contentBlockStop"]
+            return aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event.serialize_event_json(
+                payload
             )
-        }
-    elif "messageStop" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_message_stop_event
+        case {"messageStop": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_message_stop_event
 
-        return {
-            "messageStop": aws_sdk_bedrock_agentcore.types.harness_message_stop_event.serialize_json(
-                value["messageStop"]
+            return aws_sdk_bedrock_agentcore.types.harness_message_stop_event.serialize_event_json(
+                payload
             )
-        }
-    elif "metadata" in value:
-        import aws_sdk_bedrock_agentcore.types.harness_metadata_event
+        case {"metadata": payload}:
+            import aws_sdk_bedrock_agentcore.types.harness_metadata_event
 
-        return {
-            "metadata": aws_sdk_bedrock_agentcore.types.harness_metadata_event.serialize_json(
-                value["metadata"]
+            return aws_sdk_bedrock_agentcore.types.harness_metadata_event.serialize_event_json(
+                payload
             )
-        }
-    elif "internalServerException" in value:
-        import aws_sdk_bedrock_agentcore.errors.internal_server_exception
+        case {"internalServerException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.internal_server_exception
 
-        return {
-            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_json(
-                value["internalServerException"]
+            return aws_sdk_bedrock_agentcore.errors.internal_server_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "validationException" in value:
-        import aws_sdk_bedrock_agentcore.errors.validation_exception
+        case {"validationException": payload}:
+            import aws_sdk_bedrock_agentcore.errors.validation_exception
 
-        return {
-            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_json(
-                value["validationException"]
+            return aws_sdk_bedrock_agentcore.errors.validation_exception.serialize_event_json(
+                payload
             )
-        }
-    elif "runtimeClientError" in value:
-        import aws_sdk_bedrock_agentcore.errors.runtime_client_error
+        case {"runtimeClientError": payload}:
+            import aws_sdk_bedrock_agentcore.errors.runtime_client_error
 
-        return {
-            "runtimeClientError": aws_sdk_bedrock_agentcore.errors.runtime_client_error.serialize_json(
-                value["runtimeClientError"]
+            return aws_sdk_bedrock_agentcore.errors.runtime_client_error.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("InvokeHarnessStreamOutput: no variant present")
-
-
-def deserialize_json(data: dict) -> InvokeHarnessStreamOutput:
-    if "messageStart" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_message_start_event
-
-        return {
-            "messageStart": aws_sdk_bedrock_agentcore.types.harness_message_start_event.deserialize_json(
-                data["messageStart"]
+        case _:
+            raise ValueError(
+                f"InvokeHarnessStreamOutput: unrecognized variant {value!r}"
             )
-        }
-    elif "contentBlockStart" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_start_event
 
-        return {
-            "contentBlockStart": aws_sdk_bedrock_agentcore.types.harness_content_block_start_event.deserialize_json(
-                data["contentBlockStart"]
-            )
-        }
-    elif "contentBlockDelta" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event
 
-        return {
-            "contentBlockDelta": aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event.deserialize_json(
-                data["contentBlockDelta"]
-            )
-        }
-    elif "contentBlockStop" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event
+def deserialize_event_json(message: Message) -> _InvokeHarnessStreamOutput:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "internalServerException":
+                import aws_sdk_bedrock_agentcore.errors.internal_server_exception
 
-        return {
-            "contentBlockStop": aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event.deserialize_json(
-                data["contentBlockStop"]
-            )
-        }
-    elif "messageStop" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_message_stop_event
+                raise aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException(
+                    aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "validationException":
+                import aws_sdk_bedrock_agentcore.errors.validation_exception
 
-        return {
-            "messageStop": aws_sdk_bedrock_agentcore.types.harness_message_stop_event.deserialize_json(
-                data["messageStop"]
-            )
-        }
-    elif "metadata" in data:
-        import aws_sdk_bedrock_agentcore.types.harness_metadata_event
+                raise aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException(
+                    aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_event_json(
+                        message
+                    )
+                )
+            case "runtimeClientError":
+                import aws_sdk_bedrock_agentcore.errors.runtime_client_error
 
-        return {
-            "metadata": aws_sdk_bedrock_agentcore.types.harness_metadata_event.deserialize_json(
-                data["metadata"]
-            )
-        }
-    elif "internalServerException" in data:
-        import aws_sdk_bedrock_agentcore.errors.internal_server_exception
-
-        return {
-            "internalServerException": aws_sdk_bedrock_agentcore.errors.internal_server_exception.deserialize_json(
-                data["internalServerException"]
-            )
-        }
-    elif "validationException" in data:
-        import aws_sdk_bedrock_agentcore.errors.validation_exception
-
-        return {
-            "validationException": aws_sdk_bedrock_agentcore.errors.validation_exception.deserialize_json(
-                data["validationException"]
-            )
-        }
-    elif "runtimeClientError" in data:
-        import aws_sdk_bedrock_agentcore.errors.runtime_client_error
-
-        return {
-            "runtimeClientError": aws_sdk_bedrock_agentcore.errors.runtime_client_error.deserialize_json(
-                data["runtimeClientError"]
-            )
-        }
-    else:
-        raise DeserializationError(
-            "InvokeHarnessStreamOutput: no recognized variant key"
+                raise aws_sdk_bedrock_agentcore.errors.runtime_client_error.RuntimeClientError(
+                    aws_sdk_bedrock_agentcore.errors.runtime_client_error.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(
+            f"InvokeHarnessStreamOutput: unrecognized error-type {error_type!r}"
         )
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "messageStart":
+            import aws_sdk_bedrock_agentcore.types.harness_message_start_event
+
+            return {
+                "messageStart": aws_sdk_bedrock_agentcore.types.harness_message_start_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "contentBlockStart":
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_start_event
+
+            return {
+                "contentBlockStart": aws_sdk_bedrock_agentcore.types.harness_content_block_start_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "contentBlockDelta":
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event
+
+            return {
+                "contentBlockDelta": aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "contentBlockStop":
+            import aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event
+
+            return {
+                "contentBlockStop": aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "messageStop":
+            import aws_sdk_bedrock_agentcore.types.harness_message_stop_event
+
+            return {
+                "messageStop": aws_sdk_bedrock_agentcore.types.harness_message_stop_event.deserialize_event_json(
+                    message
+                )
+            }
+        case "metadata":
+            import aws_sdk_bedrock_agentcore.types.harness_metadata_event
+
+            return {
+                "metadata": aws_sdk_bedrock_agentcore.types.harness_metadata_event.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"InvokeHarnessStreamOutput: unrecognized event-type {event_type!r}"
+            )

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -10,6 +10,13 @@ from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.entity_not_found
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.unsupported_operation
+import aws_sdk_cloudfront.types.distribution_list
+import aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_request
+import aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import fromstring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,34 +26,22 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_request
-    import aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "EntityNotFound":
-            import aws_sdk_cloudfront.errors.entity_not_found
-
             raise aws_sdk_cloudfront.errors.entity_not_found.EntityNotFound.from_xml(
                 root
             )
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "UnsupportedOperation":
-            import aws_sdk_cloudfront.errors.unsupported_operation
-
             raise aws_sdk_cloudfront.errors.unsupported_operation.UnsupportedOperation.from_xml(
                 root
             )
@@ -55,13 +50,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result.ListDistributionsByAnycastIpListIdResult:
-    import aws_sdk_cloudfront.types.distribution_list
-
     out: aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result.ListDistributionsByAnycastIpListIdResult = {
         "distribution_list": aws_sdk_cloudfront.types.distribution_list.deserialize_xml(
             fromstring(response.read())
+        )
+    }  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result.ListDistributionsByAnycastIpListIdResult:
+    out: aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_result.ListDistributionsByAnycastIpListIdResult = {
+        "distribution_list": aws_sdk_cloudfront.types.distribution_list.deserialize_xml(
+            fromstring(await response.aread())
         )
     }  # type: ignore[typeddict-item]
     return out
@@ -134,8 +138,7 @@ def list_distributions_by_anycast_ip_list_id(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -153,8 +156,7 @@ async def async_list_distributions_by_anycast_ip_list_id(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

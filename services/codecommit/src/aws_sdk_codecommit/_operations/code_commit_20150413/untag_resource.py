@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_codecommit._auth._signers
 import aws_sdk_codecommit._auth._sigv4
+import aws_sdk_codecommit.errors.invalid_repository_name_exception
+import aws_sdk_codecommit.errors.invalid_resource_arn_exception
+import aws_sdk_codecommit.errors.invalid_system_tag_usage_exception
+import aws_sdk_codecommit.errors.invalid_tag_keys_list_exception
+import aws_sdk_codecommit.errors.repository_does_not_exist_exception
+import aws_sdk_codecommit.errors.resource_arn_required_exception
+import aws_sdk_codecommit.errors.tag_keys_list_required_exception
+import aws_sdk_codecommit.errors.tag_policy_exception
+import aws_sdk_codecommit.errors.too_many_tags_exception
+import aws_sdk_codecommit.types.tag_keys_list
+import aws_sdk_codecommit.types.untag_resource_input
 from aws_sdk_codecommit._protocol.errors import parse_error_metadata_json
 from aws_sdk_codecommit._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_codecommit._services._pipeline import (
@@ -18,65 +29,44 @@ from aws_sdk_codecommit._services._pipeline import (
 )
 from aws_sdk_codecommit.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_codecommit.types.untag_resource_input
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidRepositoryNameException":
-            import aws_sdk_codecommit.errors.invalid_repository_name_exception
-
             raise aws_sdk_codecommit.errors.invalid_repository_name_exception.InvalidRepositoryNameException.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceArnException":
-            import aws_sdk_codecommit.errors.invalid_resource_arn_exception
-
             raise aws_sdk_codecommit.errors.invalid_resource_arn_exception.InvalidResourceArnException.from_aws_json_1_1(
                 data
             )
         case "InvalidSystemTagUsageException":
-            import aws_sdk_codecommit.errors.invalid_system_tag_usage_exception
-
             raise aws_sdk_codecommit.errors.invalid_system_tag_usage_exception.InvalidSystemTagUsageException.from_aws_json_1_1(
                 data
             )
         case "InvalidTagKeysListException":
-            import aws_sdk_codecommit.errors.invalid_tag_keys_list_exception
-
             raise aws_sdk_codecommit.errors.invalid_tag_keys_list_exception.InvalidTagKeysListException.from_aws_json_1_1(
                 data
             )
         case "RepositoryDoesNotExistException":
-            import aws_sdk_codecommit.errors.repository_does_not_exist_exception
-
             raise aws_sdk_codecommit.errors.repository_does_not_exist_exception.RepositoryDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "ResourceArnRequiredException":
-            import aws_sdk_codecommit.errors.resource_arn_required_exception
-
             raise aws_sdk_codecommit.errors.resource_arn_required_exception.ResourceArnRequiredException.from_aws_json_1_1(
                 data
             )
         case "TagKeysListRequiredException":
-            import aws_sdk_codecommit.errors.tag_keys_list_required_exception
-
             raise aws_sdk_codecommit.errors.tag_keys_list_required_exception.TagKeysListRequiredException.from_aws_json_1_1(
                 data
             )
         case "TagPolicyException":
-            import aws_sdk_codecommit.errors.tag_policy_exception
-
             raise aws_sdk_codecommit.errors.tag_policy_exception.TagPolicyException.from_aws_json_1_1(
                 data
             )
         case "TooManyTagsException":
-            import aws_sdk_codecommit.errors.too_many_tags_exception
-
             raise aws_sdk_codecommit.errors.too_many_tags_exception.TooManyTagsException.from_aws_json_1_1(
                 data
             )
@@ -144,7 +134,6 @@ def untag_resource(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -160,7 +149,6 @@ async def async_untag_resource(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

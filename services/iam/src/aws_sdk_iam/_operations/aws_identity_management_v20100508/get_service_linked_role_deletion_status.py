@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,18 @@ from typing_extensions import Never
 
 import aws_sdk_iam._auth._signers
 import aws_sdk_iam._auth._sigv4
+import aws_sdk_iam.errors.invalid_input_exception
+import aws_sdk_iam.errors.no_such_entity_exception
+import aws_sdk_iam.errors.service_failure_exception
+import aws_sdk_iam.types.deletion_task_failure_reason_type
+import aws_sdk_iam.types.deletion_task_status_type
+import aws_sdk_iam.types.get_service_linked_role_deletion_status_request
+import aws_sdk_iam.types.get_service_linked_role_deletion_status_response
 from aws_sdk_iam._protocol.errors import parse_error_metadata
 from aws_sdk_iam._protocol.xml import fromstring
 from aws_sdk_iam._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_iam._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_iam.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_iam.types.get_service_linked_role_deletion_status_request
-    import aws_sdk_iam.types.get_service_linked_role_deletion_status_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,20 +29,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidInputException":
-            import aws_sdk_iam.errors.invalid_input_exception
-
             raise aws_sdk_iam.errors.invalid_input_exception.InvalidInputException.from_query(
                 root
             )
         case "NoSuchEntityException":
-            import aws_sdk_iam.errors.no_such_entity_exception
-
             raise aws_sdk_iam.errors.no_such_entity_exception.NoSuchEntityException.from_query(
                 root
             )
         case "ServiceFailureException":
-            import aws_sdk_iam.errors.service_failure_exception
-
             raise aws_sdk_iam.errors.service_failure_exception.ServiceFailureException.from_query(
                 root
             )
@@ -48,11 +45,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_iam.types.get_service_linked_role_deletion_status_response.GetServiceLinkedRoleDeletionStatusResponse:
-    import aws_sdk_iam.types.get_service_linked_role_deletion_status_response
-
     root = fromstring(response.read())
+    result = root.find("GetServiceLinkedRoleDeletionStatusResult")
+    out: aws_sdk_iam.types.get_service_linked_role_deletion_status_response.GetServiceLinkedRoleDeletionStatusResponse = aws_sdk_iam.types.get_service_linked_role_deletion_status_response.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_iam.types.get_service_linked_role_deletion_status_response.GetServiceLinkedRoleDeletionStatusResponse:
+    root = fromstring(await response.aread())
     result = root.find("GetServiceLinkedRoleDeletionStatusResult")
     out: aws_sdk_iam.types.get_service_linked_role_deletion_status_response.GetServiceLinkedRoleDeletionStatusResponse = aws_sdk_iam.types.get_service_linked_role_deletion_status_response.deserialize_query(
         result if result is not None else root
@@ -124,8 +130,7 @@ def get_service_linked_role_deletion_status(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -143,8 +148,7 @@ async def async_get_service_linked_role_deletion_status(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

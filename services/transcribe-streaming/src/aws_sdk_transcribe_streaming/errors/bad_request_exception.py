@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 from aws_sdk_transcribe_streaming.errors import ServiceError
 
 if TYPE_CHECKING:
@@ -46,3 +47,16 @@ class BadRequestException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "BadRequestException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: BadRequestException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "BadRequestException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> BadRequestException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: BadRequestException_ = {}  # type: ignore[typeddict-item]
+    return out

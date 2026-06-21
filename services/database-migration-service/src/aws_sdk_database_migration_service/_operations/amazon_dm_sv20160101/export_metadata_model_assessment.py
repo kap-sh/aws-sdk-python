@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_database_migration_service._auth._signers
 import aws_sdk_database_migration_service._auth._sigv4
+import aws_sdk_database_migration_service.errors.resource_not_found_fault
+import aws_sdk_database_migration_service.types.assessment_report_types_list
+import aws_sdk_database_migration_service.types.export_metadata_model_assessment_message
+import aws_sdk_database_migration_service.types.export_metadata_model_assessment_response
+import aws_sdk_database_migration_service.types.export_metadata_model_assessment_result_entry
 from aws_sdk_database_migration_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -23,18 +28,12 @@ from aws_sdk_database_migration_service._services._pipeline import (
 )
 from aws_sdk_database_migration_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_database_migration_service.types.export_metadata_model_assessment_message
-    import aws_sdk_database_migration_service.types.export_metadata_model_assessment_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ResourceNotFoundFault":
-            import aws_sdk_database_migration_service.errors.resource_not_found_fault
-
             raise aws_sdk_database_migration_service.errors.resource_not_found_fault.ResourceNotFoundFault.from_aws_json_1_1(
                 data
             )
@@ -43,12 +42,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.ExportMetadataModelAssessmentResponse:
-    import aws_sdk_database_migration_service.types.export_metadata_model_assessment_response
-
     out: aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.ExportMetadataModelAssessmentResponse = aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.ExportMetadataModelAssessmentResponse:
+    out: aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.ExportMetadataModelAssessmentResponse = aws_sdk_database_migration_service.types.export_metadata_model_assessment_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -118,8 +124,7 @@ def export_metadata_model_assessment(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -137,8 +142,7 @@ async def async_export_metadata_model_assessment(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

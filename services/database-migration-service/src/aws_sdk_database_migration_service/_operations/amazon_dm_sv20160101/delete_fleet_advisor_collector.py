@@ -3,13 +3,17 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_database_migration_service._auth._signers
 import aws_sdk_database_migration_service._auth._sigv4
+import aws_sdk_database_migration_service.errors.access_denied_fault
+import aws_sdk_database_migration_service.errors.collector_not_found_fault
+import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
+import aws_sdk_database_migration_service.types.delete_collector_request
 from aws_sdk_database_migration_service._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -23,29 +27,20 @@ from aws_sdk_database_migration_service._services._pipeline import (
 )
 from aws_sdk_database_migration_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_database_migration_service.types.delete_collector_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedFault":
-            import aws_sdk_database_migration_service.errors.access_denied_fault
-
             raise aws_sdk_database_migration_service.errors.access_denied_fault.AccessDeniedFault.from_aws_json_1_1(
                 data
             )
         case "CollectorNotFoundFault":
-            import aws_sdk_database_migration_service.errors.collector_not_found_fault
-
             raise aws_sdk_database_migration_service.errors.collector_not_found_fault.CollectorNotFoundFault.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceStateFault":
-            import aws_sdk_database_migration_service.errors.invalid_resource_state_fault
-
             raise aws_sdk_database_migration_service.errors.invalid_resource_state_fault.InvalidResourceStateFault.from_aws_json_1_1(
                 data
             )
@@ -115,7 +110,6 @@ def delete_fleet_advisor_collector(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -131,7 +125,6 @@ async def async_delete_fleet_advisor_collector(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

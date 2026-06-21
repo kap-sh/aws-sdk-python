@@ -3,13 +3,33 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sagemaker._auth._signers
 import aws_sdk_sagemaker._auth._sigv4
+import aws_sdk_sagemaker.errors.resource_not_found
+import aws_sdk_sagemaker.types.auto_ml_candidate
+import aws_sdk_sagemaker.types.auto_ml_compute_config
+import aws_sdk_sagemaker.types.auto_ml_data_split_config
+import aws_sdk_sagemaker.types.auto_ml_job_artifacts
+import aws_sdk_sagemaker.types.auto_ml_job_input_data_config
+import aws_sdk_sagemaker.types.auto_ml_job_objective
+import aws_sdk_sagemaker.types.auto_ml_job_secondary_status
+import aws_sdk_sagemaker.types.auto_ml_job_status
+import aws_sdk_sagemaker.types.auto_ml_output_data_config
+import aws_sdk_sagemaker.types.auto_ml_partial_failure_reasons
+import aws_sdk_sagemaker.types.auto_ml_problem_type_config
+import aws_sdk_sagemaker.types.auto_ml_problem_type_config_name
+import aws_sdk_sagemaker.types.auto_ml_resolved_attributes
+import aws_sdk_sagemaker.types.auto_ml_security_config
+import aws_sdk_sagemaker.types.describe_auto_ml_job_v2_request
+import aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response
+import aws_sdk_sagemaker.types.model_deploy_config
+import aws_sdk_sagemaker.types.model_deploy_result
+import aws_sdk_sagemaker.types.timestamp
 from aws_sdk_sagemaker._protocol.errors import parse_error_metadata_json
 from aws_sdk_sagemaker._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sagemaker._services._pipeline import (
@@ -18,18 +38,12 @@ from aws_sdk_sagemaker._services._pipeline import (
 )
 from aws_sdk_sagemaker.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemaker.types.describe_auto_ml_job_v2_request
-    import aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "ResourceNotFound":
-            import aws_sdk_sagemaker.errors.resource_not_found
-
             raise aws_sdk_sagemaker.errors.resource_not_found.ResourceNotFound.from_aws_json_1_1(
                 data
             )
@@ -38,14 +52,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.DescribeAutoMLJobV2Response
 ):
-    import aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response
-
     out: aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.DescribeAutoMLJobV2Response = aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.DescribeAutoMLJobV2Response
+):
+    out: aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.DescribeAutoMLJobV2Response = aws_sdk_sagemaker.types.describe_auto_ml_job_v2_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -115,8 +138,7 @@ def describe_auto_ml_job_v2(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -134,8 +156,7 @@ async def async_describe_auto_ml_job_v2(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

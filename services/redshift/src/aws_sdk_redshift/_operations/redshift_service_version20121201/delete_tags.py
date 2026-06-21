@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,14 +10,15 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.invalid_tag_fault
+import aws_sdk_redshift.errors.resource_not_found_fault
+import aws_sdk_redshift.types.delete_tags_message
+import aws_sdk_redshift.types.tag_key_list
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.delete_tags_message
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +26,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidTagFault":
-            import aws_sdk_redshift.errors.invalid_tag_fault
-
             raise aws_sdk_redshift.errors.invalid_tag_fault.InvalidTagFault.from_query(
                 root
             )
         case "ResourceNotFoundFault":
-            import aws_sdk_redshift.errors.resource_not_found_fault
-
             raise aws_sdk_redshift.errors.resource_not_found_fault.ResourceNotFoundFault.from_query(
                 root
             )
@@ -101,7 +98,6 @@ def delete_tags(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -117,7 +113,6 @@ async def async_delete_tags(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

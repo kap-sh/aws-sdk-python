@@ -3,13 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route53resolver._auth._signers
 import aws_sdk_route53resolver._auth._sigv4
+import aws_sdk_route53resolver.errors.access_denied_exception
+import aws_sdk_route53resolver.errors.internal_service_error_exception
+import aws_sdk_route53resolver.errors.invalid_parameter_exception
+import aws_sdk_route53resolver.errors.invalid_request_exception
+import aws_sdk_route53resolver.errors.resource_not_found_exception
+import aws_sdk_route53resolver.errors.throttling_exception
+import aws_sdk_route53resolver.types.protocol_list
+import aws_sdk_route53resolver.types.resolver_endpoint
+import aws_sdk_route53resolver.types.resolver_endpoint_type
+import aws_sdk_route53resolver.types.update_ip_addresses
+import aws_sdk_route53resolver.types.update_resolver_endpoint_request
+import aws_sdk_route53resolver.types.update_resolver_endpoint_response
 from aws_sdk_route53resolver._protocol.errors import parse_error_metadata_json
 from aws_sdk_route53resolver._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +33,32 @@ from aws_sdk_route53resolver._services._pipeline import (
 )
 from aws_sdk_route53resolver.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_route53resolver.types.update_resolver_endpoint_request
-    import aws_sdk_route53resolver.types.update_resolver_endpoint_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_route53resolver.errors.access_denied_exception
-
             raise aws_sdk_route53resolver.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "InternalServiceErrorException":
-            import aws_sdk_route53resolver.errors.internal_service_error_exception
-
             raise aws_sdk_route53resolver.errors.internal_service_error_exception.InternalServiceErrorException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_route53resolver.errors.invalid_parameter_exception
-
             raise aws_sdk_route53resolver.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidRequestException":
-            import aws_sdk_route53resolver.errors.invalid_request_exception
-
             raise aws_sdk_route53resolver.errors.invalid_request_exception.InvalidRequestException.from_aws_json_1_1(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_route53resolver.errors.resource_not_found_exception
-
             raise aws_sdk_route53resolver.errors.resource_not_found_exception.ResourceNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_route53resolver.errors.throttling_exception
-
             raise aws_sdk_route53resolver.errors.throttling_exception.ThrottlingException.from_aws_json_1_1(
                 data
             )
@@ -71,12 +67,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route53resolver.types.update_resolver_endpoint_response.UpdateResolverEndpointResponse:
-    import aws_sdk_route53resolver.types.update_resolver_endpoint_response
-
     out: aws_sdk_route53resolver.types.update_resolver_endpoint_response.UpdateResolverEndpointResponse = aws_sdk_route53resolver.types.update_resolver_endpoint_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route53resolver.types.update_resolver_endpoint_response.UpdateResolverEndpointResponse:
+    out: aws_sdk_route53resolver.types.update_resolver_endpoint_response.UpdateResolverEndpointResponse = aws_sdk_route53resolver.types.update_resolver_endpoint_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -146,8 +149,7 @@ def update_resolver_endpoint(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -165,8 +167,7 @@ async def async_update_resolver_endpoint(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

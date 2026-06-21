@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudtrail._auth._signers
 import aws_sdk_cloudtrail._auth._sigv4
+import aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception
+import aws_sdk_cloudtrail.errors.invalid_trail_name_exception
+import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
+import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
+import aws_sdk_cloudtrail.errors.unsupported_operation_exception
+import aws_sdk_cloudtrail.types.describe_trails_request
+import aws_sdk_cloudtrail.types.describe_trails_response
+import aws_sdk_cloudtrail.types.trail_list
+import aws_sdk_cloudtrail.types.trail_name_list
 from aws_sdk_cloudtrail._protocol.errors import parse_error_metadata_json
 from aws_sdk_cloudtrail._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_cloudtrail._services._pipeline import (
@@ -18,42 +27,28 @@ from aws_sdk_cloudtrail._services._pipeline import (
 )
 from aws_sdk_cloudtrail.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudtrail.types.describe_trails_request
-    import aws_sdk_cloudtrail.types.describe_trails_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "CloudTrailARNInvalidException":
-            import aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception
-
             raise aws_sdk_cloudtrail.errors.cloud_trail_arn_invalid_exception.CloudTrailARNInvalidException.from_aws_json_1_1(
                 data
             )
         case "InvalidTrailNameException":
-            import aws_sdk_cloudtrail.errors.invalid_trail_name_exception
-
             raise aws_sdk_cloudtrail.errors.invalid_trail_name_exception.InvalidTrailNameException.from_aws_json_1_1(
                 data
             )
         case "NoManagementAccountSLRExistsException":
-            import aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception
-
             raise aws_sdk_cloudtrail.errors.no_management_account_slr_exists_exception.NoManagementAccountSLRExistsException.from_aws_json_1_1(
                 data
             )
         case "OperationNotPermittedException":
-            import aws_sdk_cloudtrail.errors.operation_not_permitted_exception
-
             raise aws_sdk_cloudtrail.errors.operation_not_permitted_exception.OperationNotPermittedException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_cloudtrail.errors.unsupported_operation_exception
-
             raise aws_sdk_cloudtrail.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -62,13 +57,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_cloudtrail.types.describe_trails_response.DescribeTrailsResponse:
-    import aws_sdk_cloudtrail.types.describe_trails_response
-
     out: aws_sdk_cloudtrail.types.describe_trails_response.DescribeTrailsResponse = (
         aws_sdk_cloudtrail.types.describe_trails_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_cloudtrail.types.describe_trails_response.DescribeTrailsResponse:
+    out: aws_sdk_cloudtrail.types.describe_trails_response.DescribeTrailsResponse = (
+        aws_sdk_cloudtrail.types.describe_trails_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -137,8 +141,7 @@ def describe_trails(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +159,7 @@ async def async_describe_trails(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

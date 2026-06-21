@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+import aws_sdk_lambda.errors.invalid_parameter_value_exception
+import aws_sdk_lambda.errors.service_exception
+import aws_sdk_lambda.errors.too_many_requests_exception
+import aws_sdk_lambda.types.architecture
+import aws_sdk_lambda.types.layers_list
+import aws_sdk_lambda.types.list_layers_request
+import aws_sdk_lambda.types.list_layers_response
+import aws_sdk_lambda.types.runtime
 from aws_sdk_lambda._protocol.errors import parse_error_metadata_json
 from aws_sdk_lambda._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_lambda._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_lambda.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_lambda.types.list_layers_request
-    import aws_sdk_lambda.types.list_layers_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,20 +29,14 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidParameterValueException":
-            import aws_sdk_lambda.errors.invalid_parameter_value_exception
-
             raise aws_sdk_lambda.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_json(
                 data
             )
         case "ServiceException":
-            import aws_sdk_lambda.errors.service_exception
-
             raise aws_sdk_lambda.errors.service_exception.ServiceException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_lambda.errors.too_many_requests_exception
-
             raise aws_sdk_lambda.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -47,13 +45,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_lambda.types.list_layers_response.ListLayersResponse:
-    import aws_sdk_lambda.types.list_layers_response
-
     out: aws_sdk_lambda.types.list_layers_response.ListLayersResponse = (
         aws_sdk_lambda.types.list_layers_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_lambda.types.list_layers_response.ListLayersResponse:
+    out: aws_sdk_lambda.types.list_layers_response.ListLayersResponse = (
+        aws_sdk_lambda.types.list_layers_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -123,8 +130,7 @@ def list_layers(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -141,8 +147,7 @@ async def async_list_layers(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

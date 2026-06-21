@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,14 +11,22 @@ from typing_extensions import Never
 
 import aws_sdk_finspace._auth._signers
 import aws_sdk_finspace._auth._sigv4
+import aws_sdk_finspace.errors.access_denied_exception
+import aws_sdk_finspace.errors.conflict_exception
+import aws_sdk_finspace.errors.internal_server_exception
+import aws_sdk_finspace.errors.limit_exceeded_exception
+import aws_sdk_finspace.errors.resource_already_exists_exception
+import aws_sdk_finspace.errors.resource_not_found_exception
+import aws_sdk_finspace.errors.throttling_exception
+import aws_sdk_finspace.errors.validation_exception
+import aws_sdk_finspace.types.create_kx_database_request
+import aws_sdk_finspace.types.create_kx_database_response
+import aws_sdk_finspace.types.tag_map
+import aws_sdk_finspace.types.timestamp
 from aws_sdk_finspace._protocol.errors import parse_error_metadata_json
 from aws_sdk_finspace._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_finspace._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_finspace.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_finspace.types.create_kx_database_request
-    import aws_sdk_finspace.types.create_kx_database_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,50 +34,34 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_finspace.errors.access_denied_exception
-
             raise aws_sdk_finspace.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "ConflictException":
-            import aws_sdk_finspace.errors.conflict_exception
-
             raise aws_sdk_finspace.errors.conflict_exception.ConflictException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_finspace.errors.internal_server_exception
-
             raise aws_sdk_finspace.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_finspace.errors.limit_exceeded_exception
-
             raise aws_sdk_finspace.errors.limit_exceeded_exception.LimitExceededException.from_json(
                 data
             )
         case "ResourceAlreadyExistsException":
-            import aws_sdk_finspace.errors.resource_already_exists_exception
-
             raise aws_sdk_finspace.errors.resource_already_exists_exception.ResourceAlreadyExistsException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_finspace.errors.resource_not_found_exception
-
             raise aws_sdk_finspace.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_finspace.errors.throttling_exception
-
             raise aws_sdk_finspace.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_finspace.errors.validation_exception
-
             raise aws_sdk_finspace.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -78,13 +70,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_finspace.types.create_kx_database_response.CreateKxDatabaseResponse:
-    import aws_sdk_finspace.types.create_kx_database_response
-
     out: aws_sdk_finspace.types.create_kx_database_response.CreateKxDatabaseResponse = (
         aws_sdk_finspace.types.create_kx_database_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_finspace.types.create_kx_database_response.CreateKxDatabaseResponse:
+    out: aws_sdk_finspace.types.create_kx_database_response.CreateKxDatabaseResponse = (
+        aws_sdk_finspace.types.create_kx_database_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -153,8 +154,7 @@ def create_kx_database(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -172,8 +172,7 @@ async def async_create_kx_database(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

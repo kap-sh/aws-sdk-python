@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#messageContentBlob``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_workmailmessageflow._iter import AnyIterator
 
 messageContentBlob: TypeAlias = AnyIterator[bytes] | bytes

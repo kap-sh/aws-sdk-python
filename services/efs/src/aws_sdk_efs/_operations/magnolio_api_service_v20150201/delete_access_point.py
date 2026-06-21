@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,13 +11,14 @@ from typing_extensions import Never
 
 import aws_sdk_efs._auth._signers
 import aws_sdk_efs._auth._sigv4
+import aws_sdk_efs.errors.access_point_not_found
+import aws_sdk_efs.errors.bad_request
+import aws_sdk_efs.errors.internal_server_error
+import aws_sdk_efs.types.delete_access_point_request
 from aws_sdk_efs._protocol.errors import parse_error_metadata_json
 from aws_sdk_efs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_efs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_efs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_efs.types.delete_access_point_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,18 +26,12 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessPointNotFound":
-            import aws_sdk_efs.errors.access_point_not_found
-
             raise aws_sdk_efs.errors.access_point_not_found.AccessPointNotFound.from_json(
                 data
             )
         case "BadRequest":
-            import aws_sdk_efs.errors.bad_request
-
             raise aws_sdk_efs.errors.bad_request.BadRequest.from_json(data)
         case "InternalServerError":
-            import aws_sdk_efs.errors.internal_server_error
-
             raise aws_sdk_efs.errors.internal_server_error.InternalServerError.from_json(
                 data
             )
@@ -99,7 +94,6 @@ def delete_access_point(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -115,7 +109,6 @@ async def async_delete_access_point(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

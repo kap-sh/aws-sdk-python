@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_securityagent._auth._signers
 import aws_sdk_securityagent._auth._sigv4
+import aws_sdk_securityagent.types.delete_application_request
 from aws_sdk_securityagent._protocol.errors import parse_error_metadata_json
 from aws_sdk_securityagent._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -20,9 +21,6 @@ from aws_sdk_securityagent._services._pipeline import (
     OperationOptions,
 )
 from aws_sdk_securityagent.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_securityagent.types.delete_application_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -89,7 +87,6 @@ def delete_application(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -105,7 +102,6 @@ async def async_delete_application(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

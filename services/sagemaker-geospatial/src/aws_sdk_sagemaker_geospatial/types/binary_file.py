@@ -1,11 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#BinaryFile``."""
 
-from typing import AsyncIterator, Generic, Iterator, TypeAlias, TypeVar
+from typing import TypeAlias
 
-T = TypeVar("T")
-
-
-class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]): ...
-
+from aws_sdk_sagemaker_geospatial._iter import AnyIterator
 
 BinaryFile: TypeAlias = AnyIterator[bytes] | bytes

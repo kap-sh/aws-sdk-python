@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 from aws_sdk_polly.errors import DeserializationError, ServiceError
 
 if TYPE_CHECKING:
@@ -79,3 +80,16 @@ class ServiceQuotaExceededException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ServiceQuotaExceededException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ServiceQuotaExceededException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "ServiceQuotaExceededException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ServiceQuotaExceededException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ServiceQuotaExceededException_ = {}  # type: ignore[typeddict-item]
+    return out

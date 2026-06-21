@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,11 @@ from typing_extensions import Never
 
 import aws_sdk_apigatewayv2._auth._signers
 import aws_sdk_apigatewayv2._auth._sigv4
+import aws_sdk_apigatewayv2.errors.access_denied_exception
+import aws_sdk_apigatewayv2.errors.bad_request_exception
+import aws_sdk_apigatewayv2.errors.not_found_exception
+import aws_sdk_apigatewayv2.errors.too_many_requests_exception
+import aws_sdk_apigatewayv2.types.delete_portal_product_sharing_policy_request
 from aws_sdk_apigatewayv2._protocol.errors import parse_error_metadata_json
 from aws_sdk_apigatewayv2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_apigatewayv2._services._pipeline import (
@@ -19,35 +24,24 @@ from aws_sdk_apigatewayv2._services._pipeline import (
 )
 from aws_sdk_apigatewayv2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_apigatewayv2.types.delete_portal_product_sharing_policy_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_apigatewayv2.errors.access_denied_exception
-
             raise aws_sdk_apigatewayv2.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "BadRequestException":
-            import aws_sdk_apigatewayv2.errors.bad_request_exception
-
             raise aws_sdk_apigatewayv2.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_apigatewayv2.errors.not_found_exception
-
             raise aws_sdk_apigatewayv2.errors.not_found_exception.NotFoundException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_apigatewayv2.errors.too_many_requests_exception
-
             raise aws_sdk_apigatewayv2.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -114,7 +108,6 @@ def delete_portal_product_sharing_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -130,7 +123,6 @@ async def async_delete_portal_product_sharing_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

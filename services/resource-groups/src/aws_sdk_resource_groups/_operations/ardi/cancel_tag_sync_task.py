@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_resource_groups._auth._signers
 import aws_sdk_resource_groups._auth._sigv4
+import aws_sdk_resource_groups.errors.bad_request_exception
+import aws_sdk_resource_groups.errors.forbidden_exception
+import aws_sdk_resource_groups.errors.internal_server_error_exception
+import aws_sdk_resource_groups.errors.method_not_allowed_exception
+import aws_sdk_resource_groups.errors.too_many_requests_exception
+import aws_sdk_resource_groups.errors.unauthorized_exception
+import aws_sdk_resource_groups.types.cancel_tag_sync_task_input
 from aws_sdk_resource_groups._protocol.errors import parse_error_metadata_json
 from aws_sdk_resource_groups._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,47 +28,32 @@ from aws_sdk_resource_groups._services._pipeline import (
 )
 from aws_sdk_resource_groups.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_resource_groups.types.cancel_tag_sync_task_input
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_resource_groups.errors.bad_request_exception
-
             raise aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_resource_groups.errors.forbidden_exception
-
             raise aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_resource_groups.errors.internal_server_error_exception
-
             raise aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "MethodNotAllowedException":
-            import aws_sdk_resource_groups.errors.method_not_allowed_exception
-
             raise aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_resource_groups.errors.too_many_requests_exception
-
             raise aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_resource_groups.errors.unauthorized_exception
-
             raise aws_sdk_resource_groups.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -128,7 +120,6 @@ def cancel_tag_sync_task(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -144,7 +135,6 @@ async def async_cancel_tag_sync_task(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

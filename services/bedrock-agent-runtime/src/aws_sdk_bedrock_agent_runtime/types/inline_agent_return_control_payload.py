@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.invocation_inputs
 
@@ -45,4 +47,17 @@ def deserialize_json(data: dict) -> InlineAgentReturnControlPayload:
         )
     if "invocationId" in data:
         out["invocation_id"] = data["invocationId"]
+    return out
+
+
+def serialize_event_json(value: InlineAgentReturnControlPayload) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "returnControl"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> InlineAgentReturnControlPayload:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: InlineAgentReturnControlPayload = {}  # type: ignore[typeddict-item]
     return out

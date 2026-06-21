@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,7 @@ from typing_extensions import Never
 
 import aws_sdk_cloudformation._auth._signers
 import aws_sdk_cloudformation._auth._sigv4
+import aws_sdk_cloudformation.types.set_stack_policy_input
 from aws_sdk_cloudformation._protocol.errors import parse_error_metadata
 from aws_sdk_cloudformation._protocol.xml import (
     fromstring,
@@ -23,9 +24,6 @@ from aws_sdk_cloudformation._services._pipeline import (
     OperationOptions,
 )
 from aws_sdk_cloudformation.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_cloudformation.types.set_stack_policy_input
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -99,7 +97,6 @@ def set_stack_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -115,7 +112,6 @@ async def async_set_stack_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

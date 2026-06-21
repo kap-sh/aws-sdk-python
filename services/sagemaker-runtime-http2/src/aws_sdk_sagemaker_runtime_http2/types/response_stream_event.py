@@ -2,10 +2,8 @@
 
 from typing import TYPE_CHECKING, TypeAlias, TypedDict
 
-from aws_sdk_sagemaker_runtime_http2.errors import (
-    DeserializationError,
-    SerializationError,
-)
+from aws_sdk_sagemaker_runtime_http2._iter import AnyIterator
+from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import Message
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure
@@ -27,67 +25,72 @@ class _ResponseStreamEvent_InternalStreamFailure(TypedDict):
     InternalStreamFailure: "aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure_"
 
 
-ResponseStreamEvent: TypeAlias = (
+_ResponseStreamEvent: TypeAlias = (
     _ResponseStreamEvent_PayloadPart
     | _ResponseStreamEvent_ModelStreamError
     | _ResponseStreamEvent_InternalStreamFailure
 )
+ResponseStreamEvent: TypeAlias = AnyIterator[_ResponseStreamEvent]
 
 
-# --- restJson1 ser/de ---
-def serialize_json(value: ResponseStreamEvent) -> dict:
-    if "PayloadPart" in value:
-        import aws_sdk_sagemaker_runtime_http2.types.response_payload_part
+def serialize_event_json(value: _ResponseStreamEvent) -> bytes:
+    match value:
+        case {"PayloadPart": payload}:
+            import aws_sdk_sagemaker_runtime_http2.types.response_payload_part
 
-        return {
-            "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.response_payload_part.serialize_json(
-                value["PayloadPart"]
+            return aws_sdk_sagemaker_runtime_http2.types.response_payload_part.serialize_event_json(
+                payload
             )
-        }
-    elif "ModelStreamError" in value:
-        import aws_sdk_sagemaker_runtime_http2.errors.model_stream_error
+        case {"ModelStreamError": payload}:
+            import aws_sdk_sagemaker_runtime_http2.errors.model_stream_error
 
-        return {
-            "ModelStreamError": aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.serialize_json(
-                value["ModelStreamError"]
+            return aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.serialize_event_json(
+                payload
             )
-        }
-    elif "InternalStreamFailure" in value:
-        import aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure
+        case {"InternalStreamFailure": payload}:
+            import aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure
 
-        return {
-            "InternalStreamFailure": aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.serialize_json(
-                value["InternalStreamFailure"]
+            return aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.serialize_event_json(
+                payload
             )
-        }
-    else:
-        raise SerializationError("ResponseStreamEvent: no variant present")
+        case _:
+            raise ValueError(f"ResponseStreamEvent: unrecognized variant {value!r}")
 
 
-def deserialize_json(data: dict) -> ResponseStreamEvent:
-    if "PayloadPart" in data:
-        import aws_sdk_sagemaker_runtime_http2.types.response_payload_part
+def deserialize_event_json(message: Message) -> _ResponseStreamEvent:
+    headers = message.headers
+    message_type = headers.get(":message-type", "event")  # noqa: F841
+    if message_type == "error":
+        error_type = headers.get(":error-type")
+        match error_type:
+            case "ModelStreamError":
+                import aws_sdk_sagemaker_runtime_http2.errors.model_stream_error
 
-        return {
-            "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.response_payload_part.deserialize_json(
-                data["PayloadPart"]
+                raise aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.ModelStreamError(
+                    aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.deserialize_event_json(
+                        message
+                    )
+                )
+            case "InternalStreamFailure":
+                import aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure
+
+                raise aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure(
+                    aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.deserialize_event_json(
+                        message
+                    )
+                )
+        raise ValueError(f"ResponseStreamEvent: unrecognized error-type {error_type!r}")
+    event_type = headers.get(":event-type")
+    match event_type:
+        case "PayloadPart":
+            import aws_sdk_sagemaker_runtime_http2.types.response_payload_part
+
+            return {
+                "PayloadPart": aws_sdk_sagemaker_runtime_http2.types.response_payload_part.deserialize_event_json(
+                    message
+                )
+            }
+        case _:
+            raise ValueError(
+                f"ResponseStreamEvent: unrecognized event-type {event_type!r}"
             )
-        }
-    elif "ModelStreamError" in data:
-        import aws_sdk_sagemaker_runtime_http2.errors.model_stream_error
-
-        return {
-            "ModelStreamError": aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.deserialize_json(
-                data["ModelStreamError"]
-            )
-        }
-    elif "InternalStreamFailure" in data:
-        import aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure
-
-        return {
-            "InternalStreamFailure": aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.deserialize_json(
-                data["InternalStreamFailure"]
-            )
-        }
-    else:
-        raise DeserializationError("ResponseStreamEvent: no recognized variant key")

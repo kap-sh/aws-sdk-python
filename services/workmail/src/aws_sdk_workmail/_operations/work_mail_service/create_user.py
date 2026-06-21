@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_workmail._auth._signers
 import aws_sdk_workmail._auth._sigv4
+import aws_sdk_workmail.errors.directory_service_authentication_failed_exception
+import aws_sdk_workmail.errors.directory_unavailable_exception
+import aws_sdk_workmail.errors.invalid_parameter_exception
+import aws_sdk_workmail.errors.invalid_password_exception
+import aws_sdk_workmail.errors.name_availability_exception
+import aws_sdk_workmail.errors.organization_not_found_exception
+import aws_sdk_workmail.errors.organization_state_exception
+import aws_sdk_workmail.errors.reserved_name_exception
+import aws_sdk_workmail.errors.unsupported_operation_exception
+import aws_sdk_workmail.types.create_user_request
+import aws_sdk_workmail.types.create_user_response
+import aws_sdk_workmail.types.user_role
 from aws_sdk_workmail._protocol.errors import parse_error_metadata_json
 from aws_sdk_workmail._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_workmail._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_workmail.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_workmail.types.create_user_request
-    import aws_sdk_workmail.types.create_user_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,56 +33,38 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "DirectoryServiceAuthenticationFailedException":
-            import aws_sdk_workmail.errors.directory_service_authentication_failed_exception
-
             raise aws_sdk_workmail.errors.directory_service_authentication_failed_exception.DirectoryServiceAuthenticationFailedException.from_aws_json_1_1(
                 data
             )
         case "DirectoryUnavailableException":
-            import aws_sdk_workmail.errors.directory_unavailable_exception
-
             raise aws_sdk_workmail.errors.directory_unavailable_exception.DirectoryUnavailableException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_workmail.errors.invalid_parameter_exception
-
             raise aws_sdk_workmail.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidPasswordException":
-            import aws_sdk_workmail.errors.invalid_password_exception
-
             raise aws_sdk_workmail.errors.invalid_password_exception.InvalidPasswordException.from_aws_json_1_1(
                 data
             )
         case "NameAvailabilityException":
-            import aws_sdk_workmail.errors.name_availability_exception
-
             raise aws_sdk_workmail.errors.name_availability_exception.NameAvailabilityException.from_aws_json_1_1(
                 data
             )
         case "OrganizationNotFoundException":
-            import aws_sdk_workmail.errors.organization_not_found_exception
-
             raise aws_sdk_workmail.errors.organization_not_found_exception.OrganizationNotFoundException.from_aws_json_1_1(
                 data
             )
         case "OrganizationStateException":
-            import aws_sdk_workmail.errors.organization_state_exception
-
             raise aws_sdk_workmail.errors.organization_state_exception.OrganizationStateException.from_aws_json_1_1(
                 data
             )
         case "ReservedNameException":
-            import aws_sdk_workmail.errors.reserved_name_exception
-
             raise aws_sdk_workmail.errors.reserved_name_exception.ReservedNameException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_workmail.errors.unsupported_operation_exception
-
             raise aws_sdk_workmail.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -83,13 +73,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_workmail.types.create_user_response.CreateUserResponse:
-    import aws_sdk_workmail.types.create_user_response
-
     out: aws_sdk_workmail.types.create_user_response.CreateUserResponse = (
         aws_sdk_workmail.types.create_user_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_workmail.types.create_user_response.CreateUserResponse:
+    out: aws_sdk_workmail.types.create_user_response.CreateUserResponse = (
+        aws_sdk_workmail.types.create_user_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -157,8 +156,7 @@ def create_user(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -175,8 +173,7 @@ async def async_create_user(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

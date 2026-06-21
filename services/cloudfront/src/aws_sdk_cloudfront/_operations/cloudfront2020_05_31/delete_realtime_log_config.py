@@ -2,13 +2,18 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_cloudfront._auth._signers
 import aws_sdk_cloudfront._auth._sigv4
+import aws_sdk_cloudfront.errors.access_denied
+import aws_sdk_cloudfront.errors.invalid_argument
+import aws_sdk_cloudfront.errors.no_such_realtime_log_config
+import aws_sdk_cloudfront.errors.realtime_log_config_in_use
+import aws_sdk_cloudfront.types.delete_realtime_log_config_request
 from aws_sdk_cloudfront._protocol.errors import parse_error_metadata
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement, fromstring, tostring
 from aws_sdk_cloudfront._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -18,33 +23,22 @@ from aws_sdk_cloudfront._services._pipeline import (
 )
 from aws_sdk_cloudfront.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_cloudfront.types.delete_realtime_log_config_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "AccessDenied":
-            import aws_sdk_cloudfront.errors.access_denied
-
             raise aws_sdk_cloudfront.errors.access_denied.AccessDenied.from_xml(root)
         case "InvalidArgument":
-            import aws_sdk_cloudfront.errors.invalid_argument
-
             raise aws_sdk_cloudfront.errors.invalid_argument.InvalidArgument.from_xml(
                 root
             )
         case "NoSuchRealtimeLogConfig":
-            import aws_sdk_cloudfront.errors.no_such_realtime_log_config
-
             raise aws_sdk_cloudfront.errors.no_such_realtime_log_config.NoSuchRealtimeLogConfig.from_xml(
                 root
             )
         case "RealtimeLogConfigInUse":
-            import aws_sdk_cloudfront.errors.realtime_log_config_in_use
-
             raise aws_sdk_cloudfront.errors.realtime_log_config_in_use.RealtimeLogConfigInUse.from_xml(
                 root
             )
@@ -112,7 +106,6 @@ def delete_realtime_log_config(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -128,7 +121,6 @@ async def async_delete_realtime_log_config(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

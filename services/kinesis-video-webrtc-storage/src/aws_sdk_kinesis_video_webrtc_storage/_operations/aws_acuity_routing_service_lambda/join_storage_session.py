@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kinesis_video_webrtc_storage._auth._signers
 import aws_sdk_kinesis_video_webrtc_storage._auth._sigv4
+import aws_sdk_kinesis_video_webrtc_storage.errors.access_denied_exception
+import aws_sdk_kinesis_video_webrtc_storage.errors.client_limit_exceeded_exception
+import aws_sdk_kinesis_video_webrtc_storage.errors.invalid_argument_exception
+import aws_sdk_kinesis_video_webrtc_storage.errors.resource_not_found_exception
+import aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_input
 from aws_sdk_kinesis_video_webrtc_storage._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -25,35 +30,24 @@ from aws_sdk_kinesis_video_webrtc_storage.errors import (
     UnknownServiceError,
 )
 
-if TYPE_CHECKING:
-    import aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_input
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_kinesis_video_webrtc_storage.errors.access_denied_exception
-
             raise aws_sdk_kinesis_video_webrtc_storage.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "ClientLimitExceededException":
-            import aws_sdk_kinesis_video_webrtc_storage.errors.client_limit_exceeded_exception
-
             raise aws_sdk_kinesis_video_webrtc_storage.errors.client_limit_exceeded_exception.ClientLimitExceededException.from_json(
                 data
             )
         case "InvalidArgumentException":
-            import aws_sdk_kinesis_video_webrtc_storage.errors.invalid_argument_exception
-
             raise aws_sdk_kinesis_video_webrtc_storage.errors.invalid_argument_exception.InvalidArgumentException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_kinesis_video_webrtc_storage.errors.resource_not_found_exception
-
             raise aws_sdk_kinesis_video_webrtc_storage.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
@@ -122,7 +116,6 @@ def join_storage_session(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -138,7 +131,6 @@ async def async_join_storage_session(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

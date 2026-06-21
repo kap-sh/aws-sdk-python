@@ -3,21 +3,30 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ram._auth._signers
 import aws_sdk_ram._auth._sigv4
+import aws_sdk_ram.errors.invalid_next_token_exception
+import aws_sdk_ram.errors.invalid_parameter_exception
+import aws_sdk_ram.errors.malformed_arn_exception
+import aws_sdk_ram.errors.server_internal_exception
+import aws_sdk_ram.errors.service_unavailable_exception
+import aws_sdk_ram.errors.unknown_resource_exception
+import aws_sdk_ram.types.get_resource_shares_request
+import aws_sdk_ram.types.get_resource_shares_response
+import aws_sdk_ram.types.resource_owner
+import aws_sdk_ram.types.resource_share_arn_list
+import aws_sdk_ram.types.resource_share_list
+import aws_sdk_ram.types.resource_share_status
+import aws_sdk_ram.types.tag_filters
 from aws_sdk_ram._protocol.errors import parse_error_metadata_json
 from aws_sdk_ram._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ram._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ram.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ram.types.get_resource_shares_request
-    import aws_sdk_ram.types.get_resource_shares_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +34,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidNextTokenException":
-            import aws_sdk_ram.errors.invalid_next_token_exception
-
             raise aws_sdk_ram.errors.invalid_next_token_exception.InvalidNextTokenException.from_json(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_ram.errors.invalid_parameter_exception
-
             raise aws_sdk_ram.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "MalformedArnException":
-            import aws_sdk_ram.errors.malformed_arn_exception
-
             raise aws_sdk_ram.errors.malformed_arn_exception.MalformedArnException.from_json(
                 data
             )
         case "ServerInternalException":
-            import aws_sdk_ram.errors.server_internal_exception
-
             raise aws_sdk_ram.errors.server_internal_exception.ServerInternalException.from_json(
                 data
             )
         case "ServiceUnavailableException":
-            import aws_sdk_ram.errors.service_unavailable_exception
-
             raise aws_sdk_ram.errors.service_unavailable_exception.ServiceUnavailableException.from_json(
                 data
             )
         case "UnknownResourceException":
-            import aws_sdk_ram.errors.unknown_resource_exception
-
             raise aws_sdk_ram.errors.unknown_resource_exception.UnknownResourceException.from_json(
                 data
             )
@@ -65,13 +62,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_ram.types.get_resource_shares_response.GetResourceSharesResponse:
-    import aws_sdk_ram.types.get_resource_shares_response
-
     out: aws_sdk_ram.types.get_resource_shares_response.GetResourceSharesResponse = (
         aws_sdk_ram.types.get_resource_shares_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_ram.types.get_resource_shares_response.GetResourceSharesResponse:
+    out: aws_sdk_ram.types.get_resource_shares_response.GetResourceSharesResponse = (
+        aws_sdk_ram.types.get_resource_shares_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -137,8 +143,7 @@ def get_resource_shares(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -156,8 +161,7 @@ async def async_get_resource_shares(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,18 @@ from typing_extensions import Never
 
 import aws_sdk_elastic_load_balancing_v2._auth._signers
 import aws_sdk_elastic_load_balancing_v2._auth._sigv4
+import aws_sdk_elastic_load_balancing_v2.errors.duplicate_target_group_name_exception
+import aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception
+import aws_sdk_elastic_load_balancing_v2.errors.too_many_target_groups_exception
+import aws_sdk_elastic_load_balancing_v2.types.create_target_group_input
+import aws_sdk_elastic_load_balancing_v2.types.create_target_group_output
+import aws_sdk_elastic_load_balancing_v2.types.matcher
+import aws_sdk_elastic_load_balancing_v2.types.protocol_enum
+import aws_sdk_elastic_load_balancing_v2.types.tag_list
+import aws_sdk_elastic_load_balancing_v2.types.target_group_ip_address_type_enum
+import aws_sdk_elastic_load_balancing_v2.types.target_groups
+import aws_sdk_elastic_load_balancing_v2.types.target_type_enum
 from aws_sdk_elastic_load_balancing_v2._protocol.errors import parse_error_metadata
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import (
     fromstring,
@@ -24,36 +36,24 @@ from aws_sdk_elastic_load_balancing_v2._services._pipeline import (
 )
 from aws_sdk_elastic_load_balancing_v2.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elastic_load_balancing_v2.types.create_target_group_input
-    import aws_sdk_elastic_load_balancing_v2.types.create_target_group_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "DuplicateTargetGroupNameException":
-            import aws_sdk_elastic_load_balancing_v2.errors.duplicate_target_group_name_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.duplicate_target_group_name_exception.DuplicateTargetGroupNameException.from_query(
                 root
             )
         case "InvalidConfigurationRequestException":
-            import aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.invalid_configuration_request_exception.InvalidConfigurationRequestException.from_query(
                 root
             )
         case "TooManyTagsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_tags_exception.TooManyTagsException.from_query(
                 root
             )
         case "TooManyTargetGroupsException":
-            import aws_sdk_elastic_load_balancing_v2.errors.too_many_target_groups_exception
-
             raise aws_sdk_elastic_load_balancing_v2.errors.too_many_target_groups_exception.TooManyTargetGroupsException.from_query(
                 root
             )
@@ -62,11 +62,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.CreateTargetGroupOutput:
-    import aws_sdk_elastic_load_balancing_v2.types.create_target_group_output
-
     root = fromstring(response.read())
+    result = root.find("CreateTargetGroupResult")
+    out: aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.CreateTargetGroupOutput = aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.CreateTargetGroupOutput:
+    root = fromstring(await response.aread())
     result = root.find("CreateTargetGroupResult")
     out: aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.CreateTargetGroupOutput = aws_sdk_elastic_load_balancing_v2.types.create_target_group_output.deserialize_query(
         result if result is not None else root
@@ -140,8 +149,7 @@ def create_target_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -159,8 +167,7 @@ async def async_create_target_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

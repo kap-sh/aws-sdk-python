@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_resource_groups._auth._signers
 import aws_sdk_resource_groups._auth._sigv4
+import aws_sdk_resource_groups.errors.bad_request_exception
+import aws_sdk_resource_groups.errors.forbidden_exception
+import aws_sdk_resource_groups.errors.internal_server_error_exception
+import aws_sdk_resource_groups.errors.method_not_allowed_exception
+import aws_sdk_resource_groups.errors.too_many_requests_exception
+import aws_sdk_resource_groups.types.account_settings
+import aws_sdk_resource_groups.types.get_account_settings_output
 from aws_sdk_resource_groups._protocol.errors import parse_error_metadata_json
 from aws_sdk_resource_groups._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,41 +28,28 @@ from aws_sdk_resource_groups._services._pipeline import (
 )
 from aws_sdk_resource_groups.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_resource_groups.types.get_account_settings_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "BadRequestException":
-            import aws_sdk_resource_groups.errors.bad_request_exception
-
             raise aws_sdk_resource_groups.errors.bad_request_exception.BadRequestException.from_json(
                 data
             )
         case "ForbiddenException":
-            import aws_sdk_resource_groups.errors.forbidden_exception
-
             raise aws_sdk_resource_groups.errors.forbidden_exception.ForbiddenException.from_json(
                 data
             )
         case "InternalServerErrorException":
-            import aws_sdk_resource_groups.errors.internal_server_error_exception
-
             raise aws_sdk_resource_groups.errors.internal_server_error_exception.InternalServerErrorException.from_json(
                 data
             )
         case "MethodNotAllowedException":
-            import aws_sdk_resource_groups.errors.method_not_allowed_exception
-
             raise aws_sdk_resource_groups.errors.method_not_allowed_exception.MethodNotAllowedException.from_json(
                 data
             )
         case "TooManyRequestsException":
-            import aws_sdk_resource_groups.errors.too_many_requests_exception
-
             raise aws_sdk_resource_groups.errors.too_many_requests_exception.TooManyRequestsException.from_json(
                 data
             )
@@ -64,12 +58,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_resource_groups.types.get_account_settings_output.GetAccountSettingsOutput:
-    import aws_sdk_resource_groups.types.get_account_settings_output
-
     out: aws_sdk_resource_groups.types.get_account_settings_output.GetAccountSettingsOutput = aws_sdk_resource_groups.types.get_account_settings_output.deserialize_json(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_resource_groups.types.get_account_settings_output.GetAccountSettingsOutput:
+    out: aws_sdk_resource_groups.types.get_account_settings_output.GetAccountSettingsOutput = aws_sdk_resource_groups.types.get_account_settings_output.deserialize_json(
+        json.loads(await response.aread())
     )
     return out
 
@@ -127,8 +128,7 @@ def get_account_settings(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -145,8 +145,7 @@ async def async_get_account_settings(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

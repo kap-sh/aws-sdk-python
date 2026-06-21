@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,11 @@ from typing_extensions import Never
 
 import aws_sdk_sagemaker_runtime._auth._signers
 import aws_sdk_sagemaker_runtime._auth._sigv4
+import aws_sdk_sagemaker_runtime.errors.internal_failure
+import aws_sdk_sagemaker_runtime.errors.service_unavailable
+import aws_sdk_sagemaker_runtime.errors.validation_error
+import aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_input
+import aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output
 from aws_sdk_sagemaker_runtime._protocol.errors import parse_error_metadata_json
 from aws_sdk_sagemaker_runtime._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,30 +27,20 @@ from aws_sdk_sagemaker_runtime._services._pipeline import (
 )
 from aws_sdk_sagemaker_runtime.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_input
-    import aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InternalFailure":
-            import aws_sdk_sagemaker_runtime.errors.internal_failure
-
             raise aws_sdk_sagemaker_runtime.errors.internal_failure.InternalFailure.from_json(
                 data
             )
         case "ServiceUnavailable":
-            import aws_sdk_sagemaker_runtime.errors.service_unavailable
-
             raise aws_sdk_sagemaker_runtime.errors.service_unavailable.ServiceUnavailable.from_json(
                 data
             )
         case "ValidationError":
-            import aws_sdk_sagemaker_runtime.errors.validation_error
-
             raise aws_sdk_sagemaker_runtime.errors.validation_error.ValidationError.from_json(
                 data
             )
@@ -54,12 +49,27 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.InvokeEndpointAsyncOutput:
-    import aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output
-
     out: aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.InvokeEndpointAsyncOutput = aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.deserialize_json(
         json.loads(response.read())
+    )
+    if "X-Amzn-SageMaker-OutputLocation" in response.headers:
+        out["output_location"] = str(
+            response.headers["X-Amzn-SageMaker-OutputLocation"]
+        )
+    if "X-Amzn-SageMaker-FailureLocation" in response.headers:
+        out["failure_location"] = str(
+            response.headers["X-Amzn-SageMaker-FailureLocation"]
+        )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.InvokeEndpointAsyncOutput:
+    out: aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.InvokeEndpointAsyncOutput = aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_output.deserialize_json(
+        json.loads(await response.aread())
     )
     if "X-Amzn-SageMaker-OutputLocation" in response.headers:
         out["output_location"] = str(
@@ -154,8 +164,7 @@ def invoke_endpoint_async(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -173,8 +182,7 @@ async def async_invoke_endpoint_async(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

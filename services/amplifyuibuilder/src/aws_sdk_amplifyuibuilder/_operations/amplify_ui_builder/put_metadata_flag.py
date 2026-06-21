@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,10 @@ from typing_extensions import Never
 
 import aws_sdk_amplifyuibuilder._auth._signers
 import aws_sdk_amplifyuibuilder._auth._sigv4
+import aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception
+import aws_sdk_amplifyuibuilder.errors.unauthorized_exception
+import aws_sdk_amplifyuibuilder.types.put_metadata_flag_body
+import aws_sdk_amplifyuibuilder.types.put_metadata_flag_request
 from aws_sdk_amplifyuibuilder._protocol.errors import parse_error_metadata_json
 from aws_sdk_amplifyuibuilder._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,23 +26,16 @@ from aws_sdk_amplifyuibuilder._services._pipeline import (
 )
 from aws_sdk_amplifyuibuilder.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_amplifyuibuilder.types.put_metadata_flag_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidParameterException":
-            import aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception
-
             raise aws_sdk_amplifyuibuilder.errors.invalid_parameter_exception.InvalidParameterException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_amplifyuibuilder.errors.unauthorized_exception
-
             raise aws_sdk_amplifyuibuilder.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
@@ -118,7 +115,6 @@ def put_metadata_flag(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -134,7 +130,6 @@ async def async_put_metadata_flag(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

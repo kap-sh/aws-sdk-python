@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,14 @@ from typing_extensions import Never
 
 import aws_sdk_sagemaker_featurestore_runtime._auth._signers
 import aws_sdk_sagemaker_featurestore_runtime._auth._sigv4
+import aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden
+import aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure
+import aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable
+import aws_sdk_sagemaker_featurestore_runtime.errors.validation_error
+import aws_sdk_sagemaker_featurestore_runtime.types.put_record_request
+import aws_sdk_sagemaker_featurestore_runtime.types.record
+import aws_sdk_sagemaker_featurestore_runtime.types.target_stores
+import aws_sdk_sagemaker_featurestore_runtime.types.ttl_duration
 from aws_sdk_sagemaker_featurestore_runtime._protocol.errors import (
     parse_error_metadata_json,
 )
@@ -26,35 +34,24 @@ from aws_sdk_sagemaker_featurestore_runtime.errors import (
     UnknownServiceError,
 )
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemaker_featurestore_runtime.types.put_record_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessForbidden":
-            import aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden
-
             raise aws_sdk_sagemaker_featurestore_runtime.errors.access_forbidden.AccessForbidden.from_json(
                 data
             )
         case "InternalFailure":
-            import aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure
-
             raise aws_sdk_sagemaker_featurestore_runtime.errors.internal_failure.InternalFailure.from_json(
                 data
             )
         case "ServiceUnavailable":
-            import aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable
-
             raise aws_sdk_sagemaker_featurestore_runtime.errors.service_unavailable.ServiceUnavailable.from_json(
                 data
             )
         case "ValidationError":
-            import aws_sdk_sagemaker_featurestore_runtime.errors.validation_error
-
             raise aws_sdk_sagemaker_featurestore_runtime.errors.validation_error.ValidationError.from_json(
                 data
             )
@@ -126,7 +123,6 @@ def put_record(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -142,7 +138,6 @@ async def async_put_record(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

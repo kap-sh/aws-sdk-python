@@ -2,7 +2,8 @@
 
 import time
 import warnings
-from collections.abc import Iterator
+from collections.abc import Generator, Iterator
+from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 
 from typing_extensions import Self
@@ -3804,6 +3805,7 @@ class IoTSiteWiseClient:
             if not _token:
                 break
 
+    @contextmanager
     def invoke_assistant(
         self,
         message: "aws_sdk_iotsitewise.types.message_input.MessageInput",
@@ -3813,7 +3815,7 @@ class IoTSiteWiseClient:
             "aws_sdk_iotsitewise.types.conversation_id.ConversationId"
         ] = None,
         enable_trace: Optional[bool] = None,
-    ) -> "aws_sdk_iotsitewise.types.invoke_assistant_response.InvokeAssistantResponse":
+    ) -> "Generator[aws_sdk_iotsitewise.types.invoke_assistant_response.InvokeAssistantResponse]":
         """<p>Invokes SiteWise Assistant to start or continue a conversation.</p>
 
         Args:
@@ -3849,7 +3851,7 @@ class IoTSiteWiseClient:
             handler=_handler,
             interceptors=list(interceptors_),
         )
-        return response.output
+        yield response.output
 
     def list_access_policies(
         self,

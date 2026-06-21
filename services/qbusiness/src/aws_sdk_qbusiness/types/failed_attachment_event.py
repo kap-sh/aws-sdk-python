@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.attachment_output
     import aws_sdk_qbusiness.types.conversation_id
@@ -56,4 +58,17 @@ def deserialize_json(data: dict) -> FailedAttachmentEvent:
         out["attachment"] = aws_sdk_qbusiness.types.attachment_output.deserialize_json(
             data["attachment"]
         )
+    return out
+
+
+def serialize_event_json(value: FailedAttachmentEvent) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "failedAttachmentEvent"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> FailedAttachmentEvent:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: FailedAttachmentEvent = {}  # type: ignore[typeddict-item]
     return out

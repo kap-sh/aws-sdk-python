@@ -3,21 +3,40 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_firehose._auth._signers
 import aws_sdk_firehose._auth._sigv4
+import aws_sdk_firehose.errors.invalid_argument_exception
+import aws_sdk_firehose.errors.invalid_kms_resource_exception
+import aws_sdk_firehose.errors.limit_exceeded_exception
+import aws_sdk_firehose.errors.resource_in_use_exception
+import aws_sdk_firehose.types.amazon_open_search_serverless_destination_configuration
+import aws_sdk_firehose.types.amazonopensearchservice_destination_configuration
+import aws_sdk_firehose.types.create_delivery_stream_input
+import aws_sdk_firehose.types.create_delivery_stream_output
+import aws_sdk_firehose.types.database_source_configuration
+import aws_sdk_firehose.types.delivery_stream_encryption_configuration_input
+import aws_sdk_firehose.types.delivery_stream_type
+import aws_sdk_firehose.types.direct_put_source_configuration
+import aws_sdk_firehose.types.elasticsearch_destination_configuration
+import aws_sdk_firehose.types.extended_s3_destination_configuration
+import aws_sdk_firehose.types.http_endpoint_destination_configuration
+import aws_sdk_firehose.types.iceberg_destination_configuration
+import aws_sdk_firehose.types.kinesis_stream_source_configuration
+import aws_sdk_firehose.types.msk_source_configuration
+import aws_sdk_firehose.types.redshift_destination_configuration
+import aws_sdk_firehose.types.s3_destination_configuration
+import aws_sdk_firehose.types.snowflake_destination_configuration
+import aws_sdk_firehose.types.splunk_destination_configuration
+import aws_sdk_firehose.types.tag_delivery_stream_input_tag_list
 from aws_sdk_firehose._protocol.errors import parse_error_metadata_json
 from aws_sdk_firehose._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_firehose._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_firehose.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_firehose.types.create_delivery_stream_input
-    import aws_sdk_firehose.types.create_delivery_stream_output
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,26 +44,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidArgumentException":
-            import aws_sdk_firehose.errors.invalid_argument_exception
-
             raise aws_sdk_firehose.errors.invalid_argument_exception.InvalidArgumentException.from_aws_json_1_1(
                 data
             )
         case "InvalidKMSResourceException":
-            import aws_sdk_firehose.errors.invalid_kms_resource_exception
-
             raise aws_sdk_firehose.errors.invalid_kms_resource_exception.InvalidKMSResourceException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_firehose.errors.limit_exceeded_exception
-
             raise aws_sdk_firehose.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "ResourceInUseException":
-            import aws_sdk_firehose.errors.resource_in_use_exception
-
             raise aws_sdk_firehose.errors.resource_in_use_exception.ResourceInUseException.from_aws_json_1_1(
                 data
             )
@@ -53,12 +64,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_firehose.types.create_delivery_stream_output.CreateDeliveryStreamOutput:
-    import aws_sdk_firehose.types.create_delivery_stream_output
-
     out: aws_sdk_firehose.types.create_delivery_stream_output.CreateDeliveryStreamOutput = aws_sdk_firehose.types.create_delivery_stream_output.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_firehose.types.create_delivery_stream_output.CreateDeliveryStreamOutput:
+    out: aws_sdk_firehose.types.create_delivery_stream_output.CreateDeliveryStreamOutput = aws_sdk_firehose.types.create_delivery_stream_output.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -128,8 +146,7 @@ def create_delivery_stream(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +164,7 @@ async def async_create_delivery_stream(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

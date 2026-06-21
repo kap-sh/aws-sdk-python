@@ -3,13 +3,27 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_directory_service._auth._signers
 import aws_sdk_directory_service._auth._sigv4
+import aws_sdk_directory_service.errors.access_denied_exception
+import aws_sdk_directory_service.errors.client_exception
+import aws_sdk_directory_service.errors.directory_already_shared_exception
+import aws_sdk_directory_service.errors.entity_does_not_exist_exception
+import aws_sdk_directory_service.errors.invalid_parameter_exception
+import aws_sdk_directory_service.errors.invalid_target_exception
+import aws_sdk_directory_service.errors.organizations_exception
+import aws_sdk_directory_service.errors.service_exception
+import aws_sdk_directory_service.errors.share_limit_exceeded_exception
+import aws_sdk_directory_service.errors.unsupported_operation_exception
+import aws_sdk_directory_service.types.share_directory_request
+import aws_sdk_directory_service.types.share_directory_result
+import aws_sdk_directory_service.types.share_method
+import aws_sdk_directory_service.types.share_target
 from aws_sdk_directory_service._protocol.errors import parse_error_metadata_json
 from aws_sdk_directory_service._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,72 +35,48 @@ from aws_sdk_directory_service._services._pipeline import (
 )
 from aws_sdk_directory_service.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_directory_service.types.share_directory_request
-    import aws_sdk_directory_service.types.share_directory_result
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_directory_service.errors.access_denied_exception
-
             raise aws_sdk_directory_service.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "ClientException":
-            import aws_sdk_directory_service.errors.client_exception
-
             raise aws_sdk_directory_service.errors.client_exception.ClientException.from_aws_json_1_1(
                 data
             )
         case "DirectoryAlreadySharedException":
-            import aws_sdk_directory_service.errors.directory_already_shared_exception
-
             raise aws_sdk_directory_service.errors.directory_already_shared_exception.DirectoryAlreadySharedException.from_aws_json_1_1(
                 data
             )
         case "EntityDoesNotExistException":
-            import aws_sdk_directory_service.errors.entity_does_not_exist_exception
-
             raise aws_sdk_directory_service.errors.entity_does_not_exist_exception.EntityDoesNotExistException.from_aws_json_1_1(
                 data
             )
         case "InvalidParameterException":
-            import aws_sdk_directory_service.errors.invalid_parameter_exception
-
             raise aws_sdk_directory_service.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "InvalidTargetException":
-            import aws_sdk_directory_service.errors.invalid_target_exception
-
             raise aws_sdk_directory_service.errors.invalid_target_exception.InvalidTargetException.from_aws_json_1_1(
                 data
             )
         case "OrganizationsException":
-            import aws_sdk_directory_service.errors.organizations_exception
-
             raise aws_sdk_directory_service.errors.organizations_exception.OrganizationsException.from_aws_json_1_1(
                 data
             )
         case "ServiceException":
-            import aws_sdk_directory_service.errors.service_exception
-
             raise aws_sdk_directory_service.errors.service_exception.ServiceException.from_aws_json_1_1(
                 data
             )
         case "ShareLimitExceededException":
-            import aws_sdk_directory_service.errors.share_limit_exceeded_exception
-
             raise aws_sdk_directory_service.errors.share_limit_exceeded_exception.ShareLimitExceededException.from_aws_json_1_1(
                 data
             )
         case "UnsupportedOperationException":
-            import aws_sdk_directory_service.errors.unsupported_operation_exception
-
             raise aws_sdk_directory_service.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -95,13 +85,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_directory_service.types.share_directory_result.ShareDirectoryResult:
-    import aws_sdk_directory_service.types.share_directory_result
-
     out: aws_sdk_directory_service.types.share_directory_result.ShareDirectoryResult = (
         aws_sdk_directory_service.types.share_directory_result.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_directory_service.types.share_directory_result.ShareDirectoryResult:
+    out: aws_sdk_directory_service.types.share_directory_result.ShareDirectoryResult = (
+        aws_sdk_directory_service.types.share_directory_result.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -172,8 +171,7 @@ def share_directory(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -191,8 +189,7 @@ async def async_share_directory(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

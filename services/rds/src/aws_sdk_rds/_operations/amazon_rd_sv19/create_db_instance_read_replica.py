@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,48 @@ from typing_extensions import Never
 
 import aws_sdk_rds._auth._signers
 import aws_sdk_rds._auth._sigv4
+import aws_sdk_rds.errors.certificate_not_found_fault
+import aws_sdk_rds.errors.db_cluster_not_found_fault
+import aws_sdk_rds.errors.db_instance_already_exists_fault
+import aws_sdk_rds.errors.db_instance_not_found_fault
+import aws_sdk_rds.errors.db_parameter_group_not_found_fault
+import aws_sdk_rds.errors.db_security_group_not_found_fault
+import aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs
+import aws_sdk_rds.errors.db_subnet_group_not_allowed_fault
+import aws_sdk_rds.errors.db_subnet_group_not_found_fault
+import aws_sdk_rds.errors.domain_not_found_fault
+import aws_sdk_rds.errors.instance_quota_exceeded_fault
+import aws_sdk_rds.errors.insufficient_db_instance_capacity_fault
+import aws_sdk_rds.errors.invalid_db_cluster_state_fault
+import aws_sdk_rds.errors.invalid_db_instance_state_fault
+import aws_sdk_rds.errors.invalid_db_subnet_group_fault
+import aws_sdk_rds.errors.invalid_subnet
+import aws_sdk_rds.errors.invalid_vpc_network_state_fault
+import aws_sdk_rds.errors.kms_key_not_accessible_fault
+import aws_sdk_rds.errors.network_type_not_supported
+import aws_sdk_rds.errors.option_group_not_found_fault
+import aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault
+import aws_sdk_rds.errors.storage_quota_exceeded_fault
+import aws_sdk_rds.errors.storage_type_not_supported_fault
+import aws_sdk_rds.errors.tenant_database_quota_exceeded_fault
+import aws_sdk_rds.errors.vpc_encryption_control_violation_exception
+import aws_sdk_rds.types.additional_storage_volumes_list
+import aws_sdk_rds.types.create_db_instance_read_replica_message
+import aws_sdk_rds.types.create_db_instance_read_replica_result
+import aws_sdk_rds.types.database_insights_mode
+import aws_sdk_rds.types.db_instance
+import aws_sdk_rds.types.log_type_list
+import aws_sdk_rds.types.processor_feature_list
+import aws_sdk_rds.types.replica_mode
+import aws_sdk_rds.types.string_list
+import aws_sdk_rds.types.tag_list
+import aws_sdk_rds.types.tag_specification_list
+import aws_sdk_rds.types.vpc_security_group_id_list
 from aws_sdk_rds._protocol.errors import parse_error_metadata
 from aws_sdk_rds._protocol.xml import fromstring
 from aws_sdk_rds._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_rds._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_rds.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_rds.types.create_db_instance_read_replica_message
-    import aws_sdk_rds.types.create_db_instance_read_replica_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,150 +59,100 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "CertificateNotFoundFault":
-            import aws_sdk_rds.errors.certificate_not_found_fault
-
             raise aws_sdk_rds.errors.certificate_not_found_fault.CertificateNotFoundFault.from_query(
                 root
             )
         case "DBClusterNotFoundFault":
-            import aws_sdk_rds.errors.db_cluster_not_found_fault
-
             raise aws_sdk_rds.errors.db_cluster_not_found_fault.DBClusterNotFoundFault.from_query(
                 root
             )
         case "DBInstanceAlreadyExistsFault":
-            import aws_sdk_rds.errors.db_instance_already_exists_fault
-
             raise aws_sdk_rds.errors.db_instance_already_exists_fault.DBInstanceAlreadyExistsFault.from_query(
                 root
             )
         case "DBInstanceNotFoundFault":
-            import aws_sdk_rds.errors.db_instance_not_found_fault
-
             raise aws_sdk_rds.errors.db_instance_not_found_fault.DBInstanceNotFoundFault.from_query(
                 root
             )
         case "DBParameterGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_parameter_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_parameter_group_not_found_fault.DBParameterGroupNotFoundFault.from_query(
                 root
             )
         case "DBSecurityGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_security_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_security_group_not_found_fault.DBSecurityGroupNotFoundFault.from_query(
                 root
             )
         case "DBSubnetGroupDoesNotCoverEnoughAZs":
-            import aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs
-
             raise aws_sdk_rds.errors.db_subnet_group_does_not_cover_enough_a_zs.DBSubnetGroupDoesNotCoverEnoughAZs.from_query(
                 root
             )
         case "DBSubnetGroupNotAllowedFault":
-            import aws_sdk_rds.errors.db_subnet_group_not_allowed_fault
-
             raise aws_sdk_rds.errors.db_subnet_group_not_allowed_fault.DBSubnetGroupNotAllowedFault.from_query(
                 root
             )
         case "DBSubnetGroupNotFoundFault":
-            import aws_sdk_rds.errors.db_subnet_group_not_found_fault
-
             raise aws_sdk_rds.errors.db_subnet_group_not_found_fault.DBSubnetGroupNotFoundFault.from_query(
                 root
             )
         case "DomainNotFoundFault":
-            import aws_sdk_rds.errors.domain_not_found_fault
-
             raise aws_sdk_rds.errors.domain_not_found_fault.DomainNotFoundFault.from_query(
                 root
             )
         case "InstanceQuotaExceededFault":
-            import aws_sdk_rds.errors.instance_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.instance_quota_exceeded_fault.InstanceQuotaExceededFault.from_query(
                 root
             )
         case "InsufficientDBInstanceCapacityFault":
-            import aws_sdk_rds.errors.insufficient_db_instance_capacity_fault
-
             raise aws_sdk_rds.errors.insufficient_db_instance_capacity_fault.InsufficientDBInstanceCapacityFault.from_query(
                 root
             )
         case "InvalidDBClusterStateFault":
-            import aws_sdk_rds.errors.invalid_db_cluster_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_cluster_state_fault.InvalidDBClusterStateFault.from_query(
                 root
             )
         case "InvalidDBInstanceStateFault":
-            import aws_sdk_rds.errors.invalid_db_instance_state_fault
-
             raise aws_sdk_rds.errors.invalid_db_instance_state_fault.InvalidDBInstanceStateFault.from_query(
                 root
             )
         case "InvalidDBSubnetGroupFault":
-            import aws_sdk_rds.errors.invalid_db_subnet_group_fault
-
             raise aws_sdk_rds.errors.invalid_db_subnet_group_fault.InvalidDBSubnetGroupFault.from_query(
                 root
             )
         case "InvalidSubnet":
-            import aws_sdk_rds.errors.invalid_subnet
-
             raise aws_sdk_rds.errors.invalid_subnet.InvalidSubnet.from_query(root)
         case "InvalidVPCNetworkStateFault":
-            import aws_sdk_rds.errors.invalid_vpc_network_state_fault
-
             raise aws_sdk_rds.errors.invalid_vpc_network_state_fault.InvalidVPCNetworkStateFault.from_query(
                 root
             )
         case "KMSKeyNotAccessibleFault":
-            import aws_sdk_rds.errors.kms_key_not_accessible_fault
-
             raise aws_sdk_rds.errors.kms_key_not_accessible_fault.KMSKeyNotAccessibleFault.from_query(
                 root
             )
         case "NetworkTypeNotSupported":
-            import aws_sdk_rds.errors.network_type_not_supported
-
             raise aws_sdk_rds.errors.network_type_not_supported.NetworkTypeNotSupported.from_query(
                 root
             )
         case "OptionGroupNotFoundFault":
-            import aws_sdk_rds.errors.option_group_not_found_fault
-
             raise aws_sdk_rds.errors.option_group_not_found_fault.OptionGroupNotFoundFault.from_query(
                 root
             )
         case "ProvisionedIopsNotAvailableInAZFault":
-            import aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault
-
             raise aws_sdk_rds.errors.provisioned_iops_not_available_in_az_fault.ProvisionedIopsNotAvailableInAZFault.from_query(
                 root
             )
         case "StorageQuotaExceededFault":
-            import aws_sdk_rds.errors.storage_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.storage_quota_exceeded_fault.StorageQuotaExceededFault.from_query(
                 root
             )
         case "StorageTypeNotSupportedFault":
-            import aws_sdk_rds.errors.storage_type_not_supported_fault
-
             raise aws_sdk_rds.errors.storage_type_not_supported_fault.StorageTypeNotSupportedFault.from_query(
                 root
             )
         case "TenantDatabaseQuotaExceededFault":
-            import aws_sdk_rds.errors.tenant_database_quota_exceeded_fault
-
             raise aws_sdk_rds.errors.tenant_database_quota_exceeded_fault.TenantDatabaseQuotaExceededFault.from_query(
                 root
             )
         case "VpcEncryptionControlViolationException":
-            import aws_sdk_rds.errors.vpc_encryption_control_violation_exception
-
             raise aws_sdk_rds.errors.vpc_encryption_control_violation_exception.VpcEncryptionControlViolationException.from_query(
                 root
             )
@@ -178,11 +161,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_rds.types.create_db_instance_read_replica_result.CreateDBInstanceReadReplicaResult:
-    import aws_sdk_rds.types.create_db_instance_read_replica_result
-
     root = fromstring(response.read())
+    result = root.find("CreateDBInstanceReadReplicaResult")
+    out: aws_sdk_rds.types.create_db_instance_read_replica_result.CreateDBInstanceReadReplicaResult = aws_sdk_rds.types.create_db_instance_read_replica_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_rds.types.create_db_instance_read_replica_result.CreateDBInstanceReadReplicaResult:
+    root = fromstring(await response.aread())
     result = root.find("CreateDBInstanceReadReplicaResult")
     out: aws_sdk_rds.types.create_db_instance_read_replica_result.CreateDBInstanceReadReplicaResult = aws_sdk_rds.types.create_db_instance_read_replica_result.deserialize_query(
         result if result is not None else root
@@ -254,8 +246,7 @@ def create_db_instance_read_replica(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -273,8 +264,7 @@ async def async_create_db_instance_read_replica(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

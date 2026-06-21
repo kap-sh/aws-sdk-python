@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,6 +10,22 @@ from typing_extensions import Never
 
 import aws_sdk_elasticache._auth._signers
 import aws_sdk_elasticache._auth._sigv4
+import aws_sdk_elasticache.errors.default_user_required
+import aws_sdk_elasticache.errors.duplicate_user_name_fault
+import aws_sdk_elasticache.errors.invalid_parameter_value_exception
+import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
+import aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded
+import aws_sdk_elasticache.errors.user_group_already_exists_fault
+import aws_sdk_elasticache.errors.user_group_quota_exceeded_fault
+import aws_sdk_elasticache.errors.user_not_found_fault
+import aws_sdk_elasticache.types.create_user_group_message
+import aws_sdk_elasticache.types.tag_list
+import aws_sdk_elasticache.types.ug_replication_group_id_list
+import aws_sdk_elasticache.types.ug_serverless_cache_id_list
+import aws_sdk_elasticache.types.user_group
+import aws_sdk_elasticache.types.user_group_pending_changes
+import aws_sdk_elasticache.types.user_id_list
+import aws_sdk_elasticache.types.user_id_list_input
 from aws_sdk_elasticache._protocol.errors import parse_error_metadata
 from aws_sdk_elasticache._protocol.xml import fromstring
 from aws_sdk_elasticache._rule_engine._endpoint_rule_set import EndpointParams, resolve
@@ -19,60 +35,40 @@ from aws_sdk_elasticache._services._pipeline import (
 )
 from aws_sdk_elasticache.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_elasticache.types.create_user_group_message
-    import aws_sdk_elasticache.types.user_group
-
 
 def handle_error(response: zapros.Response) -> Never:
     root = fromstring(response.read())
     code, message = parse_error_metadata(root)
     match code:
         case "DefaultUserRequired":
-            import aws_sdk_elasticache.errors.default_user_required
-
             raise aws_sdk_elasticache.errors.default_user_required.DefaultUserRequired.from_query(
                 root
             )
         case "DuplicateUserNameFault":
-            import aws_sdk_elasticache.errors.duplicate_user_name_fault
-
             raise aws_sdk_elasticache.errors.duplicate_user_name_fault.DuplicateUserNameFault.from_query(
                 root
             )
         case "InvalidParameterValueException":
-            import aws_sdk_elasticache.errors.invalid_parameter_value_exception
-
             raise aws_sdk_elasticache.errors.invalid_parameter_value_exception.InvalidParameterValueException.from_query(
                 root
             )
         case "ServiceLinkedRoleNotFoundFault":
-            import aws_sdk_elasticache.errors.service_linked_role_not_found_fault
-
             raise aws_sdk_elasticache.errors.service_linked_role_not_found_fault.ServiceLinkedRoleNotFoundFault.from_query(
                 root
             )
         case "TagQuotaPerResourceExceeded":
-            import aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded
-
             raise aws_sdk_elasticache.errors.tag_quota_per_resource_exceeded.TagQuotaPerResourceExceeded.from_query(
                 root
             )
         case "UserGroupAlreadyExistsFault":
-            import aws_sdk_elasticache.errors.user_group_already_exists_fault
-
             raise aws_sdk_elasticache.errors.user_group_already_exists_fault.UserGroupAlreadyExistsFault.from_query(
                 root
             )
         case "UserGroupQuotaExceededFault":
-            import aws_sdk_elasticache.errors.user_group_quota_exceeded_fault
-
             raise aws_sdk_elasticache.errors.user_group_quota_exceeded_fault.UserGroupQuotaExceededFault.from_query(
                 root
             )
         case "UserNotFoundFault":
-            import aws_sdk_elasticache.errors.user_not_found_fault
-
             raise aws_sdk_elasticache.errors.user_not_found_fault.UserNotFoundFault.from_query(
                 root
             )
@@ -81,11 +77,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_elasticache.types.user_group.UserGroup:
-    import aws_sdk_elasticache.types.user_group
-
     root = fromstring(response.read())
+    result = root.find("CreateUserGroupResult")
+    out: aws_sdk_elasticache.types.user_group.UserGroup = (
+        aws_sdk_elasticache.types.user_group.deserialize_query(
+            result if result is not None else root
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_elasticache.types.user_group.UserGroup:
+    root = fromstring(await response.aread())
     result = root.find("CreateUserGroupResult")
     out: aws_sdk_elasticache.types.user_group.UserGroup = (
         aws_sdk_elasticache.types.user_group.deserialize_query(
@@ -158,8 +165,7 @@ def create_user_group(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -174,8 +180,7 @@ async def async_create_user_group(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

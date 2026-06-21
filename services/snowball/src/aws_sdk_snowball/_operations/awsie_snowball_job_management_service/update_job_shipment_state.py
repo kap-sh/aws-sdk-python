@@ -3,21 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_snowball._auth._signers
 import aws_sdk_snowball._auth._sigv4
+import aws_sdk_snowball.errors.invalid_job_state_exception
+import aws_sdk_snowball.errors.invalid_resource_exception
+import aws_sdk_snowball.types.shipment_state
+import aws_sdk_snowball.types.update_job_shipment_state_request
+import aws_sdk_snowball.types.update_job_shipment_state_result
 from aws_sdk_snowball._protocol.errors import parse_error_metadata_json
 from aws_sdk_snowball._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_snowball._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_snowball.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_snowball.types.update_job_shipment_state_request
-    import aws_sdk_snowball.types.update_job_shipment_state_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,14 +26,10 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidJobStateException":
-            import aws_sdk_snowball.errors.invalid_job_state_exception
-
             raise aws_sdk_snowball.errors.invalid_job_state_exception.InvalidJobStateException.from_aws_json_1_1(
                 data
             )
         case "InvalidResourceException":
-            import aws_sdk_snowball.errors.invalid_resource_exception
-
             raise aws_sdk_snowball.errors.invalid_resource_exception.InvalidResourceException.from_aws_json_1_1(
                 data
             )
@@ -41,7 +38,16 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
+) -> (
+    aws_sdk_snowball.types.update_job_shipment_state_result.UpdateJobShipmentStateResult
+):
+    out: aws_sdk_snowball.types.update_job_shipment_state_result.UpdateJobShipmentStateResult = {}  # type: ignore[typeddict-item]
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
 ) -> (
     aws_sdk_snowball.types.update_job_shipment_state_result.UpdateJobShipmentStateResult
 ):
@@ -114,8 +120,7 @@ def update_job_shipment_state(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -133,8 +138,7 @@ async def async_update_job_shipment_state(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

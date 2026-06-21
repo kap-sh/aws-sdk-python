@@ -4,6 +4,8 @@ from typing import TYPE_CHECKING, TypedDict
 
 from typing_extensions import NotRequired
 
+from aws_sdk_sagemaker_runtime._protocol.eventstream import HeaderValue, Message
+
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.part_blob
 
@@ -16,21 +18,25 @@ class PayloadPart(TypedDict):
 # --- restJson1 ser/de ---
 def serialize_json(value: PayloadPart) -> dict:
     out: dict = {}
-    if "bytes" in value:
-        import aws_sdk_sagemaker_runtime.types.part_blob
-
-        out["Bytes"] = aws_sdk_sagemaker_runtime.types.part_blob.serialize_json(
-            value["bytes"]
-        )
     return out
 
 
 def deserialize_json(data: dict) -> PayloadPart:
     out: PayloadPart = {}  # type: ignore[typeddict-item]
-    if "Bytes" in data:
-        import aws_sdk_sagemaker_runtime.types.part_blob
+    return out
 
-        out["bytes"] = aws_sdk_sagemaker_runtime.types.part_blob.deserialize_json(
-            data["Bytes"]
-        )
+
+def serialize_event_json(value: PayloadPart) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "PayloadPart"}
+    payload = b""
+    payload = value["bytes"]
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> PayloadPart:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: PayloadPart = {}  # type: ignore[typeddict-item]
+    if payload:
+        out["bytes"] = payload
     return out

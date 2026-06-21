@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ecr._auth._signers
 import aws_sdk_ecr._auth._sigv4
+import aws_sdk_ecr.errors.invalid_parameter_exception
+import aws_sdk_ecr.errors.layer_inaccessible_exception
+import aws_sdk_ecr.errors.layers_not_found_exception
+import aws_sdk_ecr.errors.repository_not_found_exception
+import aws_sdk_ecr.errors.server_exception
+import aws_sdk_ecr.errors.unable_to_get_upstream_layer_exception
+import aws_sdk_ecr.types.get_download_url_for_layer_request
+import aws_sdk_ecr.types.get_download_url_for_layer_response
 from aws_sdk_ecr._protocol.errors import parse_error_metadata_json
 from aws_sdk_ecr._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ecr._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ecr.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ecr.types.get_download_url_for_layer_request
-    import aws_sdk_ecr.types.get_download_url_for_layer_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,38 +29,26 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidParameterException":
-            import aws_sdk_ecr.errors.invalid_parameter_exception
-
             raise aws_sdk_ecr.errors.invalid_parameter_exception.InvalidParameterException.from_aws_json_1_1(
                 data
             )
         case "LayerInaccessibleException":
-            import aws_sdk_ecr.errors.layer_inaccessible_exception
-
             raise aws_sdk_ecr.errors.layer_inaccessible_exception.LayerInaccessibleException.from_aws_json_1_1(
                 data
             )
         case "LayersNotFoundException":
-            import aws_sdk_ecr.errors.layers_not_found_exception
-
             raise aws_sdk_ecr.errors.layers_not_found_exception.LayersNotFoundException.from_aws_json_1_1(
                 data
             )
         case "RepositoryNotFoundException":
-            import aws_sdk_ecr.errors.repository_not_found_exception
-
             raise aws_sdk_ecr.errors.repository_not_found_exception.RepositoryNotFoundException.from_aws_json_1_1(
                 data
             )
         case "ServerException":
-            import aws_sdk_ecr.errors.server_exception
-
             raise aws_sdk_ecr.errors.server_exception.ServerException.from_aws_json_1_1(
                 data
             )
         case "UnableToGetUpstreamLayerException":
-            import aws_sdk_ecr.errors.unable_to_get_upstream_layer_exception
-
             raise aws_sdk_ecr.errors.unable_to_get_upstream_layer_exception.UnableToGetUpstreamLayerException.from_aws_json_1_1(
                 data
             )
@@ -65,14 +57,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> (
     aws_sdk_ecr.types.get_download_url_for_layer_response.GetDownloadUrlForLayerResponse
 ):
-    import aws_sdk_ecr.types.get_download_url_for_layer_response
-
     out: aws_sdk_ecr.types.get_download_url_for_layer_response.GetDownloadUrlForLayerResponse = aws_sdk_ecr.types.get_download_url_for_layer_response.deserialize_aws_json_1_1(
         json.loads(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> (
+    aws_sdk_ecr.types.get_download_url_for_layer_response.GetDownloadUrlForLayerResponse
+):
+    out: aws_sdk_ecr.types.get_download_url_for_layer_response.GetDownloadUrlForLayerResponse = aws_sdk_ecr.types.get_download_url_for_layer_response.deserialize_aws_json_1_1(
+        json.loads(await response.aread())
     )
     return out
 
@@ -142,8 +143,7 @@ def get_download_url_for_layer(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -161,8 +161,7 @@ async def async_get_download_url_for_layer(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

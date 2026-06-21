@@ -3,13 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sagemakerjobruntime._auth._signers
 import aws_sdk_sagemakerjobruntime._auth._sigv4
+import aws_sdk_sagemakerjobruntime.errors.access_denied_exception
+import aws_sdk_sagemakerjobruntime.errors.internal_service_error
+import aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception
+import aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception
+import aws_sdk_sagemakerjobruntime.errors.throttling_exception
+import aws_sdk_sagemakerjobruntime.errors.validation_exception
+import aws_sdk_sagemakerjobruntime.types.inference_request_body
+import aws_sdk_sagemakerjobruntime.types.response_stream
+import aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_request
+import aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response
 from aws_sdk_sagemakerjobruntime._protocol.errors import parse_error_metadata_json
 from aws_sdk_sagemakerjobruntime._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -21,48 +31,32 @@ from aws_sdk_sagemakerjobruntime._services._pipeline import (
 )
 from aws_sdk_sagemakerjobruntime.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_request
-    import aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_sagemakerjobruntime.errors.access_denied_exception
-
             raise aws_sdk_sagemakerjobruntime.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServiceError":
-            import aws_sdk_sagemakerjobruntime.errors.internal_service_error
-
             raise aws_sdk_sagemakerjobruntime.errors.internal_service_error.InternalServiceError.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception
-
             raise aws_sdk_sagemakerjobruntime.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ServiceQuotaExceededException":
-            import aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception
-
             raise aws_sdk_sagemakerjobruntime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_sagemakerjobruntime.errors.throttling_exception
-
             raise aws_sdk_sagemakerjobruntime.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_sagemakerjobruntime.errors.validation_exception
-
             raise aws_sdk_sagemakerjobruntime.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -71,11 +65,21 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response.SampleWithResponseStreamResponse:
-    _iter = cast(
-        Any, response.async_iter_bytes() if is_async else response.iter_bytes()
-    )
+    _iter = cast(Any, response.iter_bytes())
+    out: aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response.SampleWithResponseStreamResponse = {
+        "body": _iter
+    }  # type: ignore[reportAssignmentType]
+    if "Content-Type" in response.headers:
+        out["content_type"] = str(response.headers["Content-Type"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response.SampleWithResponseStreamResponse:
+    _iter = cast(Any, response.async_iter_bytes())
     out: aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_response.SampleWithResponseStreamResponse = {
         "body": _iter
     }  # type: ignore[reportAssignmentType]
@@ -152,8 +156,7 @@ def sample_with_response_stream(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -171,8 +174,7 @@ async def async_sample_with_response_stream(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

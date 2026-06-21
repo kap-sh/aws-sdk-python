@@ -3,20 +3,23 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_sqs._auth._signers
 import aws_sdk_sqs._auth._sigv4
+import aws_sdk_sqs.errors.invalid_address
+import aws_sdk_sqs.errors.invalid_security
+import aws_sdk_sqs.errors.queue_does_not_exist
+import aws_sdk_sqs.errors.request_throttled
+import aws_sdk_sqs.errors.unsupported_operation
+import aws_sdk_sqs.types.remove_permission_request
 from aws_sdk_sqs._protocol.errors import parse_error_metadata_json
 from aws_sdk_sqs._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_sqs._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_sqs.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_sqs.types.remove_permission_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,32 +27,22 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "InvalidAddress":
-            import aws_sdk_sqs.errors.invalid_address
-
             raise aws_sdk_sqs.errors.invalid_address.InvalidAddress.from_aws_json_1_0(
                 data
             )
         case "InvalidSecurity":
-            import aws_sdk_sqs.errors.invalid_security
-
             raise aws_sdk_sqs.errors.invalid_security.InvalidSecurity.from_aws_json_1_0(
                 data
             )
         case "QueueDoesNotExist":
-            import aws_sdk_sqs.errors.queue_does_not_exist
-
             raise aws_sdk_sqs.errors.queue_does_not_exist.QueueDoesNotExist.from_aws_json_1_0(
                 data
             )
         case "RequestThrottled":
-            import aws_sdk_sqs.errors.request_throttled
-
             raise aws_sdk_sqs.errors.request_throttled.RequestThrottled.from_aws_json_1_0(
                 data
             )
         case "UnsupportedOperation":
-            import aws_sdk_sqs.errors.unsupported_operation
-
             raise aws_sdk_sqs.errors.unsupported_operation.UnsupportedOperation.from_aws_json_1_0(
                 data
             )
@@ -115,7 +108,6 @@ def remove_permission(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -131,7 +123,6 @@ async def async_remove_permission(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

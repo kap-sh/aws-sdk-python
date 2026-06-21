@@ -3,13 +3,20 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_inspector._auth._signers
 import aws_sdk_inspector._auth._sigv4
+import aws_sdk_inspector.errors.access_denied_exception
+import aws_sdk_inspector.errors.assessment_run_in_progress_exception
+import aws_sdk_inspector.errors.internal_exception
+import aws_sdk_inspector.errors.invalid_input_exception
+import aws_sdk_inspector.errors.no_such_entity_exception
+import aws_sdk_inspector.errors.service_temporarily_unavailable_exception
+import aws_sdk_inspector.types.delete_assessment_target_request
 from aws_sdk_inspector._protocol.errors import parse_error_metadata_json
 from aws_sdk_inspector._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_inspector._services._pipeline import (
@@ -18,47 +25,32 @@ from aws_sdk_inspector._services._pipeline import (
 )
 from aws_sdk_inspector.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_inspector.types.delete_assessment_target_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_inspector.errors.access_denied_exception
-
             raise aws_sdk_inspector.errors.access_denied_exception.AccessDeniedException.from_aws_json_1_1(
                 data
             )
         case "AssessmentRunInProgressException":
-            import aws_sdk_inspector.errors.assessment_run_in_progress_exception
-
             raise aws_sdk_inspector.errors.assessment_run_in_progress_exception.AssessmentRunInProgressException.from_aws_json_1_1(
                 data
             )
         case "InternalException":
-            import aws_sdk_inspector.errors.internal_exception
-
             raise aws_sdk_inspector.errors.internal_exception.InternalException.from_aws_json_1_1(
                 data
             )
         case "InvalidInputException":
-            import aws_sdk_inspector.errors.invalid_input_exception
-
             raise aws_sdk_inspector.errors.invalid_input_exception.InvalidInputException.from_aws_json_1_1(
                 data
             )
         case "NoSuchEntityException":
-            import aws_sdk_inspector.errors.no_such_entity_exception
-
             raise aws_sdk_inspector.errors.no_such_entity_exception.NoSuchEntityException.from_aws_json_1_1(
                 data
             )
         case "ServiceTemporarilyUnavailableException":
-            import aws_sdk_inspector.errors.service_temporarily_unavailable_exception
-
             raise aws_sdk_inspector.errors.service_temporarily_unavailable_exception.ServiceTemporarilyUnavailableException.from_aws_json_1_1(
                 data
             )
@@ -128,7 +120,6 @@ def delete_assessment_target(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -144,7 +135,6 @@ async def async_delete_assessment_target(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

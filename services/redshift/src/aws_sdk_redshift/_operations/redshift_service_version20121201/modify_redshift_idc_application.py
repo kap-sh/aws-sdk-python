@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import urlencode
 
 import zapros
@@ -10,15 +10,20 @@ from typing_extensions import Never
 
 import aws_sdk_redshift._auth._signers
 import aws_sdk_redshift._auth._sigv4
+import aws_sdk_redshift.errors.dependent_service_access_denied_fault
+import aws_sdk_redshift.errors.dependent_service_unavailable_fault
+import aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault
+import aws_sdk_redshift.errors.unsupported_operation_fault
+import aws_sdk_redshift.types.authorized_token_issuer_list
+import aws_sdk_redshift.types.modify_redshift_idc_application_message
+import aws_sdk_redshift.types.modify_redshift_idc_application_result
+import aws_sdk_redshift.types.redshift_idc_application
+import aws_sdk_redshift.types.service_integration_list
 from aws_sdk_redshift._protocol.errors import parse_error_metadata
 from aws_sdk_redshift._protocol.xml import fromstring
 from aws_sdk_redshift._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_redshift._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_redshift.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_redshift.types.modify_redshift_idc_application_message
-    import aws_sdk_redshift.types.modify_redshift_idc_application_result
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -26,26 +31,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "DependentServiceAccessDeniedFault":
-            import aws_sdk_redshift.errors.dependent_service_access_denied_fault
-
             raise aws_sdk_redshift.errors.dependent_service_access_denied_fault.DependentServiceAccessDeniedFault.from_query(
                 root
             )
         case "DependentServiceUnavailableFault":
-            import aws_sdk_redshift.errors.dependent_service_unavailable_fault
-
             raise aws_sdk_redshift.errors.dependent_service_unavailable_fault.DependentServiceUnavailableFault.from_query(
                 root
             )
         case "RedshiftIdcApplicationNotExistsFault":
-            import aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault
-
             raise aws_sdk_redshift.errors.redshift_idc_application_not_exists_fault.RedshiftIdcApplicationNotExistsFault.from_query(
                 root
             )
         case "UnsupportedOperationFault":
-            import aws_sdk_redshift.errors.unsupported_operation_fault
-
             raise aws_sdk_redshift.errors.unsupported_operation_fault.UnsupportedOperationFault.from_query(
                 root
             )
@@ -54,11 +51,20 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_redshift.types.modify_redshift_idc_application_result.ModifyRedshiftIdcApplicationResult:
-    import aws_sdk_redshift.types.modify_redshift_idc_application_result
-
     root = fromstring(response.read())
+    result = root.find("ModifyRedshiftIdcApplicationResult")
+    out: aws_sdk_redshift.types.modify_redshift_idc_application_result.ModifyRedshiftIdcApplicationResult = aws_sdk_redshift.types.modify_redshift_idc_application_result.deserialize_query(
+        result if result is not None else root
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_redshift.types.modify_redshift_idc_application_result.ModifyRedshiftIdcApplicationResult:
+    root = fromstring(await response.aread())
     result = root.find("ModifyRedshiftIdcApplicationResult")
     out: aws_sdk_redshift.types.modify_redshift_idc_application_result.ModifyRedshiftIdcApplicationResult = aws_sdk_redshift.types.modify_redshift_idc_application_result.deserialize_query(
         result if result is not None else root
@@ -132,8 +138,7 @@ def modify_redshift_idc_application(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -151,8 +156,7 @@ async def async_modify_redshift_idc_application(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

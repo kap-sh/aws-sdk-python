@@ -2,22 +2,25 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_route_53._auth._signers
 import aws_sdk_route_53._auth._sigv4
+import aws_sdk_route_53.errors.invalid_input
+import aws_sdk_route_53.errors.no_such_traffic_policy
+import aws_sdk_route_53.errors.no_such_traffic_policy_instance
+import aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_request
+import aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response
+import aws_sdk_route_53.types.rr_type
+import aws_sdk_route_53.types.traffic_policy_instances
 from aws_sdk_route_53._protocol.errors import parse_error_metadata
 from aws_sdk_route_53._protocol.xml import fromstring
 from aws_sdk_route_53._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_route_53._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_route_53.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_request
-    import aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,18 +28,12 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata(root)
     match code:
         case "InvalidInput":
-            import aws_sdk_route_53.errors.invalid_input
-
             raise aws_sdk_route_53.errors.invalid_input.InvalidInput.from_xml(root)
         case "NoSuchTrafficPolicy":
-            import aws_sdk_route_53.errors.no_such_traffic_policy
-
             raise aws_sdk_route_53.errors.no_such_traffic_policy.NoSuchTrafficPolicy.from_xml(
                 root
             )
         case "NoSuchTrafficPolicyInstance":
-            import aws_sdk_route_53.errors.no_such_traffic_policy_instance
-
             raise aws_sdk_route_53.errors.no_such_traffic_policy_instance.NoSuchTrafficPolicyInstance.from_xml(
                 root
             )
@@ -45,12 +42,19 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.ListTrafficPolicyInstancesByPolicyResponse:
-    import aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response
-
     out: aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.ListTrafficPolicyInstancesByPolicyResponse = aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.deserialize_xml(
         fromstring(response.read())
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.ListTrafficPolicyInstancesByPolicyResponse:
+    out: aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.ListTrafficPolicyInstancesByPolicyResponse = aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_response.deserialize_xml(
+        fromstring(await response.aread())
     )
     return out
 
@@ -128,8 +132,7 @@ def list_traffic_policy_instances_by_policy(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -147,8 +150,7 @@ async def async_list_traffic_policy_instances_by_policy(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

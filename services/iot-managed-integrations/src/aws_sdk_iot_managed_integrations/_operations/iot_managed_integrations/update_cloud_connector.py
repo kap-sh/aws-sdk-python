@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 from urllib.parse import quote
 
 import zapros
@@ -11,6 +11,13 @@ from typing_extensions import Never
 
 import aws_sdk_iot_managed_integrations._auth._signers
 import aws_sdk_iot_managed_integrations._auth._sigv4
+import aws_sdk_iot_managed_integrations.errors.access_denied_exception
+import aws_sdk_iot_managed_integrations.errors.internal_server_exception
+import aws_sdk_iot_managed_integrations.errors.resource_not_found_exception
+import aws_sdk_iot_managed_integrations.errors.throttling_exception
+import aws_sdk_iot_managed_integrations.errors.unauthorized_exception
+import aws_sdk_iot_managed_integrations.errors.validation_exception
+import aws_sdk_iot_managed_integrations.types.update_cloud_connector_request
 from aws_sdk_iot_managed_integrations._protocol.errors import parse_error_metadata_json
 from aws_sdk_iot_managed_integrations._rule_engine._endpoint_rule_set import (
     EndpointParams,
@@ -22,47 +29,32 @@ from aws_sdk_iot_managed_integrations._services._pipeline import (
 )
 from aws_sdk_iot_managed_integrations.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_iot_managed_integrations.types.update_cloud_connector_request
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_iot_managed_integrations.errors.access_denied_exception
-
             raise aws_sdk_iot_managed_integrations.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_iot_managed_integrations.errors.internal_server_exception
-
             raise aws_sdk_iot_managed_integrations.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_iot_managed_integrations.errors.resource_not_found_exception
-
             raise aws_sdk_iot_managed_integrations.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_iot_managed_integrations.errors.throttling_exception
-
             raise aws_sdk_iot_managed_integrations.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "UnauthorizedException":
-            import aws_sdk_iot_managed_integrations.errors.unauthorized_exception
-
             raise aws_sdk_iot_managed_integrations.errors.unauthorized_exception.UnauthorizedException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_iot_managed_integrations.errors.validation_exception
-
             raise aws_sdk_iot_managed_integrations.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -129,7 +121,6 @@ def update_cloud_connector(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -145,7 +136,6 @@ async def async_update_cloud_connector(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

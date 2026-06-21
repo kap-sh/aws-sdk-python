@@ -3,21 +3,31 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_kms._auth._signers
 import aws_sdk_kms._auth._sigv4
+import aws_sdk_kms.errors.already_exists_exception
+import aws_sdk_kms.errors.disabled_exception
+import aws_sdk_kms.errors.invalid_arn_exception
+import aws_sdk_kms.errors.kms_internal_exception
+import aws_sdk_kms.errors.kms_invalid_state_exception
+import aws_sdk_kms.errors.limit_exceeded_exception
+import aws_sdk_kms.errors.malformed_policy_document_exception
+import aws_sdk_kms.errors.not_found_exception
+import aws_sdk_kms.errors.tag_exception
+import aws_sdk_kms.errors.unsupported_operation_exception
+import aws_sdk_kms.types.key_metadata
+import aws_sdk_kms.types.replicate_key_request
+import aws_sdk_kms.types.replicate_key_response
+import aws_sdk_kms.types.tag_list
 from aws_sdk_kms._protocol.errors import parse_error_metadata_json
 from aws_sdk_kms._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_kms._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_kms.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_kms.types.replicate_key_request
-    import aws_sdk_kms.types.replicate_key_response
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -25,60 +35,40 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AlreadyExistsException":
-            import aws_sdk_kms.errors.already_exists_exception
-
             raise aws_sdk_kms.errors.already_exists_exception.AlreadyExistsException.from_aws_json_1_1(
                 data
             )
         case "DisabledException":
-            import aws_sdk_kms.errors.disabled_exception
-
             raise aws_sdk_kms.errors.disabled_exception.DisabledException.from_aws_json_1_1(
                 data
             )
         case "InvalidArnException":
-            import aws_sdk_kms.errors.invalid_arn_exception
-
             raise aws_sdk_kms.errors.invalid_arn_exception.InvalidArnException.from_aws_json_1_1(
                 data
             )
         case "KMSInternalException":
-            import aws_sdk_kms.errors.kms_internal_exception
-
             raise aws_sdk_kms.errors.kms_internal_exception.KMSInternalException.from_aws_json_1_1(
                 data
             )
         case "KMSInvalidStateException":
-            import aws_sdk_kms.errors.kms_invalid_state_exception
-
             raise aws_sdk_kms.errors.kms_invalid_state_exception.KMSInvalidStateException.from_aws_json_1_1(
                 data
             )
         case "LimitExceededException":
-            import aws_sdk_kms.errors.limit_exceeded_exception
-
             raise aws_sdk_kms.errors.limit_exceeded_exception.LimitExceededException.from_aws_json_1_1(
                 data
             )
         case "MalformedPolicyDocumentException":
-            import aws_sdk_kms.errors.malformed_policy_document_exception
-
             raise aws_sdk_kms.errors.malformed_policy_document_exception.MalformedPolicyDocumentException.from_aws_json_1_1(
                 data
             )
         case "NotFoundException":
-            import aws_sdk_kms.errors.not_found_exception
-
             raise aws_sdk_kms.errors.not_found_exception.NotFoundException.from_aws_json_1_1(
                 data
             )
         case "TagException":
-            import aws_sdk_kms.errors.tag_exception
-
             raise aws_sdk_kms.errors.tag_exception.TagException.from_aws_json_1_1(data)
         case "UnsupportedOperationException":
-            import aws_sdk_kms.errors.unsupported_operation_exception
-
             raise aws_sdk_kms.errors.unsupported_operation_exception.UnsupportedOperationException.from_aws_json_1_1(
                 data
             )
@@ -87,13 +77,22 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_kms.types.replicate_key_response.ReplicateKeyResponse:
-    import aws_sdk_kms.types.replicate_key_response
-
     out: aws_sdk_kms.types.replicate_key_response.ReplicateKeyResponse = (
         aws_sdk_kms.types.replicate_key_response.deserialize_aws_json_1_1(
             json.loads(response.read())
+        )
+    )
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_kms.types.replicate_key_response.ReplicateKeyResponse:
+    out: aws_sdk_kms.types.replicate_key_response.ReplicateKeyResponse = (
+        aws_sdk_kms.types.replicate_key_response.deserialize_aws_json_1_1(
+            json.loads(await response.aread())
         )
     )
     return out
@@ -159,8 +158,7 @@ def replicate_key(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -177,8 +175,7 @@ async def async_replicate_key(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise

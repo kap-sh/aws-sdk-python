@@ -3,20 +3,22 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_ivschat._auth._signers
 import aws_sdk_ivschat._auth._sigv4
+import aws_sdk_ivschat.errors.access_denied_exception
+import aws_sdk_ivschat.errors.pending_verification
+import aws_sdk_ivschat.errors.resource_not_found_exception
+import aws_sdk_ivschat.errors.validation_exception
+import aws_sdk_ivschat.types.delete_room_request
 from aws_sdk_ivschat._protocol.errors import parse_error_metadata_json
 from aws_sdk_ivschat._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_ivschat._services._pipeline import AsyncOperationOptions, OperationOptions
 from aws_sdk_ivschat.errors import UnknownServiceError
-
-if TYPE_CHECKING:
-    import aws_sdk_ivschat.types.delete_room_request
 
 
 def handle_error(response: zapros.Response) -> Never:
@@ -24,26 +26,18 @@ def handle_error(response: zapros.Response) -> Never:
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_ivschat.errors.access_denied_exception
-
             raise aws_sdk_ivschat.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "PendingVerification":
-            import aws_sdk_ivschat.errors.pending_verification
-
             raise aws_sdk_ivschat.errors.pending_verification.PendingVerification.from_json(
                 data
             )
         case "ResourceNotFoundException":
-            import aws_sdk_ivschat.errors.resource_not_found_exception
-
             raise aws_sdk_ivschat.errors.resource_not_found_exception.ResourceNotFoundException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_ivschat.errors.validation_exception
-
             raise aws_sdk_ivschat.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -110,7 +104,6 @@ def delete_room(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -126,7 +119,6 @@ async def async_delete_room(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

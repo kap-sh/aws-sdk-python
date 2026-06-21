@@ -2,6 +2,7 @@
 
 from typing import TYPE_CHECKING, TypedDict
 
+from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
 from aws_sdk_iotsitewise.errors import DeserializationError, ServiceError
 
 if TYPE_CHECKING:
@@ -65,3 +66,16 @@ class ConflictingOperationException(ServiceError):
     @classmethod
     def from_json(cls, data: dict) -> "ConflictingOperationException":
         return cls(deserialize_json(data))
+
+
+def serialize_event_json(value: ConflictingOperationException_) -> bytes:
+    headers: dict[str, HeaderValue] = {":event-type": "conflictingOperationException"}
+    payload = b""
+    return Message(headers=headers, payload=payload).encode()
+
+
+def deserialize_event_json(message: Message) -> ConflictingOperationException_:
+    headers = message.headers  # noqa: F841
+    payload = message.payload  # noqa: F841
+    out: ConflictingOperationException_ = {}  # type: ignore[typeddict-item]
+    return out

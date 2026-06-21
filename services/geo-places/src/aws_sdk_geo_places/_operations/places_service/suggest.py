@@ -3,13 +3,24 @@
 from __future__ import annotations
 
 import json
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import zapros
 from typing_extensions import Never
 
 import aws_sdk_geo_places._auth._signers
 import aws_sdk_geo_places._auth._sigv4
+import aws_sdk_geo_places.errors.access_denied_exception
+import aws_sdk_geo_places.errors.internal_server_exception
+import aws_sdk_geo_places.errors.throttling_exception
+import aws_sdk_geo_places.errors.validation_exception
+import aws_sdk_geo_places.types.position
+import aws_sdk_geo_places.types.query_refinement_list
+import aws_sdk_geo_places.types.suggest_additional_feature_list
+import aws_sdk_geo_places.types.suggest_filter
+import aws_sdk_geo_places.types.suggest_request
+import aws_sdk_geo_places.types.suggest_response
+import aws_sdk_geo_places.types.suggest_result_item_list
 from aws_sdk_geo_places._protocol.errors import parse_error_metadata_json
 from aws_sdk_geo_places._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_geo_places._services._pipeline import (
@@ -18,36 +29,24 @@ from aws_sdk_geo_places._services._pipeline import (
 )
 from aws_sdk_geo_places.errors import UnknownServiceError
 
-if TYPE_CHECKING:
-    import aws_sdk_geo_places.types.suggest_request
-    import aws_sdk_geo_places.types.suggest_response
-
 
 def handle_error(response: zapros.Response) -> Never:
     data = json.loads(response.read())
     code, message = parse_error_metadata_json(response, data)
     match code:
         case "AccessDeniedException":
-            import aws_sdk_geo_places.errors.access_denied_exception
-
             raise aws_sdk_geo_places.errors.access_denied_exception.AccessDeniedException.from_json(
                 data
             )
         case "InternalServerException":
-            import aws_sdk_geo_places.errors.internal_server_exception
-
             raise aws_sdk_geo_places.errors.internal_server_exception.InternalServerException.from_json(
                 data
             )
         case "ThrottlingException":
-            import aws_sdk_geo_places.errors.throttling_exception
-
             raise aws_sdk_geo_places.errors.throttling_exception.ThrottlingException.from_json(
                 data
             )
         case "ValidationException":
-            import aws_sdk_geo_places.errors.validation_exception
-
             raise aws_sdk_geo_places.errors.validation_exception.ValidationException.from_json(
                 data
             )
@@ -56,13 +55,23 @@ def handle_error(response: zapros.Response) -> Never:
 
 
 def handle_response(
-    response: zapros.Response, is_async: bool
+    response: zapros.Response,
 ) -> aws_sdk_geo_places.types.suggest_response.SuggestResponse:
-    import aws_sdk_geo_places.types.suggest_response
-
     out: aws_sdk_geo_places.types.suggest_response.SuggestResponse = (
         aws_sdk_geo_places.types.suggest_response.deserialize_json(
             json.loads(response.read())
+        )
+    )
+    out["pricing_bucket"] = str(response.headers["x-amz-geo-pricing-bucket"])
+    return out
+
+
+async def async_handle_response(
+    response: zapros.Response,
+) -> aws_sdk_geo_places.types.suggest_response.SuggestResponse:
+    out: aws_sdk_geo_places.types.suggest_response.SuggestResponse = (
+        aws_sdk_geo_places.types.suggest_response.deserialize_json(
+            json.loads(await response.aread())
         )
     )
     out["pricing_bucket"] = str(response.headers["x-amz-geo-pricing-bucket"])
@@ -130,8 +139,7 @@ def suggest(
         if response.status >= 400:
             response.read()
             handle_error(response)
-        response.read()
-        return handle_response(response, is_async=False), response
+        return handle_response(response), response
     except BaseException:
         response.close()
         raise
@@ -146,8 +154,7 @@ async def async_suggest(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
-        await response.aread()
-        return handle_response(response, is_async=True), response
+        return await async_handle_response(response), response
     except BaseException:
         await response.aclose()
         raise
