@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Confirmation: TypeAlias = bool
-
-DEFAULT_CONFIRMATION: Confirmation = False

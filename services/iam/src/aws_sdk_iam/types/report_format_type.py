@@ -3,22 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 ReportFormatType: TypeAlias = Literal["text/csv",]
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(("text/csv",))
-
-
 def to_query_text(value: ReportFormatType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ReportFormatType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReportFormatType value: {text!r}")
     return cast(ReportFormatType, text)
 
 

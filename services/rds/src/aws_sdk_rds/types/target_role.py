@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 TargetRole: TypeAlias = Literal[
     "READ_WRITE",
@@ -13,22 +12,11 @@ TargetRole: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "READ_WRITE",
-        "READ_ONLY",
-        "UNKNOWN",
-    )
-)
-
-
 def to_query_text(value: TargetRole) -> str:
     return value
 
 
 def from_query_text(text: str) -> TargetRole:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown TargetRole value: {text!r}")
     return cast(TargetRole, text)
 
 

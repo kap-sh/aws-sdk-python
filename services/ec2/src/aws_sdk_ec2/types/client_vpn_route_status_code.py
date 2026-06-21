@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ClientVpnRouteStatusCode: TypeAlias = Literal[
     "creating",
@@ -14,33 +13,11 @@ ClientVpnRouteStatusCode: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "creating",
-        "active",
-        "failed",
-        "deleting",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "creating",
-        "active",
-        "failed",
-        "deleting",
-    )
-)
-
-
 def to_ec2_query_text(value: ClientVpnRouteStatusCode) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ClientVpnRouteStatusCode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ClientVpnRouteStatusCode value: {text!r}")
     return cast(ClientVpnRouteStatusCode, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 DefaultRouteTablePropagationValue: TypeAlias = Literal[
     "enable",
@@ -12,31 +11,11 @@ DefaultRouteTablePropagationValue: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enable",
-        "disable",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enable",
-        "disable",
-    )
-)
-
-
 def to_ec2_query_text(value: DefaultRouteTablePropagationValue) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> DefaultRouteTablePropagationValue:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown DefaultRouteTablePropagationValue value: {text!r}"
-        )
     return cast(DefaultRouteTablePropagationValue, text)
 
 

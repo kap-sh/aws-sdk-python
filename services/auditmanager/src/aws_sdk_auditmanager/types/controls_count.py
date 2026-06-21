@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ControlsCount: TypeAlias = int
-
-DEFAULT_CONTROLS_COUNT: ControlsCount = 0

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Optionally include or suppress markers at the end of your output that signal the end of the video stream. To include end of stream markers: Leave blank or keep the default value, Include. To not include end of stream markers: Choose Suppress. This is useful when your output will be inserted into another stream."""
 H264EndOfStreamMarkers: TypeAlias = Literal[
     "INCLUDE",
@@ -12,19 +10,9 @@ H264EndOfStreamMarkers: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "INCLUDE",
-        "SUPPRESS",
-    )
-)
-
-
 def serialize_json(value: H264EndOfStreamMarkers) -> str:
     return value
 
 
 def deserialize_json(data: str) -> H264EndOfStreamMarkers:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown H264EndOfStreamMarkers value: {data!r}")
     return cast(H264EndOfStreamMarkers, data)

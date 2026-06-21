@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PatchEpoch: TypeAlias = int
-
-DEFAULT_PATCH_EPOCH: PatchEpoch = 0

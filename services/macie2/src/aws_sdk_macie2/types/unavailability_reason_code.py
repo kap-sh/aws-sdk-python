@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_macie2.errors import DeserializationError
-
 """<p>Specifies why occurrences of sensitive data can't be retrieved for a finding. Possible values are:</p>"""
 UnavailabilityReasonCode: TypeAlias = Literal[
     "OBJECT_EXCEEDS_SIZE_QUOTA",
@@ -21,28 +19,9 @@ UnavailabilityReasonCode: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "OBJECT_EXCEEDS_SIZE_QUOTA",
-        "UNSUPPORTED_OBJECT_TYPE",
-        "UNSUPPORTED_FINDING_TYPE",
-        "INVALID_CLASSIFICATION_RESULT",
-        "OBJECT_UNAVAILABLE",
-        "ACCOUNT_NOT_IN_ORGANIZATION",
-        "MISSING_GET_MEMBER_PERMISSION",
-        "ROLE_TOO_PERMISSIVE",
-        "MEMBER_ROLE_TOO_PERMISSIVE",
-        "INVALID_RESULT_SIGNATURE",
-        "RESULT_NOT_SIGNED",
-    )
-)
-
-
 def serialize_json(value: UnavailabilityReasonCode) -> str:
     return value
 
 
 def deserialize_json(data: str) -> UnavailabilityReasonCode:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown UnavailabilityReasonCode value: {data!r}")
     return cast(UnavailabilityReasonCode, data)

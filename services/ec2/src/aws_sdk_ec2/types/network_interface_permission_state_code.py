@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 NetworkInterfacePermissionStateCode: TypeAlias = Literal[
     "pending",
@@ -14,35 +13,11 @@ NetworkInterfacePermissionStateCode: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "granted",
-        "revoking",
-        "revoked",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "granted",
-        "revoking",
-        "revoked",
-    )
-)
-
-
 def to_ec2_query_text(value: NetworkInterfacePermissionStateCode) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> NetworkInterfacePermissionStateCode:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown NetworkInterfacePermissionStateCode value: {text!r}"
-        )
     return cast(NetworkInterfacePermissionStateCode, text)
 
 

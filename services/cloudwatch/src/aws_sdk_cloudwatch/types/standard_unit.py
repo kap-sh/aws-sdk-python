@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudwatch._protocol.xml import Element
-from aws_sdk_cloudwatch.errors import DeserializationError
 
 StandardUnit: TypeAlias = Literal[
     "Seconds",
@@ -37,90 +36,20 @@ StandardUnit: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Seconds",
-        "Microseconds",
-        "Milliseconds",
-        "Bytes",
-        "Kilobytes",
-        "Megabytes",
-        "Gigabytes",
-        "Terabytes",
-        "Bits",
-        "Kilobits",
-        "Megabits",
-        "Gigabits",
-        "Terabits",
-        "Percent",
-        "Count",
-        "Bytes/Second",
-        "Kilobytes/Second",
-        "Megabytes/Second",
-        "Gigabytes/Second",
-        "Terabytes/Second",
-        "Bits/Second",
-        "Kilobits/Second",
-        "Megabits/Second",
-        "Gigabits/Second",
-        "Terabits/Second",
-        "Count/Second",
-        "None",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: StandardUnit) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> StandardUnit:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown StandardUnit value: {data!r}")
     return cast(StandardUnit, data)
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Seconds",
-        "Microseconds",
-        "Milliseconds",
-        "Bytes",
-        "Kilobytes",
-        "Megabytes",
-        "Gigabytes",
-        "Terabytes",
-        "Bits",
-        "Kilobits",
-        "Megabits",
-        "Gigabits",
-        "Terabits",
-        "Percent",
-        "Count",
-        "Bytes/Second",
-        "Kilobytes/Second",
-        "Megabytes/Second",
-        "Gigabytes/Second",
-        "Terabytes/Second",
-        "Bits/Second",
-        "Kilobits/Second",
-        "Megabits/Second",
-        "Gigabits/Second",
-        "Terabits/Second",
-        "Count/Second",
-        "None",
-    )
-)
-
-
 def to_query_text(value: StandardUnit) -> str:
     return value
 
 
 def from_query_text(text: str) -> StandardUnit:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StandardUnit value: {text!r}")
     return cast(StandardUnit, text)
 
 

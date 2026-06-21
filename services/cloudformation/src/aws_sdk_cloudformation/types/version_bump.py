@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 VersionBump: TypeAlias = Literal[
     "MAJOR",
@@ -12,21 +11,11 @@ VersionBump: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "MAJOR",
-        "MINOR",
-    )
-)
-
-
 def to_query_text(value: VersionBump) -> str:
     return value
 
 
 def from_query_text(text: str) -> VersionBump:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown VersionBump value: {text!r}")
     return cast(VersionBump, text)
 
 

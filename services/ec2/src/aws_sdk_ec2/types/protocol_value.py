@@ -3,25 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ProtocolValue: TypeAlias = Literal["gre",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("gre",))
-
-
-_VALUES: frozenset[str] = frozenset(("gre",))
-
-
 def to_ec2_query_text(value: ProtocolValue) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ProtocolValue:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ProtocolValue value: {text!r}")
     return cast(ProtocolValue, text)
 
 

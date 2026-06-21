@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BoxedBoolean: TypeAlias = bool
-
-DEFAULT_BOXED_BOOLEAN: BoxedBoolean = False

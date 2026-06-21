@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 SnapshotState: TypeAlias = Literal[
     "pending",
@@ -15,35 +14,11 @@ SnapshotState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "completed",
-        "error",
-        "recoverable",
-        "recovering",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "completed",
-        "error",
-        "recoverable",
-        "recovering",
-    )
-)
-
-
 def to_ec2_query_text(value: SnapshotState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> SnapshotState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SnapshotState value: {text!r}")
     return cast(SnapshotState, text)
 
 

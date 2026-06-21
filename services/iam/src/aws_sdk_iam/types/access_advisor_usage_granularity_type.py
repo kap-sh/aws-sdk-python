@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 AccessAdvisorUsageGranularityType: TypeAlias = Literal[
     "SERVICE_LEVEL",
@@ -12,23 +11,11 @@ AccessAdvisorUsageGranularityType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SERVICE_LEVEL",
-        "ACTION_LEVEL",
-    )
-)
-
-
 def to_query_text(value: AccessAdvisorUsageGranularityType) -> str:
     return value
 
 
 def from_query_text(text: str) -> AccessAdvisorUsageGranularityType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown AccessAdvisorUsageGranularityType value: {text!r}"
-        )
     return cast(AccessAdvisorUsageGranularityType, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 VolumeSize: TypeAlias = int
-
-DEFAULT_VOLUME_SIZE: VolumeSize = 0

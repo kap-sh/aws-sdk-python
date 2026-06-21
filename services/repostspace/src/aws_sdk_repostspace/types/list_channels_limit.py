@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ListChannelsLimit: TypeAlias = int
-
-DEFAULT_LIST_CHANNELS_LIMIT: ListChannelsLimit = 10

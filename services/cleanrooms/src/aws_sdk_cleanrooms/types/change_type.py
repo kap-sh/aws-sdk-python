@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_cleanrooms.errors import DeserializationError
-
 ChangeType: TypeAlias = Literal[
     "ADD_MEMBER",
     "GRANT_RECEIVE_RESULTS_ABILITY",
@@ -19,27 +17,9 @@ ChangeType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ADD_MEMBER",
-        "GRANT_RECEIVE_RESULTS_ABILITY",
-        "REVOKE_RECEIVE_RESULTS_ABILITY",
-        "EDIT_AUTO_APPROVED_CHANGE_TYPES",
-        "ADD_PAYER_CANDIDATE",
-        "REMOVE_PAYER_CANDIDATE",
-        "GRANT_CAN_RECEIVE_MODEL_OUTPUT",
-        "GRANT_CAN_RECEIVE_INFERENCE_OUTPUT",
-        "REVOKE_CAN_RECEIVE_MODEL_OUTPUT",
-        "REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT",
-    )
-)
-
-
 def serialize_json(value: ChangeType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ChangeType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ChangeType value: {data!r}")
     return cast(ChangeType, data)

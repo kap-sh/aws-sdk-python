@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AssignmentRequired: TypeAlias = bool
-
-DEFAULT_ASSIGNMENT_REQUIRED: AssignmentRequired = True

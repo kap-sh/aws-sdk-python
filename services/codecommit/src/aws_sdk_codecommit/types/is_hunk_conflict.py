@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsHunkConflict: TypeAlias = bool
-
-DEFAULT_IS_HUNK_CONFLICT: IsHunkConflict = False

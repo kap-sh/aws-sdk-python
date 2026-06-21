@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 BootModeType: TypeAlias = Literal[
     "legacy-bios",
@@ -12,29 +11,11 @@ BootModeType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "legacy-bios",
-        "uefi",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "legacy-bios",
-        "uefi",
-    )
-)
-
-
 def to_ec2_query_text(value: BootModeType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> BootModeType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BootModeType value: {text!r}")
     return cast(BootModeType, text)
 
 

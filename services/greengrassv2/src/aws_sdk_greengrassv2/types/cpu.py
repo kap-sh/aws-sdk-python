@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CPU: TypeAlias = float
-
-DEFAULT_CPU: CPU = 0

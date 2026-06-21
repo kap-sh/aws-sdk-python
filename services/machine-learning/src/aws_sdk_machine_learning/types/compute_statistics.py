@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ComputeStatistics: TypeAlias = bool
-
-DEFAULT_COMPUTE_STATISTICS: ComputeStatistics = False

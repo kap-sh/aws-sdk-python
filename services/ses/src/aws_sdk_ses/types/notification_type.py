@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ses._protocol.xml import Element
-from aws_sdk_ses.errors import DeserializationError
 
 NotificationType: TypeAlias = Literal[
     "Bounce",
@@ -13,22 +12,11 @@ NotificationType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Bounce",
-        "Complaint",
-        "Delivery",
-    )
-)
-
-
 def to_query_text(value: NotificationType) -> str:
     return value
 
 
 def from_query_text(text: str) -> NotificationType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NotificationType value: {text!r}")
     return cast(NotificationType, text)
 
 

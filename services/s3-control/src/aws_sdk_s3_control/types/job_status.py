@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 JobStatus: TypeAlias = Literal[
     "Active",
@@ -23,32 +22,11 @@ JobStatus: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Active",
-        "Cancelled",
-        "Cancelling",
-        "Complete",
-        "Completing",
-        "Failed",
-        "Failing",
-        "New",
-        "Paused",
-        "Pausing",
-        "Preparing",
-        "Ready",
-        "Suspended",
-    )
-)
-
-
 def to_xml_text(value: JobStatus) -> str:
     return value
 
 
 def from_xml_text(text: str) -> JobStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown JobStatus value: {text!r}")
     return cast(JobStatus, text)
 
 

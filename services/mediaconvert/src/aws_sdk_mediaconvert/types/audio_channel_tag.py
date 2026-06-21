@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Specify the QuickTime audio channel layout tags for the audio channels in this audio track. Enter channel layout tags in the same order as your output's audio channel order. For example, if your output audio track has a left and a right channel, enter Left (L) for the first channel and Right (R) for the second. If your output has multiple single-channel audio tracks, enter a single channel layout tag for each track."""
 AudioChannelTag: TypeAlias = Literal[
     "L",
@@ -38,45 +36,9 @@ AudioChannelTag: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "L",
-        "R",
-        "C",
-        "LFE",
-        "LS",
-        "RS",
-        "LC",
-        "RC",
-        "CS",
-        "LSD",
-        "RSD",
-        "TCS",
-        "VHL",
-        "VHC",
-        "VHR",
-        "TBL",
-        "TBC",
-        "TBR",
-        "RSL",
-        "RSR",
-        "LW",
-        "RW",
-        "LFE2",
-        "LT",
-        "RT",
-        "HI",
-        "NAR",
-        "M",
-    )
-)
-
-
 def serialize_json(value: AudioChannelTag) -> str:
     return value
 
 
 def deserialize_json(data: str) -> AudioChannelTag:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown AudioChannelTag value: {data!r}")
     return cast(AudioChannelTag, data)

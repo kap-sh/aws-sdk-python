@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SampleQueryRelevance: TypeAlias = float
-
-DEFAULT_SAMPLE_QUERY_RELEVANCE: SampleQueryRelevance = 0

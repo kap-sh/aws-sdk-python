@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CapacityInBytes: TypeAlias = int
-
-DEFAULT_CAPACITY_IN_BYTES: CapacityInBytes = 0

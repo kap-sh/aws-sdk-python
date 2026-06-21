@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MillisecondsCount: TypeAlias = int
-
-DEFAULT_MILLISECONDS_COUNT: MillisecondsCount = 0

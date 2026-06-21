@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_ram.errors import DeserializationError
-
 ResourceShareAssociationType: TypeAlias = Literal[
     "PRINCIPAL",
     "RESOURCE",
@@ -12,22 +10,9 @@ ResourceShareAssociationType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "PRINCIPAL",
-        "RESOURCE",
-        "SOURCE",
-    )
-)
-
-
 def serialize_json(value: ResourceShareAssociationType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ResourceShareAssociationType:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown ResourceShareAssociationType value: {data!r}"
-        )
     return cast(ResourceShareAssociationType, data)

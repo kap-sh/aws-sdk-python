@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NoncurrentVersionCount: TypeAlias = int
-
-DEFAULT_NONCURRENT_VERSION_COUNT: NoncurrentVersionCount = 0

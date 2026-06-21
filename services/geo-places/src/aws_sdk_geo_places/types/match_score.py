@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MatchScore: TypeAlias = float
-
-DEFAULT_MATCH_SCORE: MatchScore = 0

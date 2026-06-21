@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AcceptEula: TypeAlias = bool
-
-DEFAULT_ACCEPT_EULA: AcceptEula = False

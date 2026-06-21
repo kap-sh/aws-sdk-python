@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudwatch._protocol.xml import Element
-from aws_sdk_cloudwatch.errors import DeserializationError
 
 """<p>The status of OTel enrichment for the account.</p>"""
 OTelEnrichmentStatus: TypeAlias = Literal[
@@ -13,40 +12,20 @@ OTelEnrichmentStatus: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Running",
-        "Stopped",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: OTelEnrichmentStatus) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> OTelEnrichmentStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown OTelEnrichmentStatus value: {data!r}")
     return cast(OTelEnrichmentStatus, data)
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Running",
-        "Stopped",
-    )
-)
-
-
 def to_query_text(value: OTelEnrichmentStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> OTelEnrichmentStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown OTelEnrichmentStatus value: {text!r}")
     return cast(OTelEnrichmentStatus, text)
 
 

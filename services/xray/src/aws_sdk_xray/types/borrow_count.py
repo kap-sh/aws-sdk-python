@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BorrowCount: TypeAlias = int
-
-DEFAULT_BORROW_COUNT: BorrowCount = 0

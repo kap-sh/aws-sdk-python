@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Connected: TypeAlias = bool
-
-DEFAULT_CONNECTED: Connected = False

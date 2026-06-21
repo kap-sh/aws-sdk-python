@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_docdb._protocol.xml import Element
-from aws_sdk_docdb.errors import DeserializationError
 
 FailoverStatus: TypeAlias = Literal[
     "pending",
@@ -13,22 +12,11 @@ FailoverStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "failing-over",
-        "cancelling",
-    )
-)
-
-
 def to_query_text(value: FailoverStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> FailoverStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FailoverStatus value: {text!r}")
     return cast(FailoverStatus, text)
 
 

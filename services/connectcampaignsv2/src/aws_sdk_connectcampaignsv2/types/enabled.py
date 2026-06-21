@@ -4,5 +4,3 @@ from typing import TypeAlias
 
 """Boolean to indicate if custom encryption has been enabled."""
 Enabled: TypeAlias = bool
-
-DEFAULT_ENABLED: Enabled = False

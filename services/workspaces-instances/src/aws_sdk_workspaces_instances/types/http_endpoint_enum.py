@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_workspaces_instances.errors import DeserializationError
-
 HttpEndpointEnum: TypeAlias = Literal[
     "enabled",
     "disabled",
@@ -11,19 +9,9 @@ HttpEndpointEnum: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "disabled",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: HttpEndpointEnum) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> HttpEndpointEnum:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown HttpEndpointEnum value: {data!r}")
     return cast(HttpEndpointEnum, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PortRangeBound: TypeAlias = int
-
-DEFAULT_PORT_RANGE_BOUND: PortRangeBound = 0

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 StandbyInstances: TypeAlias = Literal[
     "Terminate",
@@ -13,22 +12,11 @@ StandbyInstances: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Terminate",
-        "Ignore",
-        "Wait",
-    )
-)
-
-
 def to_query_text(value: StandbyInstances) -> str:
     return value
 
 
 def from_query_text(text: str) -> StandbyInstances:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StandbyInstances value: {text!r}")
     return cast(StandbyInstances, text)
 
 

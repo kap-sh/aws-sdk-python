@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 FilterByDimension: TypeAlias = Literal[
     "resource-region",
@@ -28,61 +27,11 @@ FilterByDimension: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "resource-region",
-        "availability-zone-id",
-        "account-id",
-        "account-name",
-        "instance-family",
-        "instance-type",
-        "instance-platform",
-        "reservation-arn",
-        "reservation-id",
-        "reservation-type",
-        "reservation-create-timestamp",
-        "reservation-start-timestamp",
-        "reservation-end-timestamp",
-        "reservation-end-date-type",
-        "tenancy",
-        "reservation-state",
-        "reservation-instance-match-criteria",
-        "reservation-unused-financial-owner",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "resource-region",
-        "availability-zone-id",
-        "account-id",
-        "account-name",
-        "instance-family",
-        "instance-type",
-        "instance-platform",
-        "reservation-arn",
-        "reservation-id",
-        "reservation-type",
-        "reservation-create-timestamp",
-        "reservation-start-timestamp",
-        "reservation-end-timestamp",
-        "reservation-end-date-type",
-        "tenancy",
-        "reservation-state",
-        "reservation-instance-match-criteria",
-        "reservation-unused-financial-owner",
-    )
-)
-
-
 def to_ec2_query_text(value: FilterByDimension) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> FilterByDimension:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FilterByDimension value: {text!r}")
     return cast(FilterByDimension, text)
 
 

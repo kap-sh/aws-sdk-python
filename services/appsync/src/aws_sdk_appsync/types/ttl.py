@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TTL: TypeAlias = int
-
-DEFAULT_TTL: TTL = 0

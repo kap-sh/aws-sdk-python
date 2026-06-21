@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 IpamResourceCidrIpSource: TypeAlias = Literal[
     "amazon",
@@ -13,31 +12,11 @@ IpamResourceCidrIpSource: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "amazon",
-        "byoip",
-        "none",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "amazon",
-        "byoip",
-        "none",
-    )
-)
-
-
 def to_ec2_query_text(value: IpamResourceCidrIpSource) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> IpamResourceCidrIpSource:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown IpamResourceCidrIpSource value: {text!r}")
     return cast(IpamResourceCidrIpSource, text)
 
 

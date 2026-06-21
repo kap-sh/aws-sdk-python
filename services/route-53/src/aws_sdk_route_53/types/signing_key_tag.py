@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SigningKeyTag: TypeAlias = int
-
-DEFAULT_SIGNING_KEY_TAG: SigningKeyTag = 0

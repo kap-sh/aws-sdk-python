@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 CachePolicyType: TypeAlias = Literal[
     "managed",
@@ -12,21 +11,11 @@ CachePolicyType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "managed",
-        "custom",
-    )
-)
-
-
 def to_xml_text(value: CachePolicyType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> CachePolicyType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown CachePolicyType value: {text!r}")
     return cast(CachePolicyType, text)
 
 

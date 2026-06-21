@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MemberAccountsEnrolled: TypeAlias = bool
-
-DEFAULT_MEMBER_ACCOUNTS_ENROLLED: MemberAccountsEnrolled = False

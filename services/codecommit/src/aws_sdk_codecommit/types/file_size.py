@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 FileSize: TypeAlias = int
-
-DEFAULT_FILE_SIZE: FileSize = 0

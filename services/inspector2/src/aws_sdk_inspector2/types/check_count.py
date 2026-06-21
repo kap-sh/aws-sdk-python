@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CheckCount: TypeAlias = int
-
-DEFAULT_CHECK_COUNT: CheckCount = 0

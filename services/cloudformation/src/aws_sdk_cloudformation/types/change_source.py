@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 ChangeSource: TypeAlias = Literal[
     "ResourceReference",
@@ -16,25 +15,11 @@ ChangeSource: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ResourceReference",
-        "ParameterReference",
-        "ResourceAttribute",
-        "DirectModification",
-        "Automatic",
-        "NoModification",
-    )
-)
-
-
 def to_query_text(value: ChangeSource) -> str:
     return value
 
 
 def from_query_text(text: str) -> ChangeSource:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ChangeSource value: {text!r}")
     return cast(ChangeSource, text)
 
 

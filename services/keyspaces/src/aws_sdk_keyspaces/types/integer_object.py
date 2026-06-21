@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IntegerObject: TypeAlias = int
-
-DEFAULT_INTEGER_OBJECT: IntegerObject = 0

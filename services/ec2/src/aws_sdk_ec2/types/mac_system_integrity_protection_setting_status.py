@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 MacSystemIntegrityProtectionSettingStatus: TypeAlias = Literal[
     "enabled",
@@ -12,31 +11,11 @@ MacSystemIntegrityProtectionSettingStatus: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "disabled",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "disabled",
-    )
-)
-
-
 def to_ec2_query_text(value: MacSystemIntegrityProtectionSettingStatus) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> MacSystemIntegrityProtectionSettingStatus:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown MacSystemIntegrityProtectionSettingStatus value: {text!r}"
-        )
     return cast(MacSystemIntegrityProtectionSettingStatus, text)
 
 

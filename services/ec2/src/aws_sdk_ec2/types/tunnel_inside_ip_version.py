@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TunnelInsideIpVersion: TypeAlias = Literal[
     "ipv4",
@@ -12,29 +11,11 @@ TunnelInsideIpVersion: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ipv4",
-        "ipv6",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ipv4",
-        "ipv6",
-    )
-)
-
-
 def to_ec2_query_text(value: TunnelInsideIpVersion) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TunnelInsideIpVersion:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown TunnelInsideIpVersion value: {text!r}")
     return cast(TunnelInsideIpVersion, text)
 
 

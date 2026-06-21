@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_ssm.errors import DeserializationError
-
 AccessRequestStatus: TypeAlias = Literal[
     "Approved",
     "Rejected",
@@ -14,22 +12,9 @@ AccessRequestStatus: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Approved",
-        "Rejected",
-        "Revoked",
-        "Expired",
-        "Pending",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: AccessRequestStatus) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> AccessRequestStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown AccessRequestStatus value: {data!r}")
     return cast(AccessRequestStatus, data)

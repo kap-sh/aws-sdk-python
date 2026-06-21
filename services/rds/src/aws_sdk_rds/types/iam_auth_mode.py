@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 IAMAuthMode: TypeAlias = Literal[
     "DISABLED",
@@ -13,22 +12,11 @@ IAMAuthMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DISABLED",
-        "REQUIRED",
-        "ENABLED",
-    )
-)
-
-
 def to_query_text(value: IAMAuthMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> IAMAuthMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown IAMAuthMode value: {text!r}")
     return cast(IAMAuthMode, text)
 
 

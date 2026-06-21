@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Success: TypeAlias = bool
-
-DEFAULT_SUCCESS: Success = False

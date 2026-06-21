@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayMulitcastDomainAssociationState: TypeAlias = Literal[
     "pendingAcceptance",
@@ -17,41 +16,11 @@ TransitGatewayMulitcastDomainAssociationState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pendingAcceptance",
-        "associating",
-        "associated",
-        "disassociating",
-        "disassociated",
-        "rejected",
-        "failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pendingAcceptance",
-        "associating",
-        "associated",
-        "disassociating",
-        "disassociated",
-        "rejected",
-        "failed",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayMulitcastDomainAssociationState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayMulitcastDomainAssociationState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayMulitcastDomainAssociationState value: {text!r}"
-        )
     return cast(TransitGatewayMulitcastDomainAssociationState, text)
 
 

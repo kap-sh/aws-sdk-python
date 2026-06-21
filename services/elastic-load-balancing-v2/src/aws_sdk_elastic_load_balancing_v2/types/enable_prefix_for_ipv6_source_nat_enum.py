@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
-from aws_sdk_elastic_load_balancing_v2.errors import DeserializationError
 
 EnablePrefixForIpv6SourceNatEnum: TypeAlias = Literal[
     "on",
@@ -12,23 +11,11 @@ EnablePrefixForIpv6SourceNatEnum: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "on",
-        "off",
-    )
-)
-
-
 def to_query_text(value: EnablePrefixForIpv6SourceNatEnum) -> str:
     return value
 
 
 def from_query_text(text: str) -> EnablePrefixForIpv6SourceNatEnum:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown EnablePrefixForIpv6SourceNatEnum value: {text!r}"
-        )
     return cast(EnablePrefixForIpv6SourceNatEnum, text)
 
 

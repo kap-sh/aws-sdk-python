@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 ResponseHeadersPolicyType: TypeAlias = Literal[
     "managed",
@@ -12,21 +11,11 @@ ResponseHeadersPolicyType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "managed",
-        "custom",
-    )
-)
-
-
 def to_xml_text(value: ResponseHeadersPolicyType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ResponseHeadersPolicyType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ResponseHeadersPolicyType value: {text!r}")
     return cast(ResponseHeadersPolicyType, text)
 
 

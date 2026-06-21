@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NumberOfConflicts: TypeAlias = int
-
-DEFAULT_NUMBER_OF_CONFLICTS: NumberOfConflicts = 0

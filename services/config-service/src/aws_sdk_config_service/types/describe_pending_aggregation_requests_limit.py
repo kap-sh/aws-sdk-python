@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DescribePendingAggregationRequestsLimit: TypeAlias = int
-
-DEFAULT_DESCRIBE_PENDING_AGGREGATION_REQUESTS_LIMIT: DescribePendingAggregationRequestsLimit = 0

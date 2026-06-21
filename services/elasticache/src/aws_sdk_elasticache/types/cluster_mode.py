@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 ClusterMode: TypeAlias = Literal[
     "enabled",
@@ -13,22 +12,11 @@ ClusterMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "disabled",
-        "compatible",
-    )
-)
-
-
 def to_query_text(value: ClusterMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> ClusterMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ClusterMode value: {text!r}")
     return cast(ClusterMode, text)
 
 

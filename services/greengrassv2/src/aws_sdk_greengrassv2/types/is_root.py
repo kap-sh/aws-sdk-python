@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsRoot: TypeAlias = bool
-
-DEFAULT_IS_ROOT: IsRoot = False

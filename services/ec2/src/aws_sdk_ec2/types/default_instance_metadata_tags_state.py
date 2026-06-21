@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 DefaultInstanceMetadataTagsState: TypeAlias = Literal[
     "disabled",
@@ -13,33 +12,11 @@ DefaultInstanceMetadataTagsState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "disabled",
-        "enabled",
-        "no-preference",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "disabled",
-        "enabled",
-        "no-preference",
-    )
-)
-
-
 def to_ec2_query_text(value: DefaultInstanceMetadataTagsState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> DefaultInstanceMetadataTagsState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown DefaultInstanceMetadataTagsState value: {text!r}"
-        )
     return cast(DefaultInstanceMetadataTagsState, text)
 
 

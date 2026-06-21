@@ -3,22 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 ExpressionType: TypeAlias = Literal["SQL",]
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(("SQL",))
-
-
 def to_xml_text(value: ExpressionType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ExpressionType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ExpressionType value: {text!r}")
     return cast(ExpressionType, text)
 
 

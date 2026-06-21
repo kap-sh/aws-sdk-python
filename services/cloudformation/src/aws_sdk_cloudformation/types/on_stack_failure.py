@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 OnStackFailure: TypeAlias = Literal[
     "DO_NOTHING",
@@ -13,22 +12,11 @@ OnStackFailure: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DO_NOTHING",
-        "ROLLBACK",
-        "DELETE",
-    )
-)
-
-
 def to_query_text(value: OnStackFailure) -> str:
     return value
 
 
 def from_query_text(text: str) -> OnStackFailure:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown OnStackFailure value: {text!r}")
     return cast(OnStackFailure, text)
 
 

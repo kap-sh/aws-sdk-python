@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 CapacityTenancy: TypeAlias = Literal[
     "default",
@@ -12,29 +11,11 @@ CapacityTenancy: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "dedicated",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "dedicated",
-    )
-)
-
-
 def to_ec2_query_text(value: CapacityTenancy) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> CapacityTenancy:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown CapacityTenancy value: {text!r}")
     return cast(CapacityTenancy, text)
 
 

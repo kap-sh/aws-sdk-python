@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MaxConcurrentRuns: TypeAlias = int
-
-DEFAULT_MAX_CONCURRENT_RUNS: MaxConcurrentRuns = 0

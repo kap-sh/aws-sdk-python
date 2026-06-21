@@ -3,25 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 PlatformValues: TypeAlias = Literal["Windows",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("Windows",))
-
-
-_VALUES: frozenset[str] = frozenset(("Windows",))
-
-
 def to_ec2_query_text(value: PlatformValues) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> PlatformValues:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown PlatformValues value: {text!r}")
     return cast(PlatformValues, text)
 
 

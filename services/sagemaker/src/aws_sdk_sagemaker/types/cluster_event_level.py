@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_sagemaker.errors import DeserializationError
-
 """<p>The severity level for a HyperPod cluster event.</p>"""
 ClusterEventLevel: TypeAlias = Literal[
     "Info",
@@ -13,20 +11,9 @@ ClusterEventLevel: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Info",
-        "Warn",
-        "Error",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: ClusterEventLevel) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> ClusterEventLevel:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ClusterEventLevel value: {data!r}")
     return cast(ClusterEventLevel, data)

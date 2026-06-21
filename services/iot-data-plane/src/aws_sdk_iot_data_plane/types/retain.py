@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Retain: TypeAlias = bool
-
-DEFAULT_RETAIN: Retain = False

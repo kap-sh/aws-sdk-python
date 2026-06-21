@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 QueryTimestamp: TypeAlias = int
-
-DEFAULT_QUERY_TIMESTAMP: QueryTimestamp = 0

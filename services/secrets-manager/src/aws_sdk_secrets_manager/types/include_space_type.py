@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IncludeSpaceType: TypeAlias = bool
-
-DEFAULT_INCLUDE_SPACE_TYPE: IncludeSpaceType = False

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ses._protocol.xml import Element
-from aws_sdk_ses.errors import DeserializationError
 
 ReceiptFilterPolicy: TypeAlias = Literal[
     "Block",
@@ -12,21 +11,11 @@ ReceiptFilterPolicy: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Block",
-        "Allow",
-    )
-)
-
-
 def to_query_text(value: ReceiptFilterPolicy) -> str:
     return value
 
 
 def from_query_text(text: str) -> ReceiptFilterPolicy:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReceiptFilterPolicy value: {text!r}")
     return cast(ReceiptFilterPolicy, text)
 
 

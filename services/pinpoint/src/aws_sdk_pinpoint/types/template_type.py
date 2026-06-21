@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_pinpoint.errors import DeserializationError
-
 TemplateType: TypeAlias = Literal[
     "EMAIL",
     "SMS",
@@ -14,22 +12,9 @@ TemplateType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "EMAIL",
-        "SMS",
-        "VOICE",
-        "PUSH",
-        "INAPP",
-    )
-)
-
-
 def serialize_json(value: TemplateType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> TemplateType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown TemplateType value: {data!r}")
     return cast(TemplateType, data)

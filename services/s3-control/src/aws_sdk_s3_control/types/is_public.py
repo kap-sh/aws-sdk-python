@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsPublic: TypeAlias = bool
-
-DEFAULT_IS_PUBLIC: IsPublic = False

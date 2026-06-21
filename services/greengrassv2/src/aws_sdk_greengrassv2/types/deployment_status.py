@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_greengrassv2.errors import DeserializationError
-
 DeploymentStatus: TypeAlias = Literal[
     "ACTIVE",
     "COMPLETED",
@@ -14,22 +12,9 @@ DeploymentStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ACTIVE",
-        "COMPLETED",
-        "CANCELED",
-        "FAILED",
-        "INACTIVE",
-    )
-)
-
-
 def serialize_json(value: DeploymentStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> DeploymentStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown DeploymentStatus value: {data!r}")
     return cast(DeploymentStatus, data)

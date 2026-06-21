@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NumberOfPricingPlansAssociatedWith: TypeAlias = int
-
-DEFAULT_NUMBER_OF_PRICING_PLANS_ASSOCIATED_WITH: NumberOfPricingPlansAssociatedWith = 0

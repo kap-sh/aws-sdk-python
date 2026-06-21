@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 BeforeValueFrom: TypeAlias = Literal[
     "PREVIOUS_DEPLOYMENT_STATE",
@@ -12,21 +11,11 @@ BeforeValueFrom: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "PREVIOUS_DEPLOYMENT_STATE",
-        "ACTUAL_STATE",
-    )
-)
-
-
 def to_query_text(value: BeforeValueFrom) -> str:
     return value
 
 
 def from_query_text(text: str) -> BeforeValueFrom:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BeforeValueFrom value: {text!r}")
     return cast(BeforeValueFrom, text)
 
 

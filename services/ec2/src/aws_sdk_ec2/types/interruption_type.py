@@ -3,25 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 InterruptionType: TypeAlias = Literal["adhoc",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("adhoc",))
-
-
-_VALUES: frozenset[str] = frozenset(("adhoc",))
-
-
 def to_ec2_query_text(value: InterruptionType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> InterruptionType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown InterruptionType value: {text!r}")
     return cast(InterruptionType, text)
 
 

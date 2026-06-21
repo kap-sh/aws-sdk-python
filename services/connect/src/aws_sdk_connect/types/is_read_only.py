@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsReadOnly: TypeAlias = bool
-
-DEFAULT_IS_READ_ONLY: IsReadOnly = False

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Force: TypeAlias = bool
-
-DEFAULT_FORCE: Force = False

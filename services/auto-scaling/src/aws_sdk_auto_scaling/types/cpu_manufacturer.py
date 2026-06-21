@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 CpuManufacturer: TypeAlias = Literal[
     "intel",
@@ -14,23 +13,11 @@ CpuManufacturer: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "intel",
-        "amd",
-        "amazon-web-services",
-        "apple",
-    )
-)
-
-
 def to_query_text(value: CpuManufacturer) -> str:
     return value
 
 
 def from_query_text(text: str) -> CpuManufacturer:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown CpuManufacturer value: {text!r}")
     return cast(CpuManufacturer, text)
 
 

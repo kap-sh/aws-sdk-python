@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CrossZoneLoadBalancingEnabled: TypeAlias = bool
-
-DEFAULT_CROSS_ZONE_LOAD_BALANCING_ENABLED: CrossZoneLoadBalancingEnabled = False

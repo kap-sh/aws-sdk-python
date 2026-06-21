@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 truncated: TypeAlias = bool
-
-DEFAULT_TRUNCATED: truncated = False

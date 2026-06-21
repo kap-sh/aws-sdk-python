@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayMeteringPolicyEntryState: TypeAlias = Literal[
     "available",
@@ -12,31 +11,11 @@ TransitGatewayMeteringPolicyEntryState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "deleted",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "deleted",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayMeteringPolicyEntryState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayMeteringPolicyEntryState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayMeteringPolicyEntryState value: {text!r}"
-        )
     return cast(TransitGatewayMeteringPolicyEntryState, text)
 
 

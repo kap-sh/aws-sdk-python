@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Hours: TypeAlias = int
-
-DEFAULT_HOURS: Hours = 0

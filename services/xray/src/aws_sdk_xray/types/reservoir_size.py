@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ReservoirSize: TypeAlias = int
-
-DEFAULT_RESERVOIR_SIZE: ReservoirSize = 0

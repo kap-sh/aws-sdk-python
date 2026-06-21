@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Start: TypeAlias = int
-
-DEFAULT_START: Start = 0

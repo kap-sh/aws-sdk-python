@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsFileModeConflict: TypeAlias = bool
-
-DEFAULT_IS_FILE_MODE_CONFLICT: IsFileModeConflict = False

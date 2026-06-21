@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 EvaluationWindowSec: TypeAlias = int
-
-DEFAULT_EVALUATION_WINDOW_SEC: EvaluationWindowSec = 0

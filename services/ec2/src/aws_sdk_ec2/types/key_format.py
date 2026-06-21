@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 KeyFormat: TypeAlias = Literal[
     "pem",
@@ -12,29 +11,11 @@ KeyFormat: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pem",
-        "ppk",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pem",
-        "ppk",
-    )
-)
-
-
 def to_ec2_query_text(value: KeyFormat) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> KeyFormat:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown KeyFormat value: {text!r}")
     return cast(KeyFormat, text)
 
 

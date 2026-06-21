@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RaAllowed: TypeAlias = bool
-
-DEFAULT_RA_ALLOWED: RaAllowed = False

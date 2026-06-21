@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 RouteServerState: TypeAlias = Literal[
     "pending",
@@ -15,35 +14,11 @@ RouteServerState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "available",
-        "modifying",
-        "deleting",
-        "deleted",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "available",
-        "modifying",
-        "deleting",
-        "deleted",
-    )
-)
-
-
 def to_ec2_query_text(value: RouteServerState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> RouteServerState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RouteServerState value: {text!r}")
     return cast(RouteServerState, text)
 
 

@@ -4,5 +4,3 @@ from typing import TypeAlias
 
 """Advice to clients on when the call can be safely retried"""
 RetryAfterSeconds: TypeAlias = int
-
-DEFAULT_RETRY_AFTER_SECONDS: RetryAfterSeconds = 0

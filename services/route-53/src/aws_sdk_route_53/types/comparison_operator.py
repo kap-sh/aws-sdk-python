@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
-from aws_sdk_route_53.errors import DeserializationError
 
 ComparisonOperator: TypeAlias = Literal[
     "GreaterThanOrEqualToThreshold",
@@ -14,23 +13,11 @@ ComparisonOperator: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "GreaterThanOrEqualToThreshold",
-        "GreaterThanThreshold",
-        "LessThanThreshold",
-        "LessThanOrEqualToThreshold",
-    )
-)
-
-
 def to_xml_text(value: ComparisonOperator) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ComparisonOperator:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ComparisonOperator value: {text!r}")
     return cast(ComparisonOperator, text)
 
 

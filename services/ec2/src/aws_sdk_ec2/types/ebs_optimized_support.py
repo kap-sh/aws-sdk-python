@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 EbsOptimizedSupport: TypeAlias = Literal[
     "unsupported",
@@ -13,31 +12,11 @@ EbsOptimizedSupport: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "unsupported",
-        "supported",
-        "default",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "unsupported",
-        "supported",
-        "default",
-    )
-)
-
-
 def to_ec2_query_text(value: EbsOptimizedSupport) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> EbsOptimizedSupport:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown EbsOptimizedSupport value: {text!r}")
     return cast(EbsOptimizedSupport, text)
 
 

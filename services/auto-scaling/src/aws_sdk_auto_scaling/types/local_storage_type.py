@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 LocalStorageType: TypeAlias = Literal[
     "hdd",
@@ -12,21 +11,11 @@ LocalStorageType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "hdd",
-        "ssd",
-    )
-)
-
-
 def to_query_text(value: LocalStorageType) -> str:
     return value
 
 
 def from_query_text(text: str) -> LocalStorageType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LocalStorageType value: {text!r}")
     return cast(LocalStorageType, text)
 
 

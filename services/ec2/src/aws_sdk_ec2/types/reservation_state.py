@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ReservationState: TypeAlias = Literal[
     "active",
@@ -21,47 +20,11 @@ ReservationState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "active",
-        "expired",
-        "cancelled",
-        "scheduled",
-        "pending",
-        "failed",
-        "delayed",
-        "unsupported",
-        "payment-pending",
-        "payment-failed",
-        "retired",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "active",
-        "expired",
-        "cancelled",
-        "scheduled",
-        "pending",
-        "failed",
-        "delayed",
-        "unsupported",
-        "payment-pending",
-        "payment-failed",
-        "retired",
-    )
-)
-
-
 def to_ec2_query_text(value: ReservationState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ReservationState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReservationState value: {text!r}")
     return cast(ReservationState, text)
 
 

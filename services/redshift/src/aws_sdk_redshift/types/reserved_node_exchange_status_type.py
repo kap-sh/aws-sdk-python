@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 ReservedNodeExchangeStatusType: TypeAlias = Literal[
     "REQUESTED",
@@ -16,27 +15,11 @@ ReservedNodeExchangeStatusType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "REQUESTED",
-        "PENDING",
-        "IN_PROGRESS",
-        "RETRYING",
-        "SUCCEEDED",
-        "FAILED",
-    )
-)
-
-
 def to_query_text(value: ReservedNodeExchangeStatusType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ReservedNodeExchangeStatusType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ReservedNodeExchangeStatusType value: {text!r}"
-        )
     return cast(ReservedNodeExchangeStatusType, text)
 
 

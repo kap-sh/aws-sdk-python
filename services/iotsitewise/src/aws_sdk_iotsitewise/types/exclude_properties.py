@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ExcludeProperties: TypeAlias = bool
-
-DEFAULT_EXCLUDE_PROPERTIES: ExcludeProperties = False

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 StartTimeHours: TypeAlias = int
-
-DEFAULT_START_TIME_HOURS: StartTimeHours = 0

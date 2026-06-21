@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CurrentExpiryYear: TypeAlias = int
-
-DEFAULT_CURRENT_EXPIRY_YEAR: CurrentExpiryYear = 0

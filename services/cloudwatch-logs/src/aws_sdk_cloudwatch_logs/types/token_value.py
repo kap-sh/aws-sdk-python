@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TokenValue: TypeAlias = int
-
-DEFAULT_TOKEN_VALUE: TokenValue = 0

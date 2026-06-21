@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Recursive: TypeAlias = bool
-
-DEFAULT_RECURSIVE: Recursive = False

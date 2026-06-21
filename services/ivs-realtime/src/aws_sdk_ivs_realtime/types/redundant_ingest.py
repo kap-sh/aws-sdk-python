@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RedundantIngest: TypeAlias = bool
-
-DEFAULT_REDUNDANT_INGEST: RedundantIngest = False

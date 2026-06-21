@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UnsubscribeAll: TypeAlias = bool
-
-DEFAULT_UNSUBSCRIBE_ALL: UnsubscribeAll = False

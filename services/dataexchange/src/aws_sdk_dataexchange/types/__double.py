@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 __double: TypeAlias = float
-
-DEFAULT___DOUBLE: __double = 0

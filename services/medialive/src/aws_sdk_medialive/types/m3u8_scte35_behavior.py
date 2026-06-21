@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_medialive.errors import DeserializationError
-
 """M3u8 Scte35 Behavior"""
 M3u8Scte35Behavior: TypeAlias = Literal[
     "NO_PASSTHROUGH",
@@ -12,19 +10,9 @@ M3u8Scte35Behavior: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "NO_PASSTHROUGH",
-        "PASSTHROUGH",
-    )
-)
-
-
 def serialize_json(value: M3u8Scte35Behavior) -> str:
     return value
 
 
 def deserialize_json(data: str) -> M3u8Scte35Behavior:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown M3u8Scte35Behavior value: {data!r}")
     return cast(M3u8Scte35Behavior, data)

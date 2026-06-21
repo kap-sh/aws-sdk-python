@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 PredefinedLoadMetricType: TypeAlias = Literal[
     "ASGTotalCPUUtilization",
@@ -14,23 +13,11 @@ PredefinedLoadMetricType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ASGTotalCPUUtilization",
-        "ASGTotalNetworkIn",
-        "ASGTotalNetworkOut",
-        "ALBTargetGroupRequestCount",
-    )
-)
-
-
 def to_query_text(value: PredefinedLoadMetricType) -> str:
     return value
 
 
 def from_query_text(text: str) -> PredefinedLoadMetricType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown PredefinedLoadMetricType value: {text!r}")
     return cast(PredefinedLoadMetricType, text)
 
 

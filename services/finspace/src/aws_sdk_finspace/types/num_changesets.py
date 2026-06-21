@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 numChangesets: TypeAlias = int
-
-DEFAULT_NUM_CHANGESETS: numChangesets = 0

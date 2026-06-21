@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AsnState: TypeAlias = Literal[
     "deprovisioned",
@@ -16,37 +15,11 @@ AsnState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "deprovisioned",
-        "failed-deprovision",
-        "failed-provision",
-        "pending-deprovision",
-        "pending-provision",
-        "provisioned",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "deprovisioned",
-        "failed-deprovision",
-        "failed-provision",
-        "pending-deprovision",
-        "pending-provision",
-        "provisioned",
-    )
-)
-
-
 def to_ec2_query_text(value: AsnState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AsnState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AsnState value: {text!r}")
     return cast(AsnState, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Medium: TypeAlias = int
-
-DEFAULT_MEDIUM: Medium = 0

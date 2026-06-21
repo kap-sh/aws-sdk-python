@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 LimitNumber: TypeAlias = int
-
-DEFAULT_LIMIT_NUMBER: LimitNumber = 0

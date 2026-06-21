@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 OverrideDynamicGroups: TypeAlias = bool
-
-DEFAULT_OVERRIDE_DYNAMIC_GROUPS: OverrideDynamicGroups = False

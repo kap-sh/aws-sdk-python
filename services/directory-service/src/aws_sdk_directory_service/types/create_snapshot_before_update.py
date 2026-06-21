@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CreateSnapshotBeforeUpdate: TypeAlias = bool
-
-DEFAULT_CREATE_SNAPSHOT_BEFORE_UPDATE: CreateSnapshotBeforeUpdate = False

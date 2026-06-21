@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_securityhub.errors import DeserializationError
-
 ConnectionDirection: TypeAlias = Literal[
     "INBOUND",
     "OUTBOUND",
@@ -11,19 +9,9 @@ ConnectionDirection: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "INBOUND",
-        "OUTBOUND",
-    )
-)
-
-
 def serialize_json(value: ConnectionDirection) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ConnectionDirection:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ConnectionDirection value: {data!r}")
     return cast(ConnectionDirection, data)

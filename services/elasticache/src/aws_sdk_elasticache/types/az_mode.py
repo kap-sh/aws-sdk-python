@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 AZMode: TypeAlias = Literal[
     "single-az",
@@ -12,21 +11,11 @@ AZMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "single-az",
-        "cross-az",
-    )
-)
-
-
 def to_query_text(value: AZMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> AZMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AZMode value: {text!r}")
     return cast(AZMode, text)
 
 

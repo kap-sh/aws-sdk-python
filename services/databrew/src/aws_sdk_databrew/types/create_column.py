@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CreateColumn: TypeAlias = bool
-
-DEFAULT_CREATE_COLUMN: CreateColumn = False

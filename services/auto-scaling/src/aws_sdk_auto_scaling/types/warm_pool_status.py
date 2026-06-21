@@ -3,22 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 WarmPoolStatus: TypeAlias = Literal["PendingDelete",]
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(("PendingDelete",))
-
-
 def to_query_text(value: WarmPoolStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> WarmPoolStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown WarmPoolStatus value: {text!r}")
     return cast(WarmPoolStatus, text)
 
 

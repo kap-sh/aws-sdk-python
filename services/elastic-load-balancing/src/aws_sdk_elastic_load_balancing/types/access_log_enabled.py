@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AccessLogEnabled: TypeAlias = bool
-
-DEFAULT_ACCESS_LOG_ENABLED: AccessLogEnabled = False

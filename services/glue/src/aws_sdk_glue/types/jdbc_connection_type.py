@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_glue.errors import DeserializationError
-
 JDBCConnectionType: TypeAlias = Literal[
     "sqlserver",
     "mysql",
@@ -14,22 +12,9 @@ JDBCConnectionType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "sqlserver",
-        "mysql",
-        "oracle",
-        "postgresql",
-        "redshift",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: JDBCConnectionType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> JDBCConnectionType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown JDBCConnectionType value: {data!r}")
     return cast(JDBCConnectionType, data)

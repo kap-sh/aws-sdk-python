@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 APIKeyVersion: TypeAlias = int
-
-DEFAULT_API_KEY_VERSION: APIKeyVersion = 0

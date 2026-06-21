@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name."""
 JobTemplateListBy: TypeAlias = Literal[
     "NAME",
@@ -13,20 +11,9 @@ JobTemplateListBy: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "NAME",
-        "CREATION_DATE",
-        "SYSTEM",
-    )
-)
-
-
 def serialize_json(value: JobTemplateListBy) -> str:
     return value
 
 
 def deserialize_json(data: str) -> JobTemplateListBy:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown JobTemplateListBy value: {data!r}")
     return cast(JobTemplateListBy, data)

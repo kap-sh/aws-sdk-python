@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ExportEnabled: TypeAlias = bool
-
-DEFAULT_EXPORT_ENABLED: ExportEnabled = False

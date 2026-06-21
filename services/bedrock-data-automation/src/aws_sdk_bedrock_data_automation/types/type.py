@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_bedrock_data_automation.errors import DeserializationError
-
 """Type"""
 Type: TypeAlias = Literal[
     "DOCUMENT",
@@ -14,21 +12,9 @@ Type: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DOCUMENT",
-        "IMAGE",
-        "AUDIO",
-        "VIDEO",
-    )
-)
-
-
 def serialize_json(value: Type) -> str:
     return value
 
 
 def deserialize_json(data: str) -> Type:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown Type value: {data!r}")
     return cast(Type, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 httpstatus: TypeAlias = int
-
-DEFAULT_HTTPSTATUS: httpstatus = 0

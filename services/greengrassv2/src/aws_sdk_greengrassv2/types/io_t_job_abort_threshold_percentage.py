@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IoTJobAbortThresholdPercentage: TypeAlias = float
-
-DEFAULT_IO_T_JOB_ABORT_THRESHOLD_PERCENTAGE: IoTJobAbortThresholdPercentage = 0

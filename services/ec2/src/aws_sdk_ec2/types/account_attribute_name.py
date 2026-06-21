@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AccountAttributeName: TypeAlias = Literal[
     "supported-platforms",
@@ -12,29 +11,11 @@ AccountAttributeName: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "supported-platforms",
-        "default-vpc",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "supported-platforms",
-        "default-vpc",
-    )
-)
-
-
 def to_ec2_query_text(value: AccountAttributeName) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AccountAttributeName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AccountAttributeName value: {text!r}")
     return cast(AccountAttributeName, text)
 
 

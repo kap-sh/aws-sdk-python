@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PatchNotApplicableCount: TypeAlias = int
-
-DEFAULT_PATCH_NOT_APPLICABLE_COUNT: PatchNotApplicableCount = 0

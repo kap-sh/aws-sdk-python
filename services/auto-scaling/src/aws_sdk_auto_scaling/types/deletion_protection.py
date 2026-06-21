@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 DeletionProtection: TypeAlias = Literal[
     "none",
@@ -13,22 +12,11 @@ DeletionProtection: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "none",
-        "prevent-force-deletion",
-        "prevent-all-deletion",
-    )
-)
-
-
 def to_query_text(value: DeletionProtection) -> str:
     return value
 
 
 def from_query_text(text: str) -> DeletionProtection:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DeletionProtection value: {text!r}")
     return cast(DeletionProtection, text)
 
 

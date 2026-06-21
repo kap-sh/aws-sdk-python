@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Qos: TypeAlias = int
-
-DEFAULT_QOS: Qos = 0

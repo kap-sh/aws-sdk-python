@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Rank: TypeAlias = int
-
-DEFAULT_RANK: Rank = 0

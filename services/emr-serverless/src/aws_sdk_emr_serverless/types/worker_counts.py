@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 WorkerCounts: TypeAlias = int
-
-DEFAULT_WORKER_COUNTS: WorkerCounts = 0

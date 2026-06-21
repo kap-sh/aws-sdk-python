@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 OriginGroupSelectionCriteria: TypeAlias = Literal[
     "default",
@@ -12,23 +11,11 @@ OriginGroupSelectionCriteria: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "media-quality-based",
-    )
-)
-
-
 def to_xml_text(value: OriginGroupSelectionCriteria) -> str:
     return value
 
 
 def from_xml_text(text: str) -> OriginGroupSelectionCriteria:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown OriginGroupSelectionCriteria value: {text!r}"
-        )
     return cast(OriginGroupSelectionCriteria, text)
 
 

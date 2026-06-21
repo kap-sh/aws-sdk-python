@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 VolumeType: TypeAlias = Literal[
     "standard",
@@ -17,39 +16,11 @@ VolumeType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "standard",
-        "io1",
-        "io2",
-        "gp2",
-        "sc1",
-        "st1",
-        "gp3",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "standard",
-        "io1",
-        "io2",
-        "gp2",
-        "sc1",
-        "st1",
-        "gp3",
-    )
-)
-
-
 def to_ec2_query_text(value: VolumeType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> VolumeType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown VolumeType value: {text!r}")
     return cast(VolumeType, text)
 
 

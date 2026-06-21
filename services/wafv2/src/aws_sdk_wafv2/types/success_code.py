@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SuccessCode: TypeAlias = int
-
-DEFAULT_SUCCESS_CODE: SuccessCode = 0

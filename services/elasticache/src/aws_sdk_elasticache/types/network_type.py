@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 NetworkType: TypeAlias = Literal[
     "ipv4",
@@ -13,22 +12,11 @@ NetworkType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ipv4",
-        "ipv6",
-        "dual_stack",
-    )
-)
-
-
 def to_query_text(value: NetworkType) -> str:
     return value
 
 
 def from_query_text(text: str) -> NetworkType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NetworkType value: {text!r}")
     return cast(NetworkType, text)
 
 

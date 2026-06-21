@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 StorageDays: TypeAlias = int
-
-DEFAULT_STORAGE_DAYS: StorageDays = 30

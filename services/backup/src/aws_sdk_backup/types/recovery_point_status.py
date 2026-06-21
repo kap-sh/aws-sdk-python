@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_backup.errors import DeserializationError
-
 RecoveryPointStatus: TypeAlias = Literal[
     "COMPLETED",
     "PARTIAL",
@@ -16,24 +14,9 @@ RecoveryPointStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "COMPLETED",
-        "PARTIAL",
-        "DELETING",
-        "EXPIRED",
-        "AVAILABLE",
-        "STOPPED",
-        "CREATING",
-    )
-)
-
-
 def serialize_json(value: RecoveryPointStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> RecoveryPointStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown RecoveryPointStatus value: {data!r}")
     return cast(RecoveryPointStatus, data)

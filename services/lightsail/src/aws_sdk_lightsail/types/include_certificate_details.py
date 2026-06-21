@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IncludeCertificateDetails: TypeAlias = bool
-
-DEFAULT_INCLUDE_CERTIFICATE_DETAILS: IncludeCertificateDetails = False

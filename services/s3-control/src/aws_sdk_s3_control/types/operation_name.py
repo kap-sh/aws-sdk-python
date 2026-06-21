@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 OperationName: TypeAlias = Literal[
     "LambdaInvoke",
@@ -21,30 +20,11 @@ OperationName: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "LambdaInvoke",
-        "S3PutObjectCopy",
-        "S3PutObjectAcl",
-        "S3PutObjectTagging",
-        "S3DeleteObjectTagging",
-        "S3InitiateRestoreObject",
-        "S3PutObjectLegalHold",
-        "S3PutObjectRetention",
-        "S3ReplicateObject",
-        "S3ComputeObjectChecksum",
-        "S3UpdateObjectEncryption",
-    )
-)
-
-
 def to_xml_text(value: OperationName) -> str:
     return value
 
 
 def from_xml_text(text: str) -> OperationName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown OperationName value: {text!r}")
     return cast(OperationName, text)
 
 

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_connect.errors import DeserializationError
-
 RulePublishStatus: TypeAlias = Literal[
     "DRAFT",
     "PUBLISHED",
@@ -11,19 +9,9 @@ RulePublishStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DRAFT",
-        "PUBLISHED",
-    )
-)
-
-
 def serialize_json(value: RulePublishStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> RulePublishStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown RulePublishStatus value: {data!r}")
     return cast(RulePublishStatus, data)

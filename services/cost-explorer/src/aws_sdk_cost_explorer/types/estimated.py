@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Estimated: TypeAlias = bool
-
-DEFAULT_ESTIMATED: Estimated = False

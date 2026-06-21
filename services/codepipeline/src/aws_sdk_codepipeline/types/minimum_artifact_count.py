@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MinimumArtifactCount: TypeAlias = int
-
-DEFAULT_MINIMUM_ARTIFACT_COUNT: MinimumArtifactCount = 0

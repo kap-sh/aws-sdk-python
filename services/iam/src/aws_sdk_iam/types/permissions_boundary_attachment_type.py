@@ -3,24 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 PermissionsBoundaryAttachmentType: TypeAlias = Literal["PermissionsBoundaryPolicy",]
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(("PermissionsBoundaryPolicy",))
-
-
 def to_query_text(value: PermissionsBoundaryAttachmentType) -> str:
     return value
 
 
 def from_query_text(text: str) -> PermissionsBoundaryAttachmentType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown PermissionsBoundaryAttachmentType value: {text!r}"
-        )
     return cast(PermissionsBoundaryAttachmentType, text)
 
 

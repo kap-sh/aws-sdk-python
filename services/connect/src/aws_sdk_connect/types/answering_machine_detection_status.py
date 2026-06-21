@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_connect.errors import DeserializationError
-
 AnsweringMachineDetectionStatus: TypeAlias = Literal[
     "ANSWERED",
     "UNDETECTED",
@@ -23,33 +21,9 @@ AnsweringMachineDetectionStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ANSWERED",
-        "UNDETECTED",
-        "ERROR",
-        "HUMAN_ANSWERED",
-        "SIT_TONE_DETECTED",
-        "SIT_TONE_BUSY",
-        "SIT_TONE_INVALID_NUMBER",
-        "FAX_MACHINE_DETECTED",
-        "VOICEMAIL_BEEP",
-        "VOICEMAIL_NO_BEEP",
-        "AMD_UNRESOLVED",
-        "AMD_UNANSWERED",
-        "AMD_ERROR",
-        "AMD_NOT_APPLICABLE",
-    )
-)
-
-
 def serialize_json(value: AnsweringMachineDetectionStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> AnsweringMachineDetectionStatus:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown AnsweringMachineDetectionStatus value: {data!r}"
-        )
     return cast(AnsweringMachineDetectionStatus, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 QuotaAdjustable: TypeAlias = bool
-
-DEFAULT_QUOTA_ADJUSTABLE: QuotaAdjustable = False

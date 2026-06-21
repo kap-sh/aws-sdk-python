@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 MinimumProtocolVersion: TypeAlias = Literal[
     "SSLv3",
@@ -19,28 +18,11 @@ MinimumProtocolVersion: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SSLv3",
-        "TLSv1",
-        "TLSv1_2016",
-        "TLSv1.1_2016",
-        "TLSv1.2_2018",
-        "TLSv1.2_2019",
-        "TLSv1.2_2021",
-        "TLSv1.3_2025",
-        "TLSv1.2_2025",
-    )
-)
-
-
 def to_xml_text(value: MinimumProtocolVersion) -> str:
     return value
 
 
 def from_xml_text(text: str) -> MinimumProtocolVersion:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown MinimumProtocolVersion value: {text!r}")
     return cast(MinimumProtocolVersion, text)
 
 

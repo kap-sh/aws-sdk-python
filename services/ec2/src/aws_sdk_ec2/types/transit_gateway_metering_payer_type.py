@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayMeteringPayerType: TypeAlias = Literal[
     "source-attachment-owner",
@@ -13,33 +12,11 @@ TransitGatewayMeteringPayerType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "source-attachment-owner",
-        "destination-attachment-owner",
-        "transit-gateway-owner",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "source-attachment-owner",
-        "destination-attachment-owner",
-        "transit-gateway-owner",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayMeteringPayerType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayMeteringPayerType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayMeteringPayerType value: {text!r}"
-        )
     return cast(TransitGatewayMeteringPayerType, text)
 
 

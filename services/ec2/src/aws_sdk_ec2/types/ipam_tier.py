@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 IpamTier: TypeAlias = Literal[
     "free",
@@ -12,29 +11,11 @@ IpamTier: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "free",
-        "advanced",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "free",
-        "advanced",
-    )
-)
-
-
 def to_ec2_query_text(value: IpamTier) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> IpamTier:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown IpamTier value: {text!r}")
     return cast(IpamTier, text)
 
 

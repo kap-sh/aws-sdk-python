@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayAttachmentState: TypeAlias = Literal[
     "initiating",
@@ -23,53 +22,11 @@ TransitGatewayAttachmentState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "initiating",
-        "initiatingRequest",
-        "pendingAcceptance",
-        "rollingBack",
-        "pending",
-        "available",
-        "modifying",
-        "deleting",
-        "deleted",
-        "failed",
-        "rejected",
-        "rejecting",
-        "failing",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "initiating",
-        "initiatingRequest",
-        "pendingAcceptance",
-        "rollingBack",
-        "pending",
-        "available",
-        "modifying",
-        "deleting",
-        "deleted",
-        "failed",
-        "rejected",
-        "rejecting",
-        "failing",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayAttachmentState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayAttachmentState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayAttachmentState value: {text!r}"
-        )
     return cast(TransitGatewayAttachmentState, text)
 
 

@@ -3,7 +3,3 @@
 from typing import TypeAlias
 
 EnableValueValidationOnAssociation: TypeAlias = bool
-
-DEFAULT_ENABLE_VALUE_VALIDATION_ON_ASSOCIATION: EnableValueValidationOnAssociation = (
-    False
-)

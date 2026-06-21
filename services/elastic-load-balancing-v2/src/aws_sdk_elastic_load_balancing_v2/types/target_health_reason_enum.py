@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
-from aws_sdk_elastic_load_balancing_v2.errors import DeserializationError
 
 TargetHealthReasonEnum: TypeAlias = Literal[
     "Elb.RegistrationInProgress",
@@ -22,31 +21,11 @@ TargetHealthReasonEnum: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Elb.RegistrationInProgress",
-        "Elb.InitialHealthChecking",
-        "Target.ResponseCodeMismatch",
-        "Target.Timeout",
-        "Target.FailedHealthChecks",
-        "Target.NotRegistered",
-        "Target.NotInUse",
-        "Target.DeregistrationInProgress",
-        "Target.InvalidState",
-        "Target.IpUnusable",
-        "Target.HealthCheckDisabled",
-        "Elb.InternalError",
-    )
-)
-
-
 def to_query_text(value: TargetHealthReasonEnum) -> str:
     return value
 
 
 def from_query_text(text: str) -> TargetHealthReasonEnum:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown TargetHealthReasonEnum value: {text!r}")
     return cast(TargetHealthReasonEnum, text)
 
 

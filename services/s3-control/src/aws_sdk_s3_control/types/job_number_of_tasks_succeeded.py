@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 JobNumberOfTasksSucceeded: TypeAlias = int
-
-DEFAULT_JOB_NUMBER_OF_TASKS_SUCCEEDED: JobNumberOfTasksSucceeded = 0

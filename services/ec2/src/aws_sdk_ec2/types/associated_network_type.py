@@ -3,25 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AssociatedNetworkType: TypeAlias = Literal["vpc",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("vpc",))
-
-
-_VALUES: frozenset[str] = frozenset(("vpc",))
-
-
 def to_ec2_query_text(value: AssociatedNetworkType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AssociatedNetworkType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AssociatedNetworkType value: {text!r}")
     return cast(AssociatedNetworkType, text)
 
 

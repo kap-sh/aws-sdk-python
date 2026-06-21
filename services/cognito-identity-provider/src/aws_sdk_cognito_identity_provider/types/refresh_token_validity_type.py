@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RefreshTokenValidityType: TypeAlias = int
-
-DEFAULT_REFRESH_TOKEN_VALIDITY_TYPE: RefreshTokenValidityType = 0

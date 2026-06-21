@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BandwidthThrottling: TypeAlias = int
-
-DEFAULT_BANDWIDTH_THROTTLING: BandwidthThrottling = 0

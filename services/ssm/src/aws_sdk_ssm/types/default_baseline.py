@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DefaultBaseline: TypeAlias = bool
-
-DEFAULT_DEFAULT_BASELINE: DefaultBaseline = False

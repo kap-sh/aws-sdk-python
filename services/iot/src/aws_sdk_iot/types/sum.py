@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Sum: TypeAlias = float
-
-DEFAULT_SUM: Sum = 0

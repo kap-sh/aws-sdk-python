@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Priority: TypeAlias = int
-
-DEFAULT_PRIORITY: Priority = 0

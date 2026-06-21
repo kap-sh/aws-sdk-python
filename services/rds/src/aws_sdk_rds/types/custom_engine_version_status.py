@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 CustomEngineVersionStatus: TypeAlias = Literal[
     "available",
@@ -13,22 +12,11 @@ CustomEngineVersionStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "inactive",
-        "inactive-except-restore",
-    )
-)
-
-
 def to_query_text(value: CustomEngineVersionStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> CustomEngineVersionStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown CustomEngineVersionStatus value: {text!r}")
     return cast(CustomEngineVersionStatus, text)
 
 

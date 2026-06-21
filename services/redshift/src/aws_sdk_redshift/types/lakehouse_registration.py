@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 LakehouseRegistration: TypeAlias = Literal[
     "Register",
@@ -12,21 +11,11 @@ LakehouseRegistration: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Register",
-        "Deregister",
-    )
-)
-
-
 def to_query_text(value: LakehouseRegistration) -> str:
     return value
 
 
 def from_query_text(text: str) -> LakehouseRegistration:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LakehouseRegistration value: {text!r}")
     return cast(LakehouseRegistration, text)
 
 

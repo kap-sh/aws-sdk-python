@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TargetPer: TypeAlias = int
-
-DEFAULT_TARGET_PER: TargetPer = 0

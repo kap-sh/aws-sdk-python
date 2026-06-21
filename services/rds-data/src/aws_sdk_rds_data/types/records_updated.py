@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RecordsUpdated: TypeAlias = int
-
-DEFAULT_RECORDS_UPDATED: RecordsUpdated = 0

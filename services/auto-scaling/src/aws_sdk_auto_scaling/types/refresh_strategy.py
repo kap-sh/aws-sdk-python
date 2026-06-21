@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 RefreshStrategy: TypeAlias = Literal[
     "Rolling",
@@ -12,21 +11,11 @@ RefreshStrategy: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Rolling",
-        "ReplaceRootVolume",
-    )
-)
-
-
 def to_query_text(value: RefreshStrategy) -> str:
     return value
 
 
 def from_query_text(text: str) -> RefreshStrategy:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RefreshStrategy value: {text!r}")
     return cast(RefreshStrategy, text)
 
 

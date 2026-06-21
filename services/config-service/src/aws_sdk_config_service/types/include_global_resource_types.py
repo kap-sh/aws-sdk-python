@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IncludeGlobalResourceTypes: TypeAlias = bool
-
-DEFAULT_INCLUDE_GLOBAL_RESOURCE_TYPES: IncludeGlobalResourceTypes = False

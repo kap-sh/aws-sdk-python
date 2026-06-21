@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
-from aws_sdk_route_53.errors import DeserializationError
 
 Statistic: TypeAlias = Literal[
     "Average",
@@ -15,24 +14,11 @@ Statistic: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Average",
-        "Sum",
-        "SampleCount",
-        "Maximum",
-        "Minimum",
-    )
-)
-
-
 def to_xml_text(value: Statistic) -> str:
     return value
 
 
 def from_xml_text(text: str) -> Statistic:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown Statistic value: {text!r}")
     return cast(Statistic, text)
 
 

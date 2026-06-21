@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_application_signals.errors import DeserializationError
-
 DurationUnit: TypeAlias = Literal[
     "MINUTE",
     "HOUR",
@@ -13,21 +11,9 @@ DurationUnit: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "MINUTE",
-        "HOUR",
-        "DAY",
-        "MONTH",
-    )
-)
-
-
 def serialize_json(value: DurationUnit) -> str:
     return value
 
 
 def deserialize_json(data: str) -> DurationUnit:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown DurationUnit value: {data!r}")
     return cast(DurationUnit, data)

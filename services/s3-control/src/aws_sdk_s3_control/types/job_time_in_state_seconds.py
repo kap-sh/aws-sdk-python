@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 JobTimeInStateSeconds: TypeAlias = int
-
-DEFAULT_JOB_TIME_IN_STATE_SECONDS: JobTimeInStateSeconds = 0

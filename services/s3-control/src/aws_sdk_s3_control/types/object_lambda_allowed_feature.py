@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 ObjectLambdaAllowedFeature: TypeAlias = Literal[
     "GetObject-Range",
@@ -14,25 +13,11 @@ ObjectLambdaAllowedFeature: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "GetObject-Range",
-        "GetObject-PartNumber",
-        "HeadObject-Range",
-        "HeadObject-PartNumber",
-    )
-)
-
-
 def to_xml_text(value: ObjectLambdaAllowedFeature) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ObjectLambdaAllowedFeature:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ObjectLambdaAllowedFeature value: {text!r}"
-        )
     return cast(ObjectLambdaAllowedFeature, text)
 
 

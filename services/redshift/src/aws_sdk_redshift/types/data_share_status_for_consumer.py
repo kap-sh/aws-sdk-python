@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 DataShareStatusForConsumer: TypeAlias = Literal[
     "ACTIVE",
@@ -12,23 +11,11 @@ DataShareStatusForConsumer: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ACTIVE",
-        "AVAILABLE",
-    )
-)
-
-
 def to_query_text(value: DataShareStatusForConsumer) -> str:
     return value
 
 
 def from_query_text(text: str) -> DataShareStatusForConsumer:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown DataShareStatusForConsumer value: {text!r}"
-        )
     return cast(DataShareStatusForConsumer, text)
 
 

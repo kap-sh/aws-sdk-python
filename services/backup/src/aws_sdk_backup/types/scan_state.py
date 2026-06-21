@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_backup.errors import DeserializationError
-
 ScanState: TypeAlias = Literal[
     "CANCELED",
     "COMPLETED",
@@ -15,23 +13,9 @@ ScanState: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CANCELED",
-        "COMPLETED",
-        "COMPLETED_WITH_ISSUES",
-        "CREATED",
-        "FAILED",
-        "RUNNING",
-    )
-)
-
-
 def serialize_json(value: ScanState) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ScanState:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ScanState value: {data!r}")
     return cast(ScanState, data)

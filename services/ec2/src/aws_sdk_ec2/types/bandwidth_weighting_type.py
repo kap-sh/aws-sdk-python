@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 BandwidthWeightingType: TypeAlias = Literal[
     "default",
@@ -13,31 +12,11 @@ BandwidthWeightingType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "vpc-1",
-        "ebs-1",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "vpc-1",
-        "ebs-1",
-    )
-)
-
-
 def to_ec2_query_text(value: BandwidthWeightingType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> BandwidthWeightingType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BandwidthWeightingType value: {text!r}")
     return cast(BandwidthWeightingType, text)
 
 

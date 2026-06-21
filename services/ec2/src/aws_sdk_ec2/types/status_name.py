@@ -3,25 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 StatusName: TypeAlias = Literal["reachability",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("reachability",))
-
-
-_VALUES: frozenset[str] = frozenset(("reachability",))
-
-
 def to_ec2_query_text(value: StatusName) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> StatusName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StatusName value: {text!r}")
     return cast(StatusName, text)
 
 

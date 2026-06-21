@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RequestCount: TypeAlias = int
-
-DEFAULT_REQUEST_COUNT: RequestCount = 0

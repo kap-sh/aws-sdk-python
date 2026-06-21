@@ -3,22 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 GeneratedManifestFormat: TypeAlias = Literal["S3InventoryReport_CSV_20211130",]
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(("S3InventoryReport_CSV_20211130",))
-
-
 def to_xml_text(value: GeneratedManifestFormat) -> str:
     return value
 
 
 def from_xml_text(text: str) -> GeneratedManifestFormat:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown GeneratedManifestFormat value: {text!r}")
     return cast(GeneratedManifestFormat, text)
 
 

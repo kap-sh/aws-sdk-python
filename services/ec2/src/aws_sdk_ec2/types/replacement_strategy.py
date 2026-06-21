@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ReplacementStrategy: TypeAlias = Literal[
     "launch",
@@ -12,29 +11,11 @@ ReplacementStrategy: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "launch",
-        "launch-before-terminate",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "launch",
-        "launch-before-terminate",
-    )
-)
-
-
 def to_ec2_query_text(value: ReplacementStrategy) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ReplacementStrategy:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReplacementStrategy value: {text!r}")
     return cast(ReplacementStrategy, text)
 
 

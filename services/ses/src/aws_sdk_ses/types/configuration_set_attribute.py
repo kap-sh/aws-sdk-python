@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ses._protocol.xml import Element
-from aws_sdk_ses.errors import DeserializationError
 
 ConfigurationSetAttribute: TypeAlias = Literal[
     "eventDestinations",
@@ -14,23 +13,11 @@ ConfigurationSetAttribute: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "eventDestinations",
-        "trackingOptions",
-        "deliveryOptions",
-        "reputationOptions",
-    )
-)
-
-
 def to_query_text(value: ConfigurationSetAttribute) -> str:
     return value
 
 
 def from_query_text(text: str) -> ConfigurationSetAttribute:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ConfigurationSetAttribute value: {text!r}")
     return cast(ConfigurationSetAttribute, text)
 
 

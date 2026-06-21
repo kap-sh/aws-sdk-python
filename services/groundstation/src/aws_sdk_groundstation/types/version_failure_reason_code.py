@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_groundstation.errors import DeserializationError
-
 VersionFailureReasonCode: TypeAlias = Literal[
     "INTERNAL_ERROR",
     "INVALID_SATELLITE_ARN",
@@ -21,29 +19,9 @@ VersionFailureReasonCode: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "INTERNAL_ERROR",
-        "INVALID_SATELLITE_ARN",
-        "INVALID_UPDATE_CONTACT_REQUEST",
-        "EPHEMERIS_NOT_FOUND",
-        "EPHEMERIS_TIME_RANGE_INVALID",
-        "EPHEMERIS_NOT_ENABLED",
-        "SATELLITE_DOES_NOT_MATCH_EPHEMERIS",
-        "NOT_ONBOARDED_TO_AZEL_EPHEMERIS",
-        "AZEL_EPHEMERIS_NOT_FOUND",
-        "AZEL_EPHEMERIS_WRONG_GROUND_STATION",
-        "AZEL_EPHEMERIS_INVALID_STATUS",
-        "AZEL_EPHEMERIS_TIME_RANGE_INVALID",
-    )
-)
-
-
 def serialize_json(value: VersionFailureReasonCode) -> str:
     return value
 
 
 def deserialize_json(data: str) -> VersionFailureReasonCode:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown VersionFailureReasonCode value: {data!r}")
     return cast(VersionFailureReasonCode, data)

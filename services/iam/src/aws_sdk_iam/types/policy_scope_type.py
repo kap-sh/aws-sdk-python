@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 policyScopeType: TypeAlias = Literal[
     "All",
@@ -13,22 +12,11 @@ policyScopeType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "All",
-        "AWS",
-        "Local",
-    )
-)
-
-
 def to_query_text(value: policyScopeType) -> str:
     return value
 
 
 def from_query_text(text: str) -> policyScopeType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown policyScopeType value: {text!r}")
     return cast(policyScopeType, text)
 
 

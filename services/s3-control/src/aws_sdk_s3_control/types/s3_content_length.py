@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 S3ContentLength: TypeAlias = int
-
-DEFAULT_S3_CONTENT_LENGTH: S3ContentLength = 0

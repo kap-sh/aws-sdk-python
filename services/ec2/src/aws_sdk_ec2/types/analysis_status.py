@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AnalysisStatus: TypeAlias = Literal[
     "running",
@@ -13,31 +12,11 @@ AnalysisStatus: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "running",
-        "succeeded",
-        "failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "running",
-        "succeeded",
-        "failed",
-    )
-)
-
-
 def to_ec2_query_text(value: AnalysisStatus) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AnalysisStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AnalysisStatus value: {text!r}")
     return cast(AnalysisStatus, text)
 
 

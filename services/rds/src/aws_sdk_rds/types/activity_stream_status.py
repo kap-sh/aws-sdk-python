@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 ActivityStreamStatus: TypeAlias = Literal[
     "stopped",
@@ -14,23 +13,11 @@ ActivityStreamStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "stopped",
-        "starting",
-        "started",
-        "stopping",
-    )
-)
-
-
 def to_query_text(value: ActivityStreamStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> ActivityStreamStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ActivityStreamStatus value: {text!r}")
     return cast(ActivityStreamStatus, text)
 
 

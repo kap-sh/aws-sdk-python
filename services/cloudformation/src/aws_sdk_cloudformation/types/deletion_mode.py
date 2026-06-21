@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 DeletionMode: TypeAlias = Literal[
     "STANDARD",
@@ -12,21 +11,11 @@ DeletionMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "STANDARD",
-        "FORCE_DELETE_STACK",
-    )
-)
-
-
 def to_query_text(value: DeletionMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> DeletionMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DeletionMode value: {text!r}")
     return cast(DeletionMode, text)
 
 

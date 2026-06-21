@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 ObjectLambdaTransformationConfigurationAction: TypeAlias = Literal[
     "GetObject",
@@ -14,25 +13,11 @@ ObjectLambdaTransformationConfigurationAction: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "GetObject",
-        "HeadObject",
-        "ListObjects",
-        "ListObjectsV2",
-    )
-)
-
-
 def to_xml_text(value: ObjectLambdaTransformationConfigurationAction) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ObjectLambdaTransformationConfigurationAction:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ObjectLambdaTransformationConfigurationAction value: {text!r}"
-        )
     return cast(ObjectLambdaTransformationConfigurationAction, text)
 
 

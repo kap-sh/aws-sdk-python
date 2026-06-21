@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 Visibility: TypeAlias = Literal[
     "PUBLIC",
@@ -12,21 +11,11 @@ Visibility: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "PUBLIC",
-        "PRIVATE",
-    )
-)
-
-
 def to_query_text(value: Visibility) -> str:
     return value
 
 
 def from_query_text(text: str) -> Visibility:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown Visibility value: {text!r}")
     return cast(Visibility, text)
 
 

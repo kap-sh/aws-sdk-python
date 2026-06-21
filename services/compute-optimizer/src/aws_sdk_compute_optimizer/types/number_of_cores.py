@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NumberOfCores: TypeAlias = int
-
-DEFAULT_NUMBER_OF_CORES: NumberOfCores = 0

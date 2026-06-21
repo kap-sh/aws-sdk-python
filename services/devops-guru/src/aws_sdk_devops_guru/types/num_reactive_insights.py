@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NumReactiveInsights: TypeAlias = int
-
-DEFAULT_NUM_REACTIVE_INSIGHTS: NumReactiveInsights = 0

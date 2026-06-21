@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 NatGatewayAddressStatus: TypeAlias = Literal[
     "assigning",
@@ -16,37 +15,11 @@ NatGatewayAddressStatus: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "assigning",
-        "unassigning",
-        "associating",
-        "disassociating",
-        "succeeded",
-        "failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "assigning",
-        "unassigning",
-        "associating",
-        "disassociating",
-        "succeeded",
-        "failed",
-    )
-)
-
-
 def to_ec2_query_text(value: NatGatewayAddressStatus) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> NatGatewayAddressStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NatGatewayAddressStatus value: {text!r}")
     return cast(NatGatewayAddressStatus, text)
 
 

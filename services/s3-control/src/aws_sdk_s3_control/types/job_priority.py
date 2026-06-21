@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 JobPriority: TypeAlias = int
-
-DEFAULT_JOB_PRIORITY: JobPriority = 0

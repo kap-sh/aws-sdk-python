@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 LongTimeStampType: TypeAlias = int
-
-DEFAULT_LONG_TIME_STAMP_TYPE: LongTimeStampType = 0

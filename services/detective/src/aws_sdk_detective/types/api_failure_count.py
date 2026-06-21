@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 APIFailureCount: TypeAlias = int
-
-DEFAULT_API_FAILURE_COUNT: APIFailureCount = 0

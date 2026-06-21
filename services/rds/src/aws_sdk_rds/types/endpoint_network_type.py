@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 EndpointNetworkType: TypeAlias = Literal[
     "IPV4",
@@ -13,22 +12,11 @@ EndpointNetworkType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "IPV4",
-        "IPV6",
-        "DUAL",
-    )
-)
-
-
 def to_query_text(value: EndpointNetworkType) -> str:
     return value
 
 
 def from_query_text(text: str) -> EndpointNetworkType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown EndpointNetworkType value: {text!r}")
     return cast(EndpointNetworkType, text)
 
 

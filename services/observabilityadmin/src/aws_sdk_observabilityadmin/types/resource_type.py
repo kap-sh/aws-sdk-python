@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_observabilityadmin.errors import DeserializationError
-
 ResourceType: TypeAlias = Literal[
     "AWS::EC2::Instance",
     "AWS::EC2::VPC",
@@ -28,36 +26,9 @@ ResourceType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "AWS::EC2::Instance",
-        "AWS::EC2::VPC",
-        "AWS::Lambda::Function",
-        "AWS::CloudTrail",
-        "AWS::EKS::Cluster",
-        "AWS::WAFv2::WebACL",
-        "AWS::ElasticLoadBalancingV2::LoadBalancer",
-        "AWS::Route53Resolver::ResolverEndpoint",
-        "AWS::BedrockAgentCore::Runtime",
-        "AWS::BedrockAgentCore::Browser",
-        "AWS::BedrockAgentCore::CodeInterpreter",
-        "AWS::BedrockAgentCore::Gateway",
-        "AWS::BedrockAgentCore::Memory",
-        "AWS::BedrockAgentCore::WorkloadIdentity",
-        "AWS::SecurityHub::Hub",
-        "AWS::CloudFront::Distribution",
-        "AWS::SecurityHub::HubV2",
-        "AWS::CloudWatch::OTelEnrichment",
-        "AWS::MSK::Cluster",
-    )
-)
-
-
 def serialize_json(value: ResourceType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ResourceType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ResourceType value: {data!r}")
     return cast(ResourceType, data)

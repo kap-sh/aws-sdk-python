@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RunLeftNormalization: TypeAlias = bool
-
-DEFAULT_RUN_LEFT_NORMALIZATION: RunLeftNormalization = False

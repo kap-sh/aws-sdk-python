@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 HideDisabled: TypeAlias = bool
-
-DEFAULT_HIDE_DISABLED: HideDisabled = False

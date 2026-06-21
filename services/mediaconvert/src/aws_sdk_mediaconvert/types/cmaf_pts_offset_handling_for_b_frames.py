@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Use this setting only when your output video stream has B-frames, which causes the initial presentation time stamp (PTS) to be offset from the initial decode time stamp (DTS). Specify how MediaConvert handles PTS when writing time stamps in output DASH manifests. Choose Match initial PTS when you want MediaConvert to use the initial PTS as the first time stamp in the manifest. Choose Zero-based to have MediaConvert ignore the initial PTS in the video stream and instead write the initial time stamp as zero in the manifest. For outputs that don't have B-frames, the time stamps in your DASH manifests start at zero regardless of your choice here."""
 CmafPtsOffsetHandlingForBFrames: TypeAlias = Literal[
     "ZERO_BASED",
@@ -12,21 +10,9 @@ CmafPtsOffsetHandlingForBFrames: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ZERO_BASED",
-        "MATCH_INITIAL_PTS",
-    )
-)
-
-
 def serialize_json(value: CmafPtsOffsetHandlingForBFrames) -> str:
     return value
 
 
 def deserialize_json(data: str) -> CmafPtsOffsetHandlingForBFrames:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown CmafPtsOffsetHandlingForBFrames value: {data!r}"
-        )
     return cast(CmafPtsOffsetHandlingForBFrames, data)

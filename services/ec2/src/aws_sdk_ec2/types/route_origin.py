@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 RouteOrigin: TypeAlias = Literal[
     "CreateRouteTable",
@@ -14,33 +13,11 @@ RouteOrigin: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CreateRouteTable",
-        "CreateRoute",
-        "EnableVgwRoutePropagation",
-        "Advertisement",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CreateRouteTable",
-        "CreateRoute",
-        "EnableVgwRoutePropagation",
-        "Advertisement",
-    )
-)
-
-
 def to_ec2_query_text(value: RouteOrigin) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> RouteOrigin:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RouteOrigin value: {text!r}")
     return cast(RouteOrigin, text)
 
 

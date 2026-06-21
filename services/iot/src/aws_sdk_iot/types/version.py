@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Version: TypeAlias = int
-
-DEFAULT_VERSION: Version = 0

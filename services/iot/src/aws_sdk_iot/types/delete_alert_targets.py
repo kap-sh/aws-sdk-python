@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DeleteAlertTargets: TypeAlias = bool
-
-DEFAULT_DELETE_ALERT_TARGETS: DeleteAlertTargets = False

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 summaryKeyType: TypeAlias = Literal[
     "Users",
@@ -44,53 +43,11 @@ summaryKeyType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Users",
-        "UsersQuota",
-        "Groups",
-        "GroupsQuota",
-        "ServerCertificates",
-        "ServerCertificatesQuota",
-        "UserPolicySizeQuota",
-        "GroupPolicySizeQuota",
-        "GroupsPerUserQuota",
-        "SigningCertificatesPerUserQuota",
-        "AccessKeysPerUserQuota",
-        "MFADevices",
-        "MFADevicesInUse",
-        "AccountMFAEnabled",
-        "AccountAccessKeysPresent",
-        "AccountPasswordPresent",
-        "AccountSigningCertificatesPresent",
-        "AttachedPoliciesPerGroupQuota",
-        "AttachedPoliciesPerRoleQuota",
-        "AttachedPoliciesPerUserQuota",
-        "Policies",
-        "PoliciesQuota",
-        "PolicySizeQuota",
-        "PolicyVersionsInUse",
-        "PolicyVersionsInUseQuota",
-        "VersionsPerPolicyQuota",
-        "GlobalEndpointTokenVersion",
-        "AssumeRolePolicySizeQuota",
-        "InstanceProfiles",
-        "InstanceProfilesQuota",
-        "Providers",
-        "RolePolicySizeQuota",
-        "Roles",
-        "RolesQuota",
-    )
-)
-
-
 def to_query_text(value: summaryKeyType) -> str:
     return value
 
 
 def from_query_text(text: str) -> summaryKeyType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown summaryKeyType value: {text!r}")
     return cast(summaryKeyType, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DesiredCapacity: TypeAlias = int
-
-DEFAULT_DESIRED_CAPACITY: DesiredCapacity = 0

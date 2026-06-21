@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DrMin: TypeAlias = int
-
-DEFAULT_DR_MIN: DrMin = 0

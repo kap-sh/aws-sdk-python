@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_lightsail.errors import DeserializationError
-
 OperationType: TypeAlias = Literal[
     "DeleteKnownHostKeys",
     "DeleteInstance",
@@ -92,100 +90,9 @@ OperationType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DeleteKnownHostKeys",
-        "DeleteInstance",
-        "CreateInstance",
-        "StopInstance",
-        "StartInstance",
-        "RebootInstance",
-        "OpenInstancePublicPorts",
-        "PutInstancePublicPorts",
-        "CloseInstancePublicPorts",
-        "AllocateStaticIp",
-        "ReleaseStaticIp",
-        "AttachStaticIp",
-        "DetachStaticIp",
-        "UpdateDomainEntry",
-        "DeleteDomainEntry",
-        "CreateDomain",
-        "DeleteDomain",
-        "CreateInstanceSnapshot",
-        "DeleteInstanceSnapshot",
-        "CreateInstancesFromSnapshot",
-        "CreateLoadBalancer",
-        "DeleteLoadBalancer",
-        "AttachInstancesToLoadBalancer",
-        "DetachInstancesFromLoadBalancer",
-        "UpdateLoadBalancerAttribute",
-        "CreateLoadBalancerTlsCertificate",
-        "DeleteLoadBalancerTlsCertificate",
-        "AttachLoadBalancerTlsCertificate",
-        "CreateDisk",
-        "DeleteDisk",
-        "AttachDisk",
-        "DetachDisk",
-        "CreateDiskSnapshot",
-        "DeleteDiskSnapshot",
-        "CreateDiskFromSnapshot",
-        "CreateRelationalDatabase",
-        "UpdateRelationalDatabase",
-        "DeleteRelationalDatabase",
-        "CreateRelationalDatabaseFromSnapshot",
-        "CreateRelationalDatabaseSnapshot",
-        "DeleteRelationalDatabaseSnapshot",
-        "UpdateRelationalDatabaseParameters",
-        "StartRelationalDatabase",
-        "RebootRelationalDatabase",
-        "StopRelationalDatabase",
-        "EnableAddOn",
-        "DisableAddOn",
-        "PutAlarm",
-        "GetAlarms",
-        "DeleteAlarm",
-        "TestAlarm",
-        "CreateContactMethod",
-        "GetContactMethods",
-        "SendContactMethodVerification",
-        "DeleteContactMethod",
-        "CreateDistribution",
-        "UpdateDistribution",
-        "DeleteDistribution",
-        "ResetDistributionCache",
-        "AttachCertificateToDistribution",
-        "DetachCertificateFromDistribution",
-        "UpdateDistributionBundle",
-        "SetIpAddressType",
-        "CreateCertificate",
-        "DeleteCertificate",
-        "CreateContainerService",
-        "UpdateContainerService",
-        "DeleteContainerService",
-        "CreateContainerServiceDeployment",
-        "CreateContainerServiceRegistryLogin",
-        "RegisterContainerImage",
-        "DeleteContainerImage",
-        "CreateBucket",
-        "DeleteBucket",
-        "CreateBucketAccessKey",
-        "DeleteBucketAccessKey",
-        "UpdateBucketBundle",
-        "UpdateBucket",
-        "SetResourceAccessForBucket",
-        "UpdateInstanceMetadataOptions",
-        "StartGUISession",
-        "StopGUISession",
-        "SetupInstanceHttps",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: OperationType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> OperationType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown OperationType value: {data!r}")
     return cast(OperationType, data)

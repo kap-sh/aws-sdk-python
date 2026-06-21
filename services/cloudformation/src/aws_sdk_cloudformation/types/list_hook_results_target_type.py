@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 ListHookResultsTargetType: TypeAlias = Literal[
     "CHANGE_SET",
@@ -14,23 +13,11 @@ ListHookResultsTargetType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CHANGE_SET",
-        "STACK",
-        "RESOURCE",
-        "CLOUD_CONTROL",
-    )
-)
-
-
 def to_query_text(value: ListHookResultsTargetType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ListHookResultsTargetType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ListHookResultsTargetType value: {text!r}")
     return cast(ListHookResultsTargetType, text)
 
 

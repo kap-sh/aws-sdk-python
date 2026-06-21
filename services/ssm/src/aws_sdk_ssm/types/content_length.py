@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ContentLength: TypeAlias = int
-
-DEFAULT_CONTENT_LENGTH: ContentLength = 0

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 stateType: TypeAlias = Literal[
     "UNASSIGNED",
@@ -17,26 +16,11 @@ stateType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "UNASSIGNED",
-        "ASSIGNED",
-        "PENDING_APPROVAL",
-        "FINALIZED",
-        "ACCEPTED",
-        "REJECTED",
-        "EXPIRED",
-    )
-)
-
-
 def to_query_text(value: stateType) -> str:
     return value
 
 
 def from_query_text(text: str) -> stateType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown stateType value: {text!r}")
     return cast(stateType, text)
 
 

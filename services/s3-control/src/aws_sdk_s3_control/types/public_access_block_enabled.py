@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PublicAccessBlockEnabled: TypeAlias = bool
-
-DEFAULT_PUBLIC_ACCESS_BLOCK_ENABLED: PublicAccessBlockEnabled = False

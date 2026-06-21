@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 includedDetails: TypeAlias = bool
-
-DEFAULT_INCLUDED_DETAILS: includedDetails = False

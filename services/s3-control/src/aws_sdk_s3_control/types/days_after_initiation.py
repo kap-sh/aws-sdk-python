@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DaysAfterInitiation: TypeAlias = int
-
-DEFAULT_DAYS_AFTER_INITIATION: DaysAfterInitiation = 0

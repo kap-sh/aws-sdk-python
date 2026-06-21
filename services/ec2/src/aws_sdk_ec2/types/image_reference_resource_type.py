@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ImageReferenceResourceType: TypeAlias = Literal[
     "ec2:Instance",
@@ -15,37 +14,11 @@ ImageReferenceResourceType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ec2:Instance",
-        "ec2:LaunchTemplate",
-        "ssm:Parameter",
-        "imagebuilder:ImageRecipe",
-        "imagebuilder:ContainerRecipe",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ec2:Instance",
-        "ec2:LaunchTemplate",
-        "ssm:Parameter",
-        "imagebuilder:ImageRecipe",
-        "imagebuilder:ContainerRecipe",
-    )
-)
-
-
 def to_ec2_query_text(value: ImageReferenceResourceType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ImageReferenceResourceType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ImageReferenceResourceType value: {text!r}"
-        )
     return cast(ImageReferenceResourceType, text)
 
 

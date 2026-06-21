@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_docdb._protocol.xml import Element
-from aws_sdk_docdb.errors import DeserializationError
 
 GlobalClusterMemberSynchronizationStatus: TypeAlias = Literal[
     "connected",
@@ -12,23 +11,11 @@ GlobalClusterMemberSynchronizationStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "connected",
-        "pending-resync",
-    )
-)
-
-
 def to_query_text(value: GlobalClusterMemberSynchronizationStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> GlobalClusterMemberSynchronizationStatus:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown GlobalClusterMemberSynchronizationStatus value: {text!r}"
-        )
     return cast(GlobalClusterMemberSynchronizationStatus, text)
 
 

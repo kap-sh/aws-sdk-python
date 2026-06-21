@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_sns._protocol.xml import Element
-from aws_sdk_sns.errors import DeserializationError
 
 """Enum listing out all supported route types. The following enum values are supported. 1. Transactional : Non-marketing traffic 2. Promotional : Marketing 3. Premium : Premium routes for OTP delivery to the carriers"""
 RouteType: TypeAlias = Literal[
@@ -14,22 +13,11 @@ RouteType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Transactional",
-        "Promotional",
-        "Premium",
-    )
-)
-
-
 def to_query_text(value: RouteType) -> str:
     return value
 
 
 def from_query_text(text: str) -> RouteType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RouteType value: {text!r}")
     return cast(RouteType, text)
 
 

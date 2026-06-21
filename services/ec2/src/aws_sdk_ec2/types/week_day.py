@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 WeekDay: TypeAlias = Literal[
     "sunday",
@@ -17,39 +16,11 @@ WeekDay: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "sunday",
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "sunday",
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-    )
-)
-
-
 def to_ec2_query_text(value: WeekDay) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> WeekDay:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown WeekDay value: {text!r}")
     return cast(WeekDay, text)
 
 

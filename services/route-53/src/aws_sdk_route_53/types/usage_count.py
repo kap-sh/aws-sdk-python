@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UsageCount: TypeAlias = int
-
-DEFAULT_USAGE_COUNT: UsageCount = 0

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ParticipantRecordingTargetSegmentDurationSeconds: TypeAlias = int
-
-DEFAULT_PARTICIPANT_RECORDING_TARGET_SEGMENT_DURATION_SECONDS: ParticipantRecordingTargetSegmentDurationSeconds = 6

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 VerifiedAccessEndpointStatusCode: TypeAlias = Literal[
     "pending",
@@ -15,37 +14,11 @@ VerifiedAccessEndpointStatusCode: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "active",
-        "updating",
-        "deleting",
-        "deleted",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "active",
-        "updating",
-        "deleting",
-        "deleted",
-    )
-)
-
-
 def to_ec2_query_text(value: VerifiedAccessEndpointStatusCode) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> VerifiedAccessEndpointStatusCode:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown VerifiedAccessEndpointStatusCode value: {text!r}"
-        )
     return cast(VerifiedAccessEndpointStatusCode, text)
 
 

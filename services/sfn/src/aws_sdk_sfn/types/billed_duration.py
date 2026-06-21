@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BilledDuration: TypeAlias = int
-
-DEFAULT_BILLED_DURATION: BilledDuration = 0

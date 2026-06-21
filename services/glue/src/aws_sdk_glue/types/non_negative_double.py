@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NonNegativeDouble: TypeAlias = float
-
-DEFAULT_NON_NEGATIVE_DOUBLE: NonNegativeDouble = 0

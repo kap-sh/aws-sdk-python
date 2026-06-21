@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DrMax: TypeAlias = int
-
-DEFAULT_DR_MAX: DrMax = 0

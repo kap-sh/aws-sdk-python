@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 FileHeaderInfo: TypeAlias = Literal[
     "USE",
@@ -13,22 +12,11 @@ FileHeaderInfo: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "USE",
-        "IGNORE",
-        "NONE",
-    )
-)
-
-
 def to_xml_text(value: FileHeaderInfo) -> str:
     return value
 
 
 def from_xml_text(text: str) -> FileHeaderInfo:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FileHeaderInfo value: {text!r}")
     return cast(FileHeaderInfo, text)
 
 

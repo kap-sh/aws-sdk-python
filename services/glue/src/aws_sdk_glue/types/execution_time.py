@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ExecutionTime: TypeAlias = int
-
-DEFAULT_EXECUTION_TIME: ExecutionTime = 0

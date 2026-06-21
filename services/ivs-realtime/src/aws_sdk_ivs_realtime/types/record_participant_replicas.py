@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RecordParticipantReplicas: TypeAlias = bool
-
-DEFAULT_RECORD_PARTICIPANT_REPLICAS: RecordParticipantReplicas = False

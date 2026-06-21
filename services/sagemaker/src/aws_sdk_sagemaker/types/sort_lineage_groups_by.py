@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_sagemaker.errors import DeserializationError
-
 SortLineageGroupsBy: TypeAlias = Literal[
     "Name",
     "CreationTime",
@@ -11,19 +9,9 @@ SortLineageGroupsBy: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Name",
-        "CreationTime",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: SortLineageGroupsBy) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> SortLineageGroupsBy:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown SortLineageGroupsBy value: {data!r}")
     return cast(SortLineageGroupsBy, data)

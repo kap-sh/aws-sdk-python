@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_timestream_query.errors import DeserializationError
-
 ScheduledQueryInsightsMode: TypeAlias = Literal[
     "ENABLED_WITH_RATE_CONTROL",
     "DISABLED",
@@ -11,21 +9,9 @@ ScheduledQueryInsightsMode: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ENABLED_WITH_RATE_CONTROL",
-        "DISABLED",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: ScheduledQueryInsightsMode) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> ScheduledQueryInsightsMode:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown ScheduledQueryInsightsMode value: {data!r}"
-        )
     return cast(ScheduledQueryInsightsMode, data)

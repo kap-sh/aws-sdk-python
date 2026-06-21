@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MaxRate: TypeAlias = float
-
-DEFAULT_MAX_RATE: MaxRate = 0

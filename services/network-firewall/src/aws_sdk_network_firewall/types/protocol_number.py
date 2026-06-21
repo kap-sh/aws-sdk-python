@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ProtocolNumber: TypeAlias = int
-
-DEFAULT_PROTOCOL_NUMBER: ProtocolNumber = 0

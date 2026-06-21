@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ValidateOnly: TypeAlias = bool
-
-DEFAULT_VALIDATE_ONLY: ValidateOnly = False

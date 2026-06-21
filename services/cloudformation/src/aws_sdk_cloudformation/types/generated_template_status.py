@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 GeneratedTemplateStatus: TypeAlias = Literal[
     "CREATE_PENDING",
@@ -18,27 +17,11 @@ GeneratedTemplateStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CREATE_PENDING",
-        "UPDATE_PENDING",
-        "DELETE_PENDING",
-        "CREATE_IN_PROGRESS",
-        "UPDATE_IN_PROGRESS",
-        "DELETE_IN_PROGRESS",
-        "FAILED",
-        "COMPLETE",
-    )
-)
-
-
 def to_query_text(value: GeneratedTemplateStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> GeneratedTemplateStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown GeneratedTemplateStatus value: {text!r}")
     return cast(GeneratedTemplateStatus, text)
 
 

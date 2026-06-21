@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 StaticSourcesSupportValue: TypeAlias = Literal[
     "enable",
@@ -12,29 +11,11 @@ StaticSourcesSupportValue: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enable",
-        "disable",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enable",
-        "disable",
-    )
-)
-
-
 def to_ec2_query_text(value: StaticSourcesSupportValue) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> StaticSourcesSupportValue:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StaticSourcesSupportValue value: {text!r}")
     return cast(StaticSourcesSupportValue, text)
 
 

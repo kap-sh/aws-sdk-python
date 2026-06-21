@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Period: TypeAlias = int
-
-DEFAULT_PERIOD: Period = 0

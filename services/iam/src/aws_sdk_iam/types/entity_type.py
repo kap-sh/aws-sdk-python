@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 EntityType: TypeAlias = Literal[
     "User",
@@ -15,24 +14,11 @@ EntityType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "User",
-        "Role",
-        "Group",
-        "LocalManagedPolicy",
-        "AWSManagedPolicy",
-    )
-)
-
-
 def to_query_text(value: EntityType) -> str:
     return value
 
 
 def from_query_text(text: str) -> EntityType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown EntityType value: {text!r}")
     return cast(EntityType, text)
 
 

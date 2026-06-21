@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Overridden: TypeAlias = bool
-
-DEFAULT_OVERRIDDEN: Overridden = False

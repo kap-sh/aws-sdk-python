@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MaxResultsInteger: TypeAlias = int
-
-DEFAULT_MAX_RESULTS_INTEGER: MaxResultsInteger = 500

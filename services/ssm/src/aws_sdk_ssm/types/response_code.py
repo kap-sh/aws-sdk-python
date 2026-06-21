@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ResponseCode: TypeAlias = int
-
-DEFAULT_RESPONSE_CODE: ResponseCode = 0

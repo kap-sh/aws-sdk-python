@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NwkGeoLoc: TypeAlias = bool
-
-DEFAULT_NWK_GEO_LOC: NwkGeoLoc = False

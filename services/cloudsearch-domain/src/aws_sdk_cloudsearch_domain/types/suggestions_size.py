@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SuggestionsSize: TypeAlias = int
-
-DEFAULT_SUGGESTIONS_SIZE: SuggestionsSize = 0

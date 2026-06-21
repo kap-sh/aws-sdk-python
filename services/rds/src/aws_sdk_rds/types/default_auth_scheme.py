@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 DefaultAuthScheme: TypeAlias = Literal[
     "IAM_AUTH",
@@ -12,21 +11,11 @@ DefaultAuthScheme: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "IAM_AUTH",
-        "NONE",
-    )
-)
-
-
 def to_query_text(value: DefaultAuthScheme) -> str:
     return value
 
 
 def from_query_text(text: str) -> DefaultAuthScheme:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DefaultAuthScheme value: {text!r}")
     return cast(DefaultAuthScheme, text)
 
 

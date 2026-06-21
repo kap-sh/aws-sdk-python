@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 VpcEncryptionControlState: TypeAlias = Literal[
     "enforce-in-progress",
@@ -19,43 +18,11 @@ VpcEncryptionControlState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enforce-in-progress",
-        "monitor-in-progress",
-        "enforce-failed",
-        "monitor-failed",
-        "deleting",
-        "deleted",
-        "available",
-        "creating",
-        "delete-failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enforce-in-progress",
-        "monitor-in-progress",
-        "enforce-failed",
-        "monitor-failed",
-        "deleting",
-        "deleted",
-        "available",
-        "creating",
-        "delete-failed",
-    )
-)
-
-
 def to_ec2_query_text(value: VpcEncryptionControlState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> VpcEncryptionControlState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown VpcEncryptionControlState value: {text!r}")
     return cast(VpcEncryptionControlState, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 ExportSourceType: TypeAlias = Literal[
     "SNAPSHOT",
@@ -12,21 +11,11 @@ ExportSourceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SNAPSHOT",
-        "CLUSTER",
-    )
-)
-
-
 def to_query_text(value: ExportSourceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ExportSourceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ExportSourceType value: {text!r}")
     return cast(ExportSourceType, text)
 
 

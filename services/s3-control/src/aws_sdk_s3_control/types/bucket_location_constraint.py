@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 BucketLocationConstraint: TypeAlias = Literal[
     "EU",
@@ -21,30 +20,11 @@ BucketLocationConstraint: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "EU",
-        "eu-west-1",
-        "us-west-1",
-        "us-west-2",
-        "ap-south-1",
-        "ap-southeast-1",
-        "ap-southeast-2",
-        "ap-northeast-1",
-        "sa-east-1",
-        "cn-north-1",
-        "eu-central-1",
-    )
-)
-
-
 def to_xml_text(value: BucketLocationConstraint) -> str:
     return value
 
 
 def from_xml_text(text: str) -> BucketLocationConstraint:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BucketLocationConstraint value: {text!r}")
     return cast(BucketLocationConstraint, text)
 
 

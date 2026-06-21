@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
-from aws_sdk_route_53.errors import DeserializationError
 
 HealthCheckType: TypeAlias = Literal[
     "HTTP",
@@ -18,27 +17,11 @@ HealthCheckType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "HTTP",
-        "HTTPS",
-        "HTTP_STR_MATCH",
-        "HTTPS_STR_MATCH",
-        "TCP",
-        "CALCULATED",
-        "CLOUDWATCH_METRIC",
-        "RECOVERY_CONTROL",
-    )
-)
-
-
 def to_xml_text(value: HealthCheckType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> HealthCheckType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown HealthCheckType value: {text!r}")
     return cast(HealthCheckType, text)
 
 

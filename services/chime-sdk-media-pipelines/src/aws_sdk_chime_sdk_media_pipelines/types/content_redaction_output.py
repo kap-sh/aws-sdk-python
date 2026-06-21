@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
-
 ContentRedactionOutput: TypeAlias = Literal[
     "redacted",
     "redacted_and_unredacted",
@@ -11,19 +9,9 @@ ContentRedactionOutput: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "redacted",
-        "redacted_and_unredacted",
-    )
-)
-
-
 def serialize_json(value: ContentRedactionOutput) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ContentRedactionOutput:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ContentRedactionOutput value: {data!r}")
     return cast(ContentRedactionOutput, data)

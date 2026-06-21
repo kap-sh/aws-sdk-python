@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ChildDirected: TypeAlias = bool
-
-DEFAULT_CHILD_DIRECTED: ChildDirected = False

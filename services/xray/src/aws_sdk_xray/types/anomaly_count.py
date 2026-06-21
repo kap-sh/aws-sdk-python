@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AnomalyCount: TypeAlias = int
-
-DEFAULT_ANOMALY_COUNT: AnomalyCount = 0

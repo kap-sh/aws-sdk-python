@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MultiLine: TypeAlias = bool
-
-DEFAULT_MULTI_LINE: MultiLine = False

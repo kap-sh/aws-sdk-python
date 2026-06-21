@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TargetPort: TypeAlias = int
-
-DEFAULT_TARGET_PORT: TargetPort = 0

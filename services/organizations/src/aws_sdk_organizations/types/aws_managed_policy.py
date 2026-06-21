@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AwsManagedPolicy: TypeAlias = bool
-
-DEFAULT_AWS_MANAGED_POLICY: AwsManagedPolicy = False

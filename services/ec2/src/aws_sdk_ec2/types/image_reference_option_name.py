@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ImageReferenceOptionName: TypeAlias = Literal[
     "state-name",
@@ -12,29 +11,11 @@ ImageReferenceOptionName: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "state-name",
-        "version-depth",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "state-name",
-        "version-depth",
-    )
-)
-
-
 def to_ec2_query_text(value: ImageReferenceOptionName) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ImageReferenceOptionName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ImageReferenceOptionName value: {text!r}")
     return cast(ImageReferenceOptionName, text)
 
 

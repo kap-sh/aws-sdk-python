@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 AnnotationStatus: TypeAlias = Literal[
     "PASSED",
@@ -13,22 +12,11 @@ AnnotationStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "PASSED",
-        "FAILED",
-        "SKIPPED",
-    )
-)
-
-
 def to_query_text(value: AnnotationStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> AnnotationStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AnnotationStatus value: {text!r}")
     return cast(AnnotationStatus, text)
 
 

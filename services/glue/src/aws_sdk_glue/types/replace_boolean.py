@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ReplaceBoolean: TypeAlias = bool
-
-DEFAULT_REPLACE_BOOLEAN: ReplaceBoolean = False

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Unmask: TypeAlias = bool
-
-DEFAULT_UNMASK: Unmask = False

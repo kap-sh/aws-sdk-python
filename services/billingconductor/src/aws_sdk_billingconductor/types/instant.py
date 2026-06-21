@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Instant: TypeAlias = int
-
-DEFAULT_INSTANT: Instant = 0

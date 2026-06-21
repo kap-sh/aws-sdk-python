@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Published: TypeAlias = bool
-
-DEFAULT_PUBLISHED: Published = False

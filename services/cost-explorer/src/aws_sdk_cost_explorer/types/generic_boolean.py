@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 GenericBoolean: TypeAlias = bool
-
-DEFAULT_GENERIC_BOOLEAN: GenericBoolean = False

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 WarningCode: TypeAlias = int
-
-DEFAULT_WARNING_CODE: WarningCode = 0

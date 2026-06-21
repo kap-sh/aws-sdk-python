@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PolicySizeBytes: TypeAlias = int
-
-DEFAULT_POLICY_SIZE_BYTES: PolicySizeBytes = 0

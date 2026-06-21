@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_device_farm.errors import DeserializationError
-
 ArtifactType: TypeAlias = Literal[
     "UNKNOWN",
     "SCREENSHOT",
@@ -37,45 +35,9 @@ ArtifactType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "UNKNOWN",
-        "SCREENSHOT",
-        "DEVICE_LOG",
-        "MESSAGE_LOG",
-        "VIDEO_LOG",
-        "RESULT_LOG",
-        "SERVICE_LOG",
-        "WEBKIT_LOG",
-        "INSTRUMENTATION_OUTPUT",
-        "EXERCISER_MONKEY_OUTPUT",
-        "CALABASH_JSON_OUTPUT",
-        "CALABASH_PRETTY_OUTPUT",
-        "CALABASH_STANDARD_OUTPUT",
-        "CALABASH_JAVA_XML_OUTPUT",
-        "AUTOMATION_OUTPUT",
-        "APPIUM_SERVER_OUTPUT",
-        "APPIUM_JAVA_OUTPUT",
-        "APPIUM_JAVA_XML_OUTPUT",
-        "APPIUM_PYTHON_OUTPUT",
-        "APPIUM_PYTHON_XML_OUTPUT",
-        "EXPLORER_EVENT_LOG",
-        "EXPLORER_SUMMARY_LOG",
-        "APPLICATION_CRASH_REPORT",
-        "XCTEST_LOG",
-        "VIDEO",
-        "CUSTOMER_ARTIFACT",
-        "CUSTOMER_ARTIFACT_LOG",
-        "TESTSPEC_OUTPUT",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: ArtifactType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> ArtifactType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ArtifactType value: {data!r}")
     return cast(ArtifactType, data)

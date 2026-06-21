@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MaxConnections: TypeAlias = int
-
-DEFAULT_MAX_CONNECTIONS: MaxConnections = 0

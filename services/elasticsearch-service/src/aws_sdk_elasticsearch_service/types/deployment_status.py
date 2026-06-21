@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_elasticsearch_service.errors import DeserializationError
-
 DeploymentStatus: TypeAlias = Literal[
     "PENDING_UPDATE",
     "IN_PROGRESS",
@@ -14,22 +12,9 @@ DeploymentStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "PENDING_UPDATE",
-        "IN_PROGRESS",
-        "COMPLETED",
-        "NOT_ELIGIBLE",
-        "ELIGIBLE",
-    )
-)
-
-
 def serialize_json(value: DeploymentStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> DeploymentStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown DeploymentStatus value: {data!r}")
     return cast(DeploymentStatus, data)

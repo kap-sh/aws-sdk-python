@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Flatten: TypeAlias = bool
-
-DEFAULT_FLATTEN: Flatten = False

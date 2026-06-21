@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_bedrock_agent.errors import DeserializationError
-
 PerformanceConfigLatency: TypeAlias = Literal[
     "standard",
     "optimized",
@@ -11,19 +9,9 @@ PerformanceConfigLatency: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "standard",
-        "optimized",
-    )
-)
-
-
 def serialize_json(value: PerformanceConfigLatency) -> str:
     return value
 
 
 def deserialize_json(data: str) -> PerformanceConfigLatency:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown PerformanceConfigLatency value: {data!r}")
     return cast(PerformanceConfigLatency, data)

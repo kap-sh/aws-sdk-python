@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_compute_optimizer.errors import DeserializationError
-
 ExportableRDSDBField: TypeAlias = Literal[
     "ResourceArn",
     "AccountId",
@@ -91,99 +89,9 @@ ExportableRDSDBField: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ResourceArn",
-        "AccountId",
-        "Engine",
-        "EngineVersion",
-        "Idle",
-        "MultiAZDBInstance",
-        "ClusterWriter",
-        "CurrentDBInstanceClass",
-        "CurrentStorageConfigurationStorageType",
-        "CurrentStorageConfigurationAllocatedStorage",
-        "CurrentStorageConfigurationMaxAllocatedStorage",
-        "CurrentStorageConfigurationIOPS",
-        "CurrentStorageConfigurationStorageThroughput",
-        "CurrentStorageEstimatedMonthlyVolumeIOPsCostVariation",
-        "CurrentInstanceOnDemandHourlyPrice",
-        "CurrentStorageOnDemandMonthlyPrice",
-        "LookbackPeriodInDays",
-        "CurrentStorageEstimatedClusterInstanceOnDemandMonthlyCost",
-        "CurrentStorageEstimatedClusterStorageOnDemandMonthlyCost",
-        "CurrentStorageEstimatedClusterStorageIOOnDemandMonthlyCost",
-        "CurrentInstancePerformanceRisk",
-        "UtilizationMetricsCpuMaximum",
-        "UtilizationMetricsMemoryMaximum",
-        "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum",
-        "UtilizationMetricsNetworkReceiveThroughputMaximum",
-        "UtilizationMetricsNetworkTransmitThroughputMaximum",
-        "UtilizationMetricsEBSVolumeReadIOPSMaximum",
-        "UtilizationMetricsEBSVolumeWriteIOPSMaximum",
-        "UtilizationMetricsEBSVolumeReadThroughputMaximum",
-        "UtilizationMetricsEBSVolumeWriteThroughputMaximum",
-        "UtilizationMetricsDatabaseConnectionsMaximum",
-        "UtilizationMetricsStorageNetworkReceiveThroughputMaximum",
-        "UtilizationMetricsStorageNetworkTransmitThroughputMaximum",
-        "UtilizationMetricsAuroraMemoryHealthStateMaximum",
-        "UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum",
-        "UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum",
-        "UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum",
-        "UtilizationMetricsReadIOPSEphemeralStorageMaximum",
-        "UtilizationMetricsWriteIOPSEphemeralStorageMaximum",
-        "UtilizationMetricsVolumeBytesUsedAverage",
-        "UtilizationMetricsVolumeReadIOPsAverage",
-        "UtilizationMetricsVolumeWriteIOPsAverage",
-        "InstanceFinding",
-        "InstanceFindingReasonCodes",
-        "StorageFinding",
-        "StorageFindingReasonCodes",
-        "InstanceRecommendationOptionsDBInstanceClass",
-        "InstanceRecommendationOptionsRank",
-        "InstanceRecommendationOptionsPerformanceRisk",
-        "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-        "StorageRecommendationOptionsStorageType",
-        "StorageRecommendationOptionsAllocatedStorage",
-        "StorageRecommendationOptionsMaxAllocatedStorage",
-        "StorageRecommendationOptionsIOPS",
-        "StorageRecommendationOptionsStorageThroughput",
-        "StorageRecommendationOptionsRank",
-        "StorageRecommendationOptionsEstimatedMonthlyVolumeIOPsCostVariation",
-        "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice",
-        "InstanceRecommendationOptionsSavingsOpportunityPercentage",
-        "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency",
-        "InstanceRecommendationOptionsEstimatedMonthlySavingsValue",
-        "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
-        "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
-        "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
-        "StorageRecommendationOptionsOnDemandMonthlyPrice",
-        "StorageRecommendationOptionsEstimatedClusterInstanceOnDemandMonthlyCost",
-        "StorageRecommendationOptionsEstimatedClusterStorageOnDemandMonthlyCost",
-        "StorageRecommendationOptionsEstimatedClusterStorageIOOnDemandMonthlyCost",
-        "StorageRecommendationOptionsSavingsOpportunityPercentage",
-        "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency",
-        "StorageRecommendationOptionsEstimatedMonthlySavingsValue",
-        "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
-        "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
-        "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
-        "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-        "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-        "EffectiveRecommendationPreferencesLookBackPeriod",
-        "EffectiveRecommendationPreferencesSavingsEstimationMode",
-        "LastRefreshTimestamp",
-        "Tags",
-        "DBClusterIdentifier",
-        "PromotionTier",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: ExportableRDSDBField) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> ExportableRDSDBField:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ExportableRDSDBField value: {data!r}")
     return cast(ExportableRDSDBField, data)

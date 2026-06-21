@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 FastLaunchStateCode: TypeAlias = Literal[
     "enabling",
@@ -16,37 +15,11 @@ FastLaunchStateCode: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabling",
-        "enabling-failed",
-        "enabled",
-        "enabled-failed",
-        "disabling",
-        "disabling-failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabling",
-        "enabling-failed",
-        "enabled",
-        "enabled-failed",
-        "disabling",
-        "disabling-failed",
-    )
-)
-
-
 def to_ec2_query_text(value: FastLaunchStateCode) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> FastLaunchStateCode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FastLaunchStateCode value: {text!r}")
     return cast(FastLaunchStateCode, text)
 
 

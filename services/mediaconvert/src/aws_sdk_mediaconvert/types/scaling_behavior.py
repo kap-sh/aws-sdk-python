@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Specify the video Scaling behavior when your output has a different resolution than your input. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/video-scaling.html Select Smart Cropping using Elemental Inference as your scaling behavior to have Elemental Inference automatically crop your video. Smart Crop requires a vertical output aspect ratio (1:1 is the widest aspect ratio supported)."""
 ScalingBehavior: TypeAlias = Literal[
     "DEFAULT",
@@ -16,23 +14,9 @@ ScalingBehavior: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DEFAULT",
-        "STRETCH_TO_OUTPUT",
-        "FIT",
-        "FIT_NO_UPSCALE",
-        "FILL",
-        "SMART_CROP",
-    )
-)
-
-
 def serialize_json(value: ScalingBehavior) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ScalingBehavior:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ScalingBehavior value: {data!r}")
     return cast(ScalingBehavior, data)

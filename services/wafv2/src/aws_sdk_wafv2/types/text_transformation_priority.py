@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TextTransformationPriority: TypeAlias = int
-
-DEFAULT_TEXT_TRANSFORMATION_PRIORITY: TextTransformationPriority = 0

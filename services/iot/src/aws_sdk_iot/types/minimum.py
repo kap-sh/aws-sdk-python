@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Minimum: TypeAlias = float
-
-DEFAULT_MINIMUM: Minimum = 0

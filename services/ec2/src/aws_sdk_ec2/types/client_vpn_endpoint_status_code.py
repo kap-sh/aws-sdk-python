@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ClientVpnEndpointStatusCode: TypeAlias = Literal[
     "pending-associate",
@@ -15,37 +14,11 @@ ClientVpnEndpointStatusCode: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending-associate",
-        "available",
-        "deleting",
-        "deleted",
-        "pending",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending-associate",
-        "available",
-        "deleting",
-        "deleted",
-        "pending",
-    )
-)
-
-
 def to_ec2_query_text(value: ClientVpnEndpointStatusCode) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ClientVpnEndpointStatusCode:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ClientVpnEndpointStatusCode value: {text!r}"
-        )
     return cast(ClientVpnEndpointStatusCode, text)
 
 

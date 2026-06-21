@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 GeneratedTemplateDeletionPolicy: TypeAlias = Literal[
     "DELETE",
@@ -12,23 +11,11 @@ GeneratedTemplateDeletionPolicy: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DELETE",
-        "RETAIN",
-    )
-)
-
-
 def to_query_text(value: GeneratedTemplateDeletionPolicy) -> str:
     return value
 
 
 def from_query_text(text: str) -> GeneratedTemplateDeletionPolicy:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown GeneratedTemplateDeletionPolicy value: {text!r}"
-        )
     return cast(GeneratedTemplateDeletionPolicy, text)
 
 

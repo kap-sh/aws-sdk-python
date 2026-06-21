@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 UpgradeRolloutOrder: TypeAlias = Literal[
     "first",
@@ -13,22 +12,11 @@ UpgradeRolloutOrder: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "first",
-        "second",
-        "last",
-    )
-)
-
-
 def to_query_text(value: UpgradeRolloutOrder) -> str:
     return value
 
 
 def from_query_text(text: str) -> UpgradeRolloutOrder:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown UpgradeRolloutOrder value: {text!r}")
     return cast(UpgradeRolloutOrder, text)
 
 

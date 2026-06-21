@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 ObjectLockRetentionMode: TypeAlias = Literal[
     "GOVERNANCE",
@@ -12,21 +11,11 @@ ObjectLockRetentionMode: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "GOVERNANCE",
-        "COMPLIANCE",
-    )
-)
-
-
 def to_xml_text(value: ObjectLockRetentionMode) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ObjectLockRetentionMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ObjectLockRetentionMode value: {text!r}")
     return cast(ObjectLockRetentionMode, text)
 
 

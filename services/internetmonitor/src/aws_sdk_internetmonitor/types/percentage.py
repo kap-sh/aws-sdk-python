@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Percentage: TypeAlias = float
-
-DEFAULT_PERCENTAGE: Percentage = 0

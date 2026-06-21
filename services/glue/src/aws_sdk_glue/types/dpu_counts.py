@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 dpuCounts: TypeAlias = int
-
-DEFAULT_DPU_COUNTS: dpuCounts = 0

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TimeoutInSeconds: TypeAlias = int
-
-DEFAULT_TIMEOUT_IN_SECONDS: TimeoutInSeconds = 0

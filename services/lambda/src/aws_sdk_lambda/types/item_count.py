@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ItemCount: TypeAlias = int
-
-DEFAULT_ITEM_COUNT: ItemCount = 0

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert, MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708."""
 AncillaryConvert608To708: TypeAlias = Literal[
     "UPCONVERT",
@@ -12,19 +10,9 @@ AncillaryConvert608To708: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "UPCONVERT",
-        "DISABLED",
-    )
-)
-
-
 def serialize_json(value: AncillaryConvert608To708) -> str:
     return value
 
 
 def deserialize_json(data: str) -> AncillaryConvert608To708:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown AncillaryConvert608To708 value: {data!r}")
     return cast(AncillaryConvert608To708, data)

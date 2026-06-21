@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
-from aws_sdk_elastic_load_balancing_v2.errors import DeserializationError
 
 TargetHealthStateEnum: TypeAlias = Literal[
     "initial",
@@ -17,26 +16,11 @@ TargetHealthStateEnum: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "initial",
-        "healthy",
-        "unhealthy",
-        "unhealthy.draining",
-        "unused",
-        "draining",
-        "unavailable",
-    )
-)
-
-
 def to_query_text(value: TargetHealthStateEnum) -> str:
     return value
 
 
 def from_query_text(text: str) -> TargetHealthStateEnum:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown TargetHealthStateEnum value: {text!r}")
     return cast(TargetHealthStateEnum, text)
 
 

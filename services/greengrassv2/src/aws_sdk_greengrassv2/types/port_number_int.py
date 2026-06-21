@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PortNumberInt: TypeAlias = int
-
-DEFAULT_PORT_NUMBER_INT: PortNumberInt = 0

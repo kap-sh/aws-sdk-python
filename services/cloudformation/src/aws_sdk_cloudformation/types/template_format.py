@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 TemplateFormat: TypeAlias = Literal[
     "JSON",
@@ -12,21 +11,11 @@ TemplateFormat: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "JSON",
-        "YAML",
-    )
-)
-
-
 def to_query_text(value: TemplateFormat) -> str:
     return value
 
 
 def from_query_text(text: str) -> TemplateFormat:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown TemplateFormat value: {text!r}")
     return cast(TemplateFormat, text)
 
 

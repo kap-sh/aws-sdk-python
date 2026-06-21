@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 ReplicationStatus: TypeAlias = Literal[
     "COMPLETE",
@@ -15,24 +14,11 @@ ReplicationStatus: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "COMPLETE",
-        "PENDING",
-        "FAILED",
-        "REPLICA",
-        "COMPLETED",
-    )
-)
-
-
 def to_xml_text(value: ReplicationStatus) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ReplicationStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReplicationStatus value: {text!r}")
     return cast(ReplicationStatus, text)
 
 

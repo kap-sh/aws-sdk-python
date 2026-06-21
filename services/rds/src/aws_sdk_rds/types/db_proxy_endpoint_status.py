@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 DBProxyEndpointStatus: TypeAlias = Literal[
     "available",
@@ -16,25 +15,11 @@ DBProxyEndpointStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "modifying",
-        "incompatible-network",
-        "insufficient-resource-limits",
-        "creating",
-        "deleting",
-    )
-)
-
-
 def to_query_text(value: DBProxyEndpointStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> DBProxyEndpointStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DBProxyEndpointStatus value: {text!r}")
     return cast(DBProxyEndpointStatus, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ListingState: TypeAlias = Literal[
     "available",
@@ -14,33 +13,11 @@ ListingState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "sold",
-        "cancelled",
-        "pending",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "sold",
-        "cancelled",
-        "pending",
-    )
-)
-
-
 def to_ec2_query_text(value: ListingState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ListingState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ListingState value: {text!r}")
     return cast(ListingState, text)
 
 

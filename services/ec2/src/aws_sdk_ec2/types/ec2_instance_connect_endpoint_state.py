@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 Ec2InstanceConnectEndpointState: TypeAlias = Literal[
     "create-in-progress",
@@ -19,45 +18,11 @@ Ec2InstanceConnectEndpointState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "create-in-progress",
-        "create-complete",
-        "create-failed",
-        "delete-in-progress",
-        "delete-complete",
-        "delete-failed",
-        "update-in-progress",
-        "update-complete",
-        "update-failed",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "create-in-progress",
-        "create-complete",
-        "create-failed",
-        "delete-in-progress",
-        "delete-complete",
-        "delete-failed",
-        "update-in-progress",
-        "update-complete",
-        "update-failed",
-    )
-)
-
-
 def to_ec2_query_text(value: Ec2InstanceConnectEndpointState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> Ec2InstanceConnectEndpointState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown Ec2InstanceConnectEndpointState value: {text!r}"
-        )
     return cast(Ec2InstanceConnectEndpointState, text)
 
 

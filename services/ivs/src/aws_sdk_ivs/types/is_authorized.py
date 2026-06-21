@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsAuthorized: TypeAlias = bool
-
-DEFAULT_IS_AUTHORIZED: IsAuthorized = False

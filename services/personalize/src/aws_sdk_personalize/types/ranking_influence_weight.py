@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RankingInfluenceWeight: TypeAlias = float
-
-DEFAULT_RANKING_INFLUENCE_WEIGHT: RankingInfluenceWeight = 0

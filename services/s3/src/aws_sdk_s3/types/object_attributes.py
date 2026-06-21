@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 ObjectAttributes: TypeAlias = Literal[
     "ETag",
@@ -15,24 +14,11 @@ ObjectAttributes: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ETag",
-        "Checksum",
-        "ObjectParts",
-        "StorageClass",
-        "ObjectSize",
-    )
-)
-
-
 def to_xml_text(value: ObjectAttributes) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ObjectAttributes:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ObjectAttributes value: {text!r}")
     return cast(ObjectAttributes, text)
 
 

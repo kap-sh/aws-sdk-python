@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 ReportStateType: TypeAlias = Literal[
     "STARTED",
@@ -13,22 +12,11 @@ ReportStateType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "STARTED",
-        "INPROGRESS",
-        "COMPLETE",
-    )
-)
-
-
 def to_query_text(value: ReportStateType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ReportStateType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ReportStateType value: {text!r}")
     return cast(ReportStateType, text)
 
 

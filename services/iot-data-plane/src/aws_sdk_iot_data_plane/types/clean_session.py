@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 CleanSession: TypeAlias = bool
-
-DEFAULT_CLEAN_SESSION: CleanSession = False

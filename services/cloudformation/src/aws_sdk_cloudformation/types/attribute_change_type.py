@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 AttributeChangeType: TypeAlias = Literal[
     "Add",
@@ -14,23 +13,11 @@ AttributeChangeType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Add",
-        "Remove",
-        "Modify",
-        "SyncWithActual",
-    )
-)
-
-
 def to_query_text(value: AttributeChangeType) -> str:
     return value
 
 
 def from_query_text(text: str) -> AttributeChangeType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AttributeChangeType value: {text!r}")
     return cast(AttributeChangeType, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudsearch._protocol.xml import Element
-from aws_sdk_cloudsearch.errors import DeserializationError
 
 SuggesterFuzzyMatching: TypeAlias = Literal[
     "none",
@@ -13,22 +12,11 @@ SuggesterFuzzyMatching: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "none",
-        "low",
-        "high",
-    )
-)
-
-
 def to_query_text(value: SuggesterFuzzyMatching) -> str:
     return value
 
 
 def from_query_text(text: str) -> SuggesterFuzzyMatching:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SuggesterFuzzyMatching value: {text!r}")
     return cast(SuggesterFuzzyMatching, text)
 
 

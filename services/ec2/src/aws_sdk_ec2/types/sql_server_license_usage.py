@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 SqlServerLicenseUsage: TypeAlias = Literal[
     "full",
@@ -12,29 +11,11 @@ SqlServerLicenseUsage: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "full",
-        "waived",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "full",
-        "waived",
-    )
-)
-
-
 def to_ec2_query_text(value: SqlServerLicenseUsage) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> SqlServerLicenseUsage:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SqlServerLicenseUsage value: {text!r}")
     return cast(SqlServerLicenseUsage, text)
 
 

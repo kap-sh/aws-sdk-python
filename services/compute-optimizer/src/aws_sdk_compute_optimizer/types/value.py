@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Value: TypeAlias = float
-
-DEFAULT_VALUE: Value = 0

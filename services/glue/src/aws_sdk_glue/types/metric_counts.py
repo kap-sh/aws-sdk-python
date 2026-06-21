@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 metricCounts: TypeAlias = int
-
-DEFAULT_METRIC_COUNTS: metricCounts = 0

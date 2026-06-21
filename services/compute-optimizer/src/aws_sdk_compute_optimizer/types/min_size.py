@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MinSize: TypeAlias = int
-
-DEFAULT_MIN_SIZE: MinSize = 0

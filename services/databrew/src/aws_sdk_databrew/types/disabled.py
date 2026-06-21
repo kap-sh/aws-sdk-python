@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Disabled: TypeAlias = bool
-
-DEFAULT_DISABLED: Disabled = False

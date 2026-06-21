@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 VLAN: TypeAlias = int
-
-DEFAULT_VLAN: VLAN = 0

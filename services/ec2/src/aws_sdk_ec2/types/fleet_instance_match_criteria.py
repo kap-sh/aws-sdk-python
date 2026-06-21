@@ -3,27 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 FleetInstanceMatchCriteria: TypeAlias = Literal["open",]
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(("open",))
-
-
-_VALUES: frozenset[str] = frozenset(("open",))
-
-
 def to_ec2_query_text(value: FleetInstanceMatchCriteria) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> FleetInstanceMatchCriteria:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown FleetInstanceMatchCriteria value: {text!r}"
-        )
     return cast(FleetInstanceMatchCriteria, text)
 
 

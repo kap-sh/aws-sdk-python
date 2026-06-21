@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 Tier: TypeAlias = Literal[
     "Standard",
@@ -13,22 +12,11 @@ Tier: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Standard",
-        "Bulk",
-        "Expedited",
-    )
-)
-
-
 def to_xml_text(value: Tier) -> str:
     return value
 
 
 def from_xml_text(text: str) -> Tier:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown Tier value: {text!r}")
     return cast(Tier, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UsePromptResponse: TypeAlias = bool
-
-DEFAULT_USE_PROMPT_RESPONSE: UsePromptResponse = False

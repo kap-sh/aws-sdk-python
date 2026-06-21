@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ComplianceSummaryCount: TypeAlias = int
-
-DEFAULT_COMPLIANCE_SUMMARY_COUNT: ComplianceSummaryCount = 0

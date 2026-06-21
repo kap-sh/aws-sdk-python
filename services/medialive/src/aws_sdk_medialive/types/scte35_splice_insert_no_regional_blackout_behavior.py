@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_medialive.errors import DeserializationError
-
 """Scte35 Splice Insert No Regional Blackout Behavior"""
 Scte35SpliceInsertNoRegionalBlackoutBehavior: TypeAlias = Literal[
     "FOLLOW",
@@ -12,21 +10,9 @@ Scte35SpliceInsertNoRegionalBlackoutBehavior: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "FOLLOW",
-        "IGNORE",
-    )
-)
-
-
 def serialize_json(value: Scte35SpliceInsertNoRegionalBlackoutBehavior) -> str:
     return value
 
 
 def deserialize_json(data: str) -> Scte35SpliceInsertNoRegionalBlackoutBehavior:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown Scte35SpliceInsertNoRegionalBlackoutBehavior value: {data!r}"
-        )
     return cast(Scte35SpliceInsertNoRegionalBlackoutBehavior, data)

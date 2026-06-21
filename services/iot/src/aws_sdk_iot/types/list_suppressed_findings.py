@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ListSuppressedFindings: TypeAlias = bool
-
-DEFAULT_LIST_SUPPRESSED_FINDINGS: ListSuppressedFindings = False

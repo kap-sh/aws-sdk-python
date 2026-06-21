@@ -4,5 +4,3 @@ from typing import TypeAlias
 
 """<p> Minimum number of instances that can be instantiated for a given instance type.</p>"""
 MinimumInstanceCount: TypeAlias = int
-
-DEFAULT_MINIMUM_INSTANCE_COUNT: MinimumInstanceCount = 0

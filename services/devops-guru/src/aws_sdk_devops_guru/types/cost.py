@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Cost: TypeAlias = float
-
-DEFAULT_COST: Cost = 0

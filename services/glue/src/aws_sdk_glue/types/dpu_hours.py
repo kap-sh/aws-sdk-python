@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 dpuHours: TypeAlias = float
-
-DEFAULT_DPU_HOURS: dpuHours = 0

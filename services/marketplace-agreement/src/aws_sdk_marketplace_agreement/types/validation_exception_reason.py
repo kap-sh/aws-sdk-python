@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_marketplace_agreement.errors import DeserializationError
-
 ValidationExceptionReason: TypeAlias = Literal[
     "MISSING_BILLING_ADJUSTMENTS",
     "BILLING_ADJUSTMENTS_LIMIT_EXCEEDED",
@@ -91,99 +89,9 @@ ValidationExceptionReason: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "MISSING_BILLING_ADJUSTMENTS",
-        "BILLING_ADJUSTMENTS_LIMIT_EXCEEDED",
-        "MISSING_INVOICE_ID",
-        "INVALID_ADJUSTMENT_AMOUNT",
-        "MISSING_ADJUSTMENT_AMOUNT",
-        "INVALID_REASON_CODE",
-        "MISSING_REASON_CODE",
-        "MISSING_DESCRIPTION",
-        "INVALID_INVOICE_ADJUSTMENT_PERIOD",
-        "INVALID_CURRENCY_CODE",
-        "MISSING_CURRENCY_CODE",
-        "EXCEEDED_MAXIMUM_ADJUSTMENT_AMOUNT",
-        "MISSING_BILLING_ADJUSTMENT_REQUEST_ENTRY",
-        "MULTIPLE_AGREEMENT_IDS",
-        "INVALID_AGREEMENT_CANCELLATION_REQUEST_ID",
-        "MISSING_AGREEMENT_CANCELLATION_REQUEST_ID",
-        "MISSING_REASON",
-        "INVALID_REASON",
-        "INVALID_STATUS",
-        "INVALID_AGREEMENT_ID",
-        "MISSING_AGREEMENT_ID",
-        "INVALID_CATALOG",
-        "INVALID_FILTERS",
-        "INVALID_FILTER_NAME",
-        "MISSING_FILTER_NAME",
-        "INVALID_FILTER_VALUES",
-        "MISSING_FILTER_VALUES",
-        "INVALID_SORT_BY",
-        "INVALID_SORT_ORDER",
-        "INVALID_NEXT_TOKEN",
-        "INVALID_MAX_RESULTS",
-        "INVALID_TERM_ID",
-        "MISSING_TERM_ID",
-        "MISSING_NAME",
-        "INVALID_NAME",
-        "INVALID_DESCRIPTION",
-        "MISSING_CHARGE_AMOUNT",
-        "INVALID_CHARGE_AMOUNT",
-        "MISSING_PAYMENT_REQUEST_ID",
-        "INVALID_PAYMENT_REQUEST_ID",
-        "MISSING_PARTY_TYPE",
-        "INVALID_PARTY_TYPE",
-        "UNSUPPORTED_FILTERS",
-        "INVALID_CLIENT_TOKEN",
-        "INVALID_INTENT",
-        "MISSING_INTENT",
-        "INVALID_SOURCE_AGREEMENT_IDENTIFIER",
-        "MISSING_SOURCE_AGREEMENT_IDENTIFIER",
-        "INVALID_AGREEMENT_PROPOSAL_IDENTIFIER",
-        "MISSING_AGREEMENT_PROPOSAL_IDENTIFIER",
-        "INVALID_REQUESTED_TERMS",
-        "MISSING_REQUESTED_TERMS",
-        "INVALID_REQUESTED_TERM_ID",
-        "MISSING_REQUESTED_TERM_ID",
-        "INVALID_REQUESTED_TERM_CONFIGURATION",
-        "MISSING_REQUESTED_TERM_CONFIGURATION",
-        "INVALID_AGREEMENT_REQUEST_ID",
-        "MISSING_AGREEMENT_REQUEST_ID",
-        "INVALID_PURCHASE_ORDERS",
-        "MISSING_PURCHASE_ORDERS",
-        "INVALID_CHARGE_ID",
-        "MISSING_CHARGE_ID",
-        "INVALID_CHARGE_REVISION",
-        "MISSING_CHARGE_REVISION",
-        "INVALID_AGREEMENT_TYPE",
-        "INVALID_PURCHASE_ORDER_REFERENCE",
-        "INACTIVE_AGREEMENT",
-        "SUPERSEDED_AGREEMENT_PROPOSAL",
-        "EXPIRED_AGREEMENT_PROPOSAL",
-        "MISSING_MANDATORY_TERMS",
-        "INCOMPATIBLE_TERMS",
-        "MISSING_USAGE_AGREEMENT",
-        "INVALID_INCREMENTAL_CHARGE",
-        "MISSING_ACCOUNT_ADDRESS",
-        "UNSUPPORTED_ACTION",
-        "INVALID_REJECTION_REASON",
-        "INVALID_PAYMENT_REQUEST_STATUS",
-        "OTHER",
-        "DUPLICATE_CHARGES",
-        "UNSUPPORTED_ACCOUNT_PLAN",
-        "DUPLICATE_AGREEMENT_IN_ORGANIZATION",
-        "MISSING_PURCHASE_ORDER_REFERENCE",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: ValidationExceptionReason) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> ValidationExceptionReason:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ValidationExceptionReason value: {data!r}")
     return cast(ValidationExceptionReason, data)

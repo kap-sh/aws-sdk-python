@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 LimitlessDatabaseStatus: TypeAlias = Literal[
     "active",
@@ -18,27 +17,11 @@ LimitlessDatabaseStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "active",
-        "not-in-use",
-        "enabled",
-        "disabled",
-        "enabling",
-        "disabling",
-        "modifying-max-capacity",
-        "error",
-    )
-)
-
-
 def to_query_text(value: LimitlessDatabaseStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> LimitlessDatabaseStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LimitlessDatabaseStatus value: {text!r}")
     return cast(LimitlessDatabaseStatus, text)
 
 

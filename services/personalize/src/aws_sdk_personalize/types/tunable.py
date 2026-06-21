@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Tunable: TypeAlias = bool
-
-DEFAULT_TUNABLE: Tunable = False

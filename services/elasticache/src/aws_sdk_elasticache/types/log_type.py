@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 LogType: TypeAlias = Literal[
     "slow-log",
@@ -12,21 +11,11 @@ LogType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "slow-log",
-        "engine-log",
-    )
-)
-
-
 def to_query_text(value: LogType) -> str:
     return value
 
 
 def from_query_text(text: str) -> LogType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LogType value: {text!r}")
     return cast(LogType, text)
 
 

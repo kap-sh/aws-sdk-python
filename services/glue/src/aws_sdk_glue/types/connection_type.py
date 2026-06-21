@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_glue.errors import DeserializationError
-
 ConnectionType: TypeAlias = Literal[
     "JDBC",
     "SFTP",
@@ -101,109 +99,9 @@ ConnectionType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "JDBC",
-        "SFTP",
-        "MONGODB",
-        "KAFKA",
-        "NETWORK",
-        "MARKETPLACE",
-        "CUSTOM",
-        "SALESFORCE",
-        "VIEW_VALIDATION_REDSHIFT",
-        "VIEW_VALIDATION_ATHENA",
-        "GOOGLEADS",
-        "GOOGLESHEETS",
-        "GOOGLEANALYTICS4",
-        "SERVICENOW",
-        "MARKETO",
-        "SAPODATA",
-        "ZENDESK",
-        "JIRACLOUD",
-        "NETSUITEERP",
-        "HUBSPOT",
-        "FACEBOOKADS",
-        "INSTAGRAMADS",
-        "ZOHOCRM",
-        "SALESFORCEPARDOT",
-        "SALESFORCEMARKETINGCLOUD",
-        "ADOBEANALYTICS",
-        "SLACK",
-        "LINKEDIN",
-        "MIXPANEL",
-        "ASANA",
-        "STRIPE",
-        "SMARTSHEET",
-        "DATADOG",
-        "WOOCOMMERCE",
-        "INTERCOM",
-        "SNAPCHATADS",
-        "PAYPAL",
-        "QUICKBOOKS",
-        "FACEBOOKPAGEINSIGHTS",
-        "FRESHDESK",
-        "TWILIO",
-        "DOCUSIGNMONITOR",
-        "FRESHSALES",
-        "ZOOM",
-        "GOOGLESEARCHCONSOLE",
-        "SALESFORCECOMMERCECLOUD",
-        "SAPCONCUR",
-        "DYNATRACE",
-        "MICROSOFTDYNAMIC365FINANCEANDOPS",
-        "MICROSOFTTEAMS",
-        "BLACKBAUDRAISEREDGENXT",
-        "MAILCHIMP",
-        "GITLAB",
-        "PENDO",
-        "PRODUCTBOARD",
-        "CIRCLECI",
-        "PIPEDIVE",
-        "SENDGRID",
-        "AZURECOSMOS",
-        "AZURESQL",
-        "BIGQUERY",
-        "BLACKBAUD",
-        "CLOUDERAHIVE",
-        "CLOUDERAIMPALA",
-        "CLOUDWATCH",
-        "CLOUDWATCHMETRICS",
-        "CMDB",
-        "DATALAKEGEN2",
-        "DB2",
-        "DB2AS400",
-        "DOCUMENTDB",
-        "DOMO",
-        "DYNAMODB",
-        "GOOGLECLOUDSTORAGE",
-        "HBASE",
-        "KUSTOMER",
-        "MICROSOFTDYNAMICS365CRM",
-        "MONDAY",
-        "MYSQL",
-        "OKTA",
-        "OPENSEARCH",
-        "ORACLE",
-        "PIPEDRIVE",
-        "POSTGRESQL",
-        "SAPHANA",
-        "SQLSERVER",
-        "SYNAPSE",
-        "TERADATA",
-        "TERADATANOS",
-        "TIMESTREAM",
-        "TPCDS",
-        "VERTICA",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: ConnectionType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> ConnectionType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ConnectionType value: {data!r}")
     return cast(ConnectionType, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UpperBoundValue: TypeAlias = float
-
-DEFAULT_UPPER_BOUND_VALUE: UpperBoundValue = 0

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_qbusiness.errors import DeserializationError
-
 CreatorModeControl: TypeAlias = Literal[
     "ENABLED",
     "DISABLED",
@@ -11,19 +9,9 @@ CreatorModeControl: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ENABLED",
-        "DISABLED",
-    )
-)
-
-
 def serialize_json(value: CreatorModeControl) -> str:
     return value
 
 
 def deserialize_json(data: str) -> CreatorModeControl:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown CreatorModeControl value: {data!r}")
     return cast(CreatorModeControl, data)

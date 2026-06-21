@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RemoveAuthorizerConfig: TypeAlias = bool
-
-DEFAULT_REMOVE_AUTHORIZER_CONFIG: RemoveAuthorizerConfig = False

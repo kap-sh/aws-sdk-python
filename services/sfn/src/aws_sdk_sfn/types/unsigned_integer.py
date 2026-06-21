@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UnsignedInteger: TypeAlias = int
-
-DEFAULT_UNSIGNED_INTEGER: UnsignedInteger = 0

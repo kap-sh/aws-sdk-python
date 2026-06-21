@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TurnAngle: TypeAlias = float
-
-DEFAULT_TURN_ANGLE: TurnAngle = 0

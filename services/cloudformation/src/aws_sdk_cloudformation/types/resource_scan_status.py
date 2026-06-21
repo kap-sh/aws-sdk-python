@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 ResourceScanStatus: TypeAlias = Literal[
     "IN_PROGRESS",
@@ -14,23 +13,11 @@ ResourceScanStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "IN_PROGRESS",
-        "FAILED",
-        "COMPLETE",
-        "EXPIRED",
-    )
-)
-
-
 def to_query_text(value: ResourceScanStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> ResourceScanStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ResourceScanStatus value: {text!r}")
     return cast(ResourceScanStatus, text)
 
 

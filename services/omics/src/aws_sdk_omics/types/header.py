@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Header: TypeAlias = bool
-
-DEFAULT_HEADER: Header = False

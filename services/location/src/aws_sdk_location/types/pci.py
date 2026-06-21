@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Pci: TypeAlias = int
-
-DEFAULT_PCI: Pci = 0

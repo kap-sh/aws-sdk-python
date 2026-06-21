@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 StorageEncryptionType: TypeAlias = Literal[
     "none",
@@ -13,22 +12,11 @@ StorageEncryptionType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "none",
-        "sse-kms",
-        "sse-rds",
-    )
-)
-
-
 def to_query_text(value: StorageEncryptionType) -> str:
     return value
 
 
 def from_query_text(text: str) -> StorageEncryptionType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StorageEncryptionType value: {text!r}")
     return cast(StorageEncryptionType, text)
 
 

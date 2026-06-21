@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 EvaluationScorePercentage: TypeAlias = float
-
-DEFAULT_EVALUATION_SCORE_PERCENTAGE: EvaluationScorePercentage = 0

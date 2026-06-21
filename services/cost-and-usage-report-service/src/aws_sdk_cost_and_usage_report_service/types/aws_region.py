@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_cost_and_usage_report_service.errors import DeserializationError
-
 """<p>The region of the S3 bucket that Amazon Web Services delivers the report into.</p>"""
 AWSRegion: TypeAlias = Literal[
     "af-south-1",
@@ -38,45 +36,9 @@ AWSRegion: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "af-south-1",
-        "ap-east-1",
-        "ap-south-1",
-        "ap-south-2",
-        "ap-southeast-1",
-        "ap-southeast-2",
-        "ap-southeast-3",
-        "ap-northeast-1",
-        "ap-northeast-2",
-        "ap-northeast-3",
-        "ca-central-1",
-        "eu-central-1",
-        "eu-central-2",
-        "eu-west-1",
-        "eu-west-2",
-        "eu-west-3",
-        "eu-north-1",
-        "eu-south-1",
-        "eu-south-2",
-        "me-central-1",
-        "me-south-1",
-        "sa-east-1",
-        "us-east-1",
-        "us-east-2",
-        "us-west-1",
-        "us-west-2",
-        "cn-north-1",
-        "cn-northwest-1",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: AWSRegion) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> AWSRegion:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown AWSRegion value: {data!r}")
     return cast(AWSRegion, data)

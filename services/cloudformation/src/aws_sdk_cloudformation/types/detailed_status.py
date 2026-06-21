@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 DetailedStatus: TypeAlias = Literal[
     "CONFIGURATION_COMPLETE",
@@ -12,21 +11,11 @@ DetailedStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CONFIGURATION_COMPLETE",
-        "VALIDATION_FAILED",
-    )
-)
-
-
 def to_query_text(value: DetailedStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> DetailedStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DetailedStatus value: {text!r}")
     return cast(DetailedStatus, text)
 
 

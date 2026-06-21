@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_partnercentral_benefits.errors import DeserializationError
-
 CurrencyCode: TypeAlias = Literal[
     "AED",
     "AMD",
@@ -104,112 +102,9 @@ CurrencyCode: TypeAlias = Literal[
 
 
 # --- awsJson1_0 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "AED",
-        "AMD",
-        "ARS",
-        "AUD",
-        "AWG",
-        "AZN",
-        "BBD",
-        "BDT",
-        "BGN",
-        "BMD",
-        "BND",
-        "BOB",
-        "BRL",
-        "BSD",
-        "BYR",
-        "BZD",
-        "CAD",
-        "CHF",
-        "CLP",
-        "CNY",
-        "COP",
-        "CRC",
-        "CZK",
-        "DKK",
-        "DOP",
-        "EEK",
-        "EGP",
-        "EUR",
-        "GBP",
-        "GEL",
-        "GHS",
-        "GTQ",
-        "GYD",
-        "HKD",
-        "HNL",
-        "HRK",
-        "HTG",
-        "HUF",
-        "IDR",
-        "ILS",
-        "INR",
-        "ISK",
-        "JMD",
-        "JPY",
-        "KES",
-        "KHR",
-        "KRW",
-        "KYD",
-        "KZT",
-        "LBP",
-        "LKR",
-        "LTL",
-        "LVL",
-        "MAD",
-        "MNT",
-        "MOP",
-        "MUR",
-        "MVR",
-        "MXN",
-        "MYR",
-        "NAD",
-        "NGN",
-        "NIO",
-        "NOK",
-        "NZD",
-        "PAB",
-        "PEN",
-        "PHP",
-        "PKR",
-        "PLN",
-        "PYG",
-        "QAR",
-        "RON",
-        "RUB",
-        "SAR",
-        "SEK",
-        "SGD",
-        "SIT",
-        "SKK",
-        "THB",
-        "TND",
-        "TRY",
-        "TTD",
-        "TWD",
-        "TZS",
-        "UAH",
-        "USD",
-        "UYU",
-        "UZS",
-        "VND",
-        "XAF",
-        "XCD",
-        "XOF",
-        "XPF",
-        "ZAR",
-    )
-)
-
-
 def serialize_aws_json_1_0(value: CurrencyCode) -> str:
     return value
 
 
 def deserialize_aws_json_1_0(data: str) -> CurrencyCode:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown CurrencyCode value: {data!r}")
     return cast(CurrencyCode, data)

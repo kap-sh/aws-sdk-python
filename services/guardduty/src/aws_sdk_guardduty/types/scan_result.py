@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_guardduty.errors import DeserializationError
-
 ScanResult: TypeAlias = Literal[
     "CLEAN",
     "INFECTED",
@@ -11,19 +9,9 @@ ScanResult: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CLEAN",
-        "INFECTED",
-    )
-)
-
-
 def serialize_json(value: ScanResult) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ScanResult:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown ScanResult value: {data!r}")
     return cast(ScanResult, data)

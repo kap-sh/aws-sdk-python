@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 DeletionTaskStatusType: TypeAlias = Literal[
     "SUCCEEDED",
@@ -14,23 +13,11 @@ DeletionTaskStatusType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SUCCEEDED",
-        "IN_PROGRESS",
-        "FAILED",
-        "NOT_STARTED",
-    )
-)
-
-
 def to_query_text(value: DeletionTaskStatusType) -> str:
     return value
 
 
 def from_query_text(text: str) -> DeletionTaskStatusType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DeletionTaskStatusType value: {text!r}")
     return cast(DeletionTaskStatusType, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BatchAcrossTopics: TypeAlias = bool
-
-DEFAULT_BATCH_ACROSS_TOPICS: BatchAcrossTopics = False

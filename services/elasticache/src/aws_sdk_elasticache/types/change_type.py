@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 ChangeType: TypeAlias = Literal[
     "immediate",
@@ -12,21 +11,11 @@ ChangeType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "immediate",
-        "requires-reboot",
-    )
-)
-
-
 def to_query_text(value: ChangeType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ChangeType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ChangeType value: {text!r}")
     return cast(ChangeType, text)
 
 

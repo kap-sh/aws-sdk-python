@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 DestinationType: TypeAlias = Literal[
     "cloudwatch-logs",
@@ -12,21 +11,11 @@ DestinationType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "cloudwatch-logs",
-        "kinesis-firehose",
-    )
-)
-
-
 def to_query_text(value: DestinationType) -> str:
     return value
 
 
 def from_query_text(text: str) -> DestinationType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DestinationType value: {text!r}")
     return cast(DestinationType, text)
 
 

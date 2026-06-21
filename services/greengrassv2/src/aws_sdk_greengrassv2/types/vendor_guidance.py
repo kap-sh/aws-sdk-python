@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_greengrassv2.errors import DeserializationError
-
 VendorGuidance: TypeAlias = Literal[
     "ACTIVE",
     "DISCONTINUED",
@@ -12,20 +10,9 @@ VendorGuidance: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ACTIVE",
-        "DISCONTINUED",
-        "DELETED",
-    )
-)
-
-
 def serialize_json(value: VendorGuidance) -> str:
     return value
 
 
 def deserialize_json(data: str) -> VendorGuidance:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown VendorGuidance value: {data!r}")
     return cast(VendorGuidance, data)

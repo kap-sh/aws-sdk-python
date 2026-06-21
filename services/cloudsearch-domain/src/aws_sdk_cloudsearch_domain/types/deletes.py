@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Deletes: TypeAlias = int
-
-DEFAULT_DELETES: Deletes = 0

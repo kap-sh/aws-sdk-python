@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 RetentionAction: TypeAlias = Literal[
     "retain",
@@ -12,21 +11,11 @@ RetentionAction: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "retain",
-        "terminate",
-    )
-)
-
-
 def to_query_text(value: RetentionAction) -> str:
     return value
 
 
 def from_query_text(text: str) -> RetentionAction:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RetentionAction value: {text!r}")
     return cast(RetentionAction, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 IpamResourceType: TypeAlias = Literal[
     "vpc",
@@ -17,39 +16,11 @@ IpamResourceType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "vpc",
-        "subnet",
-        "eip",
-        "public-ipv4-pool",
-        "ipv6-pool",
-        "eni",
-        "anycast-ip-list",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "vpc",
-        "subnet",
-        "eip",
-        "public-ipv4-pool",
-        "ipv6-pool",
-        "eni",
-        "anycast-ip-list",
-    )
-)
-
-
 def to_ec2_query_text(value: IpamResourceType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> IpamResourceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown IpamResourceType value: {text!r}")
     return cast(IpamResourceType, text)
 
 

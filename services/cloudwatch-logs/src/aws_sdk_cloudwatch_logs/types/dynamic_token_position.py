@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DynamicTokenPosition: TypeAlias = int
-
-DEFAULT_DYNAMIC_TOKEN_POSITION: DynamicTokenPosition = 0

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 ClusterScalabilityType: TypeAlias = Literal[
     "standard",
@@ -12,21 +11,11 @@ ClusterScalabilityType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "standard",
-        "limitless",
-    )
-)
-
-
 def to_query_text(value: ClusterScalabilityType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ClusterScalabilityType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ClusterScalabilityType value: {text!r}")
     return cast(ClusterScalabilityType, text)
 
 

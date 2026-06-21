@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 CapacityDistributionStrategy: TypeAlias = Literal[
     "balanced-only",
@@ -12,23 +11,11 @@ CapacityDistributionStrategy: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "balanced-only",
-        "balanced-best-effort",
-    )
-)
-
-
 def to_query_text(value: CapacityDistributionStrategy) -> str:
     return value
 
 
 def from_query_text(text: str) -> CapacityDistributionStrategy:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown CapacityDistributionStrategy value: {text!r}"
-        )
     return cast(CapacityDistributionStrategy, text)
 
 

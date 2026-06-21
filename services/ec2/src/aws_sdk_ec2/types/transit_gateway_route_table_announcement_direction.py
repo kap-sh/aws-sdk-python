@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayRouteTableAnnouncementDirection: TypeAlias = Literal[
     "outgoing",
@@ -12,31 +11,11 @@ TransitGatewayRouteTableAnnouncementDirection: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "outgoing",
-        "incoming",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "outgoing",
-        "incoming",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayRouteTableAnnouncementDirection) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayRouteTableAnnouncementDirection:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayRouteTableAnnouncementDirection value: {text!r}"
-        )
     return cast(TransitGatewayRouteTableAnnouncementDirection, text)
 
 

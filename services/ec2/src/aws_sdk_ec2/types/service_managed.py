@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ServiceManaged: TypeAlias = Literal[
     "alb",
@@ -14,33 +13,11 @@ ServiceManaged: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "alb",
-        "nlb",
-        "rnat",
-        "rds",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "alb",
-        "nlb",
-        "rnat",
-        "rds",
-    )
-)
-
-
 def to_ec2_query_text(value: ServiceManaged) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ServiceManaged:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ServiceManaged value: {text!r}")
     return cast(ServiceManaged, text)
 
 

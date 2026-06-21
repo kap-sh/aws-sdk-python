@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 LongType: TypeAlias = int
-
-DEFAULT_LONG_TYPE: LongType = 0

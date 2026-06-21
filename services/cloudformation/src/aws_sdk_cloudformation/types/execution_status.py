@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 ExecutionStatus: TypeAlias = Literal[
     "UNAVAILABLE",
@@ -16,25 +15,11 @@ ExecutionStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "UNAVAILABLE",
-        "AVAILABLE",
-        "EXECUTE_IN_PROGRESS",
-        "EXECUTE_COMPLETE",
-        "EXECUTE_FAILED",
-        "OBSOLETE",
-    )
-)
-
-
 def to_query_text(value: ExecutionStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> ExecutionStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ExecutionStatus value: {text!r}")
     return cast(ExecutionStatus, text)
 
 

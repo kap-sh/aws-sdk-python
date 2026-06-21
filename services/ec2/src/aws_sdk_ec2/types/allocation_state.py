@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AllocationState: TypeAlias = Literal[
     "available",
@@ -16,37 +15,11 @@ AllocationState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "under-assessment",
-        "permanent-failure",
-        "released",
-        "released-permanent-failure",
-        "pending",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "under-assessment",
-        "permanent-failure",
-        "released",
-        "released-permanent-failure",
-        "pending",
-    )
-)
-
-
 def to_ec2_query_text(value: AllocationState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AllocationState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AllocationState value: {text!r}")
     return cast(AllocationState, text)
 
 

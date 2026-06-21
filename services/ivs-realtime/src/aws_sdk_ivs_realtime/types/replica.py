@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Replica: TypeAlias = bool
-
-DEFAULT_REPLICA: Replica = False

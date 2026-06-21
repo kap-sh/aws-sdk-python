@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 ClientPasswordAuthType: TypeAlias = Literal[
     "MYSQL_NATIVE_PASSWORD",
@@ -15,24 +14,11 @@ ClientPasswordAuthType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "MYSQL_NATIVE_PASSWORD",
-        "MYSQL_CACHING_SHA2_PASSWORD",
-        "POSTGRES_SCRAM_SHA_256",
-        "POSTGRES_MD5",
-        "SQL_SERVER_AUTHENTICATION",
-    )
-)
-
-
 def to_query_text(value: ClientPasswordAuthType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ClientPasswordAuthType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ClientPasswordAuthType value: {text!r}")
     return cast(ClientPasswordAuthType, text)
 
 

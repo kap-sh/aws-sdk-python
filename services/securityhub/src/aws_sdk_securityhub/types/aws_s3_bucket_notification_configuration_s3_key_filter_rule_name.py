@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_securityhub.errors import DeserializationError
-
 AwsS3BucketNotificationConfigurationS3KeyFilterRuleName: TypeAlias = Literal[
     "Prefix",
     "Suffix",
@@ -11,14 +9,6 @@ AwsS3BucketNotificationConfigurationS3KeyFilterRuleName: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Prefix",
-        "Suffix",
-    )
-)
-
-
 def serialize_json(
     value: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName,
 ) -> str:
@@ -28,8 +18,4 @@ def serialize_json(
 def deserialize_json(
     data: str,
 ) -> AwsS3BucketNotificationConfigurationS3KeyFilterRuleName:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown AwsS3BucketNotificationConfigurationS3KeyFilterRuleName value: {data!r}"
-        )
     return cast(AwsS3BucketNotificationConfigurationS3KeyFilterRuleName, data)

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 ServiceUpdateStatus: TypeAlias = Literal[
     "available",
@@ -13,22 +12,11 @@ ServiceUpdateStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "cancelled",
-        "expired",
-    )
-)
-
-
 def to_query_text(value: ServiceUpdateStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> ServiceUpdateStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ServiceUpdateStatus value: {text!r}")
     return cast(ServiceUpdateStatus, text)
 
 

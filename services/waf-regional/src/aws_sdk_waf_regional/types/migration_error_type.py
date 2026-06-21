@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_waf_regional.errors import DeserializationError
-
 MigrationErrorType: TypeAlias = Literal[
     "ENTITY_NOT_SUPPORTED",
     "ENTITY_NOT_FOUND",
@@ -16,24 +14,9 @@ MigrationErrorType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ENTITY_NOT_SUPPORTED",
-        "ENTITY_NOT_FOUND",
-        "S3_BUCKET_NO_PERMISSION",
-        "S3_BUCKET_NOT_ACCESSIBLE",
-        "S3_BUCKET_NOT_FOUND",
-        "S3_BUCKET_INVALID_REGION",
-        "S3_INTERNAL_ERROR",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: MigrationErrorType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> MigrationErrorType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown MigrationErrorType value: {data!r}")
     return cast(MigrationErrorType, data)

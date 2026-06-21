@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudsearch._protocol.xml import Element
-from aws_sdk_cloudsearch.errors import DeserializationError
 
 """<p>An <a href=\"http://tools.ietf.org/html/rfc4646\" target=\"_blank\">IETF RFC 4646</a> language code or <code>mul</code> for multiple languages.</p>"""
 AnalysisSchemeLanguage: TypeAlias = Literal[
@@ -46,54 +45,11 @@ AnalysisSchemeLanguage: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ar",
-        "bg",
-        "ca",
-        "cs",
-        "da",
-        "de",
-        "el",
-        "en",
-        "es",
-        "eu",
-        "fa",
-        "fi",
-        "fr",
-        "ga",
-        "gl",
-        "he",
-        "hi",
-        "hu",
-        "hy",
-        "id",
-        "it",
-        "ja",
-        "ko",
-        "lv",
-        "mul",
-        "nl",
-        "no",
-        "pt",
-        "ro",
-        "ru",
-        "sv",
-        "th",
-        "tr",
-        "zh-Hans",
-        "zh-Hant",
-    )
-)
-
-
 def to_query_text(value: AnalysisSchemeLanguage) -> str:
     return value
 
 
 def from_query_text(text: str) -> AnalysisSchemeLanguage:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AnalysisSchemeLanguage value: {text!r}")
     return cast(AnalysisSchemeLanguage, text)
 
 

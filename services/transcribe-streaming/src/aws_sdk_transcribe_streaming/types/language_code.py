@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError
-
 LanguageCode: TypeAlias = Literal[
     "en-US",
     "en-GB",
@@ -108,116 +106,9 @@ LanguageCode: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "en-US",
-        "en-GB",
-        "es-US",
-        "fr-CA",
-        "fr-FR",
-        "en-AU",
-        "it-IT",
-        "de-DE",
-        "pt-BR",
-        "ja-JP",
-        "ko-KR",
-        "zh-CN",
-        "th-TH",
-        "es-ES",
-        "ar-SA",
-        "pt-PT",
-        "ca-ES",
-        "ar-AE",
-        "hi-IN",
-        "zh-HK",
-        "nl-NL",
-        "no-NO",
-        "sv-SE",
-        "pl-PL",
-        "fi-FI",
-        "zh-TW",
-        "en-IN",
-        "en-IE",
-        "en-NZ",
-        "en-AB",
-        "en-ZA",
-        "en-WL",
-        "de-CH",
-        "af-ZA",
-        "eu-ES",
-        "hr-HR",
-        "cs-CZ",
-        "da-DK",
-        "fa-IR",
-        "gl-ES",
-        "el-GR",
-        "he-IL",
-        "id-ID",
-        "lv-LV",
-        "ms-MY",
-        "ro-RO",
-        "ru-RU",
-        "sr-RS",
-        "sk-SK",
-        "so-SO",
-        "tl-PH",
-        "uk-UA",
-        "vi-VN",
-        "zu-ZA",
-        "am-ET",
-        "be-BY",
-        "bg-BG",
-        "bn-IN",
-        "bs-BA",
-        "ckb-IQ",
-        "ckb-IR",
-        "cy-WL",
-        "es-MX",
-        "et-ET",
-        "fa-AF",
-        "gu-IN",
-        "ht-HT",
-        "hu-HU",
-        "hy-AM",
-        "is-IS",
-        "jv-ID",
-        "ka-GE",
-        "kab-DZ",
-        "kk-KZ",
-        "km-KH",
-        "kn-IN",
-        "lg-IN",
-        "lt-LT",
-        "mk-MK",
-        "ml-IN",
-        "mr-IN",
-        "my-MM",
-        "ne-NP",
-        "or-IN",
-        "pa-IN",
-        "ps-AF",
-        "si-LK",
-        "sl-SI",
-        "sq-AL",
-        "su-ID",
-        "sw-BI",
-        "sw-KE",
-        "sw-RW",
-        "sw-TZ",
-        "sw-UG",
-        "ta-IN",
-        "te-IN",
-        "tr-TR",
-        "uz-UZ",
-    )
-)
-
-
 def serialize_json(value: LanguageCode) -> str:
     return value
 
 
 def deserialize_json(data: str) -> LanguageCode:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown LanguageCode value: {data!r}")
     return cast(LanguageCode, data)

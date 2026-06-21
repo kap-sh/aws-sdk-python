@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ObjectLockEnabledForBucket: TypeAlias = bool
-
-DEFAULT_OBJECT_LOCK_ENABLED_FOR_BUCKET: ObjectLockEnabledForBucket = False

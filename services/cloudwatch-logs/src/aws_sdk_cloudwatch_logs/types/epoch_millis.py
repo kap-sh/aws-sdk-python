@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 EpochMillis: TypeAlias = int
-
-DEFAULT_EPOCH_MILLIS: EpochMillis = 0

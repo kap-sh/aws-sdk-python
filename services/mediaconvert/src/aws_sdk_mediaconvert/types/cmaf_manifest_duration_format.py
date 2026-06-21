@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Indicates whether the output manifest should use floating point values for segment duration."""
 CmafManifestDurationFormat: TypeAlias = Literal[
     "FLOATING_POINT",
@@ -12,21 +10,9 @@ CmafManifestDurationFormat: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "FLOATING_POINT",
-        "INTEGER",
-    )
-)
-
-
 def serialize_json(value: CmafManifestDurationFormat) -> str:
     return value
 
 
 def deserialize_json(data: str) -> CmafManifestDurationFormat:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown CmafManifestDurationFormat value: {data!r}"
-        )
     return cast(CmafManifestDurationFormat, data)

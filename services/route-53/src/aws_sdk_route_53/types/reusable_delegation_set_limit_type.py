@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
-from aws_sdk_route_53.errors import DeserializationError
 
 ReusableDelegationSetLimitType: TypeAlias = Literal[
     "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
@@ -11,18 +10,11 @@ ReusableDelegationSetLimitType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(("MAX_ZONES_BY_REUSABLE_DELEGATION_SET",))
-
-
 def to_xml_text(value: ReusableDelegationSetLimitType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ReusableDelegationSetLimitType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ReusableDelegationSetLimitType value: {text!r}"
-        )
     return cast(ReusableDelegationSetLimitType, text)
 
 

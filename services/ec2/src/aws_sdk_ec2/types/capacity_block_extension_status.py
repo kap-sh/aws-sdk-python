@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 CapacityBlockExtensionStatus: TypeAlias = Literal[
     "payment-pending",
@@ -13,33 +12,11 @@ CapacityBlockExtensionStatus: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "payment-pending",
-        "payment-failed",
-        "payment-succeeded",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "payment-pending",
-        "payment-failed",
-        "payment-succeeded",
-    )
-)
-
-
 def to_ec2_query_text(value: CapacityBlockExtensionStatus) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> CapacityBlockExtensionStatus:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown CapacityBlockExtensionStatus value: {text!r}"
-        )
     return cast(CapacityBlockExtensionStatus, text)
 
 

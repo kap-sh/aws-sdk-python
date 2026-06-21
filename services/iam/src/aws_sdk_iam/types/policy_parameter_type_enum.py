@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 PolicyParameterTypeEnum: TypeAlias = Literal[
     "string",
@@ -12,21 +11,11 @@ PolicyParameterTypeEnum: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "string",
-        "stringList",
-    )
-)
-
-
 def to_query_text(value: PolicyParameterTypeEnum) -> str:
     return value
 
 
 def from_query_text(text: str) -> PolicyParameterTypeEnum:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown PolicyParameterTypeEnum value: {text!r}")
     return cast(PolicyParameterTypeEnum, text)
 
 

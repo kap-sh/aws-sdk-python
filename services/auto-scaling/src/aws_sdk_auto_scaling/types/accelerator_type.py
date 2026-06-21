@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 AcceleratorType: TypeAlias = Literal[
     "gpu",
@@ -13,22 +12,11 @@ AcceleratorType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "gpu",
-        "fpga",
-        "inference",
-    )
-)
-
-
 def to_query_text(value: AcceleratorType) -> str:
     return value
 
 
 def from_query_text(text: str) -> AcceleratorType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AcceleratorType value: {text!r}")
     return cast(AcceleratorType, text)
 
 

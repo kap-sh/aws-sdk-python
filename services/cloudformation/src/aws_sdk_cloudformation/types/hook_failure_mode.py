@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 HookFailureMode: TypeAlias = Literal[
     "FAIL",
@@ -12,21 +11,11 @@ HookFailureMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "FAIL",
-        "WARN",
-    )
-)
-
-
 def to_query_text(value: HookFailureMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> HookFailureMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown HookFailureMode value: {text!r}")
     return cast(HookFailureMode, text)
 
 

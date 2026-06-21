@@ -3,22 +3,16 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 OperationResultFilterName: TypeAlias = Literal["OPERATION_RESULT_STATUS",]
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(("OPERATION_RESULT_STATUS",))
-
-
 def to_query_text(value: OperationResultFilterName) -> str:
     return value
 
 
 def from_query_text(text: str) -> OperationResultFilterName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown OperationResultFilterName value: {text!r}")
     return cast(OperationResultFilterName, text)
 
 

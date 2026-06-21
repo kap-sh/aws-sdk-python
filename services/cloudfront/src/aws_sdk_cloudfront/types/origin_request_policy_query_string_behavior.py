@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 OriginRequestPolicyQueryStringBehavior: TypeAlias = Literal[
     "none",
@@ -14,25 +13,11 @@ OriginRequestPolicyQueryStringBehavior: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "none",
-        "whitelist",
-        "all",
-        "allExcept",
-    )
-)
-
-
 def to_xml_text(value: OriginRequestPolicyQueryStringBehavior) -> str:
     return value
 
 
 def from_xml_text(text: str) -> OriginRequestPolicyQueryStringBehavior:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown OriginRequestPolicyQueryStringBehavior value: {text!r}"
-        )
     return cast(OriginRequestPolicyQueryStringBehavior, text)
 
 

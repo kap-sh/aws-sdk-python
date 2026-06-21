@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Setting: TypeAlias = bool
-
-DEFAULT_SETTING: Setting = False

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Delay: TypeAlias = int
-
-DEFAULT_DELAY: Delay = 0

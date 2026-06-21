@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RoundaboutAngle: TypeAlias = float
-
-DEFAULT_ROUNDABOUT_ANGLE: RoundaboutAngle = 0

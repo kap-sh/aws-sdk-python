@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_macie2.errors import DeserializationError
-
 Type: TypeAlias = Literal[
     "NONE",
     "AES256",
@@ -13,21 +11,9 @@ Type: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "NONE",
-        "AES256",
-        "aws:kms",
-        "aws:kms:dsse",
-    )
-)
-
-
 def serialize_json(value: Type) -> str:
     return value
 
 
 def deserialize_json(data: str) -> Type:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown Type value: {data!r}")
     return cast(Type, data)

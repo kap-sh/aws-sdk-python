@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_transcribe_streaming.errors import DeserializationError
-
 CallAnalyticsLanguageCode: TypeAlias = Literal[
     "en-US",
     "en-GB",
@@ -18,26 +16,9 @@ CallAnalyticsLanguageCode: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "en-US",
-        "en-GB",
-        "es-US",
-        "fr-CA",
-        "fr-FR",
-        "en-AU",
-        "it-IT",
-        "de-DE",
-        "pt-BR",
-    )
-)
-
-
 def serialize_json(value: CallAnalyticsLanguageCode) -> str:
     return value
 
 
 def deserialize_json(data: str) -> CallAnalyticsLanguageCode:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown CallAnalyticsLanguageCode value: {data!r}")
     return cast(CallAnalyticsLanguageCode, data)

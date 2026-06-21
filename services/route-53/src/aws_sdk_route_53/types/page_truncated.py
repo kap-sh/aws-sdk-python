@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PageTruncated: TypeAlias = bool
-
-DEFAULT_PAGE_TRUNCATED: PageTruncated = False

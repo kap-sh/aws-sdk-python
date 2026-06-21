@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
-from aws_sdk_elastic_beanstalk.errors import DeserializationError
 
 InstancesHealthAttribute: TypeAlias = Literal[
     "HealthStatus",
@@ -21,30 +20,11 @@ InstancesHealthAttribute: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "HealthStatus",
-        "Color",
-        "Causes",
-        "ApplicationMetrics",
-        "RefreshedAt",
-        "LaunchedAt",
-        "System",
-        "Deployment",
-        "AvailabilityZone",
-        "InstanceType",
-        "All",
-    )
-)
-
-
 def to_query_text(value: InstancesHealthAttribute) -> str:
     return value
 
 
 def from_query_text(text: str) -> InstancesHealthAttribute:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown InstancesHealthAttribute value: {text!r}")
     return cast(InstancesHealthAttribute, text)
 
 

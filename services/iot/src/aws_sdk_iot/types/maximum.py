@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Maximum: TypeAlias = float
-
-DEFAULT_MAXIMUM: Maximum = 0

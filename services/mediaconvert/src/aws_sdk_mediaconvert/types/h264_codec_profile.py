@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """H.264 Profile. High 4:2:2 and 10-bit profiles are only available with the AVC-I License."""
 H264CodecProfile: TypeAlias = Literal[
     "BASELINE",
@@ -16,23 +14,9 @@ H264CodecProfile: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "BASELINE",
-        "HIGH",
-        "HIGH_10BIT",
-        "HIGH_422",
-        "HIGH_422_10BIT",
-        "MAIN",
-    )
-)
-
-
 def serialize_json(value: H264CodecProfile) -> str:
     return value
 
 
 def deserialize_json(data: str) -> H264CodecProfile:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown H264CodecProfile value: {data!r}")
     return cast(H264CodecProfile, data)

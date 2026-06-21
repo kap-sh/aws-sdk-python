@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 OutpostMode: TypeAlias = Literal[
     "single-outpost",
@@ -12,21 +11,11 @@ OutpostMode: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "single-outpost",
-        "cross-outpost",
-    )
-)
-
-
 def to_query_text(value: OutpostMode) -> str:
     return value
 
 
 def from_query_text(text: str) -> OutpostMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown OutpostMode value: {text!r}")
     return cast(OutpostMode, text)
 
 

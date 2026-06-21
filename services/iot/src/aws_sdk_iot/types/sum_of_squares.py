@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SumOfSquares: TypeAlias = float
-
-DEFAULT_SUM_OF_SQUARES: SumOfSquares = 0

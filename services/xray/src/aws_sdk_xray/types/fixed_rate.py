@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 FixedRate: TypeAlias = float
-
-DEFAULT_FIXED_RATE: FixedRate = 0

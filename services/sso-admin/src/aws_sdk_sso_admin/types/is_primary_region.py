@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsPrimaryRegion: TypeAlias = bool
-
-DEFAULT_IS_PRIMARY_REGION: IsPrimaryRegion = False

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_sns._protocol.xml import Element
-from aws_sdk_sns.errors import DeserializationError
 
 """Enum listing out all supported number capabilities."""
 NumberCapability: TypeAlias = Literal[
@@ -14,22 +13,11 @@ NumberCapability: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SMS",
-        "MMS",
-        "VOICE",
-    )
-)
-
-
 def to_query_text(value: NumberCapability) -> str:
     return value
 
 
 def from_query_text(text: str) -> NumberCapability:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NumberCapability value: {text!r}")
     return cast(NumberCapability, text)
 
 

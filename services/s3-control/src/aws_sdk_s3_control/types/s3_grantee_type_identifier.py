@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 S3GranteeTypeIdentifier: TypeAlias = Literal[
     "id",
@@ -13,22 +12,11 @@ S3GranteeTypeIdentifier: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "id",
-        "emailAddress",
-        "uri",
-    )
-)
-
-
 def to_xml_text(value: S3GranteeTypeIdentifier) -> str:
     return value
 
 
 def from_xml_text(text: str) -> S3GranteeTypeIdentifier:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown S3GranteeTypeIdentifier value: {text!r}")
     return cast(S3GranteeTypeIdentifier, text)
 
 

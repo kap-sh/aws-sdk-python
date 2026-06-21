@@ -4,5 +4,3 @@ from typing import TypeAlias
 
 """Common Boolean data type"""
 Boolean: TypeAlias = bool
-
-DEFAULT_BOOLEAN: Boolean = False

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_rds._protocol.xml import Element
-from aws_sdk_rds.errors import DeserializationError
 
 SourceType: TypeAlias = Literal[
     "db-instance",
@@ -21,30 +20,11 @@ SourceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "db-instance",
-        "db-parameter-group",
-        "db-security-group",
-        "db-snapshot",
-        "db-cluster",
-        "db-cluster-snapshot",
-        "custom-engine-version",
-        "db-proxy",
-        "blue-green-deployment",
-        "db-shard-group",
-        "zero-etl",
-    )
-)
-
-
 def to_query_text(value: SourceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> SourceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SourceType value: {text!r}")
     return cast(SourceType, text)
 
 

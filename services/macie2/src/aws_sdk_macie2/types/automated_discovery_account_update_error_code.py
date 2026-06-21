@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_macie2.errors import DeserializationError
-
 """<p>The error code that indicates why a request failed to change the status of automated sensitive data discovery for an Amazon Macie account. Possible values are:</p>"""
 AutomatedDiscoveryAccountUpdateErrorCode: TypeAlias = Literal[
     "ACCOUNT_PAUSED",
@@ -12,21 +10,9 @@ AutomatedDiscoveryAccountUpdateErrorCode: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ACCOUNT_PAUSED",
-        "ACCOUNT_NOT_FOUND",
-    )
-)
-
-
 def serialize_json(value: AutomatedDiscoveryAccountUpdateErrorCode) -> str:
     return value
 
 
 def deserialize_json(data: str) -> AutomatedDiscoveryAccountUpdateErrorCode:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown AutomatedDiscoveryAccountUpdateErrorCode value: {data!r}"
-        )
     return cast(AutomatedDiscoveryAccountUpdateErrorCode, data)

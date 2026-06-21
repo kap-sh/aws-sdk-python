@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 OverwriteOutput: TypeAlias = bool
-
-DEFAULT_OVERWRITE_OUTPUT: OverwriteOutput = False

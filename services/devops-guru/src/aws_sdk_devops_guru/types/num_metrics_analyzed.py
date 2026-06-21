@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 NumMetricsAnalyzed: TypeAlias = int
-
-DEFAULT_NUM_METRICS_ANALYZED: NumMetricsAnalyzed = 0

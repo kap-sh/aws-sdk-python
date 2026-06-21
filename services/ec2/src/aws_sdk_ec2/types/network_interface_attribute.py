@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 NetworkInterfaceAttribute: TypeAlias = Literal[
     "description",
@@ -15,35 +14,11 @@ NetworkInterfaceAttribute: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "description",
-        "groupSet",
-        "sourceDestCheck",
-        "attachment",
-        "associatePublicIpAddress",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "description",
-        "groupSet",
-        "sourceDestCheck",
-        "attachment",
-        "associatePublicIpAddress",
-    )
-)
-
-
 def to_ec2_query_text(value: NetworkInterfaceAttribute) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> NetworkInterfaceAttribute:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NetworkInterfaceAttribute value: {text!r}")
     return cast(NetworkInterfaceAttribute, text)
 
 

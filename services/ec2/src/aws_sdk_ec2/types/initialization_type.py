@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 InitializationType: TypeAlias = Literal[
     "default",
@@ -13,31 +12,11 @@ InitializationType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "provisioned-rate",
-        "volume-copy",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "default",
-        "provisioned-rate",
-        "volume-copy",
-    )
-)
-
-
 def to_ec2_query_text(value: InitializationType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> InitializationType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown InitializationType value: {text!r}")
     return cast(InitializationType, text)
 
 

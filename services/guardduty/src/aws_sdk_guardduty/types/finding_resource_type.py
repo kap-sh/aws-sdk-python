@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_guardduty.errors import DeserializationError
-
 FindingResourceType: TypeAlias = Literal[
     "EC2_INSTANCE",
     "EC2_NETWORK_INTERFACE",
@@ -25,33 +23,9 @@ FindingResourceType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "EC2_INSTANCE",
-        "EC2_NETWORK_INTERFACE",
-        "S3_BUCKET",
-        "S3_OBJECT",
-        "ACCESS_KEY",
-        "EKS_CLUSTER",
-        "KUBERNETES_WORKLOAD",
-        "CONTAINER",
-        "ECS_CLUSTER",
-        "ECS_TASK",
-        "AUTOSCALING_AUTO_SCALING_GROUP",
-        "IAM_INSTANCE_PROFILE",
-        "CLOUDFORMATION_STACK",
-        "EC2_LAUNCH_TEMPLATE",
-        "EC2_VPC",
-        "EC2_IMAGE",
-    )
-)
-
-
 def serialize_json(value: FindingResourceType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> FindingResourceType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown FindingResourceType value: {data!r}")
     return cast(FindingResourceType, data)

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default."""
 Mpeg2SceneChangeDetect: TypeAlias = Literal[
     "DISABLED",
@@ -12,19 +10,9 @@ Mpeg2SceneChangeDetect: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DISABLED",
-        "ENABLED",
-    )
-)
-
-
 def serialize_json(value: Mpeg2SceneChangeDetect) -> str:
     return value
 
 
 def deserialize_json(data: str) -> Mpeg2SceneChangeDetect:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown Mpeg2SceneChangeDetect value: {data!r}")
     return cast(Mpeg2SceneChangeDetect, data)

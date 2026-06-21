@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
-from aws_sdk_elastic_beanstalk.errors import DeserializationError
 
 SourceType: TypeAlias = Literal[
     "Git",
@@ -12,21 +11,11 @@ SourceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Git",
-        "Zip",
-    )
-)
-
-
 def to_query_text(value: SourceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> SourceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SourceType value: {text!r}")
     return cast(SourceType, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ApproveAfterDays: TypeAlias = int
-
-DEFAULT_APPROVE_AFTER_DAYS: ApproveAfterDays = 0

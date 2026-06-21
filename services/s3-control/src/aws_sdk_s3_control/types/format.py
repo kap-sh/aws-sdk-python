@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 Format: TypeAlias = Literal[
     "CSV",
@@ -12,21 +11,11 @@ Format: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CSV",
-        "Parquet",
-    )
-)
-
-
 def to_xml_text(value: Format) -> str:
     return value
 
 
 def from_xml_text(text: str) -> Format:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown Format value: {text!r}")
     return cast(Format, text)
 
 

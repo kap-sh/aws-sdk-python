@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 OmitStoppedVideo: TypeAlias = bool
-
-DEFAULT_OMIT_STOPPED_VIDEO: OmitStoppedVideo = False

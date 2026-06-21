@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_docdb._protocol.xml import Element
-from aws_sdk_docdb.errors import DeserializationError
 
 ApplyMethod: TypeAlias = Literal[
     "immediate",
@@ -12,21 +11,11 @@ ApplyMethod: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "immediate",
-        "pending-reboot",
-    )
-)
-
-
 def to_query_text(value: ApplyMethod) -> str:
     return value
 
 
 def from_query_text(text: str) -> ApplyMethod:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ApplyMethod value: {text!r}")
     return cast(ApplyMethod, text)
 
 

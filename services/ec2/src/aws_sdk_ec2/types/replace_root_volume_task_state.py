@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ReplaceRootVolumeTaskState: TypeAlias = Literal[
     "pending",
@@ -16,39 +15,11 @@ ReplaceRootVolumeTaskState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "in-progress",
-        "failing",
-        "succeeded",
-        "failed",
-        "failed-detached",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "in-progress",
-        "failing",
-        "succeeded",
-        "failed",
-        "failed-detached",
-    )
-)
-
-
 def to_ec2_query_text(value: ReplaceRootVolumeTaskState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ReplaceRootVolumeTaskState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ReplaceRootVolumeTaskState value: {text!r}"
-        )
     return cast(ReplaceRootVolumeTaskState, text)
 
 

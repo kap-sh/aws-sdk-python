@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AggregatorSchemaOnly: TypeAlias = bool
-
-DEFAULT_AGGREGATOR_SCHEMA_ONLY: AggregatorSchemaOnly = False

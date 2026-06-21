@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ScheduleOffset: TypeAlias = int
-
-DEFAULT_SCHEDULE_OFFSET: ScheduleOffset = 0

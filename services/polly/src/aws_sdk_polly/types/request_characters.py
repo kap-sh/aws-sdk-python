@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RequestCharacters: TypeAlias = int
-
-DEFAULT_REQUEST_CHARACTERS: RequestCharacters = 0

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 LocationType: TypeAlias = Literal[
     "region",
@@ -14,33 +13,11 @@ LocationType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "region",
-        "availability-zone",
-        "availability-zone-id",
-        "outpost",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "region",
-        "availability-zone",
-        "availability-zone-id",
-        "outpost",
-    )
-)
-
-
 def to_ec2_query_text(value: LocationType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> LocationType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LocationType value: {text!r}")
     return cast(LocationType, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BranchOrder: TypeAlias = int
-
-DEFAULT_BRANCH_ORDER: BranchOrder = 0

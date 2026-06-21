@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 WaitTimeInMins: TypeAlias = int
-
-DEFAULT_WAIT_TIME_IN_MINS: WaitTimeInMins = 0

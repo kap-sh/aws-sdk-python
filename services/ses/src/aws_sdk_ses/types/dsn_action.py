@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ses._protocol.xml import Element
-from aws_sdk_ses.errors import DeserializationError
 
 DsnAction: TypeAlias = Literal[
     "failed",
@@ -15,24 +14,11 @@ DsnAction: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "failed",
-        "delayed",
-        "delivered",
-        "relayed",
-        "expanded",
-    )
-)
-
-
 def to_query_text(value: DsnAction) -> str:
     return value
 
 
 def from_query_text(text: str) -> DsnAction:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown DsnAction value: {text!r}")
     return cast(DsnAction, text)
 
 

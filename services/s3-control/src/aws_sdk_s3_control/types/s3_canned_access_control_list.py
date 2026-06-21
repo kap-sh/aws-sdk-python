@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 S3CannedAccessControlList: TypeAlias = Literal[
     "private",
@@ -17,26 +16,11 @@ S3CannedAccessControlList: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "private",
-        "public-read",
-        "public-read-write",
-        "aws-exec-read",
-        "authenticated-read",
-        "bucket-owner-read",
-        "bucket-owner-full-control",
-    )
-)
-
-
 def to_xml_text(value: S3CannedAccessControlList) -> str:
     return value
 
 
 def from_xml_text(text: str) -> S3CannedAccessControlList:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown S3CannedAccessControlList value: {text!r}")
     return cast(S3CannedAccessControlList, text)
 
 

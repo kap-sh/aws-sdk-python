@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 RequiresRecreation: TypeAlias = Literal[
     "Never",
@@ -13,22 +12,11 @@ RequiresRecreation: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Never",
-        "Conditionally",
-        "Always",
-    )
-)
-
-
 def to_query_text(value: RequiresRecreation) -> str:
     return value
 
 
 def from_query_text(text: str) -> RequiresRecreation:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RequiresRecreation value: {text!r}")
     return cast(RequiresRecreation, text)
 
 

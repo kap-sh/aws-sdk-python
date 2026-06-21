@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
-from aws_sdk_s3.errors import DeserializationError
 
 LocationType: TypeAlias = Literal[
     "AvailabilityZone",
@@ -12,21 +11,11 @@ LocationType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "AvailabilityZone",
-        "LocalZone",
-    )
-)
-
-
 def to_xml_text(value: LocationType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> LocationType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown LocationType value: {text!r}")
     return cast(LocationType, text)
 
 

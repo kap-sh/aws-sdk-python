@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 NetworkOrigin: TypeAlias = Literal[
     "Internet",
@@ -12,21 +11,11 @@ NetworkOrigin: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Internet",
-        "VPC",
-    )
-)
-
-
 def to_xml_text(value: NetworkOrigin) -> str:
     return value
 
 
 def from_xml_text(text: str) -> NetworkOrigin:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown NetworkOrigin value: {text!r}")
     return cast(NetworkOrigin, text)
 
 

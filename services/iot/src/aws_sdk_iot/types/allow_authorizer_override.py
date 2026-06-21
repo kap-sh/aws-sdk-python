@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AllowAuthorizerOverride: TypeAlias = bool
-
-DEFAULT_ALLOW_AUTHORIZER_OVERRIDE: AllowAuthorizerOverride = False

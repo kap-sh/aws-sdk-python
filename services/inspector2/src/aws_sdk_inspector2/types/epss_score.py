@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 EpssScore: TypeAlias = float
-
-DEFAULT_EPSS_SCORE: EpssScore = 0

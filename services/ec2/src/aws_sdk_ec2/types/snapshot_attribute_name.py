@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 SnapshotAttributeName: TypeAlias = Literal[
     "productCodes",
@@ -12,29 +11,11 @@ SnapshotAttributeName: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "productCodes",
-        "createVolumePermission",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "productCodes",
-        "createVolumePermission",
-    )
-)
-
-
 def to_ec2_query_text(value: SnapshotAttributeName) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> SnapshotAttributeName:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SnapshotAttributeName value: {text!r}")
     return cast(SnapshotAttributeName, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 ImageState: TypeAlias = Literal[
     "pending",
@@ -18,41 +17,11 @@ ImageState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "available",
-        "invalid",
-        "deregistered",
-        "transient",
-        "failed",
-        "error",
-        "disabled",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "pending",
-        "available",
-        "invalid",
-        "deregistered",
-        "transient",
-        "failed",
-        "error",
-        "disabled",
-    )
-)
-
-
 def to_ec2_query_text(value: ImageState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> ImageState:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ImageState value: {text!r}")
     return cast(ImageState, text)
 
 

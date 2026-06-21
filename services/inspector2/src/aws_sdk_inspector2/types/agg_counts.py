@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AggCounts: TypeAlias = int
-
-DEFAULT_AGG_COUNTS: AggCounts = 0

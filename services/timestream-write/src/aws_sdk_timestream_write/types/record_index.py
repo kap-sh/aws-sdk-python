@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RecordIndex: TypeAlias = int
-
-DEFAULT_RECORD_INDEX: RecordIndex = 0

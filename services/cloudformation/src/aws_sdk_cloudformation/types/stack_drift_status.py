@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 StackDriftStatus: TypeAlias = Literal[
     "DRIFTED",
@@ -14,23 +13,11 @@ StackDriftStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DRIFTED",
-        "IN_SYNC",
-        "UNKNOWN",
-        "NOT_CHECKED",
-    )
-)
-
-
 def to_query_text(value: StackDriftStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> StackDriftStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown StackDriftStatus value: {text!r}")
     return cast(StackDriftStatus, text)
 
 

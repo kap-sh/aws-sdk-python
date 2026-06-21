@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 FunctionStage: TypeAlias = Literal[
     "DEVELOPMENT",
@@ -12,21 +11,11 @@ FunctionStage: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DEVELOPMENT",
-        "LIVE",
-    )
-)
-
-
 def to_xml_text(value: FunctionStage) -> str:
     return value
 
 
 def from_xml_text(text: str) -> FunctionStage:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FunctionStage value: {text!r}")
     return cast(FunctionStage, text)
 
 

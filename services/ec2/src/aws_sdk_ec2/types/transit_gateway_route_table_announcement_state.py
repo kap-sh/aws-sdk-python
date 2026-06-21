@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 TransitGatewayRouteTableAnnouncementState: TypeAlias = Literal[
     "available",
@@ -16,39 +15,11 @@ TransitGatewayRouteTableAnnouncementState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "pending",
-        "failing",
-        "failed",
-        "deleting",
-        "deleted",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "available",
-        "pending",
-        "failing",
-        "failed",
-        "deleting",
-        "deleted",
-    )
-)
-
-
 def to_ec2_query_text(value: TransitGatewayRouteTableAnnouncementState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> TransitGatewayRouteTableAnnouncementState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown TransitGatewayRouteTableAnnouncementState value: {text!r}"
-        )
     return cast(TransitGatewayRouteTableAnnouncementState, text)
 
 

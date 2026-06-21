@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 UsageLimitFeatureType: TypeAlias = Literal[
     "spectrum",
@@ -14,23 +13,11 @@ UsageLimitFeatureType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "spectrum",
-        "concurrency-scaling",
-        "cross-region-datasharing",
-        "extra-compute-for-automatic-optimization",
-    )
-)
-
-
 def to_query_text(value: UsageLimitFeatureType) -> str:
     return value
 
 
 def from_query_text(text: str) -> UsageLimitFeatureType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown UsageLimitFeatureType value: {text!r}")
     return cast(UsageLimitFeatureType, text)
 
 

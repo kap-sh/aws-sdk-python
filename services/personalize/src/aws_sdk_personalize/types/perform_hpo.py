@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PerformHPO: TypeAlias = bool
-
-DEFAULT_PERFORM_HPO: PerformHPO = False

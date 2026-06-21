@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 ViewerMtlsMode: TypeAlias = Literal[
     "required",
@@ -13,22 +12,11 @@ ViewerMtlsMode: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "required",
-        "optional",
-        "passthrough",
-    )
-)
-
-
 def to_xml_text(value: ViewerMtlsMode) -> str:
     return value
 
 
 def from_xml_text(text: str) -> ViewerMtlsMode:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown ViewerMtlsMode value: {text!r}")
     return cast(ViewerMtlsMode, text)
 
 

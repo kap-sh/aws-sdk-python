@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ConfidenceScore: TypeAlias = float
-
-DEFAULT_CONFIDENCE_SCORE: ConfidenceScore = 0

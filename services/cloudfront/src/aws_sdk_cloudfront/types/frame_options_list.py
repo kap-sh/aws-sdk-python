@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
-from aws_sdk_cloudfront.errors import DeserializationError
 
 FrameOptionsList: TypeAlias = Literal[
     "DENY",
@@ -12,21 +11,11 @@ FrameOptionsList: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DENY",
-        "SAMEORIGIN",
-    )
-)
-
-
 def to_xml_text(value: FrameOptionsList) -> str:
     return value
 
 
 def from_xml_text(text: str) -> FrameOptionsList:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown FrameOptionsList value: {text!r}")
     return cast(FrameOptionsList, text)
 
 

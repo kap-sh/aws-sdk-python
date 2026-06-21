@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 MultiAZStatus: TypeAlias = Literal[
     "enabled",
@@ -12,21 +11,11 @@ MultiAZStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "disabled",
-    )
-)
-
-
 def to_query_text(value: MultiAZStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> MultiAZStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown MultiAZStatus value: {text!r}")
     return cast(MultiAZStatus, text)
 
 

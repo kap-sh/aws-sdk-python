@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SummaryValue: TypeAlias = float
-
-DEFAULT_SUMMARY_VALUE: SummaryValue = 0

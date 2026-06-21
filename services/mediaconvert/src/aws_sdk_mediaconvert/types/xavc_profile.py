@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_mediaconvert.errors import DeserializationError
-
 """Specify the XAVC profile for this output. For more information, see the Sony documentation at https://www.xavc-info.org/. Note that MediaConvert doesn't support the interlaced video XAVC operating points for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the profile XAVC_HD."""
 XavcProfile: TypeAlias = Literal[
     "XAVC_HD_INTRA_CBG",
@@ -15,22 +13,9 @@ XavcProfile: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "XAVC_HD_INTRA_CBG",
-        "XAVC_4K_INTRA_CBG",
-        "XAVC_4K_INTRA_VBR",
-        "XAVC_HD",
-        "XAVC_4K",
-    )
-)
-
-
 def serialize_json(value: XavcProfile) -> str:
     return value
 
 
 def deserialize_json(data: str) -> XavcProfile:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown XavcProfile value: {data!r}")
     return cast(XavcProfile, data)

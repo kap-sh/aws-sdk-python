@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AccountLinked: TypeAlias = bool
-
-DEFAULT_ACCOUNT_LINKED: AccountLinked = False

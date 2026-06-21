@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 InstanceMetadataEndpointState: TypeAlias = Literal[
     "disabled",
@@ -12,23 +11,11 @@ InstanceMetadataEndpointState: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "disabled",
-        "enabled",
-    )
-)
-
-
 def to_query_text(value: InstanceMetadataEndpointState) -> str:
     return value
 
 
 def from_query_text(text: str) -> InstanceMetadataEndpointState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown InstanceMetadataEndpointState value: {text!r}"
-        )
     return cast(InstanceMetadataEndpointState, text)
 
 

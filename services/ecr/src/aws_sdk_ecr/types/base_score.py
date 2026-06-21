@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 BaseScore: TypeAlias = float
-
-DEFAULT_BASE_SCORE: BaseScore = 0

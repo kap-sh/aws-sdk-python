@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_license_manager.errors import DeserializationError
-
 LicenseCountingType: TypeAlias = Literal[
     "vCPU",
     "Instance",
@@ -13,21 +11,9 @@ LicenseCountingType: TypeAlias = Literal[
 
 
 # --- awsJson1_1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "vCPU",
-        "Instance",
-        "Core",
-        "Socket",
-    )
-)
-
-
 def serialize_aws_json_1_1(value: LicenseCountingType) -> str:
     return value
 
 
 def deserialize_aws_json_1_1(data: str) -> LicenseCountingType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown LicenseCountingType value: {data!r}")
     return cast(LicenseCountingType, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DimensionCentimeters: TypeAlias = int
-
-DEFAULT_DIMENSION_CENTIMETERS: DimensionCentimeters = 0

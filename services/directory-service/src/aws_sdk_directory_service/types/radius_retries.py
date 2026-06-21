@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RadiusRetries: TypeAlias = int
-
-DEFAULT_RADIUS_RETRIES: RadiusRetries = 0

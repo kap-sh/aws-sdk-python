@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 MemorySize: TypeAlias = int
-
-DEFAULT_MEMORY_SIZE: MemorySize = 0

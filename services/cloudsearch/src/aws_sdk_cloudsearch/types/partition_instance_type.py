@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudsearch._protocol.xml import Element
-from aws_sdk_cloudsearch.errors import DeserializationError
 
 """<p>The instance type (such as <code>search.m1.small</code>) on which an index partition is hosted.</p>"""
 PartitionInstanceType: TypeAlias = Literal[
@@ -28,36 +27,11 @@ PartitionInstanceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "search.m1.small",
-        "search.m1.large",
-        "search.m2.xlarge",
-        "search.m2.2xlarge",
-        "search.m3.medium",
-        "search.m3.large",
-        "search.m3.xlarge",
-        "search.m3.2xlarge",
-        "search.small",
-        "search.medium",
-        "search.large",
-        "search.xlarge",
-        "search.2xlarge",
-        "search.previousgeneration.small",
-        "search.previousgeneration.large",
-        "search.previousgeneration.xlarge",
-        "search.previousgeneration.2xlarge",
-    )
-)
-
-
 def to_query_text(value: PartitionInstanceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> PartitionInstanceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown PartitionInstanceType value: {text!r}")
     return cast(PartitionInstanceType, text)
 
 

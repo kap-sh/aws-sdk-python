@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 HaStatus: TypeAlias = Literal[
     "processing",
@@ -14,33 +13,11 @@ HaStatus: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "processing",
-        "active",
-        "standby",
-        "invalid",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "processing",
-        "active",
-        "standby",
-        "invalid",
-    )
-)
-
-
 def to_ec2_query_text(value: HaStatus) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> HaStatus:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown HaStatus value: {text!r}")
     return cast(HaStatus, text)
 
 

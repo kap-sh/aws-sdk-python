@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 ReservedNodeExchangeActionType: TypeAlias = Literal[
     "restore-cluster",
@@ -12,23 +11,11 @@ ReservedNodeExchangeActionType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "restore-cluster",
-        "resize-cluster",
-    )
-)
-
-
 def to_query_text(value: ReservedNodeExchangeActionType) -> str:
     return value
 
 
 def from_query_text(text: str) -> ReservedNodeExchangeActionType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown ReservedNodeExchangeActionType value: {text!r}"
-        )
     return cast(ReservedNodeExchangeActionType, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_auto_scaling._protocol.xml import Element
-from aws_sdk_auto_scaling.errors import DeserializationError
 
 BareMetal: TypeAlias = Literal[
     "included",
@@ -13,22 +12,11 @@ BareMetal: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "included",
-        "excluded",
-        "required",
-    )
-)
-
-
 def to_query_text(value: BareMetal) -> str:
     return value
 
 
 def from_query_text(text: str) -> BareMetal:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BareMetal value: {text!r}")
     return cast(BareMetal, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 DurationInSeconds: TypeAlias = int
-
-DEFAULT_DURATION_IN_SECONDS: DurationInSeconds = 0

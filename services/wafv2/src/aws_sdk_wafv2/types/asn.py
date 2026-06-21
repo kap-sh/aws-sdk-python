@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ASN: TypeAlias = int
-
-DEFAULT_ASN: ASN = 0

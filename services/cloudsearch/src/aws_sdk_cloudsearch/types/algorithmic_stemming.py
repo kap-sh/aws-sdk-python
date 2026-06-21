@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudsearch._protocol.xml import Element
-from aws_sdk_cloudsearch.errors import DeserializationError
 
 AlgorithmicStemming: TypeAlias = Literal[
     "none",
@@ -14,23 +13,11 @@ AlgorithmicStemming: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "none",
-        "minimal",
-        "light",
-        "full",
-    )
-)
-
-
 def to_query_text(value: AlgorithmicStemming) -> str:
     return value
 
 
 def from_query_text(text: str) -> AlgorithmicStemming:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AlgorithmicStemming value: {text!r}")
     return cast(AlgorithmicStemming, text)
 
 

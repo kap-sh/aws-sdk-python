@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Earfcn: TypeAlias = int
-
-DEFAULT_EARFCN: Earfcn = 0

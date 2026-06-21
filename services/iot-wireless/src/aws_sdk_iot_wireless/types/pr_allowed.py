@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PrAllowed: TypeAlias = bool
-
-DEFAULT_PR_ALLOWED: PrAllowed = False

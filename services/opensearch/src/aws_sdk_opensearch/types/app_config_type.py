@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_opensearch.errors import DeserializationError
-
 AppConfigType: TypeAlias = Literal[
     "opensearchDashboards.dashboardAdmin.users",
     "opensearchDashboards.dashboardAdmin.groups",
@@ -11,19 +9,9 @@ AppConfigType: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "opensearchDashboards.dashboardAdmin.users",
-        "opensearchDashboards.dashboardAdmin.groups",
-    )
-)
-
-
 def serialize_json(value: AppConfigType) -> str:
     return value
 
 
 def deserialize_json(data: str) -> AppConfigType:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown AppConfigType value: {data!r}")
     return cast(AppConfigType, data)

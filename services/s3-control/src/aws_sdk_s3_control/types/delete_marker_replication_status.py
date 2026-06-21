@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
-from aws_sdk_s3_control.errors import DeserializationError
 
 DeleteMarkerReplicationStatus: TypeAlias = Literal[
     "Enabled",
@@ -12,23 +11,11 @@ DeleteMarkerReplicationStatus: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "Enabled",
-        "Disabled",
-    )
-)
-
-
 def to_xml_text(value: DeleteMarkerReplicationStatus) -> str:
     return value
 
 
 def from_xml_text(text: str) -> DeleteMarkerReplicationStatus:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown DeleteMarkerReplicationStatus value: {text!r}"
-        )
     return cast(DeleteMarkerReplicationStatus, text)
 
 

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 OptionalInteger: TypeAlias = int
-
-DEFAULT_OPTIONAL_INTEGER: OptionalInteger = 0

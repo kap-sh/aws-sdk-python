@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 PerformanceRisk: TypeAlias = float
-
-DEFAULT_PERFORMANCE_RISK: PerformanceRisk = 0

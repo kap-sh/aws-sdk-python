@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 AutoAccept: TypeAlias = bool
-
-DEFAULT_AUTO_ACCEPT: AutoAccept = False

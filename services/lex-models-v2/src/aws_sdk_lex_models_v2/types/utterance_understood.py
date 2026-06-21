@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 UtteranceUnderstood: TypeAlias = bool
-
-DEFAULT_UTTERANCE_UNDERSTOOD: UtteranceUnderstood = False

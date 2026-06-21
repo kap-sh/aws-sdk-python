@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_securityhub.errors import DeserializationError
-
 WorkflowStatus: TypeAlias = Literal[
     "NEW",
     "NOTIFIED",
@@ -13,21 +11,9 @@ WorkflowStatus: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "NEW",
-        "NOTIFIED",
-        "RESOLVED",
-        "SUPPRESSED",
-    )
-)
-
-
 def serialize_json(value: WorkflowStatus) -> str:
     return value
 
 
 def deserialize_json(data: str) -> WorkflowStatus:
-    if data not in _VALUES:
-        raise DeserializationError(f"unknown WorkflowStatus value: {data!r}")
     return cast(WorkflowStatus, data)

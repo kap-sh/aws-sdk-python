@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_sesv2.errors import DeserializationError
-
 """<p>The <code>ListRecommendations</code> filter type. This can be one of the following:</p> <ul> <li> <p> <code>TYPE</code> – The recommendation type, with values like <code>DKIM</code>, <code>SPF</code>, <code>DMARC</code>, <code>BIMI</code>, or <code>COMPLAINT</code>.</p> </li> <li> <p> <code>IMPACT</code> – The recommendation impact, with values like <code>HIGH</code> or <code>LOW</code>.</p> </li> <li> <p> <code>STATUS</code> – The recommendation status, with values like <code>OPEN</code> or <code>FIXED</code>.</p> </li> <li> <p> <code>RESOURCE_ARN</code> – The resource affected by the recommendation, with values like <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> </li> </ul>"""
 ListRecommendationsFilterKey: TypeAlias = Literal[
     "TYPE",
@@ -14,23 +12,9 @@ ListRecommendationsFilterKey: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "TYPE",
-        "IMPACT",
-        "STATUS",
-        "RESOURCE_ARN",
-    )
-)
-
-
 def serialize_json(value: ListRecommendationsFilterKey) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ListRecommendationsFilterKey:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown ListRecommendationsFilterKey value: {data!r}"
-        )
     return cast(ListRecommendationsFilterKey, data)

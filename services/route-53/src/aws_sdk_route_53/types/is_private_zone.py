@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsPrivateZone: TypeAlias = bool
-
-DEFAULT_IS_PRIVATE_ZONE: IsPrivateZone = False

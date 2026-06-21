@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 IsMove: TypeAlias = bool
-
-DEFAULT_IS_MOVE: IsMove = False

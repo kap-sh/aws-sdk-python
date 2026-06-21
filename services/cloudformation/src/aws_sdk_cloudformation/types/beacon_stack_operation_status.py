@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 BeaconStackOperationStatus: TypeAlias = Literal[
     "IN_PROGRESS",
@@ -13,24 +12,11 @@ BeaconStackOperationStatus: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "IN_PROGRESS",
-        "SUCCEEDED",
-        "FAILED",
-    )
-)
-
-
 def to_query_text(value: BeaconStackOperationStatus) -> str:
     return value
 
 
 def from_query_text(text: str) -> BeaconStackOperationStatus:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown BeaconStackOperationStatus value: {text!r}"
-        )
     return cast(BeaconStackOperationStatus, text)
 
 

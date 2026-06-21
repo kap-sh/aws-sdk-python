@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_iam._protocol.xml import Element
-from aws_sdk_iam.errors import DeserializationError
 
 permissionCheckStatusType: TypeAlias = Literal[
     "COMPLETE",
@@ -13,22 +12,11 @@ permissionCheckStatusType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "COMPLETE",
-        "IN_PROGRESS",
-        "FAILED",
-    )
-)
-
-
 def to_query_text(value: permissionCheckStatusType) -> str:
     return value
 
 
 def from_query_text(text: str) -> permissionCheckStatusType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown permissionCheckStatusType value: {text!r}")
     return cast(permissionCheckStatusType, text)
 
 

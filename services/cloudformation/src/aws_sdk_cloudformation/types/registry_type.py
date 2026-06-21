@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_cloudformation._protocol.xml import Element
-from aws_sdk_cloudformation.errors import DeserializationError
 
 RegistryType: TypeAlias = Literal[
     "RESOURCE",
@@ -13,22 +12,11 @@ RegistryType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "RESOURCE",
-        "MODULE",
-        "HOOK",
-    )
-)
-
-
 def to_query_text(value: RegistryType) -> str:
     return value
 
 
 def from_query_text(text: str) -> RegistryType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown RegistryType value: {text!r}")
     return cast(RegistryType, text)
 
 

@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
-from aws_sdk_route_53.errors import DeserializationError
 
 AccountLimitType: TypeAlias = Literal[
     "MAX_HEALTH_CHECKS_BY_OWNER",
@@ -15,24 +14,11 @@ AccountLimitType: TypeAlias = Literal[
 
 
 # --- restXml ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "MAX_HEALTH_CHECKS_BY_OWNER",
-        "MAX_HOSTED_ZONES_BY_OWNER",
-        "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
-        "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
-        "MAX_TRAFFIC_POLICIES_BY_OWNER",
-    )
-)
-
-
 def to_xml_text(value: AccountLimitType) -> str:
     return value
 
 
 def from_xml_text(text: str) -> AccountLimitType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown AccountLimitType value: {text!r}")
     return cast(AccountLimitType, text)
 
 

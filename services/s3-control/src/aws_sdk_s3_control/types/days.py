@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 Days: TypeAlias = int
-
-DEFAULT_DAYS: Days = 0

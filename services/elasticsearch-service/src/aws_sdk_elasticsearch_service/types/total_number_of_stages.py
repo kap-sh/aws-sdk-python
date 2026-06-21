@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 TotalNumberOfStages: TypeAlias = int
-
-DEFAULT_TOTAL_NUMBER_OF_STAGES: TotalNumberOfStages = 0

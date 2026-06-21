@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ses._protocol.xml import Element
-from aws_sdk_ses.errors import DeserializationError
 
 BounceType: TypeAlias = Literal[
     "DoesNotExist",
@@ -16,25 +15,11 @@ BounceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "DoesNotExist",
-        "MessageTooLarge",
-        "ExceededQuota",
-        "ContentRejected",
-        "Undefined",
-        "TemporaryFailure",
-    )
-)
-
-
 def to_query_text(value: BounceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> BounceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown BounceType value: {text!r}")
     return cast(BounceType, text)
 
 

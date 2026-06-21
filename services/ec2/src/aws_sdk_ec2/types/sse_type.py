@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 SSEType: TypeAlias = Literal[
     "sse-ebs",
@@ -13,31 +12,11 @@ SSEType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "sse-ebs",
-        "sse-kms",
-        "none",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "sse-ebs",
-        "sse-kms",
-        "none",
-    )
-)
-
-
 def to_ec2_query_text(value: SSEType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> SSEType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SSEType value: {text!r}")
     return cast(SSEType, text)
 
 

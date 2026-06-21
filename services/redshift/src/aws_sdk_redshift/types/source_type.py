@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_redshift._protocol.xml import Element
-from aws_sdk_redshift.errors import DeserializationError
 
 SourceType: TypeAlias = Literal[
     "cluster",
@@ -15,24 +14,11 @@ SourceType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "cluster",
-        "cluster-parameter-group",
-        "cluster-security-group",
-        "cluster-snapshot",
-        "scheduled-action",
-    )
-)
-
-
 def to_query_text(value: SourceType) -> str:
     return value
 
 
 def from_query_text(text: str) -> SourceType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SourceType value: {text!r}")
     return cast(SourceType, text)
 
 

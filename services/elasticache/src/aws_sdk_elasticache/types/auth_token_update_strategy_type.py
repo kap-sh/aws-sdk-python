@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_elasticache._protocol.xml import Element
-from aws_sdk_elasticache.errors import DeserializationError
 
 AuthTokenUpdateStrategyType: TypeAlias = Literal[
     "SET",
@@ -13,24 +12,11 @@ AuthTokenUpdateStrategyType: TypeAlias = Literal[
 
 
 # --- awsQuery ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "SET",
-        "ROTATE",
-        "DELETE",
-    )
-)
-
-
 def to_query_text(value: AuthTokenUpdateStrategyType) -> str:
     return value
 
 
 def from_query_text(text: str) -> AuthTokenUpdateStrategyType:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown AuthTokenUpdateStrategyType value: {text!r}"
-        )
     return cast(AuthTokenUpdateStrategyType, text)
 
 

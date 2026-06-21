@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 SensitiveDouble: TypeAlias = float
-
-DEFAULT_SENSITIVE_DOUBLE: SensitiveDouble = 0

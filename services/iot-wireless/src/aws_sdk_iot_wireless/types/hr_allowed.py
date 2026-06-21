@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 HrAllowed: TypeAlias = bool
-
-DEFAULT_HR_ALLOWED: HrAllowed = False

@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_opensearch.errors import DeserializationError
-
 ReservedInstancePaymentOption: TypeAlias = Literal[
     "ALL_UPFRONT",
     "PARTIAL_UPFRONT",
@@ -12,22 +10,9 @@ ReservedInstancePaymentOption: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ALL_UPFRONT",
-        "PARTIAL_UPFRONT",
-        "NO_UPFRONT",
-    )
-)
-
-
 def serialize_json(value: ReservedInstancePaymentOption) -> str:
     return value
 
 
 def deserialize_json(data: str) -> ReservedInstancePaymentOption:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown ReservedInstancePaymentOption value: {data!r}"
-        )
     return cast(ReservedInstancePaymentOption, data)

@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 RecordVersion: TypeAlias = int
-
-DEFAULT_RECORD_VERSION: RecordVersion = 0

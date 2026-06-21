@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 SnapshotReturnCodes: TypeAlias = Literal[
     "success",
@@ -15,35 +14,11 @@ SnapshotReturnCodes: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "success",
-        "skipped",
-        "missing-permissions",
-        "internal-error",
-        "client-error",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "success",
-        "skipped",
-        "missing-permissions",
-        "internal-error",
-        "client-error",
-    )
-)
-
-
 def to_ec2_query_text(value: SnapshotReturnCodes) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> SnapshotReturnCodes:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown SnapshotReturnCodes value: {text!r}")
     return cast(SnapshotReturnCodes, text)
 
 

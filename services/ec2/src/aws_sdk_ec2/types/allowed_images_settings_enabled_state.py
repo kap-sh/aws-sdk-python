@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 AllowedImagesSettingsEnabledState: TypeAlias = Literal[
     "enabled",
@@ -12,31 +11,11 @@ AllowedImagesSettingsEnabledState: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "audit-mode",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "enabled",
-        "audit-mode",
-    )
-)
-
-
 def to_ec2_query_text(value: AllowedImagesSettingsEnabledState) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> AllowedImagesSettingsEnabledState:
-    if text not in _VALUES:
-        raise DeserializationError(
-            f"unknown AllowedImagesSettingsEnabledState value: {text!r}"
-        )
     return cast(AllowedImagesSettingsEnabledState, text)
 
 

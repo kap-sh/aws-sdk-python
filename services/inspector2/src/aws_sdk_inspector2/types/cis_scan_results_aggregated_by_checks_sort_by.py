@@ -2,8 +2,6 @@
 
 from typing import Literal, TypeAlias, cast
 
-from aws_sdk_inspector2.errors import DeserializationError
-
 CisScanResultsAggregatedByChecksSortBy: TypeAlias = Literal[
     "CHECK_ID",
     "TITLE",
@@ -14,24 +12,9 @@ CisScanResultsAggregatedByChecksSortBy: TypeAlias = Literal[
 
 
 # --- restJson1 ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "CHECK_ID",
-        "TITLE",
-        "PLATFORM",
-        "FAILED_COUNTS",
-        "SECURITY_LEVEL",
-    )
-)
-
-
 def serialize_json(value: CisScanResultsAggregatedByChecksSortBy) -> str:
     return value
 
 
 def deserialize_json(data: str) -> CisScanResultsAggregatedByChecksSortBy:
-    if data not in _VALUES:
-        raise DeserializationError(
-            f"unknown CisScanResultsAggregatedByChecksSortBy value: {data!r}"
-        )
     return cast(CisScanResultsAggregatedByChecksSortBy, data)

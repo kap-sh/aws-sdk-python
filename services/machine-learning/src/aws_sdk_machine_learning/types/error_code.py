@@ -3,5 +3,3 @@
 from typing import TypeAlias
 
 ErrorCode: TypeAlias = int
-
-DEFAULT_ERROR_CODE: ErrorCode = 0

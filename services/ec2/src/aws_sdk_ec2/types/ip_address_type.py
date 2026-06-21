@@ -3,7 +3,6 @@
 from typing import Literal, TypeAlias, cast
 
 from aws_sdk_ec2._protocol.xml import Element
-from aws_sdk_ec2.errors import DeserializationError
 
 IpAddressType: TypeAlias = Literal[
     "ipv4",
@@ -13,31 +12,11 @@ IpAddressType: TypeAlias = Literal[
 
 
 # --- ec2Query ser/de ---
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ipv4",
-        "dualstack",
-        "ipv6",
-    )
-)
-
-
-_VALUES: frozenset[str] = frozenset(
-    (
-        "ipv4",
-        "dualstack",
-        "ipv6",
-    )
-)
-
-
 def to_ec2_query_text(value: IpAddressType) -> str:
     return value
 
 
 def from_ec2_query_text(text: str) -> IpAddressType:
-    if text not in _VALUES:
-        raise DeserializationError(f"unknown IpAddressType value: {text!r}")
     return cast(IpAddressType, text)
 
 
