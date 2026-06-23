@@ -30,5 +30,23 @@ from ._auth._providers import (
 )
 from ._auth._signers import Signer as Signer
 from ._auth._signers import SigV4Signer as SigV4Signer
+from ._services._pipeline import (
+    AsyncOperationOptions as AsyncOperationOptions,
+)
+from ._services._pipeline import (
+    AsyncOperationRequest as AsyncOperationRequest,
+)
+from ._services._pipeline import (
+    AsyncOperationResponse as AsyncOperationResponse,
+)
+from ._services._pipeline import (
+    OperationOptions as OperationOptions,
+)
+from ._services._pipeline import (
+    OperationRequest as OperationRequest,
+)
+from ._services._pipeline import (
+    OperationResponse as OperationResponse,
+)
 from ._services.async_m2 import Asyncm2Client as Asyncm2Client
 from ._services.m2 import m2Client as m2Client

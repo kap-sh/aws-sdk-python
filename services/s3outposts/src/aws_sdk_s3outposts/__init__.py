@@ -30,5 +30,23 @@ from ._auth._providers import (
 )
 from ._auth._signers import Signer as Signer
 from ._auth._signers import SigV4Signer as SigV4Signer
+from ._services._pipeline import (
+    AsyncOperationOptions as AsyncOperationOptions,
+)
+from ._services._pipeline import (
+    AsyncOperationRequest as AsyncOperationRequest,
+)
+from ._services._pipeline import (
+    AsyncOperationResponse as AsyncOperationResponse,
+)
+from ._services._pipeline import (
+    OperationOptions as OperationOptions,
+)
+from ._services._pipeline import (
+    OperationRequest as OperationRequest,
+)
+from ._services._pipeline import (
+    OperationResponse as OperationResponse,
+)
 from ._services.async_s3_outposts import AsyncS3OutpostsClient as AsyncS3OutpostsClient
 from ._services.s3_outposts import S3OutpostsClient as S3OutpostsClient
