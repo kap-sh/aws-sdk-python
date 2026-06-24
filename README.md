@@ -13,6 +13,7 @@ Modern AWS SDK for Python — async-native, fully typed, and generated from offi
 - **zero runtime overhead** — Codegen produces dedicated serialization and deserialization code for each operation, avoiding reflection.
 - **interchangeable input/output** — Input and output types use the same [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict), so you can pass a response directly as input when appropriate.
 - **built on [zapros](https://zapros.dev)** — A modern HTTP client for Python that abstracts HTTP semantics from the transport implementation.
+- **fast to import** — import time stays flat even for huge services like EC2.
 
 > **Warning**
 > The API should be mostly stable, but some breaking changes may occur as the SDK is still in early development. We strongly recommend pinning the version before the first major release.
