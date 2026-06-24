@@ -14,6 +14,7 @@ Modern AWS SDK for Python — async-native, fully typed, and generated from offi
 - **interchangeable input/output** — Input and output types use the same [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict), so you can pass a response directly as input when appropriate.
 - **built on [zapros](https://zapros.dev)** — A modern HTTP client for Python that abstracts HTTP semantics from the transport implementation.
 - **fast to import** — import time stays flat even for huge services like EC2.
+- **interceptors** — Hook into the operation request/response lifecycle to inspect, log, or modify calls.
 
 > **Warning**
 > The API should be mostly stable, but some breaking changes may occur as the SDK is still in early development. We strongly recommend pinning the version before the first major release.
@@ -205,6 +206,62 @@ async def main():
 
 > **Note**
 > Smithy models don't indicate which operations support presigning, so presigned methods are added by maintainers rather than the code generator. If you notice an operation that should support presigning but has no `presigned_` method, please [open an issue](https://github.com/kap-sh/aws-sdk-python/issues).
+
+## Interceptors
+
+Interceptors let you hook into the operation lifecycle. An operation interceptor receives the operation request and a `next` callable that invokes the rest of the chain, returning the operation response. You can inspect or modify the request before calling `next`, and inspect or modify the response after.
+
+```python
+import asyncio
+from typing import Any, Awaitable, Callable
+
+from aws_sdk_s3 import AsyncOperationRequest, AsyncOperationResponse, AsyncS3Client
+
+
+async def debug_interceptor(
+    request: AsyncOperationRequest[Any],
+    next: Callable[[AsyncOperationRequest[Any]], Awaitable[AsyncOperationResponse]],
+):
+    print(request)
+    response = await next(request)
+    print(response)
+    return response
+
+
+async def main():
+    async with AsyncS3Client(operation_interceptors=[debug_interceptor]) as client:
+        async for item in client.iter_list_buckets():
+            print(item)
+
+
+asyncio.run(main())
+```
+
+> **Note**
+> An `operation_interceptor` sits between the operation request and the operation response — not at the HTTP layer. For HTTP-level interceptors/middlewares, see the [Configuring the HTTP client](#configuring-the-http-client) section below.
+
+## Configuring the HTTP client
+
+The SDK is built on [zapros](https://zapros.dev). You can pass your own HTTP handler via the `http_handler` argument, including any zapros middleware wrapping a network handler. This is the right place for HTTP-level concerns such as caching, mocks, or custom transports. See the [zapros handlers documentation](https://zapros.dev/handlers) for the available handlers and middlewares.
+
+```python
+import asyncio
+
+from zapros import AsyncStdNetworkHandler, CacheMiddleware
+
+from aws_sdk_s3 import AsyncS3Client
+
+
+async def main():
+    async with AsyncS3Client(
+        http_handler=CacheMiddleware(AsyncStdNetworkHandler())
+    ) as client:
+        async for item in client.iter_list_buckets():
+            print(item)
+
+
+asyncio.run(main())
+```
 
 ## Retrying
 
