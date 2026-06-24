@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_medical_imaging._iter import AnyIterator
 
-ImageSetMetadataBlob: TypeAlias = AnyIterator[bytes] | bytes
+ImageSetMetadataBlob: TypeAlias = AnyIterator[bytes]

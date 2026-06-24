@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_bedrock_agentcore._iter import AnyIterator
 
-ResponseStream: TypeAlias = AnyIterator[bytes] | bytes
+ResponseStream: TypeAlias = AnyIterator[bytes]

@@ -21,6 +21,7 @@ from aws_sdk_s3._auth._providers import (
 from aws_sdk_s3._auth._signers import SigV4Signer
 from aws_sdk_s3._auth._sigv4 import presign_sigv4
 from aws_sdk_s3._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3._iter import ensure_sync_iterator
 from aws_sdk_s3._pagination import resolve_path as _resolve_path
 from aws_sdk_s3._services._aws_config import aws_config
 from aws_sdk_s3._services._pipeline import (
@@ -6843,7 +6844,7 @@ class S3Client:
         if acl is not None:
             input_["acl"] = acl
         if body is not None:
-            input_["body"] = body  # type: ignore
+            input_["body"] = ensure_sync_iterator(body)
         input_["bucket"] = bucket
         if cache_control is not None:
             input_["cache_control"] = cache_control
@@ -8109,7 +8110,7 @@ class S3Client:
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: aws_sdk_s3.types.upload_part_request.UploadPartRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input_["body"] = body  # type: ignore
+            input_["body"] = ensure_sync_iterator(body)
         input_["bucket"] = bucket
         if content_length is not None:
             input_["content_length"] = content_length
@@ -8584,7 +8585,7 @@ class S3Client:
         input_["request_route"] = request_route
         input_["request_token"] = request_token
         if body is not None:
-            input_["body"] = body  # type: ignore
+            input_["body"] = ensure_sync_iterator(body)
         if status_code is not None:
             input_["status_code"] = status_code
         if error_code is not None:

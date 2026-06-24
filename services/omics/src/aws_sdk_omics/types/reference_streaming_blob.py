@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_omics._iter import AnyIterator
 
-ReferenceStreamingBlob: TypeAlias = AnyIterator[bytes] | bytes
+ReferenceStreamingBlob: TypeAlias = AnyIterator[bytes]

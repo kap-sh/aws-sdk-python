@@ -18,6 +18,7 @@ from aws_sdk_lex_runtime_v2._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_lex_runtime_v2._auth._zapros_handler import AuthMiddleware
+from aws_sdk_lex_runtime_v2._iter import ensure_async_iterator
 from aws_sdk_lex_runtime_v2._services._aws_config import aaws_config
 from aws_sdk_lex_runtime_v2._services._pipeline import (
     AsyncInterceptor,
@@ -436,7 +437,7 @@ class AsyncLexRuntimeV2Client:
         if response_content_type is not None:
             input_["response_content_type"] = response_content_type
         if input_stream is not None:
-            input_["input_stream"] = input_stream  # type: ignore
+            input_["input_stream"] = ensure_async_iterator(input_stream)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -452,7 +453,7 @@ class AsyncLexRuntimeV2Client:
         bot_alias_id: "aws_sdk_lex_runtime_v2.types.bot_alias_identifier.BotAliasIdentifier",
         locale_id: "aws_sdk_lex_runtime_v2.types.locale_id.LocaleId",
         session_id: "aws_sdk_lex_runtime_v2.types.session_id.SessionId",
-        request_event_stream: AsyncIterator[bytes] | bytes,
+        request_event_stream: "AsyncIterator[aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream._StartConversationRequestEventStream] | aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream._StartConversationRequestEventStream",
         *,
         config_overrides: Optional[AsyncLexRuntimeV2ClientConfig] = None,
         conversation_mode: Optional[
@@ -493,7 +494,7 @@ class AsyncLexRuntimeV2Client:
         input_["session_id"] = session_id
         if conversation_mode is not None:
             input_["conversation_mode"] = conversation_mode
-        input_["request_event_stream"] = request_event_stream  # type: ignore
+        input_["request_event_stream"] = ensure_async_iterator(request_event_stream)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

@@ -18,6 +18,7 @@ from aws_sdk_connecthealth._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_connecthealth._auth._zapros_handler import AuthMiddleware
+from aws_sdk_connecthealth._iter import ensure_sync_iterator
 from aws_sdk_connecthealth._pagination import resolve_path as _resolve_path
 from aws_sdk_connecthealth._services._aws_config import aws_config
 from aws_sdk_connecthealth._services._pipeline import (
@@ -729,7 +730,9 @@ class ConnectHealthClient:
         media_encoding: "aws_sdk_connecthealth.types.medical_scribe_media_encoding.MedicalScribeMediaEncoding",
         *,
         config_overrides: Optional[ConnectHealthClientConfig] = None,
-        input_stream: Optional[Iterator[bytes] | bytes] = None,
+        input_stream: Optional[
+            "Iterator[aws_sdk_connecthealth.types.medical_scribe_input_stream._MedicalScribeInputStream] | aws_sdk_connecthealth.types.medical_scribe_input_stream._MedicalScribeInputStream"
+        ] = None,
     ) -> "Generator[aws_sdk_connecthealth.types.start_medical_scribe_listening_session_output.StartMedicalScribeListeningSessionOutput]":
         """<p>Starts a new Medical Scribe listening session for real-time audio transcription</p>
 
@@ -766,7 +769,7 @@ class ConnectHealthClient:
         input_["media_sample_rate_hertz"] = media_sample_rate_hertz
         input_["media_encoding"] = media_encoding
         if input_stream is not None:
-            input_["input_stream"] = input_stream  # type: ignore
+            input_["input_stream"] = ensure_sync_iterator(input_stream)
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),

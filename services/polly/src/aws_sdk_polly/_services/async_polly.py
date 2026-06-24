@@ -18,6 +18,7 @@ from aws_sdk_polly._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_polly._auth._zapros_handler import AuthMiddleware
+from aws_sdk_polly._iter import ensure_async_iterator
 from aws_sdk_polly._services._aws_config import aaws_config
 from aws_sdk_polly._services._pipeline import (
     AsyncInterceptor,
@@ -501,7 +502,9 @@ class AsyncPollyClient:
             "aws_sdk_polly.types.lexicon_name_list.LexiconNameList"
         ] = None,
         sample_rate: Optional["aws_sdk_polly.types.sample_rate.SampleRate"] = None,
-        action_stream: Optional[AsyncIterator[bytes] | bytes] = None,
+        action_stream: Optional[
+            "AsyncIterator[aws_sdk_polly.types.start_speech_synthesis_stream_action_stream._StartSpeechSynthesisStreamActionStream] | aws_sdk_polly.types.start_speech_synthesis_stream_action_stream._StartSpeechSynthesisStreamActionStream"
+        ] = None,
     ) -> "AsyncGenerator[aws_sdk_polly.types.start_speech_synthesis_stream_output.StartSpeechSynthesisStreamOutput]":
         r"""<p>Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection. Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream, and receive synthesized audio as it becomes available.</p> <p>This operation serves as a bidirectional counterpart to <code>SynthesizeSpeech</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/polly/latest/API/API_SynthesizeSpeech.html\">SynthesizeSpeech</a> </p> </li> </ul>
 
@@ -542,7 +545,7 @@ class AsyncPollyClient:
             input_["sample_rate"] = sample_rate
         input_["voice_id"] = voice_id
         if action_stream is not None:
-            input_["action_stream"] = action_stream  # type: ignore
+            input_["action_stream"] = ensure_async_iterator(action_stream)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

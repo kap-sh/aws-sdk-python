@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_neptune_graph._iter import AnyIterator
 
-QueryResponseBlob: TypeAlias = AnyIterator[bytes] | bytes
+QueryResponseBlob: TypeAlias = AnyIterator[bytes]

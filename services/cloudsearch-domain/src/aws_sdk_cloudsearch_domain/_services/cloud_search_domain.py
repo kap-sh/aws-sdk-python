@@ -17,6 +17,7 @@ from aws_sdk_cloudsearch_domain._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_cloudsearch_domain._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cloudsearch_domain._iter import ensure_sync_iterator
 from aws_sdk_cloudsearch_domain._services._aws_config import aws_config
 from aws_sdk_cloudsearch_domain._services._pipeline import (
     Interceptor,
@@ -320,7 +321,7 @@ class CloudSearchDomainClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: aws_sdk_cloudsearch_domain.types.upload_documents_request.UploadDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input_["documents"] = documents  # type: ignore
+        input_["documents"] = ensure_sync_iterator(documents)
         input_["content_type"] = content_type
 
         response = execute_pipeline(

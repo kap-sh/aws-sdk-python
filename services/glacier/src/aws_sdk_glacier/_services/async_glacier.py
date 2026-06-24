@@ -20,6 +20,7 @@ from aws_sdk_glacier._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_glacier._auth._zapros_handler import AuthMiddleware
+from aws_sdk_glacier._iter import ensure_async_iterator
 from aws_sdk_glacier._pagination import resolve_path as _resolve_path
 from aws_sdk_glacier._services._aws_config import aaws_config
 from aws_sdk_glacier._services._pipeline import (
@@ -1978,7 +1979,7 @@ class AsyncGlacierClient:
         if checksum is not None:
             input_["checksum"] = checksum
         if body is not None:
-            input_["body"] = body  # type: ignore
+            input_["body"] = ensure_async_iterator(body)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -2040,7 +2041,7 @@ class AsyncGlacierClient:
         if range is not None:
             input_["range"] = range
         if body is not None:
-            input_["body"] = body  # type: ignore
+            input_["body"] = ensure_async_iterator(body)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

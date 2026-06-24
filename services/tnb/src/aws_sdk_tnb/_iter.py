@@ -6,7 +6,7 @@ Hand-written, not regenerated.
 from __future__ import annotations
 
 from collections.abc import AsyncIterable, AsyncIterator, Callable, Iterable, Iterator
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, cast
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -52,10 +52,42 @@ async def chain_async_iterator(
         yield item
 
 
+def ensure_async_iterator(value: AsyncIterator[T] | T) -> AnyIterator[T]:
+    """Return ``value`` as an :class:`AnyIterator`.
+
+    An async iterator is returned unchanged; a single value is wrapped in a
+    fresh single-item async iterator.
+    """
+    if isinstance(value, AsyncIterator):
+        return cast(AnyIterator[T], value)
+
+    async def gen() -> AsyncIterator[T]:
+        yield value
+
+    return cast(AnyIterator[T], gen())
+
+
+def ensure_sync_iterator(value: Iterator[T] | T) -> AnyIterator[T]:
+    """Return ``value`` as an :class:`AnyIterator`.
+
+    A sync iterator is returned unchanged; a single value is wrapped in a
+    fresh single-item sync iterator.
+    """
+    if isinstance(value, Iterator):
+        return cast(AnyIterator[T], value)
+
+    def gen() -> Iterator[T]:
+        yield value
+
+    return cast(AnyIterator[T], gen())
+
+
 __all__ = [
     "AnyIterator",
     "chain_async_iterator",
     "chain_sync_iterator",
+    "ensure_async_iterator",
+    "ensure_sync_iterator",
     "map_async_iterator",
     "map_sync_iterator",
 ]

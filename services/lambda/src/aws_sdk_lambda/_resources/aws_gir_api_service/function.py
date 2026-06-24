@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_lambda._auth._signers
 import aws_sdk_lambda._auth._sigv4
+from aws_sdk_lambda._iter import ensure_async_iterator, ensure_sync_iterator
 from aws_sdk_lambda._services._pipeline import (
     AsyncOperationRequest,
     AsyncOperationResponse,
@@ -1475,7 +1476,7 @@ class Function:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-        input_["invoke_args"] = invoke_args  # type: ignore
+        input_["invoke_args"] = ensure_sync_iterator(invoke_args)
 
         response = execute_pipeline(
             OperationRequest(input=input_, options=options_),
@@ -3097,7 +3098,7 @@ class AsyncFunction:
         interceptors_, options_ = self._service.operation_options(config_overrides)
         input_: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
         input_["function_name"] = function_name
-        input_["invoke_args"] = invoke_args  # type: ignore
+        input_["invoke_args"] = ensure_async_iterator(invoke_args)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),

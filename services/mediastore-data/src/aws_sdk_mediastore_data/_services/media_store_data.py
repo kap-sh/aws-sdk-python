@@ -18,6 +18,7 @@ from aws_sdk_mediastore_data._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_mediastore_data._auth._zapros_handler import AuthMiddleware
+from aws_sdk_mediastore_data._iter import ensure_sync_iterator
 from aws_sdk_mediastore_data._services._aws_config import aws_config
 from aws_sdk_mediastore_data._services._pipeline import (
     Interceptor,
@@ -364,7 +365,7 @@ class MediaStoreDataClient:
 
         interceptors_, options_ = self.operation_options(config_overrides)
         input_: aws_sdk_mediastore_data.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
-        input_["body"] = body  # type: ignore
+        input_["body"] = ensure_sync_iterator(body)
         input_["path"] = path
         if content_type is not None:
             input_["content_type"] = content_type

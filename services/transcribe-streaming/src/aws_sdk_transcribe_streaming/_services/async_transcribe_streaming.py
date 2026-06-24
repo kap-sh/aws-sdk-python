@@ -18,6 +18,9 @@ from aws_sdk_transcribe_streaming._auth._providers import (
     default_aws_credentials_chain,
 )
 from aws_sdk_transcribe_streaming._auth._zapros_handler import AuthMiddleware
+from aws_sdk_transcribe_streaming._iter import (
+    ensure_async_iterator,
+)
 from aws_sdk_transcribe_streaming._services._aws_config import aaws_config
 from aws_sdk_transcribe_streaming._services._pipeline import (
     AsyncInterceptor,
@@ -204,7 +207,7 @@ class AsyncTranscribeStreamingClient:
         self,
         media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.media_sample_rate_hertz.MediaSampleRateHertz",
         media_encoding: "aws_sdk_transcribe_streaming.types.media_encoding.MediaEncoding",
-        audio_stream: AsyncIterator[bytes] | bytes,
+        audio_stream: "AsyncIterator[aws_sdk_transcribe_streaming.types.audio_stream._AudioStream] | aws_sdk_transcribe_streaming.types.audio_stream._AudioStream",
         *,
         config_overrides: Optional[AsyncTranscribeStreamingClientConfig] = None,
         language_code: Optional[
@@ -305,7 +308,7 @@ class AsyncTranscribeStreamingClient:
             input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = audio_stream  # type: ignore
+        input_["audio_stream"] = ensure_async_iterator(audio_stream)
         if vocabulary_filter_name is not None:
             input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:
@@ -348,7 +351,7 @@ class AsyncTranscribeStreamingClient:
         language_code: "aws_sdk_transcribe_streaming.types.medical_scribe_language_code.MedicalScribeLanguageCode",
         media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.medical_scribe_media_sample_rate_hertz.MedicalScribeMediaSampleRateHertz",
         media_encoding: "aws_sdk_transcribe_streaming.types.medical_scribe_media_encoding.MedicalScribeMediaEncoding",
-        input_stream: AsyncIterator[bytes] | bytes,
+        input_stream: "AsyncIterator[aws_sdk_transcribe_streaming.types.medical_scribe_input_stream._MedicalScribeInputStream] | aws_sdk_transcribe_streaming.types.medical_scribe_input_stream._MedicalScribeInputStream",
         *,
         config_overrides: Optional[AsyncTranscribeStreamingClientConfig] = None,
         session_id: Optional[
@@ -387,7 +390,7 @@ class AsyncTranscribeStreamingClient:
         input_["language_code"] = language_code
         input_["media_sample_rate_hertz"] = media_sample_rate_hertz
         input_["media_encoding"] = media_encoding
-        input_["input_stream"] = input_stream  # type: ignore
+        input_["input_stream"] = ensure_async_iterator(input_stream)
 
         response = await aexecute_pipeline(
             AsyncOperationRequest(input=input_, options=options_),
@@ -404,7 +407,7 @@ class AsyncTranscribeStreamingClient:
         media_encoding: "aws_sdk_transcribe_streaming.types.media_encoding.MediaEncoding",
         specialty: "aws_sdk_transcribe_streaming.types.specialty.Specialty",
         type: "aws_sdk_transcribe_streaming.types.type.Type",
-        audio_stream: AsyncIterator[bytes] | bytes,
+        audio_stream: "AsyncIterator[aws_sdk_transcribe_streaming.types.audio_stream._AudioStream] | aws_sdk_transcribe_streaming.types.audio_stream._AudioStream",
         *,
         config_overrides: Optional[AsyncTranscribeStreamingClientConfig] = None,
         vocabulary_name: Optional[
@@ -470,7 +473,7 @@ class AsyncTranscribeStreamingClient:
             input_["show_speaker_label"] = show_speaker_label
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = audio_stream  # type: ignore
+        input_["audio_stream"] = ensure_async_iterator(audio_stream)
         if enable_channel_identification is not None:
             input_["enable_channel_identification"] = enable_channel_identification
         if number_of_channels is not None:
@@ -490,7 +493,7 @@ class AsyncTranscribeStreamingClient:
         self,
         media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.media_sample_rate_hertz.MediaSampleRateHertz",
         media_encoding: "aws_sdk_transcribe_streaming.types.media_encoding.MediaEncoding",
-        audio_stream: AsyncIterator[bytes] | bytes,
+        audio_stream: "AsyncIterator[aws_sdk_transcribe_streaming.types.audio_stream._AudioStream] | aws_sdk_transcribe_streaming.types.audio_stream._AudioStream",
         *,
         config_overrides: Optional[AsyncTranscribeStreamingClientConfig] = None,
         language_code: Optional[
@@ -611,7 +614,7 @@ class AsyncTranscribeStreamingClient:
             input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
             input_["session_id"] = session_id
-        input_["audio_stream"] = audio_stream  # type: ignore
+        input_["audio_stream"] = ensure_async_iterator(audio_stream)
         if vocabulary_filter_name is not None:
             input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:

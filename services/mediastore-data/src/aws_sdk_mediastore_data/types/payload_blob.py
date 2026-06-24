@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_mediastore_data._iter import AnyIterator
 
-PayloadBlob: TypeAlias = AnyIterator[bytes] | bytes
+PayloadBlob: TypeAlias = AnyIterator[bytes]

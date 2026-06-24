@@ -4,4 +4,4 @@ from typing import TypeAlias
 
 from aws_sdk_polly._iter import AnyIterator
 
-AudioStream: TypeAlias = AnyIterator[bytes] | bytes
+AudioStream: TypeAlias = AnyIterator[bytes]
