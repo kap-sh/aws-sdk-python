@@ -208,6 +208,8 @@ def build_request(
             str(input_["bucket_key_enabled"])
         )
     body = input_["body"]
+    if isinstance(body, aws_sdk_s3._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

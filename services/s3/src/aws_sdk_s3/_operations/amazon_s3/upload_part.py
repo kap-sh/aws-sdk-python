@@ -242,6 +242,8 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     body = input_["body"]
+    if isinstance(body, aws_sdk_s3._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

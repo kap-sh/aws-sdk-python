@@ -134,6 +134,8 @@ def build_request(
     if "checksum_algorithm" in input_:
         headers["x-amz-Checksum-Algorithm"] = str(input_["checksum_algorithm"])
     body = input_["block_data"]
+    if isinstance(body, aws_sdk_ebs._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

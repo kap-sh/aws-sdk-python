@@ -97,6 +97,8 @@ def build_request(
     if "content_type" in input_:
         headers["Content-Type"] = str(input_["content_type"])
     body = input_["documents"]
+    if isinstance(body, aws_sdk_cloudsearch_domain._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

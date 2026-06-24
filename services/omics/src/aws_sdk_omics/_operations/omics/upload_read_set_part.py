@@ -138,6 +138,8 @@ def build_request(
         params["partNumber"] = str(input_["part_number"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body = input_["payload"]
+    if isinstance(body, aws_sdk_omics._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

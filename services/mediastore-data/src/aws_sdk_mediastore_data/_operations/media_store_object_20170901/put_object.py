@@ -114,6 +114,8 @@ def build_request(
     if "upload_availability" in input_:
         headers["x-amz-upload-availability"] = str(input_["upload_availability"])
     body = input_["body"]
+    if isinstance(body, aws_sdk_mediastore_data._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

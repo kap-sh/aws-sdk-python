@@ -22,6 +22,31 @@ class AnyIterator(AsyncIterator[T], Iterator[T], Generic[T]):
     ...
 
 
+class StaticAnyIterator(AnyIterator[T], Generic[T]):
+    """An :class:`AnyIterator` backed by static, in-memory content.
+
+    Used when streaming output is produced from already-materialized bytes
+    rather than a live stream. The ``content`` is yielded once and remains
+    accessible as a public attribute.
+    """
+
+    def __init__(self, content: T) -> None:
+        self.content = content
+        self._consumed = False
+
+    def __next__(self) -> T:
+        if self._consumed:
+            raise StopIteration
+        self._consumed = True
+        return self.content
+
+    async def __anext__(self) -> T:
+        if self._consumed:
+            raise StopAsyncIteration
+        self._consumed = True
+        return self.content
+
+
 def map_sync_iterator(iterable: Iterable[T], fn: Callable[[T], U]) -> Iterator[U]:
     """Map ``fn`` over a synchronous iterable, yielding results lazily."""
     for item in iterable:
@@ -61,10 +86,7 @@ def ensure_async_iterator(value: AsyncIterator[T] | T) -> AnyIterator[T]:
     if isinstance(value, AsyncIterator):
         return cast(AnyIterator[T], value)
 
-    async def gen() -> AsyncIterator[T]:
-        yield value
-
-    return cast(AnyIterator[T], gen())
+    return StaticAnyIterator(value)
 
 
 def ensure_sync_iterator(value: Iterator[T] | T) -> AnyIterator[T]:
@@ -76,14 +98,12 @@ def ensure_sync_iterator(value: Iterator[T] | T) -> AnyIterator[T]:
     if isinstance(value, Iterator):
         return cast(AnyIterator[T], value)
 
-    def gen() -> Iterator[T]:
-        yield value
-
-    return cast(AnyIterator[T], gen())
+    return StaticAnyIterator(value)
 
 
 __all__ = [
     "AnyIterator",
+    "StaticAnyIterator",
     "chain_async_iterator",
     "chain_sync_iterator",
     "ensure_async_iterator",

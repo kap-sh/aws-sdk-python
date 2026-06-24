@@ -264,6 +264,8 @@ def build_request(
     if "active_contexts" in input_:
         headers["x-amz-lex-active-contexts"] = str(input_["active_contexts"])
     body = input_["input_stream"]
+    if isinstance(body, aws_sdk_lex_runtime_service._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

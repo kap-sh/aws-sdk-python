@@ -194,6 +194,8 @@ def build_request(
     if "response_content_type" in input_:
         headers["Response-Content-Type"] = str(input_["response_content_type"])
     body = input_["input_stream"]
+    if isinstance(body, aws_sdk_lex_runtime_v2._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

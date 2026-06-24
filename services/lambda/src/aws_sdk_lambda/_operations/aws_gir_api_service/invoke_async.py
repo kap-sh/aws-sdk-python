@@ -107,6 +107,8 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body = input_["invoke_args"]
+    if isinstance(body, aws_sdk_lambda._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

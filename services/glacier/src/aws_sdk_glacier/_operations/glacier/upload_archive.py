@@ -127,6 +127,8 @@ def build_request(
     if "checksum" in input_:
         headers["x-amz-sha256-tree-hash"] = str(input_["checksum"])
     body = input_["body"]
+    if isinstance(body, aws_sdk_glacier._iter.StaticAnyIterator):
+        body = body.content
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:
