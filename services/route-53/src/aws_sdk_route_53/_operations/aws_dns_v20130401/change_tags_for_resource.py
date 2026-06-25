@@ -107,14 +107,10 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ChangeTagsForResourceRequest")
     if "add_tags" in input_:
-        import aws_sdk_route_53.types.tag_list
-
         aws_sdk_route_53.types.tag_list.serialize_xml(
             input_["add_tags"], root, "AddTags"
         )
     if "remove_tag_keys" in input_:
-        import aws_sdk_route_53.types.tag_key_list
-
         aws_sdk_route_53.types.tag_key_list.serialize_xml(
             input_["remove_tag_keys"], root, "RemoveTagKeys"
         )

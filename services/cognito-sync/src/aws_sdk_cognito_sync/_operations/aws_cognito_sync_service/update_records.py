@@ -145,8 +145,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "client_context" in input_:
         headers["x-amz-Client-Context"] = str(input_["client_context"])
-    import aws_sdk_cognito_sync.types.update_records_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_sync.types.update_records_request.serialize_json(input_)
     ).encode()

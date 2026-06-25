@@ -104,8 +104,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/orgs/adminAccountslist"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_detective.types.list_organization_admin_accounts_request
-
     body: bytes | None = json.dumps(
         aws_sdk_detective.types.list_organization_admin_accounts_request.serialize_json(
             input_

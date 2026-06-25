@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/email/deliverability-dashboard"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_pinpoint_email.types.put_deliverability_dashboard_option_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_email.types.put_deliverability_dashboard_option_request.serialize_json(
             input_

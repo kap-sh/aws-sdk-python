@@ -113,8 +113,6 @@ def build_request(
         params["resourceType"] = str(input_["resource_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "geo_json_payload" in input_:
-        import aws_sdk_iot_wireless.types.geo_json_payload
-
         body: bytes | None = json.dumps(
             aws_sdk_iot_wireless.types.geo_json_payload.serialize_json(
                 input_["geo_json_payload"]

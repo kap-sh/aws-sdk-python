@@ -130,8 +130,6 @@ def build_request(
     if "domain_name_id" in input_:
         params["domainNameId"] = str(input_["domain_name_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_api_gateway.types.update_domain_name_request
-
     body: bytes | None = json.dumps(
         aws_sdk_api_gateway.types.update_domain_name_request.serialize_json(input_)
     ).encode()

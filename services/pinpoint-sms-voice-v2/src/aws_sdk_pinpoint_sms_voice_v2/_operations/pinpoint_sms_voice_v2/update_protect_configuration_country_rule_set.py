@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PinpointSMSVoiceV2.UpdateProtectConfigurationCountryRuleSet"
     )
-    import aws_sdk_pinpoint_sms_voice_v2.types.update_protect_configuration_country_rule_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_sms_voice_v2.types.update_protect_configuration_country_rule_set_request.serialize_aws_json_1_0(
             input_

@@ -110,8 +110,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "StarlingDoveService.PutServiceLinkedConfigurationRecorder"
     )
-    import aws_sdk_config_service.types.put_service_linked_configuration_recorder_request
-
     body: bytes | None = json.dumps(
         aws_sdk_config_service.types.put_service_linked_configuration_recorder_request.serialize_aws_json_1_1(
             input_

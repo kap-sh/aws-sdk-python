@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetDeclarativePoliciesReportSummary"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_declarative_policies_report_summary_request
-
     aws_sdk_ec2.types.get_declarative_policies_report_summary_request.serialize_ec2_query(
         input_, pairs, ""
     )

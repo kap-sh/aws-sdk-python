@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview"
     )
-    import aws_sdk_ecr.types.get_lifecycle_policy_preview_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.get_lifecycle_policy_preview_request.serialize_aws_json_1_1(
             input_

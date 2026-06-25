@@ -112,8 +112,6 @@ def build_request(
     url = url.replace("{assessmentId}", quote(str(input_["assessment_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_auditmanager.types.update_assessment_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_auditmanager.types.update_assessment_status_request.serialize_json(
             input_

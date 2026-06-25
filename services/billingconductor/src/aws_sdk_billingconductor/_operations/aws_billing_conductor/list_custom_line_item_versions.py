@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-custom-line-item-versions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_billingconductor.types.list_custom_line_item_versions_input
-
     body: bytes | None = json.dumps(
         aws_sdk_billingconductor.types.list_custom_line_item_versions_input.serialize_json(
             input_

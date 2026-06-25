@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/GetWorkUnitResults"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.get_work_unit_results_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.get_work_unit_results_request.serialize_json(input_)
     ).encode()

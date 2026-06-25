@@ -115,8 +115,6 @@ def build_request(
     if "key" in input_:
         params["key"] = str(input_["key"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.search_place_index_for_text_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.search_place_index_for_text_request.serialize_json(
             input_

@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ListTableStorageOptimizers"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.list_table_storage_optimizers_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.list_table_storage_optimizers_request.serialize_json(
             input_

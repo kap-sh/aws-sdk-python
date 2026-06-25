@@ -99,8 +99,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ListTaxRegistrations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_taxsettings.types.list_tax_registrations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_taxsettings.types.list_tax_registrations_request.serialize_json(input_)
     ).encode()

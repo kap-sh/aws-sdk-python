@@ -82,8 +82,6 @@ def build_request(
     if "checksum_algorithm" in input_:
         headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
     if "accelerate_configuration" in input_:
-        import aws_sdk_s3.types.accelerate_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.accelerate_configuration.serialize_xml(
             input_["accelerate_configuration"], payload_root, "AccelerateConfiguration"

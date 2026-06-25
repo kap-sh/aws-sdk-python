@@ -151,8 +151,6 @@ def build_request(
         headers["x-amz-last-modified-time"] = str(input_["last_modified_time"])
     if "last_modified_region" in input_:
         headers["x-amz-last-modified-region"] = str(input_["last_modified_region"])
-    import aws_sdk_connect.types.create_test_case_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.create_test_case_request.serialize_json(input_)
     ).encode()

@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PinpointSMSVoiceV2.DescribeRegistrationSectionDefinitions"
     )
-    import aws_sdk_pinpoint_sms_voice_v2.types.describe_registration_section_definitions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_sms_voice_v2.types.describe_registration_section_definitions_request.serialize_aws_json_1_0(
             input_

@@ -120,8 +120,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/policy-engines"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.create_policy_engine_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.create_policy_engine_request.serialize_json(
             input_

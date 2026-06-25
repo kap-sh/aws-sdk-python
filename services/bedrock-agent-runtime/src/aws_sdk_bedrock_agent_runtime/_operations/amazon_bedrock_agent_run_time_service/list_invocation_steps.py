@@ -119,8 +119,6 @@ def build_request(
         params["nextToken"] = str(input_["next_token"])
     params["maxResults"] = str(input_.get("max_results", 10))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agent_runtime.types.list_invocation_steps_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent_runtime.types.list_invocation_steps_request.serialize_json(
             input_

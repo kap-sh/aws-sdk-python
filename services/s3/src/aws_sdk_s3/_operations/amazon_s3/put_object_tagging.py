@@ -110,8 +110,6 @@ def build_request(
     if "request_payer" in input_:
         headers["x-amz-request-payer"] = str(input_["request_payer"])
     if "tagging" in input_:
-        import aws_sdk_s3.types.tagging
-
         payload_root = Element("_")
         aws_sdk_s3.types.tagging.serialize_xml(
             input_["tagging"], payload_root, "Tagging"

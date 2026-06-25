@@ -73,8 +73,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetInstanceHealth"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.set_instance_health_query
-
     aws_sdk_auto_scaling.types.set_instance_health_query.serialize_query(
         input_, pairs, ""
     )

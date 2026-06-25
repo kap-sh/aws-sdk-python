@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DisableOrganizationsRootSessions"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.disable_organizations_root_sessions_request
-
     aws_sdk_iam.types.disable_organizations_root_sessions_request.serialize_query(
         input_, pairs, ""
     )

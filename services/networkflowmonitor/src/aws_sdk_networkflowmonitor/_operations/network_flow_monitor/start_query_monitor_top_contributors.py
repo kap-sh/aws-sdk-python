@@ -112,8 +112,6 @@ def build_request(
     url = url.replace("{monitorName}", quote(str(input_["monitor_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input
-
     body: bytes | None = json.dumps(
         aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.serialize_json(
             input_

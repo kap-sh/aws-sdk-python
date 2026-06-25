@@ -137,8 +137,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "schema_arn" in input_:
         headers["x-amz-data-partition"] = str(input_["schema_arn"])
-    import aws_sdk_clouddirectory.types.list_typed_link_facet_attributes_request
-
     body: bytes | None = json.dumps(
         aws_sdk_clouddirectory.types.list_typed_link_facet_attributes_request.serialize_json(
             input_

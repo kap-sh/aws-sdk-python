@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AttachLoadBalancerTargetGroups"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.attach_load_balancer_target_groups_type
-
     aws_sdk_auto_scaling.types.attach_load_balancer_target_groups_type.serialize_query(
         input_, pairs, ""
     )

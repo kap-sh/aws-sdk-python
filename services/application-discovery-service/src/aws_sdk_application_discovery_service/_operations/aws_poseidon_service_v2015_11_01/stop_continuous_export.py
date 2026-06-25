@@ -132,8 +132,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StopContinuousExport"
-    import aws_sdk_application_discovery_service.types.stop_continuous_export_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_discovery_service.types.stop_continuous_export_request.serialize_aws_json_1_1(
             input_

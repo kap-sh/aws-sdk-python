@@ -147,8 +147,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "e_tag" in input_:
         headers["x-amzn-update-if-match"] = str(input_["e_tag"])
-    import aws_sdk_mediapackagev2.types.update_origin_endpoint_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediapackagev2.types.update_origin_endpoint_request.serialize_json(
             input_

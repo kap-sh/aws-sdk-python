@@ -94,8 +94,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.UpdateSharedVpcConfiguration"
     )
-    import aws_sdk_fsx.types.update_shared_vpc_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.update_shared_vpc_configuration_request.serialize_aws_json_1_1(
             input_

@@ -124,8 +124,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RestoreTableFromClusterSnapshot"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message
-
     aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message.serialize_query(
         input_, pairs, ""
     )

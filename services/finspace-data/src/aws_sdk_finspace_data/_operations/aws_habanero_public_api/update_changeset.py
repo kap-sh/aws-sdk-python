@@ -121,8 +121,6 @@ def build_request(
     url = url.replace("{changesetId}", quote(str(input_["changeset_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_finspace_data.types.update_changeset_request
-
     body: bytes | None = json.dumps(
         aws_sdk_finspace_data.types.update_changeset_request.serialize_json(input_)
     ).encode()

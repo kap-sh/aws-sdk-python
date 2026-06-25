@@ -102,8 +102,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams"
-    import aws_sdk_dynamodb_streams.types.list_streams_input
-
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb_streams.types.list_streams_input.serialize_aws_json_1_0(input_)
     ).encode()

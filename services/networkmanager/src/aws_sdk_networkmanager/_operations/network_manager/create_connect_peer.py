@@ -124,8 +124,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/connect-peers"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkmanager.types.create_connect_peer_request
-
     body: bytes | None = json.dumps(
         aws_sdk_networkmanager.types.create_connect_peer_request.serialize_json(input_)
     ).encode()

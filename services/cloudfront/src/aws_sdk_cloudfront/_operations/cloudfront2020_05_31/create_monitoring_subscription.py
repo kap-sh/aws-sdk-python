@@ -114,8 +114,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "monitoring_subscription" in input_:
-        import aws_sdk_cloudfront.types.monitoring_subscription
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.monitoring_subscription.serialize_xml(
             input_["monitoring_subscription"], payload_root, "MonitoringSubscription"

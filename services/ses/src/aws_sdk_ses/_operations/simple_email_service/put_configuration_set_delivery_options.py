@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PutConfigurationSetDeliveryOptions"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.put_configuration_set_delivery_options_request
-
     aws_sdk_ses.types.put_configuration_set_delivery_options_request.serialize_query(
         input_, pairs, ""
     )

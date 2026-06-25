@@ -100,8 +100,6 @@ def build_request(
     if "tags" in input_:
         headers["x-amz-tagging"] = str(input_["tags"])
     if "topic_rule_payload" in input_:
-        import aws_sdk_iot.types.topic_rule_payload
-
         body: bytes | None = json.dumps(
             aws_sdk_iot.types.topic_rule_payload.serialize_json(
                 input_["topic_rule_payload"]

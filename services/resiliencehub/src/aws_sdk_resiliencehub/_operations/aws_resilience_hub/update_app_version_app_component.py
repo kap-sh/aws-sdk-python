@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/update-app-version-app-component"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehub.types.update_app_version_app_component_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehub.types.update_app_version_app_component_request.serialize_json(
             input_

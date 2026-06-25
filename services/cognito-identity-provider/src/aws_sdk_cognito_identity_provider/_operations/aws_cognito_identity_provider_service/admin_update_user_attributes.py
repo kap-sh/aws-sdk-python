@@ -157,8 +157,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes"
     )
-    import aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.admin_update_user_attributes_request.serialize_aws_json_1_1(
             input_

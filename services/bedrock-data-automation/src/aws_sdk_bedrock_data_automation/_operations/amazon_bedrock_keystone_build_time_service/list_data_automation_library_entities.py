@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{entityType}", quote(str(input_["entity_type"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_data_automation.types.list_data_automation_library_entities_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_data_automation.types.list_data_automation_library_entities_request.serialize_json(
             input_

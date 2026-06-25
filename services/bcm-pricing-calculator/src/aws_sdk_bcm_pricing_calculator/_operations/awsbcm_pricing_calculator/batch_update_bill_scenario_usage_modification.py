@@ -129,8 +129,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSBCMPricingCalculator.BatchUpdateBillScenarioUsageModification"
     )
-    import aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_usage_modification_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_usage_modification_request.serialize_aws_json_1_0(
             input_

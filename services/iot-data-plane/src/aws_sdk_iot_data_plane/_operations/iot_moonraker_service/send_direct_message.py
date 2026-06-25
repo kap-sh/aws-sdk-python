@@ -151,8 +151,6 @@ def build_request(
     if "correlation_data" in input_:
         headers["x-amz-mqtt5-correlation-data"] = str(input_["correlation_data"])
     if "payload" in input_:
-        import aws_sdk_iot_data_plane.types.payload
-
         body: bytes | None = json.dumps(
             aws_sdk_iot_data_plane.types.payload.serialize_json(input_["payload"])
         ).encode()

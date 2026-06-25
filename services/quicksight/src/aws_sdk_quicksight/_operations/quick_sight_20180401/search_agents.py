@@ -125,8 +125,6 @@ def build_request(
     if "next_token" in input_:
         params["next-token"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.search_agents_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.search_agents_request.serialize_json(input_)
     ).encode()

@@ -113,8 +113,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Logs_20140328.AssociateSourceToS3TableIntegration"
-    import aws_sdk_cloudwatch_logs.types.associate_source_to_s3_table_integration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudwatch_logs.types.associate_source_to_s3_table_integration_request.serialize_aws_json_1_1(
             input_

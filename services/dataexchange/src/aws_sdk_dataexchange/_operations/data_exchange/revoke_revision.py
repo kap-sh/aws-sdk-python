@@ -124,8 +124,6 @@ def build_request(
     url = url.replace("{RevisionId}", quote(str(input_["revision_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_dataexchange.types.revoke_revision_request
-
     body: bytes | None = json.dumps(
         aws_sdk_dataexchange.types.revoke_revision_request.serialize_json(input_)
     ).encode()

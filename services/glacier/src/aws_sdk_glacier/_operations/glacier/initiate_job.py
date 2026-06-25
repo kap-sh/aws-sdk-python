@@ -128,8 +128,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "job_parameters" in input_:
-        import aws_sdk_glacier.types.job_parameters
-
         body: bytes | None = json.dumps(
             aws_sdk_glacier.types.job_parameters.serialize_json(
                 input_["job_parameters"]

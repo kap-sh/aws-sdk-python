@@ -131,8 +131,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListAccountsWithInvalidEffectivePolicy"
     )
-    import aws_sdk_organizations.types.list_accounts_with_invalid_effective_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_accounts_with_invalid_effective_policy_request.serialize_aws_json_1_1(
             input_

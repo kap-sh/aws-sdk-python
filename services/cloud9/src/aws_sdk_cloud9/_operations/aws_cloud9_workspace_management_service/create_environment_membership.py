@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
     )
-    import aws_sdk_cloud9.types.create_environment_membership_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloud9.types.create_environment_membership_request.serialize_aws_json_1_1(
             input_

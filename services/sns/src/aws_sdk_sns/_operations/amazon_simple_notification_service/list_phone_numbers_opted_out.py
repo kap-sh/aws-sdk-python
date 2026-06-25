@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListPhoneNumbersOptedOut"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.list_phone_numbers_opted_out_input
-
     aws_sdk_sns.types.list_phone_numbers_opted_out_input.serialize_query(
         input_, pairs, ""
     )

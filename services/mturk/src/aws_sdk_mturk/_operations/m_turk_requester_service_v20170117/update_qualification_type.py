@@ -93,8 +93,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.UpdateQualificationType"
-    import aws_sdk_mturk.types.update_qualification_type_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.update_qualification_type_request.serialize_aws_json_1_1(
             input_

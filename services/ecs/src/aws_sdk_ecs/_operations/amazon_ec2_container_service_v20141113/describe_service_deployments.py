@@ -119,8 +119,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.DescribeServiceDeployments"
     )
-    import aws_sdk_ecs.types.describe_service_deployments_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.describe_service_deployments_request.serialize_aws_json_1_1(
             input_

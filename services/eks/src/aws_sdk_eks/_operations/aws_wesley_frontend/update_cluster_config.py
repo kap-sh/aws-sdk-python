@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{name}", quote(str(input_["name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_eks.types.update_cluster_config_request
-
     body: bytes | None = json.dumps(
         aws_sdk_eks.types.update_cluster_config_request.serialize_json(input_)
     ).encode()

@@ -110,8 +110,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination"
     )
-    import aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_by_destination_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.list_custom_routing_port_mappings_by_destination_request.serialize_aws_json_1_1(
             input_

@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSLookoutEquipmentFrontendService.StartInferenceScheduler"
     )
-    import aws_sdk_lookoutequipment.types.start_inference_scheduler_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lookoutequipment.types.start_inference_scheduler_request.serialize_aws_json_1_0(
             input_

@@ -113,8 +113,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyDBSubnetGroup"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_neptune.types.modify_db_subnet_group_message
-
     aws_sdk_neptune.types.modify_db_subnet_group_message.serialize_query(
         input_, pairs, ""
     )

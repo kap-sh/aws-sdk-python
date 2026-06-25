@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSLicenseManager.ListAssociationsForLicenseConfiguration"
     )
-    import aws_sdk_license_manager.types.list_associations_for_license_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_license_manager.types.list_associations_for_license_configuration_request.serialize_aws_json_1_1(
             input_

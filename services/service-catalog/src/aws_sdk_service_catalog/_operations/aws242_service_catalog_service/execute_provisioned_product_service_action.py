@@ -106,8 +106,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction"
     )
-    import aws_sdk_service_catalog.types.execute_provisioned_product_service_action_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.execute_provisioned_product_service_action_input.serialize_aws_json_1_1(
             input_

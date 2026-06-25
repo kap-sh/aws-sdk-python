@@ -125,8 +125,6 @@ def build_request(
     url = url.replace("{ConnectionId}", quote(str(input_["connection_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkmanager.types.update_connection_request
-
     body: bytes | None = json.dumps(
         aws_sdk_networkmanager.types.update_connection_request.serialize_json(input_)
     ).encode()

@@ -96,8 +96,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DisassociateFileSystemAliases"
     )
-    import aws_sdk_fsx.types.disassociate_file_system_aliases_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.disassociate_file_system_aliases_request.serialize_aws_json_1_1(
             input_

@@ -137,8 +137,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListEffectivePolicyValidationErrors"
     )
-    import aws_sdk_organizations.types.list_effective_policy_validation_errors_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_effective_policy_validation_errors_request.serialize_aws_json_1_1(
             input_

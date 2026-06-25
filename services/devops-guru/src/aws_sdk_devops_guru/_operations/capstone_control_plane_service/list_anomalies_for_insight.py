@@ -114,8 +114,6 @@ def build_request(
     url = url.replace("{InsightId}", quote(str(input_["insight_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_guru.types.list_anomalies_for_insight_request
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_guru.types.list_anomalies_for_insight_request.serialize_json(
             input_

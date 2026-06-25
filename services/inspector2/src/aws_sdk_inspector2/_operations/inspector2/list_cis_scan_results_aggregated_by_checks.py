@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/cis/scan-result/check/list"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_checks_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_checks_request.serialize_json(
             input_

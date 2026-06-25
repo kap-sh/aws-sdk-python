@@ -104,8 +104,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeReservedNodeExchangeStatus"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_reserved_node_exchange_status_input_message
-
     aws_sdk_redshift.types.describe_reserved_node_exchange_status_input_message.serialize_query(
         input_, pairs, ""
     )

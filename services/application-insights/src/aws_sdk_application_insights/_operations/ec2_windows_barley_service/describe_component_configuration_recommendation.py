@@ -106,8 +106,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation"
     )
-    import aws_sdk_application_insights.types.describe_component_configuration_recommendation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_insights.types.describe_component_configuration_recommendation_request.serialize_aws_json_1_1(
             input_

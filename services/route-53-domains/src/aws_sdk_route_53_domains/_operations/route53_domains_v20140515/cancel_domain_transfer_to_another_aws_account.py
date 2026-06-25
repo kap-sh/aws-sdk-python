@@ -104,8 +104,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount"
     )
-    import aws_sdk_route_53_domains.types.cancel_domain_transfer_to_another_aws_account_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route_53_domains.types.cancel_domain_transfer_to_another_aws_account_request.serialize_aws_json_1_1(
             input_

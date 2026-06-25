@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/graphs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_neptune_graph.types.create_graph_input
-
     body: bytes | None = json.dumps(
         aws_sdk_neptune_graph.types.create_graph_input.serialize_json(input_)
     ).encode()

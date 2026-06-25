@@ -108,8 +108,6 @@ def build_request(
     url = url.replace("{Arn}", quote(str(input_["arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mpa.types.start_active_approval_team_deletion_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mpa.types.start_active_approval_team_deletion_request.serialize_json(
             input_

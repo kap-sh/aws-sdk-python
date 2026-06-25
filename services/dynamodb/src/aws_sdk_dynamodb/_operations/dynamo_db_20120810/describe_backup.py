@@ -105,8 +105,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeBackup"
-    import aws_sdk_dynamodb.types.describe_backup_input
-
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.describe_backup_input.serialize_aws_json_1_0(input_)
     ).encode()

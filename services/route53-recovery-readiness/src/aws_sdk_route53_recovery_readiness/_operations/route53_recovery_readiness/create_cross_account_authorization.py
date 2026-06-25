@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/crossaccountauthorizations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_route53_recovery_readiness.types.create_cross_account_authorization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route53_recovery_readiness.types.create_cross_account_authorization_request.serialize_json(
             input_

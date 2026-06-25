@@ -123,8 +123,6 @@ def build_request(
     url = url.replace("{indexId}", quote(str(input_["index_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.batch_put_document_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.batch_put_document_request.serialize_json(input_)
     ).encode()

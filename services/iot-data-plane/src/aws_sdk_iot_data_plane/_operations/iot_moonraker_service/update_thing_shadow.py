@@ -145,8 +145,6 @@ def build_request(
         params["name"] = str(input_["shadow_name"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "payload" in input_:
-        import aws_sdk_iot_data_plane.types.json_document
-
         body: bytes | None = json.dumps(
             aws_sdk_iot_data_plane.types.json_document.serialize_json(input_["payload"])
         ).encode()

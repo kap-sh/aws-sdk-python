@@ -110,8 +110,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSBilling.ListBillingViews"
-    import aws_sdk_billing.types.list_billing_views_request
-
     body: bytes | None = json.dumps(
         aws_sdk_billing.types.list_billing_views_request.serialize_aws_json_1_0(input_)
     ).encode()

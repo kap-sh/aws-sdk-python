@@ -98,8 +98,6 @@ def build_request(
     if "next_token" in input_:
         params["NextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_application_signals.types.list_entity_events_input
-
     body: bytes | None = json.dumps(
         aws_sdk_application_signals.types.list_entity_events_input.serialize_json(
             input_

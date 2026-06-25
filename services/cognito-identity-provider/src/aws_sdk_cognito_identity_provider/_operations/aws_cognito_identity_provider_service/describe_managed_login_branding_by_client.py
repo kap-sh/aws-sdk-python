@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.DescribeManagedLoginBrandingByClient"
     )
-    import aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.describe_managed_login_branding_by_client_request.serialize_aws_json_1_1(
             input_

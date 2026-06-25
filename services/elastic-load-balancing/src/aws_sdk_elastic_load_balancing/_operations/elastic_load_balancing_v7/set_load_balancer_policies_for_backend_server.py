@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetLoadBalancerPoliciesForBackendServer"))
     pairs.append(("Version", "2012-06-01"))
-    import aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input
-
     aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input.serialize_query(
         input_, pairs, ""
     )

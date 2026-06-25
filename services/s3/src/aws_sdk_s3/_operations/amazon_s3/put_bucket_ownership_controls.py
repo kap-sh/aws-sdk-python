@@ -84,8 +84,6 @@ def build_request(
     if "checksum_algorithm" in input_:
         headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
     if "ownership_controls" in input_:
-        import aws_sdk_s3.types.ownership_controls
-
         payload_root = Element("_")
         aws_sdk_s3.types.ownership_controls.serialize_xml(
             input_["ownership_controls"], payload_root, "OwnershipControls"

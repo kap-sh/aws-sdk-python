@@ -101,8 +101,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy"
     )
-    import aws_sdk_ecr.types.delete_repository_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.delete_repository_policy_request.serialize_aws_json_1_1(
             input_

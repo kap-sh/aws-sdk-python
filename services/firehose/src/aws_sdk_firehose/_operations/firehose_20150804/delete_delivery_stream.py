@@ -87,8 +87,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Firehose_20150804.DeleteDeliveryStream"
-    import aws_sdk_firehose.types.delete_delivery_stream_input
-
     body: bytes | None = json.dumps(
         aws_sdk_firehose.types.delete_delivery_stream_input.serialize_aws_json_1_1(
             input_

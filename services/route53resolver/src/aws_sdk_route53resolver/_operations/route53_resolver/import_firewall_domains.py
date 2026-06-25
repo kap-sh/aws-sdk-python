@@ -124,8 +124,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Route53Resolver.ImportFirewallDomains"
-    import aws_sdk_route53resolver.types.import_firewall_domains_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route53resolver.types.import_firewall_domains_request.serialize_aws_json_1_1(
             input_

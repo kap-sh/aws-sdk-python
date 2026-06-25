@@ -106,8 +106,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "PhotonAdminProxyService.AssociateSoftwareToImageBuilder"
-    import aws_sdk_appstream.types.associate_software_to_image_builder_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appstream.types.associate_software_to_image_builder_request.serialize_aws_json_1_1(
             input_

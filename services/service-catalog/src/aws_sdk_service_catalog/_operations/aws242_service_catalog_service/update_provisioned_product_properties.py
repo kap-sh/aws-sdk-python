@@ -106,8 +106,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.UpdateProvisionedProductProperties"
     )
-    import aws_sdk_service_catalog.types.update_provisioned_product_properties_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.update_provisioned_product_properties_input.serialize_aws_json_1_1(
             input_

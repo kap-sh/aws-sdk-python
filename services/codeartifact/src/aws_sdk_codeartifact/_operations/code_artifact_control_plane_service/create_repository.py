@@ -131,8 +131,6 @@ def build_request(
     if "repository" in input_:
         params["repository"] = str(input_["repository"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeartifact.types.create_repository_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeartifact.types.create_repository_request.serialize_json(input_)
     ).encode()

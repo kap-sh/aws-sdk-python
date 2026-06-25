@@ -101,8 +101,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonDMSv20160101.DescribeRecommendationLimitations"
-    import aws_sdk_database_migration_service.types.describe_recommendation_limitations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_database_migration_service.types.describe_recommendation_limitations_request.serialize_aws_json_1_1(
             input_

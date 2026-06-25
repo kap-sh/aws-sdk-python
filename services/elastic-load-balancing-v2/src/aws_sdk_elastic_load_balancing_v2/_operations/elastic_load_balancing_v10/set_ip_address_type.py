@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetIpAddressType"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.set_ip_address_type_input
-
     aws_sdk_elastic_load_balancing_v2.types.set_ip_address_type_input.serialize_query(
         input_, pairs, ""
     )

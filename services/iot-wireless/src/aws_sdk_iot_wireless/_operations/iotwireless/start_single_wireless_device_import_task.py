@@ -116,8 +116,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/wireless_single_device_import_task"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_wireless.types.start_single_wireless_device_import_task_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_wireless.types.start_single_wireless_device_import_task_request.serialize_json(
             input_

@@ -117,8 +117,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/automationrulesv2/create"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityhub.types.create_automation_rule_v2_request
-
     body: bytes | None = json.dumps(
         aws_sdk_securityhub.types.create_automation_rule_v2_request.serialize_json(
             input_

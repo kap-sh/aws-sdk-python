@@ -111,8 +111,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "LaunchInstances"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.launch_instances_request
-
     aws_sdk_auto_scaling.types.launch_instances_request.serialize_query(
         input_, pairs, ""
     )

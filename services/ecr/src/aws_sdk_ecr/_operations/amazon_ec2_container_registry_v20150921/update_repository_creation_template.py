@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.UpdateRepositoryCreationTemplate"
     )
-    import aws_sdk_ecr.types.update_repository_creation_template_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.update_repository_creation_template_request.serialize_aws_json_1_1(
             input_

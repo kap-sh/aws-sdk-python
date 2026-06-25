@@ -120,8 +120,6 @@ def build_request(
     if "domain" in input_:
         SubElement(root, "Domain").text = str(input_["domain"])
     if "target_resource" in input_:
-        import aws_sdk_cloudfront.types.distribution_resource_id
-
         aws_sdk_cloudfront.types.distribution_resource_id.serialize_xml(
             input_["target_resource"], root, "TargetResource"
         )

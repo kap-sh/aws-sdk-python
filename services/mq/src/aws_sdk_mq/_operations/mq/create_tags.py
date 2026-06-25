@@ -82,8 +82,6 @@ def build_request(
     url = url.replace("{ResourceArn}", quote(str(input_["resource_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mq.types.create_tags_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mq.types.create_tags_request.serialize_json(input_)
     ).encode()

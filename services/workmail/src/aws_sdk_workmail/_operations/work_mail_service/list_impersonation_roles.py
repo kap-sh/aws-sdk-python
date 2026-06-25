@@ -97,8 +97,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "WorkMailService.ListImpersonationRoles"
-    import aws_sdk_workmail.types.list_impersonation_roles_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workmail.types.list_impersonation_roles_request.serialize_aws_json_1_1(
             input_

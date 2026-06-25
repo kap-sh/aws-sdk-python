@@ -115,8 +115,6 @@ def build_request(
     if "expected_version" in input_:
         params["expectedVersion"] = str(input_["expected_version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_security_profile_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_security_profile_request.serialize_json(input_)
     ).encode()

@@ -91,8 +91,6 @@ def build_request(
     url = url.replace("{assetId}", quote(str(input_["asset_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iotsitewise.types.disassociate_assets_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.disassociate_assets_request.serialize_json(input_)
     ).encode()

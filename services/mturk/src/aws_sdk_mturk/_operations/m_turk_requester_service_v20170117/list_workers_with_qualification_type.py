@@ -95,8 +95,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType"
     )
-    import aws_sdk_mturk.types.list_workers_with_qualification_type_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.list_workers_with_qualification_type_request.serialize_aws_json_1_1(
             input_

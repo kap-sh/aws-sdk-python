@@ -112,8 +112,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "TransferService.ListProfiles"
-    import aws_sdk_transfer.types.list_profiles_request
-
     body: bytes | None = json.dumps(
         aws_sdk_transfer.types.list_profiles_request.serialize_aws_json_1_1(input_)
     ).encode()

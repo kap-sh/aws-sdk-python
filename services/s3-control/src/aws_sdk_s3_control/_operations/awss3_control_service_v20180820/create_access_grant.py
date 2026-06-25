@@ -109,36 +109,26 @@ def build_request(
             input_["access_grants_location_id"]
         )
     if "access_grants_location_configuration" in input_:
-        import aws_sdk_s3_control.types.access_grants_location_configuration
-
         aws_sdk_s3_control.types.access_grants_location_configuration.serialize_xml(
             input_["access_grants_location_configuration"],
             root,
             "AccessGrantsLocationConfiguration",
         )
     if "grantee" in input_:
-        import aws_sdk_s3_control.types.grantee
-
         aws_sdk_s3_control.types.grantee.serialize_xml(
             input_["grantee"], root, "Grantee"
         )
     if "permission" in input_:
-        import aws_sdk_s3_control.types.permission
-
         aws_sdk_s3_control.types.permission.serialize_xml(
             input_["permission"], root, "Permission"
         )
     if "application_arn" in input_:
         SubElement(root, "ApplicationArn").text = str(input_["application_arn"])
     if "s3_prefix_type" in input_:
-        import aws_sdk_s3_control.types.s3_prefix_type
-
         aws_sdk_s3_control.types.s3_prefix_type.serialize_xml(
             input_["s3_prefix_type"], root, "S3PrefixType"
         )
     if "tags" in input_:
-        import aws_sdk_s3_control.types.tag_list
-
         aws_sdk_s3_control.types.tag_list.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

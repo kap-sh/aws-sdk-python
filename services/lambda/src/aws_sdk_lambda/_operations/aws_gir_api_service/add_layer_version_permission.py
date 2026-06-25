@@ -123,8 +123,6 @@ def build_request(
     if "revision_id" in input_:
         params["RevisionId"] = str(input_["revision_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lambda.types.add_layer_version_permission_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lambda.types.add_layer_version_permission_request.serialize_json(input_)
     ).encode()

@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/discover"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_schemas.types.get_discovered_schema_request
-
     body: bytes | None = json.dumps(
         aws_sdk_schemas.types.get_discovered_schema_request.serialize_json(input_)
     ).encode()

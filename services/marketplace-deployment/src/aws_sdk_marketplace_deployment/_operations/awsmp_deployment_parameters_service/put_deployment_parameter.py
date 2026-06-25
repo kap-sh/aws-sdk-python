@@ -129,8 +129,6 @@ def build_request(
     url = url.replace("{productId}", quote(str(input_["product_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_marketplace_deployment.types.put_deployment_parameter_request
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.serialize_json(
             input_

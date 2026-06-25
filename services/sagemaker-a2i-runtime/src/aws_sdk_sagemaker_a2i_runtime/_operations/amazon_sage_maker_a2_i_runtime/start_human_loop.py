@@ -117,8 +117,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/human-loops"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sagemaker_a2i_runtime.types.start_human_loop_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker_a2i_runtime.types.start_human_loop_request.serialize_json(
             input_

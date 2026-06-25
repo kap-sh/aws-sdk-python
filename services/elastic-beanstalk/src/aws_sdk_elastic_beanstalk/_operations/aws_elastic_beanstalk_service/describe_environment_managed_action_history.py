@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeEnvironmentManagedActionHistory"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.describe_environment_managed_action_history_request
-
     aws_sdk_elastic_beanstalk.types.describe_environment_managed_action_history_request.serialize_query(
         input_, pairs, ""
     )

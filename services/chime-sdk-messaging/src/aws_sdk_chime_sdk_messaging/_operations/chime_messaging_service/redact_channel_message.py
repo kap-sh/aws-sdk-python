@@ -129,8 +129,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "chime_bearer" in input_:
         headers["x-amz-chime-bearer"] = str(input_["chime_bearer"])
-    import aws_sdk_chime_sdk_messaging.types.redact_channel_message_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_messaging.types.redact_channel_message_request.serialize_json(
             input_

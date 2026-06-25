@@ -123,8 +123,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "PinpointSMSVoiceV2.CreateVerifiedDestinationNumber"
-    import aws_sdk_pinpoint_sms_voice_v2.types.create_verified_destination_number_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_sms_voice_v2.types.create_verified_destination_number_request.serialize_aws_json_1_0(
             input_

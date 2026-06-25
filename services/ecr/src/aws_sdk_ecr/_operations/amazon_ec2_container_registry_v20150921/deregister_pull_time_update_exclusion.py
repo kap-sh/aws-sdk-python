@@ -106,8 +106,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.DeregisterPullTimeUpdateExclusion"
     )
-    import aws_sdk_ecr.types.deregister_pull_time_update_exclusion_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.deregister_pull_time_update_exclusion_request.serialize_aws_json_1_1(
             input_

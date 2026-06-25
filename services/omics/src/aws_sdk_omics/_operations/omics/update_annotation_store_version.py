@@ -110,8 +110,6 @@ def build_request(
     url = url.replace("{versionName}", quote(str(input_["version_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_omics.types.update_annotation_store_version_request
-
     body: bytes | None = json.dumps(
         aws_sdk_omics.types.update_annotation_store_version_request.serialize_json(
             input_

@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AcceptReservedInstancesExchangeQuote"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.accept_reserved_instances_exchange_quote_request
-
     aws_sdk_ec2.types.accept_reserved_instances_exchange_quote_request.serialize_ec2_query(
         input_, pairs, ""
     )

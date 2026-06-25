@@ -103,8 +103,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeLoadBalancerPolicyTypes"))
     pairs.append(("Version", "2012-06-01"))
-    import aws_sdk_elastic_load_balancing.types.describe_load_balancer_policy_types_input
-
     aws_sdk_elastic_load_balancing.types.describe_load_balancer_policy_types_input.serialize_query(
         input_, pairs, ""
     )

@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetAlarmMuteRule"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.get_alarm_mute_rule_input
-
     aws_sdk_cloudwatch.types.get_alarm_mute_rule_input.serialize_query(
         input_, pairs, ""
     )

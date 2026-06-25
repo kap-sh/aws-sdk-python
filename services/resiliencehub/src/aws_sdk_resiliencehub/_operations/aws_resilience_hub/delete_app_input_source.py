@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/delete-app-input-source"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehub.types.delete_app_input_source_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehub.types.delete_app_input_source_request.serialize_json(
             input_

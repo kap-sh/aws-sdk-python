@@ -121,8 +121,6 @@ def build_request(
     url = url.replace("{databaseName}", quote(str(input_["database_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_finspace.types.update_kx_database_request
-
     body: bytes | None = json.dumps(
         aws_sdk_finspace.types.update_kx_database_request.serialize_json(input_)
     ).encode()

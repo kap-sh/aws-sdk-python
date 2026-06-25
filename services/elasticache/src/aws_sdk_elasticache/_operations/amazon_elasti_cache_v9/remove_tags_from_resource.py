@@ -177,8 +177,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RemoveTagsFromResource"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.remove_tags_from_resource_message
-
     aws_sdk_elasticache.types.remove_tags_from_resource_message.serialize_query(
         input_, pairs, ""
     )

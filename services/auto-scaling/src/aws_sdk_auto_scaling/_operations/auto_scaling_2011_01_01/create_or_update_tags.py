@@ -89,8 +89,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateOrUpdateTags"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.create_or_update_tags_type
-
     aws_sdk_auto_scaling.types.create_or_update_tags_type.serialize_query(
         input_, pairs, ""
     )

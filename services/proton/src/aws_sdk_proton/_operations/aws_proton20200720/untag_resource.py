@@ -110,8 +110,6 @@ def build_request(
         params["resourceArn"] = str(input_["resource_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AwsProton20200720.UntagResource"
-    import aws_sdk_proton.types.untag_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_proton.types.untag_resource_input.serialize_aws_json_1_0(input_)
     ).encode()

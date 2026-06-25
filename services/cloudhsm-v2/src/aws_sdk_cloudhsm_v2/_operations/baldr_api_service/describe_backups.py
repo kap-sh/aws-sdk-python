@@ -120,8 +120,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "BaldrApiService.DescribeBackups"
-    import aws_sdk_cloudhsm_v2.types.describe_backups_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudhsm_v2.types.describe_backups_request.serialize_aws_json_1_1(
             input_

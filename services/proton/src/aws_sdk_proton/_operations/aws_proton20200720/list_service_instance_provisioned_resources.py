@@ -109,8 +109,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AwsProton20200720.ListServiceInstanceProvisionedResources"
     )
-    import aws_sdk_proton.types.list_service_instance_provisioned_resources_input
-
     body: bytes | None = json.dumps(
         aws_sdk_proton.types.list_service_instance_provisioned_resources_input.serialize_aws_json_1_0(
             input_

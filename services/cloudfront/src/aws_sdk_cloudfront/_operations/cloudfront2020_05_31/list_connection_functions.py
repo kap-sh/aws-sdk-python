@@ -104,8 +104,6 @@ def build_request(
     if "max_items" in input_:
         SubElement(root, "MaxItems").text = str(input_["max_items"])
     if "stage" in input_:
-        import aws_sdk_cloudfront.types.function_stage
-
         aws_sdk_cloudfront.types.function_stage.serialize_xml(
             input_["stage"], root, "Stage"
         )

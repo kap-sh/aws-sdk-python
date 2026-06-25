@@ -109,8 +109,6 @@ def build_request(
     if "workflow_id" in input_:
         params["workflowId"] = str(input_["workflow_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codecatalyst.types.start_workflow_run_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codecatalyst.types.start_workflow_run_request.serialize_json(input_)
     ).encode()

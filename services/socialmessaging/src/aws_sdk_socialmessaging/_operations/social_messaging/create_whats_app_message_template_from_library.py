@@ -127,8 +127,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/whatsapp/template/create"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input
-
     body: bytes | None = json.dumps(
         aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input.serialize_json(
             input_

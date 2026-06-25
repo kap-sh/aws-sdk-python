@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/create-foundation-model-agreement"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock.types.create_foundation_model_agreement_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_foundation_model_agreement_request.serialize_json(
             input_

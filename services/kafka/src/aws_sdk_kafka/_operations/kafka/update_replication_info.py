@@ -124,8 +124,6 @@ def build_request(
     url = url.replace("{ReplicatorArn}", quote(str(input_["replicator_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kafka.types.update_replication_info_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kafka.types.update_replication_info_request.serialize_json(input_)
     ).encode()

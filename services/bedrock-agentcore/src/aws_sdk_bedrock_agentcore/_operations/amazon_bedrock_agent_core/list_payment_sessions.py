@@ -113,8 +113,6 @@ def build_request(
         headers["X-Amzn-Bedrock-AgentCore-Payments-Agent-Name"] = str(
             input_["agent_name"]
         )
-    import aws_sdk_bedrock_agentcore.types.list_payment_sessions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.list_payment_sessions_request.serialize_json(
             input_

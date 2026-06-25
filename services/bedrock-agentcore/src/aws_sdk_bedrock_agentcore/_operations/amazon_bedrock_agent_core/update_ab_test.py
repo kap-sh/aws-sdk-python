@@ -133,8 +133,6 @@ def build_request(
     url = url.replace("{abTestId}", quote(str(input_["ab_test_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore.types.update_ab_test_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.update_ab_test_request.serialize_json(input_)
     ).encode()

@@ -127,36 +127,26 @@ def build_request(
     if "health_threshold" in input_:
         SubElement(root, "HealthThreshold").text = str(input_["health_threshold"])
     if "child_health_checks" in input_:
-        import aws_sdk_route_53.types.child_health_check_list
-
         aws_sdk_route_53.types.child_health_check_list.serialize_xml(
             input_["child_health_checks"], root, "ChildHealthChecks"
         )
     if "enable_sni" in input_:
         SubElement(root, "EnableSNI").text = str(input_["enable_sni"])
     if "regions" in input_:
-        import aws_sdk_route_53.types.health_check_region_list
-
         aws_sdk_route_53.types.health_check_region_list.serialize_xml(
             input_["regions"], root, "Regions"
         )
     if "alarm_identifier" in input_:
-        import aws_sdk_route_53.types.alarm_identifier
-
         aws_sdk_route_53.types.alarm_identifier.serialize_xml(
             input_["alarm_identifier"], root, "AlarmIdentifier"
         )
     if "insufficient_data_health_status" in input_:
-        import aws_sdk_route_53.types.insufficient_data_health_status
-
         aws_sdk_route_53.types.insufficient_data_health_status.serialize_xml(
             input_["insufficient_data_health_status"],
             root,
             "InsufficientDataHealthStatus",
         )
     if "reset_elements" in input_:
-        import aws_sdk_route_53.types.resettable_element_name_list
-
         aws_sdk_route_53.types.resettable_element_name_list.serialize_xml(
             input_["reset_elements"], root, "ResetElements"
         )

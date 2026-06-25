@@ -139,8 +139,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.StartWebAuthnRegistration"
     )
-    import aws_sdk_cognito_identity_provider.types.start_web_authn_registration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.start_web_authn_registration_request.serialize_aws_json_1_1(
             input_

@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyVpcBlockPublicAccessExclusion"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.modify_vpc_block_public_access_exclusion_request
-
     aws_sdk_ec2.types.modify_vpc_block_public_access_exclusion_request.serialize_ec2_query(
         input_, pairs, ""
     )

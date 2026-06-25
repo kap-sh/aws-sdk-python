@@ -99,8 +99,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeEndpointAuthorization"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_endpoint_authorization_message
-
     aws_sdk_redshift.types.describe_endpoint_authorization_message.serialize_query(
         input_, pairs, ""
     )

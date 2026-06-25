@@ -139,8 +139,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "client_token" in input_:
         headers["x-amzn-client-token"] = str(input_["client_token"])
-    import aws_sdk_mediapackagev2.types.create_harvest_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediapackagev2.types.create_harvest_job_request.serialize_json(input_)
     ).encode()

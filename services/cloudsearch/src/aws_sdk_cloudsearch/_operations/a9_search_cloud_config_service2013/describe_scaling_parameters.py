@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeScalingParameters"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.describe_scaling_parameters_request
-
     aws_sdk_cloudsearch.types.describe_scaling_parameters_request.serialize_query(
         input_, pairs, ""
     )

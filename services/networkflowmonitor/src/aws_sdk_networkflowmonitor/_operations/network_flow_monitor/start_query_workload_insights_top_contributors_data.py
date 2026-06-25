@@ -115,8 +115,6 @@ def build_request(
     url = url.replace("{scopeId}", quote(str(input_["scope_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input
-
     body: bytes | None = json.dumps(
         aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input.serialize_json(
             input_

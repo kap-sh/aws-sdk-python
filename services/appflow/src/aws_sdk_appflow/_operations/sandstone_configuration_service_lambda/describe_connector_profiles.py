@@ -93,8 +93,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/describe-connector-profiles"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_appflow.types.describe_connector_profiles_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appflow.types.describe_connector_profiles_request.serialize_json(input_)
     ).encode()

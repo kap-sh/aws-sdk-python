@@ -87,8 +87,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AssociateSubnetCidrBlock"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.associate_subnet_cidr_block_request
-
     aws_sdk_ec2.types.associate_subnet_cidr_block_request.serialize_ec2_query(
         input_, pairs, ""
     )

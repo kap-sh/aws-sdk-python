@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/metadata/v0/jobs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.start_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.start_job_request.serialize_json(input_)
     ).encode()

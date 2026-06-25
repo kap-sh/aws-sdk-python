@@ -113,8 +113,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSMPCommerceService_v20200301.CancelAgreement"
-    import aws_sdk_marketplace_agreement.types.cancel_agreement_input
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_agreement.types.cancel_agreement_input.serialize_aws_json_1_0(
             input_

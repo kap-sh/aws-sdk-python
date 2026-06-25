@@ -122,8 +122,6 @@ def build_request(
     headers["x-amz-confirm-remove-self-resource-access"] = str(
         input_.get("confirm_remove_self_resource_access", False)
     )
-    import aws_sdk_dynamodb.types.put_resource_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.put_resource_policy_input.serialize_aws_json_1_0(input_)
     ).encode()

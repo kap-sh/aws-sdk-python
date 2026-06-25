@@ -125,8 +125,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "write_campaign_request" in input_:
-        import aws_sdk_pinpoint.types.write_campaign_request
-
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.write_campaign_request.serialize_json(
                 input_["write_campaign_request"]

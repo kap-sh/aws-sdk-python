@@ -267,8 +267,6 @@ def build_request(
             input_["content_identification_type"]
         )
 
-    import aws_sdk_transcribe_streaming.types.audio_stream
-
     body = aws_sdk_transcribe_streaming._iter.map_sync_iterator(
         input_["audio_stream"],
         aws_sdk_transcribe_streaming.types.audio_stream.serialize_event_json,
@@ -328,8 +326,6 @@ def async_build_request(
         headers["x-amzn-transcribe-content-identification-type"] = str(
             input_["content_identification_type"]
         )
-
-    import aws_sdk_transcribe_streaming.types.audio_stream
 
     body = aws_sdk_transcribe_streaming._iter.map_async_iterator(
         input_["audio_stream"],

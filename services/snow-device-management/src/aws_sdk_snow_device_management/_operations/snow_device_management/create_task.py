@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/task"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_snow_device_management.types.create_task_input
-
     body: bytes | None = json.dumps(
         aws_sdk_snow_device_management.types.create_task_input.serialize_json(input_)
     ).encode()

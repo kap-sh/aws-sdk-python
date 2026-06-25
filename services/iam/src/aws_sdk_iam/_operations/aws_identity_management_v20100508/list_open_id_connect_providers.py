@@ -92,8 +92,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListOpenIDConnectProviders"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.list_open_id_connect_providers_request
-
     aws_sdk_iam.types.list_open_id_connect_providers_request.serialize_query(
         input_, pairs, ""
     )

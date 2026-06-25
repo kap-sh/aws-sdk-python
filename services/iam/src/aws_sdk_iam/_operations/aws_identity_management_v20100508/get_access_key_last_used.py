@@ -87,8 +87,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetAccessKeyLastUsed"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.get_access_key_last_used_request
-
     aws_sdk_iam.types.get_access_key_last_used_request.serialize_query(
         input_, pairs, ""
     )

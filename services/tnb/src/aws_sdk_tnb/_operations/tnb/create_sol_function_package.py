@@ -111,8 +111,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/sol/vnfpkgm/v1/vnf_packages"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_tnb.types.create_sol_function_package_input
-
     body: bytes | None = json.dumps(
         aws_sdk_tnb.types.create_sol_function_package_input.serialize_json(input_)
     ).encode()

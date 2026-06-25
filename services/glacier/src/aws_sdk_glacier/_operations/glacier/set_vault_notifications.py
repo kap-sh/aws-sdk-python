@@ -94,8 +94,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "vault_notification_config" in input_:
-        import aws_sdk_glacier.types.vault_notification_config
-
         body: bytes | None = json.dumps(
             aws_sdk_glacier.types.vault_notification_config.serialize_json(
                 input_["vault_notification_config"]

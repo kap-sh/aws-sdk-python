@@ -114,8 +114,6 @@ def build_request(
     if "next_token" in input_:
         params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconnect.types.list_router_inputs_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.list_router_inputs_request.serialize_json(input_)
     ).encode()

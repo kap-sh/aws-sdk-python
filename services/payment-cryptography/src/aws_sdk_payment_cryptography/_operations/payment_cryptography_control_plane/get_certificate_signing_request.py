@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PaymentCryptographyControlPlane.GetCertificateSigningRequest"
     )
-    import aws_sdk_payment_cryptography.types.get_certificate_signing_request_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography.types.get_certificate_signing_request_input.serialize_aws_json_1_0(
             input_

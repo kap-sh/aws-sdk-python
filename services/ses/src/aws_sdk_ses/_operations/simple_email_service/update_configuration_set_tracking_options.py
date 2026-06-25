@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateConfigurationSetTrackingOptions"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.update_configuration_set_tracking_options_request
-
     aws_sdk_ses.types.update_configuration_set_tracking_options_request.serialize_query(
         input_, pairs, ""
     )

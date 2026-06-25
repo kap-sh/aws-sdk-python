@@ -106,8 +106,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteLoadBalancerPolicy"))
     pairs.append(("Version", "2012-06-01"))
-    import aws_sdk_elastic_load_balancing.types.delete_load_balancer_policy_input
-
     aws_sdk_elastic_load_balancing.types.delete_load_balancer_policy_input.serialize_query(
         input_, pairs, ""
     )

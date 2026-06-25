@@ -110,8 +110,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSIESnowballJobManagementService.CreateReturnShippingLabel"
     )
-    import aws_sdk_snowball.types.create_return_shipping_label_request
-
     body: bytes | None = json.dumps(
         aws_sdk_snowball.types.create_return_shipping_label_request.serialize_aws_json_1_1(
             input_

@@ -101,8 +101,6 @@ def build_request(
     url = url.replace("{Id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_quicksetup.types.update_configuration_definition_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_quicksetup.types.update_configuration_definition_input.serialize_json(
             input_

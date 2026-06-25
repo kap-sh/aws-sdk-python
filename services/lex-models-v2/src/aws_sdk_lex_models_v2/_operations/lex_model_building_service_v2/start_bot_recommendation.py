@@ -132,8 +132,6 @@ def build_request(
     url = url.replace("{localeId}", quote(str(input_["locale_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_models_v2.types.start_bot_recommendation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_models_v2.types.start_bot_recommendation_request.serialize_json(
             input_

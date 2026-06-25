@@ -109,8 +109,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PurchaseReservedNodeOffering"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.purchase_reserved_node_offering_message
-
     aws_sdk_redshift.types.purchase_reserved_node_offering_message.serialize_query(
         input_, pairs, ""
     )

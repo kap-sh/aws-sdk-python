@@ -100,8 +100,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateDBClusterParameterGroup"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_neptune.types.create_db_cluster_parameter_group_message
-
     aws_sdk_neptune.types.create_db_cluster_parameter_group_message.serialize_query(
         input_, pairs, ""
     )

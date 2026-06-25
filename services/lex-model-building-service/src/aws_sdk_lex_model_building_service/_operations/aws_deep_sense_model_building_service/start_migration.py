@@ -116,8 +116,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/migrations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_model_building_service.types.start_migration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_model_building_service.types.start_migration_request.serialize_json(
             input_

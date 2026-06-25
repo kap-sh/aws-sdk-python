@@ -111,8 +111,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeactivateType"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.deactivate_type_input
-
     aws_sdk_cloudformation.types.deactivate_type_input.serialize_query(
         input_, pairs, ""
     )

@@ -136,8 +136,6 @@ def build_request(
     if "mesh_owner" in input_:
         params["meshOwner"] = str(input_["mesh_owner"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_app_mesh.types.update_virtual_router_input
-
     body: bytes | None = json.dumps(
         aws_sdk_app_mesh.types.update_virtual_router_input.serialize_json(input_)
     ).encode()

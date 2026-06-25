@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetLaunchTemplateData"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_launch_template_data_request
-
     aws_sdk_ec2.types.get_launch_template_data_request.serialize_ec2_query(
         input_, pairs, ""
     )

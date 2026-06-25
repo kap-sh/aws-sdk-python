@@ -126,8 +126,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "TagResource"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.tag_resource_request
-
     aws_sdk_sns.types.tag_resource_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

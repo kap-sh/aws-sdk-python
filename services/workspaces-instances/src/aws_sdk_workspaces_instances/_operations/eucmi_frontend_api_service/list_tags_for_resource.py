@@ -110,8 +110,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "EUCMIFrontendAPIService.ListTagsForResource"
-    import aws_sdk_workspaces_instances.types.list_tags_for_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workspaces_instances.types.list_tags_for_resource_request.serialize_aws_json_1_0(
             input_

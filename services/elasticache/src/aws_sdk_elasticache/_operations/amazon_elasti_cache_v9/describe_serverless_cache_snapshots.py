@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeServerlessCacheSnapshots"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_serverless_cache_snapshots_request
-
     aws_sdk_elasticache.types.describe_serverless_cache_snapshots_request.serialize_query(
         input_, pairs, ""
     )

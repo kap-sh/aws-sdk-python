@@ -129,8 +129,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/phone-number-orders"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_voice.types.create_phone_number_order_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_voice.types.create_phone_number_order_request.serialize_json(
             input_

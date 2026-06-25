@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateDelegateMacVolumeOwnershipTask"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.create_delegate_mac_volume_ownership_task_request
-
     aws_sdk_ec2.types.create_delegate_mac_volume_ownership_task_request.serialize_ec2_query(
         input_, pairs, ""
     )

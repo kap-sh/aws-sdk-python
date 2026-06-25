@@ -109,8 +109,6 @@ def build_request(
         params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Odb.ListOdbPeeringConnections"
-    import aws_sdk_odb.types.list_odb_peering_connections_input
-
     body: bytes | None = json.dumps(
         aws_sdk_odb.types.list_odb_peering_connections_input.serialize_aws_json_1_0(
             input_

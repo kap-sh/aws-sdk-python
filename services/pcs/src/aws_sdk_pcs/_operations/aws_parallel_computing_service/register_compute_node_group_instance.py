@@ -92,8 +92,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSParallelComputingService.RegisterComputeNodeGroupInstance"
     )
-    import aws_sdk_pcs.types.register_compute_node_group_instance_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pcs.types.register_compute_node_group_instance_request.serialize_aws_json_1_0(
             input_

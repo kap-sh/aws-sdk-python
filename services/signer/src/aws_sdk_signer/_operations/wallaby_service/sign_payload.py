@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/signing-jobs/with-payload"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_signer.types.sign_payload_request
-
     body: bytes | None = json.dumps(
         aws_sdk_signer.types.sign_payload_request.serialize_json(input_)
     ).encode()

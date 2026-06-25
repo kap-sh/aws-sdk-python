@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RemovePermission"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.remove_permission_input
-
     aws_sdk_sns.types.remove_permission_input.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

@@ -111,8 +111,6 @@ def build_request(
     url = url.replace("{MemberId}", quote(str(input_["member_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_managedblockchain.types.update_member_input
-
     body: bytes | None = json.dumps(
         aws_sdk_managedblockchain.types.update_member_input.serialize_json(input_)
     ).encode()

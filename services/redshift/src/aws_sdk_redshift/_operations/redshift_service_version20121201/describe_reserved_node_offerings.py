@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeReservedNodeOfferings"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_reserved_node_offerings_message
-
     aws_sdk_redshift.types.describe_reserved_node_offerings_message.serialize_query(
         input_, pairs, ""
     )

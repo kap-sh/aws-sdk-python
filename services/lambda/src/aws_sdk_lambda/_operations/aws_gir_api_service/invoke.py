@@ -302,8 +302,6 @@ def build_request(
     if "tenant_id" in input_:
         headers["X-Amz-Tenant-Id"] = str(input_["tenant_id"])
     if "payload" in input_:
-        import aws_sdk_lambda.types.blob
-
         body: bytes | None = json.dumps(
             aws_sdk_lambda.types.blob.serialize_json(input_["payload"])
         ).encode()

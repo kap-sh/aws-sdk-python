@@ -95,8 +95,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.StartMisconfiguredStateRecovery"
     )
-    import aws_sdk_fsx.types.start_misconfigured_state_recovery_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.start_misconfigured_state_recovery_request.serialize_aws_json_1_1(
             input_

@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.AdminDisableProviderForUser"
     )
-    import aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.admin_disable_provider_for_user_request.serialize_aws_json_1_1(
             input_

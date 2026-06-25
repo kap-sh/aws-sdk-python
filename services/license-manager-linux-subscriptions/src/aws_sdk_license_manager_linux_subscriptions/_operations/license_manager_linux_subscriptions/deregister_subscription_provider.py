@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/subscription/DeregisterSubscriptionProvider"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_license_manager_linux_subscriptions.types.deregister_subscription_provider_request
-
     body: bytes | None = json.dumps(
         aws_sdk_license_manager_linux_subscriptions.types.deregister_subscription_provider_request.serialize_json(
             input_

@@ -115,8 +115,6 @@ def build_request(
     url = url.replace("{KeyIdentifier}", quote(str(input_["key_identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_payment_cryptography_data.types.encrypt_data_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography_data.types.encrypt_data_input.serialize_json(
             input_

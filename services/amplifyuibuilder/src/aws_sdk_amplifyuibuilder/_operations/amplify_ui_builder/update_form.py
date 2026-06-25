@@ -119,8 +119,6 @@ def build_request(
         params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "updated_form" in input_:
-        import aws_sdk_amplifyuibuilder.types.update_form_data
-
         body: bytes | None = json.dumps(
             aws_sdk_amplifyuibuilder.types.update_form_data.serialize_json(
                 input_["updated_form"]

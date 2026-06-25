@@ -106,8 +106,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetTrustStoreRevocationContent"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.get_trust_store_revocation_content_input
-
     aws_sdk_elastic_load_balancing_v2.types.get_trust_store_revocation_content_input.serialize_query(
         input_, pairs, ""
     )

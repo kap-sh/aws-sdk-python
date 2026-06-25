@@ -110,8 +110,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SimulatePrincipalPolicy"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.simulate_principal_policy_request
-
     aws_sdk_iam.types.simulate_principal_policy_request.serialize_query(
         input_, pairs, ""
     )

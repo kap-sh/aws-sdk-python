@@ -78,8 +78,6 @@ def build_request(
     if "account_id" in input_:
         headers["x-amz-account-id"] = str(input_["account_id"])
     if "replication_configuration" in input_:
-        import aws_sdk_s3_control.types.replication_configuration
-
         payload_root = Element("_")
         aws_sdk_s3_control.types.replication_configuration.serialize_xml(
             input_["replication_configuration"],

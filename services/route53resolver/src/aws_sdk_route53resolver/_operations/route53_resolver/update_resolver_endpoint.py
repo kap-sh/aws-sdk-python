@@ -121,8 +121,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverEndpoint"
-    import aws_sdk_route53resolver.types.update_resolver_endpoint_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route53resolver.types.update_resolver_endpoint_request.serialize_aws_json_1_1(
             input_

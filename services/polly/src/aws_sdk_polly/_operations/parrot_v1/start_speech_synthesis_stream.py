@@ -136,8 +136,6 @@ def build_request(
     if "voice_id" in input_:
         headers["x-amzn-VoiceId"] = str(input_["voice_id"])
 
-    import aws_sdk_polly.types.start_speech_synthesis_stream_action_stream
-
     body = aws_sdk_polly._iter.map_sync_iterator(
         input_["action_stream"],
         aws_sdk_polly.types.start_speech_synthesis_stream_action_stream.serialize_event_json,
@@ -179,8 +177,6 @@ def async_build_request(
         headers["x-amzn-SampleRate"] = str(input_["sample_rate"])
     if "voice_id" in input_:
         headers["x-amzn-VoiceId"] = str(input_["voice_id"])
-
-    import aws_sdk_polly.types.start_speech_synthesis_stream_action_stream
 
     body = aws_sdk_polly._iter.map_async_iterator(
         input_["action_stream"],

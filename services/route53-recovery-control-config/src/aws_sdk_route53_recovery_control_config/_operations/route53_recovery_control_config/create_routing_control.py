@@ -126,8 +126,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/routingcontrol"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_route53_recovery_control_config.types.create_routing_control_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route53_recovery_control_config.types.create_routing_control_request.serialize_json(
             input_

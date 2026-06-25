@@ -124,8 +124,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSLookoutEquipmentFrontendService.StartDataIngestionJob"
-    import aws_sdk_lookoutequipment.types.start_data_ingestion_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lookoutequipment.types.start_data_ingestion_job_request.serialize_aws_json_1_0(
             input_

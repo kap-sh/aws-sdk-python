@@ -129,8 +129,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/CreateView"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resource_explorer_2.types.create_view_input
-
     body: bytes | None = json.dumps(
         aws_sdk_resource_explorer_2.types.create_view_input.serialize_json(input_)
     ).encode()

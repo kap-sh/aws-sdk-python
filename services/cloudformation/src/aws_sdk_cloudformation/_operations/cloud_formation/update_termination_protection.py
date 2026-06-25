@@ -96,8 +96,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateTerminationProtection"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.update_termination_protection_input
-
     aws_sdk_cloudformation.types.update_termination_protection_input.serialize_query(
         input_, pairs, ""
     )

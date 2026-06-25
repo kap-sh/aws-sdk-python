@@ -126,8 +126,6 @@ def build_request(
     if "name" in input_:
         SubElement(root, "Name").text = str(input_["name"])
     if "ca_certificates_bundle_source" in input_:
-        import aws_sdk_cloudfront.types.ca_certificates_bundle_source
-
         aws_sdk_cloudfront.types.ca_certificates_bundle_source.serialize_xml(
             input_["ca_certificates_bundle_source"], root, "CaCertificatesBundleSource"
         )
@@ -136,8 +134,6 @@ def build_request(
             input_["use_client_certificate_ocsp_endpoint"]
         )
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

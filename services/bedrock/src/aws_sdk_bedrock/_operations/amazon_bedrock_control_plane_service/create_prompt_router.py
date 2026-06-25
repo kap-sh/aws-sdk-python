@@ -126,8 +126,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/prompt-routers"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock.types.create_prompt_router_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_prompt_router_request.serialize_json(input_)
     ).encode()

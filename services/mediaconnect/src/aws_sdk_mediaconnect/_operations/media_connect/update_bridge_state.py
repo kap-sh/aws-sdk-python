@@ -121,8 +121,6 @@ def build_request(
     url = url.replace("{BridgeArn}", quote(str(input_["bridge_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconnect.types.update_bridge_state_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.update_bridge_state_request.serialize_json(input_)
     ).encode()

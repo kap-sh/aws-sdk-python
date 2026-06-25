@@ -90,8 +90,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/graph/datasources/update"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_detective.types.update_datasource_packages_request
-
     body: bytes | None = json.dumps(
         aws_sdk_detective.types.update_datasource_packages_request.serialize_json(
             input_

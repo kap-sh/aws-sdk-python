@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{aiGuardrailId}", quote(str(input_["ai_guardrail_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qconnect.types.update_ai_guardrail_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qconnect.types.update_ai_guardrail_request.serialize_json(input_)
     ).encode()

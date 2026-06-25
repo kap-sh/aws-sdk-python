@@ -102,8 +102,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/listWorkloadDeploymentPatterns"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_launch_wizard.types.list_workload_deployment_patterns_input
-
     body: bytes | None = json.dumps(
         aws_sdk_launch_wizard.types.list_workload_deployment_patterns_input.serialize_json(
             input_

@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AbortEnvironmentUpdate"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.abort_environment_update_message
-
     aws_sdk_elastic_beanstalk.types.abort_environment_update_message.serialize_query(
         input_, pairs, ""
     )

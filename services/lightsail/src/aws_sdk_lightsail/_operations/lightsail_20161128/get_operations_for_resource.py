@@ -125,8 +125,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Lightsail_20161128.GetOperationsForResource"
-    import aws_sdk_lightsail.types.get_operations_for_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lightsail.types.get_operations_for_resource_request.serialize_aws_json_1_1(
             input_

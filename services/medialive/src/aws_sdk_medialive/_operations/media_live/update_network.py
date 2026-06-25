@@ -130,8 +130,6 @@ def build_request(
     url = url.replace("{NetworkId}", quote(str(input_["network_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_medialive.types.update_network_request
-
     body: bytes | None = json.dumps(
         aws_sdk_medialive.types.update_network_request.serialize_json(input_)
     ).encode()

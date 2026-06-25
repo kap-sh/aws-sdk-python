@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/associations/batchGet"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityhub.types.batch_get_standards_control_associations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_securityhub.types.batch_get_standards_control_associations_request.serialize_json(
             input_

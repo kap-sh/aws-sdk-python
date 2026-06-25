@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-pricing-plans-associated-with-pricing-rule"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_billingconductor.types.list_pricing_plans_associated_with_pricing_rule_input
-
     body: bytes | None = json.dumps(
         aws_sdk_billingconductor.types.list_pricing_plans_associated_with_pricing_rule_input.serialize_json(
             input_

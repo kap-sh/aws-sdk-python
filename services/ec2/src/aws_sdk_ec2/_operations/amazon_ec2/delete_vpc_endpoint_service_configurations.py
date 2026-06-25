@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteVpcEndpointServiceConfigurations"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.delete_vpc_endpoint_service_configurations_request
-
     aws_sdk_ec2.types.delete_vpc_endpoint_service_configurations_request.serialize_ec2_query(
         input_, pairs, ""
     )

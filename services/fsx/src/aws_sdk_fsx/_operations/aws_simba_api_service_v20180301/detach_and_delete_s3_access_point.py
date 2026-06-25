@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DetachAndDeleteS3AccessPoint"
     )
-    import aws_sdk_fsx.types.detach_and_delete_s3_access_point_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.detach_and_delete_s3_access_point_request.serialize_aws_json_1_1(
             input_

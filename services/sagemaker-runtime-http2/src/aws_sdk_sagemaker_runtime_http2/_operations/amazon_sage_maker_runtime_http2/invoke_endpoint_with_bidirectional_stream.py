@@ -156,8 +156,6 @@ def build_request(
             input_["model_query_string"]
         )
 
-    import aws_sdk_sagemaker_runtime_http2.types.request_stream_event
-
     body = aws_sdk_sagemaker_runtime_http2._iter.map_sync_iterator(
         input_["body"],
         aws_sdk_sagemaker_runtime_http2.types.request_stream_event.serialize_event_json,
@@ -201,8 +199,6 @@ def async_build_request(
         headers["X-Amzn-SageMaker-Model-Query-String"] = str(
             input_["model_query_string"]
         )
-
-    import aws_sdk_sagemaker_runtime_http2.types.request_stream_event
 
     body = aws_sdk_sagemaker_runtime_http2._iter.map_async_iterator(
         input_["body"],

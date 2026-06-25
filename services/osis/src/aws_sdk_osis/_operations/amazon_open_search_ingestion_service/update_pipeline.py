@@ -118,8 +118,6 @@ def build_request(
     url = url.replace("{PipelineName}", quote(str(input_["pipeline_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_osis.types.update_pipeline_request
-
     body: bytes | None = json.dumps(
         aws_sdk_osis.types.update_pipeline_request.serialize_json(input_)
     ).encode()

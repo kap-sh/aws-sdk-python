@@ -84,8 +84,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "bucket_logging_status" in input_:
-        import aws_sdk_s3.types.bucket_logging_status
-
         payload_root = Element("_")
         aws_sdk_s3.types.bucket_logging_status.serialize_xml(
             input_["bucket_logging_status"], payload_root, "BucketLoggingStatus"

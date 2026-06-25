@@ -166,8 +166,6 @@ def build_request(
     if "version_label" in input_:
         headers["VersionLabel"] = str(input_["version_label"])
     if "content" in input_:
-        import aws_sdk_appconfig.types.blob
-
         body: bytes | None = json.dumps(
             aws_sdk_appconfig.types.blob.serialize_json(input_["content"])
         ).encode()

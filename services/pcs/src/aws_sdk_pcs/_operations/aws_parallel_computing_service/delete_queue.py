@@ -105,8 +105,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSParallelComputingService.DeleteQueue"
-    import aws_sdk_pcs.types.delete_queue_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pcs.types.delete_queue_request.serialize_aws_json_1_0(input_)
     ).encode()

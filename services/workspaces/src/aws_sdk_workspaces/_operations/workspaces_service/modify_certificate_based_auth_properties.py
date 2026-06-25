@@ -102,8 +102,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "WorkspacesService.ModifyCertificateBasedAuthProperties"
-    import aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request.serialize_aws_json_1_1(
             input_

@@ -116,8 +116,6 @@ def build_request(
     if "thing_name" in input_:
         params["thingName"] = str(input_["thing_name"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.get_effective_policies_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.get_effective_policies_request.serialize_json(input_)
     ).encode()

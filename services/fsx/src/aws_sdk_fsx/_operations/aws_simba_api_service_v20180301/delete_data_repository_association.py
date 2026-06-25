@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation"
     )
-    import aws_sdk_fsx.types.delete_data_repository_association_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.delete_data_repository_association_request.serialize_aws_json_1_1(
             input_

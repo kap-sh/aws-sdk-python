@@ -98,8 +98,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2015-01-01/es/ccs/outboundConnection/search"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_elasticsearch_service.types.describe_outbound_cross_cluster_search_connections_request
-
     body: bytes | None = json.dumps(
         aws_sdk_elasticsearch_service.types.describe_outbound_cross_cluster_search_connections_request.serialize_json(
             input_

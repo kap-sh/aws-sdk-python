@@ -117,8 +117,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateConfigurationTemplate"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.create_configuration_template_message
-
     aws_sdk_elastic_beanstalk.types.create_configuration_template_message.serialize_query(
         input_, pairs, ""
     )

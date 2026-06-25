@@ -102,8 +102,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DescribeS3AccessPointAttachments"
     )
-    import aws_sdk_fsx.types.describe_s3_access_point_attachments_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.describe_s3_access_point_attachments_request.serialize_aws_json_1_1(
             input_

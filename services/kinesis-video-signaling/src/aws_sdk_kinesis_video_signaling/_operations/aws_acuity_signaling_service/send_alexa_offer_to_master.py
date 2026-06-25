@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/send-alexa-offer-to-master"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kinesis_video_signaling.types.send_alexa_offer_to_master_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kinesis_video_signaling.types.send_alexa_offer_to_master_request.serialize_json(
             input_

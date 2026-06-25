@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration"
     )
-    import aws_sdk_kinesis_analytics.types.add_application_input_processing_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kinesis_analytics.types.add_application_input_processing_configuration_request.serialize_aws_json_1_1(
             input_

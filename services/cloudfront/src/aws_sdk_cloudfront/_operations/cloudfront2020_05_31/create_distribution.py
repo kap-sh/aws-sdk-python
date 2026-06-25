@@ -425,8 +425,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "distribution_config" in input_:
-        import aws_sdk_cloudfront.types.distribution_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.distribution_config.serialize_xml(
             input_["distribution_config"], payload_root, "DistributionConfig"

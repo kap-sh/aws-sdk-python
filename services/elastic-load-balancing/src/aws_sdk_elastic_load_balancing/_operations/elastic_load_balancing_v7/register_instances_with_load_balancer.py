@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RegisterInstancesWithLoadBalancer"))
     pairs.append(("Version", "2012-06-01"))
-    import aws_sdk_elastic_load_balancing.types.register_end_points_input
-
     aws_sdk_elastic_load_balancing.types.register_end_points_input.serialize_query(
         input_, pairs, ""
     )

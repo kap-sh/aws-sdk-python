@@ -109,8 +109,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Comprehend_20171127.StartFlywheelIteration"
-    import aws_sdk_comprehend.types.start_flywheel_iteration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_comprehend.types.start_flywheel_iteration_request.serialize_aws_json_1_1(
             input_

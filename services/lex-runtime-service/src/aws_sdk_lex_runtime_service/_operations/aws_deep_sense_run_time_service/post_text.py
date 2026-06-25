@@ -144,8 +144,6 @@ def build_request(
     url = url.replace("{userId}", quote(str(input_["user_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_runtime_service.types.post_text_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_runtime_service.types.post_text_request.serialize_json(input_)
     ).encode()

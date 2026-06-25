@@ -131,8 +131,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword"
     )
-    import aws_sdk_lightsail.types.get_relational_database_master_user_password_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lightsail.types.get_relational_database_master_user_password_request.serialize_aws_json_1_1(
             input_

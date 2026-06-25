@@ -103,8 +103,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks"
-    import aws_sdk_fsx.types.release_file_system_nfs_v3_locks_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.release_file_system_nfs_v3_locks_request.serialize_aws_json_1_1(
             input_

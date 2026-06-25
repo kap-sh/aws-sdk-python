@@ -119,8 +119,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus"
     )
-    import aws_sdk_cloud9.types.describe_environment_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloud9.types.describe_environment_status_request.serialize_aws_json_1_1(
             input_

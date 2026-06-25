@@ -119,8 +119,6 @@ def build_request(
     if "fail_on_warnings" in input_:
         params["failOnWarnings"] = str(input_["fail_on_warnings"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_apigatewayv2.types.reimport_api_request
-
     body: bytes | None = json.dumps(
         aws_sdk_apigatewayv2.types.reimport_api_request.serialize_json(input_)
     ).encode()

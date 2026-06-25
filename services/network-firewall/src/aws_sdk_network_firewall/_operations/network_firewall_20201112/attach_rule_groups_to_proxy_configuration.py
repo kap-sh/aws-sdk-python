@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "NetworkFirewall_20201112.AttachRuleGroupsToProxyConfiguration"
     )
-    import aws_sdk_network_firewall.types.attach_rule_groups_to_proxy_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.attach_rule_groups_to_proxy_configuration_request.serialize_aws_json_1_0(
             input_

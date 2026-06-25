@@ -111,8 +111,6 @@ def build_request(
     url = url.replace("{workspaceId}", quote(str(input_["workspace_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iottwinmaker.types.list_component_types_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iottwinmaker.types.list_component_types_request.serialize_json(input_)
     ).encode()

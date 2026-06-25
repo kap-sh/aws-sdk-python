@@ -104,8 +104,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeCapacityReservation"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.describe_capacity_reservation_input
-
     aws_sdk_elastic_load_balancing_v2.types.describe_capacity_reservation_input.serialize_query(
         input_, pairs, ""
     )

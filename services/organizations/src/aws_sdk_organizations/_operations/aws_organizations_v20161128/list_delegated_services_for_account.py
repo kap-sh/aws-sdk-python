@@ -135,8 +135,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListDelegatedServicesForAccount"
     )
-    import aws_sdk_organizations.types.list_delegated_services_for_account_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_delegated_services_for_account_request.serialize_aws_json_1_1(
             input_

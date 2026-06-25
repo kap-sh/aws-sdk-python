@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateVpcPeeringConnection"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.create_vpc_peering_connection_request
-
     aws_sdk_ec2.types.create_vpc_peering_connection_request.serialize_ec2_query(
         input_, pairs, ""
     )

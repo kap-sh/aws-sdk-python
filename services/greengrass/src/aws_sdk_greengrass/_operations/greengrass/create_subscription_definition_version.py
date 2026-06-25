@@ -99,8 +99,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "amzn_client_token" in input_:
         headers["X-Amzn-Client-Token"] = str(input_["amzn_client_token"])
-    import aws_sdk_greengrass.types.create_subscription_definition_version_request
-
     body: bytes | None = json.dumps(
         aws_sdk_greengrass.types.create_subscription_definition_version_request.serialize_json(
             input_

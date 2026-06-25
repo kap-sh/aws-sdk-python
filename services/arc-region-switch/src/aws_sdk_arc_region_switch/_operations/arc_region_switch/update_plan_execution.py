@@ -99,8 +99,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ArcRegionSwitch.UpdatePlanExecution"
-    import aws_sdk_arc_region_switch.types.update_plan_execution_request
-
     body: bytes | None = json.dumps(
         aws_sdk_arc_region_switch.types.update_plan_execution_request.serialize_aws_json_1_0(
             input_

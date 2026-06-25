@@ -124,8 +124,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2015-02-01/file-systems"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_efs.types.create_file_system_request
-
     body: bytes | None = json.dumps(
         aws_sdk_efs.types.create_file_system_request.serialize_json(input_)
     ).encode()

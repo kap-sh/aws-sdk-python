@@ -99,8 +99,6 @@ def build_request(
     url = url.replace("{Name}", quote(str(input_["name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_databrew.types.batch_delete_recipe_version_request
-
     body: bytes | None = json.dumps(
         aws_sdk_databrew.types.batch_delete_recipe_version_request.serialize_json(
             input_

@@ -121,8 +121,6 @@ def build_request(
     url = url.replace("{entityType}", quote(str(input_["entity_type"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_datazone.types.disassociate_governed_terms_input
-
     body: bytes | None = json.dumps(
         aws_sdk_datazone.types.disassociate_governed_terms_input.serialize_json(input_)
     ).encode()

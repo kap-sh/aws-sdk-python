@@ -117,8 +117,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteAnalysisScheme"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.delete_analysis_scheme_request
-
     aws_sdk_cloudsearch.types.delete_analysis_scheme_request.serialize_query(
         input_, pairs, ""
     )

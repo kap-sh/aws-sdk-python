@@ -99,8 +99,6 @@ def build_request(
     if "identity_center_arn" in input_:
         SubElement(root, "IdentityCenterArn").text = str(input_["identity_center_arn"])
     if "tags" in input_:
-        import aws_sdk_s3_control.types.tag_list
-
         aws_sdk_s3_control.types.tag_list.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

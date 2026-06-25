@@ -109,8 +109,6 @@ def build_request(
     url = url.replace("{InstanceId}", quote(str(input_["instance_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.get_current_user_data_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.get_current_user_data_request.serialize_json(input_)
     ).encode()

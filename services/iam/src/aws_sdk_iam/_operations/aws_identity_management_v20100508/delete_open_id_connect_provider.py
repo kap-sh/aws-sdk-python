@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteOpenIDConnectProvider"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.delete_open_id_connect_provider_request
-
     aws_sdk_iam.types.delete_open_id_connect_provider_request.serialize_query(
         input_, pairs, ""
     )

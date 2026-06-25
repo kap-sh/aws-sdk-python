@@ -111,8 +111,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/start-assessment"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_migrationhubstrategy.types.start_assessment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migrationhubstrategy.types.start_assessment_request.serialize_json(
             input_

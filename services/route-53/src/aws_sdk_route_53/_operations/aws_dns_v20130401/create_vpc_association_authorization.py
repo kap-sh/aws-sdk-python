@@ -109,8 +109,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateVPCAssociationAuthorizationRequest")
     if "vpc" in input_:
-        import aws_sdk_route_53.types.vpc
-
         aws_sdk_route_53.types.vpc.serialize_xml(input_["vpc"], root, "VPC")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

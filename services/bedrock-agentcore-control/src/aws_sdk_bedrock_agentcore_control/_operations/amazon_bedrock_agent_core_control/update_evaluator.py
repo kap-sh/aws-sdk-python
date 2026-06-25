@@ -126,8 +126,6 @@ def build_request(
     url = url.replace("{evaluatorId}", quote(str(input_["evaluator_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.update_evaluator_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.update_evaluator_request.serialize_json(
             input_

@@ -68,8 +68,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateConfigurationSetReputationMetricsEnabled"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.update_configuration_set_reputation_metrics_enabled_request
-
     aws_sdk_ses.types.update_configuration_set_reputation_metrics_enabled_request.serialize_query(
         input_, pairs, ""
     )

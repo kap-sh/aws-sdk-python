@@ -111,8 +111,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeCacheClusters"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_cache_clusters_message
-
     aws_sdk_elasticache.types.describe_cache_clusters_message.serialize_query(
         input_, pairs, ""
     )

@@ -117,8 +117,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateBudgetAction"
-    import aws_sdk_budgets.types.update_budget_action_request
-
     body: bytes | None = json.dumps(
         aws_sdk_budgets.types.update_budget_action_request.serialize_aws_json_1_1(
             input_

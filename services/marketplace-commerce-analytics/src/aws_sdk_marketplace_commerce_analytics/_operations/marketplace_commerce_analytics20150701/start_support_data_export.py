@@ -101,8 +101,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
     )
-    import aws_sdk_marketplace_commerce_analytics.types.start_support_data_export_request
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_commerce_analytics.types.start_support_data_export_request.serialize_aws_json_1_1(
             input_

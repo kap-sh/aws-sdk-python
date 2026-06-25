@@ -107,8 +107,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "GameLift.ListFleetDeployments"
-    import aws_sdk_gamelift.types.list_fleet_deployments_input
-
     body: bytes | None = json.dumps(
         aws_sdk_gamelift.types.list_fleet_deployments_input.serialize_aws_json_1_1(
             input_

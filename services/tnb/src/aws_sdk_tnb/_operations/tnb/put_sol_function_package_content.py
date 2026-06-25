@@ -114,8 +114,6 @@ def build_request(
     if "content_type" in input_:
         headers["Content-Type"] = str(input_["content_type"])
     if "file" in input_:
-        import aws_sdk_tnb.types.sensitive_blob
-
         body: bytes | None = json.dumps(
             aws_sdk_tnb.types.sensitive_blob.serialize_json(input_["file"])
         ).encode()

@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetHumanReadableSummary"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.get_human_readable_summary_request
-
     aws_sdk_iam.types.get_human_readable_summary_request.serialize_query(
         input_, pairs, ""
     )

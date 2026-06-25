@@ -133,8 +133,6 @@ def build_request(
     if "session_id" in input_:
         params["sessionId"] = str(input_["session_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore.types.update_browser_stream_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.update_browser_stream_request.serialize_json(
             input_

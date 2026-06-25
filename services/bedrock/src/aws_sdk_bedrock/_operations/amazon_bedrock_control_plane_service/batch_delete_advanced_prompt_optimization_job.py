@@ -105,8 +105,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/advanced-prompt-optimization-job/batch-delete"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.batch_delete_advanced_prompt_optimization_job_request.serialize_json(
             input_

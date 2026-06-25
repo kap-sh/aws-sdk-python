@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/getDeployment"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_launch_wizard.types.get_deployment_input
-
     body: bytes | None = json.dumps(
         aws_sdk_launch_wizard.types.get_deployment_input.serialize_json(input_)
     ).encode()

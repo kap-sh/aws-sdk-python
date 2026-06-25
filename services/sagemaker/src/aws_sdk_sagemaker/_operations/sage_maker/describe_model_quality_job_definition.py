@@ -97,8 +97,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SageMaker.DescribeModelQualityJobDefinition"
-    import aws_sdk_sagemaker.types.describe_model_quality_job_definition_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker.types.describe_model_quality_job_definition_request.serialize_aws_json_1_1(
             input_

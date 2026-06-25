@@ -108,8 +108,6 @@ def build_request(
     if "namespace_id" in input_:
         params["namespaceId"] = str(input_["namespace_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.associate_targets_with_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.associate_targets_with_job_request.serialize_json(input_)
     ).encode()

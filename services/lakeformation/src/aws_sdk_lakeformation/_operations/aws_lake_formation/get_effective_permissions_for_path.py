@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/GetEffectivePermissionsForPath"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.get_effective_permissions_for_path_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.get_effective_permissions_for_path_request.serialize_json(
             input_

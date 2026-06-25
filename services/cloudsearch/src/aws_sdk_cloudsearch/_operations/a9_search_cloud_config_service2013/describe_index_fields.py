@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeIndexFields"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.describe_index_fields_request
-
     aws_sdk_cloudsearch.types.describe_index_fields_request.serialize_query(
         input_, pairs, ""
     )

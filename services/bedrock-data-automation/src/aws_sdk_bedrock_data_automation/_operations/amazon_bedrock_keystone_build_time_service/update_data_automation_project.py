@@ -130,8 +130,6 @@ def build_request(
     url = url.replace("{projectArn}", quote(str(input_["project_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_data_automation.types.update_data_automation_project_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_data_automation.types.update_data_automation_project_request.serialize_json(
             input_

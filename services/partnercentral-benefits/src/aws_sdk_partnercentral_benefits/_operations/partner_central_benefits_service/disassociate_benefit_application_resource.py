@@ -116,8 +116,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PartnerCentralBenefitsService.DisassociateBenefitApplicationResource"
     )
-    import aws_sdk_partnercentral_benefits.types.disassociate_benefit_application_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_benefits.types.disassociate_benefit_application_resource_input.serialize_aws_json_1_0(
             input_

@@ -126,8 +126,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "graph_identifier" in input_:
         headers["graphIdentifier"] = str(input_["graph_identifier"])
-    import aws_sdk_neptune_graph.types.execute_query_input
-
     body: bytes | None = json.dumps(
         aws_sdk_neptune_graph.types.execute_query_input.serialize_json(input_)
     ).encode()

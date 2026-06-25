@@ -137,8 +137,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ImportComponent"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_imagebuilder.types.import_component_request
-
     body: bytes | None = json.dumps(
         aws_sdk_imagebuilder.types.import_component_request.serialize_json(input_)
     ).encode()

@@ -90,8 +90,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyClientVpnEndpoint"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.modify_client_vpn_endpoint_request
-
     aws_sdk_ec2.types.modify_client_vpn_endpoint_request.serialize_ec2_query(
         input_, pairs, ""
     )

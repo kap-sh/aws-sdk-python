@@ -107,8 +107,6 @@ def build_request(
     if "slo_owner_aws_account_id" in input_:
         params["SloOwnerAwsAccountId"] = str(input_["slo_owner_aws_account_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_application_signals.types.list_service_level_objectives_input
-
     body: bytes | None = json.dumps(
         aws_sdk_application_signals.types.list_service_level_objectives_input.serialize_json(
             input_

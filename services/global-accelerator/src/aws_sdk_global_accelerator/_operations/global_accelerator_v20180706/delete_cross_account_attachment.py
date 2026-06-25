@@ -93,8 +93,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteCrossAccountAttachment"
-    import aws_sdk_global_accelerator.types.delete_cross_account_attachment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.delete_cross_account_attachment_request.serialize_aws_json_1_1(
             input_

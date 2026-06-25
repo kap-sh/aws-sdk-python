@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/apps"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_amplify.types.create_app_request
-
     body: bytes | None = json.dumps(
         aws_sdk_amplify.types.create_app_request.serialize_json(input_)
     ).encode()

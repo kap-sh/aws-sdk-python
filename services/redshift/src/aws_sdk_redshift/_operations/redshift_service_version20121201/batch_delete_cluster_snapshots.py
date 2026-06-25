@@ -96,8 +96,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "BatchDeleteClusterSnapshots"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.batch_delete_cluster_snapshots_request
-
     aws_sdk_redshift.types.batch_delete_cluster_snapshots_request.serialize_query(
         input_, pairs, ""
     )

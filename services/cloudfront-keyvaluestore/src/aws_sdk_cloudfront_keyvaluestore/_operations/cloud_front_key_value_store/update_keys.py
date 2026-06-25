@@ -124,8 +124,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "if_match" in input_:
         headers["If-Match"] = str(input_["if_match"])
-    import aws_sdk_cloudfront_keyvaluestore.types.update_keys_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.serialize_json(
             input_

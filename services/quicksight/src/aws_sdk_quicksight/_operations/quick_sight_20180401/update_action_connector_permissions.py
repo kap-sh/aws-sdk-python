@@ -134,8 +134,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.update_action_connector_permissions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.update_action_connector_permissions_request.serialize_json(
             input_

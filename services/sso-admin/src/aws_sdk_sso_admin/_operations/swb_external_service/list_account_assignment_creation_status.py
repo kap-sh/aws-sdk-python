@@ -111,8 +111,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SWBExternalService.ListAccountAssignmentCreationStatus"
-    import aws_sdk_sso_admin.types.list_account_assignment_creation_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.list_account_assignment_creation_status_request.serialize_aws_json_1_1(
             input_

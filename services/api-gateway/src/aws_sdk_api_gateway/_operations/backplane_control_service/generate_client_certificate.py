@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/clientcertificates"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_api_gateway.types.generate_client_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_api_gateway.types.generate_client_certificate_request.serialize_json(
             input_

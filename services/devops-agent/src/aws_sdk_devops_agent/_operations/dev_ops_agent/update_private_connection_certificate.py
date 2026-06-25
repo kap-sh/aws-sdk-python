@@ -130,8 +130,6 @@ def build_request(
     url = url.replace("{name}", quote(str(input_["name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_agent.types.update_private_connection_certificate_input
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_agent.types.update_private_connection_certificate_input.serialize_json(
             input_

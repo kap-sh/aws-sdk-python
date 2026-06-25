@@ -101,8 +101,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTableSettings"
-    import aws_sdk_dynamodb.types.describe_global_table_settings_input
-
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.describe_global_table_settings_input.serialize_aws_json_1_0(
             input_

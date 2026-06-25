@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListSnapshotsInRecycleBin"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.list_snapshots_in_recycle_bin_request
-
     aws_sdk_ec2.types.list_snapshots_in_recycle_bin_request.serialize_ec2_query(
         input_, pairs, ""
     )

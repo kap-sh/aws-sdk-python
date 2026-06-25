@@ -113,8 +113,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PutResourcePolicy"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.put_resource_policy_message
-
     aws_sdk_redshift.types.put_resource_policy_message.serialize_query(
         input_, pairs, ""
     )

@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator"
     )
-    import aws_sdk_organizations.types.deregister_delegated_administrator_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.deregister_delegated_administrator_request.serialize_aws_json_1_1(
             input_

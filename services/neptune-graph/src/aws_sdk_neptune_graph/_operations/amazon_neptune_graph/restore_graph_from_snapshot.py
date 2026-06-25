@@ -124,8 +124,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_neptune_graph.types.restore_graph_from_snapshot_input
-
     body: bytes | None = json.dumps(
         aws_sdk_neptune_graph.types.restore_graph_from_snapshot_input.serialize_json(
             input_

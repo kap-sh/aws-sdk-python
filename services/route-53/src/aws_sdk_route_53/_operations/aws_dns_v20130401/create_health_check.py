@@ -101,8 +101,6 @@ def build_request(
     if "caller_reference" in input_:
         SubElement(root, "CallerReference").text = str(input_["caller_reference"])
     if "health_check_config" in input_:
-        import aws_sdk_route_53.types.health_check_config
-
         aws_sdk_route_53.types.health_check_config.serialize_xml(
             input_["health_check_config"], root, "HealthCheckConfig"
         )

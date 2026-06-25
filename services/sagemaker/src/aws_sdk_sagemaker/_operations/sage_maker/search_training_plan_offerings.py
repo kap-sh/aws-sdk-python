@@ -94,8 +94,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SageMaker.SearchTrainingPlanOfferings"
-    import aws_sdk_sagemaker.types.search_training_plan_offerings_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker.types.search_training_plan_offerings_request.serialize_aws_json_1_1(
             input_

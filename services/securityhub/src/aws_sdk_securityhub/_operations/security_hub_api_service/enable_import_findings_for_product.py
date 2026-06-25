@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/productSubscriptions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityhub.types.enable_import_findings_for_product_request
-
     body: bytes | None = json.dumps(
         aws_sdk_securityhub.types.enable_import_findings_for_product_request.serialize_json(
             input_

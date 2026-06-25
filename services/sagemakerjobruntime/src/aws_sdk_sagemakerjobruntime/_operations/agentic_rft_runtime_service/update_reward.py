@@ -117,8 +117,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "job_arn" in input_:
         headers["X-Amzn-SageMaker-Job-Arn"] = str(input_["job_arn"])
-    import aws_sdk_sagemakerjobruntime.types.update_reward_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemakerjobruntime.types.update_reward_request.serialize_json(input_)
     ).encode()

@@ -128,8 +128,6 @@ def build_request(
         params["version"] = str(input_["version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "sms_template_request" in input_:
-        import aws_sdk_pinpoint.types.sms_template_request
-
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.sms_template_request.serialize_json(
                 input_["sms_template_request"]

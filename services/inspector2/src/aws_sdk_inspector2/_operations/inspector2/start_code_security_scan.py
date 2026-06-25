@@ -115,8 +115,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/codesecurity/scan/start"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.start_code_security_scan_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.start_code_security_scan_request.serialize_json(input_)
     ).encode()

@@ -119,8 +119,6 @@ def build_request(
     if "directory_id" in input_:
         params["DirectoryId"] = str(input_["directory_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_directory_service_data.types.remove_group_member_request
-
     body: bytes | None = json.dumps(
         aws_sdk_directory_service_data.types.remove_group_member_request.serialize_json(
             input_

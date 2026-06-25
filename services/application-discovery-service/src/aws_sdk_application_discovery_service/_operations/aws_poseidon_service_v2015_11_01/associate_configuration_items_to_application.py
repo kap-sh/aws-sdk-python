@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication"
     )
-    import aws_sdk_application_discovery_service.types.associate_configuration_items_to_application_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_discovery_service.types.associate_configuration_items_to_application_request.serialize_aws_json_1_1(
             input_

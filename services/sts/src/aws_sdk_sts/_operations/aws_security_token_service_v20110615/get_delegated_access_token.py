@@ -114,8 +114,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetDelegatedAccessToken"))
     pairs.append(("Version", "2011-06-15"))
-    import aws_sdk_sts.types.get_delegated_access_token_request
-
     aws_sdk_sts.types.get_delegated_access_token_request.serialize_query(
         input_, pairs, ""
     )

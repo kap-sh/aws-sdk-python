@@ -120,8 +120,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_cleanrooms.types.update_id_mapping_table_input
-
     body: bytes | None = json.dumps(
         aws_sdk_cleanrooms.types.update_id_mapping_table_input.serialize_json(input_)
     ).encode()

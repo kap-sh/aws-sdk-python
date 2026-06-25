@@ -129,8 +129,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference"
     )
-    import aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.admin_set_user_mfa_preference_request.serialize_aws_json_1_1(
             input_

@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyPrivateDnsNameOptions"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.modify_private_dns_name_options_request
-
     aws_sdk_ec2.types.modify_private_dns_name_options_request.serialize_ec2_query(
         input_, pairs, ""
     )

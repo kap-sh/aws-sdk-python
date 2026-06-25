@@ -130,8 +130,6 @@ def build_request(
     if "set_as_active" in input_:
         params["setAsActive"] = str(input_["set_as_active"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.register_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.register_certificate_request.serialize_json(input_)
     ).encode()

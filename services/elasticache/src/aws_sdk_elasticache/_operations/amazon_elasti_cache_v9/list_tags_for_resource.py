@@ -171,8 +171,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListTagsForResource"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.list_tags_for_resource_message
-
     aws_sdk_elasticache.types.list_tags_for_resource_message.serialize_query(
         input_, pairs, ""
     )

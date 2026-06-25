@@ -166,8 +166,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "response_content_type" in input_:
         headers["ResponseContentType"] = str(input_["response_content_type"])
-    import aws_sdk_lex_runtime_v2.types.put_session_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_runtime_v2.types.put_session_request.serialize_json(input_)
     ).encode()

@@ -127,8 +127,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/PutComponentPolicy"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_imagebuilder.types.put_component_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_imagebuilder.types.put_component_policy_request.serialize_json(input_)
     ).encode()

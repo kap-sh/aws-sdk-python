@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration"
     )
-    import aws_sdk_sso_admin.types.delete_instance_access_control_attribute_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.delete_instance_access_control_attribute_configuration_request.serialize_aws_json_1_1(
             input_

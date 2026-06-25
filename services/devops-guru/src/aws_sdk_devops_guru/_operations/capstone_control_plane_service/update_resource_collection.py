@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/resource-collections"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_guru.types.update_resource_collection_request
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_guru.types.update_resource_collection_request.serialize_json(
             input_

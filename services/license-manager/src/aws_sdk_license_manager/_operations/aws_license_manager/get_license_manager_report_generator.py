@@ -128,8 +128,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSLicenseManager.GetLicenseManagerReportGenerator"
-    import aws_sdk_license_manager.types.get_license_manager_report_generator_request
-
     body: bytes | None = json.dumps(
         aws_sdk_license_manager.types.get_license_manager_report_generator_request.serialize_aws_json_1_1(
             input_

@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/identities/GetApiKeyCredentialProvider"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.get_api_key_credential_provider_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.get_api_key_credential_provider_request.serialize_json(
             input_

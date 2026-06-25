@@ -123,8 +123,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PurchaseReservedCacheNodesOffering"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.purchase_reserved_cache_nodes_offering_message
-
     aws_sdk_elasticache.types.purchase_reserved_cache_nodes_offering_message.serialize_query(
         input_, pairs, ""
     )

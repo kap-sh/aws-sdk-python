@@ -121,8 +121,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/get-group-query"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resource_groups.types.get_group_query_input
-
     body: bytes | None = json.dumps(
         aws_sdk_resource_groups.types.get_group_query_input.serialize_json(input_)
     ).encode()

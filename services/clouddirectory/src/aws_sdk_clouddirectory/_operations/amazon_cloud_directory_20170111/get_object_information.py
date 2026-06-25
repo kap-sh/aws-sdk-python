@@ -135,8 +135,6 @@ def build_request(
         headers["x-amz-data-partition"] = str(input_["directory_arn"])
     if "consistency_level" in input_:
         headers["x-amz-consistency-level"] = str(input_["consistency_level"])
-    import aws_sdk_clouddirectory.types.get_object_information_request
-
     body: bytes | None = json.dumps(
         aws_sdk_clouddirectory.types.get_object_information_request.serialize_json(
             input_

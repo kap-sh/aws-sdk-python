@@ -121,8 +121,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetLoadBalancerListenerSSLCertificate"))
     pairs.append(("Version", "2012-06-01"))
-    import aws_sdk_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input
-
     aws_sdk_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input.serialize_query(
         input_, pairs, ""
     )

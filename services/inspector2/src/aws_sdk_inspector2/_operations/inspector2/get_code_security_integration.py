@@ -111,8 +111,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/codesecurity/integration/get"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.get_code_security_integration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.get_code_security_integration_request.serialize_json(
             input_

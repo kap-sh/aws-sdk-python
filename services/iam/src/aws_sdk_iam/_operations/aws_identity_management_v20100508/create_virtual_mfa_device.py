@@ -117,8 +117,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateVirtualMFADevice"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.create_virtual_mfa_device_request
-
     aws_sdk_iam.types.create_virtual_mfa_device_request.serialize_query(
         input_, pairs, ""
     )

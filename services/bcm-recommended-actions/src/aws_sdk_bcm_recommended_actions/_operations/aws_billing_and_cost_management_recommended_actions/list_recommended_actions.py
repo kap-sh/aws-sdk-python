@@ -108,8 +108,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions"
     )
-    import aws_sdk_bcm_recommended_actions.types.list_recommended_actions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bcm_recommended_actions.types.list_recommended_actions_request.serialize_aws_json_1_0(
             input_

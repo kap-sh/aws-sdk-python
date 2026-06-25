@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request.serialize_json(
             input_

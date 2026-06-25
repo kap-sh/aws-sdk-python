@@ -89,8 +89,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.RejectQualificationRequest"
     )
-    import aws_sdk_mturk.types.reject_qualification_request_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.reject_qualification_request_request.serialize_aws_json_1_1(
             input_

@@ -116,8 +116,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2015-01-01/es/purchaseReservedInstanceOffering"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_elasticsearch_service.types.purchase_reserved_elasticsearch_instance_offering_request
-
     body: bytes | None = json.dumps(
         aws_sdk_elasticsearch_service.types.purchase_reserved_elasticsearch_instance_offering_request.serialize_json(
             input_

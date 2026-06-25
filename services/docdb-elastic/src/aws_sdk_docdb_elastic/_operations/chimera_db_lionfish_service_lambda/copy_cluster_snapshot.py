@@ -125,8 +125,6 @@ def build_request(
     url = url.replace("{snapshotArn}", quote(str(input_["snapshot_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_docdb_elastic.types.copy_cluster_snapshot_input
-
     body: bytes | None = json.dumps(
         aws_sdk_docdb_elastic.types.copy_cluster_snapshot_input.serialize_json(input_)
     ).encode()

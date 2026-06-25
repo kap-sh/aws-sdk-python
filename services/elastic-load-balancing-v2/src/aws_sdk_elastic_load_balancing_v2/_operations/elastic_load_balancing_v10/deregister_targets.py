@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeregisterTargets"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.deregister_targets_input
-
     aws_sdk_elastic_load_balancing_v2.types.deregister_targets_input.serialize_query(
         input_, pairs, ""
     )

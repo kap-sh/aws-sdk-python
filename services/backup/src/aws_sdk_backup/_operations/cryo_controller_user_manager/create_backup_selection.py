@@ -109,8 +109,6 @@ def build_request(
     url = url.replace("{BackupPlanId}", quote(str(input_["backup_plan_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_backup.types.create_backup_selection_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup.types.create_backup_selection_input.serialize_json(input_)
     ).encode()

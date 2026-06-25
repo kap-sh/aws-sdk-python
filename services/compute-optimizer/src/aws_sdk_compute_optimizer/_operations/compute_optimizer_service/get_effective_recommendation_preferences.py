@@ -134,8 +134,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerService.GetEffectiveRecommendationPreferences"
     )
-    import aws_sdk_compute_optimizer.types.get_effective_recommendation_preferences_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer.types.get_effective_recommendation_preferences_request.serialize_aws_json_1_0(
             input_

@@ -120,8 +120,6 @@ def build_request(
     if "expected_revision_id" in input_:
         params["expectedRevisionId"] = str(input_["expected_revision_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_models_v2.types.update_resource_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_models_v2.types.update_resource_policy_request.serialize_json(
             input_

@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/get-ice-server-config"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kinesis_video_signaling.types.get_ice_server_config_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kinesis_video_signaling.types.get_ice_server_config_request.serialize_json(
             input_

@@ -105,8 +105,6 @@ def build_request(
     url = url.replace("{farmId}", quote(str(input_["farm_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_deadline.types.create_queue_fleet_association_request
-
     body: bytes | None = json.dumps(
         aws_sdk_deadline.types.create_queue_fleet_association_request.serialize_json(
             input_

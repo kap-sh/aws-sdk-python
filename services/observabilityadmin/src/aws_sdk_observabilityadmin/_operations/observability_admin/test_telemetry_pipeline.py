@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/TestTelemetryPipeline"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_observabilityadmin.types.test_telemetry_pipeline_input
-
     body: bytes | None = json.dumps(
         aws_sdk_observabilityadmin.types.test_telemetry_pipeline_input.serialize_json(
             input_

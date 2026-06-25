@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/alarms/disable"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_events_data.types.batch_disable_alarm_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_events_data.types.batch_disable_alarm_request.serialize_json(input_)
     ).encode()

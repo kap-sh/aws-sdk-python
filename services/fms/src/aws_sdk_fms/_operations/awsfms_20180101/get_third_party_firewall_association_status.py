@@ -102,8 +102,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus"
-    import aws_sdk_fms.types.get_third_party_firewall_association_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fms.types.get_third_party_firewall_association_status_request.serialize_aws_json_1_1(
             input_

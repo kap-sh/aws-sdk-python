@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/configuration-bundles/create"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.create_configuration_bundle_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.create_configuration_bundle_request.serialize_json(
             input_

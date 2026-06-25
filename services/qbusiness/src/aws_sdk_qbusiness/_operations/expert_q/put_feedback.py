@@ -99,8 +99,6 @@ def build_request(
     if "user_id" in input_:
         params["userId"] = str(input_["user_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.put_feedback_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.put_feedback_request.serialize_json(input_)
     ).encode()

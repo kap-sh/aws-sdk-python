@@ -118,8 +118,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "KeyspacesService.DeleteType"
-    import aws_sdk_keyspaces.types.delete_type_request
-
     body: bytes | None = json.dumps(
         aws_sdk_keyspaces.types.delete_type_request.serialize_aws_json_1_0(input_)
     ).encode()

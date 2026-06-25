@@ -111,8 +111,6 @@ def build_request(
     url = url.replace("{EvaluationId}", quote(str(input_["evaluation_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.update_contact_evaluation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_contact_evaluation_request.serialize_json(input_)
     ).encode()

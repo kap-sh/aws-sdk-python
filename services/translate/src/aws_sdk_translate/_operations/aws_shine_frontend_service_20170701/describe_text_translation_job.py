@@ -102,8 +102,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSShineFrontendService_20170701.DescribeTextTranslationJob"
     )
-    import aws_sdk_translate.types.describe_text_translation_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_translate.types.describe_text_translation_job_request.serialize_aws_json_1_1(
             input_

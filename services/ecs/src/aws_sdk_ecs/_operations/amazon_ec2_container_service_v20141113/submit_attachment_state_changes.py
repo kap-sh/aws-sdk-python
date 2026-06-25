@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges"
     )
-    import aws_sdk_ecs.types.submit_attachment_state_changes_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.submit_attachment_state_changes_request.serialize_aws_json_1_1(
             input_

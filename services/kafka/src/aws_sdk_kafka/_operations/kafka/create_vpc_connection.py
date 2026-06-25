@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/vpc-connection"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kafka.types.create_vpc_connection_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kafka.types.create_vpc_connection_request.serialize_json(input_)
     ).encode()

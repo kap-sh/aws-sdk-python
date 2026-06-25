@@ -131,8 +131,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Timestream_20181101.Query"
-    import aws_sdk_timestream_query.types.query_request
-
     body: bytes | None = json.dumps(
         aws_sdk_timestream_query.types.query_request.serialize_aws_json_1_0(input_)
     ).encode()

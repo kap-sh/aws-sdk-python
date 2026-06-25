@@ -132,8 +132,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ComputeOptimizerService.GetECSServiceRecommendations"
-    import aws_sdk_compute_optimizer.types.get_ecs_service_recommendations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer.types.get_ecs_service_recommendations_request.serialize_aws_json_1_0(
             input_

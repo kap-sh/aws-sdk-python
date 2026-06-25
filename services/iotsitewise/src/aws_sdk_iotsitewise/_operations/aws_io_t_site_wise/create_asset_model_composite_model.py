@@ -135,8 +135,6 @@ def build_request(
         headers["If-None-Match"] = str(input_["if_none_match"])
     if "match_for_version_type" in input_:
         headers["Match-For-Version-Type"] = str(input_["match_for_version_type"])
-    import aws_sdk_iotsitewise.types.create_asset_model_composite_model_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.create_asset_model_composite_model_request.serialize_json(
             input_

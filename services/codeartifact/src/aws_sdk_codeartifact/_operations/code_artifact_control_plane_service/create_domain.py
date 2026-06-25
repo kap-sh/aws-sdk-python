@@ -126,8 +126,6 @@ def build_request(
     if "domain" in input_:
         params["domain"] = str(input_["domain"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeartifact.types.create_domain_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeartifact.types.create_domain_request.serialize_json(input_)
     ).encode()

@@ -117,8 +117,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "PaymentCryptographyControlPlane.GetResourcePolicy"
-    import aws_sdk_payment_cryptography.types.get_resource_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography.types.get_resource_policy_input.serialize_aws_json_1_0(
             input_

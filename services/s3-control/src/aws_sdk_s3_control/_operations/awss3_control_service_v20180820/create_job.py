@@ -128,14 +128,10 @@ def build_request(
             input_["confirmation_required"]
         )
     if "operation" in input_:
-        import aws_sdk_s3_control.types.job_operation
-
         aws_sdk_s3_control.types.job_operation.serialize_xml(
             input_["operation"], root, "Operation"
         )
     if "report" in input_:
-        import aws_sdk_s3_control.types.job_report
-
         aws_sdk_s3_control.types.job_report.serialize_xml(
             input_["report"], root, "Report"
         )
@@ -144,8 +140,6 @@ def build_request(
             input_["client_request_token"]
         )
     if "manifest" in input_:
-        import aws_sdk_s3_control.types.job_manifest
-
         aws_sdk_s3_control.types.job_manifest.serialize_xml(
             input_["manifest"], root, "Manifest"
         )
@@ -156,12 +150,8 @@ def build_request(
     if "role_arn" in input_:
         SubElement(root, "RoleArn").text = str(input_["role_arn"])
     if "tags" in input_:
-        import aws_sdk_s3_control.types.s3_tag_set
-
         aws_sdk_s3_control.types.s3_tag_set.serialize_xml(input_["tags"], root, "Tags")
     if "manifest_generator" in input_:
-        import aws_sdk_s3_control.types.job_manifest_generator
-
         aws_sdk_s3_control.types.job_manifest_generator.serialize_xml(
             input_["manifest_generator"], root, "ManifestGenerator"
         )

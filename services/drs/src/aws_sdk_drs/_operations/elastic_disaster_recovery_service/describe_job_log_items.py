@@ -99,8 +99,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/DescribeJobLogItems"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_drs.types.describe_job_log_items_request
-
     body: bytes | None = json.dumps(
         aws_sdk_drs.types.describe_job_log_items_request.serialize_json(input_)
     ).encode()

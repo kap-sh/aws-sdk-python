@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/start-recommendation-report-generation"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_migrationhubstrategy.types.start_recommendation_report_generation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migrationhubstrategy.types.start_recommendation_report_generation_request.serialize_json(
             input_

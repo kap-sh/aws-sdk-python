@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ApplyPendingMaintenanceAction"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_docdb.types.apply_pending_maintenance_action_message
-
     aws_sdk_docdb.types.apply_pending_maintenance_action_message.serialize_query(
         input_, pairs, ""
     )

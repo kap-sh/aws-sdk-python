@@ -88,8 +88,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetIpamPoolCidrs"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_ipam_pool_cidrs_request
-
     aws_sdk_ec2.types.get_ipam_pool_cidrs_request.serialize_ec2_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

@@ -111,8 +111,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ServiceQuotasV20190624.StartAutoManagement"
-    import aws_sdk_service_quotas.types.start_auto_management_request
-
     body: bytes | None = json.dumps(
         aws_sdk_service_quotas.types.start_auto_management_request.serialize_aws_json_1_1(
             input_

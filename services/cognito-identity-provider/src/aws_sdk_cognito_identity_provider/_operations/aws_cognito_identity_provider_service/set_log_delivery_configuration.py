@@ -121,8 +121,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.SetLogDeliveryConfiguration"
     )
-    import aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.set_log_delivery_configuration_request.serialize_aws_json_1_1(
             input_

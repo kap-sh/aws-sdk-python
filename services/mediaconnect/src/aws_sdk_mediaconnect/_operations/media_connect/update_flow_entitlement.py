@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{FlowArn}", quote(str(input_["flow_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconnect.types.update_flow_entitlement_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.update_flow_entitlement_request.serialize_json(
             input_

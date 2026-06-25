@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/control/update-slack-channel-configuration"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_support_app.types.update_slack_channel_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_support_app.types.update_slack_channel_configuration_request.serialize_json(
             input_

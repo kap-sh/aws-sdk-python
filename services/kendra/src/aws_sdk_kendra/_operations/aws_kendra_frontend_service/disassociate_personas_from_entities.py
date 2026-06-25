@@ -110,8 +110,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSKendraFrontendService.DisassociatePersonasFromEntities"
     )
-    import aws_sdk_kendra.types.disassociate_personas_from_entities_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kendra.types.disassociate_personas_from_entities_request.serialize_aws_json_1_1(
             input_

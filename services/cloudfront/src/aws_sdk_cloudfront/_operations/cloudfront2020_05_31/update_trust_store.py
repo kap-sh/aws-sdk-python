@@ -125,8 +125,6 @@ def build_request(
     if "if_match" in input_:
         headers["If-Match"] = str(input_["if_match"])
     if "ca_certificates_bundle_source" in input_:
-        import aws_sdk_cloudfront.types.ca_certificates_bundle_source
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.ca_certificates_bundle_source.serialize_xml(
             input_["ca_certificates_bundle_source"],

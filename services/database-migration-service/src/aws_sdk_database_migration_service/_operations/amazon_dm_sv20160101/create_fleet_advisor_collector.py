@@ -114,8 +114,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonDMSv20160101.CreateFleetAdvisorCollector"
-    import aws_sdk_database_migration_service.types.create_fleet_advisor_collector_request
-
     body: bytes | None = json.dumps(
         aws_sdk_database_migration_service.types.create_fleet_advisor_collector_request.serialize_aws_json_1_1(
             input_

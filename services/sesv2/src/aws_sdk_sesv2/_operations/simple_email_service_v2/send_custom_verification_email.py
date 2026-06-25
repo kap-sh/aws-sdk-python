@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v2/email/outbound-custom-verification-emails"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sesv2.types.send_custom_verification_email_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sesv2.types.send_custom_verification_email_request.serialize_json(
             input_

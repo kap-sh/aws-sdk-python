@@ -114,8 +114,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership"
     )
-    import aws_sdk_cloud9.types.delete_environment_membership_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloud9.types.delete_environment_membership_request.serialize_aws_json_1_1(
             input_

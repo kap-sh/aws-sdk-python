@@ -112,8 +112,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AwsProton20200720.DeleteEnvironmentAccountConnection"
-    import aws_sdk_proton.types.delete_environment_account_connection_input
-
     body: bytes | None = json.dumps(
         aws_sdk_proton.types.delete_environment_account_connection_input.serialize_aws_json_1_0(
             input_

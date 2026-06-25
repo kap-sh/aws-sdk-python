@@ -90,8 +90,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.DisassociateBudgetFromResource"
     )
-    import aws_sdk_service_catalog.types.disassociate_budget_from_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.disassociate_budget_from_resource_input.serialize_aws_json_1_1(
             input_

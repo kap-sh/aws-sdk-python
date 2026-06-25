@@ -105,8 +105,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyActivityStream"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.modify_activity_stream_request
-
     aws_sdk_rds.types.modify_activity_stream_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

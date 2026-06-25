@@ -140,8 +140,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"
     )
-    import aws_sdk_service_quotas.types.put_service_quota_increase_request_into_template_request
-
     body: bytes | None = json.dumps(
         aws_sdk_service_quotas.types.put_service_quota_increase_request_into_template_request.serialize_aws_json_1_1(
             input_

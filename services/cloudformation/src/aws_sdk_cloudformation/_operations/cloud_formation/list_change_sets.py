@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListChangeSets"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.list_change_sets_input
-
     aws_sdk_cloudformation.types.list_change_sets_input.serialize_query(
         input_, pairs, ""
     )

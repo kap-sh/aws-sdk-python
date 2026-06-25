@@ -126,8 +126,6 @@ def build_request(
     if "target_aws_account" in input_:
         params["targetAwsAccount"] = str(input_["target_aws_account"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.transfer_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.transfer_certificate_request.serialize_json(input_)
     ).encode()

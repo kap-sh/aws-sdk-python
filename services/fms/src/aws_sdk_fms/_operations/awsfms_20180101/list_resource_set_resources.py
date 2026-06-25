@@ -100,8 +100,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSFMS_20180101.ListResourceSetResources"
-    import aws_sdk_fms.types.list_resource_set_resources_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fms.types.list_resource_set_resources_request.serialize_aws_json_1_1(
             input_

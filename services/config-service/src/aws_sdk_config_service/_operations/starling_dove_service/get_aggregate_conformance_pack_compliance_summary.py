@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "StarlingDoveService.GetAggregateConformancePackComplianceSummary"
     )
-    import aws_sdk_config_service.types.get_aggregate_conformance_pack_compliance_summary_request
-
     body: bytes | None = json.dumps(
         aws_sdk_config_service.types.get_aggregate_conformance_pack_compliance_summary_request.serialize_aws_json_1_1(
             input_

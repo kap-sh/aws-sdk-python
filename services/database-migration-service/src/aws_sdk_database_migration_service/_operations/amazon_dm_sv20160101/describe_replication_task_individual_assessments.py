@@ -98,8 +98,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments"
     )
-    import aws_sdk_database_migration_service.types.describe_replication_task_individual_assessments_message
-
     body: bytes | None = json.dumps(
         aws_sdk_database_migration_service.types.describe_replication_task_individual_assessments_message.serialize_aws_json_1_1(
             input_

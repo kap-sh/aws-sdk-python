@@ -124,8 +124,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "apns_sandbox_channel_request" in input_:
-        import aws_sdk_pinpoint.types.apns_sandbox_channel_request
-
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.apns_sandbox_channel_request.serialize_json(
                 input_["apns_sandbox_channel_request"]

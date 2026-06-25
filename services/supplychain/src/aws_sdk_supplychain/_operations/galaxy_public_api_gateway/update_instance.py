@@ -125,8 +125,6 @@ def build_request(
     url = url.replace("{instanceId}", quote(str(input_["instance_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_supplychain.types.update_instance_request
-
     body: bytes | None = json.dumps(
         aws_sdk_supplychain.types.update_instance_request.serialize_json(input_)
     ).encode()

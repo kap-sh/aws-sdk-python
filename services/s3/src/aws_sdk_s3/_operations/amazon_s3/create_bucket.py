@@ -133,8 +133,6 @@ def build_request(
     if "bucket_namespace" in input_:
         headers["x-amz-bucket-namespace"] = str(input_["bucket_namespace"])
     if "create_bucket_configuration" in input_:
-        import aws_sdk_s3.types.create_bucket_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.create_bucket_configuration.serialize_xml(
             input_["create_bucket_configuration"],

@@ -94,8 +94,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/control/put-account-alias"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_support_app.types.put_account_alias_request
-
     body: bytes | None = json.dumps(
         aws_sdk_support_app.types.put_account_alias_request.serialize_json(input_)
     ).encode()

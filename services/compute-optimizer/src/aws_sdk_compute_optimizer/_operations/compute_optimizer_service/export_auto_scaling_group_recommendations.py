@@ -136,8 +136,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerService.ExportAutoScalingGroupRecommendations"
     )
-    import aws_sdk_compute_optimizer.types.export_auto_scaling_group_recommendations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer.types.export_auto_scaling_group_recommendations_request.serialize_aws_json_1_0(
             input_

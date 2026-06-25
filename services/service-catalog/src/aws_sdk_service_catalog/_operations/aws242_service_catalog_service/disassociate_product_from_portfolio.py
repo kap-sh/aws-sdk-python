@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.DisassociateProductFromPortfolio"
     )
-    import aws_sdk_service_catalog.types.disassociate_product_from_portfolio_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.disassociate_product_from_portfolio_input.serialize_aws_json_1_1(
             input_

@@ -99,8 +99,6 @@ def build_request(
     url = url.replace("{EmailIdentity}", quote(str(input_["email_identity"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_pinpoint_email.types.put_email_identity_dkim_attributes_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_email.types.put_email_identity_dkim_attributes_request.serialize_json(
             input_

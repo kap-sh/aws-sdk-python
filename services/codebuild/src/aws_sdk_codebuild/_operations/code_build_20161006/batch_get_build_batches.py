@@ -91,8 +91,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetBuildBatches"
-    import aws_sdk_codebuild.types.batch_get_build_batches_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codebuild.types.batch_get_build_batches_input.serialize_aws_json_1_1(
             input_

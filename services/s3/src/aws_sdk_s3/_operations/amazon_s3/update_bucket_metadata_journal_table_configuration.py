@@ -84,8 +84,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "journal_table_configuration" in input_:
-        import aws_sdk_s3.types.journal_table_configuration_updates
-
         payload_root = Element("_")
         aws_sdk_s3.types.journal_table_configuration_updates.serialize_xml(
             input_["journal_table_configuration"],

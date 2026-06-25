@@ -116,8 +116,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteAnomalyDetector"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.delete_anomaly_detector_input
-
     aws_sdk_cloudwatch.types.delete_anomaly_detector_input.serialize_query(
         input_, pairs, ""
     )

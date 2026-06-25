@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{botId}", quote(str(input_["bot_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_models_v2.types.start_bot_analyzer_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_models_v2.types.start_bot_analyzer_request.serialize_json(input_)
     ).encode()

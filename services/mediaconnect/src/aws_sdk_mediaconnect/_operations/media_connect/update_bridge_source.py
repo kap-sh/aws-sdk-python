@@ -128,8 +128,6 @@ def build_request(
     url = url.replace("{SourceName}", quote(str(input_["source_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconnect.types.update_bridge_source_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.update_bridge_source_request.serialize_json(input_)
     ).encode()

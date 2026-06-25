@@ -116,8 +116,6 @@ def build_request(
     if "dry_run" in input_:
         params["dry_run"] = str(input_["dry_run"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_tnb.types.instantiate_sol_network_instance_input
-
     body: bytes | None = json.dumps(
         aws_sdk_tnb.types.instantiate_sol_network_instance_input.serialize_json(input_)
     ).encode()

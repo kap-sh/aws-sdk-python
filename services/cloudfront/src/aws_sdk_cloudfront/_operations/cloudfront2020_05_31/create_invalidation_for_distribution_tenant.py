@@ -125,8 +125,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "invalidation_batch" in input_:
-        import aws_sdk_cloudfront.types.invalidation_batch
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.invalidation_batch.serialize_xml(
             input_["invalidation_batch"], payload_root, "InvalidationBatch"

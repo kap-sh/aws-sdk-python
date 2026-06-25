@@ -118,8 +118,6 @@ def build_request(
     url = url.replace("{retrieverId}", quote(str(input_["retriever_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.update_retriever_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.update_retriever_request.serialize_json(input_)
     ).encode()

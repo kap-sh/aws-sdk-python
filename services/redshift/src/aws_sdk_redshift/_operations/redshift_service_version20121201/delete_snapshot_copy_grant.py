@@ -75,8 +75,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteSnapshotCopyGrant"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.delete_snapshot_copy_grant_message
-
     aws_sdk_redshift.types.delete_snapshot_copy_grant_message.serialize_query(
         input_, pairs, ""
     )

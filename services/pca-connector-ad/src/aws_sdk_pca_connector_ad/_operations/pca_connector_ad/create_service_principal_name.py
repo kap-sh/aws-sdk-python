@@ -106,8 +106,6 @@ def build_request(
     url = url.replace("{ConnectorArn}", quote(str(input_["connector_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_pca_connector_ad.types.create_service_principal_name_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pca_connector_ad.types.create_service_principal_name_request.serialize_json(
             input_

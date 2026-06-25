@@ -123,8 +123,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "NetworkFirewall_20201112.AssociateAvailabilityZones"
-    import aws_sdk_network_firewall.types.associate_availability_zones_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.associate_availability_zones_request.serialize_aws_json_1_0(
             input_

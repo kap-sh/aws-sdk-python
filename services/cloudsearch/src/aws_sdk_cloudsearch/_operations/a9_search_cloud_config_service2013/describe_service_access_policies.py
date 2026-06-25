@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeServiceAccessPolicies"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.describe_service_access_policies_request
-
     aws_sdk_cloudsearch.types.describe_service_access_policies_request.serialize_query(
         input_, pairs, ""
     )

@@ -132,8 +132,6 @@ def build_request(
     url = url.replace("{volumeName}", quote(str(input_["volume_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_finspace.types.update_kx_volume_request
-
     body: bytes | None = json.dumps(
         aws_sdk_finspace.types.update_kx_volume_request.serialize_json(input_)
     ).encode()

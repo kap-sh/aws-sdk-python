@@ -130,8 +130,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/prod/batch/stop"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_medialive.types.batch_stop_request
-
     body: bytes | None = json.dumps(
         aws_sdk_medialive.types.batch_stop_request.serialize_json(input_)
     ).encode()

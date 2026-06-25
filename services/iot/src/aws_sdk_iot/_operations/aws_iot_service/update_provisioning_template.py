@@ -102,8 +102,6 @@ def build_request(
     url = url.replace("{templateName}", quote(str(input_["template_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_provisioning_template_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_provisioning_template_request.serialize_json(input_)
     ).encode()

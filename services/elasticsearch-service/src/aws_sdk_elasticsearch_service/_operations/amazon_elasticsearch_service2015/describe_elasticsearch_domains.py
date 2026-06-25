@@ -103,8 +103,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2015-01-01/es/domain-info"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_elasticsearch_service.types.describe_elasticsearch_domains_request
-
     body: bytes | None = json.dumps(
         aws_sdk_elasticsearch_service.types.describe_elasticsearch_domains_request.serialize_json(
             input_

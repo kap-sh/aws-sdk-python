@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{AttachmentId}", quote(str(input_["attachment_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkmanager.types.update_direct_connect_gateway_attachment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_networkmanager.types.update_direct_connect_gateway_attachment_request.serialize_json(
             input_

@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeSnapshots"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_snapshots_message
-
     aws_sdk_elasticache.types.describe_snapshots_message.serialize_query(
         input_, pairs, ""
     )

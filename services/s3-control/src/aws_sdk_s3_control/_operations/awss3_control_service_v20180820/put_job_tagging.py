@@ -114,8 +114,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("PutJobTaggingRequest")
     if "tags" in input_:
-        import aws_sdk_s3_control.types.s3_tag_set
-
         aws_sdk_s3_control.types.s3_tag_set.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

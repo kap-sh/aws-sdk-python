@@ -129,8 +129,6 @@ def build_request(
     url = url.replace("{UUID}", quote(str(input_["uuid"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lambda.types.update_event_source_mapping_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lambda.types.update_event_source_mapping_request.serialize_json(input_)
     ).encode()

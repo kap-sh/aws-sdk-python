@@ -146,8 +146,6 @@ def build_request(
         headers["X-Amzn-Bedrock-AgentCore-Runtime-User-Id"] = str(
             input_["runtime_user_id"]
         )
-    import aws_sdk_bedrock_agentcore.types.invoke_harness_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.invoke_harness_request.serialize_json(input_)
     ).encode()

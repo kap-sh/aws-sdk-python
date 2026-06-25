@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/account/registerAccount"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_auditmanager.types.register_account_request
-
     body: bytes | None = json.dumps(
         aws_sdk_auditmanager.types.register_account_request.serialize_json(input_)
     ).encode()

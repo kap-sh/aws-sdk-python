@@ -105,8 +105,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_pinpoint_email.types.put_configuration_set_delivery_options_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_email.types.put_configuration_set_delivery_options_request.serialize_json(
             input_

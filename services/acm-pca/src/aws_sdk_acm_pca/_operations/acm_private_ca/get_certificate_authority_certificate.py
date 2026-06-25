@@ -96,8 +96,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificateAuthorityCertificate"
-    import aws_sdk_acm_pca.types.get_certificate_authority_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_acm_pca.types.get_certificate_authority_certificate_request.serialize_aws_json_1_1(
             input_

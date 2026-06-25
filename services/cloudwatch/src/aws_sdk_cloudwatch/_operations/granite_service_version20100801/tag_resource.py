@@ -110,8 +110,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "TagResource"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.tag_resource_input
-
     aws_sdk_cloudwatch.types.tag_resource_input.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

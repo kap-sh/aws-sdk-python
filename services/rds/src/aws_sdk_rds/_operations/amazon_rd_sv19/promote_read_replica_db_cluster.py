@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PromoteReadReplicaDBCluster"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.promote_read_replica_db_cluster_message
-
     aws_sdk_rds.types.promote_read_replica_db_cluster_message.serialize_query(
         input_, pairs, ""
     )

@@ -109,8 +109,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "NetworkFirewall_20201112.DescribeVpcEndpointAssociation"
-    import aws_sdk_network_firewall.types.describe_vpc_endpoint_association_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.describe_vpc_endpoint_association_request.serialize_aws_json_1_0(
             input_

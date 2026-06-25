@@ -111,8 +111,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/DeleteVectorBucketPolicy"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_s3vectors.types.delete_vector_bucket_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_s3vectors.types.delete_vector_bucket_policy_input.serialize_json(input_)
     ).encode()

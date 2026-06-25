@@ -93,8 +93,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDBSnapshotTenantDatabases"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_db_snapshot_tenant_databases_message
-
     aws_sdk_rds.types.describe_db_snapshot_tenant_databases_message.serialize_query(
         input_, pairs, ""
     )

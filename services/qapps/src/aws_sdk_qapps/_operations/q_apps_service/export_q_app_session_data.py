@@ -123,8 +123,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "instance_id" in input_:
         headers["instance-id"] = str(input_["instance_id"])
-    import aws_sdk_qapps.types.export_q_app_session_data_input
-
     body: bytes | None = json.dumps(
         aws_sdk_qapps.types.export_q_app_session_data_input.serialize_json(input_)
     ).encode()

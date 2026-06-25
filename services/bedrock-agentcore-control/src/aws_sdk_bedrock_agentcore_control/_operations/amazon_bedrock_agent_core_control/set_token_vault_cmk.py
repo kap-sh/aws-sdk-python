@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/identities/set-token-vault-cmk"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.set_token_vault_cmk_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.set_token_vault_cmk_request.serialize_json(
             input_

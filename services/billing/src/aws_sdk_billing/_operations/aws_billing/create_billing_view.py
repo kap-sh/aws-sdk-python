@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = "AWSBilling.CreateBillingView"
     if "client_token" in input_:
         headers["X-Amzn-Client-Token"] = str(input_["client_token"])
-    import aws_sdk_billing.types.create_billing_view_request
-
     body: bytes | None = json.dumps(
         aws_sdk_billing.types.create_billing_view_request.serialize_aws_json_1_0(input_)
     ).encode()

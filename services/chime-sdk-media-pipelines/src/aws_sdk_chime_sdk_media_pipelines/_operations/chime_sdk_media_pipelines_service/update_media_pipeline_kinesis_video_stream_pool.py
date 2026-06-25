@@ -133,8 +133,6 @@ def build_request(
     url = url.replace("{Identifier}", quote(str(input_["identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_media_pipelines.types.update_media_pipeline_kinesis_video_stream_pool_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_media_pipelines.types.update_media_pipeline_kinesis_video_stream_pool_request.serialize_json(
             input_

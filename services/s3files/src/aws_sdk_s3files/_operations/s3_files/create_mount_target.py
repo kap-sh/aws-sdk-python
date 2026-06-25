@@ -110,8 +110,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/mount-targets"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_s3files.types.create_mount_target_request
-
     body: bytes | None = json.dumps(
         aws_sdk_s3files.types.create_mount_target_request.serialize_json(input_)
     ).encode()

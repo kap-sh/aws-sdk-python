@@ -97,8 +97,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PhotonAdminProxyService.CreateAppBlockBuilderStreamingURL"
     )
-    import aws_sdk_appstream.types.create_app_block_builder_streaming_url_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appstream.types.create_app_block_builder_streaming_url_request.serialize_aws_json_1_1(
             input_

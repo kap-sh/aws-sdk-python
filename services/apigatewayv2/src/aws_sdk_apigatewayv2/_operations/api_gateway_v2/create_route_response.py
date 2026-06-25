@@ -108,8 +108,6 @@ def build_request(
     url = url.replace("{RouteId}", quote(str(input_["route_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_apigatewayv2.types.create_route_response_request
-
     body: bytes | None = json.dumps(
         aws_sdk_apigatewayv2.types.create_route_response_request.serialize_json(input_)
     ).encode()

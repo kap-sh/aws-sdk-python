@@ -98,8 +98,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/account-customizations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_uxc.types.update_account_customizations_input
-
     body: bytes | None = json.dumps(
         aws_sdk_uxc.types.update_account_customizations_input.serialize_json(input_)
     ).encode()

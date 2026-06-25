@@ -124,8 +124,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AuthorizeSnapshotAccess"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.authorize_snapshot_access_message
-
     aws_sdk_redshift.types.authorize_snapshot_access_message.serialize_query(
         input_, pairs, ""
     )

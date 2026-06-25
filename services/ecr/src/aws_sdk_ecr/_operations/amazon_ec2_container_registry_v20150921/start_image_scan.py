@@ -125,8 +125,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.StartImageScan"
-    import aws_sdk_ecr.types.start_image_scan_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.start_image_scan_request.serialize_aws_json_1_1(input_)
     ).encode()

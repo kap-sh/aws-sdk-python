@@ -127,8 +127,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_datazone.types.batch_put_attributes_metadata_input
-
     body: bytes | None = json.dumps(
         aws_sdk_datazone.types.batch_put_attributes_metadata_input.serialize_json(
             input_

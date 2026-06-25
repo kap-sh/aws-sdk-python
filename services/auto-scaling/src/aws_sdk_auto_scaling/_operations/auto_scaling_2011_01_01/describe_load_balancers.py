@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeLoadBalancers"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.describe_load_balancers_request
-
     aws_sdk_auto_scaling.types.describe_load_balancers_request.serialize_query(
         input_, pairs, ""
     )

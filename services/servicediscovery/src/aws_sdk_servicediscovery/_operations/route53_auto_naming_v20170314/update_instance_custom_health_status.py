@@ -91,8 +91,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus"
     )
-    import aws_sdk_servicediscovery.types.update_instance_custom_health_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_servicediscovery.types.update_instance_custom_health_status_request.serialize_aws_json_1_1(
             input_

@@ -107,8 +107,6 @@ def build_request(
     url = url.replace("{ResourceArn}", quote(str(input_["resource_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_scheduler.types.tag_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_scheduler.types.tag_resource_input.serialize_json(input_)
     ).encode()

@@ -114,8 +114,6 @@ def build_request(
     if "resource_arn" in input_:
         params["resourceArn"] = str(input_["resource_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_incidents.types.get_resource_policies_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_incidents.types.get_resource_policies_input.serialize_json(input_)
     ).encode()

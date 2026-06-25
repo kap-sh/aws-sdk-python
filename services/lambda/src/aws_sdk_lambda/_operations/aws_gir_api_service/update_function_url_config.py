@@ -112,8 +112,6 @@ def build_request(
     if "qualifier" in input_:
         params["Qualifier"] = str(input_["qualifier"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lambda.types.update_function_url_config_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lambda.types.update_function_url_config_request.serialize_json(input_)
     ).encode()

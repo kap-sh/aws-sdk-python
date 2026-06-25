@@ -88,8 +88,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SearchLocalGatewayRoutes"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.search_local_gateway_routes_request
-
     aws_sdk_ec2.types.search_local_gateway_routes_request.serialize_ec2_query(
         input_, pairs, ""
     )

@@ -135,8 +135,6 @@ def build_request(
     url = url.replace("{otaUpdateId}", quote(str(input_["ota_update_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.create_ota_update_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.create_ota_update_request.serialize_json(input_)
     ).encode()

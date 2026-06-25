@@ -118,8 +118,6 @@ def build_request(
     if "include_hidden" in input_:
         params["include-hidden"] = str(input_["include_hidden"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_customer_profiles.types.list_account_integrations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_customer_profiles.types.list_account_integrations_request.serialize_json(
             input_

@@ -123,8 +123,6 @@ def build_request(
     if "package_group" in input_:
         params["package-group"] = str(input_["package_group"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeartifact.types.update_package_group_origin_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeartifact.types.update_package_group_origin_configuration_request.serialize_json(
             input_

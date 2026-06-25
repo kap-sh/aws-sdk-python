@@ -103,8 +103,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "OpenSearchServerless.ListTagsForResource"
-    import aws_sdk_opensearchserverless.types.list_tags_for_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_opensearchserverless.types.list_tags_for_resource_request.serialize_aws_json_1_0(
             input_

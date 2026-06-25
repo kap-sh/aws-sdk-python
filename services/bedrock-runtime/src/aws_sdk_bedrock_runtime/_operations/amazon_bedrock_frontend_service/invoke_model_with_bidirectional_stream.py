@@ -164,8 +164,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
 
-    import aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_input
-
     body = aws_sdk_bedrock_runtime._iter.map_sync_iterator(
         input_["body"],
         aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_input.serialize_event_json,
@@ -196,8 +194,6 @@ def async_build_request(
     url = url.replace("{modelId}", quote(str(input_["model_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-
-    import aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_input
 
     body = aws_sdk_bedrock_runtime._iter.map_async_iterator(
         input_["body"],

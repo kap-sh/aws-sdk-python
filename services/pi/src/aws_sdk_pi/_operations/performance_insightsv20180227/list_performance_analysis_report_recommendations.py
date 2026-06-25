@@ -99,8 +99,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PerformanceInsightsv20180227.ListPerformanceAnalysisReportRecommendations"
     )
-    import aws_sdk_pi.types.list_performance_analysis_report_recommendations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pi.types.list_performance_analysis_report_recommendations_request.serialize_aws_json_1_1(
             input_

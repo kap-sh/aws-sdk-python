@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{contentId}", quote(str(input_["content_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qconnect.types.update_content_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qconnect.types.update_content_request.serialize_json(input_)
     ).encode()

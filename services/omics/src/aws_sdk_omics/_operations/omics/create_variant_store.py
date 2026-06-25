@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/variantStore"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_omics.types.create_variant_store_request
-
     body: bytes | None = json.dumps(
         aws_sdk_omics.types.create_variant_store_request.serialize_json(input_)
     ).encode()

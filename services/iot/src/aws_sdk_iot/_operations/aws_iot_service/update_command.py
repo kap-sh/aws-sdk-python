@@ -110,8 +110,6 @@ def build_request(
     url = url.replace("{commandId}", quote(str(input_["command_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_command_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_command_request.serialize_json(input_)
     ).encode()

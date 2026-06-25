@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/reviewTemplates"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wellarchitected.types.create_review_template_input
-
     body: bytes | None = json.dumps(
         aws_sdk_wellarchitected.types.create_review_template_input.serialize_json(
             input_

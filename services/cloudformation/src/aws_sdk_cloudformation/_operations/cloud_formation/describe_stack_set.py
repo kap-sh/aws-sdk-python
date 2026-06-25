@@ -103,8 +103,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeStackSet"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.describe_stack_set_input
-
     aws_sdk_cloudformation.types.describe_stack_set_input.serialize_query(
         input_, pairs, ""
     )

@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetTrustStoreCaCertificatesBundle"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.get_trust_store_ca_certificates_bundle_input
-
     aws_sdk_elastic_load_balancing_v2.types.get_trust_store_ca_certificates_bundle_input.serialize_query(
         input_, pairs, ""
     )

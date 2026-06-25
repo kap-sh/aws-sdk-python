@@ -87,8 +87,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeByoipCidrs"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.describe_byoip_cidrs_request
-
     aws_sdk_ec2.types.describe_byoip_cidrs_request.serialize_ec2_query(
         input_, pairs, ""
     )

@@ -79,8 +79,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("PutAccessPointScopeRequest")
     if "scope" in input_:
-        import aws_sdk_s3_control.types.scope
-
         aws_sdk_s3_control.types.scope.serialize_xml(input_["scope"], root, "Scope")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

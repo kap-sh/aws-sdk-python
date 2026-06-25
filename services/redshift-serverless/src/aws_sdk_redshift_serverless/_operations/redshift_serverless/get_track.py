@@ -127,8 +127,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "RedshiftServerless.GetTrack"
-    import aws_sdk_redshift_serverless.types.get_track_request
-
     body: bytes | None = json.dumps(
         aws_sdk_redshift_serverless.types.get_track_request.serialize_aws_json_1_1(
             input_

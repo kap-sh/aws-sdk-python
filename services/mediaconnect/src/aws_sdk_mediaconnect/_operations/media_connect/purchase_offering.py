@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{OfferingArn}", quote(str(input_["offering_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconnect.types.purchase_offering_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.purchase_offering_request.serialize_json(input_)
     ).encode()

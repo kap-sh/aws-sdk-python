@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-app-versions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehub.types.list_app_versions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehub.types.list_app_versions_request.serialize_json(input_)
     ).encode()

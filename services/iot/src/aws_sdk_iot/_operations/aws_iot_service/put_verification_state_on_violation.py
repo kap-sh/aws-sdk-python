@@ -92,8 +92,6 @@ def build_request(
     url = url.replace("{violationId}", quote(str(input_["violation_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.put_verification_state_on_violation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.put_verification_state_on_violation_request.serialize_json(
             input_

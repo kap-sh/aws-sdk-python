@@ -103,8 +103,6 @@ def build_request(
     url = url.replace("{QueueId}", quote(str(input_["queue_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.associate_queue_email_addresses_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.associate_queue_email_addresses_request.serialize_json(
             input_

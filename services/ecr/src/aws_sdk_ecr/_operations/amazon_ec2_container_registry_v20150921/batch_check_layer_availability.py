@@ -99,8 +99,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability"
     )
-    import aws_sdk_ecr.types.batch_check_layer_availability_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.batch_check_layer_availability_request.serialize_aws_json_1_1(
             input_

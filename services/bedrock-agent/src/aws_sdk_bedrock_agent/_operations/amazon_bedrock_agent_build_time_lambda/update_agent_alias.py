@@ -127,8 +127,6 @@ def build_request(
     url = url.replace("{agentAliasId}", quote(str(input_["agent_alias_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agent.types.update_agent_alias_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent.types.update_agent_alias_request.serialize_json(input_)
     ).encode()

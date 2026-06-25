@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{hostedZoneId}", quote(str(input_["hosted_zone_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_route53globalresolver.types.associate_hosted_zone_input
-
     body: bytes | None = json.dumps(
         aws_sdk_route53globalresolver.types.associate_hosted_zone_input.serialize_json(
             input_

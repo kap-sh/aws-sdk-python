@@ -93,8 +93,6 @@ def build_request(
     url = url.replace("{TemplateName}", quote(str(input_["template_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sesv2.types.update_email_template_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sesv2.types.update_email_template_request.serialize_json(input_)
     ).encode()

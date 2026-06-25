@@ -84,8 +84,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "tagging" in input_:
-        import aws_sdk_s3.types.tagging
-
         payload_root = Element("_")
         aws_sdk_s3.types.tagging.serialize_xml(
             input_["tagging"], payload_root, "Tagging"

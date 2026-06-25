@@ -92,8 +92,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListIdentities"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.list_identities_request
-
     aws_sdk_ses.types.list_identities_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

@@ -82,8 +82,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteEgressOnlyInternetGateway"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.delete_egress_only_internet_gateway_request
-
     aws_sdk_ec2.types.delete_egress_only_internet_gateway_request.serialize_ec2_query(
         input_, pairs, ""
     )

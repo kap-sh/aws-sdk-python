@@ -126,8 +126,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request.serialize_json(
             input_

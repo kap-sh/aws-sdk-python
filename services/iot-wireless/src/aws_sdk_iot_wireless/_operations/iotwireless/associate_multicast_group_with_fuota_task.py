@@ -111,8 +111,6 @@ def build_request(
     url = url.replace("{Id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_request.serialize_json(
             input_

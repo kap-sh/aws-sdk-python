@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/configurationManager"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_quicksetup.types.create_configuration_manager_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_quicksetup.types.create_configuration_manager_input.serialize_json(
             input_

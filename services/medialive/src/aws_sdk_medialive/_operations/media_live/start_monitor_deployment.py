@@ -123,8 +123,6 @@ def build_request(
     url = url.replace("{Identifier}", quote(str(input_["identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_medialive.types.start_monitor_deployment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_medialive.types.start_monitor_deployment_request.serialize_json(input_)
     ).encode()

@@ -186,8 +186,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "serializer" in input_:
         headers["accept"] = str(input_["serializer"])
-    import aws_sdk_neptunedata.types.execute_gremlin_query_input
-
     body: bytes | None = json.dumps(
         aws_sdk_neptunedata.types.execute_gremlin_query_input.serialize_json(input_)
     ).encode()

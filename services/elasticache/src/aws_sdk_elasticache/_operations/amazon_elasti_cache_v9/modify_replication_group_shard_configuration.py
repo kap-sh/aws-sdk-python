@@ -145,8 +145,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyReplicationGroupShardConfiguration"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.modify_replication_group_shard_configuration_message
-
     aws_sdk_elasticache.types.modify_replication_group_shard_configuration_message.serialize_query(
         input_, pairs, ""
     )

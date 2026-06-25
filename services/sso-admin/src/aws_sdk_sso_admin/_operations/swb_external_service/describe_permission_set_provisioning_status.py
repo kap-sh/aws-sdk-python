@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "SWBExternalService.DescribePermissionSetProvisioningStatus"
     )
-    import aws_sdk_sso_admin.types.describe_permission_set_provisioning_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.describe_permission_set_provisioning_status_request.serialize_aws_json_1_1(
             input_

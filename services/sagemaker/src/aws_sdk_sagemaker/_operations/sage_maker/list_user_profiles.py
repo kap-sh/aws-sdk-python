@@ -87,8 +87,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SageMaker.ListUserProfiles"
-    import aws_sdk_sagemaker.types.list_user_profiles_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker.types.list_user_profiles_request.serialize_aws_json_1_1(
             input_

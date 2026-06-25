@@ -96,8 +96,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact"
     )
-    import aws_sdk_service_catalog.types.batch_disassociate_service_action_from_provisioning_artifact_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.batch_disassociate_service_action_from_provisioning_artifact_input.serialize_aws_json_1_1(
             input_

@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/useraccess/start"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_appfabric.types.start_user_access_tasks_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appfabric.types.start_user_access_tasks_request.serialize_json(input_)
     ).encode()

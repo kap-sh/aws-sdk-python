@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration"
     )
-    import aws_sdk_cost_explorer.types.list_savings_plans_purchase_recommendation_generation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_explorer.types.list_savings_plans_purchase_recommendation_generation_request.serialize_aws_json_1_1(
             input_

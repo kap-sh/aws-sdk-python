@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteInstanceConnectEndpoint"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.delete_instance_connect_endpoint_request
-
     aws_sdk_ec2.types.delete_instance_connect_endpoint_request.serialize_ec2_query(
         input_, pairs, ""
     )

@@ -79,8 +79,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("UpdateStorageLensGroupRequest")
     if "storage_lens_group" in input_:
-        import aws_sdk_s3_control.types.storage_lens_group
-
         aws_sdk_s3_control.types.storage_lens_group.serialize_xml(
             input_["storage_lens_group"], root, "StorageLensGroup"
         )

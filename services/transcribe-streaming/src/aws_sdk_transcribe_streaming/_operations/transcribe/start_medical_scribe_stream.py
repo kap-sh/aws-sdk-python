@@ -182,8 +182,6 @@ def build_request(
     if "media_encoding" in input_:
         headers["x-amzn-transcribe-media-encoding"] = str(input_["media_encoding"])
 
-    import aws_sdk_transcribe_streaming.types.medical_scribe_input_stream
-
     body = aws_sdk_transcribe_streaming._iter.map_sync_iterator(
         input_["input_stream"],
         aws_sdk_transcribe_streaming.types.medical_scribe_input_stream.serialize_event_json,
@@ -223,8 +221,6 @@ def async_build_request(
         )
     if "media_encoding" in input_:
         headers["x-amzn-transcribe-media-encoding"] = str(input_["media_encoding"])
-
-    import aws_sdk_transcribe_streaming.types.medical_scribe_input_stream
 
     body = aws_sdk_transcribe_streaming._iter.map_async_iterator(
         input_["input_stream"],

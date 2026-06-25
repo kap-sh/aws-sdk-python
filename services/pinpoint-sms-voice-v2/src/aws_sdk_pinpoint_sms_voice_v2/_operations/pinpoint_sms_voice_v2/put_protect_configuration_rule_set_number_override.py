@@ -124,8 +124,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PinpointSMSVoiceV2.PutProtectConfigurationRuleSetNumberOverride"
     )
-    import aws_sdk_pinpoint_sms_voice_v2.types.put_protect_configuration_rule_set_number_override_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_sms_voice_v2.types.put_protect_configuration_rule_set_number_override_request.serialize_aws_json_1_0(
             input_

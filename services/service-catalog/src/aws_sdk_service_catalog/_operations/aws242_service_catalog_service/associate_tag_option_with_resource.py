@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.AssociateTagOptionWithResource"
     )
-    import aws_sdk_service_catalog.types.associate_tag_option_with_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.associate_tag_option_with_resource_input.serialize_aws_json_1_1(
             input_

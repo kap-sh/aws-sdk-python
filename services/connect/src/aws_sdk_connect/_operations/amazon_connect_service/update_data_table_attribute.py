@@ -135,8 +135,6 @@ def build_request(
     url = url.replace("{AttributeName}", quote(str(input_["attribute_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.update_data_table_attribute_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_data_table_attribute_request.serialize_json(input_)
     ).encode()

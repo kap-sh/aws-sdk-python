@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeUsers"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_users_message
-
     aws_sdk_elasticache.types.describe_users_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

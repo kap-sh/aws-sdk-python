@@ -124,8 +124,6 @@ def build_request(
     if "qualifier" in input_:
         params["Qualifier"] = str(input_["qualifier"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lambda.types.add_permission_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lambda.types.add_permission_request.serialize_json(input_)
     ).encode()

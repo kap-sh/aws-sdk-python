@@ -113,8 +113,6 @@ def build_request(
     url = url.replace("{nsInstanceId}", quote(str(input_["ns_instance_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_tnb.types.terminate_sol_network_instance_input
-
     body: bytes | None = json.dumps(
         aws_sdk_tnb.types.terminate_sol_network_instance_input.serialize_json(input_)
     ).encode()

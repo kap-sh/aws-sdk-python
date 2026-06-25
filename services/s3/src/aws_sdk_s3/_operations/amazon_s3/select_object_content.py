@@ -139,32 +139,22 @@ def build_request(
     if "expression" in input_:
         SubElement(root, "Expression").text = str(input_["expression"])
     if "expression_type" in input_:
-        import aws_sdk_s3.types.expression_type
-
         aws_sdk_s3.types.expression_type.serialize_xml(
             input_["expression_type"], root, "ExpressionType"
         )
     if "request_progress" in input_:
-        import aws_sdk_s3.types.request_progress
-
         aws_sdk_s3.types.request_progress.serialize_xml(
             input_["request_progress"], root, "RequestProgress"
         )
     if "input_serialization" in input_:
-        import aws_sdk_s3.types.input_serialization
-
         aws_sdk_s3.types.input_serialization.serialize_xml(
             input_["input_serialization"], root, "InputSerialization"
         )
     if "output_serialization" in input_:
-        import aws_sdk_s3.types.output_serialization
-
         aws_sdk_s3.types.output_serialization.serialize_xml(
             input_["output_serialization"], root, "OutputSerialization"
         )
     if "scan_range" in input_:
-        import aws_sdk_s3.types.scan_range
-
         aws_sdk_s3.types.scan_range.serialize_xml(
             input_["scan_range"], root, "ScanRange"
         )

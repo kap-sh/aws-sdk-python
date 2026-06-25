@@ -124,8 +124,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "verify_otp_message_request_parameters" in input_:
-        import aws_sdk_pinpoint.types.verify_otp_message_request_parameters
-
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.verify_otp_message_request_parameters.serialize_json(
                 input_["verify_otp_message_request_parameters"]

@@ -124,8 +124,6 @@ def build_request(
     url = url.replace("{botName}", quote(str(input_["bot_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_model_building_service.types.put_bot_alias_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_model_building_service.types.put_bot_alias_request.serialize_json(
             input_

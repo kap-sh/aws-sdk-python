@@ -127,8 +127,6 @@ def build_request(
     url = url.replace("{ThemeId}", quote(str(input_["theme_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.update_theme_permissions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.update_theme_permissions_request.serialize_json(input_)
     ).encode()

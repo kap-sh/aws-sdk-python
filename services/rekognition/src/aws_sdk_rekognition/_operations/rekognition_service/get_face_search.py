@@ -128,8 +128,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "RekognitionService.GetFaceSearch"
-    import aws_sdk_rekognition.types.get_face_search_request
-
     body: bytes | None = json.dumps(
         aws_sdk_rekognition.types.get_face_search_request.serialize_aws_json_1_1(input_)
     ).encode()

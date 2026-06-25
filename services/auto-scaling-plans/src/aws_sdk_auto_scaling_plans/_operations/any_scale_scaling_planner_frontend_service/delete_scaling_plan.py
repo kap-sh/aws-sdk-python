@@ -103,8 +103,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan"
-    import aws_sdk_auto_scaling_plans.types.delete_scaling_plan_request
-
     body: bytes | None = json.dumps(
         aws_sdk_auto_scaling_plans.types.delete_scaling_plan_request.serialize_aws_json_1_1(
             input_

@@ -115,8 +115,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteWarmPool"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.delete_warm_pool_type
-
     aws_sdk_auto_scaling.types.delete_warm_pool_type.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

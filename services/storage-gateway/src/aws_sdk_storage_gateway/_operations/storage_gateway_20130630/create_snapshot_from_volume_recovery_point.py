@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
     )
-    import aws_sdk_storage_gateway.types.create_snapshot_from_volume_recovery_point_input
-
     body: bytes | None = json.dumps(
         aws_sdk_storage_gateway.types.create_snapshot_from_volume_recovery_point_input.serialize_aws_json_1_1(
             input_

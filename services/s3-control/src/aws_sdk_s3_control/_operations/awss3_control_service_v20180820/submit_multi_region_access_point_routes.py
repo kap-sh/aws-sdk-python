@@ -94,8 +94,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("SubmitMultiRegionAccessPointRoutesRequest")
     if "route_updates" in input_:
-        import aws_sdk_s3_control.types.route_list
-
         aws_sdk_s3_control.types.route_list.serialize_xml(
             input_["route_updates"], root, "RouteUpdates"
         )

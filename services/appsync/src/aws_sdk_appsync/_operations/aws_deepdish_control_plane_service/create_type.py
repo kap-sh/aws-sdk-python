@@ -113,8 +113,6 @@ def build_request(
     url = url.replace("{apiId}", quote(str(input_["api_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_appsync.types.create_type_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appsync.types.create_type_request.serialize_json(input_)
     ).encode()

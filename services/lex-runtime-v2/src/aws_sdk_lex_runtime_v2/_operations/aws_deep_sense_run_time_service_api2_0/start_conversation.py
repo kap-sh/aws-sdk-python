@@ -136,8 +136,6 @@ def build_request(
     if "conversation_mode" in input_:
         headers["x-amz-lex-conversation-mode"] = str(input_["conversation_mode"])
 
-    import aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream
-
     body = aws_sdk_lex_runtime_v2._iter.map_sync_iterator(
         input_["request_event_stream"],
         aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream.serialize_event_json,
@@ -176,8 +174,6 @@ def async_build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "conversation_mode" in input_:
         headers["x-amz-lex-conversation-mode"] = str(input_["conversation_mode"])
-
-    import aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream
 
     body = aws_sdk_lex_runtime_v2._iter.map_async_iterator(
         input_["request_event_stream"],

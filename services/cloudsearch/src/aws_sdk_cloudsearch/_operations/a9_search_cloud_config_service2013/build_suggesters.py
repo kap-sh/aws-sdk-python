@@ -116,8 +116,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "BuildSuggesters"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.build_suggesters_request
-
     aws_sdk_cloudsearch.types.build_suggesters_request.serialize_query(
         input_, pairs, ""
     )

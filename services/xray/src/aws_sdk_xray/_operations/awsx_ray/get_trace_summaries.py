@@ -96,8 +96,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/TraceSummaries"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_xray.types.get_trace_summaries_request
-
     body: bytes | None = json.dumps(
         aws_sdk_xray.types.get_trace_summaries_request.serialize_json(input_)
     ).encode()

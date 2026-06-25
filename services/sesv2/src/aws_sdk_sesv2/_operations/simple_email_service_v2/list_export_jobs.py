@@ -96,8 +96,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v2/email/list-export-jobs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sesv2.types.list_export_jobs_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sesv2.types.list_export_jobs_request.serialize_json(input_)
     ).encode()

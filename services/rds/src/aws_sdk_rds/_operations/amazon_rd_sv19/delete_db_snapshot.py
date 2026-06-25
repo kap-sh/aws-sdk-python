@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteDBSnapshot"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.delete_db_snapshot_message
-
     aws_sdk_rds.types.delete_db_snapshot_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

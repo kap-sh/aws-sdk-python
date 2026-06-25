@@ -119,8 +119,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSMPCommerceService_v20200301.ListAgreementInvoiceLineItems"
     )
-    import aws_sdk_marketplace_agreement.types.list_agreement_invoice_line_items_input
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_agreement.types.list_agreement_invoice_line_items_input.serialize_aws_json_1_0(
             input_

@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/GetTelemetryRule"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_observabilityadmin.types.get_telemetry_rule_input
-
     body: bytes | None = json.dumps(
         aws_sdk_observabilityadmin.types.get_telemetry_rule_input.serialize_json(input_)
     ).encode()

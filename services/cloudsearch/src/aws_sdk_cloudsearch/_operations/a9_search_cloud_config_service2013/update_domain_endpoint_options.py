@@ -128,8 +128,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateDomainEndpointOptions"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.update_domain_endpoint_options_request
-
     aws_sdk_cloudsearch.types.update_domain_endpoint_options_request.serialize_query(
         input_, pairs, ""
     )

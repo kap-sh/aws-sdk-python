@@ -126,8 +126,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonDAXV3.IncreaseReplicationFactor"
-    import aws_sdk_dax.types.increase_replication_factor_request
-
     body: bytes | None = json.dumps(
         aws_sdk_dax.types.increase_replication_factor_request.serialize_aws_json_1_1(
             input_

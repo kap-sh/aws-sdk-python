@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/get-billing-group-cost-report"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_billingconductor.types.get_billing_group_cost_report_input
-
     body: bytes | None = json.dumps(
         aws_sdk_billingconductor.types.get_billing_group_cost_report_input.serialize_json(
             input_

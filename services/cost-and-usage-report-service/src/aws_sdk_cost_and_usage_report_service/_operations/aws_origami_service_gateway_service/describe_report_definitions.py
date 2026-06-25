@@ -99,8 +99,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrigamiServiceGatewayService.DescribeReportDefinitions"
     )
-    import aws_sdk_cost_and_usage_report_service.types.describe_report_definitions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_and_usage_report_service.types.describe_report_definitions_request.serialize_aws_json_1_1(
             input_

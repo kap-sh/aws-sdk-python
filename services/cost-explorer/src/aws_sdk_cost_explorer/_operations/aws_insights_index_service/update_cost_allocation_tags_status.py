@@ -94,8 +94,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSInsightsIndexService.UpdateCostAllocationTagsStatus"
-    import aws_sdk_cost_explorer.types.update_cost_allocation_tags_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_explorer.types.update_cost_allocation_tags_status_request.serialize_aws_json_1_1(
             input_

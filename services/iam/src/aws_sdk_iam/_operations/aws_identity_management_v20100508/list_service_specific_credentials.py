@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListServiceSpecificCredentials"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.list_service_specific_credentials_request
-
     aws_sdk_iam.types.list_service_specific_credentials_request.serialize_query(
         input_, pairs, ""
     )

@@ -113,8 +113,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "FailoverPrimaryCompute"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.failover_primary_compute_input_message
-
     aws_sdk_redshift.types.failover_primary_compute_input_message.serialize_query(
         input_, pairs, ""
     )

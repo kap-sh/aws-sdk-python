@@ -105,8 +105,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AnyScaleFrontendService.DeregisterScalableTarget"
-    import aws_sdk_application_auto_scaling.types.deregister_scalable_target_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_auto_scaling.types.deregister_scalable_target_request.serialize_aws_json_1_1(
             input_

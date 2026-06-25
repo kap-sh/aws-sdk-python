@@ -114,8 +114,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodeStar_connections_20191201.ListSyncConfigurations"
-    import aws_sdk_codestar_connections.types.list_sync_configurations_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codestar_connections.types.list_sync_configurations_input.serialize_aws_json_1_0(
             input_

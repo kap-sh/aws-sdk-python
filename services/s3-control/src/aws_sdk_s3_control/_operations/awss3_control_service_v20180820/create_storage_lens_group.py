@@ -78,14 +78,10 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("CreateStorageLensGroupRequest")
     if "storage_lens_group" in input_:
-        import aws_sdk_s3_control.types.storage_lens_group
-
         aws_sdk_s3_control.types.storage_lens_group.serialize_xml(
             input_["storage_lens_group"], root, "StorageLensGroup"
         )
     if "tags" in input_:
-        import aws_sdk_s3_control.types.tag_list
-
         aws_sdk_s3_control.types.tag_list.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

@@ -135,8 +135,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/guardrails"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock.types.create_guardrail_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_guardrail_request.serialize_json(input_)
     ).encode()

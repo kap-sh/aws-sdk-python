@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "StopOTelEnrichment"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.stop_o_tel_enrichment_input
-
     aws_sdk_cloudwatch.types.stop_o_tel_enrichment_input.serialize_query(
         input_, pairs, ""
     )

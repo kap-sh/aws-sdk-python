@@ -134,8 +134,6 @@ def build_request(
     url = url.replace("{policyId}", quote(str(input_["policy_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.update_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.update_policy_request.serialize_json(
             input_

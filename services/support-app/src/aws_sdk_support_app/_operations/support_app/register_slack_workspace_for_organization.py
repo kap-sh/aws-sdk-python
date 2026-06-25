@@ -110,8 +110,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_support_app.types.register_slack_workspace_for_organization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_support_app.types.register_slack_workspace_for_organization_request.serialize_json(
             input_

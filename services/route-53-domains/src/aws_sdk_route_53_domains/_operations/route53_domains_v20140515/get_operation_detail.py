@@ -96,8 +96,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Route53Domains_v20140515.GetOperationDetail"
-    import aws_sdk_route_53_domains.types.get_operation_detail_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route_53_domains.types.get_operation_detail_request.serialize_aws_json_1_1(
             input_

@@ -121,8 +121,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetFederationToken"))
     pairs.append(("Version", "2011-06-15"))
-    import aws_sdk_sts.types.get_federation_token_request
-
     aws_sdk_sts.types.get_federation_token_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus"
     )
-    import aws_sdk_cognito_identity_provider.types.admin_update_device_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.admin_update_device_status_request.serialize_aws_json_1_1(
             input_

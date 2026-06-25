@@ -128,8 +128,6 @@ def build_request(
     url = url.replace("{agentSpaceId}", quote(str(input_["agent_space_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_agent.types.update_operator_app_idp_config_input
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_agent.types.update_operator_app_idp_config_input.serialize_json(
             input_

@@ -95,8 +95,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AppRunner.ListAutoScalingConfigurations"
-    import aws_sdk_apprunner.types.list_auto_scaling_configurations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_apprunner.types.list_auto_scaling_configurations_request.serialize_aws_json_1_0(
             input_

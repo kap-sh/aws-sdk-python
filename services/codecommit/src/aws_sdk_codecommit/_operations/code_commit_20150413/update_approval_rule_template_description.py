@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription"
     )
-    import aws_sdk_codecommit.types.update_approval_rule_template_description_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codecommit.types.update_approval_rule_template_description_input.serialize_aws_json_1_1(
             input_

@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Comprehend_20171127.DescribeTargetedSentimentDetectionJob"
     )
-    import aws_sdk_comprehend.types.describe_targeted_sentiment_detection_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_comprehend.types.describe_targeted_sentiment_detection_job_request.serialize_aws_json_1_1(
             input_

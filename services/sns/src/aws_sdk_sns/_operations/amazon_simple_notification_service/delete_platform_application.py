@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeletePlatformApplication"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.delete_platform_application_input
-
     aws_sdk_sns.types.delete_platform_application_input.serialize_query(
         input_, pairs, ""
     )

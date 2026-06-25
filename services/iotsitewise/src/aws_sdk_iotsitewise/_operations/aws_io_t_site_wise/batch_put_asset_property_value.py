@@ -120,8 +120,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/properties"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iotsitewise.types.batch_put_asset_property_value_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.batch_put_asset_property_value_request.serialize_json(
             input_

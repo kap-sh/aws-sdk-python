@@ -121,8 +121,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_customer_profiles.types.create_segment_snapshot_request
-
     body: bytes | None = json.dumps(
         aws_sdk_customer_profiles.types.create_segment_snapshot_request.serialize_json(
             input_

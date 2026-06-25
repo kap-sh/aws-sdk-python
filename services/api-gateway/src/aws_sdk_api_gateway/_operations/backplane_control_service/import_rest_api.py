@@ -126,8 +126,6 @@ def build_request(
     params["failonwarnings"] = str(input_.get("fail_on_warnings", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "body" in input_:
-        import aws_sdk_api_gateway.types.blob
-
         body: bytes | None = json.dumps(
             aws_sdk_api_gateway.types.blob.serialize_json(input_["body"])
         ).encode()

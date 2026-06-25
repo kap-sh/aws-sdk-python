@@ -109,8 +109,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DataPipeline.DescribePipelines"
-    import aws_sdk_data_pipeline.types.describe_pipelines_input
-
     body: bytes | None = json.dumps(
         aws_sdk_data_pipeline.types.describe_pipelines_input.serialize_aws_json_1_1(
             input_

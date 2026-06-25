@@ -101,8 +101,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/domainnames"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_appsync.types.create_domain_name_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appsync.types.create_domain_name_request.serialize_json(input_)
     ).encode()

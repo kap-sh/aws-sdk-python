@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/origin_endpoints"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediapackage.types.create_origin_endpoint_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediapackage.types.create_origin_endpoint_request.serialize_json(input_)
     ).encode()

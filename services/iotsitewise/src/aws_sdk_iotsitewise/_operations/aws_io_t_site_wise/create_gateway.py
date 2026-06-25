@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/20200301/gateways"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iotsitewise.types.create_gateway_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.create_gateway_request.serialize_json(input_)
     ).encode()

@@ -219,8 +219,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateDBInstanceReadReplica"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.create_db_instance_read_replica_message
-
     aws_sdk_rds.types.create_db_instance_read_replica_message.serialize_query(
         input_, pairs, ""
     )

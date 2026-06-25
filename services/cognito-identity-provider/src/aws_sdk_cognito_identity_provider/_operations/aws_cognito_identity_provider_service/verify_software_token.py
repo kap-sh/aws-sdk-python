@@ -158,8 +158,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.VerifySoftwareToken"
-    import aws_sdk_cognito_identity_provider.types.verify_software_token_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.verify_software_token_request.serialize_aws_json_1_1(
             input_

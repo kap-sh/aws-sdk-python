@@ -120,8 +120,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateDBClusterEndpoint"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_neptune.types.create_db_cluster_endpoint_message
-
     aws_sdk_neptune.types.create_db_cluster_endpoint_message.serialize_query(
         input_, pairs, ""
     )

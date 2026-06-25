@@ -63,8 +63,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteVerifiedEmailAddress"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.delete_verified_email_address_request
-
     aws_sdk_ses.types.delete_verified_email_address_request.serialize_query(
         input_, pairs, ""
     )

@@ -117,8 +117,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/UpdateCentralizationRuleForOrganization"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_observabilityadmin.types.update_centralization_rule_for_organization_input
-
     body: bytes | None = json.dumps(
         aws_sdk_observabilityadmin.types.update_centralization_rule_for_organization_input.serialize_json(
             input_

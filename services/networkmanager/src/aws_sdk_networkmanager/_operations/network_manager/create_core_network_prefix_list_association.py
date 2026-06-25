@@ -121,8 +121,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/prefix-list"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkmanager.types.create_core_network_prefix_list_association_request
-
     body: bytes | None = json.dumps(
         aws_sdk_networkmanager.types.create_core_network_prefix_list_association_request.serialize_json(
             input_

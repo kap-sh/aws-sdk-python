@@ -89,8 +89,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/RemoveSourceServerAction"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mgn.types.remove_source_server_action_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mgn.types.remove_source_server_action_request.serialize_json(input_)
     ).encode()

@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer"
     )
-    import aws_sdk_ecr.types.get_download_url_for_layer_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.get_download_url_for_layer_request.serialize_aws_json_1_1(
             input_

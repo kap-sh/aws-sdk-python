@@ -116,8 +116,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Transcribe.UpdateMedicalVocabulary"
-    import aws_sdk_transcribe.types.update_medical_vocabulary_request
-
     body: bytes | None = json.dumps(
         aws_sdk_transcribe.types.update_medical_vocabulary_request.serialize_aws_json_1_1(
             input_

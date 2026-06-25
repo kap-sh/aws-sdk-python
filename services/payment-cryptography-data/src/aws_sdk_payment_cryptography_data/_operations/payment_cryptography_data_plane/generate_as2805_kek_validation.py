@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/as2805kekvalidation/generate"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_payment_cryptography_data.types.generate_as2805_kek_validation_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography_data.types.generate_as2805_kek_validation_input.serialize_json(
             input_

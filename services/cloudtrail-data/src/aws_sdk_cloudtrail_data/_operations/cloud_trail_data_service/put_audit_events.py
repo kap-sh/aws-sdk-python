@@ -123,8 +123,6 @@ def build_request(
     if "external_id" in input_:
         params["externalId"] = str(input_["external_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_cloudtrail_data.types.put_audit_events_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudtrail_data.types.put_audit_events_request.serialize_json(input_)
     ).encode()

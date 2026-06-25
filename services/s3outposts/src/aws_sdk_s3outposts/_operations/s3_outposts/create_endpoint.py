@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/S3Outposts/CreateEndpoint"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_s3outposts.types.create_endpoint_request
-
     body: bytes | None = json.dumps(
         aws_sdk_s3outposts.types.create_endpoint_request.serialize_json(input_)
     ).encode()

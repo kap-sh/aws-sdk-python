@@ -131,8 +131,6 @@ def build_request(
     if "ipv6_enabled" in input_:
         SubElement(root, "Ipv6Enabled").text = str(input_["ipv6_enabled"])
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     if "anycast_ip_list_id" in input_:
         SubElement(root, "AnycastIpListId").text = str(input_["anycast_ip_list_id"])

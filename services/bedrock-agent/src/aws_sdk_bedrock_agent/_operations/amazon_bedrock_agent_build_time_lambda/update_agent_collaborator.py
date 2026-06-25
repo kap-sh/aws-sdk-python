@@ -133,8 +133,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agent.types.update_agent_collaborator_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent.types.update_agent_collaborator_request.serialize_json(
             input_

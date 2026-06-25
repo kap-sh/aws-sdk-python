@@ -122,8 +122,6 @@ def build_request(
     url = url.replace("{ruleId}", quote(str(input_["rule_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_rtbfabric.types.update_link_routing_rule_request
-
     body: bytes | None = json.dumps(
         aws_sdk_rtbfabric.types.update_link_routing_rule_request.serialize_json(input_)
     ).encode()

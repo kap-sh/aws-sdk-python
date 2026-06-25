@@ -152,8 +152,6 @@ def build_request(
         headers["X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"] = str(
             input_["runtime_session_id"]
         )
-    import aws_sdk_bedrock_agentcore.types.stop_runtime_session_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.serialize_json(
             input_

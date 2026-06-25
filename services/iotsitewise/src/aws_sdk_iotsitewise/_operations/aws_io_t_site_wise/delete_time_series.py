@@ -95,8 +95,6 @@ def build_request(
     if "property_id" in input_:
         params["propertyId"] = str(input_["property_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iotsitewise.types.delete_time_series_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.delete_time_series_request.serialize_json(input_)
     ).encode()

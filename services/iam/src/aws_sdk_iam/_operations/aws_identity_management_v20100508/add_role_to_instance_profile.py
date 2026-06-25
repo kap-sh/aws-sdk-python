@@ -88,8 +88,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AddRoleToInstanceProfile"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.add_role_to_instance_profile_request
-
     aws_sdk_iam.types.add_role_to_instance_profile_request.serialize_query(
         input_, pairs, ""
     )

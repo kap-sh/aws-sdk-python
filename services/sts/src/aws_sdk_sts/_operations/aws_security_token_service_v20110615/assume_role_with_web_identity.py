@@ -136,8 +136,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AssumeRoleWithWebIdentity"))
     pairs.append(("Version", "2011-06-15"))
-    import aws_sdk_sts.types.assume_role_with_web_identity_request
-
     aws_sdk_sts.types.assume_role_with_web_identity_request.serialize_query(
         input_, pairs, ""
     )

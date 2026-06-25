@@ -100,8 +100,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "InspectorService.ListRulesPackages"
-    import aws_sdk_inspector.types.list_rules_packages_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector.types.list_rules_packages_request.serialize_aws_json_1_1(
             input_

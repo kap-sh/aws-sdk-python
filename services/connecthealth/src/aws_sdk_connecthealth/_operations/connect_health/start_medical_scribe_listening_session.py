@@ -202,8 +202,6 @@ def build_request(
     if "media_encoding" in input_:
         headers["x-amzn-medscribe-media-encoding"] = str(input_["media_encoding"])
 
-    import aws_sdk_connecthealth.types.medical_scribe_input_stream
-
     body = aws_sdk_connecthealth._iter.map_sync_iterator(
         input_["input_stream"],
         aws_sdk_connecthealth.types.medical_scribe_input_stream.serialize_event_json,
@@ -242,8 +240,6 @@ def async_build_request(
         headers["x-amzn-medscribe-sample-rate"] = str(input_["media_sample_rate_hertz"])
     if "media_encoding" in input_:
         headers["x-amzn-medscribe-media-encoding"] = str(input_["media_encoding"])
-
-    import aws_sdk_connecthealth.types.medical_scribe_input_stream
 
     body = aws_sdk_connecthealth._iter.map_async_iterator(
         input_["input_stream"],

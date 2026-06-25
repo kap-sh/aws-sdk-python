@@ -144,8 +144,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerAutomationService.RollbackAutomationEvent"
     )
-    import aws_sdk_compute_optimizer_automation.types.rollback_automation_event_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer_automation.types.rollback_automation_event_request.serialize_aws_json_1_0(
             input_

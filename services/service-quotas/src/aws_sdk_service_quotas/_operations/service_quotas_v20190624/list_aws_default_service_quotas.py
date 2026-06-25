@@ -118,8 +118,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"
-    import aws_sdk_service_quotas.types.list_aws_default_service_quotas_request
-
     body: bytes | None = json.dumps(
         aws_sdk_service_quotas.types.list_aws_default_service_quotas_request.serialize_aws_json_1_1(
             input_

@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/restore-testing/plans"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_backup.types.create_restore_testing_plan_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup.types.create_restore_testing_plan_input.serialize_json(input_)
     ).encode()

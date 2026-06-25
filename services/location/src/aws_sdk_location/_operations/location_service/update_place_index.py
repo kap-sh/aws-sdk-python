@@ -113,8 +113,6 @@ def build_request(
     url = url.replace("{IndexName}", quote(str(input_["index_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.update_place_index_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.update_place_index_request.serialize_json(input_)
     ).encode()

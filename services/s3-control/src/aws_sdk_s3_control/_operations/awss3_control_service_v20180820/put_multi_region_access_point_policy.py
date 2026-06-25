@@ -98,8 +98,6 @@ def build_request(
     if "client_token" in input_:
         SubElement(root, "ClientToken").text = str(input_["client_token"])
     if "details" in input_:
-        import aws_sdk_s3_control.types.put_multi_region_access_point_policy_input
-
         aws_sdk_s3_control.types.put_multi_region_access_point_policy_input.serialize_xml(
             input_["details"], root, "Details"
         )

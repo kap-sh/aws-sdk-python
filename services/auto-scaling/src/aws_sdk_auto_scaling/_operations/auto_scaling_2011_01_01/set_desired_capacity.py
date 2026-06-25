@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetDesiredCapacity"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.set_desired_capacity_type
-
     aws_sdk_auto_scaling.types.set_desired_capacity_type.serialize_query(
         input_, pairs, ""
     )

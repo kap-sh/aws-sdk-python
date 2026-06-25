@@ -103,8 +103,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyDBSnapshotAttribute"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.modify_db_snapshot_attribute_message
-
     aws_sdk_rds.types.modify_db_snapshot_attribute_message.serialize_query(
         input_, pairs, ""
     )

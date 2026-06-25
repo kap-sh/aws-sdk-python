@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/identities/payment/token"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore.types.get_resource_payment_token_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.get_resource_payment_token_request.serialize_json(
             input_

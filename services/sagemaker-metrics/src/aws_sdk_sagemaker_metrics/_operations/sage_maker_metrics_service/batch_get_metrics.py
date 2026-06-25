@@ -88,8 +88,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/BatchGetMetrics"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sagemaker_metrics.types.batch_get_metrics_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker_metrics.types.batch_get_metrics_request.serialize_json(input_)
     ).encode()

@@ -86,8 +86,6 @@ def build_request(
         params["Resource"] = str(input_["resource"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.tags.serialize_xml(
             input_["tags"], payload_root, "Tags"

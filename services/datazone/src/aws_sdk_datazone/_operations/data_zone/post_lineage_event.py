@@ -129,8 +129,6 @@ def build_request(
     if "client_token" in input_:
         headers["Client-Token"] = str(input_["client_token"])
     if "event" in input_:
-        import aws_sdk_datazone.types.lineage_event
-
         body: bytes | None = json.dumps(
             aws_sdk_datazone.types.lineage_event.serialize_json(input_["event"])
         ).encode()

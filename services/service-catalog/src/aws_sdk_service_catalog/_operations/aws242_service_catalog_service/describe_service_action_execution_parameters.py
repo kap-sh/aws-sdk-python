@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters"
     )
-    import aws_sdk_service_catalog.types.describe_service_action_execution_parameters_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.describe_service_action_execution_parameters_input.serialize_aws_json_1_1(
             input_

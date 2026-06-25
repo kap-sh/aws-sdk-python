@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DetachTrafficSources"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.detach_traffic_sources_type
-
     aws_sdk_auto_scaling.types.detach_traffic_sources_type.serialize_query(
         input_, pairs, ""
     )

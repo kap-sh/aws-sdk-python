@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/add-draft-app-version-resource-mappings"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehub.types.add_draft_app_version_resource_mappings_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehub.types.add_draft_app_version_resource_mappings_request.serialize_json(
             input_

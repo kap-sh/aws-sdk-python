@@ -126,8 +126,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "session_id" in input_:
         headers["x-amzn-browser-session-id"] = str(input_["session_id"])
-    import aws_sdk_bedrock_agentcore.types.invoke_browser_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.invoke_browser_request.serialize_json(input_)
     ).encode()

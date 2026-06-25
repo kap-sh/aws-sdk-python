@@ -131,8 +131,6 @@ def build_request(
     )
     if "client_token" in input_:
         headers["X-Amzn-Client-Token"] = str(input_["client_token"])
-    import aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_usage_modification_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_usage_modification_request.serialize_aws_json_1_0(
             input_

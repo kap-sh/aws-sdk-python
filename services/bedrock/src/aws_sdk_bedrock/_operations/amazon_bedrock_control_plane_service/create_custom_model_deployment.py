@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/model-customization/custom-model-deployments"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock.types.create_custom_model_deployment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock.types.create_custom_model_deployment_request.serialize_json(
             input_

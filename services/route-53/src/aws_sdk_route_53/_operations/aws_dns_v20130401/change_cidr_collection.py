@@ -117,8 +117,6 @@ def build_request(
     if "collection_version" in input_:
         SubElement(root, "CollectionVersion").text = str(input_["collection_version"])
     if "changes" in input_:
-        import aws_sdk_route_53.types.cidr_collection_changes
-
         aws_sdk_route_53.types.cidr_collection_changes.serialize_xml(
             input_["changes"], root, "Changes"
         )

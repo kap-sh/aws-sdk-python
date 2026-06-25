@@ -115,8 +115,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/BatchGetRecord"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_request.serialize_json(
             input_

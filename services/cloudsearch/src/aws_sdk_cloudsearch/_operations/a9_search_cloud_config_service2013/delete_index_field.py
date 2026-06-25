@@ -117,8 +117,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteIndexField"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.delete_index_field_request
-
     aws_sdk_cloudsearch.types.delete_index_field_request.serialize_query(
         input_, pairs, ""
     )

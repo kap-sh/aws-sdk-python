@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSKendraRerankingFrontendService.UpdateRescoreExecutionPlan"
     )
-    import aws_sdk_kendra_ranking.types.update_rescore_execution_plan_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kendra_ranking.types.update_rescore_execution_plan_request.serialize_aws_json_1_0(
             input_

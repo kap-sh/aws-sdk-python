@@ -106,8 +106,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteDomain"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.delete_domain_request
-
     aws_sdk_cloudsearch.types.delete_domain_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

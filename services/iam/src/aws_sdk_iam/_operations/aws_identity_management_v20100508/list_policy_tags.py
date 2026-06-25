@@ -106,8 +106,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListPolicyTags"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.list_policy_tags_request
-
     aws_sdk_iam.types.list_policy_tags_request.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

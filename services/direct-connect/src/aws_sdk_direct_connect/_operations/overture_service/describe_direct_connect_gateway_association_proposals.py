@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "OvertureService.DescribeDirectConnectGatewayAssociationProposals"
     )
-    import aws_sdk_direct_connect.types.describe_direct_connect_gateway_association_proposals_request
-
     body: bytes | None = json.dumps(
         aws_sdk_direct_connect.types.describe_direct_connect_gateway_association_proposals_request.serialize_aws_json_1_1(
             input_

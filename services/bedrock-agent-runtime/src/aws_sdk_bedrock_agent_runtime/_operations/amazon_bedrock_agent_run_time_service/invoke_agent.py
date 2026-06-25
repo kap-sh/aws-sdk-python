@@ -177,8 +177,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "source_arn" in input_:
         headers["x-amz-source-arn"] = str(input_["source_arn"])
-    import aws_sdk_bedrock_agent_runtime.types.invoke_agent_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent_runtime.types.invoke_agent_request.serialize_json(input_)
     ).encode()

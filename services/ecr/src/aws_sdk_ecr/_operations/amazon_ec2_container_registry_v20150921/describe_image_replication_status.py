@@ -108,8 +108,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus"
     )
-    import aws_sdk_ecr.types.describe_image_replication_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.describe_image_replication_status_request.serialize_aws_json_1_1(
             input_

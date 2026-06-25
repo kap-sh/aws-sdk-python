@@ -117,8 +117,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSLookoutEquipmentFrontendService.ListInferenceExecutions"
     )
-    import aws_sdk_lookoutequipment.types.list_inference_executions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lookoutequipment.types.list_inference_executions_request.serialize_aws_json_1_0(
             input_

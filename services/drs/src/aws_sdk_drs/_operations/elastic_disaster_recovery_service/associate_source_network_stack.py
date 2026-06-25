@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/AssociateSourceNetworkStack"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_drs.types.associate_source_network_stack_request
-
     body: bytes | None = json.dumps(
         aws_sdk_drs.types.associate_source_network_stack_request.serialize_json(input_)
     ).encode()

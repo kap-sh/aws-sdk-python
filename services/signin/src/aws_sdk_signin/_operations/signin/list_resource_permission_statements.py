@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-resource-permission-statements"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_signin.types.list_resource_permission_statements_input
-
     body: bytes | None = json.dumps(
         aws_sdk_signin.types.list_resource_permission_statements_input.serialize_json(
             input_

@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator"
     )
-    import aws_sdk_global_accelerator.types.delete_custom_routing_accelerator_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.delete_custom_routing_accelerator_request.serialize_aws_json_1_1(
             input_

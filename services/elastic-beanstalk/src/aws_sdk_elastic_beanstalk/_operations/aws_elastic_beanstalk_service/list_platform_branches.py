@@ -98,8 +98,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListPlatformBranches"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.list_platform_branches_request
-
     aws_sdk_elastic_beanstalk.types.list_platform_branches_request.serialize_query(
         input_, pairs, ""
     )

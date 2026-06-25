@@ -125,8 +125,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations"
     )
-    import aws_sdk_application_discovery_service.types.describe_export_configurations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_discovery_service.types.describe_export_configurations_request.serialize_aws_json_1_1(
             input_

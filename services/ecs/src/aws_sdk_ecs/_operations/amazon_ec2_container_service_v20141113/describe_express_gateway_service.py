@@ -118,8 +118,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.DescribeExpressGatewayService"
     )
-    import aws_sdk_ecs.types.describe_express_gateway_service_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.describe_express_gateway_service_request.serialize_aws_json_1_1(
             input_

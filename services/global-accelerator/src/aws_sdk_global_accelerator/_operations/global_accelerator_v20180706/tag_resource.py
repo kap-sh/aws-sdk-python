@@ -99,8 +99,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.TagResource"
-    import aws_sdk_global_accelerator.types.tag_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.tag_resource_request.serialize_aws_json_1_1(
             input_

@@ -106,8 +106,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_osis.types.revoke_pipeline_endpoint_connections_request
-
     body: bytes | None = json.dumps(
         aws_sdk_osis.types.revoke_pipeline_endpoint_connections_request.serialize_json(
             input_

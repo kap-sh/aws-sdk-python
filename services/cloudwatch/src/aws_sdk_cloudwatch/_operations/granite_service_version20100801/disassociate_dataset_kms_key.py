@@ -94,8 +94,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DisassociateDatasetKmsKey"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.disassociate_dataset_kms_key_input
-
     aws_sdk_cloudwatch.types.disassociate_dataset_kms_key_input.serialize_query(
         input_, pairs, ""
     )

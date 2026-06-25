@@ -127,8 +127,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository"
     )
-    import aws_sdk_codecommit.types.associate_approval_rule_template_with_repository_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codecommit.types.associate_approval_rule_template_with_repository_input.serialize_aws_json_1_1(
             input_

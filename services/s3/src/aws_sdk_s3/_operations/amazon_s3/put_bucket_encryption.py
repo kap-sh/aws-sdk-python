@@ -84,8 +84,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "server_side_encryption_configuration" in input_:
-        import aws_sdk_s3.types.server_side_encryption_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.server_side_encryption_configuration.serialize_xml(
             input_["server_side_encryption_configuration"],

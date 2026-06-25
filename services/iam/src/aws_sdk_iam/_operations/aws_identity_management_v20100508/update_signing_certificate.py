@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateSigningCertificate"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.update_signing_certificate_request
-
     aws_sdk_iam.types.update_signing_certificate_request.serialize_query(
         input_, pairs, ""
     )

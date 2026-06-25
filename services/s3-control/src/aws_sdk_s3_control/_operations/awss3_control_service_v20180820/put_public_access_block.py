@@ -76,8 +76,6 @@ def build_request(
     if "account_id" in input_:
         headers["x-amz-account-id"] = str(input_["account_id"])
     if "public_access_block_configuration" in input_:
-        import aws_sdk_s3_control.types.public_access_block_configuration
-
         payload_root = Element("_")
         aws_sdk_s3_control.types.public_access_block_configuration.serialize_xml(
             input_["public_access_block_configuration"],

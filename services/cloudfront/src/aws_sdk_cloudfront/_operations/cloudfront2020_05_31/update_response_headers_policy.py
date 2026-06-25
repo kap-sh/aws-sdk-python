@@ -149,8 +149,6 @@ def build_request(
     if "if_match" in input_:
         headers["If-Match"] = str(input_["if_match"])
     if "response_headers_policy_config" in input_:
-        import aws_sdk_cloudfront.types.response_headers_policy_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.response_headers_policy_config.serialize_xml(
             input_["response_headers_policy_config"],

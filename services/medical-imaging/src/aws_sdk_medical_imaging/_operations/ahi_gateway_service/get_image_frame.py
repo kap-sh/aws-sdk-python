@@ -141,8 +141,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "image_frame_information" in input_:
-        import aws_sdk_medical_imaging.types.image_frame_information
-
         body: bytes | None = json.dumps(
             aws_sdk_medical_imaging.types.image_frame_information.serialize_json(
                 input_["image_frame_information"]

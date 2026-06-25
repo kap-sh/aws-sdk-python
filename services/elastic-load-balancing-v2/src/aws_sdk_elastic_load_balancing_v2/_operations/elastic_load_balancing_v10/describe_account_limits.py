@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeAccountLimits"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.describe_account_limits_input
-
     aws_sdk_elastic_load_balancing_v2.types.describe_account_limits_input.serialize_query(
         input_, pairs, ""
     )

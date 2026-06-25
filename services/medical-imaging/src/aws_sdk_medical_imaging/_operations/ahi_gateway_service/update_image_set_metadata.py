@@ -138,8 +138,6 @@ def build_request(
         params["includeStudyImageSets"] = str(input_["include_study_image_sets"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "update_image_set_metadata_updates" in input_:
-        import aws_sdk_medical_imaging.types.metadata_updates
-
         body: bytes | None = json.dumps(
             aws_sdk_medical_imaging.types.metadata_updates.serialize_json(
                 input_["update_image_set_metadata_updates"]

@@ -104,8 +104,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount"
     )
-    import aws_sdk_route_53_domains.types.reject_domain_transfer_from_another_aws_account_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route_53_domains.types.reject_domain_transfer_from_another_aws_account_request.serialize_aws_json_1_1(
             input_

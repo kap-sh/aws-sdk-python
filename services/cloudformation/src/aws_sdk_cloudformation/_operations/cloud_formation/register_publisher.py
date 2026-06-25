@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RegisterPublisher"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.register_publisher_input
-
     aws_sdk_cloudformation.types.register_publisher_input.serialize_query(
         input_, pairs, ""
     )

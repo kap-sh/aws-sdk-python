@@ -105,8 +105,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/maps/v0/list-maps"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.list_maps_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.list_maps_request.serialize_json(input_)
     ).encode()

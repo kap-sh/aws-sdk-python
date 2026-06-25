@@ -111,8 +111,6 @@ def build_request(
     if "dry_run" in input_:
         params["dryRun"] = str(input_["dry_run"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wickr.types.register_opentdf_config_request
-
     body: bytes | None = json.dumps(
         aws_sdk_wickr.types.register_opentdf_config_request.serialize_json(input_)
     ).encode()

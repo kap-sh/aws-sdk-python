@@ -84,8 +84,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/PutMetadata"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ivs.types.put_metadata_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ivs.types.put_metadata_request.serialize_json(input_)
     ).encode()

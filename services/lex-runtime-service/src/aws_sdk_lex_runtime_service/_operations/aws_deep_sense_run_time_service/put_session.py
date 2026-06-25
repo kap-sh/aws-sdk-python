@@ -208,8 +208,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "accept" in input_:
         headers["Accept"] = str(input_["accept"])
-    import aws_sdk_lex_runtime_service.types.put_session_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_runtime_service.types.put_session_request.serialize_json(input_)
     ).encode()

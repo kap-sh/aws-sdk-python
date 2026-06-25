@@ -83,8 +83,6 @@ def build_request(
             input_["skip_destination_validation"]
         )
     if "notification_configuration" in input_:
-        import aws_sdk_s3.types.notification_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.notification_configuration.serialize_xml(
             input_["notification_configuration"],

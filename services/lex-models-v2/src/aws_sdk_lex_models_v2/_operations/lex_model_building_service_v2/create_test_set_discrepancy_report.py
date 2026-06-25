@@ -120,8 +120,6 @@ def build_request(
     url = url.replace("{testSetId}", quote(str(input_["test_set_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_models_v2.types.create_test_set_discrepancy_report_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_models_v2.types.create_test_set_discrepancy_report_request.serialize_json(
             input_

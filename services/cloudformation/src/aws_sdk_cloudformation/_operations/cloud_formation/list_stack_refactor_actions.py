@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListStackRefactorActions"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.list_stack_refactor_actions_input
-
     aws_sdk_cloudformation.types.list_stack_refactor_actions_input.serialize_query(
         input_, pairs, ""
     )

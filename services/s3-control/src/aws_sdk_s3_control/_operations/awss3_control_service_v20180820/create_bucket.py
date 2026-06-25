@@ -131,8 +131,6 @@ def build_request(
     if "outpost_id" in input_:
         headers["x-amz-outpost-id"] = str(input_["outpost_id"])
     if "create_bucket_configuration" in input_:
-        import aws_sdk_s3_control.types.create_bucket_configuration
-
         payload_root = Element("_")
         aws_sdk_s3_control.types.create_bucket_configuration.serialize_xml(
             input_["create_bucket_configuration"],

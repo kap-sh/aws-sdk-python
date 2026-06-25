@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListOriginationNumbers"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.list_origination_numbers_request
-
     aws_sdk_sns.types.list_origination_numbers_request.serialize_query(
         input_, pairs, ""
     )

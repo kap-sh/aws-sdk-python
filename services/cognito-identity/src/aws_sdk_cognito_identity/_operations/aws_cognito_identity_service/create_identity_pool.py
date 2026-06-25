@@ -126,8 +126,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSCognitoIdentityService.CreateIdentityPool"
-    import aws_sdk_cognito_identity.types.create_identity_pool_input
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity.types.create_identity_pool_input.serialize_aws_json_1_1(
             input_

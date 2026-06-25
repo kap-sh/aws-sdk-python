@@ -129,8 +129,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsage"
-    import aws_sdk_cost_explorer.types.get_cost_and_usage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_explorer.types.get_cost_and_usage_request.serialize_aws_json_1_1(
             input_

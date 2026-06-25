@@ -366,8 +366,6 @@ def build_request(
     if "pii_entity_types" in input_:
         headers["x-amzn-transcribe-pii-entity-types"] = str(input_["pii_entity_types"])
 
-    import aws_sdk_transcribe_streaming.types.audio_stream
-
     body = aws_sdk_transcribe_streaming._iter.map_sync_iterator(
         input_["audio_stream"],
         aws_sdk_transcribe_streaming.types.audio_stream.serialize_event_json,
@@ -453,8 +451,6 @@ def async_build_request(
         )
     if "pii_entity_types" in input_:
         headers["x-amzn-transcribe-pii-entity-types"] = str(input_["pii_entity_types"])
-
-    import aws_sdk_transcribe_streaming.types.audio_stream
 
     body = aws_sdk_transcribe_streaming._iter.map_async_iterator(
         input_["audio_stream"],

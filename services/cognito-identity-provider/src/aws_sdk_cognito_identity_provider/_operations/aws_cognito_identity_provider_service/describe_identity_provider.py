@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.DescribeIdentityProvider"
     )
-    import aws_sdk_cognito_identity_provider.types.describe_identity_provider_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.describe_identity_provider_request.serialize_aws_json_1_1(
             input_

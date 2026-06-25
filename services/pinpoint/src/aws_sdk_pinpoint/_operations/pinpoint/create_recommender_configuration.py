@@ -122,8 +122,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "create_recommender_configuration" in input_:
-        import aws_sdk_pinpoint.types.create_recommender_configuration_shape
-
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.create_recommender_configuration_shape.serialize_json(
                 input_["create_recommender_configuration"]

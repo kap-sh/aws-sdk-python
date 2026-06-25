@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{schemaName}", quote(str(input_["schema_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_entityresolution.types.update_schema_mapping_input
-
     body: bytes | None = json.dumps(
         aws_sdk_entityresolution.types.update_schema_mapping_input.serialize_json(
             input_

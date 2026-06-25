@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback"
     )
-    import aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.update_auth_event_feedback_request.serialize_aws_json_1_1(
             input_

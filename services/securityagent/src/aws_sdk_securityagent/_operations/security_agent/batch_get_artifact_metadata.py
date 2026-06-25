@@ -110,8 +110,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/BatchGetArtifactMetadata"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityagent.types.batch_get_artifact_metadata_input
-
     body: bytes | None = json.dumps(
         aws_sdk_securityagent.types.batch_get_artifact_metadata_input.serialize_json(
             input_

@@ -113,8 +113,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "SWBExternalService.ListPermissionSetsProvisionedToAccount"
     )
-    import aws_sdk_sso_admin.types.list_permission_sets_provisioned_to_account_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.list_permission_sets_provisioned_to_account_request.serialize_aws_json_1_1(
             input_

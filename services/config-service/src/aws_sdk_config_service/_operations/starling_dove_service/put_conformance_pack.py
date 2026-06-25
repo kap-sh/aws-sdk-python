@@ -115,8 +115,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "StarlingDoveService.PutConformancePack"
-    import aws_sdk_config_service.types.put_conformance_pack_request
-
     body: bytes | None = json.dumps(
         aws_sdk_config_service.types.put_conformance_pack_request.serialize_aws_json_1_1(
             input_

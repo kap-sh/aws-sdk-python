@@ -96,8 +96,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-operations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_sap.types.list_operations_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_sap.types.list_operations_input.serialize_json(input_)
     ).encode()

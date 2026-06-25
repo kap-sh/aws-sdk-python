@@ -85,8 +85,6 @@ def build_request(
         ("Action", "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation")
     )
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_request
-
     aws_sdk_ec2.types.delete_local_gateway_route_table_virtual_interface_group_association_request.serialize_ec2_query(
         input_, pairs, ""
     )

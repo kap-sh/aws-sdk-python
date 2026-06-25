@@ -126,8 +126,6 @@ def build_request(
     url = url.replace("{BotId}", quote(str(input_["bot_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime.types.put_events_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime.types.put_events_configuration_request.serialize_json(input_)
     ).encode()

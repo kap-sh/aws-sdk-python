@@ -116,8 +116,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodePipeline_20150709.PutApprovalResult"
-    import aws_sdk_codepipeline.types.put_approval_result_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codepipeline.types.put_approval_result_input.serialize_aws_json_1_1(
             input_

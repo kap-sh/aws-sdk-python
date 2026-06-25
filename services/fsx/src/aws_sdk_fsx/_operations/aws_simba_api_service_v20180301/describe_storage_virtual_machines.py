@@ -97,8 +97,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines"
     )
-    import aws_sdk_fsx.types.describe_storage_virtual_machines_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.describe_storage_virtual_machines_request.serialize_aws_json_1_1(
             input_

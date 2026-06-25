@@ -111,8 +111,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeAnomalyDetectors"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.describe_anomaly_detectors_input
-
     aws_sdk_cloudwatch.types.describe_anomaly_detectors_input.serialize_query(
         input_, pairs, ""
     )

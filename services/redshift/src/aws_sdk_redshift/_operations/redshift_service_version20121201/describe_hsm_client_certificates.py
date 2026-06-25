@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeHsmClientCertificates"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_hsm_client_certificates_message
-
     aws_sdk_redshift.types.describe_hsm_client_certificates_message.serialize_query(
         input_, pairs, ""
     )

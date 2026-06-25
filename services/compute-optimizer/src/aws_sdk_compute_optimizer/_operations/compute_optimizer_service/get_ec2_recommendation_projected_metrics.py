@@ -133,8 +133,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics"
     )
-    import aws_sdk_compute_optimizer.types.get_ec2_recommendation_projected_metrics_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer.types.get_ec2_recommendation_projected_metrics_request.serialize_aws_json_1_0(
             input_

@@ -137,8 +137,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "RekognitionService.StartLabelDetection"
-    import aws_sdk_rekognition.types.start_label_detection_request
-
     body: bytes | None = json.dumps(
         aws_sdk_rekognition.types.start_label_detection_request.serialize_aws_json_1_1(
             input_

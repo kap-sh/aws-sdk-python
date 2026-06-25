@@ -135,8 +135,6 @@ def build_request(
     url = url.replace("{MeetingId}", quote(str(input_["meeting_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_meetings.types.create_attendee_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_meetings.types.create_attendee_request.serialize_json(input_)
     ).encode()

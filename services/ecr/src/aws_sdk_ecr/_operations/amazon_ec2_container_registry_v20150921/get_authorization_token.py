@@ -93,8 +93,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken"
     )
-    import aws_sdk_ecr.types.get_authorization_token_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.get_authorization_token_request.serialize_aws_json_1_1(input_)
     ).encode()

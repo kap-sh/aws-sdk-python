@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AddRoleToDBInstance"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.add_role_to_db_instance_message
-
     aws_sdk_rds.types.add_role_to_db_instance_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

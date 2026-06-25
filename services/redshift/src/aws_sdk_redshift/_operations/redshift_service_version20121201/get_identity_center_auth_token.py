@@ -110,8 +110,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetIdentityCenterAuthToken"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.get_identity_center_auth_token_request
-
     aws_sdk_redshift.types.get_identity_center_auth_token_request.serialize_query(
         input_, pairs, ""
     )

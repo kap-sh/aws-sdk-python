@@ -97,8 +97,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "access_control_policy" in input_:
-        import aws_sdk_s3.types.access_control_policy
-
         payload_root = Element("_")
         aws_sdk_s3.types.access_control_policy.serialize_xml(
             input_["access_control_policy"], payload_root, "AccessControlPolicy"

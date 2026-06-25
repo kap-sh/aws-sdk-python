@@ -95,8 +95,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
     )
-    import aws_sdk_support.types.describe_trusted_advisor_check_refresh_statuses_request
-
     body: bytes | None = json.dumps(
         aws_sdk_support.types.describe_trusted_advisor_check_refresh_statuses_request.serialize_aws_json_1_1(
             input_

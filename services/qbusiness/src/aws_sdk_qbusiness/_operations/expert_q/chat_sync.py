@@ -141,8 +141,6 @@ def build_request(
     if "user_groups" in input_:
         params["userGroups"] = str(input_["user_groups"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.chat_sync_input
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.chat_sync_input.serialize_json(input_)
     ).encode()

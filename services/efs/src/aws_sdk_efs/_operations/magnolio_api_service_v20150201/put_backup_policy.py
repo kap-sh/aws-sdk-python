@@ -113,8 +113,6 @@ def build_request(
     url = url.replace("{FileSystemId}", quote(str(input_["file_system_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_efs.types.put_backup_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_efs.types.put_backup_policy_request.serialize_json(input_)
     ).encode()

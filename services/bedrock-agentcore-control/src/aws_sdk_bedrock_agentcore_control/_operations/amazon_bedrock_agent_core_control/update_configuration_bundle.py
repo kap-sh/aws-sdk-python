@@ -121,8 +121,6 @@ def build_request(
     url = url.replace("{bundleId}", quote(str(input_["bundle_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.update_configuration_bundle_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.update_configuration_bundle_request.serialize_json(
             input_

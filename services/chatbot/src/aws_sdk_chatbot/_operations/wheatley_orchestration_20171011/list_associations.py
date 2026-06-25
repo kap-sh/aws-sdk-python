@@ -85,8 +85,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-associations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chatbot.types.list_associations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chatbot.types.list_associations_request.serialize_json(input_)
     ).encode()

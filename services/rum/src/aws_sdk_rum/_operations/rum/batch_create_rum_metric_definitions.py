@@ -120,8 +120,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_rum.types.batch_create_rum_metric_definitions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_rum.types.batch_create_rum_metric_definitions_request.serialize_json(
             input_

@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ReplaceTransitGatewayRoute"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.replace_transit_gateway_route_request
-
     aws_sdk_ec2.types.replace_transit_gateway_route_request.serialize_ec2_query(
         input_, pairs, ""
     )

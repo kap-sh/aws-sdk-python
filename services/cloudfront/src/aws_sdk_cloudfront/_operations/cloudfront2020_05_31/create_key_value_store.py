@@ -132,14 +132,10 @@ def build_request(
     if "comment" in input_:
         SubElement(root, "Comment").text = str(input_["comment"])
     if "import_source" in input_:
-        import aws_sdk_cloudfront.types.import_source
-
         aws_sdk_cloudfront.types.import_source.serialize_xml(
             input_["import_source"], root, "ImportSource"
         )
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

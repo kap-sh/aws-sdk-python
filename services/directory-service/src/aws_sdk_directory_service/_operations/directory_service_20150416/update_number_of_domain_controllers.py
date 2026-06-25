@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "DirectoryService_20150416.UpdateNumberOfDomainControllers"
     )
-    import aws_sdk_directory_service.types.update_number_of_domain_controllers_request
-
     body: bytes | None = json.dumps(
         aws_sdk_directory_service.types.update_number_of_domain_controllers_request.serialize_aws_json_1_1(
             input_

@@ -134,8 +134,6 @@ def build_request(
     url = url.replace("{AttendeeId}", quote(str(input_["attendee_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_meetings.types.update_attendee_capabilities_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_meetings.types.update_attendee_capabilities_request.serialize_json(
             input_

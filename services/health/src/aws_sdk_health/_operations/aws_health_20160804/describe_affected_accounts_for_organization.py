@@ -90,8 +90,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSHealth_20160804.DescribeAffectedAccountsForOrganization"
     )
-    import aws_sdk_health.types.describe_affected_accounts_for_organization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_health.types.describe_affected_accounts_for_organization_request.serialize_aws_json_1_1(
             input_

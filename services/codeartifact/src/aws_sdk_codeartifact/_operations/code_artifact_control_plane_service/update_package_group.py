@@ -118,8 +118,6 @@ def build_request(
     if "domain_owner" in input_:
         params["domain-owner"] = str(input_["domain_owner"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeartifact.types.update_package_group_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeartifact.types.update_package_group_request.serialize_json(input_)
     ).encode()

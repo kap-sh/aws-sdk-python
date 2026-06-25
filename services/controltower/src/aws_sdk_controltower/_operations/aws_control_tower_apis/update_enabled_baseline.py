@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/update-enabled-baseline"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_controltower.types.update_enabled_baseline_input
-
     body: bytes | None = json.dumps(
         aws_sdk_controltower.types.update_enabled_baseline_input.serialize_json(input_)
     ).encode()

@@ -141,8 +141,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "TestFailover"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.test_failover_message
-
     aws_sdk_elasticache.types.test_failover_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

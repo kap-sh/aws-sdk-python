@@ -111,8 +111,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "NetworkFirewall_20201112.DescribeFlowOperation"
-    import aws_sdk_network_firewall.types.describe_flow_operation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.describe_flow_operation_request.serialize_aws_json_1_0(
             input_

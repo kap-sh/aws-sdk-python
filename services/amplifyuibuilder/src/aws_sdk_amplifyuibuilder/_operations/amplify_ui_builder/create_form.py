@@ -120,8 +120,6 @@ def build_request(
         params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "form_to_create" in input_:
-        import aws_sdk_amplifyuibuilder.types.create_form_data
-
         body: bytes | None = json.dumps(
             aws_sdk_amplifyuibuilder.types.create_form_data.serialize_json(
                 input_["form_to_create"]

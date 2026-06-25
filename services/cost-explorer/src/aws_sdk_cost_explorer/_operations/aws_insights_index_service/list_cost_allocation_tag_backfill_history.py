@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSInsightsIndexService.ListCostAllocationTagBackfillHistory"
     )
-    import aws_sdk_cost_explorer.types.list_cost_allocation_tag_backfill_history_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_explorer.types.list_cost_allocation_tag_backfill_history_request.serialize_aws_json_1_1(
             input_

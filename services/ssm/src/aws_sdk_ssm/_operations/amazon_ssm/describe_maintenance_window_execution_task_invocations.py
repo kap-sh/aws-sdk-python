@@ -93,8 +93,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations"
     )
-    import aws_sdk_ssm.types.describe_maintenance_window_execution_task_invocations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm.types.describe_maintenance_window_execution_task_invocations_request.serialize_aws_json_1_1(
             input_

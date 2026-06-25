@@ -106,8 +106,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceAccessProperties"
-    import aws_sdk_workspaces.types.modify_workspace_access_properties_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workspaces.types.modify_workspace_access_properties_request.serialize_aws_json_1_1(
             input_

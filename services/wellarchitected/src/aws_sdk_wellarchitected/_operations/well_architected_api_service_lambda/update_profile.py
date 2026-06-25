@@ -124,8 +124,6 @@ def build_request(
     url = url.replace("{ProfileArn}", quote(str(input_["profile_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wellarchitected.types.update_profile_input
-
     body: bytes | None = json.dumps(
         aws_sdk_wellarchitected.types.update_profile_input.serialize_json(input_)
     ).encode()

@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{entityId}", quote(str(input_["entity_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iottwinmaker.types.list_components_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iottwinmaker.types.list_components_request.serialize_json(input_)
     ).encode()

@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSPartnerCentralSelling.StartEngagementFromOpportunityTask"
     )
-    import aws_sdk_partnercentral_selling.types.start_engagement_from_opportunity_task_request
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_selling.types.start_engagement_from_opportunity_task_request.serialize_aws_json_1_0(
             input_

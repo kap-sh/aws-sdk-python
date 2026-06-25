@@ -91,8 +91,6 @@ def build_request(
     url = url.replace("{policyName}", quote(str(input_["policy_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.detach_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.detach_policy_request.serialize_json(input_)
     ).encode()

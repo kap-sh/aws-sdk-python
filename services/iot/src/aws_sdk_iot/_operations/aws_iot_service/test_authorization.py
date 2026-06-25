@@ -122,8 +122,6 @@ def build_request(
     if "client_id" in input_:
         params["clientId"] = str(input_["client_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.test_authorization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.test_authorization_request.serialize_json(input_)
     ).encode()

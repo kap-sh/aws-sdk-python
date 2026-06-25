@@ -120,8 +120,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SSMContacts.UpdateContactChannel"
-    import aws_sdk_ssm_contacts.types.update_contact_channel_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_contacts.types.update_contact_channel_request.serialize_aws_json_1_1(
             input_

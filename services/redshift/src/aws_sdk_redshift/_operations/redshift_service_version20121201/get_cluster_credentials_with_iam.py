@@ -99,8 +99,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetClusterCredentialsWithIAM"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.get_cluster_credentials_with_iam_message
-
     aws_sdk_redshift.types.get_cluster_credentials_with_iam_message.serialize_query(
         input_, pairs, ""
     )

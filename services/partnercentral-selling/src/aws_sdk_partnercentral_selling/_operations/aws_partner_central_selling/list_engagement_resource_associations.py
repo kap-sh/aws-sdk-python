@@ -113,8 +113,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSPartnerCentralSelling.ListEngagementResourceAssociations"
     )
-    import aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request.serialize_aws_json_1_0(
             input_

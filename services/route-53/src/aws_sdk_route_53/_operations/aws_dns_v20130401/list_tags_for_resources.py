@@ -114,8 +114,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ListTagsForResourcesRequest")
     if "resource_ids" in input_:
-        import aws_sdk_route_53.types.tag_resource_id_list
-
         aws_sdk_route_53.types.tag_resource_id_list.serialize_xml(
             input_["resource_ids"], root, "ResourceIds"
         )

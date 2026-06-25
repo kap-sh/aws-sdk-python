@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes"
     )
-    import aws_sdk_global_accelerator.types.update_custom_routing_accelerator_attributes_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.update_custom_routing_accelerator_attributes_request.serialize_aws_json_1_1(
             input_

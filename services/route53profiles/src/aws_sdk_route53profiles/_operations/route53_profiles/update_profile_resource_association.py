@@ -135,8 +135,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_route53profiles.types.update_profile_resource_association_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route53profiles.types.update_profile_resource_association_request.serialize_json(
             input_

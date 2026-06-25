@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/jobs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_panorama.types.create_job_for_devices_request
-
     body: bytes | None = json.dumps(
         aws_sdk_panorama.types.create_job_for_devices_request.serialize_json(input_)
     ).encode()

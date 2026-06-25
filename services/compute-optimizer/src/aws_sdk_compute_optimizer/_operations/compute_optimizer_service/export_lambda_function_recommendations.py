@@ -135,8 +135,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerService.ExportLambdaFunctionRecommendations"
     )
-    import aws_sdk_compute_optimizer.types.export_lambda_function_recommendations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer.types.export_lambda_function_recommendations_request.serialize_aws_json_1_0(
             input_

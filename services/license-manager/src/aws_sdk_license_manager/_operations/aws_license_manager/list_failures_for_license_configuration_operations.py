@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations"
     )
-    import aws_sdk_license_manager.types.list_failures_for_license_configuration_operations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_license_manager.types.list_failures_for_license_configuration_operations_request.serialize_aws_json_1_1(
             input_

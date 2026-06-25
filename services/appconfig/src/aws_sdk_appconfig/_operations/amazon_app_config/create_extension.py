@@ -110,8 +110,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "latest_version_number" in input_:
         headers["Latest-Version-Number"] = str(input_["latest_version_number"])
-    import aws_sdk_appconfig.types.create_extension_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appconfig.types.create_extension_request.serialize_json(input_)
     ).encode()

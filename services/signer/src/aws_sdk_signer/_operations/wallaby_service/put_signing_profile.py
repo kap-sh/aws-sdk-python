@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{profileName}", quote(str(input_["profile_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_signer.types.put_signing_profile_request
-
     body: bytes | None = json.dumps(
         aws_sdk_signer.types.put_signing_profile_request.serialize_json(input_)
     ).encode()

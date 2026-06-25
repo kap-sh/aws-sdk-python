@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/analysis/detector-models"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_events.types.start_detector_model_analysis_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_events.types.start_detector_model_analysis_request.serialize_json(
             input_

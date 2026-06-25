@@ -101,8 +101,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetSMSSandboxAccountStatus"))
     pairs.append(("Version", "2010-03-31"))
-    import aws_sdk_sns.types.get_sms_sandbox_account_status_input
-
     aws_sdk_sns.types.get_sms_sandbox_account_status_input.serialize_query(
         input_, pairs, ""
     )

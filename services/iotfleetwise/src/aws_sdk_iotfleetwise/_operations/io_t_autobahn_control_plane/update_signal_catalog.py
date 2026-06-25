@@ -133,8 +133,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "IoTAutobahnControlPlane.UpdateSignalCatalog"
-    import aws_sdk_iotfleetwise.types.update_signal_catalog_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iotfleetwise.types.update_signal_catalog_request.serialize_aws_json_1_0(
             input_

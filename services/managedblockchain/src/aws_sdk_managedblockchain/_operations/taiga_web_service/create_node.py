@@ -139,8 +139,6 @@ def build_request(
     url = url.replace("{NetworkId}", quote(str(input_["network_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_managedblockchain.types.create_node_input
-
     body: bytes | None = json.dumps(
         aws_sdk_managedblockchain.types.create_node_input.serialize_json(input_)
     ).encode()

@@ -95,8 +95,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSFreeTierService.GetFreeTierUsage"
-    import aws_sdk_freetier.types.get_free_tier_usage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_freetier.types.get_free_tier_usage_request.serialize_aws_json_1_0(
             input_

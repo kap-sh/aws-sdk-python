@@ -133,8 +133,6 @@ def build_request(
     url = url.replace("{DataTableId}", quote(str(input_["data_table_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.create_data_table_attribute_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.create_data_table_attribute_request.serialize_json(input_)
     ).encode()

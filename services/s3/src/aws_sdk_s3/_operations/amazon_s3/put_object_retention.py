@@ -119,8 +119,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "retention" in input_:
-        import aws_sdk_s3.types.object_lock_retention
-
         payload_root = Element("_")
         aws_sdk_s3.types.object_lock_retention.serialize_xml(
             input_["retention"], payload_root, "Retention"

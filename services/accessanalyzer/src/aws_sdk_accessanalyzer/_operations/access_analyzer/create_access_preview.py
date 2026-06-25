@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/access-preview"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_accessanalyzer.types.create_access_preview_request
-
     body: bytes | None = json.dumps(
         aws_sdk_accessanalyzer.types.create_access_preview_request.serialize_json(
             input_

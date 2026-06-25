@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetIpamDiscoveredResourceCidrs"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_ipam_discovered_resource_cidrs_request
-
     aws_sdk_ec2.types.get_ipam_discovered_resource_cidrs_request.serialize_ec2_query(
         input_, pairs, ""
     )

@@ -109,8 +109,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ChangeResourceRecordSetsRequest")
     if "change_batch" in input_:
-        import aws_sdk_route_53.types.change_batch
-
         aws_sdk_route_53.types.change_batch.serialize_xml(
             input_["change_batch"], root, "ChangeBatch"
         )

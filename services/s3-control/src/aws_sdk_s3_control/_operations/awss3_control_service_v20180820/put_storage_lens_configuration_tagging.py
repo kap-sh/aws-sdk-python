@@ -94,8 +94,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("PutStorageLensConfigurationTaggingRequest")
     if "tags" in input_:
-        import aws_sdk_s3_control.types.storage_lens_tags
-
         aws_sdk_s3_control.types.storage_lens_tags.serialize_xml(
             input_["tags"], root, "Tags"
         )

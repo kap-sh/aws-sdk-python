@@ -97,8 +97,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mgn.types.get_network_migration_mapper_segment_construct_request.serialize_json(
             input_

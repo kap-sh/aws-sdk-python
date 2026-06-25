@@ -113,8 +113,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "SWBExternalService.DetachCustomerManagedPolicyReferenceFromPermissionSet"
     )
-    import aws_sdk_sso_admin.types.detach_customer_managed_policy_reference_from_permission_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.detach_customer_managed_policy_reference_from_permission_set_request.serialize_aws_json_1_1(
             input_

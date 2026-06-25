@@ -108,8 +108,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_pinpoint_email.types.update_configuration_set_event_destination_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pinpoint_email.types.update_configuration_set_event_destination_request.serialize_json(
             input_

@@ -69,8 +69,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetSecurityTokenServicePreferences"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.set_security_token_service_preferences_request
-
     aws_sdk_iam.types.set_security_token_service_preferences_request.serialize_query(
         input_, pairs, ""
     )

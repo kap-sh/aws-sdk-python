@@ -89,8 +89,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeOrderableClusterOptions"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_orderable_cluster_options_message
-
     aws_sdk_redshift.types.describe_orderable_cluster_options_message.serialize_query(
         input_, pairs, ""
     )

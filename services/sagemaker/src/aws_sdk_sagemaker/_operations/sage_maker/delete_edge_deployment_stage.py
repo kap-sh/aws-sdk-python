@@ -70,8 +70,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SageMaker.DeleteEdgeDeploymentStage"
-    import aws_sdk_sagemaker.types.delete_edge_deployment_stage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker.types.delete_edge_deployment_stage_request.serialize_aws_json_1_1(
             input_

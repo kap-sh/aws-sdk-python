@@ -104,8 +104,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/identity-sources"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mpa.types.create_identity_source_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mpa.types.create_identity_source_request.serialize_json(input_)
     ).encode()

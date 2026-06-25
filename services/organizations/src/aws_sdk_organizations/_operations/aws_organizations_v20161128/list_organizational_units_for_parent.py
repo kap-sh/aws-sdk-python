@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent"
     )
-    import aws_sdk_organizations.types.list_organizational_units_for_parent_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_organizational_units_for_parent_request.serialize_aws_json_1_1(
             input_

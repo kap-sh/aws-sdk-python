@@ -115,8 +115,6 @@ def build_request(
         params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Odb.ListAutonomousDatabaseBackups"
-    import aws_sdk_odb.types.list_autonomous_database_backups_input
-
     body: bytes | None = json.dumps(
         aws_sdk_odb.types.list_autonomous_database_backups_input.serialize_aws_json_1_0(
             input_

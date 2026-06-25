@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateCapacityReservationBySplitting"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.create_capacity_reservation_by_splitting_request
-
     aws_sdk_ec2.types.create_capacity_reservation_by_splitting_request.serialize_ec2_query(
         input_, pairs, ""
     )

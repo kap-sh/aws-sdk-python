@@ -108,8 +108,6 @@ def build_request(
     url = url.replace("{LensAlias}", quote(str(input_["lens_alias"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wellarchitected.types.upgrade_lens_review_input
-
     body: bytes | None = json.dumps(
         aws_sdk_wellarchitected.types.upgrade_lens_review_input.serialize_json(input_)
     ).encode()

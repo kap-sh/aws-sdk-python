@@ -194,8 +194,6 @@ def build_request(
             input_["sse_customer_key_md5"]
         )
     if "multipart_upload" in input_:
-        import aws_sdk_s3.types.completed_multipart_upload
-
         payload_root = Element("_")
         aws_sdk_s3.types.completed_multipart_upload.serialize_xml(
             input_["multipart_upload"], payload_root, "CompleteMultipartUpload"

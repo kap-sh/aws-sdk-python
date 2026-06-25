@@ -104,8 +104,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSShield_20160616.DisableApplicationLayerAutomaticResponse"
     )
-    import aws_sdk_shield.types.disable_application_layer_automatic_response_request
-
     body: bytes | None = json.dumps(
         aws_sdk_shield.types.disable_application_layer_automatic_response_request.serialize_aws_json_1_1(
             input_

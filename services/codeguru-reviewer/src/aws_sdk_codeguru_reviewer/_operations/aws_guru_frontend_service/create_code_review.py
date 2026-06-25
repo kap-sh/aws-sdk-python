@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/codereviews"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeguru_reviewer.types.create_code_review_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeguru_reviewer.types.create_code_review_request.serialize_json(
             input_

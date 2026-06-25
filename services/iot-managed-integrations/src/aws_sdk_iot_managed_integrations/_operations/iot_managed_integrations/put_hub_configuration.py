@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/hub-configuration"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_managed_integrations.types.put_hub_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_managed_integrations.types.put_hub_configuration_request.serialize_json(
             input_

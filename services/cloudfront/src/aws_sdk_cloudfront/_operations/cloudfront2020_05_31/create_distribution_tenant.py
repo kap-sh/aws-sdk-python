@@ -141,32 +141,22 @@ def build_request(
     if "name" in input_:
         SubElement(root, "Name").text = str(input_["name"])
     if "domains" in input_:
-        import aws_sdk_cloudfront.types.domain_list
-
         aws_sdk_cloudfront.types.domain_list.serialize_xml(
             input_["domains"], root, "Domains"
         )
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     if "customizations" in input_:
-        import aws_sdk_cloudfront.types.customizations
-
         aws_sdk_cloudfront.types.customizations.serialize_xml(
             input_["customizations"], root, "Customizations"
         )
     if "parameters" in input_:
-        import aws_sdk_cloudfront.types.parameters
-
         aws_sdk_cloudfront.types.parameters.serialize_xml(
             input_["parameters"], root, "Parameters"
         )
     if "connection_group_id" in input_:
         SubElement(root, "ConnectionGroupId").text = str(input_["connection_group_id"])
     if "managed_certificate_request" in input_:
-        import aws_sdk_cloudfront.types.managed_certificate_request
-
         aws_sdk_cloudfront.types.managed_certificate_request.serialize_xml(
             input_["managed_certificate_request"], root, "ManagedCertificateRequest"
         )

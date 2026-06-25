@@ -110,8 +110,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "BatchDescribeTypeConfigurations"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.batch_describe_type_configurations_input
-
     aws_sdk_cloudformation.types.batch_describe_type_configurations_input.serialize_query(
         input_, pairs, ""
     )

@@ -83,8 +83,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/action-interactions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_personalize_events.types.put_action_interactions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_personalize_events.types.put_action_interactions_request.serialize_json(
             input_

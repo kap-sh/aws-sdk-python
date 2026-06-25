@@ -132,8 +132,6 @@ def build_request(
     url = url.replace("{membershipId}", quote(str(input_["membership_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_security_ir.types.batch_get_member_account_details_request
-
     body: bytes | None = json.dumps(
         aws_sdk_security_ir.types.batch_get_member_account_details_request.serialize_json(
             input_

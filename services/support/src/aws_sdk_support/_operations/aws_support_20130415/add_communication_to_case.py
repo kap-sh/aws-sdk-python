@@ -102,8 +102,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSSupport_20130415.AddCommunicationToCase"
-    import aws_sdk_support.types.add_communication_to_case_request
-
     body: bytes | None = json.dumps(
         aws_sdk_support.types.add_communication_to_case_request.serialize_aws_json_1_1(
             input_

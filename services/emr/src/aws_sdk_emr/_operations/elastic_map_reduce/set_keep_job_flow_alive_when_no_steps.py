@@ -68,8 +68,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ElasticMapReduce.SetKeepJobFlowAliveWhenNoSteps"
-    import aws_sdk_emr.types.set_keep_job_flow_alive_when_no_steps_input
-
     body: bytes | None = json.dumps(
         aws_sdk_emr.types.set_keep_job_flow_alive_when_no_steps_input.serialize_aws_json_1_1(
             input_

@@ -128,8 +128,6 @@ def build_request(
     url = url.replace("{registryId}", quote(str(input_["registry_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.create_registry_record_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.create_registry_record_request.serialize_json(
             input_

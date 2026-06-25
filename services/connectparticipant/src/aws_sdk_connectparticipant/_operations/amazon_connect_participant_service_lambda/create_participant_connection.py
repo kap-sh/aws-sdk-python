@@ -112,8 +112,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "participant_token" in input_:
         headers["X-Amz-Bearer"] = str(input_["participant_token"])
-    import aws_sdk_connectparticipant.types.create_participant_connection_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connectparticipant.types.create_participant_connection_request.serialize_json(
             input_

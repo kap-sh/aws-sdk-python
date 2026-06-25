@@ -109,8 +109,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/cluster/get"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.get_clusters_for_image_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.get_clusters_for_image_request.serialize_json(input_)
     ).encode()

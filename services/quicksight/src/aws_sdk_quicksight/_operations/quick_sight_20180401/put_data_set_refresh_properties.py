@@ -132,8 +132,6 @@ def build_request(
     url = url.replace("{DataSetId}", quote(str(input_["data_set_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.put_data_set_refresh_properties_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.put_data_set_refresh_properties_request.serialize_json(
             input_

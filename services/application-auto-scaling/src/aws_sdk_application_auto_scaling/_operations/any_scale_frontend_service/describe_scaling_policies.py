@@ -116,8 +116,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalingPolicies"
-    import aws_sdk_application_auto_scaling.types.describe_scaling_policies_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_auto_scaling.types.describe_scaling_policies_request.serialize_aws_json_1_1(
             input_

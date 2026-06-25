@@ -129,8 +129,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/acceptresourceshareinvitation"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ram.types.accept_resource_share_invitation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ram.types.accept_resource_share_invitation_request.serialize_json(
             input_

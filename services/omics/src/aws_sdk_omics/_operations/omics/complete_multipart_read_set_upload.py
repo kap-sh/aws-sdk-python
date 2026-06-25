@@ -129,8 +129,6 @@ def build_request(
     url = url.replace("{uploadId}", quote(str(input_["upload_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_omics.types.complete_multipart_read_set_upload_request
-
     body: bytes | None = json.dumps(
         aws_sdk_omics.types.complete_multipart_read_set_upload_request.serialize_json(
             input_

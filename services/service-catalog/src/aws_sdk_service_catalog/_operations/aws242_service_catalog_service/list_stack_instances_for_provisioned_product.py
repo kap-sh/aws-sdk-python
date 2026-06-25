@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct"
     )
-    import aws_sdk_service_catalog.types.list_stack_instances_for_provisioned_product_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.list_stack_instances_for_provisioned_product_input.serialize_aws_json_1_1(
             input_

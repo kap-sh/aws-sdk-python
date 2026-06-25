@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds"
     )
-    import aws_sdk_application_discovery_service.types.start_data_collection_by_agent_ids_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_discovery_service.types.start_data_collection_by_agent_ids_request.serialize_aws_json_1_1(
             input_

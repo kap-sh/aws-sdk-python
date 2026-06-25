@@ -99,8 +99,6 @@ def build_request(
         headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("CreateAccessPointForObjectLambdaRequest")
     if "configuration" in input_:
-        import aws_sdk_s3_control.types.object_lambda_configuration
-
         aws_sdk_s3_control.types.object_lambda_configuration.serialize_xml(
             input_["configuration"], root, "Configuration"
         )

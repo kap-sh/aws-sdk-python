@@ -126,8 +126,6 @@ def build_request(
         params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "search_criteria" in input_:
-        import aws_sdk_medical_imaging.types.search_criteria
-
         body: bytes | None = json.dumps(
             aws_sdk_medical_imaging.types.search_criteria.serialize_json(
                 input_["search_criteria"]

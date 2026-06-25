@@ -88,8 +88,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSEvents.DisableRule"
-    import aws_sdk_cloudwatch_events.types.disable_rule_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudwatch_events.types.disable_rule_request.serialize_aws_json_1_1(
             input_

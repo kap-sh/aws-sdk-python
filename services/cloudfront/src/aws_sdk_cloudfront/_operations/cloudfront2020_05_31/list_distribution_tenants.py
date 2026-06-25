@@ -100,8 +100,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ListDistributionTenantsRequest")
     if "association_filter" in input_:
-        import aws_sdk_cloudfront.types.distribution_tenant_association_filter
-
         aws_sdk_cloudfront.types.distribution_tenant_association_filter.serialize_xml(
             input_["association_filter"], root, "AssociationFilter"
         )

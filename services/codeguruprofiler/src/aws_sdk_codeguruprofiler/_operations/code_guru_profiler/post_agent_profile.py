@@ -118,8 +118,6 @@ def build_request(
     if "content_type" in input_:
         headers["Content-Type"] = str(input_["content_type"])
     if "agent_profile" in input_:
-        import aws_sdk_codeguruprofiler.types.agent_profile
-
         body: bytes | None = json.dumps(
             aws_sdk_codeguruprofiler.types.agent_profile.serialize_json(
                 input_["agent_profile"]

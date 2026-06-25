@@ -100,8 +100,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/destinations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_topic_rule_destination_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_topic_rule_destination_request.serialize_json(input_)
     ).encode()

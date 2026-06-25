@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSInsightsIndexService.GetReservationPurchaseRecommendation"
     )
-    import aws_sdk_cost_explorer.types.get_reservation_purchase_recommendation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cost_explorer.types.get_reservation_purchase_recommendation_request.serialize_aws_json_1_1(
             input_

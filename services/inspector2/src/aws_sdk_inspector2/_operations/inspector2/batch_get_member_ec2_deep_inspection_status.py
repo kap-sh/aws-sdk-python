@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ec2deepinspectionstatus/member/batch/get"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.batch_get_member_ec2_deep_inspection_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.batch_get_member_ec2_deep_inspection_status_request.serialize_json(
             input_

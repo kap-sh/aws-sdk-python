@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "GlobalAccelerator_V20180706.DescribeCustomRoutingListener"
     )
-    import aws_sdk_global_accelerator.types.describe_custom_routing_listener_request
-
     body: bytes | None = json.dumps(
         aws_sdk_global_accelerator.types.describe_custom_routing_listener_request.serialize_aws_json_1_1(
             input_

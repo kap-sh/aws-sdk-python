@@ -94,8 +94,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateAutoScalingGroup"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.update_auto_scaling_group_type
-
     aws_sdk_auto_scaling.types.update_auto_scaling_group_type.serialize_query(
         input_, pairs, ""
     )

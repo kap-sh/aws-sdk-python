@@ -119,8 +119,6 @@ def build_request(
     if "max_results" in input_:
         params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agentcore_control.types.list_configuration_bundle_versions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore_control.types.list_configuration_bundle_versions_request.serialize_json(
             input_

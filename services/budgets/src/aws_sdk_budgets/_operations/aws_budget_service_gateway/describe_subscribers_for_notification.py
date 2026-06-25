@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSBudgetServiceGateway.DescribeSubscribersForNotification"
     )
-    import aws_sdk_budgets.types.describe_subscribers_for_notification_request
-
     body: bytes | None = json.dumps(
         aws_sdk_budgets.types.describe_subscribers_for_notification_request.serialize_aws_json_1_1(
             input_

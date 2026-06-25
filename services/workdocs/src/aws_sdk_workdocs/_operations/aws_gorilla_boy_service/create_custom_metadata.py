@@ -122,8 +122,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "authentication_token" in input_:
         headers["Authentication"] = str(input_["authentication_token"])
-    import aws_sdk_workdocs.types.create_custom_metadata_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workdocs.types.create_custom_metadata_request.serialize_json(input_)
     ).encode()

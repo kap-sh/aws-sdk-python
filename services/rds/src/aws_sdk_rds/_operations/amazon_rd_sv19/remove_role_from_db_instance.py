@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RemoveRoleFromDBInstance"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.remove_role_from_db_instance_message
-
     aws_sdk_rds.types.remove_role_from_db_instance_message.serialize_query(
         input_, pairs, ""
     )

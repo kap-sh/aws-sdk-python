@@ -154,8 +154,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/retrieveAndGenerateStream"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request.serialize_json(
             input_

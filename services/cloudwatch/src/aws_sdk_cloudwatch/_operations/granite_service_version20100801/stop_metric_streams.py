@@ -100,8 +100,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "StopMetricStreams"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.stop_metric_streams_input
-
     aws_sdk_cloudwatch.types.stop_metric_streams_input.serialize_query(
         input_, pairs, ""
     )

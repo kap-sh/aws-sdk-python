@@ -108,8 +108,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "token_input" in input_:
-        import aws_sdk_signin.types.create_o_auth2_token_request_body
-
         body: bytes | None = json.dumps(
             aws_sdk_signin.types.create_o_auth2_token_request_body.serialize_json(
                 input_["token_input"]

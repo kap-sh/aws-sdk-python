@@ -86,8 +86,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSHealth_20160804.DescribeEntityAggregatesForOrganization"
     )
-    import aws_sdk_health.types.describe_entity_aggregates_for_organization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_health.types.describe_entity_aggregates_for_organization_request.serialize_aws_json_1_1(
             input_

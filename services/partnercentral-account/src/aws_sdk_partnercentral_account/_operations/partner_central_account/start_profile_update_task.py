@@ -123,8 +123,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "PartnerCentralAccount.StartProfileUpdateTask"
-    import aws_sdk_partnercentral_account.types.start_profile_update_task_request
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_account.types.start_profile_update_task_request.serialize_aws_json_1_0(
             input_

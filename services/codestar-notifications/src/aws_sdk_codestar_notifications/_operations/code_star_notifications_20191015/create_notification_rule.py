@@ -121,8 +121,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/createNotificationRule"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codestar_notifications.types.create_notification_rule_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codestar_notifications.types.create_notification_rule_request.serialize_json(
             input_

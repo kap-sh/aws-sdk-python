@@ -110,8 +110,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/contact/webrtc"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.start_web_rtc_contact_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.start_web_rtc_contact_request.serialize_json(input_)
     ).encode()

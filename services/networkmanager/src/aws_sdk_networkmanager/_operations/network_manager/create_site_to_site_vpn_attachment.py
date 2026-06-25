@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/site-to-site-vpn-attachments"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_networkmanager.types.create_site_to_site_vpn_attachment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_networkmanager.types.create_site_to_site_vpn_attachment_request.serialize_json(
             input_

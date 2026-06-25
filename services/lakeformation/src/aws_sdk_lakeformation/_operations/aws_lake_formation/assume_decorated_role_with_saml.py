@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/AssumeDecoratedRoleWithSAML"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.assume_decorated_role_with_saml_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.assume_decorated_role_with_saml_request.serialize_json(
             input_

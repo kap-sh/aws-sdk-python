@@ -104,8 +104,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData"
     )
-    import aws_sdk_auto_scaling_plans.types.get_scaling_plan_resource_forecast_data_request
-
     body: bytes | None = json.dumps(
         aws_sdk_auto_scaling_plans.types.get_scaling_plan_resource_forecast_data_request.serialize_aws_json_1_1(
             input_

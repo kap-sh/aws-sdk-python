@@ -114,8 +114,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AppRunner.UpdateService"
-    import aws_sdk_apprunner.types.update_service_request
-
     body: bytes | None = json.dumps(
         aws_sdk_apprunner.types.update_service_request.serialize_aws_json_1_0(input_)
     ).encode()

@@ -92,8 +92,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonAthena.GetCapacityAssignmentConfiguration"
-    import aws_sdk_athena.types.get_capacity_assignment_configuration_input
-
     body: bytes | None = json.dumps(
         aws_sdk_athena.types.get_capacity_assignment_configuration_input.serialize_aws_json_1_1(
             input_

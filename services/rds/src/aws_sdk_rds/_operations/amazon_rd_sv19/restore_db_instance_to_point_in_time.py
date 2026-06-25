@@ -223,8 +223,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RestoreDBInstanceToPointInTime"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.restore_db_instance_to_point_in_time_message
-
     aws_sdk_rds.types.restore_db_instance_to_point_in_time_message.serialize_query(
         input_, pairs, ""
     )

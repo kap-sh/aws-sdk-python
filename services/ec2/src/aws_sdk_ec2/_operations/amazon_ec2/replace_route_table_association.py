@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ReplaceRouteTableAssociation"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.replace_route_table_association_request
-
     aws_sdk_ec2.types.replace_route_table_association_request.serialize_ec2_query(
         input_, pairs, ""
     )

@@ -108,8 +108,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSMPCommerceService_v20200301.ListAgreementCharges"
-    import aws_sdk_marketplace_agreement.types.list_agreement_charges_input
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_agreement.types.list_agreement_charges_input.serialize_aws_json_1_0(
             input_

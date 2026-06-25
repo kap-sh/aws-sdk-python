@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "PurchaseCapacityBlockExtension"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.purchase_capacity_block_extension_request
-
     aws_sdk_ec2.types.purchase_capacity_block_extension_request.serialize_ec2_query(
         input_, pairs, ""
     )

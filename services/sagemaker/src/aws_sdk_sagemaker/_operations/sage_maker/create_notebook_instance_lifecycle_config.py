@@ -91,8 +91,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SageMaker.CreateNotebookInstanceLifecycleConfig"
-    import aws_sdk_sagemaker.types.create_notebook_instance_lifecycle_config_input
-
     body: bytes | None = json.dumps(
         aws_sdk_sagemaker.types.create_notebook_instance_lifecycle_config_input.serialize_aws_json_1_1(
             input_

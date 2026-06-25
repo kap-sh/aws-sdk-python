@@ -90,8 +90,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.UpdateNotificationSettings"
     )
-    import aws_sdk_mturk.types.update_notification_settings_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.update_notification_settings_request.serialize_aws_json_1_1(
             input_

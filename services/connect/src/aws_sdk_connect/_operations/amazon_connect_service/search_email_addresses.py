@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/search-email-addresses"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.search_email_addresses_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.search_email_addresses_request.serialize_json(input_)
     ).encode()

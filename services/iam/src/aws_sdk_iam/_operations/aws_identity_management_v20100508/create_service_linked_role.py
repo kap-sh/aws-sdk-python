@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateServiceLinkedRole"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.create_service_linked_role_request
-
     aws_sdk_iam.types.create_service_linked_role_request.serialize_query(
         input_, pairs, ""
     )

@@ -104,8 +104,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/DeleteStage"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ivs_realtime.types.delete_stage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ivs_realtime.types.delete_stage_request.serialize_json(input_)
     ).encode()

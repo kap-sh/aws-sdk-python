@@ -85,8 +85,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeTrunkInterfaceAssociations"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.describe_trunk_interface_associations_request
-
     aws_sdk_ec2.types.describe_trunk_interface_associations_request.serialize_ec2_query(
         input_, pairs, ""
     )

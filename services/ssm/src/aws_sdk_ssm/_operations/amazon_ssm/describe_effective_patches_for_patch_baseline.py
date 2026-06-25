@@ -100,8 +100,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonSSM.DescribeEffectivePatchesForPatchBaseline"
-    import aws_sdk_ssm.types.describe_effective_patches_for_patch_baseline_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm.types.describe_effective_patches_for_patch_baseline_request.serialize_aws_json_1_1(
             input_

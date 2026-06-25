@@ -137,8 +137,6 @@ def build_request(
         headers["X-Amzn-Trace-Id"] = str(input_["trace_id"])
     if "trace_parent" in input_:
         headers["traceparent"] = str(input_["trace_parent"])
-    import aws_sdk_bedrock_agentcore.types.start_browser_session_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agentcore.types.start_browser_session_request.serialize_json(
             input_

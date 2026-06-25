@@ -95,8 +95,6 @@ def build_request(
     url = url.replace("{MountTargetId}", quote(str(input_["mount_target_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_efs.types.modify_mount_target_security_groups_request
-
     body: bytes | None = json.dumps(
         aws_sdk_efs.types.modify_mount_target_security_groups_request.serialize_json(
             input_

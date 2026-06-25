@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetTransitGatewayAttachmentPropagations"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_transit_gateway_attachment_propagations_request
-
     aws_sdk_ec2.types.get_transit_gateway_attachment_propagations_request.serialize_ec2_query(
         input_, pairs, ""
     )

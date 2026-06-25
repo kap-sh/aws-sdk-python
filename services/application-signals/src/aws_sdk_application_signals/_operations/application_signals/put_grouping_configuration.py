@@ -100,8 +100,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/grouping-configuration"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_application_signals.types.put_grouping_configuration_input
-
     body: bytes | None = json.dumps(
         aws_sdk_application_signals.types.put_grouping_configuration_input.serialize_json(
             input_

@@ -89,8 +89,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/DeleteSourceServer"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mgn.types.delete_source_server_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mgn.types.delete_source_server_request.serialize_json(input_)
     ).encode()

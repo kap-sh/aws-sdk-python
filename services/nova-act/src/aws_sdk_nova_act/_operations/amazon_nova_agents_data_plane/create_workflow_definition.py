@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/workflow-definitions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_nova_act.types.create_workflow_definition_request
-
     body: bytes | None = json.dumps(
         aws_sdk_nova_act.types.create_workflow_definition_request.serialize_json(input_)
     ).encode()

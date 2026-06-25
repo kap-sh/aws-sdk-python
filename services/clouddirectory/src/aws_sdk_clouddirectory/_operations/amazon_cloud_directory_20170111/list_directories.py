@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/amazonclouddirectory/2017-01-11/directory/list"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_clouddirectory.types.list_directories_request
-
     body: bytes | None = json.dumps(
         aws_sdk_clouddirectory.types.list_directories_request.serialize_json(input_)
     ).encode()

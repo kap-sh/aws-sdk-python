@@ -85,8 +85,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ExportVerifiedAccessInstanceClientConfiguration"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.export_verified_access_instance_client_configuration_request
-
     aws_sdk_ec2.types.export_verified_access_instance_client_configuration_request.serialize_ec2_query(
         input_, pairs, ""
     )

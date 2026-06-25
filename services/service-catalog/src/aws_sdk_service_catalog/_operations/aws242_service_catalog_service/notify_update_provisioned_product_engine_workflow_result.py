@@ -97,8 +97,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.NotifyUpdateProvisionedProductEngineWorkflowResult"
     )
-    import aws_sdk_service_catalog.types.notify_update_provisioned_product_engine_workflow_result_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.notify_update_provisioned_product_engine_workflow_result_input.serialize_aws_json_1_1(
             input_

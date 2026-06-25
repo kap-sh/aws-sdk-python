@@ -141,8 +141,6 @@ def build_request(
     if "max_results" in input_:
         params["max-results"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.search_groups_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.search_groups_request.serialize_json(input_)
     ).encode()

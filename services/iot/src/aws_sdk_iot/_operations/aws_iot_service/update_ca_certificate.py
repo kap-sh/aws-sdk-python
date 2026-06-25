@@ -100,8 +100,6 @@ def build_request(
             input_["new_auto_registration_status"]
         )
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_ca_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_ca_certificate_request.serialize_json(input_)
     ).encode()

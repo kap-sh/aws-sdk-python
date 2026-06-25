@@ -114,8 +114,6 @@ def build_request(
             input_["transition_default_minimum_object_size"]
         )
     if "lifecycle_configuration" in input_:
-        import aws_sdk_s3.types.bucket_lifecycle_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.bucket_lifecycle_configuration.serialize_xml(
             input_["lifecycle_configuration"], payload_root, "LifecycleConfiguration"

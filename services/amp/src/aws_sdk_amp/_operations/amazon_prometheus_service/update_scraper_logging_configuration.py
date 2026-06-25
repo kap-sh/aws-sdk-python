@@ -108,8 +108,6 @@ def build_request(
     url = url.replace("{scraperId}", quote(str(input_["scraper_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_amp.types.update_scraper_logging_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_amp.types.update_scraper_logging_configuration_request.serialize_json(
             input_

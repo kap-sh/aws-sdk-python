@@ -104,8 +104,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "NetworkFirewall_20201112.UntagResource"
-    import aws_sdk_network_firewall.types.untag_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.untag_resource_request.serialize_aws_json_1_0(
             input_

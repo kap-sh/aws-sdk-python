@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSBillingAndCostManagementDataExports.ListTagsForResource"
     )
-    import aws_sdk_bcm_data_exports.types.list_tags_for_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bcm_data_exports.types.list_tags_for_resource_request.serialize_aws_json_1_1(
             input_

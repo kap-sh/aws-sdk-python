@@ -122,8 +122,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "PartnerCentralBenefitsService.GetBenefitApplication"
-    import aws_sdk_partnercentral_benefits.types.get_benefit_application_input
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_benefits.types.get_benefit_application_input.serialize_aws_json_1_0(
             input_

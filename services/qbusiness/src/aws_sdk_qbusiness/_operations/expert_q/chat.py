@@ -152,8 +152,6 @@ def build_request(
         params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
 
-    import aws_sdk_qbusiness.types.chat_input_stream
-
     body = aws_sdk_qbusiness._iter.map_sync_iterator(
         input_["input_stream"],
         aws_sdk_qbusiness.types.chat_input_stream.serialize_event_json,
@@ -191,8 +189,6 @@ def async_build_request(
     if "client_token" in input_:
         params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-
-    import aws_sdk_qbusiness.types.chat_input_stream
 
     body = aws_sdk_qbusiness._iter.map_async_iterator(
         input_["input_stream"],

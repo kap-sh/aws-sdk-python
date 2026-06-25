@@ -149,8 +149,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerAutomationService.UpdateEnrollmentConfiguration"
     )
-    import aws_sdk_compute_optimizer_automation.types.update_enrollment_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer_automation.types.update_enrollment_configuration_request.serialize_aws_json_1_0(
             input_

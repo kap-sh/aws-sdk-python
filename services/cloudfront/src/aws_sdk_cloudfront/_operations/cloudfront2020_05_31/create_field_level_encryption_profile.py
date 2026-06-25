@@ -138,8 +138,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "field_level_encryption_profile_config" in input_:
-        import aws_sdk_cloudfront.types.field_level_encryption_profile_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.field_level_encryption_profile_config.serialize_xml(
             input_["field_level_encryption_profile_config"],

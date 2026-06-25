@@ -88,8 +88,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ProvisionIpamByoasn"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.provision_ipam_byoasn_request
-
     aws_sdk_ec2.types.provision_ipam_byoasn_request.serialize_ec2_query(
         input_, pairs, ""
     )

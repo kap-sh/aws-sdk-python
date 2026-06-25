@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "Route53Domains_v20140515.AssociateDelegationSignerToDomain"
     )
-    import aws_sdk_route_53_domains.types.associate_delegation_signer_to_domain_request
-
     body: bytes | None = json.dumps(
         aws_sdk_route_53_domains.types.associate_delegation_signer_to_domain_request.serialize_aws_json_1_1(
             input_

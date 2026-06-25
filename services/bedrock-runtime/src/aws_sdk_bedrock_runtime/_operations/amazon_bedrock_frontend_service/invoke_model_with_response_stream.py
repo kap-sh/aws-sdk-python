@@ -211,8 +211,6 @@ def build_request(
     if "request_metadata" in input_:
         headers["X-Amzn-Bedrock-Request-Metadata"] = str(input_["request_metadata"])
     if "body" in input_:
-        import aws_sdk_bedrock_runtime.types.body
-
         body: bytes | None = json.dumps(
             aws_sdk_bedrock_runtime.types.body.serialize_json(input_["body"])
         ).encode()

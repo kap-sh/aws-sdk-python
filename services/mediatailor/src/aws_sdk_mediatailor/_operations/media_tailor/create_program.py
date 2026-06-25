@@ -96,8 +96,6 @@ def build_request(
     url = url.replace("{ProgramName}", quote(str(input_["program_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediatailor.types.create_program_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediatailor.types.create_program_request.serialize_json(input_)
     ).encode()

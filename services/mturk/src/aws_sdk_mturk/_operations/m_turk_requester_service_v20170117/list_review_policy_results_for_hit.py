@@ -96,8 +96,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT"
     )
-    import aws_sdk_mturk.types.list_review_policy_results_for_hit_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.list_review_policy_results_for_hit_request.serialize_aws_json_1_1(
             input_

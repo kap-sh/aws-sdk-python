@@ -79,8 +79,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SuspendProcesses"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.scaling_process_query
-
     aws_sdk_auto_scaling.types.scaling_process_query.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

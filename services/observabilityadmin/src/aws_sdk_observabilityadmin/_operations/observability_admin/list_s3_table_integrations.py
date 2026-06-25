@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ListS3TableIntegrations"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_observabilityadmin.types.list_s3_table_integrations_input
-
     body: bytes | None = json.dumps(
         aws_sdk_observabilityadmin.types.list_s3_table_integrations_input.serialize_json(
             input_

@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeCacheSecurityGroups"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_cache_security_groups_message
-
     aws_sdk_elasticache.types.describe_cache_security_groups_message.serialize_query(
         input_, pairs, ""
     )

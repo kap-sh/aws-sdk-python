@@ -119,8 +119,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_emr_containers.types.get_managed_endpoint_session_credentials_request
-
     body: bytes | None = json.dumps(
         aws_sdk_emr_containers.types.get_managed_endpoint_session_credentials_request.serialize_json(
             input_

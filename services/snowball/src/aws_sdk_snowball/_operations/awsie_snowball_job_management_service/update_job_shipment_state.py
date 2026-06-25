@@ -92,8 +92,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateJobShipmentState"
-    import aws_sdk_snowball.types.update_job_shipment_state_request
-
     body: bytes | None = json.dumps(
         aws_sdk_snowball.types.update_job_shipment_state_request.serialize_aws_json_1_1(
             input_

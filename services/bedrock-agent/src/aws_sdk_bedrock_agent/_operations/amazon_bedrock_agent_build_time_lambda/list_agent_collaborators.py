@@ -118,8 +118,6 @@ def build_request(
     url = url.replace("{agentVersion}", quote(str(input_["agent_version"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_agent.types.list_agent_collaborators_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_agent.types.list_agent_collaborators_request.serialize_json(
             input_

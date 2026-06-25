@@ -124,8 +124,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/StartChangeSet"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_marketplace_catalog.types.start_change_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_catalog.types.start_change_set_request.serialize_json(
             input_

@@ -103,8 +103,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyDBClusterSnapshotAttribute"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_docdb.types.modify_db_cluster_snapshot_attribute_message
-
     aws_sdk_docdb.types.modify_db_cluster_snapshot_attribute_message.serialize_query(
         input_, pairs, ""
     )

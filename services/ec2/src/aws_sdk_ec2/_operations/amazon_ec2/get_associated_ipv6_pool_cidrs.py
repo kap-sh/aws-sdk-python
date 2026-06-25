@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetAssociatedIpv6PoolCidrs"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_associated_ipv6_pool_cidrs_request
-
     aws_sdk_ec2.types.get_associated_ipv6_pool_cidrs_request.serialize_ec2_query(
         input_, pairs, ""
     )

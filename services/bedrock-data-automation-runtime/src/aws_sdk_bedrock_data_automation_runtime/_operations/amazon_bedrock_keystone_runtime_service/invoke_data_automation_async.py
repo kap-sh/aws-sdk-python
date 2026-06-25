@@ -125,8 +125,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonBedrockKeystoneRuntimeService.InvokeDataAutomationAsync"
     )
-    import aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.serialize_aws_json_1_1(
             input_

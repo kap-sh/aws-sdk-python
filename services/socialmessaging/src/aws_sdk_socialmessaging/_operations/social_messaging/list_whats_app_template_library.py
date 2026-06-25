@@ -130,8 +130,6 @@ def build_request(
     if "id" in input_:
         params["id"] = str(input_["id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_socialmessaging.types.list_whats_app_template_library_input
-
     body: bytes | None = json.dumps(
         aws_sdk_socialmessaging.types.list_whats_app_template_library_input.serialize_json(
             input_

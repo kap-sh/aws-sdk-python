@@ -136,8 +136,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyEventSubscription"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.modify_event_subscription_message
-
     aws_sdk_redshift.types.modify_event_subscription_message.serialize_query(
         input_, pairs, ""
     )

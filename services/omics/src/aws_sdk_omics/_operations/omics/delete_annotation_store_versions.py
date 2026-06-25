@@ -115,8 +115,6 @@ def build_request(
     params: dict[str, str] = {}
     params["force"] = str(input_.get("force", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_omics.types.delete_annotation_store_versions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_omics.types.delete_annotation_store_versions_request.serialize_json(
             input_

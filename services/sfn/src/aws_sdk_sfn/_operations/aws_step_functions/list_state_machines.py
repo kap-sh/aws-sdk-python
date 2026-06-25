@@ -89,8 +89,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSStepFunctions.ListStateMachines"
-    import aws_sdk_sfn.types.list_state_machines_input
-
     body: bytes | None = json.dumps(
         aws_sdk_sfn.types.list_state_machines_input.serialize_aws_json_1_0(input_)
     ).encode()

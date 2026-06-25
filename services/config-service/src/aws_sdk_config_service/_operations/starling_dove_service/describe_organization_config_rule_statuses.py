@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "StarlingDoveService.DescribeOrganizationConfigRuleStatuses"
     )
-    import aws_sdk_config_service.types.describe_organization_config_rule_statuses_request
-
     body: bytes | None = json.dumps(
         aws_sdk_config_service.types.describe_organization_config_rule_statuses_request.serialize_aws_json_1_1(
             input_

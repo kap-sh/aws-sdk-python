@@ -84,8 +84,6 @@ def build_request(
     if "expected_bucket_owner" in input_:
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     if "request_payment_configuration" in input_:
-        import aws_sdk_s3.types.request_payment_configuration
-
         payload_root = Element("_")
         aws_sdk_s3.types.request_payment_configuration.serialize_xml(
             input_["request_payment_configuration"],

@@ -95,8 +95,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDataSharesForProducer"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_data_shares_for_producer_message
-
     aws_sdk_redshift.types.describe_data_shares_for_producer_message.serialize_query(
         input_, pairs, ""
     )

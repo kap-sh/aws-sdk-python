@@ -80,8 +80,6 @@ def build_request(
     if "mfa" in input_:
         headers["x-amz-mfa"] = str(input_["mfa"])
     if "versioning_configuration" in input_:
-        import aws_sdk_s3_control.types.versioning_configuration
-
         payload_root = Element("_")
         aws_sdk_s3_control.types.versioning_configuration.serialize_xml(
             input_["versioning_configuration"], payload_root, "VersioningConfiguration"

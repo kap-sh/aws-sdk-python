@@ -120,8 +120,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.AddUserPoolClientSecret"
     )
-    import aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.add_user_pool_client_secret_request.serialize_aws_json_1_1(
             input_

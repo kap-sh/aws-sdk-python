@@ -117,8 +117,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSMPCommerceService_v20200301.GetAgreementCancellationRequest"
     )
-    import aws_sdk_marketplace_agreement.types.get_agreement_cancellation_request_input
-
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_agreement.types.get_agreement_cancellation_request_input.serialize_aws_json_1_0(
             input_

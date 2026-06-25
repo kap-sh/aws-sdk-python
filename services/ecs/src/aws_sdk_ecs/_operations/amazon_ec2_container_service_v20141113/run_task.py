@@ -144,8 +144,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.RunTask"
-    import aws_sdk_ecs.types.run_task_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.run_task_request.serialize_aws_json_1_1(input_)
     ).encode()

@@ -425,8 +425,6 @@ def build_request(
     if "if_match" in input_:
         headers["If-Match"] = str(input_["if_match"])
     if "distribution_config" in input_:
-        import aws_sdk_cloudfront.types.distribution_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.distribution_config.serialize_xml(
             input_["distribution_config"], payload_root, "DistributionConfig"

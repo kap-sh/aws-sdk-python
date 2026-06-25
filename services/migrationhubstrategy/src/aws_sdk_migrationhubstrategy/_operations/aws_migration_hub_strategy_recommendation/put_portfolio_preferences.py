@@ -110,8 +110,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/put-portfolio-preferences"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_migrationhubstrategy.types.put_portfolio_preferences_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migrationhubstrategy.types.put_portfolio_preferences_request.serialize_json(
             input_

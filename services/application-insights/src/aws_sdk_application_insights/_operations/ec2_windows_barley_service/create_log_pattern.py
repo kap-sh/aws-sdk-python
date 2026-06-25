@@ -108,8 +108,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateLogPattern"
-    import aws_sdk_application_insights.types.create_log_pattern_request
-
     body: bytes | None = json.dumps(
         aws_sdk_application_insights.types.create_log_pattern_request.serialize_aws_json_1_1(
             input_

@@ -99,8 +99,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDBClusters"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_neptune.types.describe_db_clusters_message
-
     aws_sdk_neptune.types.describe_db_clusters_message.serialize_query(
         input_, pairs, ""
     )

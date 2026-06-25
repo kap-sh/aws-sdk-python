@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDBLogFiles"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_db_log_files_message
-
     aws_sdk_rds.types.describe_db_log_files_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

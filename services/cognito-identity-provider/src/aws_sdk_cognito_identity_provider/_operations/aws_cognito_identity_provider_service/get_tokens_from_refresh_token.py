@@ -151,8 +151,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.GetTokensFromRefreshToken"
     )
-    import aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.get_tokens_from_refresh_token_request.serialize_aws_json_1_1(
             input_

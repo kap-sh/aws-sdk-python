@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ListLFTagExpressions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.list_lf_tag_expressions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.list_lf_tag_expressions_request.serialize_json(
             input_

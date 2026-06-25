@@ -108,8 +108,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.ListContainerInstances"
     )
-    import aws_sdk_ecs.types.list_container_instances_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.list_container_instances_request.serialize_aws_json_1_1(
             input_

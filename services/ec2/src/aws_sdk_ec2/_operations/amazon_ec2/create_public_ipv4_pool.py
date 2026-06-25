@@ -87,8 +87,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreatePublicIpv4Pool"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.create_public_ipv4_pool_request
-
     aws_sdk_ec2.types.create_public_ipv4_pool_request.serialize_ec2_query(
         input_, pairs, ""
     )

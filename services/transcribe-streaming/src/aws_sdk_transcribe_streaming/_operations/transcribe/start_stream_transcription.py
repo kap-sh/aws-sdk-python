@@ -421,8 +421,6 @@ def build_request(
             input_["session_resume_window"]
         )
 
-    import aws_sdk_transcribe_streaming.types.audio_stream
-
     body = aws_sdk_transcribe_streaming._iter.map_sync_iterator(
         input_["audio_stream"],
         aws_sdk_transcribe_streaming.types.audio_stream.serialize_event_json,
@@ -525,8 +523,6 @@ def async_build_request(
         headers["x-amzn-transcribe-session-resume-window"] = str(
             input_["session_resume_window"]
         )
-
-    import aws_sdk_transcribe_streaming.types.audio_stream
 
     body = aws_sdk_transcribe_streaming._iter.map_async_iterator(
         input_["audio_stream"],

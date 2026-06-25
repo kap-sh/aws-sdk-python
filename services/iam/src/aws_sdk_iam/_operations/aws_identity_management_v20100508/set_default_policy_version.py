@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetDefaultPolicyVersion"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.set_default_policy_version_request
-
     aws_sdk_iam.types.set_default_policy_version_request.serialize_query(
         input_, pairs, ""
     )

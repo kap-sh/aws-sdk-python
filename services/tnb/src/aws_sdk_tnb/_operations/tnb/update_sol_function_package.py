@@ -110,8 +110,6 @@ def build_request(
     url = url.replace("{vnfPkgId}", quote(str(input_["vnf_pkg_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_tnb.types.update_sol_function_package_input
-
     body: bytes | None = json.dumps(
         aws_sdk_tnb.types.update_sol_function_package_input.serialize_json(input_)
     ).encode()

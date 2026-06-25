@@ -96,8 +96,6 @@ def build_request(
     if "resource_type" in input_:
         params["resourceType"] = str(input_["resource_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.update_instance_storage_config_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_instance_storage_config_request.serialize_json(
             input_

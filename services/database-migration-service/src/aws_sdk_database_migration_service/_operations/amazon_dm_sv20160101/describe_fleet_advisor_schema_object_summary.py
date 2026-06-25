@@ -98,8 +98,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary"
     )
-    import aws_sdk_database_migration_service.types.describe_fleet_advisor_schema_object_summary_request
-
     body: bytes | None = json.dumps(
         aws_sdk_database_migration_service.types.describe_fleet_advisor_schema_object_summary_request.serialize_aws_json_1_1(
             input_

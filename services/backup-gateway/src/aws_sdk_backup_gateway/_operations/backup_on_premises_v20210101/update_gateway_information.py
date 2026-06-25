@@ -112,8 +112,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "BackupOnPremises_v20210101.UpdateGatewayInformation"
-    import aws_sdk_backup_gateway.types.update_gateway_information_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup_gateway.types.update_gateway_information_input.serialize_aws_json_1_0(
             input_

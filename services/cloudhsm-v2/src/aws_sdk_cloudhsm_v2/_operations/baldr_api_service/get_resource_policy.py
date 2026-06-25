@@ -109,8 +109,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "BaldrApiService.GetResourcePolicy"
-    import aws_sdk_cloudhsm_v2.types.get_resource_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cloudhsm_v2.types.get_resource_policy_request.serialize_aws_json_1_1(
             input_

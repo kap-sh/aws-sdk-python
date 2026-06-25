@@ -117,8 +117,6 @@ def build_request(
     if "registry_name" in input_:
         params["registryName"] = str(input_["registry_name"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_schemas.types.put_resource_policy_request
-
     body: bytes | None = json.dumps(
         aws_sdk_schemas.types.put_resource_policy_request.serialize_json(input_)
     ).encode()

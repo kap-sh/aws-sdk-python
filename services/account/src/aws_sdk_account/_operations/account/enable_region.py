@@ -86,8 +86,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/enableRegion"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_account.types.enable_region_request
-
     body: bytes | None = json.dumps(
         aws_sdk_account.types.enable_region_request.serialize_json(input_)
     ).encode()

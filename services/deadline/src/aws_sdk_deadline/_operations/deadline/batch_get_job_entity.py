@@ -115,8 +115,6 @@ def build_request(
     url = url.replace("{workerId}", quote(str(input_["worker_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_deadline.types.batch_get_job_entity_request
-
     body: bytes | None = json.dumps(
         aws_sdk_deadline.types.batch_get_job_entity_request.serialize_json(input_)
     ).encode()

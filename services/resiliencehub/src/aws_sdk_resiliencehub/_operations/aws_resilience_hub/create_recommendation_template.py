@@ -126,8 +126,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/create-recommendation-template"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehub.types.create_recommendation_template_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehub.types.create_recommendation_template_request.serialize_json(
             input_

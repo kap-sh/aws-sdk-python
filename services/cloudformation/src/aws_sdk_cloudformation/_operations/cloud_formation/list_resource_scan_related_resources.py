@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListResourceScanRelatedResources"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.list_resource_scan_related_resources_input
-
     aws_sdk_cloudformation.types.list_resource_scan_related_resources_input.serialize_query(
         input_, pairs, ""
     )

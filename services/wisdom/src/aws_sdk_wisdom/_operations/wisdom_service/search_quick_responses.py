@@ -114,8 +114,6 @@ def build_request(
     if "max_results" in input_:
         params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wisdom.types.search_quick_responses_request
-
     body: bytes | None = json.dumps(
         aws_sdk_wisdom.types.search_quick_responses_request.serialize_json(input_)
     ).encode()

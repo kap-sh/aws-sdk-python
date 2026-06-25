@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy"
     )
-    import aws_sdk_storage_gateway.types.update_automatic_tape_creation_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_storage_gateway.types.update_automatic_tape_creation_policy_input.serialize_aws_json_1_1(
             input_

@@ -135,8 +135,6 @@ def build_request(
     if "client_request_token" in input_:
         headers["x-amz-client-token"] = str(input_["client_request_token"])
     if "source_content" in input_:
-        import aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_source
-
         body: bytes | None = json.dumps(
             aws_sdk_bedrock.types.automated_reasoning_policy_build_workflow_source.serialize_json(
                 input_["source_content"]

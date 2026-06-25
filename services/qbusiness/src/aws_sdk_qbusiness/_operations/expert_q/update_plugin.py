@@ -117,8 +117,6 @@ def build_request(
     url = url.replace("{pluginId}", quote(str(input_["plugin_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.update_plugin_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.update_plugin_request.serialize_json(input_)
     ).encode()

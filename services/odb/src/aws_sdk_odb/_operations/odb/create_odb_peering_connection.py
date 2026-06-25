@@ -113,8 +113,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Odb.CreateOdbPeeringConnection"
-    import aws_sdk_odb.types.create_odb_peering_connection_input
-
     body: bytes | None = json.dumps(
         aws_sdk_odb.types.create_odb_peering_connection_input.serialize_aws_json_1_0(
             input_

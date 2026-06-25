@@ -138,8 +138,6 @@ def build_request(
     url = url.replace("{DashboardId}", quote(str(input_["dashboard_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_quicksight.types.start_dashboard_snapshot_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.start_dashboard_snapshot_job_request.serialize_json(
             input_

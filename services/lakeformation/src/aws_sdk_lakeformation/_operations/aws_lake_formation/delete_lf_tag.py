@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/DeleteLFTag"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.delete_lf_tag_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.delete_lf_tag_request.serialize_json(input_)
     ).encode()

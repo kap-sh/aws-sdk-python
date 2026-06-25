@@ -110,8 +110,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("DisassociateVPCFromHostedZoneRequest")
     if "vpc" in input_:
-        import aws_sdk_route_53.types.vpc
-
         aws_sdk_route_53.types.vpc.serialize_xml(input_["vpc"], root, "VPC")
     if "comment" in input_:
         SubElement(root, "Comment").text = str(input_["comment"])

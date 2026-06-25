@@ -118,8 +118,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonML_20141212.Predict"
-    import aws_sdk_machine_learning.types.predict_input
-
     body: bytes | None = json.dumps(
         aws_sdk_machine_learning.types.predict_input.serialize_aws_json_1_1(input_)
     ).encode()

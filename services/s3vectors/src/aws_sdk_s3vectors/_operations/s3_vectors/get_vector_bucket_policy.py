@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/GetVectorBucketPolicy"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_s3vectors.types.get_vector_bucket_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_s3vectors.types.get_vector_bucket_policy_input.serialize_json(input_)
     ).encode()

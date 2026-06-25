@@ -112,8 +112,6 @@ def build_request(
     url = url.replace("{TrackerName}", quote(str(input_["tracker_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.batch_delete_device_position_history_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.batch_delete_device_position_history_request.serialize_json(
             input_

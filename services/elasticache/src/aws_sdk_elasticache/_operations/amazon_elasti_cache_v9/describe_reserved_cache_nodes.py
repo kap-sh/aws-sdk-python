@@ -107,8 +107,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeReservedCacheNodes"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.describe_reserved_cache_nodes_message
-
     aws_sdk_elasticache.types.describe_reserved_cache_nodes_message.serialize_query(
         input_, pairs, ""
     )

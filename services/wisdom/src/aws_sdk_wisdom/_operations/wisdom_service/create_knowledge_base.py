@@ -105,8 +105,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/knowledgeBases"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wisdom.types.create_knowledge_base_request
-
     body: bytes | None = json.dumps(
         aws_sdk_wisdom.types.create_knowledge_base_request.serialize_json(input_)
     ).encode()

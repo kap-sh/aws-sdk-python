@@ -85,8 +85,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteFleet"
-    import aws_sdk_codebuild.types.delete_fleet_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codebuild.types.delete_fleet_input.serialize_aws_json_1_1(input_)
     ).encode()

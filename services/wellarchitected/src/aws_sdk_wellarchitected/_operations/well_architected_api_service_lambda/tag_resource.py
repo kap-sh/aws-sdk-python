@@ -95,8 +95,6 @@ def build_request(
     url = url.replace("{WorkloadArn}", quote(str(input_["workload_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_wellarchitected.types.tag_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_wellarchitected.types.tag_resource_input.serialize_json(input_)
     ).encode()

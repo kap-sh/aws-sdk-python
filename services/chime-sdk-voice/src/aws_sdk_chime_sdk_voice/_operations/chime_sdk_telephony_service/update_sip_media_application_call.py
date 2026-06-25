@@ -137,8 +137,6 @@ def build_request(
     url = url.replace("{TransactionId}", quote(str(input_["transaction_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_voice.types.update_sip_media_application_call_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_voice.types.update_sip_media_application_call_request.serialize_json(
             input_

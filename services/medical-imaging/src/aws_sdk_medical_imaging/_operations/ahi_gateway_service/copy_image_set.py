@@ -141,8 +141,6 @@ def build_request(
         params["promoteToPrimary"] = str(input_["promote_to_primary"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "copy_image_set_information" in input_:
-        import aws_sdk_medical_imaging.types.copy_image_set_information
-
         body: bytes | None = json.dumps(
             aws_sdk_medical_imaging.types.copy_image_set_information.serialize_json(
                 input_["copy_image_set_information"]

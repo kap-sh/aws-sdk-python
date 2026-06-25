@@ -120,8 +120,6 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "client_token" in input_:
         headers["X-Amz-Client-Token"] = str(input_["client_token"])
-    import aws_sdk_deadline.types.create_storage_profile_request
-
     body: bytes | None = json.dumps(
         aws_sdk_deadline.types.create_storage_profile_request.serialize_json(input_)
     ).encode()

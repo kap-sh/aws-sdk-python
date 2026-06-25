@@ -123,8 +123,6 @@ def build_request(
     if "max_results" in input_:
         params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.list_data_table_primary_values_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.list_data_table_primary_values_request.serialize_json(
             input_

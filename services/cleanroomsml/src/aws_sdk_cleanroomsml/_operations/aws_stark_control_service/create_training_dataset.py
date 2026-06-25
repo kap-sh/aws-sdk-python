@@ -100,8 +100,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/training-dataset"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_cleanroomsml.types.create_training_dataset_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cleanroomsml.types.create_training_dataset_request.serialize_json(
             input_

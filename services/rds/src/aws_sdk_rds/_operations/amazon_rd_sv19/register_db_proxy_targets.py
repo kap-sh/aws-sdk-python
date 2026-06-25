@@ -137,8 +137,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RegisterDBProxyTargets"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.register_db_proxy_targets_request
-
     aws_sdk_rds.types.register_db_proxy_targets_request.serialize_query(
         input_, pairs, ""
     )

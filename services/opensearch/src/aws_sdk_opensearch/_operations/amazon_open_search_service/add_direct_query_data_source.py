@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2021-01-01/opensearch/directQueryDataSource"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_opensearch.types.add_direct_query_data_source_request
-
     body: bytes | None = json.dumps(
         aws_sdk_opensearch.types.add_direct_query_data_source_request.serialize_json(
             input_

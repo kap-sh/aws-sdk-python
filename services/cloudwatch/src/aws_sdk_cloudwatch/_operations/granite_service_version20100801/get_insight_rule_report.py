@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetInsightRuleReport"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.get_insight_rule_report_input
-
     aws_sdk_cloudwatch.types.get_insight_rule_report_input.serialize_query(
         input_, pairs, ""
     )

@@ -128,20 +128,14 @@ def build_request(
     if "name" in input_:
         SubElement(root, "Name").text = str(input_["name"])
     if "function_config" in input_:
-        import aws_sdk_cloudfront.types.function_config
-
         aws_sdk_cloudfront.types.function_config.serialize_xml(
             input_["function_config"], root, "FunctionConfig"
         )
     if "function_code" in input_:
-        import aws_sdk_cloudfront.types.function_blob
-
         aws_sdk_cloudfront.types.function_blob.serialize_xml(
             input_["function_code"], root, "FunctionCode"
         )
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

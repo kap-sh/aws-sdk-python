@@ -127,8 +127,6 @@ def build_request(
     url = url.replace("{ChannelArn}", quote(str(input_["channel_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_messaging.types.channel_flow_callback_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_messaging.types.channel_flow_callback_request.serialize_json(
             input_

@@ -99,8 +99,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeAlarmContributors"))
     pairs.append(("Version", "2010-08-01"))
-    import aws_sdk_cloudwatch.types.describe_alarm_contributors_input
-
     aws_sdk_cloudwatch.types.describe_alarm_contributors_input.serialize_query(
         input_, pairs, ""
     )

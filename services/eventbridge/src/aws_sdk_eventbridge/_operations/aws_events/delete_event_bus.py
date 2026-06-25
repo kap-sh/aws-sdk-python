@@ -76,8 +76,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSEvents.DeleteEventBus"
-    import aws_sdk_eventbridge.types.delete_event_bus_request
-
     body: bytes | None = json.dumps(
         aws_sdk_eventbridge.types.delete_event_bus_request.serialize_aws_json_1_1(
             input_

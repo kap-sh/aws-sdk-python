@@ -130,8 +130,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSMigrationHub.NotifyMigrationTaskState"
-    import aws_sdk_migration_hub.types.notify_migration_task_state_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migration_hub.types.notify_migration_task_state_request.serialize_aws_json_1_1(
             input_

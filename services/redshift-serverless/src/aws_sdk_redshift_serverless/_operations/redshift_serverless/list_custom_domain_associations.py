@@ -117,8 +117,6 @@ def build_request(
         params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "RedshiftServerless.ListCustomDomainAssociations"
-    import aws_sdk_redshift_serverless.types.list_custom_domain_associations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_redshift_serverless.types.list_custom_domain_associations_request.serialize_aws_json_1_1(
             input_

@@ -87,8 +87,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListPickupLocations"
-    import aws_sdk_snowball.types.list_pickup_locations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_snowball.types.list_pickup_locations_request.serialize_aws_json_1_1(
             input_

@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/cryptogram/verify"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_payment_cryptography_data.types.verify_auth_request_cryptogram_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography_data.types.verify_auth_request_cryptogram_input.serialize_json(
             input_

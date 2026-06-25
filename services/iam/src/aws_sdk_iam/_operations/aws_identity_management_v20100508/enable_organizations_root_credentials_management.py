@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "EnableOrganizationsRootCredentialsManagement"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.enable_organizations_root_credentials_management_request
-
     aws_sdk_iam.types.enable_organizations_root_credentials_management_request.serialize_query(
         input_, pairs, ""
     )

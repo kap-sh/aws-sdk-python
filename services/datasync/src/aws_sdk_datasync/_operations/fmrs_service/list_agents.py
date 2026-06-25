@@ -96,8 +96,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "FmrsService.ListAgents"
-    import aws_sdk_datasync.types.list_agents_request
-
     body: bytes | None = json.dumps(
         aws_sdk_datasync.types.list_agents_request.serialize_aws_json_1_1(input_)
     ).encode()

@@ -124,8 +124,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v20210603/Monitors"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_internetmonitor.types.create_monitor_input
-
     body: bytes | None = json.dumps(
         aws_sdk_internetmonitor.types.create_monitor_input.serialize_json(input_)
     ).encode()

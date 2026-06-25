@@ -109,8 +109,6 @@ def build_request(
     url = url.replace("{channelArn}", quote(str(input_["channel_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request
-
     body: bytes | None = json.dumps(
         aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request.serialize_json(
             input_

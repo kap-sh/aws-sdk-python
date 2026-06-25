@@ -103,8 +103,6 @@ def build_request(
     if "client_token" in input_:
         params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.update_package_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.update_package_request.serialize_json(input_)
     ).encode()

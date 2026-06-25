@@ -122,8 +122,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"
     )
-    import aws_sdk_service_quotas.types.list_requested_service_quota_change_history_by_quota_request
-
     body: bytes | None = json.dumps(
         aws_sdk_service_quotas.types.list_requested_service_quota_change_history_by_quota_request.serialize_aws_json_1_1(
             input_

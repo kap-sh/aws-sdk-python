@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{branchName}", quote(str(input_["branch_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_amplify.types.update_branch_request
-
     body: bytes | None = json.dumps(
         aws_sdk_amplify.types.update_branch_request.serialize_json(input_)
     ).encode()

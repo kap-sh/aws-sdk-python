@@ -116,8 +116,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSKendraFrontendService.UpdateAccessControlConfiguration"
     )
-    import aws_sdk_kendra.types.update_access_control_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kendra.types.update_access_control_configuration_request.serialize_aws_json_1_1(
             input_

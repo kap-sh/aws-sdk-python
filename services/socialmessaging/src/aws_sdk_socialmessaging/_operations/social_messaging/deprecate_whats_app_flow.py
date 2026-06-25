@@ -122,8 +122,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v1/whatsapp/flow/deprecate"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input
-
     body: bytes | None = json.dumps(
         aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input.serialize_json(
             input_

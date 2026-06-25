@@ -104,8 +104,6 @@ def build_request(
     if "end_time" in input_:
         params["EndTime"] = str(input_["end_time"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_application_signals.types.get_service_input
-
     body: bytes | None = json.dumps(
         aws_sdk_application_signals.types.get_service_input.serialize_json(input_)
     ).encode()

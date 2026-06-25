@@ -136,14 +136,10 @@ def build_request(
     if "name" in input_:
         SubElement(root, "Name").text = str(input_["name"])
     if "vpc" in input_:
-        import aws_sdk_route_53.types.vpc
-
         aws_sdk_route_53.types.vpc.serialize_xml(input_["vpc"], root, "VPC")
     if "caller_reference" in input_:
         SubElement(root, "CallerReference").text = str(input_["caller_reference"])
     if "hosted_zone_config" in input_:
-        import aws_sdk_route_53.types.hosted_zone_config
-
         aws_sdk_route_53.types.hosted_zone_config.serialize_xml(
             input_["hosted_zone_config"], root, "HostedZoneConfig"
         )

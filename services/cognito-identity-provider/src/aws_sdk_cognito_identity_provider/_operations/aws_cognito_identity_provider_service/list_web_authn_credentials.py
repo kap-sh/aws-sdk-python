@@ -130,8 +130,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.ListWebAuthnCredentials"
     )
-    import aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.list_web_authn_credentials_request.serialize_aws_json_1_1(
             input_

@@ -93,8 +93,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeBlueGreenDeployments"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_blue_green_deployments_request
-
     aws_sdk_rds.types.describe_blue_green_deployments_request.serialize_query(
         input_, pairs, ""
     )

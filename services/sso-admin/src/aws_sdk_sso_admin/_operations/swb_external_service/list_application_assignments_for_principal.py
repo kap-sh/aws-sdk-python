@@ -114,8 +114,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "SWBExternalService.ListApplicationAssignmentsForPrincipal"
     )
-    import aws_sdk_sso_admin.types.list_application_assignments_for_principal_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.list_application_assignments_for_principal_request.serialize_aws_json_1_1(
             input_

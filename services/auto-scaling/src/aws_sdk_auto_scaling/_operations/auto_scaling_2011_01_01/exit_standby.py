@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ExitStandby"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.exit_standby_query
-
     aws_sdk_auto_scaling.types.exit_standby_query.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

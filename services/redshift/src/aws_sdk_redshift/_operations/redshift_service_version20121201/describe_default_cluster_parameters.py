@@ -89,8 +89,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDefaultClusterParameters"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.describe_default_cluster_parameters_message
-
     aws_sdk_redshift.types.describe_default_cluster_parameters_message.serialize_query(
         input_, pairs, ""
     )

@@ -115,8 +115,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateFeaturedResultsSet"
-    import aws_sdk_kendra.types.update_featured_results_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kendra.types.update_featured_results_set_request.serialize_aws_json_1_1(
             input_

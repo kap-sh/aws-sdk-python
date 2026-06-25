@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/contact/start-recording"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.start_contact_recording_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.start_contact_recording_request.serialize_json(input_)
     ).encode()

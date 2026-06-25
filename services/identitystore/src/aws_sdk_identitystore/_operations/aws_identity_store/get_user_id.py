@@ -117,8 +117,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSIdentityStore.GetUserId"
-    import aws_sdk_identitystore.types.get_user_id_request
-
     body: bytes | None = json.dumps(
         aws_sdk_identitystore.types.get_user_id_request.serialize_aws_json_1_1(input_)
     ).encode()

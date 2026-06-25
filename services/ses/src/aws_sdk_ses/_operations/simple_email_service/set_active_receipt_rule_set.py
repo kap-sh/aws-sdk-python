@@ -91,8 +91,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "SetActiveReceiptRuleSet"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.set_active_receipt_rule_set_request
-
     aws_sdk_ses.types.set_active_receipt_rule_set_request.serialize_query(
         input_, pairs, ""
     )

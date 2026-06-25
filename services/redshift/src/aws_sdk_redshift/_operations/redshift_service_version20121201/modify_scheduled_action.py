@@ -131,8 +131,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyScheduledAction"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.modify_scheduled_action_message
-
     aws_sdk_redshift.types.modify_scheduled_action_message.serialize_query(
         input_, pairs, ""
     )

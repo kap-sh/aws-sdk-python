@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/members"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityhub.types.create_members_request
-
     body: bytes | None = json.dumps(
         aws_sdk_securityhub.types.create_members_request.serialize_json(input_)
     ).encode()

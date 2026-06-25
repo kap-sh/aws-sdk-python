@@ -134,8 +134,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerAutomationService.ListAutomationEventSteps"
     )
-    import aws_sdk_compute_optimizer_automation.types.list_automation_event_steps_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer_automation.types.list_automation_event_steps_request.serialize_aws_json_1_0(
             input_

@@ -111,8 +111,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeleteSharedTrustStoreAssociation"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.delete_shared_trust_store_association_input
-
     aws_sdk_elastic_load_balancing_v2.types.delete_shared_trust_store_association_input.serialize_query(
         input_, pairs, ""
     )

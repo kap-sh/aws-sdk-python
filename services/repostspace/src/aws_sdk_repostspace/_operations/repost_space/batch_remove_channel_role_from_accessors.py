@@ -114,8 +114,6 @@ def build_request(
     url = url.replace("{channelId}", quote(str(input_["channel_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_repostspace.types.batch_remove_channel_role_from_accessors_input
-
     body: bytes | None = json.dumps(
         aws_sdk_repostspace.types.batch_remove_channel_role_from_accessors_input.serialize_json(
             input_

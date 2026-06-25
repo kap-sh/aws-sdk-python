@@ -112,8 +112,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "SWBExternalService.DescribeApplicationProvider"
-    import aws_sdk_sso_admin.types.describe_application_provider_request
-
     body: bytes | None = json.dumps(
         aws_sdk_sso_admin.types.describe_application_provider_request.serialize_aws_json_1_1(
             input_

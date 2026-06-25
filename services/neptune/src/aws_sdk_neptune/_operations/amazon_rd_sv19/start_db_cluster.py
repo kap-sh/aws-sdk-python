@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "StartDBCluster"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_neptune.types.start_db_cluster_message
-
     aws_sdk_neptune.types.start_db_cluster_message.serialize_query(input_, pairs, "")
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"

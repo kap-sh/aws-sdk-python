@@ -123,8 +123,6 @@ def build_request(
     url = url.replace("{FrameworkName}", quote(str(input_["framework_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_backup.types.update_framework_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup.types.update_framework_input.serialize_json(input_)
     ).encode()

@@ -102,8 +102,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/deleteTimelineEvent"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_incidents.types.delete_timeline_event_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_incidents.types.delete_timeline_event_input.serialize_json(input_)
     ).encode()

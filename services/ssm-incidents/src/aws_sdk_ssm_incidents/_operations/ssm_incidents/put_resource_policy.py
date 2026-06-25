@@ -111,8 +111,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/putResourcePolicy"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_ssm_incidents.types.put_resource_policy_input
-
     body: bytes | None = json.dumps(
         aws_sdk_ssm_incidents.types.put_resource_policy_input.serialize_json(input_)
     ).encode()

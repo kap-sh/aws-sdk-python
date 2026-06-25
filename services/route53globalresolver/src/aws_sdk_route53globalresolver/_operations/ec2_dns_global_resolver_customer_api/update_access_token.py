@@ -120,8 +120,6 @@ def build_request(
     url = url.replace("{accessTokenId}", quote(str(input_["access_token_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_route53globalresolver.types.update_access_token_input
-
     body: bytes | None = json.dumps(
         aws_sdk_route53globalresolver.types.update_access_token_input.serialize_json(
             input_

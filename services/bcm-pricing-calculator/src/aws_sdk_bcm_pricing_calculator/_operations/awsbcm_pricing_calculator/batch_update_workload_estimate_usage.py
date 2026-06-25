@@ -122,8 +122,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSBCMPricingCalculator.BatchUpdateWorkloadEstimateUsage"
-    import aws_sdk_bcm_pricing_calculator.types.batch_update_workload_estimate_usage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bcm_pricing_calculator.types.batch_update_workload_estimate_usage_request.serialize_aws_json_1_0(
             input_

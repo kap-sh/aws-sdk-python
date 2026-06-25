@@ -127,8 +127,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet"
     )
-    import aws_sdk_ecs.types.update_service_primary_task_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.update_service_primary_task_set_request.serialize_aws_json_1_1(
             input_

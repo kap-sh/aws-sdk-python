@@ -108,8 +108,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSWAF_20190729.UntagResource"
-    import aws_sdk_wafv2.types.untag_resource_request
-
     body: bytes | None = json.dumps(
         aws_sdk_wafv2.types.untag_resource_request.serialize_aws_json_1_1(input_)
     ).encode()

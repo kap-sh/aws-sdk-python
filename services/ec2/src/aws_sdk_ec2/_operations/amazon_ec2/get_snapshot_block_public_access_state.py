@@ -84,8 +84,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetSnapshotBlockPublicAccessState"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.get_snapshot_block_public_access_state_request
-
     aws_sdk_ec2.types.get_snapshot_block_public_access_state_request.serialize_ec2_query(
         input_, pairs, ""
     )

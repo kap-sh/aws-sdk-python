@@ -121,14 +121,10 @@ def build_request(
         headers["If-Match"] = str(input_["if_match"])
     root = Element("TestFunctionRequest")
     if "stage" in input_:
-        import aws_sdk_cloudfront.types.function_stage
-
         aws_sdk_cloudfront.types.function_stage.serialize_xml(
             input_["stage"], root, "Stage"
         )
     if "event_object" in input_:
-        import aws_sdk_cloudfront.types.function_event_object
-
         aws_sdk_cloudfront.types.function_event_object.serialize_xml(
             input_["event_object"], root, "EventObject"
         )

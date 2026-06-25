@@ -125,8 +125,6 @@ def build_request(
     if "checksum_algorithm" in input_:
         headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
     if "delete" in input_:
-        import aws_sdk_s3.types.delete
-
         payload_root = Element("_")
         aws_sdk_s3.types.delete.serialize_xml(input_["delete"], payload_root, "Delete")
         body: bytes | None = tostring(payload_root[0])

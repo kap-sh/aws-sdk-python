@@ -83,8 +83,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateAccountPasswordPolicy"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.update_account_password_policy_request
-
     aws_sdk_iam.types.update_account_password_policy_request.serialize_query(
         input_, pairs, ""
     )

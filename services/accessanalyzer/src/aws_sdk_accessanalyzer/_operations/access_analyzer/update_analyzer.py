@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{analyzerName}", quote(str(input_["analyzer_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_accessanalyzer.types.update_analyzer_request
-
     body: bytes | None = json.dumps(
         aws_sdk_accessanalyzer.types.update_analyzer_request.serialize_json(input_)
     ).encode()

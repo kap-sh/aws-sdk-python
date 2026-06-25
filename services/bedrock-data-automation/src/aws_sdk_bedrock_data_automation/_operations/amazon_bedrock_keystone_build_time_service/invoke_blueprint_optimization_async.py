@@ -121,8 +121,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/invokeBlueprintOptimizationAsync"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request
-
     body: bytes | None = json.dumps(
         aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.serialize_json(
             input_

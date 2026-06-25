@@ -135,8 +135,6 @@ def build_request(
     url = url.replace("{SipRuleId}", quote(str(input_["sip_rule_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_voice.types.update_sip_rule_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_voice.types.update_sip_rule_request.serialize_json(input_)
     ).encode()

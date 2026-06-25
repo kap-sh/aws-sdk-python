@@ -106,8 +106,6 @@ def build_request(
     url = url.replace("{frameworkId}", quote(str(input_["framework_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_auditmanager.types.start_assessment_framework_share_request
-
     body: bytes | None = json.dumps(
         aws_sdk_auditmanager.types.start_assessment_framework_share_request.serialize_json(
             input_

@@ -63,8 +63,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateAccountSendingEnabled"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_ses.types.update_account_sending_enabled_request
-
     aws_sdk_ses.types.update_account_sending_enabled_request.serialize_query(
         input_, pairs, ""
     )

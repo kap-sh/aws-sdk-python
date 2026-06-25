@@ -107,14 +107,10 @@ def build_request(
     if "bucket" in input_:
         SubElement(root, "Bucket").text = str(input_["bucket"])
     if "vpc_configuration" in input_:
-        import aws_sdk_s3_control.types.vpc_configuration
-
         aws_sdk_s3_control.types.vpc_configuration.serialize_xml(
             input_["vpc_configuration"], root, "VpcConfiguration"
         )
     if "public_access_block_configuration" in input_:
-        import aws_sdk_s3_control.types.public_access_block_configuration
-
         aws_sdk_s3_control.types.public_access_block_configuration.serialize_xml(
             input_["public_access_block_configuration"],
             root,
@@ -123,12 +119,8 @@ def build_request(
     if "bucket_account_id" in input_:
         SubElement(root, "BucketAccountId").text = str(input_["bucket_account_id"])
     if "scope" in input_:
-        import aws_sdk_s3_control.types.scope
-
         aws_sdk_s3_control.types.scope.serialize_xml(input_["scope"], root, "Scope")
     if "tags" in input_:
-        import aws_sdk_s3_control.types.tag_list
-
         aws_sdk_s3_control.types.tag_list.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

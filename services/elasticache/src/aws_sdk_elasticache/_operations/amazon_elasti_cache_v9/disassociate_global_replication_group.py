@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DisassociateGlobalReplicationGroup"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.disassociate_global_replication_group_message
-
     aws_sdk_elasticache.types.disassociate_global_replication_group_message.serialize_query(
         input_, pairs, ""
     )

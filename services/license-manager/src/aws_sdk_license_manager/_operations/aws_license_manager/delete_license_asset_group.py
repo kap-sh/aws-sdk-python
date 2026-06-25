@@ -118,8 +118,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSLicenseManager.DeleteLicenseAssetGroup"
-    import aws_sdk_license_manager.types.delete_license_asset_group_request
-
     body: bytes | None = json.dumps(
         aws_sdk_license_manager.types.delete_license_asset_group_request.serialize_aws_json_1_1(
             input_

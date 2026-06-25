@@ -106,8 +106,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DeactivateOrganizationsAccess"))
     pairs.append(("Version", "2010-05-15"))
-    import aws_sdk_cloudformation.types.deactivate_organizations_access_input
-
     aws_sdk_cloudformation.types.deactivate_organizations_access_input.serialize_query(
         input_, pairs, ""
     )

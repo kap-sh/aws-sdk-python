@@ -92,8 +92,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeOptionGroupOptions"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_option_group_options_message
-
     aws_sdk_rds.types.describe_option_group_options_message.serialize_query(
         input_, pairs, ""
     )

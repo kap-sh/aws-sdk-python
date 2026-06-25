@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.ListServicesByNamespace"
     )
-    import aws_sdk_ecs.types.list_services_by_namespace_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.list_services_by_namespace_request.serialize_aws_json_1_1(
             input_

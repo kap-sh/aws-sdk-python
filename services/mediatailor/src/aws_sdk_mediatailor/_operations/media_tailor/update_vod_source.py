@@ -94,8 +94,6 @@ def build_request(
     url = url.replace("{VodSourceName}", quote(str(input_["vod_source_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediatailor.types.update_vod_source_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediatailor.types.update_vod_source_request.serialize_json(input_)
     ).encode()

@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/createSignalingChannel"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kinesis_video.types.create_signaling_channel_input
-
     body: bytes | None = json.dumps(
         aws_sdk_kinesis_video.types.create_signaling_channel_input.serialize_json(
             input_

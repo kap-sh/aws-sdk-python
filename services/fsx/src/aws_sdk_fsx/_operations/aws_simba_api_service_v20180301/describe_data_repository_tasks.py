@@ -100,8 +100,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks"
-    import aws_sdk_fsx.types.describe_data_repository_tasks_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.describe_data_repository_tasks_request.serialize_aws_json_1_1(
             input_

@@ -103,8 +103,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "GameLift.DescribeEC2InstanceLimits"
-    import aws_sdk_gamelift.types.describe_ec2_instance_limits_input
-
     body: bytes | None = json.dumps(
         aws_sdk_gamelift.types.describe_ec2_instance_limits_input.serialize_aws_json_1_1(
             input_

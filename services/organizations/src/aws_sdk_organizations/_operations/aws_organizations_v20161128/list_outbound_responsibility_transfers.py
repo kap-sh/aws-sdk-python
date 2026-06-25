@@ -126,8 +126,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListOutboundResponsibilityTransfers"
     )
-    import aws_sdk_organizations.types.list_outbound_responsibility_transfers_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_outbound_responsibility_transfers_request.serialize_aws_json_1_1(
             input_

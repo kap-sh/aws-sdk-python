@@ -125,8 +125,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization"
     )
-    import aws_sdk_organizations.types.list_aws_service_access_for_organization_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.list_aws_service_access_for_organization_request.serialize_aws_json_1_1(
             input_

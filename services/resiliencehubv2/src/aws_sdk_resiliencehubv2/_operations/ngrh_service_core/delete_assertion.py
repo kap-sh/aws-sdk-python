@@ -106,8 +106,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/v2/delete-assertion"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resiliencehubv2.types.delete_assertion_request
-
     body: bytes | None = json.dumps(
         aws_sdk_resiliencehubv2.types.delete_assertion_request.serialize_json(input_)
     ).encode()

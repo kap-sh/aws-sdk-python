@@ -110,8 +110,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "error" in input_:
-        import aws_sdk_lambda.types.error_object
-
         body: bytes | None = json.dumps(
             aws_sdk_lambda.types.error_object.serialize_json(input_["error"])
         ).encode()

@@ -97,8 +97,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeDBSubnetGroups"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_db_subnet_groups_message
-
     aws_sdk_rds.types.describe_db_subnet_groups_message.serialize_query(
         input_, pairs, ""
     )

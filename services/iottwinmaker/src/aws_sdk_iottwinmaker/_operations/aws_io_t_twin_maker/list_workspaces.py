@@ -108,8 +108,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/workspaces-list"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iottwinmaker.types.list_workspaces_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iottwinmaker.types.list_workspaces_request.serialize_json(input_)
     ).encode()

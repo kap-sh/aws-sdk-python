@@ -129,18 +129,12 @@ def build_request(
     if "ip_count" in input_:
         SubElement(root, "IpCount").text = str(input_["ip_count"])
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     if "ip_address_type" in input_:
-        import aws_sdk_cloudfront.types.ip_address_type
-
         aws_sdk_cloudfront.types.ip_address_type.serialize_xml(
             input_["ip_address_type"], root, "IpAddressType"
         )
     if "ipam_cidr_configs" in input_:
-        import aws_sdk_cloudfront.types.ipam_cidr_config_list
-
         aws_sdk_cloudfront.types.ipam_cidr_config_list.serialize_xml(
             input_["ipam_cidr_configs"], root, "IpamCidrConfigs"
         )

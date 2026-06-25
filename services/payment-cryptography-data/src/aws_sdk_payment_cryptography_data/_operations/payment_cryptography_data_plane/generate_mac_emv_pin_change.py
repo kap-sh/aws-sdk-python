@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/macemvpinchange/generate"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_payment_cryptography_data.types.generate_mac_emv_pin_change_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography_data.types.generate_mac_emv_pin_change_input.serialize_json(
             input_

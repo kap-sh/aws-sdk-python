@@ -110,8 +110,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "KinesisAnalytics_20150814.DeleteApplicationCloudWatchLoggingOption"
     )
-    import aws_sdk_kinesis_analytics.types.delete_application_cloud_watch_logging_option_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kinesis_analytics.types.delete_application_cloud_watch_logging_option_request.serialize_aws_json_1_1(
             input_

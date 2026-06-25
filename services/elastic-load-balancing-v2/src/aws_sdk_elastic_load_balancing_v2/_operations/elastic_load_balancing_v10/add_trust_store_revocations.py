@@ -118,8 +118,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AddTrustStoreRevocations"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.add_trust_store_revocations_input
-
     aws_sdk_elastic_load_balancing_v2.types.add_trust_store_revocations_input.serialize_query(
         input_, pairs, ""
     )

@@ -110,8 +110,6 @@ def build_request(
     url = url.replace("{profileId}", quote(str(input_["profile_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_rolesanywhere.types.update_profile_request
-
     body: bytes | None = json.dumps(
         aws_sdk_rolesanywhere.types.update_profile_request.serialize_json(input_)
     ).encode()

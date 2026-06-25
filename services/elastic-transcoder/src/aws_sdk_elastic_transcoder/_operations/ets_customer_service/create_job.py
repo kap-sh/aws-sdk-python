@@ -127,8 +127,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2012-09-25/jobs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_elastic_transcoder.types.create_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_elastic_transcoder.types.create_job_request.serialize_json(input_)
     ).encode()

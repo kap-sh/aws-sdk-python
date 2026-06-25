@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2017-08-29/resourceShares"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mediaconvert.types.create_resource_share_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mediaconvert.types.create_resource_share_request.serialize_json(input_)
     ).encode()

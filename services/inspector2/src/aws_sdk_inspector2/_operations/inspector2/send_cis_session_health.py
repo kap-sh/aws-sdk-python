@@ -104,8 +104,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/cissession/health/send"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.send_cis_session_health_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.send_cis_session_health_request.serialize_json(input_)
     ).encode()

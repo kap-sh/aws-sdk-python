@@ -106,8 +106,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "OvertureService.AssociateConnectionWithLag"
-    import aws_sdk_direct_connect.types.associate_connection_with_lag_request
-
     body: bytes | None = json.dumps(
         aws_sdk_direct_connect.types.associate_connection_with_lag_request.serialize_aws_json_1_1(
             input_

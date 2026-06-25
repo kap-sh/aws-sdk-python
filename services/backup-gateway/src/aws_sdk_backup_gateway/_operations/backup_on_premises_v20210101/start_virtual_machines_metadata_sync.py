@@ -114,8 +114,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "BackupOnPremises_v20210101.StartVirtualMachinesMetadataSync"
     )
-    import aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup_gateway.types.start_virtual_machines_metadata_sync_input.serialize_aws_json_1_0(
             input_

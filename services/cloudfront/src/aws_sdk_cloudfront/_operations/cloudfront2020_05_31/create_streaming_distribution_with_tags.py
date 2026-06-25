@@ -162,8 +162,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "streaming_distribution_config_with_tags" in input_:
-        import aws_sdk_cloudfront.types.streaming_distribution_config_with_tags
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.streaming_distribution_config_with_tags.serialize_xml(
             input_["streaming_distribution_config_with_tags"],

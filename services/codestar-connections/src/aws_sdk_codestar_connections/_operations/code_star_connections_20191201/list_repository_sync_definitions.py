@@ -116,8 +116,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "CodeStar_connections_20191201.ListRepositorySyncDefinitions"
     )
-    import aws_sdk_codestar_connections.types.list_repository_sync_definitions_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codestar_connections.types.list_repository_sync_definitions_input.serialize_aws_json_1_0(
             input_

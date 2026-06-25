@@ -107,8 +107,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations"
     )
-    import aws_sdk_fsx.types.describe_data_repository_associations_request
-
     body: bytes | None = json.dumps(
         aws_sdk_fsx.types.describe_data_repository_associations_request.serialize_aws_json_1_1(
             input_

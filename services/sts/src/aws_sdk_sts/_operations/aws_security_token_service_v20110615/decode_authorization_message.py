@@ -103,8 +103,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DecodeAuthorizationMessage"))
     pairs.append(("Version", "2011-06-15"))
-    import aws_sdk_sts.types.decode_authorization_message_request
-
     aws_sdk_sts.types.decode_authorization_message_request.serialize_query(
         input_, pairs, ""
     )

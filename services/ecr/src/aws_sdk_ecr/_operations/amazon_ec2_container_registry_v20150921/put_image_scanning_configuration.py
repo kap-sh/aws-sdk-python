@@ -102,8 +102,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration"
     )
-    import aws_sdk_ecr.types.put_image_scanning_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.put_image_scanning_configuration_request.serialize_aws_json_1_1(
             input_

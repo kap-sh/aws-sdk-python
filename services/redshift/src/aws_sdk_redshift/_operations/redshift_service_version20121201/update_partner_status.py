@@ -109,8 +109,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdatePartnerStatus"))
     pairs.append(("Version", "2012-12-01"))
-    import aws_sdk_redshift.types.update_partner_status_input_message
-
     aws_sdk_redshift.types.update_partner_status_input_message.serialize_query(
         input_, pairs, ""
     )

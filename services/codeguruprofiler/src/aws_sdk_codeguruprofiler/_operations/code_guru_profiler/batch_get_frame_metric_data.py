@@ -126,8 +126,6 @@ def build_request(
     if "target_resolution" in input_:
         params["targetResolution"] = str(input_["target_resolution"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request.serialize_json(
             input_

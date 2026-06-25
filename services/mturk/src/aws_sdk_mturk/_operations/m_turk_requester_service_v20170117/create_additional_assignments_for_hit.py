@@ -89,8 +89,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT"
     )
-    import aws_sdk_mturk.types.create_additional_assignments_for_hit_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.create_additional_assignments_for_hit_request.serialize_aws_json_1_1(
             input_

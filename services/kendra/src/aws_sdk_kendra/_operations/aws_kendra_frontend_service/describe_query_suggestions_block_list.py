@@ -111,8 +111,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList"
     )
-    import aws_sdk_kendra.types.describe_query_suggestions_block_list_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kendra.types.describe_query_suggestions_block_list_request.serialize_aws_json_1_1(
             input_

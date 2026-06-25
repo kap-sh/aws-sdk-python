@@ -136,8 +136,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     if "cache_policy_config" in input_:
-        import aws_sdk_cloudfront.types.cache_policy_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.cache_policy_config.serialize_xml(
             input_["cache_policy_config"], payload_root, "CachePolicyConfig"

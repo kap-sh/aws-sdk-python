@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ValidateConfigurationSettings"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.validate_configuration_settings_message
-
     aws_sdk_elastic_beanstalk.types.validate_configuration_settings_message.serialize_query(
         input_, pairs, ""
     )

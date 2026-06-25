@@ -123,8 +123,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DefineExpression"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.define_expression_request
-
     aws_sdk_cloudsearch.types.define_expression_request.serialize_query(
         input_, pairs, ""
     )

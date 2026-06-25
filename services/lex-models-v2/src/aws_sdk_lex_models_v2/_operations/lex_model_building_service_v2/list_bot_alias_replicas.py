@@ -110,8 +110,6 @@ def build_request(
     url = url.replace("{replicaRegion}", quote(str(input_["replica_region"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lex_models_v2.types.list_bot_alias_replicas_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lex_models_v2.types.list_bot_alias_replicas_request.serialize_json(
             input_

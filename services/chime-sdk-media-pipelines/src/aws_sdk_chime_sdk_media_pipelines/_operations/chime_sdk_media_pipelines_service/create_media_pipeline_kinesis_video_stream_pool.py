@@ -129,8 +129,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/media-pipeline-kinesis-video-stream-pools"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_chime_sdk_media_pipelines.types.create_media_pipeline_kinesis_video_stream_pool_request
-
     body: bytes | None = json.dumps(
         aws_sdk_chime_sdk_media_pipelines.types.create_media_pipeline_kinesis_video_stream_pool_request.serialize_json(
             input_

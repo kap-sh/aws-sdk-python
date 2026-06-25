@@ -118,8 +118,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/get-asset-contract"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_managedblockchain_query.types.get_asset_contract_input
-
     body: bytes | None = json.dumps(
         aws_sdk_managedblockchain_query.types.get_asset_contract_input.serialize_json(
             input_

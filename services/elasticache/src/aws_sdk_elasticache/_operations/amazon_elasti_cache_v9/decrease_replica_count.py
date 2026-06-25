@@ -154,8 +154,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DecreaseReplicaCount"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.decrease_replica_count_message
-
     aws_sdk_elasticache.types.decrease_replica_count_message.serialize_query(
         input_, pairs, ""
     )

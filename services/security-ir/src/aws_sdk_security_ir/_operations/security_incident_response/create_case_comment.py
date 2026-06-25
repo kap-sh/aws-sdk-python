@@ -127,8 +127,6 @@ def build_request(
     url = url.replace("{caseId}", quote(str(input_["case_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_security_ir.types.create_case_comment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_security_ir.types.create_case_comment_request.serialize_json(input_)
     ).encode()

@@ -119,8 +119,6 @@ def build_request(
     url = url.replace("{applicationId}", quote(str(input_["application_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_qbusiness.types.update_chat_controls_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_qbusiness.types.update_chat_controls_configuration_request.serialize_json(
             input_

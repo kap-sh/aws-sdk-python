@@ -108,8 +108,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeAnalysisSchemes"))
     pairs.append(("Version", "2013-01-01"))
-    import aws_sdk_cloudsearch.types.describe_analysis_schemes_request
-
     aws_sdk_cloudsearch.types.describe_analysis_schemes_request.serialize_query(
         input_, pairs, ""
     )

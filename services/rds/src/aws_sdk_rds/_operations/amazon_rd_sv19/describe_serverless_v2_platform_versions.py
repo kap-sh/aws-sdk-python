@@ -88,8 +88,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeServerlessV2PlatformVersions"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.describe_serverless_v2_platform_versions_message
-
     aws_sdk_rds.types.describe_serverless_v2_platform_versions_message.serialize_query(
         input_, pairs, ""
     )

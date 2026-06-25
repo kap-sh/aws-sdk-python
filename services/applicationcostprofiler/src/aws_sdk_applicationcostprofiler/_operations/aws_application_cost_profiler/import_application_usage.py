@@ -107,8 +107,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/importApplicationUsage"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_applicationcostprofiler.types.import_application_usage_request
-
     body: bytes | None = json.dumps(
         aws_sdk_applicationcostprofiler.types.import_application_usage_request.serialize_json(
             input_

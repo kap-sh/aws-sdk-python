@@ -102,8 +102,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2021-01-01/opensearch/domain-info"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_opensearch.types.describe_domains_request
-
     body: bytes | None = json.dumps(
         aws_sdk_opensearch.types.describe_domains_request.serialize_json(input_)
     ).encode()

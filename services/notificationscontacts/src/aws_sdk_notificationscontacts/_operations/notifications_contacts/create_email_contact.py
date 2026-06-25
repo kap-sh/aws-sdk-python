@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/2022-09-19/emailcontacts"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_notificationscontacts.types.create_email_contact_request
-
     body: bytes | None = json.dumps(
         aws_sdk_notificationscontacts.types.create_email_contact_request.serialize_json(
             input_

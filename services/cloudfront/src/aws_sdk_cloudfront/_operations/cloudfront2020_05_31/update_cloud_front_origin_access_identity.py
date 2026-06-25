@@ -135,8 +135,6 @@ def build_request(
     if "if_match" in input_:
         headers["If-Match"] = str(input_["if_match"])
     if "cloud_front_origin_access_identity_config" in input_:
-        import aws_sdk_cloudfront.types.cloud_front_origin_access_identity_config
-
         payload_root = Element("_")
         aws_sdk_cloudfront.types.cloud_front_origin_access_identity_config.serialize_xml(
             input_["cloud_front_origin_access_identity_config"],

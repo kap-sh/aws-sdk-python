@@ -102,8 +102,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/packages/template-job"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_panorama.types.create_node_from_template_job_request
-
     body: bytes | None = json.dumps(
         aws_sdk_panorama.types.create_node_from_template_job_request.serialize_json(
             input_

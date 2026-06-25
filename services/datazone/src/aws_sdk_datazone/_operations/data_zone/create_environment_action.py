@@ -123,8 +123,6 @@ def build_request(
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_datazone.types.create_environment_action_input
-
     body: bytes | None = json.dumps(
         aws_sdk_datazone.types.create_environment_action_input.serialize_json(input_)
     ).encode()

@@ -131,8 +131,6 @@ def build_request(
     url = url.replace("{sessionId}", quote(str(input_["session_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_nova_act.types.create_act_request
-
     body: bytes | None = json.dumps(
         aws_sdk_nova_act.types.create_act_request.serialize_json(input_)
     ).encode()

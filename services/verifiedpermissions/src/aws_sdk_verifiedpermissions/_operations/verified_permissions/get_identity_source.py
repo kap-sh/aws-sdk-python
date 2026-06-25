@@ -119,8 +119,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "VerifiedPermissions.GetIdentitySource"
-    import aws_sdk_verifiedpermissions.types.get_identity_source_input
-
     body: bytes | None = json.dumps(
         aws_sdk_verifiedpermissions.types.get_identity_source_input.serialize_aws_json_1_0(
             input_

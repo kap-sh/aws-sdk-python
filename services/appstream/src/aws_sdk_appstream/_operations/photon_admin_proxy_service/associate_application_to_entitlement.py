@@ -102,8 +102,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PhotonAdminProxyService.AssociateApplicationToEntitlement"
     )
-    import aws_sdk_appstream.types.associate_application_to_entitlement_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appstream.types.associate_application_to_entitlement_request.serialize_aws_json_1_1(
             input_

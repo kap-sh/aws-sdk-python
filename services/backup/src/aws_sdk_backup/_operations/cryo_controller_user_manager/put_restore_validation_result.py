@@ -89,8 +89,6 @@ def build_request(
     url = url.replace("{RestoreJobId}", quote(str(input_["restore_job_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_backup.types.put_restore_validation_result_input
-
     body: bytes | None = json.dumps(
         aws_sdk_backup.types.put_restore_validation_result_input.serialize_json(input_)
     ).encode()

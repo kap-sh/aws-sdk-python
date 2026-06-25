@@ -181,8 +181,6 @@ def build_request(
     if "session_id" in input_:
         headers["X-Amzn-SageMaker-Session-Id"] = str(input_["session_id"])
     if "body" in input_:
-        import aws_sdk_sagemaker_runtime.types.body_blob
-
         body: bytes | None = json.dumps(
             aws_sdk_sagemaker_runtime.types.body_blob.serialize_json(input_["body"])
         ).encode()

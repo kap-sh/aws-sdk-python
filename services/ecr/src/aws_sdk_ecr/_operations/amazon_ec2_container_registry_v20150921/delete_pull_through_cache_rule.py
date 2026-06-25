@@ -102,8 +102,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.DeletePullThroughCacheRule"
     )
-    import aws_sdk_ecr.types.delete_pull_through_cache_rule_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.delete_pull_through_cache_rule_request.serialize_aws_json_1_1(
             input_

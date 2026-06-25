@@ -101,8 +101,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "DynamoDB_20120810.ListTagsOfResource"
-    import aws_sdk_dynamodb.types.list_tags_of_resource_input
-
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.list_tags_of_resource_input.serialize_aws_json_1_0(
             input_

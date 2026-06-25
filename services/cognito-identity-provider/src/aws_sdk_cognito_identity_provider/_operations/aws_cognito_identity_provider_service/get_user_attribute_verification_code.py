@@ -181,8 +181,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode"
     )
-    import aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_request
-
     body: bytes | None = json.dumps(
         aws_sdk_cognito_identity_provider.types.get_user_attribute_verification_code_request.serialize_aws_json_1_1(
             input_

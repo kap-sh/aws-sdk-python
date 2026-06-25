@@ -122,8 +122,6 @@ def build_request(
     if "partner_type" in input_:
         params["partnerType"] = str(input_["partner_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot_wireless.types.update_resource_event_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot_wireless.types.update_resource_event_configuration_request.serialize_json(
             input_

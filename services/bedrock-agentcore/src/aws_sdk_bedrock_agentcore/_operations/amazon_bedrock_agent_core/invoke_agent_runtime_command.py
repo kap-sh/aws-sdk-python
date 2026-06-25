@@ -194,8 +194,6 @@ def build_request(
     if "baggage" in input_:
         headers["baggage"] = str(input_["baggage"])
     if "body" in input_:
-        import aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body
-
         body: bytes | None = json.dumps(
             aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.serialize_json(
                 input_["body"]

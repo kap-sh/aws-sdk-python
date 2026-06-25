@@ -119,8 +119,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/certificate/register-no-ca"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.register_certificate_without_ca_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.register_certificate_without_ca_request.serialize_json(input_)
     ).encode()

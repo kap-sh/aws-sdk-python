@@ -125,8 +125,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "CreateEventSubscription"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.create_event_subscription_message
-
     aws_sdk_rds.types.create_event_subscription_message.serialize_query(
         input_, pairs, ""
     )

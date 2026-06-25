@@ -85,8 +85,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "DescribeLocalGatewayVirtualInterfaceGroups"))
     pairs.append(("Version", "2016-11-15"))
-    import aws_sdk_ec2.types.describe_local_gateway_virtual_interface_groups_request
-
     aws_sdk_ec2.types.describe_local_gateway_virtual_interface_groups_request.serialize_ec2_query(
         input_, pairs, ""
     )

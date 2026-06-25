@@ -144,8 +144,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSOrganizationsV20161128.InviteOrganizationToTransferResponsibility"
     )
-    import aws_sdk_organizations.types.invite_organization_to_transfer_responsibility_request
-
     body: bytes | None = json.dumps(
         aws_sdk_organizations.types.invite_organization_to_transfer_responsibility_request.serialize_aws_json_1_1(
             input_

@@ -97,8 +97,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AWSShield_20160616.ListResourcesInProtectionGroup"
-    import aws_sdk_shield.types.list_resources_in_protection_group_request
-
     body: bytes | None = json.dumps(
         aws_sdk_shield.types.list_resources_in_protection_group_request.serialize_aws_json_1_1(
             input_

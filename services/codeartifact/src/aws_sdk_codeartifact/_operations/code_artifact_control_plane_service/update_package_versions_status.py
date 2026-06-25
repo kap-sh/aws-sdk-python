@@ -131,8 +131,6 @@ def build_request(
     if "package" in input_:
         params["package"] = str(input_["package"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_codeartifact.types.update_package_versions_status_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codeartifact.types.update_package_versions_status_request.serialize_json(
             input_

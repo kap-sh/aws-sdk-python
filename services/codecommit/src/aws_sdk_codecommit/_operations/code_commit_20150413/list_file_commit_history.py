@@ -155,8 +155,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodeCommit_20150413.ListFileCommitHistory"
-    import aws_sdk_codecommit.types.list_file_commit_history_request
-
     body: bytes | None = json.dumps(
         aws_sdk_codecommit.types.list_file_commit_history_request.serialize_aws_json_1_1(
             input_

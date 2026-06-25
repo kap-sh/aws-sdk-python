@@ -99,8 +99,6 @@ def build_request(
         params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonElasticVMwareService.ListVmEntitlements"
-    import aws_sdk_evs.types.list_vm_entitlements_request
-
     body: bytes | None = json.dumps(
         aws_sdk_evs.types.list_vm_entitlements_request.serialize_aws_json_1_0(input_)
     ).encode()

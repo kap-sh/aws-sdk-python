@@ -116,8 +116,6 @@ def build_request(
     url = url.replace("{BrokerId}", quote(str(input_["broker_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_mq.types.update_broker_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mq.types.update_broker_request.serialize_json(input_)
     ).encode()

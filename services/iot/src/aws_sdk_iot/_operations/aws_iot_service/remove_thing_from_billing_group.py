@@ -94,8 +94,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/billing-groups/removeThingFromBillingGroup"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.remove_thing_from_billing_group_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.remove_thing_from_billing_group_request.serialize_json(input_)
     ).encode()

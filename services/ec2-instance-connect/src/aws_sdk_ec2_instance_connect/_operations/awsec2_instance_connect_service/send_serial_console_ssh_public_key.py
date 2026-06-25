@@ -149,8 +149,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSEC2InstanceConnectService.SendSerialConsoleSSHPublicKey"
     )
-    import aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request.serialize_aws_json_1_1(
             input_

@@ -114,8 +114,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/cost-estimation"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_guru.types.start_cost_estimation_request
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_guru.types.start_cost_estimation_request.serialize_json(input_)
     ).encode()

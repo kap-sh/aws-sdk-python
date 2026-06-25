@@ -133,14 +133,10 @@ def build_request(
         headers["If-Match"] = str(input_["if_match"])
     root = Element("UpdateConnectionFunctionRequest")
     if "connection_function_config" in input_:
-        import aws_sdk_cloudfront.types.function_config
-
         aws_sdk_cloudfront.types.function_config.serialize_xml(
             input_["connection_function_config"], root, "ConnectionFunctionConfig"
         )
     if "connection_function_code" in input_:
-        import aws_sdk_cloudfront.types.function_blob
-
         aws_sdk_cloudfront.types.function_blob.serialize_xml(
             input_["connection_function_code"], root, "ConnectionFunctionCode"
         )

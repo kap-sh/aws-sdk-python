@@ -133,8 +133,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "ComputeOptimizerAutomationService.ListAutomationRulePreviewSummaries"
     )
-    import aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_summaries_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_summaries_request.serialize_aws_json_1_0(
             input_

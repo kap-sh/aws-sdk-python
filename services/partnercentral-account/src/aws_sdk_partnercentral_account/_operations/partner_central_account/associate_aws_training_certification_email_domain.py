@@ -112,8 +112,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PartnerCentralAccount.AssociateAwsTrainingCertificationEmailDomain"
     )
-    import aws_sdk_partnercentral_account.types.associate_aws_training_certification_email_domain_request
-
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_account.types.associate_aws_training_certification_email_domain_request.serialize_aws_json_1_0(
             input_

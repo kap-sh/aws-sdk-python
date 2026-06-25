@@ -113,8 +113,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "AmazonTimestreamInfluxDB.ListDbParameterGroups"
-    import aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input
-
     body: bytes | None = json.dumps(
         aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input.serialize_aws_json_1_0(
             input_

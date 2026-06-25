@@ -104,8 +104,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/ec2deepinspectionconfiguration/update"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_inspector2.types.update_ec2_deep_inspection_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_inspector2.types.update_ec2_deep_inspection_configuration_request.serialize_json(
             input_

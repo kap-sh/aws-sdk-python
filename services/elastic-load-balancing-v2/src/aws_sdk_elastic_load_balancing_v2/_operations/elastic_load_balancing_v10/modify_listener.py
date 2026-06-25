@@ -201,8 +201,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ModifyListener"))
     pairs.append(("Version", "2015-12-01"))
-    import aws_sdk_elastic_load_balancing_v2.types.modify_listener_input
-
     aws_sdk_elastic_load_balancing_v2.types.modify_listener_input.serialize_query(
         input_, pairs, ""
     )

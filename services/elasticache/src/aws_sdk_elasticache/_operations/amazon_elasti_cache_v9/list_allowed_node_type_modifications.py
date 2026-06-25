@@ -112,8 +112,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "ListAllowedNodeTypeModifications"))
     pairs.append(("Version", "2015-02-02"))
-    import aws_sdk_elasticache.types.list_allowed_node_type_modifications_message
-
     aws_sdk_elasticache.types.list_allowed_node_type_modifications_message.serialize_query(
         input_, pairs, ""
     )

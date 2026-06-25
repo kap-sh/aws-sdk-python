@@ -95,8 +95,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/list-flows"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_appflow.types.list_flows_request
-
     body: bytes | None = json.dumps(
         aws_sdk_appflow.types.list_flows_request.serialize_json(input_)
     ).encode()

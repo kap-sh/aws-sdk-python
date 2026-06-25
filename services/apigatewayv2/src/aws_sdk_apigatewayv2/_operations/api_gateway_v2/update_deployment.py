@@ -108,8 +108,6 @@ def build_request(
     url = url.replace("{DeploymentId}", quote(str(input_["deployment_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_apigatewayv2.types.update_deployment_request
-
     body: bytes | None = json.dumps(
         aws_sdk_apigatewayv2.types.update_deployment_request.serialize_json(input_)
     ).encode()

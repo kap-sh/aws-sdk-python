@@ -105,8 +105,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact"
     )
-    import aws_sdk_service_catalog.types.associate_service_action_with_provisioning_artifact_input
-
     body: bytes | None = json.dumps(
         aws_sdk_service_catalog.types.associate_service_action_with_provisioning_artifact_input.serialize_aws_json_1_1(
             input_

@@ -123,8 +123,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/GetTableObjects"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_lakeformation.types.get_table_objects_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lakeformation.types.get_table_objects_request.serialize_json(input_)
     ).encode()

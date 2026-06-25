@@ -103,8 +103,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules"
     )
-    import aws_sdk_ecr.types.describe_pull_through_cache_rules_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecr.types.describe_pull_through_cache_rules_request.serialize_aws_json_1_1(
             input_

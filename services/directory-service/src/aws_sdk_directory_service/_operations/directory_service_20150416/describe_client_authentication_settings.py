@@ -121,8 +121,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "DirectoryService_20150416.DescribeClientAuthenticationSettings"
     )
-    import aws_sdk_directory_service.types.describe_client_authentication_settings_request
-
     body: bytes | None = json.dumps(
         aws_sdk_directory_service.types.describe_client_authentication_settings_request.serialize_aws_json_1_1(
             input_

@@ -93,8 +93,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "GetContextKeysForCustomPolicy"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.get_context_keys_for_custom_policy_request
-
     aws_sdk_iam.types.get_context_keys_for_custom_policy_request.serialize_query(
         input_, pairs, ""
     )

@@ -113,8 +113,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/put-group-configuration"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_resource_groups.types.put_group_configuration_input
-
     body: bytes | None = json.dumps(
         aws_sdk_resource_groups.types.put_group_configuration_input.serialize_json(
             input_

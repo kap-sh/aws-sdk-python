@@ -112,8 +112,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/realtime-contact-analysis/analysis-segments"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect_contact_lens.types.list_realtime_contact_analysis_segments_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect_contact_lens.types.list_realtime_contact_analysis_segments_request.serialize_json(
             input_

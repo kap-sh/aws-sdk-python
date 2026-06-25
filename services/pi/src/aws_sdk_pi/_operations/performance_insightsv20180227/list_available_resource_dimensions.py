@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PerformanceInsightsv20180227.ListAvailableResourceDimensions"
     )
-    import aws_sdk_pi.types.list_available_resource_dimensions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_pi.types.list_available_resource_dimensions_request.serialize_aws_json_1_1(
             input_

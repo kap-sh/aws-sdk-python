@@ -112,8 +112,6 @@ def build_request(
     url = url.replace("{PromptId}", quote(str(input_["prompt_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_connect.types.update_prompt_request
-
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_prompt_request.serialize_json(input_)
     ).encode()

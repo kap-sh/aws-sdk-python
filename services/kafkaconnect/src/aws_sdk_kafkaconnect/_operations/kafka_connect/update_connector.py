@@ -124,8 +124,6 @@ def build_request(
     if "current_version" in input_:
         params["currentVersion"] = str(input_["current_version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_kafkaconnect.types.update_connector_request
-
     body: bytes | None = json.dumps(
         aws_sdk_kafkaconnect.types.update_connector_request.serialize_json(input_)
     ).encode()

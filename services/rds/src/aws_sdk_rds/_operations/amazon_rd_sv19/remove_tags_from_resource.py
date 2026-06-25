@@ -134,8 +134,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "RemoveTagsFromResource"))
     pairs.append(("Version", "2014-10-31"))
-    import aws_sdk_rds.types.remove_tags_from_resource_message
-
     aws_sdk_rds.types.remove_tags_from_resource_message.serialize_query(
         input_, pairs, ""
     )

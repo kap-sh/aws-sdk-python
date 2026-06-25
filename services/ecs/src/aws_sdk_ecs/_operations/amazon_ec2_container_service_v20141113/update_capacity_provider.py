@@ -114,8 +114,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider"
     )
-    import aws_sdk_ecs.types.update_capacity_provider_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.update_capacity_provider_request.serialize_aws_json_1_1(
             input_

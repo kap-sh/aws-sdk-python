@@ -103,8 +103,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault"
     )
-    import aws_sdk_ecs.types.put_account_setting_default_request
-
     body: bytes | None = json.dumps(
         aws_sdk_ecs.types.put_account_setting_default_request.serialize_aws_json_1_1(
             input_

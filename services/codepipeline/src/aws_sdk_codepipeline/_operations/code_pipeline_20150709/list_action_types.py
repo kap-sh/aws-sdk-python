@@ -100,8 +100,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionTypes"
-    import aws_sdk_codepipeline.types.list_action_types_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codepipeline.types.list_action_types_input.serialize_aws_json_1_1(
             input_

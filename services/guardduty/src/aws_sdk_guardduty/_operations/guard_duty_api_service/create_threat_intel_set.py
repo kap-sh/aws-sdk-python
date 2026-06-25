@@ -102,8 +102,6 @@ def build_request(
     url = url.replace("{DetectorId}", quote(str(input_["detector_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_guardduty.types.create_threat_intel_set_request
-
     body: bytes | None = json.dumps(
         aws_sdk_guardduty.types.create_threat_intel_set_request.serialize_json(input_)
     ).encode()

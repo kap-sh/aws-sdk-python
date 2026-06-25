@@ -98,8 +98,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "BatchDeleteScheduledAction"))
     pairs.append(("Version", "2011-01-01"))
-    import aws_sdk_auto_scaling.types.batch_delete_scheduled_action_type
-
     aws_sdk_auto_scaling.types.batch_delete_scheduled_action_type.serialize_query(
         input_, pairs, ""
     )

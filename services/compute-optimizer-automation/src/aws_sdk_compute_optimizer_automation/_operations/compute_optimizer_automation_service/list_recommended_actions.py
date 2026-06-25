@@ -128,8 +128,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "ComputeOptimizerAutomationService.ListRecommendedActions"
-    import aws_sdk_compute_optimizer_automation.types.list_recommended_actions_request
-
     body: bytes | None = json.dumps(
         aws_sdk_compute_optimizer_automation.types.list_recommended_actions_request.serialize_aws_json_1_0(
             input_

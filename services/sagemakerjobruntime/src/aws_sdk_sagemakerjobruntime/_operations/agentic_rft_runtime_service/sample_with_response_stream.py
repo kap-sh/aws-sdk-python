@@ -126,8 +126,6 @@ def build_request(
     if "trajectory_id" in input_:
         headers["X-Amzn-SageMaker-Trajectory-Id"] = str(input_["trajectory_id"])
     if "body" in input_:
-        import aws_sdk_sagemakerjobruntime.types.inference_request_body
-
         body: bytes | None = json.dumps(
             aws_sdk_sagemakerjobruntime.types.inference_request_body.serialize_json(
                 input_["body"]

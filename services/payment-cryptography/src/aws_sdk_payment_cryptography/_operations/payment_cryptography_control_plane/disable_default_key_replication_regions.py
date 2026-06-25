@@ -125,8 +125,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "PaymentCryptographyControlPlane.DisableDefaultKeyReplicationRegions"
     )
-    import aws_sdk_payment_cryptography.types.disable_default_key_replication_regions_input
-
     body: bytes | None = json.dumps(
         aws_sdk_payment_cryptography.types.disable_default_key_replication_regions_input.serialize_aws_json_1_0(
             input_

@@ -100,8 +100,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSLookoutEquipmentFrontendService.DeleteRetrainingScheduler"
     )
-    import aws_sdk_lookoutequipment.types.delete_retraining_scheduler_request
-
     body: bytes | None = json.dumps(
         aws_sdk_lookoutequipment.types.delete_retraining_scheduler_request.serialize_aws_json_1_0(
             input_

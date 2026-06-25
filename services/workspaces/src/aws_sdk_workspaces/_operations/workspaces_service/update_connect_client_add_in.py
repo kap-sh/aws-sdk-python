@@ -95,8 +95,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "WorkspacesService.UpdateConnectClientAddIn"
-    import aws_sdk_workspaces.types.update_connect_client_add_in_request
-
     body: bytes | None = json.dumps(
         aws_sdk_workspaces.types.update_connect_client_add_in_request.serialize_aws_json_1_1(
             input_

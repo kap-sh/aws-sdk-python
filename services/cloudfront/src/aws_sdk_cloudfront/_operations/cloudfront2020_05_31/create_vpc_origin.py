@@ -133,14 +133,10 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateVpcOriginRequest")
     if "vpc_origin_endpoint_config" in input_:
-        import aws_sdk_cloudfront.types.vpc_origin_endpoint_config
-
         aws_sdk_cloudfront.types.vpc_origin_endpoint_config.serialize_xml(
             input_["vpc_origin_endpoint_config"], root, "VpcOriginEndpointConfig"
         )
     if "tags" in input_:
-        import aws_sdk_cloudfront.types.tags
-
         aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"

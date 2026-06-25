@@ -133,8 +133,6 @@ def build_request(
     params["setAsActive"] = str(input_.get("set_as_active", False))
     params["allowAutoRegistration"] = str(input_.get("allow_auto_registration", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_iot.types.register_ca_certificate_request
-
     body: bytes | None = json.dumps(
         aws_sdk_iot.types.register_ca_certificate_request.serialize_json(input_)
     ).encode()

@@ -117,8 +117,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/places/v0/indexes"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_location.types.create_place_index_request
-
     body: bytes | None = json.dumps(
         aws_sdk_location.types.create_place_index_request.serialize_json(input_)
     ).encode()

@@ -102,8 +102,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "UpdateApplicationResourceLifecycle"))
     pairs.append(("Version", "2010-12-01"))
-    import aws_sdk_elastic_beanstalk.types.update_application_resource_lifecycle_message
-
     aws_sdk_elastic_beanstalk.types.update_application_resource_lifecycle_message.serialize_query(
         input_, pairs, ""
     )

@@ -89,8 +89,6 @@ def build_request(
     url = endpoint.url.rstrip("/") + "/BatchGetAgentSpaces"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_securityagent.types.batch_get_agent_spaces_input
-
     body: bytes | None = json.dumps(
         aws_sdk_securityagent.types.batch_get_agent_spaces_input.serialize_json(input_)
     ).encode()

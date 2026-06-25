@@ -135,8 +135,6 @@ def build_request(
     url = url.replace("{service}", quote(str(input_["service"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    import aws_sdk_devops_agent.types.register_service_input
-
     body: bytes | None = json.dumps(
         aws_sdk_devops_agent.types.register_service_input.serialize_json(input_)
     ).encode()

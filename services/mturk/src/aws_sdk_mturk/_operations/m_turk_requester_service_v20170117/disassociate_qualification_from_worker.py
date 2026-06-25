@@ -89,8 +89,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker"
     )
-    import aws_sdk_mturk.types.disassociate_qualification_from_worker_request
-
     body: bytes | None = json.dumps(
         aws_sdk_mturk.types.disassociate_qualification_from_worker_request.serialize_aws_json_1_1(
             input_

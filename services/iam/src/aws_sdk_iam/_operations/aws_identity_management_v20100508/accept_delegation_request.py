@@ -78,8 +78,6 @@ def build_request(
     pairs: list[tuple[str, str]] = []
     pairs.append(("Action", "AcceptDelegationRequest"))
     pairs.append(("Version", "2010-05-08"))
-    import aws_sdk_iam.types.accept_delegation_request_request
-
     aws_sdk_iam.types.accept_delegation_request_request.serialize_query(
         input_, pairs, ""
     )

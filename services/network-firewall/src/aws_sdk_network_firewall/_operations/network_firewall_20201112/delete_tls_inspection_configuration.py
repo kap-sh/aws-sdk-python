@@ -115,8 +115,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "NetworkFirewall_20201112.DeleteTLSInspectionConfiguration"
     )
-    import aws_sdk_network_firewall.types.delete_tls_inspection_configuration_request
-
     body: bytes | None = json.dumps(
         aws_sdk_network_firewall.types.delete_tls_inspection_configuration_request.serialize_aws_json_1_0(
             input_

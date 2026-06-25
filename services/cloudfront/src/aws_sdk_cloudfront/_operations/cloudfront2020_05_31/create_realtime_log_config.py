@@ -106,14 +106,10 @@ def build_request(
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateRealtimeLogConfigRequest")
     if "end_points" in input_:
-        import aws_sdk_cloudfront.types.end_point_list
-
         aws_sdk_cloudfront.types.end_point_list.serialize_xml(
             input_["end_points"], root, "EndPoints"
         )
     if "fields" in input_:
-        import aws_sdk_cloudfront.types.field_list
-
         aws_sdk_cloudfront.types.field_list.serialize_xml(
             input_["fields"], root, "Fields"
         )

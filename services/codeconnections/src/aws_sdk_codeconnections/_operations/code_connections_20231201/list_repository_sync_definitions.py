@@ -114,8 +114,6 @@ def build_request(
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "CodeConnections_20231201.ListRepositorySyncDefinitions"
-    import aws_sdk_codeconnections.types.list_repository_sync_definitions_input
-
     body: bytes | None = json.dumps(
         aws_sdk_codeconnections.types.list_repository_sync_definitions_input.serialize_aws_json_1_0(
             input_

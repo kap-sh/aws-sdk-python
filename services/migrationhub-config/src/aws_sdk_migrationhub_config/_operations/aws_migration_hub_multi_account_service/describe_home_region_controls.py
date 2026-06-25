@@ -116,8 +116,6 @@ def build_request(
     headers["X-Amz-Target"] = (
         "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls"
     )
-    import aws_sdk_migrationhub_config.types.describe_home_region_controls_request
-
     body: bytes | None = json.dumps(
         aws_sdk_migrationhub_config.types.describe_home_region_controls_request.serialize_aws_json_1_1(
             input_
